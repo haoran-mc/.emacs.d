@@ -1,0 +1,115 @@
+;;; -*- coding: utf-8 -*-
+(("/home/haoran/haoran/editing/Programming/+wiki-list.org" . 196)
+ ("/home/haoran/.emacs.d/Bin/recentf" . 1338)
+ ("/home/haoran/haoran/editing/Programming/Editor.org" . 216)
+ ("/home/haoran/.emacs.d/Init/init-func.el" . 485)
+ ("/home/haoran/haoran/work/orange/"
+  (dired-filename . "/home/haoran/haoran/work/orange/.vscode"))
+ ("/home/haoran/.emacs.d/Plug/init-evil.el" . 296)
+ ("/home/haoran/.emacs.d/Plug/"
+  (dired-filename . "/home/haoran/.emacs.d/Plug/init-evil.el"))
+ ("/home/haoran/.emacs.d/"
+  (dired-filename . "/home/haoran/.emacs.d/Plug"))
+ ("/home/haoran/.emacs.d/Init/"
+  (dired-filename . "/home/haoran/.emacs.d/Init/init-func.el"))
+ ("/home/haoran/haoran/editing/Programming/Emacs.org" . 343)
+ ("/home/haoran/haoran/editing/Programming/Editor-Emacs-学会emacs.org" . 601)
+ ("/home/haoran/haoran/editing/Programming/Language.org" . 207)
+ ("/home/haoran/haoran/editing/Programming/"
+  (dired-filename . "/home/haoran/haoran/editing/Programming/scheme-比较符号函数.org"))
+ ("/home/haoran/haoran/editing/Programming/C-C++.org" . 170)
+ ("/home/haoran/haoran/editing/Programming/STL.org" . 258)
+ ("/home/haoran/haoran/editing/Programming/STL-set.org" . 2312)
+ ("/home/haoran/haoran/editing/Programming/STL-string.org" . 2712)
+ ("/home/haoran/haoran/editing/Programming/Algorithm.org" . 743)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-Floyd.org" . 145)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-图.org" . 895)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-SPFA.org" . 256)
+ ("/home/haoran/haoran/editing/Programming/STL-pair.org" . 175)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-DS链表.org" . 281)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-DS栈.org" . 171)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-DS.org" . 134)
+ ("/home/haoran/haoran/editing/Programming/C-C++-%E5%87%BD%E6%95%B0.org" . 182)
+ ("/home/haoran/haoran/editing/Programming/C-C++-函数.org" . 8749)
+ ("/home/haoran/.emacs.d/Init/custom.el" . 772)
+ ("/home/haoran/.emacs.d/Init/init-org.el" . 161)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-DS二叉搜索树.org" . 2301)
+ ("/home/haoran/haoran/editing/Programming/Algorithm-DS树-二叉树.org" . 178)
+ ("/home/haoran/haoran/editing/Programming/Linux.org" . 191)
+ ("/home/haoran/haoran/editing/Programming/Question.org" . 84)
+ ("/home/haoran/.emacs.d/Init/init-default.el" . 791)
+ ("/home/haoran/"
+  (dired-filename . "/home/haoran/.emacs.d.bak"))
+ ("/home/haoran/.emacs.d/Init/init-key.el" . 724)
+ ("/home/haoran/.emacs.d/Init/initiate.el" . 671)
+ ("/home/haoran/.emacs.d/Plug/init-plug.el" . 2193)
+ ("/home/haoran/.emacs.d/Init/init-ui.el" . 414)
+ ("/home/haoran/.emacs.d/Init/init-base.el" . 788)
+ ("/home/haoran/.emacs.d/Plug/init-set.el" . 1149)
+ ("/home/haoran/.face" . 2)
+ ("/home/haoran/haoran/editing/"
+  (dired-filename . "/home/haoran/haoran/editing/Trash"))
+ ("/home/haoran/haoran/"
+  (dired-filename . "/home/haoran/haoran/editing"))
+ ("/home/"
+  (dired-filename . "/home/haoran"))
+ ("/home/haoran/haoran/work/orange/misc/06-trash/trash10/杨辉三角.cpp" . 55)
+ ("/home/haoran/.emacs.d/ogmc/init-base.el" . 328)
+ ("/home/haoran/.emacs.d/ogmc/"
+  (dired-filename . "/home/haoran/.emacs.d/ogmc/.."))
+ ("/home/haoran/haoran/work/orange/wiki/"
+  (dired-filename . "/home/haoran/haoran/work/orange/wiki/.."))
+ ("/home/haoran/haoran/work/orange/misc/08-prog/"
+  (dired-filename . "/home/haoran/haoran/work/orange/misc/08-prog/.."))
+ ("/home/haoran/haoran/work/orange/misc/"
+  (dired-filename . "/home/haoran/haoran/work/orange/misc/06-trash"))
+ ("/home/haoran/haoran/work/orange/misc/06-trash/"
+  (dired-filename . "/home/haoran/haoran/work/orange/misc/06-trash/trash10"))
+ ("/home/haoran/haoran/work/orange/misc/06-trash/trash10/AVL插入情况.md" . 72)
+ ("/home/haoran/haoran/work/orange/misc/06-trash/trash10/"
+  (dired-filename . "/home/haoran/haoran/work/orange/misc/06-trash/trash10/杨辉三角.cpp"))
+ ("/home/haoran/.emacs.d/ogmc/init-set.el" . 1360)
+ ("/home/haoran/.emacs.d/ogmc/init-key.el" . 555)
+ ("/home/haoran/.emacs.d/ogmc/init-plug.el" . 963)
+ ("/home/haoran/.emacs.d/Bin/elpa/counsel-20210509.830/counsel-autoloads.el" . 17140)
+ ("/home/haoran/.emacs.d/Bin/elpa/swiper-20210521.1319/swiper-autoloads.el" . 1398)
+ ("/home/haoran/.emacs.d/Bin/elpa/ivy-20210602.1349/ivy-autoloads.el" . 5416)
+ ("/home/haoran/haoran/editing/Markdown/"
+  (dired-filename . "/home/haoran/haoran/editing/Markdown/04-Emoji"))
+ ("/home/haoran/haoran/editing/Markdown/04-Emoji/"
+  (dired-filename . "/home/haoran/haoran/editing/Markdown/04-Emoji/self-control.md"))
+ ("/home/haoran/haoran/editing/Markdown/04-Emoji/self-control.md" . 651)
+ ("/home/haoran/.emacs.d/ogmc/init-org.el" . 1377)
+ ("/home/haoran/.emacs.d/Init/init-link.el" . 136)
+ ("/home/haoran/.emacs.d/Bin/elpa/dracula-theme-20210627.1011/dracula-theme-autoloads.el" . 655)
+ ("/home/haoran/.emacs.d/ogmc/init-func.el" . 905)
+ ("/home/haoran/.emacs.d/ogmc/init-ui.el" . 27)
+ ("/home/haoran/.emacs.d/Bin/ogmc/"
+  (dired-filename . "/home/haoran/.emacs.d/Bin/ogmc/.."))
+ ("/home/haoran/.emacs.d/Bin/"
+  (dired-filename . "/home/haoran/.emacs.d/Bin/.."))
+ ("/home/haoran/.emacs.d/ogmc/init-evil.el" . 428)
+ ("/home/haoran/.emacs.d/Prog/"
+  (dired-filename . "/home/haoran/.emacs.d/Prog/.."))
+ ("/home/haoran/haoran/editing/Trash/"
+  (dired-filename . "/home/haoran/haoran/editing/Trash/.."))
+ ("/home/haoran/haoran/editing/Trash/test-snippet3.org" . 171)
+ ("/home/haoran/haoran/work/"
+  (dired-filename . "/home/haoran/haoran/work/.."))
+ ("/home/haoran/.emacs.d/Bin/snippets/"
+  (dired-filename . "/home/haoran/.emacs.d/Bin/snippets/.."))
+ ("/home/haoran/.emacs.d/Bin/elpa/auto-yasnippet-20191015.942/auto-yasnippet-autoloads.el" . 1702)
+ ("/home/haoran/.emacs.d/Bin/elpa/yasnippet-20200604.246/yasnippet-autoloads.el" . 1966)
+ ("/home/haoran/.emacs.d/Bin/elpa/org-bullets-20200317.1740/org-bullets-autoloads.el" . 786)
+ ("/home/haoran/.emacs.d/Bin/elpa/dash-20210708.2009/dash-autoloads.el" . 2474)
+ ("/home/haoran/.emacs.d/Bin/elpa/smooth-scrolling-20161002.1949/smooth-scrolling-autoloads.el" . 3586)
+ ("/home/haoran/.emacs.d/Bin/elpa/evil-search-highlight-persist-20170523.334/evil-search-highlight-persist-autoloads.el" . 2385)
+ ("/home/haoran/.emacs.d/Bin/elpa/highlight-20210318.2248/highlight-autoloads.el" . 25394)
+ ("/home/haoran/.emacs.d/Bin/elpa/evil-tabs-20160217.1520/evil-tabs-autoloads.el" . 2199)
+ ("/home/haoran/.emacs.d/Bin/elpa/elscreen-20181009.451/elscreen-autoloads.el" . 3366)
+ ("/home/haoran/.emacs.d/Bin/elpa/evil-nerd-commenter-20210719.1305/evil-nerd-commenter-autoloads.el" . 5412)
+ ("/home/haoran/.emacs.d/Bin/elpa/evil-leader-20140606.1243/evil-leader-autoloads.el" . 1608)
+ ("/home/haoran/.emacs.d/Bin/elpa/evil-20210723.2222/evil-autoloads.el" . 3775)
+ ("/home/haoran/.emacs.d/Bin/elpa/goto-chg-20210508.1632/goto-chg-autoloads.el" . 1995)
+ ("/home/haoran/.emacs.d/Bin/elpa/hungry-delete-20210409.1643/hungry-delete-autoloads.el" . 3404)
+ ("/home/haoran/.emacs.d/Bin/elpa/company-20210721.2003/company-autoloads.el" . 12625))
