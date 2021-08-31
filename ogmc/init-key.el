@@ -19,10 +19,6 @@
 
 
 ;;----------------------------------------------------------------evil
-(define-key evil-normal-state-map (kbd "L") 'evil-end-of-line)
-(define-key evil-normal-state-map (kbd "H") 'evil-first-non-blank)
-(define-key evil-visual-state-map (kbd "L") 'evil-end-of-line)
-(define-key evil-visual-state-map (kbd "H") 'evil-first-non-blank)
 (define-key evil-normal-state-map (kbd "gN") 'elscreen-create)
 (define-key evil-normal-state-map (kbd "gn") 'elscreen-next)
 (define-key evil-normal-state-map (kbd "gp") 'elscreen-previous)
