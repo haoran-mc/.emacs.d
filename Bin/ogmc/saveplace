@@ -1,61 +1,10 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/haoran/.emacs.d/init.el" . 75)
- ("/home/haoran/.emacs.d/Bin/ogmc/recentf" . 1312)
- ("/home/haoran/.emacs.d/"
-  (dired-filename . "/home/haoran/.emacs.d/init.el"))
- ("/home/haoran/.emacs.d/ogmc/"
-  (dired-filename . "/home/haoran/.emacs.d/ogmc/.."))
- ("/home/haoran/haoran/editing/Programming/+wiki-list.org" . 587)
- ("/home/haoran/.emacs.d/ogmc/init-link.el" . 1222)
- ("/home/haoran/.emacs.d/Bin/ogmc/elpa/counsel-20210509.830/counsel-autoloads.el" . 17140)
- ("/home/haoran/.emacs.d/Bin/ogmc/elpa/swiper-20210521.1319/swiper-autoloads.el" . 1398)
- ("/home/haoran/.emacs.d/Bin/ogmc/elpa/ivy-20210727.1907/ivy-autoloads.el" . 5416)
- ("/home/haoran/"
-  (dired-filename . "/home/haoran/.emacs.d"))
- ("/home/haoran/.emacs.d/ogmc/init-func.el" . 156)
- ("/home/haoran/.emacs.d/Init/init-key.el" . 2138)
- ("/home/haoran/.emacs.d/ogmc/init-key.el" . 156)
- ("/home/haoran/.emacs.d/Init/init-org.el" . 8)
- ("/home/haoran/.emacs.d/ogmc/init-ui.el" . 841)
- ("/home/haoran/.emacs.d/Init/init-link.el" . 157)
- ("/home/haoran/.emacs.d/Init/initiate.el" . 527)
- ("/home/haoran/.emacs.d/Plug/init-evil.el" . 1894)
- ("/home/haoran/.emacs.d/ogmc/init-evil.el" . 2429)
- ("/home/haoran/.emacs.d/Plug/init-plug.el" . 1420)
- ("/home/haoran/.emacs.d/ogmc/init-plug.el" . 890)
- ("/home/haoran/.emacs.d/Plug/init-set.el" . 1608)
- ("/home/haoran/.emacs.d/Plug/"
-  (dired-filename . "/home/haoran/.emacs.d/Plug/.."))
- ("/home/haoran/.emacs.d/ogmc/initiate.el" . 598)
- ("/home/haoran/.emacs.d/ogmc/init-base.el" . 241)
- ("/home/haoran/.emacs.d/Init/"
-  (dired-filename . "/home/haoran/.emacs.d/Init/init-base.el"))
- ("/home/haoran/.emacs.d/Init/init-base.el" . 320)
- ("/home/haoran/haoran/editing/Programming/Language.org" . 297)
- ("/home/haoran/haoran/editing/Programming/JavaScript.org" . 363)
- ("/home/haoran/.emacs.d/ogmc/custom.el" . 1101)
- ("/home/haoran/.emacs.d.bak/"
-  (dired-filename . "/home/haoran/.emacs.d.bak/Init"))
- ("/home/haoran/.emacs.d.bak/Init/"
-  (dired-filename . "/home/haoran/.emacs.d.bak/Init/custom.el"))
- ("/usr/share/emacs/27.2/lisp/org/ol.el.gz" . 28998)
- ("/home/haoran/.emacs.d.bak/Init/custom.el" . 9410)
- ("/home/haoran/.emacs.d.bak/Init/init-base.el" . 2318)
- ("/home/haoran/.emacs.d/Init/custom.el" . 246)
- ("/home/haoran/.emacs.d/Bin/ogmc/"
-  (dired-filename . "/home/haoran/.emacs.d/Bin/ogmc/.."))
- ("/home/haoran/.emacs.d/Bin/"
-  (dired-filename . "/home/haoran/.emacs.d/Bin/.."))
- ("/home/haoran/.emacs.d.bak/Init/init-org.el" . 2029)
- ("/home/haoran/.emacs.d.bak/Plug/"
-  (dired-filename . "/home/haoran/.emacs.d.bak/Plug/.."))
- ("/home/haoran/.emacs.d.bak/Plug/init-Plug.el" . 5494)
- ("/home/haoran/haoran/editing/Programming/Mathematicel-modeling.org" . 32)
- ("/home/haoran/haoran/editing/Programming/Emacs.org" . 182)
- ("/home/haoran/haoran/editing/Programming/Editor.org" . 215)
- ("/home/haoran/haoran/editing/Programming/Database.org" . 559)
- ("/home/haoran/haoran/editing/Programming/"
-  (dired-filename . "/home/haoran/haoran/editing/Programming/计算机组织与结构-半导体存储器.org"))
- ("/home/haoran/.emacs.d.bak/Init/init-mine-binding.el" . 5653)
- ("/home/haoran/haoran/editing/Programming/python.org" . 205)
- ("/home/haoran/.emacs.d.bak/Init/init-func.el" . 5416))
+(("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/ogmc/recentf" . 292)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Font"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/.."))
+ ("c:/DataD/"
+  (dired-filename . "c:/DataD/Notes"))
+ ("c:/"
+  (dired-filename . "c:/DataD")))
