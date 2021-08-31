@@ -8,24 +8,15 @@
   "bk" 'kill-buffer
   "bq" 'save-buffer-kill-terminal
   "bs" 'create-scratch-buffer
-  "be" (lambda() (interactive) (find-file "~/haoran/editing/Programming/elisp-Foundation.el"))
   "pf" 'counsel-git
-  "ps" 'helm-do-ag-project-root
+  "sp" 'helm-do-ag-project-root
   ;;------------------------------
   ":" 'counsel-M-x
-  "d" 'dired
-  "a" (lambda() (interactive) (dired "~/haoran/work/orange/"))
-  "T" (lambda() (interactive) (dired "~/haoran/editing/Markdown/"))
-  "tw" (lambda() (interactive) (find-file "~/haoran/editing/Programming/+wiki-list.org") (sp-push-position-to-ring))
-  "0" 'delete-window
-  "1" 'delete-other-windows
-  "q" 'delete-window
-  "h" 'windmove-left
-  "j" 'windmove-down
-  "k" 'windmove-up
-  "l" 'windmove-right
-  "`l" (lambda() (interactive) (split-window-right) (windmove-right))
-  "`j" (lambda() (interactive) (split-window-below) (windmove-down))
+  "ad" 'dired
+  "oT" (lambda() (interactive) (dired "~/haoran/Notes/Markdown/"))
+  "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/+wiki-list.org") (sp-push-position-to-ring))
+  "wV" (lambda() (interactive) (split-window-right) (windmove-right))
+  "wS" (lambda() (interactive) (split-window-below) (windmove-down))
   "rc" (lambda() (interactive) (dired "~/.emacs.d/ogmc/"))
   "go" 'evil-tabs-mode
   "xx" 'exchange-point-and-mark

@@ -7,7 +7,9 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))));;开启全屏
 (global-hl-line-mode t);;高亮当前行
 (setq ring-bell-function 'ignore);;关闭警报
-(set-face-attribute 'default nil :font "DejaVu Sans Mono 10")
+(if (eq system-type 'windows-nt)
+  (set-face-attribute 'default nil :font "Consolas")
+  (set-face-attribute 'default nil :font "DejaVu Sans Mono 10"))
 (setq-default inhibit-startup-screen t);;不显示欢迎页面
 ;; (setq-default cursor-type 'bar);;设置光标形状为竖线（默认为方块）
 
