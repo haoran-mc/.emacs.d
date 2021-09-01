@@ -1,16 +1,21 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/site-lisp/config/"
+(("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 115)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxss" . 80)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-link.el" . 2507)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el" . 1416)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 1807)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/site-lisp/config/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/site-lisp/config/init-ligature.el"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/config.el" . 88)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/config.el"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/config.el" . 911)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el" . 504)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 1846)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el"))
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/helm-ag-20210702.845/helm-ag-autoloads.el" . 1393)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/helm-20210827.1619/helm-autoloads.el" . 36423)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/popup-20210625.400/popup-autoloads.el" . 392)
@@ -34,7 +39,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/.."))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 126)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 800)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/init-default.el" . 259)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/images/雨天.png" . 15652)
@@ -43,8 +47,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/images/多云.png"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-key.el" . 837)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/keybindings.el" . 1256)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-key.el"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxss"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/"

@@ -34,5 +34,6 @@
 
 
 (load-file "~/.emacs.d/Init/keybindings.el")
+(load-file "~/.emacs.d/ogmc/init-link.el")
 
 (provide 'initiate)
