@@ -1,3 +1,11 @@
+(setq ogmc-programming-packages
+      '(
+        web-mode
+        emmet-mode
+        yasnippet
+        )
+      )
+
 (use-package web-mode
   :config
   (progn
@@ -12,7 +20,6 @@
     )
   )
 
-
 (use-package emmet-mode
   :config
   (progn
@@ -23,5 +30,11 @@
     )
   )
 
-
+(use-package yasnippet
+  :init
+  (add-hook 'prog-mode-hook #'yas-minor-mode)
+  (add-hook 'org-mode-hook #'yas-minor-mode)
+  :config
+  (yas-reload-all)
+  )
 

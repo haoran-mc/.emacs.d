@@ -1,9 +1,25 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 115)
+(("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 1864)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 247)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Algorithm.org" . 284)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Algorithm-数学.org" . 1183)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Algorithm-数学-组合数学-卡特兰数.org" . 2875)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Tool-git.org"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Editor.org" . 335)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-时光机穿梭.org" . 1022)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git.org" . 367)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 2276)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-分支管理.org" . 1802)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxss" . 80)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-link.el" . 2507)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el" . 1416)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 1807)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
@@ -39,8 +55,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/.."))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 800)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/init-default.el" . 259)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/images/雨天.png" . 15652)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/app.json" . 16)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/images/"
@@ -53,10 +67,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/init-evil.el" . 449)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/packages.el" . 571)
  ("d:/Document/不再改动/.emacs.d.bak/Plug/init-Plug.el" . 6195)
@@ -99,13 +109,8 @@
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/use-package-20210207.1926/use-package-autoloads.el" . 8501)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/.."))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/.."))
  ("c:/DataD/Download/Emacs/"
   (dired-filename . "c:/DataD/Download/Emacs/."))
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/init-ui.el" . 1627)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/.."))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/init-dashboard.el" . 1051))
