@@ -47,7 +47,7 @@
 (add-hook 'org-mode-hook #'(lambda () (org-bullets-mode 1)))
 (if (equal window-system 'x)
     (add-hook 'org-mode-hook #'(lambda () (org-bullets-mode 1))))
-(setq org-bullets-bullet-list '("◉" "☯" "○" "✿" "❀" "◇"))
+(setq org-bullets-bullet-list '("☯" "◉" "○" "✿" "❀" "◇"))
 
 
 ;;swiper

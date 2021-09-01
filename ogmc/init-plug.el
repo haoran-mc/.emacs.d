@@ -18,6 +18,7 @@
                           org-bullets             ;;更换org标题级别图形样式
                           swiper                  ;;C-s优化搜索，C-f优化，rencent文件优化
                           counsel                 ;;swiper依赖
+                          web-mode
                           ;;---------------------theme
                           ) "Default packages")
 

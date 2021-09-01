@@ -1,5 +1,5 @@
 (defcustom centaur-logo (expand-file-name
-                         (if (display-graphic-p) "~/.emacs.d/Bin/dashboard/logo6.png" "~/.emacs.d/Bin/dashboard/logo6.txt")
+                         (if (display-graphic-p) "~/.emacs.d/dashboard/logo6.png" "~/.emacs.d/dashboard/logo6.txt")
                          user-emacs-directory)
   "Set Centaur logo. nil means official logo."
   :group 'centaur
@@ -22,8 +22,8 @@
       dashboard-banner-logo-title "A sailing ship to a Distant horizon."
       dashboard-startup-banner (or centaur-logo 'official)
       dashboard-show-shortcuts nil
-      dashboard-set-file-icons t
-      dashboard-set-heading-icons t)
+      dashboard-set-file-icons nil
+      dashboard-set-heading-icons nil)
 
 ;;----------------------------------------------------------------
 (provide 'init-dashboard)

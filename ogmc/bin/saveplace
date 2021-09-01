@@ -1,0 +1,54 @@
+;;; -*- coding: utf-8 -*-
+(("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/ogmc/recentf" . 1753)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/init.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxml"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/images/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/images/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/ogmc/elpa/web-mode-20210829.1552/web-mode-autoloads.el" . 498)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 700)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework.org" . 242)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-plug.el" . 1109)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-base.el" . 433)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Editor.org" . 318)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git.org" . 369)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-分支管理.org" . 1839)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/ACM-sync_with_stdio.org"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-set.el" . 1596)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/typings/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/typings/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-时光机穿梭.org" . 2057)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/snippets/default-org.el" . 14)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-key.el" . 985)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/snippets/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Bin/snippets/.."))
+ ("c:/DataD/"
+  (dired-filename . "c:/DataD/Notes"))
+ ("c:/"
+  (dired-filename . "c:/DataD")))

@@ -1,0 +1,15 @@
+;;; -*- coding: utf-8 -*-
+(("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/custom.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 415)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/.."))
+ ("c:/DataD/Download/Emacs/"
+  (dired-filename . "c:/DataD/Download/Emacs/."))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/init-ui.el" . 1627)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/init-set.el" . 2197)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/init-set.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/init-dashboard.el" . 1051))

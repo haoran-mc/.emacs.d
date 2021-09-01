@@ -34,8 +34,8 @@
 (setq auto-insert-directory (locate-user-emacs-file "templates"))
 (add-hook 'find-file-hook 'auto-insert)
 (auto-insert-mode 1)
-(define-auto-insert "\\.el$" [ "~/.emacs.d/Bin/snippets/defaults-elisp.el" autoinsert-yas-expand ])
-(define-auto-insert "\\.org$" ["~/.emacs.d/Bin/snippets/default-org.el" autoinsert-yas-expand])
+(define-auto-insert "\\.el$" [ "~/.emacs.d/snippets/defaults-elisp.el" autoinsert-yas-expand ])
+(define-auto-insert "\\.org$" ["~/.emacs.d/snippets/default-org.el" autoinsert-yas-expand])
 
 ;; org-bullets
 ;; (install-pkg 'org-bullets)
@@ -64,7 +64,9 @@
 (setq doom-modeline-minor-modes nil
       doom-modeline-buffer-encoding nil
       doom-modeline-unicode-fallback nil
-      doom-modeline-mu4e nil)
+      doom-modeline-mu4e nil
+      doom-modeline-icon nil
+      )
 (unless after-init-time
   (setq doom-modeline--default-format mode-line-format)
   (setq-default mode-line-format nil))

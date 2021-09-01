@@ -24,7 +24,7 @@
   "rb" 'bookmark-jump-other-window
   "rm" 'bookmark-set
   "rl" 'bookmark-bmenu-list
-  "rr" (lambda() (interactive) (find-file "~/.emacs.d/Bin/bookmarks"))
+  "rr" (lambda() (interactive) (find-file "~/.emacs.d/bookmarks"))
   "xns" 'org-narrow-to-subtree
   "xnw" 'widen
   "cf" 'yafolding-toggle-element

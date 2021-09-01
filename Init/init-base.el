@@ -11,11 +11,11 @@
 (save-place-mode t);;在下一次打开文件时恢复上次的光标位置
 (setq-default tab-width 4);;制表符长度
 (setq-default indent-tabs-mode nil);;使用空格缩进
-(setq user-emacs-directory "~/.emacs.d/Bin")
-(setq save-place-file "~/.emacs.d/Bin/saveplace")
-(setq desktop-dirname "~/.emacs.d/Bin/desktop-save")
-(setq recentf-save-file "~/.emacs.d/Bin/recentf")
-(setq abbrev-file-name "~/.emacs.d/Bin/abbrev_defs")
+;; (setq user-emacs-directory "~/.emacs.d/Bin")
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq desktop-dirname "~/.emacs.d/desktop-save")
+(setq recentf-save-file "~/.emacs.d/recentf")
+(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (setq default-major-mode 'text-mode)
 
 (setq scroll-margin 5 scroll-consrvatively 10000)

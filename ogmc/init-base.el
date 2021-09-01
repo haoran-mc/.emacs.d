@@ -16,11 +16,11 @@
 (save-place-mode t);;在下一次打开文件时恢复上次的光标位置
 (setq-default tab-width 4);;制表符长度
 (setq-default indent-tabs-mode nil) ;;使用空格缩进
-(setq user-emacs-directory "~/.emacs.d/Bin/ogmc")
-(setq save-place-file "~/.emacs.d/Bin/ogmc/saveplace")
-(setq desktop-dirname "~/.emacs.d/Bin/ogmc/desktop-save")
-(setq recentf-save-file "~/.emacs.d/Bin/ogmc/recentf")
-(setq abbrev-file-name "~/.emacs.d/Bin/ogmc/abbrev_defs")
+(setq user-emacs-directory "~/.emacs.d/ogmc/bin")
+(setq save-place-file "~/.emacs.d/ogmc/bin/saveplace")
+(setq desktop-dirname "~/.emacs.d/ogmc/bin/desktop-save")
+(setq recentf-save-file "~/.emacs.d/ogmc/bin/recentf")
+(setq abbrev-file-name "~/.emacs.d/ogmc/bin/abbrev_defs")
 (setq default-major-mode 'text-mode)
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode);;高亮匹配的括号
 
