@@ -21,7 +21,4 @@
 (setq scroll-margin 5 scroll-consrvatively 10000)
 (require 'recentf);;emacs有recentf文件，使用require引入这个文件的功能
 (recentf-mode 1);;开启recentf功能
-(setq recentf-max-menu-items 25);;最近使用的最大的文件数
-
-;;----------------------------------------------------------------
-(provide 'init-base)
+(setq recentf-max-menu-items 1024);;最近使用的最大的文件数

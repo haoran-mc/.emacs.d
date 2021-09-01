@@ -29,6 +29,9 @@
 
 
 ;;----------------------------------------------------------------evil
+(define-key evil-normal-state-map (kbd "gN") 'elscreen-create)
+(define-key evil-normal-state-map (kbd "gt") 'elscreen-next)
+(define-key evil-normal-state-map (kbd "gT") 'elscreen-previous)
 (define-key evil-normal-state-map (kbd ">") 'evil-shift-right-line)
 (define-key evil-normal-state-map (kbd "<") 'evil-shift-left-line)
 
