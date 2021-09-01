@@ -18,7 +18,7 @@
   "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/+wiki-list.org") (sp-push-position-to-ring))
   "wV" (lambda() (interactive) (split-window-right) (windmove-right))
   "wS" (lambda() (interactive) (split-window-below) (windmove-down))
-  "rc" (lambda() (interactive) (dired "~/.emacs.d/ogmc/"))
+  "rc" (lambda() (interactive) (dired "~/.emacs.d/"))
   "go" 'evil-tabs-mode
   "xx" 'exchange-point-and-mark
   "rb" 'bookmark-jump-other-window
