@@ -24,6 +24,9 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "C-k") 'dired-up-directory))
+
 
 ;;----------------------------------------------------------------evil
 (define-key evil-normal-state-map (kbd ">") 'evil-shift-right-line)

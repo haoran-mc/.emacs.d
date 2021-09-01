@@ -3,8 +3,16 @@
 
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
+  ":"  'counsel-M-x
+  "SPC" 'counsel-M-x
+  "TAB" 'spacemacs/alternate-buffer
+  ;;------------------------------
+  "wV" (lambda() (interactive) (split-window-right) (windmove-right))
+  "wS" (lambda() (interactive) (split-window-below) (windmove-down))
+  "wm" 'spacemacs/toggle-maxmize-buffer
   "ff" 'find-file
-  "fr" 'recentf-open-files
+  "fr" 'counsel-recentf
+  "fj" 'dired-jump
   "bb" 'switch-to-buffer
   "bk" 'kill-buffer
   "bq" 'save-buffer-kill-terminal
@@ -12,12 +20,9 @@
   "pf" 'counsel-git
   "sp" 'helm-do-ag-project-root
   ;;------------------------------
-  ":" 'counsel-M-x
   "ad" 'dired
   "oT" (lambda() (interactive) (dired "~/haoran/Notes/Markdown/"))
   "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/+wiki-list.org") (sp-push-position-to-ring))
-  "wV" (lambda() (interactive) (split-window-right) (windmove-right))
-  "wS" (lambda() (interactive) (split-window-below) (windmove-down))
   "rc" (lambda() (interactive) (dired "~/.emacs.d/"))
   "go" 'evil-tabs-mode
   "xx" 'exchange-point-and-mark
