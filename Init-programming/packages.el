@@ -12,7 +12,8 @@
     (setq auto-mode-alist
           (append
            '(("\\.html\\'" . web-mode)
-             ("\\.wxml\\'" . web-mode))
+             ("\\.wxml\\'" . web-mode)
+             ("\\.wxss\\'" . web-mode))
            auto-mode-alist))
     (setq web-mode-markup-indent-offset 2) ;; web-mode, html tag in html file
     (setq web-mode-css-indent-offset 2)    ;; web-mode, css in html file

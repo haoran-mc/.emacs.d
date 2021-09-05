@@ -4,6 +4,7 @@
         company
         hungry-delete
         smartparens
+        youdao-dictionary
         )
       )
 
@@ -14,7 +15,7 @@
   (progn
     (global-company-mode t)
     (setq-default company-idle-delay 0.08)
-    (setq-default company-minimum-prefix-length 2)
+    (setq-default company-minimum-prefix-length 1)
     )
   )
 
@@ -25,6 +26,8 @@
   )
 
 (use-package smartparens
+  :init
+  (smartparens-global-mode t)
   :ensure t
   :config
   (progn
@@ -33,3 +36,8 @@
     (sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
     )
   )
+
+(use-package youdao-dictionary
+  :ensure t
+  )
+

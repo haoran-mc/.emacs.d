@@ -2,7 +2,7 @@
 (setq tramp-ssh-controlmaster-options
       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 (load-file custom-file)
-
+;
 (load-file "~/.emacs.d/Init/config.el")
 (load-file "~/.emacs.d/Init/packages.el")
 
