@@ -23,6 +23,7 @@
   "ad" 'dired
   "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/+wiki-list.org") (sp-push-position-to-ring))
   "rc" (lambda() (interactive) (dired "~/.emacs.d/"))
+  "oo" 'ogmc/open-in-browser
   "oT" (lambda() (interactive) (dired "~/haoran/Notes/Markdown/"))
   "oy" 'youdao-dictionary-search-at-point+
   "go" 'evil-tabs-mode
