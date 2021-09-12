@@ -13,9 +13,9 @@
 (setq-default inhibit-startup-screen t);;不显示欢迎页面
 ;; (setq-default cursor-type 'bar);;设置光标形状为竖线（默认为方块）
 
-
-(set-frame-parameter (selected-frame) 'alpha (list 85 60))
-(add-to-list 'default-frame-alist (cons 'alpha (list 85 60)))
-
+;; (set-frame-parameter (selected-frame) 'alpha (list 85 60))
+;; (add-to-list 'default-frame-alist (cons 'alpha (list 85 60)))
 
 (load-theme 'dracula t)
+
+(ogmc-ui/init-ogmc-mode-line)

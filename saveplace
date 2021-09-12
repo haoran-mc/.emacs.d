@@ -1,12 +1,111 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 700)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework.org" . 242)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework-wechat-applets.org" . 3624)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 4988)
+(("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/packages.el" . 1273)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/recentf" . 7400)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/packages.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages/index/index.wxml" . 33)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages/index/index.wxml" . 28)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el" . 582)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/config.el" . 310)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/packages.el" . 1189)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/packages.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/config.el" . 609)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/funcs.el" . 3003)
+ ("c:/DataD/Download/Emacs/"
+  (dired-filename . "c:/DataD/Download/Emacs/."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/README.md" . 27)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/README.md"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-分支管理.org" . 2361)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework.org" . 241)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework-wechat-applets.org" . 3628)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Framework-wechat-applets.org"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/+wiki-list.org" . 218)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Editor.org" . 335)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git.org" . 249)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/.gitignore" . 128)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/.gitignore" . 196)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendpc/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendpc/public"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/vant-weapp/dist/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/vant-weapp/dist/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/vant-weapp/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/vant-weapp/dist"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/node_modules/vant-weapp"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/miniprogram_npm/vant-weapp/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/miniprogram_npm/vant-weapp/action-sheet"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/miniprogram_npm/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/miniprogram_npm/vant-weapp"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/app.js" . 178)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/assest/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/assest/carNull.png"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/app.json" . 380)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/package.json" . 192)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/package.json" . 24)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/package-lock.json" . 129)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/project.config.json" . 782)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/project.config.json" . 81)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/utils/util.js" . 249)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/utils/util.js" . 129)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/README.md" . 126)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-时光机穿梭.org" . 1531)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/packages.el" . 550)
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/packages.el"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages/index/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages/index/index.wxml"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages/index/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages/index/index.wxml"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages/index"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages/index"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/pages"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/pages"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/utils/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/utils/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/utils/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/utils/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/assest/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/assest/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/assest/tabBar/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet/assest/tabBar/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering/frontendApplet"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/@vant/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/@vant/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/@vant/weapp/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets/miniprogram_npm/@vant/weapp/.."))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment/diningApplets"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/CanteenOrdering"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/CanteenAppointment"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 1690)
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md"))
+ ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/"
+  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-org/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-org/packages.el"))
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-org"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/pages/detail/detail.json" . 3)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/images/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/images/news3.jpg"))
@@ -27,7 +126,6 @@
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/pages/my/my.wxml" . 518)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/pages/my/my.js" . 1202)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/pages/index/index.js" . 307)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-时光机穿梭.org" . 1471)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#2/pages/index/index.js" . 761)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#2/pages/index/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#2/pages/index/index.js"))
@@ -40,8 +138,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/pages/index"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#2/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#2/pages"))
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/packages.el"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/README.md"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/init-evil.el" . 24)
@@ -52,16 +148,6 @@
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#6/sitemap.json"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/README.md" . 41)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 903)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/README.md" . 27)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/README.md"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-backend/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-backend/."))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-backend"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/url/cookies" . 231)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/init-evil.el"))
@@ -74,13 +160,9 @@
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/packages.el"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/keybindings.el" . 1581)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/keybindings.el"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/packages.el" . 772)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/app.json"))
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/initiate.el" . 582)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/packages.el" . 1189)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#4/pages/index/index.js" . 4)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#4/pages/index/index.wxml" . 178)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#4/pages/index/"
@@ -88,31 +170,16 @@
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#4/pages/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#4/pages/index"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-misc/config.el" . 47)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init/config.el" . 943)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/config.el" . 39)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/index/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/index/index.wxml"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/project.config.json" . 509)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/sitemap.json" . 107)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/app.wxss" . 37)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-分支管理.org" . 2644)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git-分支管理.org"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Editor.org" . 335)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Git.org" . 249)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-programming/packages.el" . 252)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#1/pages/index/index.wxss" . 188)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/index/index.wxml" . 504)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/index/index.js" . 859)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#5/index/index.wxss" . 163)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项/git-emoji-list.md"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown/05-杂项"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Markdown"))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/snippets/js-mode/wechat-app-json1" . 64)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/snippets/js-mode/wechat-app-json" . 63)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/"
@@ -122,13 +189,8 @@
  ("c:/Users/刘浩然/AppData/Roaming/haoran/和风天气" . 232)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxss" . 439)
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/pages/index/index.wxml" . 923)
- ("c:/Users/刘浩然/AppData/Roaming/haoran/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/和风天气"))
  ("d:/Document/不再改动/.emacs.d.bak/Plug/init-Plug.el" . 5861)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-better-defaults/funcs.el" . 1007)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/packages.el" . 517)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/Init-ui/packages.el"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Notes/Org/Programming/Algorithm.org" . 86)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/init-link.el" . 2507)
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/ogmc/"
@@ -145,8 +207,6 @@
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/site-lisp/config"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d/site-lisp"))
- ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/"
-  (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran/Github-D/.emacs.d"))
  ("c:/Users/刘浩然/AppData/Roaming/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/haoran"))
  ("c:/Users/刘浩然/AppData/Roaming/haoran/Github-R/Wechat-applet/Wechat-applet-#3/images/雨天.png" . 15652)
@@ -184,6 +244,4 @@
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/bind-key-20210210.1609/"
   (dired-filename . "c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/bind-key-20210210.1609/.."))
  ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/web-mode-20210829.1552/web-mode-autoloads.el" . 498)
- ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/use-package-20210207.1926/use-package-autoloads.el" . 8501)
- ("c:/DataD/Download/Emacs/"
-  (dired-filename . "c:/DataD/Download/Emacs/.")))
+ ("c:/Users/刘浩然/AppData/Roaming/.emacs.d/elpa/use-package-20210207.1926/use-package-autoloads.el" . 8501))

@@ -1,11 +1,13 @@
 (setq ogmc-ui-packages
       '(
-        doom-modeline
+        (ogmc-mode-line :location built-in)
+        ;; doom-modeline
         dashboard
         )
       )
 
-(use-package doom-modeline
+(use-package ogmc-mode-line
+  ;; "doom-modeline"
   :hook
   (add-hook 'after-init-hook #'doom-modeline-mode)
   :config
@@ -38,7 +40,7 @@
               dashboard-footer (format "Powered by Haoran Lorangez, %s" (format-time-string "%Y")))
       (setq dashboard-center-content nil
             dashboard-footer-messages '("")
-            dashboard-items '((recents  . 20)(bookmarks . 8))))
+            dashboard-items '((bookmarks . 8)(recents  . 20))))
 
     (setq dashboard-center-content nil ;;不放在中间
           dashboard-set-init-info nil  ;;开启的信息
@@ -51,3 +53,4 @@
           dashboard-set-heading-icons nil)
     )
   )
+
