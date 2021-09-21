@@ -18,15 +18,10 @@
   (setq org-publish-project-alist
         '(("orgfiles"
            ;; ; Sources and destinations for files.
-           :base-directory "~/haoran/Notes/" ;; local dir
-           :publishing-directory "~/site/public/" ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
-           ;; :preparation-function
-           ;; :complete-function
+           :base-directory "~/haoran/Notes/Org/Programming/org/" ;; local dir
+           :publishing-directory "~/haoran/Notes/Org/Programming/public/"
            :base-extension "org"
-           ;; :exclude "PrivatePage.org"     ;; regexp
-           ;; exclude files like "_draft-demo-1.org"
-           :exclude "^_[[:word:]-]*.org"     ;; regexp
-           ;; :include
+           :exclude "^_[[:word:]-]*.org"
            :recursive t
 
            ;; ; Publishing action
@@ -37,7 +32,7 @@
            :language "zh"        ;; org-export-default-language
            :section-numbers nil  ;; org-export-with-section-numbers
            :with-planning t      ;; org-export-with-planning
-           :with-priority t      ;; org-export-with-priority ;
+           :with-priority t      ;; org-export-with-priority
            ;;  :with-tags not-in-toc ;; org-export-with-tags
            :with-toc t           ;; org-export-with-toc
 
@@ -46,66 +41,61 @@
            :html-head-include-default-style nil ;; org-html-head-include-default-style
            :html-head-include-scripts nil ;; org-html-head-include-scripts
            :html-head
-           "<link rel=\"shortcut icon\" href=\"themes/favicon.ico\" type=\"image/x-icon\" />
-           <link rel=\"stylesheet\" href=\"themes/style.css\" type=\"text/css\"  />
-           <script type=\"text/javascript\" src=\"https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js\"></script>
-           <script type=\"module\" src=\"themes/main.js\" defer></script>" ;; org-html-head
+           "<link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />
+            <link rel=\"stylesheet\" href=\"css/style.css\" type=\"text/css\"  />
+            <script type=\"text/javascript\" src=\"https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js\"></script>
+            <script type=\"module\" src=\"js/main.js\" defer></script>" ;; org-html-head
            :html-checkbox-type unicode  ;; org-html-checkbox-type
-           ;; :html-link-home "index.html"	;; org-html-link-home
-           ;; :html-link-up "uUP"          ;; org-html-link-up
-           :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"	;; org-html-validation-link
            )
-
-          ;; static assets
-          ("confs"
-           :base-directory "~/site/"
-           :base-extension "js"
-           :publishing-directory "~/site/public/"
-           :recursive nil
-           :publishing-function org-publish-attachment
-           )
-          ("images"
-           :base-directory "~/site/images/"
-           :base-extension any
-           :publishing-directory "~/site/public/images/"
-           :recursive t
-           :publishing-function org-publish-attachment
-           )
-          ("themes"
-           :base-directory "~/site/themes/"
-           :base-extension any
-           :publishing-directory "~/site/public/themes/"
-           :recursive t
-           :publishing-function org-publish-attachment
-           )
-
-          ;; reverse static assets
-          ("rconfs"
-           :base-directory "~/site/public/"
-           :base-extension "js"
-           :publishing-directory "~/site"
-           :recursive nil
-           :publishing-function org-publish-attachment
-           )
-          ("rimages"
-           :base-directory "~/site/public/images/"
-           :base-extension any
-           :publishing-directory "~/site/images/"
-           :recursive t
-           :publishing-function org-publish-attachment
-           )
-          ("rthemes"
-           :base-directory "~/site/public/themes/"
-           :base-extension any
-           :publishing-directory "~/site/themes/"
-           :recursive t
-           :publishing-function org-publish-attachment
-           )
-
-          ("website" :components ("orgfiles" "confs" "images" "themes"))
-          ("statics" :components ("confs" "images" "themes"))
-          ("rstatics" :components ("rconfs" "rimages" "rthemes"))
-          )))
+          ;; ;; static assets
+          ;; ("confs"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/org/"
+          ;;  :base-extension "js"
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/public/"
+          ;;  :recursive nil
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ("images"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/images/"
+          ;;  :base-extension any
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/public/images/"
+          ;;  :recursive t
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ("themes"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/themes/"
+          ;;  :base-extension any
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/public/themes/"
+          ;;  :recursive t
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ;; reverse static assets
+          ;; ("rconfs"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/public/"
+          ;;  :base-extension "js"
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/org"
+          ;;  :recursive nil
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ("rimages"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/public/images/"
+          ;;  :base-extension any
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/images/"
+          ;;  :recursive t
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ("rthemes"
+          ;;  :base-directory "~/haoran/Notes/Org/Programming/public/themes/"
+          ;;  :base-extension any
+          ;;  :publishing-directory "~/haoran/Notes/Org/Programming/themes/"
+          ;;  :recursive t
+          ;;  :publishing-function org-publish-attachment
+          ;;  )
+          ;; ("website" :components ("orgfiles" "confs" "images" "themes"))
+          ;; ("statics" :components ("confs" "images" "themes"))
+          ;; ("rstatics" :components ("rconfs" "rimages" "rthemes"))
+          ))
+  (setq org-export-with-sub-superscripts nil))
 
 (defun save-and-publish-website()
   "Save all buffers and publish."
@@ -128,7 +118,7 @@ Which is a reverse operation of `save-and-publish-statics'."
   (org-publish-project "rstatics" t)
   (message "Copy rstatics done."))
 
-(defun save-and-publish-file ()
+(defun ogmc/save-and-publish-file ()
   "Save current buffer and publish."
   (interactive)
   (save-buffer t)
@@ -138,8 +128,7 @@ Which is a reverse operation of `save-and-publish-statics'."
   "Delete current org and the relative html when it exists."
   (interactive)
   (when (yes-or-no-p "Really delete current org and the relative html?")
-
-    (let ((fileurl (concat "~/site/public/" (file-name-base (buffer-name)) ".html")))
+    (let ((fileurl (concat "~/haoran/Notes/Org/Programming/public/" (file-name-base (buffer-name)) ".html")))
       (if (file-exists-p fileurl)
           (delete-file fileurl))
       (delete-file (buffer-file-name))
@@ -150,13 +139,11 @@ Which is a reverse operation of `save-and-publish-statics'."
   "Just delete the relative html when it exists."
   (interactive)
   (when (yes-or-no-p "Really delete the relative html?")
-
-    (let ((fileurl (concat "~/site/public/" (file-name-base (buffer-name)) ".html")))
+    (let ((fileurl (concat "~/haoran/Notes/Org/Programming/public/" (file-name-base (buffer-name)) ".html")))
       (if (file-exists-p fileurl)
           (progn
             (delete-file fileurl)
-            (message "Delete the relative html done.")
-            )
+            (message "Delete the relative html done."))
         (message "None relative html.")))))
 
 (define-minor-mode auto-save-and-publish-file-mode
@@ -170,18 +157,18 @@ Which is a reverse operation of `save-and-publish-statics'."
     ;; When the mode is disabled
     (remove-hook 'after-save-hook #'save-and-publish-file :local)))
 
-(use-package auto-save-and-publish-file-mode :hook (org-mode))
+;; (use-package auto-save-and-publish-file-mode :hook (org-mode))
 
 (use-package simple-httpd
   :ensure t
   :config
-  (setq httpd-root "~/site/public"))
+  (setq httpd-root "~/haoran/Notes/Org/Programming/public"))
 
-(defun preview-current-buffer-in-browser ()
+(defun ogmc/preview-current-buffer-in-browser ()
   "Open current buffer as html."
   (interactive)
   (let ((fileurl (concat "http://127.0.0.1:8080/" (file-name-base (buffer-name)) ".html")))
-    (save-and-publish-file)
+    (ogmc/save-and-publish-file)
     (unless (httpd-running-p) (httpd-start))
     (browse-url fileurl)))
 

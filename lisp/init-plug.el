@@ -21,6 +21,17 @@
   :ensure t
   :hook (after-init . global-hungry-delete-mode))
 
+(use-package smartparens
+  :ensure t
+  :init
+  (smartparens-global-mode t)
+  :config
+  (progn
+    (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+    (sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+    (sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
+    (sp-local-pair 'org-mode "<" nil :actions nil)))
+
 (use-package smooth-scrolling
   :ensure t
   :config

@@ -2,5 +2,5 @@
 #+Author: `user-full-name`
 #+EMAIL: <`user-mail-address`>
 #+Date: `(format-time-string "%Y-%m-%d %H:%m %a")`
-#+Copyright © `(format-time-string "%Y")`, `user-full-name`, all rights reserved.
-#+DESCRIPTION:
+#+OPTIONS: html-postamble:nil
+#+DESCRIPTION: Copyright © `(format-time-string "%Y")`, `user-full-name`, all rights reserved.

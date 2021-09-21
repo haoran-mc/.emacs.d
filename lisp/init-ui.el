@@ -4,9 +4,13 @@
 
 (column-number-mode 1)
 
-(menu-bar-mode -1);;取消菜单栏
-(tool-bar-mode -1);;取消工具栏
-(scroll-bar-mode -1);;取消滚动栏
+(when (fboundp 'menu-bar-mode)
+  (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'set-scroll-bar-mode)
+  (set-scroll-bar-mode nil))
+
 (global-linum-mode t);;显示行号
 (setq linum-format "   ");;自定义行号格式
 (setq-default frame-title-format "Forming into my Dreamtale!");;设置标题

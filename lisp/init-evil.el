@@ -20,8 +20,8 @@
              (evil-leader/set-key
                "rc" (lambda() (interactive) (dired "~/.emacs.d/"))
                "oT" (lambda() (interactive) (dired "~/haoran/Notes/Markdown/"))
-               "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/org/+wiki-list.org") (sp-push-position-to-ring))
-
+               "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/org/wikiindex.org") (sp-push-position-to-ring))
+               ;;------------------------------
                ":"  'counsel-M-x
                "SPC" 'counsel-M-x
                "TAB" 'spacemacs/alternate-buffer
@@ -47,7 +47,17 @@
                ;;------------------------------
                "ll" 'comment-line
                ;;------------------------------
+               "obb" 'ogmc/preview-current-buffer-in-browser
+               "obf" 'ogmc/save-and-publish-file
+               "obw" 'save-and-publish-website
+               "obs" 'save-and-publish-statics
+               "obS" 'save-and-publish-rstatics
+               "obd" 'delete-org-and-html
+               "obD" 'just-delete-relative-html
+               ;;------------------------------
                "oy" 'youdao-dictionary-search-at-point+
+               "oo" 'ogmc/open-in-browser
+               "oi" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/org/index.org") (sp-push-position-to-ring))
                ;;------------------------------
                "ad" 'dired
                "go" 'evil-tabs-mode
@@ -66,13 +76,6 @@
                "ee" 'other-frame
                "ed" 'delete-frame
 
-               "pw" 'save-and-publish-website
-               "pf" 'save-and-publish-file
-               "ps" 'save-and-publish-statics
-               "pS" 'save-and-publish-rstatics
-               "pb" 'preview-current-buffer-in-browser
-               "pd" 'delete-org-and-html
-               "pD" 'just-delete-relative-html
 
                "bb" 'ido-switch-buffer
                "bj" 'ibuffer-sidebar-toggle-sidebar

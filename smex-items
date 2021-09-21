@@ -1,17 +1,23 @@
 
 ;; ----- smex-history -----
 (
+ just-delete-relative-html
+ save-and-publish-website
+ save-and-publish-file
+ preview-current-buffer-in-browser
+ smartparens-mode
+ company-mode
  hungry-delete-mode
- cd
- 5x5
- arp
- dbx
- dig
- erc
 )
 
 ;; ----- smex-data -----
 (
  (cd . 1)
  (hungry-delete-mode . 2)
+ (company-mode . 1)
+ (smartparens-mode . 1)
+ (preview-current-buffer-in-browser . 1)
+ (save-and-publish-file . 1)
+ (save-and-publish-website . 1)
+ (just-delete-relative-html . 1)
 )
