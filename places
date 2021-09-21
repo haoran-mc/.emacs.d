@@ -1,0 +1,37 @@
+;;; -*- coding: utf-8 -*-
+(("/home/haoran/.emacs.d/init.el" . 868)
+ ("/home/haoran/.emacs.d/"
+  (dired-filename . "/home/haoran/.emacs.d/init.el"))
+ ("/home/haoran/.emacs.d/lisp/"
+  (dired-filename . "/home/haoran/.emacs.d/lisp/init-site.el"))
+ ("/home/haoran/.emacs.d/elpa-27.2/dashboard-20210827.239/dashboard-autoloads.el" . 962)
+ ("/home/haoran/.emacs.d/lisp/init-ui.el" . 880)
+ ("/home/haoran/.emacs.d/lisp/init-dashboard.el" . 489)
+ ("/home/haoran/.emacs.d/lisp/init-base.el" . 9628)
+ ("/home/haoran/.emacs.d/lisp/init-func.el" . 697)
+ ("/home/haoran/.emacs.d/elpa-27.2/dracula-theme-20210730.1158/dracula-theme-autoloads.el" . 655)
+ ("/home/haoran/.emacs.d/Init/init-set.el" . 2060)
+ ("/home/haoran/.emacs.d/Init/Init-org/init-org.el" . 16)
+ ("/home/haoran/.emacs.d/lisp/init-webs.el" . 702)
+ ("/home/haoran/.emacs.d/Init/Init-ui/"
+  (dired-filename . "/home/haoran/.emacs.d/Init/Init-ui/init-dashboard.el"))
+ ("/home/haoran/.emacs.d/Init/"
+  (dired-filename . "/home/haoran/.emacs.d/Init/Init-ui"))
+ ("/home/haoran/.emacs.d/Init/Init-org/"
+  (dired-filename . "/home/haoran/.emacs.d/Init/Init-org/.."))
+ ("/home/haoran/.emacs.d/dashboard/"
+  (dired-filename . "/home/haoran/.emacs.d/dashboard/.."))
+ ("/home/haoran/.emacs.d/lisp/init-evil.el" . 93)
+ ("/home/haoran/.emacs.d/lisp/init-keybindings.el" . 946)
+ ("/home/haoran/"
+  (dired-filename . "/home/haoran/.emacs.d"))
+ ("/home/haoran/.emacs.d/lisp/init-plug.el" . 1613)
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-search-highlight-persist-20170523.334/evil-search-highlight-persist-autoloads.el" . 2385)
+ ("/home/haoran/.emacs.d/elpa-27.2/highlight-20210318.2248/highlight-autoloads.el" . 25394)
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-tabs-20160217.1520/evil-tabs-autoloads.el" . 2199)
+ ("/home/haoran/.emacs.d/elpa-27.2/elscreen-20181009.451/elscreen-autoloads.el" . 3366)
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-nerd-commenter-20210719.1305/evil-nerd-commenter-autoloads.el" . 5412)
+ ("/home/haoran/.emacs.d/lisp/init-upkg.el" . 330)
+ ("/home/haoran/.emacs.d/lisp/init-vars.el" . 104)
+ ("/home/haoran/haoran/"
+  (dired-filename . "/home/haoran/haoran/..")))

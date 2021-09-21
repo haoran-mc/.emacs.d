@@ -1,0 +1,17 @@
+
+;; ----- smex-history -----
+(
+ hungry-delete-mode
+ cd
+ 5x5
+ arp
+ dbx
+ dig
+ erc
+)
+
+;; ----- smex-data -----
+(
+ (cd . 1)
+ (hungry-delete-mode . 1)
+)

@@ -5,7 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("549ccbd11c125a4e671a1e8d3609063a91228e918ffb269e57bd2cd2c0a6f1c6" default))
- '(evil-want-C-u-scroll t))
+ '(evil-want-C-u-scroll t)
+ '(package-selected-packages
+   '(emmet-mode web-mode simple-httpd htmlize writeroom-mode yasnippet projectile expand-region ripgrep youdao-dictionary move-dup rainbow-delimiters company-emoji company switch-window which-key ido-vertical-mode swiper smex markdown-mode ibuffer-sidebar dired-sidebar evil-surround use-package-chords evil-leader evil delight diminish use-package)))
 
 
 (custom-set-faces
