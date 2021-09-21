@@ -1,0 +1,78 @@
+;;; -*- coding: utf-8 -*-
+(("/home/haoran/haoran/Notes/Org/Programming/org/Editor.org" . 456)
+ ("/home/haoran/haoran/Notes/Org/Programming/org/+wiki-list.org" . 216)
+ ("/home/haoran/emacs.d/Init/packages.el" . 197)
+ ("/home/haoran/.emacs.d/lisp/init-ui.el" . 7115)
+ ("/home/haoran/.emacs.d/lisp/init-func.el" . 99)
+ ("/home/haoran/emacs.d/Init-better-defaults/funcs.el" . 42)
+ ("/home/haoran/emacs.d/Init-better-defaults/packages.el" . 145)
+ ("/home/haoran/emacs.d/Init-misc/funcs.el" . 2550)
+ ("/home/haoran/emacs.d/Init-misc/packages.el" . 733)
+ ("/home/haoran/emacs.d/Init-org/funcs.el" . 165)
+ ("/home/haoran/emacs.d/Init-org/packages.el" . 152)
+ ("/home/haoran/emacs.d/Init-programming/funcs.el" . 165)
+ ("/home/haoran/emacs.d/Init-programming/packages.el" . 1148)
+ ("/home/haoran/emacs.d/Init-ui/config.el" . 759)
+ ("/home/haoran/emacs.d/Init-ui/funcs.el" . 3763)
+ ("/home/haoran/emacs.d/Init-ui/packages.el" . 24)
+ ("/home/haoran/emacs.d/lisp/"
+  (dired-filename . "/home/haoran/emacs.d/lisp/.."))
+ ("/home/haoran/emacs.d/Init/initiate.el" . 1133)
+ ("/home/haoran/.emacs.d/init.el" . 867)
+ ("/home/haoran/.emacs.d/lisp/init-org.el" . 375)
+ ("/home/haoran/.emacs.d/lisp/"
+  (dired-filename . "/home/haoran/.emacs.d/lisp/init-org.el"))
+ ("/home/haoran/.emacs.d/"
+  (dired-filename . "/home/haoran/.emacs.d/lisp"))
+ ("/home/haoran/emacs.d/Init/"
+  (dired-filename . "/home/haoran/emacs.d/Init/initiate.el"))
+ ("/home/haoran/emacs.d/"
+  (dired-filename . "/home/haoran/emacs.d/Init"))
+ ("/home/haoran/emacs.d/ogmc/"
+  (dired-filename . "/home/haoran/emacs.d/ogmc/.."))
+ ("/home/haoran/emacs.d/Init-ui/"
+  (dired-filename . "/home/haoran/emacs.d/Init-ui/.."))
+ ("/home/haoran/emacs.d/Init-programming/"
+  (dired-filename . "/home/haoran/emacs.d/Init-programming/.."))
+ ("/home/haoran/emacs.d/Init-org/"
+  (dired-filename . "/home/haoran/emacs.d/Init-org/.."))
+ ("/home/haoran/emacs.d/Init-misc/"
+  (dired-filename . "/home/haoran/emacs.d/Init-misc/.."))
+ ("/home/haoran/emacs.d/Init-better-defaults/"
+  (dired-filename . "/home/haoran/emacs.d/Init-better-defaults/.."))
+ ("/home/haoran/emacs.d/preview/"
+  (dired-filename . "/home/haoran/emacs.d/preview/.."))
+ ("/home/haoran/"
+  (dired-filename . "/home/haoran/emacs.d"))
+ ("/home/haoran/.emacs.d/lisp/init-evil.el" . 887)
+ ("/home/haoran/.emacs.d/lisp/init-keybindings.el" . 946)
+ ("/home/haoran/.emacs.d/lisp/init-site.el" . 586)
+ ("/home/haoran/.emacs.d/lisp/init-vars.el" . 104)
+ ("/home/haoran/.emacs.d/lisp/init-upkg.el" . 1861)
+ ("/home/haoran/emacs.d/Init-misc/init-evil.el" . 106)
+ ("/home/haoran/.emacs.d/lisp/init-base.el" . 1102)
+ ("/home/haoran/.emacs.d/lisp/init-webs.el" . 859)
+ ("/home/haoran/.emacs.d/lisp/init-plug.el" . 935)
+ ("/home/haoran/.emacs.d/custom.el" . 406)
+ ("/home/haoran/haoran/Notes/Markdown/"
+  (dired-filename . "/home/haoran/haoran/Notes/Markdown/05-杂项"))
+ ("/home/haoran/haoran/Notes/Org/Programming/org/Git-分支管理.org" . 2363)
+ ("/home/haoran/site/public/Org/Programming/org/Git-分支管理.html" . 8569)
+ ("/home/haoran/haoran/Notes/Org/Programming/org/"
+  (dired-filename . "/home/haoran/haoran/Notes/Org/Programming/org/Git-分支管理.org"))
+ ("/home/haoran/haoran/Notes/Markdown/05-杂项/git-emoji-list.md" . 2941)
+ ("/home/haoran/haoran/Notes/Org/Programming/"
+  (dired-filename . "/home/haoran/haoran/Notes/Org/Programming/Web-Nginx.org"))
+ ("/home/haoran/haoran/Notes/Markdown/05-杂项/"
+  (dired-filename . "/home/haoran/haoran/Notes/Markdown/05-杂项/git-emoji-list.md"))
+ ("/home/haoran/.emacs.d/elpa-27.2/dashboard-20210827.239/dashboard-autoloads.el" . 962)
+ ("/home/haoran/.emacs.d/elpa-27.2/dracula-theme-20210730.1158/dracula-theme-autoloads.el" . 655)
+ ("/home/haoran/.emacs.d/dashboard/"
+  (dired-filename . "/home/haoran/.emacs.d/dashboard/.."))
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-search-highlight-persist-20170523.334/evil-search-highlight-persist-autoloads.el" . 2385)
+ ("/home/haoran/.emacs.d/elpa-27.2/highlight-20210318.2248/highlight-autoloads.el" . 25394)
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-tabs-20160217.1520/evil-tabs-autoloads.el" . 2199)
+ ("/home/haoran/.emacs.d/elpa-27.2/elscreen-20181009.451/elscreen-autoloads.el" . 3366)
+ ("/home/haoran/.emacs.d/elpa-27.2/evil-nerd-commenter-20210719.1305/evil-nerd-commenter-autoloads.el" . 5412)
+ ("/home/haoran/haoran/"
+  (dired-filename . "/home/haoran/haoran/..")))
