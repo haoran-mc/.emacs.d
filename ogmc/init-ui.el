@@ -2,9 +2,9 @@
 (tool-bar-mode -1);;取消工具栏
 (scroll-bar-mode -1);;取消滚动栏
 (global-linum-mode t);;显示行号
-(setq linum-format "   ");;自定义行号格式
+(setq linum-format "");;自定义行号格式
 (setq-default frame-title-format "Forming into my Dreamtale!");;设置标题
-(setq initial-frame-alist (quote ((fullscreen . maximized))));;开启全屏
+;; (setq initial-frame-alist (quote ((fullscreen . maximized))));;开启全屏
 (global-hl-line-mode t);;高亮当前行
 (setq ring-bell-function 'ignore);;关闭警报
 (if (eq system-type 'windows-nt)

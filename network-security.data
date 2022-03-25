@@ -1,0 +1,3 @@
+(
+ (:id "sha1:f65dffd849d899b91b112ae1030874f569dcb034" :fingerprints ("sha1:c2:cb:f9:81:3a:35:b5:56:7b:f4:6f:d9:ad:87:2a:df:a1:08:2d:00") :host "mirrors.tuna.tsinghua.edu.cn:443" :conditions (:expired :invalid :verify-cert))
+)

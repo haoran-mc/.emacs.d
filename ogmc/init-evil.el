@@ -12,9 +12,10 @@
   "sp" 'helm-do-ag-project-root
   ;;------------------------------
   ":" 'counsel-M-x
-  "ad" 'dired
-  "oT" (lambda() (interactive) (dired "~/haoran/Notes/Markdown/"))
-  "tw" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/+wiki-list.org") (sp-push-position-to-ring))
+  "," (lambda() (interactive) (find-file "~/.emacs.d/ogmc/init-evil.el"))
+  "TAB" 'spacemacs/alternate-buffer
+  "fj" 'dired
+  "oec" (lambda() (interactive) (find-file "C:/Users/haora/haoran/Code/Editor/Vim/txts/clip.txt"))
   "wV" (lambda() (interactive) (split-window-right) (windmove-right))
   "wS" (lambda() (interactive) (split-window-below) (windmove-down))
   "rc" (lambda() (interactive) (dired "~/.emacs.d/ogmc/"))
