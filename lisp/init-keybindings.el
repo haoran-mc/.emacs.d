@@ -31,23 +31,13 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "C-k") 'dired-up-directory))
 
-
-;;----------------------------------------------------------------evil
-;; (define-key evil-normal-state-map (kbd "gN") 'elscreen-create)
-;; (define-key evil-normal-state-map (kbd "gt") 'elscreen-next)
-;; (define-key evil-normal-state-map (kbd "gT") 'elscreen-previous)
-;; (define-key evil-normal-state-map (kbd ">") 'evil-shift-right-line)
-;; (define-key evil-normal-state-map (kbd "<") 'evil-shift-left-line)
-
-
 ;;----------------------------------------------------------------org
 (if (not (equal window-system 'x))
     (with-eval-after-load 'org
       (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
 
+(global-set-key (kbd "esc") 'evil-force-normal-state)
 
 ;;----------------------------------------------------------------
-(provide 'init-keybindings)
-
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

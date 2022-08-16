@@ -19,6 +19,7 @@
   "wV" (lambda() (interactive) (split-window-right) (windmove-right))
   "wS" (lambda() (interactive) (split-window-below) (windmove-down))
   "rc" (lambda() (interactive) (dired "~/.emacs.d/ogmc/"))
+  "oi" (lambda() (interactive) (find-file "~/haoran/Notes/Org/Programming/org/index.org"))
   "go" 'evil-tabs-mode
   "xx" 'exchange-point-and-mark
   "rb" 'bookmark-jump-other-window

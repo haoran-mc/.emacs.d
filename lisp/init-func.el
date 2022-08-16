@@ -3,13 +3,13 @@
 ;;; Code:
 
 (defun haoran/init-file()
+  "Open init file."
   (interactive)
   (find-file "~/.emacs.d/Init/initiate.el"))
 
 
 (defun ogmc/open-in-browser()
-  "Open in browser"
-  (lambda ())
+  "Open in browser."
   (interactive)
   (let ((filename (buffer-file-name)))
     (browse-url (concat "file://" filename))))
@@ -28,7 +28,7 @@
   (indent-region (point-min) (point-max)))
 
 
-(defun ogmc/indent-region-or-buffer () 
+(defun ogmc/indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion;;记忆光标位置
@@ -42,16 +42,14 @@
 
 
 (defun ogmc/remove-dos-eol ()
-  "Replace DOS eolns CR LF with Unix eolns CR"
+  "Replace DOS eolns CR LF with Unix eolns CR."
   (interactive)
   (goto-char (point-min));;跳转到文件开头
   (while (search-forward "\r" nil t) (replace-match "")));;windows下的换行符替换为空字符串
 
 
 (defun spacemacs/alternate-buffer (&optional window)
-  "Switch back and forth between current and last buffer in the
-current window.
-
+  "Switch back and forth between current and last buffer in the current window.
 If `spacemacs-layouts-restrict-spc-tab' is `t' then this only switches between
 the current layouts buffers."
   (interactive)
@@ -75,7 +73,7 @@ the current layouts buffers."
 
 
 (defun spacemacs/toggle-maximize-buffer ()
-  "Maximize buffer"
+  "Maximize buffer."
   (interactive)
   (save-excursion
     (if (and (= 1 (length (window-list)))
@@ -84,6 +82,12 @@ the current layouts buffers."
       (progn
         (window-configuration-to-register ?_)
         (delete-other-windows)))))
+
+;; (evil-define-command evil-force-normal-state ()
+;;   "Switch to normal state without recording current command."
+;;   :repeat abort
+;;   :suppress-operator t
+;;   (evil-normal-state))
 
 
 (provide 'init-func)

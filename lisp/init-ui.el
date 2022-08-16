@@ -12,7 +12,7 @@
   (set-scroll-bar-mode nil))
 
 (global-linum-mode t);;显示行号
-(setq linum-format "   ");;自定义行号格式
+(setq linum-format " ");;自定义行号格式
 (setq-default frame-title-format "Forming into my Dreamtale!");;设置标题
 (setq initial-frame-alist (quote ((fullscreen . maximized))));;开启全屏
 (global-hl-line-mode t);;高亮当前行

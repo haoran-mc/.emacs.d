@@ -1,33 +1,18 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be/doc/note.org" . 128)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/lisp/init-func.el" . 1235)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/lisp/init-evil.el" . 1048)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/init-func.el" . 2838)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/init-evil.el" . 494)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/bin/recentf" . 1487)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/"
-  (dired-filename . "c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/init-evil.el"))
- ("c:/Users/haora/AppData/Roaming/.emacs.d/lisp/"
-  (dired-filename . "c:/Users/haora/AppData/Roaming/.emacs.d/lisp/init-evil.el"))
- ("c:/Users/haora/AppData/Roaming/.emacs.d/"
-  (dired-filename . "c:/Users/haora/AppData/Roaming/.emacs.d/lisp"))
- ("c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be/doc/"
-  (dired-filename . "c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be/doc/note.html"))
- ("c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be/"
-  (dired-filename . "c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be/doc"))
- ("c:/Users/haora/haoran/Github-R/"
-  (dired-filename . "c:/Users/haora/haoran/Github-R/ncuacm-personal-info-be"))
- ("c:/Users/haora/haoran/"
-  (dired-filename . "c:/Users/haora/haoran/Github-R"))
- ("c:/Users/haora/haoran/Github-D/"
-  (dired-filename . "c:/Users/haora/haoran/Github-D/.."))
- ("c:/Users/haora/haoran/Github-D/ncuacm-personal-info-be/"
-  (dired-filename . "c:/Users/haora/haoran/Github-D/ncuacm-personal-info-be/.."))
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/init-key.el" . 724)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/initiate.el" . 477)
- ("c:/Users/haora/AppData/Roaming/.emacs.d/ogmc/init-link.el" . 2638)
- ("c:/Users/haora/haoran/Notes/Notes-main/Markdown/05-杂项/git-emoji-list.md" . 5137)
- ("c:/Users/haora/haoran/Notes/Notes-main/Markdown/05-杂项/"
-  (dired-filename . "c:/Users/haora/haoran/Notes/Notes-main/Markdown/05-杂项/git-emoji-list.md"))
- ("c:/"
-  (dired-filename . "c:/DataD")))
+(("/home/haoran/.emacs.d/ogmc/init-plug.el" . 1306)
+ ("/home/haoran/.emacs.d/ogmc/init-set.el" . 1810)
+ ("/home/haoran/.emacs.d/ogmc/init-org.el" . 391)
+ ("/home/haoran/.emacs.d/ogmc/init-key.el" . 279)
+ ("/home/haoran/.emacs.d/ogmc/init-func.el" . 155)
+ ("/home/haoran/.emacs.d/ogmc/init-evil.el" . 1243)
+ ("/home/haoran/haoran/Notes/Org/Programming/org/Scheme.org" . 1168)
+ ("/home/haoran/haoran/Notes/Org/Programming/org/index.org" . 1495)
+ ("/home/haoran/.emacs.d/ogmc/bin/recentf" . 823)
+ ("/home/haoran/.emacs.d/ogmc/"
+  (dired-filename . "/home/haoran/.emacs.d/ogmc/init-evil.el"))
+ ("/home/haoran/.emacs.d/"
+  (dired-filename . "/home/haoran/.emacs.d/init.el"))
+ ("/home/haoran/.emacs.d/lisp/"
+  (dired-filename . "/home/haoran/.emacs.d/lisp/.."))
+ ("/"
+  (dired-filename . "/opt")))
