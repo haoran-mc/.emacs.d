@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![Build Status](https://github.com/condy0919/.emacs.d/workflows/CI/badge.svg)](https://github.com/condy0919/.emacs.d/actions)
+[![Build Status](https://github.com/haoran-mc/.emacs.d/workflows/CI/badge.svg)](https://github.com/haoran-mc/.emacs.d/actions)
 [![License](http://img.shields.io/:license-gpl3-blue.svg)](LICENSE)
 ![Supports Emacs 27.1-29.x](https://img.shields.io/badge/Supports-Emacs_27.1_--_29.x-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white)
 
@@ -45,7 +45,7 @@
 仿 [Centaur Emacs](https://github.com/seagle0128/.emacs.d) 的个人配置.
 
 ```bash
-git clone --depth 1 https://github.com/condy0919/.emacs.d ~/.emacs.d
+git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
 ```
 
 仅包含**C/C++/Rust/OCaml/Haskell**相关配置，且全线使用`lsp`。当前由于`haskell-ide-engine`水土不服，故`haskell`没有采用`lsp`。
@@ -136,11 +136,10 @@ git clone --depth 1 https://github.com/condy0919/.emacs.d ~/.emacs.d
 | <kbd>[u</kbd>    | `evil-collection-unimpaired-url-encode` 对所选内容进行`url`参数编码 |
 | <kbd>]u</kbd>    | `evil-collection-unimpaired-url-decode` 对所选内容进行`url`参数解码 |
 
-此外，凭借 avy 模拟了 [evil-snipe][evil-snipe] 的 `s` 和 `f` 功能。
+此外，凭借 avy 模拟了 [evil-snipe][evil-snipe] 的 `f` 功能。
 
 | key          | function                     |
 |--------------|------------------------------|
-| <kbd>s</kbd> | `evil-avy-goto-char-timer`   |
 | <kbd>f</kbd> | `evil-avy-goto-char-in-line` |
 
 本配置里使用`hideshow`来`fold`代码块。由于`hideshow`本身提供的快捷键非常长，非常推荐使用`evil-mode`在`normal`状态下定义的键绑定。
@@ -378,11 +377,9 @@ yay -S ocaml-ocp-indent dune
 emacs -Q -l init-mini.el
 ```
 
-~~虽然咱都是直接开 nvim 的~~
-
 # 其他
 
-欢迎提`issue`给出建议，感谢！
+<!-- 欢迎提`issue`给出建议，感谢！ -->
 
 [all-the-icons]: https://github.com/domtronn/all-the-icons.el/
 [ccls]: https://github.com/MaskRay/ccls/
