@@ -129,6 +129,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "d" '(:wk "dired")
       "dj" 'dired-jump
       "dJ" 'dired-jump-other-window
+      "dp" 'dired-at-point
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
