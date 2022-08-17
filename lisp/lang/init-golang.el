@@ -21,11 +21,6 @@
 ;;   (ac-config-default)
 ;;   )
 
-(when (memq window-system '(mac ns))
-  (use-package exec-path-from-shell)
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
-
 (use-package company-go
   :init
   (progn

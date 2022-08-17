@@ -14,11 +14,11 @@
   :ensure t
   :hook (prog-mode . company-mode)
   :bind (:map company-mode-map
-         ([remap completion-at-point] . company-complete)
-         :map company-active-map
-         ("C-s"     . company-filter-candidates)
-         ([tab]     . company-complete-common-or-cycle)
-         ([backtab] . company-select-previous-or-abort))
+              ([remap completion-at-point] . company-complete)
+              :map company-active-map
+              ("C-s"     . company-filter-candidates)
+              ([tab]     . company-complete-common-or-cycle)
+              ([backtab] . company-select-previous-or-abort))
   :config
   (define-advice company-capf--candidates (:around (func &rest args))
     "Try default completion styles."
@@ -58,10 +58,14 @@
   :ensure t
   :hook (prog-mode . lsp-deferred)
   :bind (:map lsp-mode-map
-         ("C-c f" . lsp-format-region)
-         ("C-c d" . lsp-describe-thing-at-point)
-         ("C-c a" . lsp-execute-code-action)
-         ("C-c r" . lsp-rename))
+              ("C-c f" . lsp-format-region)
+              ("C-c d" . lsp-describe-thing-at-point)
+              ("C-c a" . lsp-execute-code-action)
+              ("C-c r" . lsp-rename))
+  :init
+  (progn
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "GOPATH"))
   :config
   (with-no-warnings
     (lsp-enable-which-key-integration t))
