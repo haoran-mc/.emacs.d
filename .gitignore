@@ -20,8 +20,8 @@ package-quickstart.el
 init_bash.sh
 init_zsh.sh
 
-elpa/
-quelpa/
-var/
-etc/
-eln-cache/
+/elpa/
+/quelpa/
+/var/
+/etc/
+/eln-cache/
