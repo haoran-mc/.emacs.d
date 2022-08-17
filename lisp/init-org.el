@@ -6,12 +6,14 @@
 ;;; Code:
 
 (require 'init-macros)
-(require 'org-tempo) ;; <s
-(require 'ox-publish)
 
 (use-package org
   :ensure nil
   :hook (org-mode . visual-line-mode)
+  :init
+  (require 'org-tempo) ;; <s
+  (require 'ox-publish)
+  :bind ("TAB" . org-cycle)
   :custom
   (org-directory "~/.org/")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
