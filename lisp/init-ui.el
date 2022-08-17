@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; frame postion and size
-(set-frame-position (selected-frame) 135 115)
-(set-frame-size (selected-frame) 1000 650 t)
+;; (set-frame-position (selected-frame) 135 115)
+;; (set-frame-size (selected-frame) 1000 650 t)
 
 ;; Use default theme in terminals
 (use-package doom-themes
