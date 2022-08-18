@@ -244,9 +244,6 @@
   :ensure t
   :commands fanyi-dwim fanyi-dwim2)
 
-(use-package youdao-dictionary
-  :ensure t)
-
 ;; Edit text for browser with GhostText or AtomicChrome extension
 (use-package atomic-chrome
   :ensure t
@@ -284,6 +281,34 @@
   (rcirc-fill-column #'window-text-width)
   ;; print messages in current channel buffer
   (rcirc-always-use-server-buffer-flag nil))
+
+;; Snippest
+(use-package yasnippet
+  :ensure t
+  :bind (("C-c y C-s" . yas-insert-snippet)
+         ("C-c y C-n" . yas-new-snippet)
+         ("C-c y C-v" . yas-visit-snippet-file))
+  :init
+  (yas-global-mode 1)
+  :config
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+
+;; Auto-insert templates when create file
+(use-package autoinsert
+  :init
+  ;; Don't want to be prompted before insertion:
+  (setq auto-insert-query nil)
+  (setq auto-insert-directory (locate-user-emacs-file "templates"))
+  (add-hook 'find-file-hook 'auto-insert)
+  (auto-insert-mode 1)
+  :config
+  (defun autoinsert-yas-expand()
+    "Replace text in yasnippet template."
+    (yas-expand-snippet (buffer-string) (point-min) (point-max)))
+  (define-auto-insert "\\.org$"
+    ["~/.emacs.d/templates/default-org.org" autoinsert-yas-expand])
+  (define-auto-insert "\\.html$"
+    ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand]))
 
 (provide 'init-tools)
 ;;; init-tools.el ends here
