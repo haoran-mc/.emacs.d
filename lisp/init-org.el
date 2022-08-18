@@ -6,14 +6,18 @@
 ;;; Code:
 
 (require 'init-macros)
+(require 'evil)
 
 (use-package org
   :ensure nil
-  :hook (org-mode . visual-line-mode)
+  :hook ((org-mode . visual-line-mode)
+         (org-mode . (lambda()
+                       (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
+                       (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto)
+                       (message "hello world"))))
   :init
   (require 'org-tempo) ;; <s
   (require 'ox-publish)
-  :bind ("TAB" . org-cycle)
   :custom
   (org-directory "~/.org/")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
@@ -133,13 +137,13 @@
     (if auto-save-and-publish-file-mode
         ;; When the mode is enabled
         (progn
-          (add-hook 'after-save-hook #'ogmc/save-and-publish-file :append :local))
+          (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
       ;; When the mode is disabled
-      (remove-hook 'after-save-hook #'ogmc/save-and-publish-file :local)))
+      (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
   (let ((fileurl (concat "~/haoran/Notes/Org/Programming/public/"
                          (file-name-base (buffer-name)) ".html")))
-	(if (file-exists-p fileurl)
-		(add-hook 'org-mode-hook 'auto-save-and-publish-file-mode))))
+    (if (file-exists-p fileurl)
+	    (add-hook 'org-mode-hook 'auto-save-and-publish-file-mode))))
 
 ;; Keep track of tasks
 (use-package org-agenda
