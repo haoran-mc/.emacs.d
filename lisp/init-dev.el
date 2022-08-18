@@ -117,8 +117,8 @@
 ;; Jump to definition, used as a fallback of lsp-find-definition
 (use-package dumb-jump
   :ensure t
-  :bind (("M-g j" . dumb-jump-go)
-         ("M-g J" . dumb-jump-go-other-window))
+  :bind (("M-g j" . lsp-bridge-jump)
+         ("M-g J" . lsp-bridge-jump))
   :custom
   (dumb-jump-quiet t)
   (dumb-jump-aggressive t)
@@ -235,6 +235,7 @@
 (require 'init-python)
 (require 'init-elisp)
 (require 'init-sh)
+(require 'init-golang)
 
 (provide 'init-dev)
 

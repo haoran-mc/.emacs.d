@@ -1,4 +1,4 @@
-;;; init-org.el --- Org mode configurations -*- lexical-binding: t -*-
+;;; init-golang.el --- Golang -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -8,43 +8,25 @@
 (use-package go-mode
   :ensure t
   :mode ("\\.go\\'" . go-mode)
+  :bind(("C-c C-c" . go-run-buffer)
+        ("C-c C-d" . godoc) ;; TODO
+        ("C-c C-a" . go-import-add))
   :config
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  :custom
-  (gofmt-command "goimports"))
-
-;; (use-package auto-complete)
-;; (use-package go-autocomplete
-;;   :ensure t
-;;   :config
-;;   (require 'auto-complete-config)
-;;   (ac-config-default)
-;;   )
-
-(use-package company-go
-  :init
+  (defun go-run-buffer()
+    (interactive)
+    (shell-command (concat "go run " (buffer-name))))
   (progn
-    (setq company-go-show-annotation t)
-    (setq company-tooltip-limit 20)                      ; bigger popup window
-    (add-hook 'go-mode-hook
-              (lambda ()
-                (set (make-local-variable 'company-backends) '(company-go))
-                (company-mode)))
-    )
-  )
+    (exec-path-from-shell-initialize)
+    (setq exec-path (append exec-path '("/root/go/bin")))
+    (exec-path-from-shell-copy-env "GOPATH"))
+  (add-hook 'before-save-hook 'gofmt-before-save))
 
 (use-package go-eldoc
   :config
-  (progn
-    (add-hook 'go-mode-hook 'go-eldoc-setup)
-    ))
-
-(use-package go-guru
-  :defer t
-  :hook (go-mode . go-guru-hl-identifier-mode))
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 ;; go get -u -v golang.org/x/tools/cmd/...
-;; go get -u -v github.com/rogpeppe/godef
+;; go get -u -v github.com/rogpeppe/godef TODO
 ;; go get -u -v golang.org/x/tools/cmd/goimports
 ;; go get -u -v golang.org/x/tools/gopls
 ;; go get -u -v github.com/mdempsky/gocode
