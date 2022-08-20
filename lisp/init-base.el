@@ -14,6 +14,9 @@
       inhibit-startup-message t
       inhibit-startup-buffer-menu t)
 
+;; fullscreen on startup
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 ;; Pixelwise resize
 (setq window-resize-pixelwise t
       frame-resize-pixelwise t)
