@@ -8,21 +8,26 @@
 (use-package go-mode
   :ensure t
   :mode ("\\.go\\'" . go-mode)
-  :bind ("C-c C-c" . go-run-buffer)
-  :config
+  :bind (("C-c C-c" . +go-run-buffer)
+         ("C-c C-u" . go-remove-unused-imports))
+  :init
   (progn ;; env vars
     (exec-path-from-shell-initialize)
     (setq exec-path (append exec-path '("/root/go/bin")))
     (exec-path-from-shell-copy-envs '("GOPATH" "GO111MODULE" "GOPROXY")))
-
+  :config
   (add-hook 'before-save-hook 'gofmt-before-save)
 
-  (defun go-run-buffer()
+  (defun +go-run-buffer()
     "Run go code in buffer."
     (interactive)
     (shell-command (concat "go run " (buffer-name)))))
 
-(use-package go-eldoc)
+;; (use-package go-eldoc
+;;   :init
+;;   (use-package gocode)
+;;   :hook
+;;   (go-mode . go-eldoc-setup))
 
 ;; Install the tools manually in the current GOPATH
 ;; go install golang.org/x/tools/gopls
