@@ -143,7 +143,14 @@
   (let ((fileurl (concat "~/haoran/Notes/Org/Programming/public/"
                          (file-name-base (buffer-name)) ".html")))
     (if (file-exists-p fileurl)
-	    (add-hook 'org-mode-hook 'auto-save-and-publish-file-mode))))
+	    (add-hook 'org-mode-hook 'auto-save-and-publish-file-mode)))
+  (org-html-text-markup-alist
+   '((bold . "<b>%s</b>")
+     (code . "<code>%s</code>")
+     (italic . "<i>%s</i>")
+     (strike-through . "<del>%s</del>")
+     (underline . "<span class=\"underline\">%s</span>")
+     (verbatim . "<verbatim>%s</verbatim>"))))
 
 ;; Keep track of tasks
 (use-package org-agenda
