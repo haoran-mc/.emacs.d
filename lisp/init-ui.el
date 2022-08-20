@@ -5,17 +5,37 @@
 
 ;;; Code:
 
-;; frame postion and size
-;; (set-frame-position (selected-frame) 135 115)
-;; (set-frame-size (selected-frame) 1000 650 t)
-
 ;; Use default theme in terminals
-(use-package doom-themes
-  :ensure t
+;; (use-package doom-themes
+;;   :ensure t
+;;   :when (display-graphic-p)
+;;   :config
+;;   (load-theme 'doom-one t)
+;;   (doom-themes-org-config))
+
+(use-package spacemacs-dark-theme
+  :load-path "~/.emacs.d/etc/spacemacs-theme"
   :when (display-graphic-p)
   :config
-  (load-theme 'doom-one t)
-  (doom-themes-org-config))
+  (load-theme 'spacemacs-dark t))
+
+;; (use-package lazycat-dark-theme
+;;   :load-path "~/.emacs.d/etc/lazycat-theme"
+;;   :when (display-graphic-p)
+;;   :config
+;;   (load-theme 'lazycat-dark t))
+
+;; (use-package xcode-dark-theme
+;;   :load-path "~/.emacs.d/etc/xcode-theme"
+;;   :when (display-graphic-p)
+;;   :config
+;;   (load-theme 'xcode-dark t))
+
+;; (use-package painting-theme
+;;   :load-path "~/.emacs.d/etc/painting-theme"
+;;   :when (display-graphic-p)
+;;   :config
+;; (load-theme 'painting t))
 
 (use-package emacs
   :ensure nil
@@ -107,6 +127,7 @@
   (defconst issue-url (concat homepage-url "/issues/new"))
   :custom
   (dashboard-startup-banner 'logo)
+  (dashboard-center-content t)
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons t)
   (dashboard-set-init-info t)
