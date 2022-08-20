@@ -13,38 +13,50 @@
 
 ;; The markdown mode is awesome! unbeatable
 (use-package markdown-mode
-  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode))
+  :bind (:map markdown-mode-map
+              ("C-c r" . +markdown-insert-ruby-tag)
+              ("C-c d" . +markdown-insert-details)
+              ("C-c p" . +markdown-preview-as-html))
   :init
-  (advice-add #'markdown--command-map-prompt :override #'ignore)
-  (advice-add #'markdown--style-map-prompt   :override #'ignore)
-  :mode ("README\\(?:\\.md\\)?\\'" . gfm-mode)
-  :hook (markdown-mode . visual-line-mode)
-  :bind (:map markdown-mode-style-map
-         ("r" . markdown-insert-ruby-tag)
-         ("d" . markdown-insert-details))
+  (setq markdown-enable-wiki-links t
+        markdown-italic-underscore t
+        markdown-asymmetric-header t
+        markdown-make-gfm-checkboxes-buttons t
+        markdown-gfm-uppercase-checkbox t
+        markdown-fontify-code-blocks-natively t)
+
+  ;; `multimarkdown' is necessary for `highlight.js' and `mermaid.js'
+  (when (executable-find "multimarkdown")
+    (setq markdown-command "multimarkdown"))
   :config
-  (defun markdown-insert-ruby-tag (text ruby)
+  (with-no-warnings
+    ;; Use `which-key' instead
+    (advice-add #'markdown--command-map-prompt :override #'ignore)
+    (advice-add #'markdown--style-map-prompt   :override #'ignore))
+
+  (defun +markdown-insert-ruby-tag (text ruby)
     "Insert ruby tag with `TEXT' and `RUBY' quickly."
     (interactive "sText: \nsRuby: \n")
     (insert (format "<ruby>%s<rp>(</rp><rt>%s</rt><rp>)</rp></ruby>" text ruby)))
 
-  (defun markdown-insert-details (title)
+  (defun +markdown-insert-details (title)
     "Insert details tag (collapsible) quickly."
     (interactive "sTitle: ")
     (insert (format "<details><summary>%s</summary>\n\n</details>" title)))
-  :custom
-  (markdown-header-scaling t)
-  (markdown-enable-wiki-links t)
-  (markdown-italic-underscore t)
-  (markdown-asymmetric-header t)
-  (markdown-gfm-uppercase-checkbox t)
-  (markdown-fontify-code-blocks-natively t))
 
-;; ReStructuredText
-(use-package rst
-  :ensure nil
-  :hook ((rst-mode . visual-line-mode)
-         (rst-adjust . rst-toc-update)))
+  ;; sudo pip install grip
+  (defun +markdown-preview-as-html ()
+    "Preview markdown as html."
+    (interactive)
+    (start-process "grip" "*gfm-to-html*" "grip"
+                   (buffer-file-name) "5000")
+    (browse-url (format "http://localhost:5000/%s.%s"
+                        (file-name-base (buffer-file-name))
+                        (file-name-extension (buffer-file-name)))))
+
+  ;; Table of contents
+  (use-package markdown-toc))
 
 (provide 'init-text)
 ;;; init-text.el ends here
