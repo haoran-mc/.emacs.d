@@ -137,6 +137,13 @@
   (show-paren-when-point-inside-paren t)
   (show-paren-when-point-in-periphery t))
 
+;; Auto complete parens
+(use-package elec-pair
+  :ensure nil
+  :hook ((go-mode . electric-pair-mode)
+         (emacs-lisp-mode . electric-pair-mode))
+  :custom (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+
 ;; Show line/column number and more
 (use-package simple
   :ensure nil
@@ -191,16 +198,16 @@
   :when (display-graphic-p)
   :hook (after-init . global-hl-line-mode))
 
-;; Enable `repeat-mode' to reduce key sequence length
-;;
-;; If we have been idle for `repeat-exit-timeout' seconds, exit the repeated
-;; state.
-(use-package repeat
-  :ensure nil
-  :custom
-  (repeat-mode t)
-  (repeat-exit-timeout 3)
-  (repeat-exit-key (kbd "RET")))
+;;;; Enable `repeat-mode' to reduce key sequence length
+;;;;
+;;;; If we have been idle for `repeat-exit-timeout' seconds, exit the repeated
+;;;; state.
+;;(use-package repeat
+;;  :ensure nil
+;;  :custom
+;;  (repeat-mode t)
+;;  (repeat-exit-timeout 3)
+;;  (repeat-exit-key (kbd "RET")))
 
 ;; Server mode.
 ;; Use emacsclient to connect
@@ -217,15 +224,15 @@
 (use-package minibuffer
   :ensure nil
   :bind (:map minibuffer-local-map
-         ([escape] . abort-recursive-edit)
-         :map minibuffer-local-ns-map
-         ([escape] . abort-recursive-edit)
-         :map minibuffer-local-completion-map
-         ([escape] . abort-recursive-edit)
-         :map minibuffer-local-must-match-map
-         ([escape] . abort-recursive-edit)
-         :map minibuffer-local-isearch-map
-         ([escape] . abort-recursive-edit))
+              ([escape] . abort-recursive-edit)
+              :map minibuffer-local-ns-map
+              ([escape] . abort-recursive-edit)
+              :map minibuffer-local-completion-map
+              ([escape] . abort-recursive-edit)
+              :map minibuffer-local-must-match-map
+              ([escape] . abort-recursive-edit)
+              :map minibuffer-local-isearch-map
+              ([escape] . abort-recursive-edit))
   :custom
   ;; Default minibuffer is fine-tuned since Emacs 29
   (completion-auto-help t)
@@ -312,9 +319,9 @@
   :ensure nil
   :commands re-builder
   :bind (:map reb-mode-map
-         ("C-c C-k" . reb-quit)
-         ("C-c C-p" . reb-prev-match)
-         ("C-c C-n" . reb-next-match))
+              ("C-c C-k" . reb-quit)
+              ("C-c C-p" . reb-prev-match)
+              ("C-c C-n" . reb-next-match))
   :custom
   (reb-re-syntax 'string))
 
@@ -372,7 +379,7 @@ Else, call `comment-or-uncomment-region' on the current line."
 (use-package comint
   :ensure nil
   :bind (:map comint-mode-map
-         ([remap kill-region]   . backward-kill-word))
+              ([remap kill-region]   . backward-kill-word))
   :custom
   ;; Make the prompt of "*Python*" buffer readonly
   (comint-prompt-read-only t)
