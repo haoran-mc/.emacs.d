@@ -8,13 +8,16 @@
 (use-package go-mode
   :ensure t
   :mode ("\\.go\\'" . go-mode)
-  :bind (("C-c C-c" . +go-run-buffer)
+  :bind (:map go-mode-map
+         ("C-c C-c" . +go-run-buffer)
          ("C-c C-u" . go-remove-unused-imports))
   :init
   (progn ;; env vars
     (exec-path-from-shell-initialize)
     (setq exec-path (append exec-path '("/root/go/bin")))
     (exec-path-from-shell-copy-envs '("GOPATH" "GO111MODULE" "GOPROXY")))
+  (progn ;; command args
+    (setq gofmt-command "goimports"))
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -23,11 +26,14 @@
     (interactive)
     (shell-command (concat "go run " (buffer-name)))))
 
+(use-package go-guru
+  :defer t
+  :hook (go-mode . go-guru-hl-identifier-mode))
+
+;; failure maybe cause by lsp_bridge
 ;; (use-package go-eldoc
-;;   :init
-;;   (use-package gocode)
-;;   :hook
-;;   (go-mode . go-eldoc-setup))
+;;   :defer t
+;;   :hook (go-mode . go-eldoc-setup))
 
 ;; Install the tools manually in the current GOPATH
 ;; go install golang.org/x/tools/gopls
