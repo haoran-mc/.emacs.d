@@ -5,55 +5,52 @@
 
 ;;; Code:
 
-;; Use default theme in terminals
-;; (use-package doom-themes
-;;   :ensure t
-;;   :when (display-graphic-p)
-;;   :config
-;;   (load-theme 'doom-one t)
-;;   (doom-themes-org-config))
-
-(use-package spacemacs-dark-theme
-  :load-path "~/.emacs.d/etc/spacemacs-theme"
-  :when (display-graphic-p)
-  :config
-  (load-theme 'spacemacs-dark t))
-
-;; (use-package lazycat-dark-theme
-;;   :load-path "~/.emacs.d/etc/lazycat-theme"
-;;   :when (display-graphic-p)
-;;   :config
-;;   (load-theme 'lazycat-dark t))
-
-;; (use-package xcode-dark-theme
-;;   :load-path "~/.emacs.d/etc/xcode-theme"
-;;   :when (display-graphic-p)
-;;   :config
-;;   (load-theme 'xcode-dark t))
-
-;; (use-package painting-theme
-;;   :load-path "~/.emacs.d/etc/painting-theme"
-;;   :when (display-graphic-p)
-;;   :config
-;; (load-theme 'painting t))
-
 (use-package emacs
   :ensure nil
   :unless (display-graphic-p)
   :config
   (load-theme 'doom-molokai t))
 
+(use-package emacs
+  :ensure nil
+  :when (display-graphic-p)
+  :init
+  (add-to-list 'load-path "~/.emacs.d/etc/spacemacs-theme")
+  (add-to-list 'load-path "~/.emacs.d/etc/lazycat-theme")
+  (add-to-list 'load-path "~/.emacs.d/etc/painting-theme")
+  (defun random-choice (items)
+    "Random choice in ITEMS."
+    (let* ((size (length items))
+           (index (random size)))
+      (nth index items)))
+  (defun +load-theme-random ()
+    "Load random all of user's themes."
+    (interactive)
+    (let* ((selected-theme (random-choice (custom-available-themes))))
+      (message "Current random theme is: %s" selected-theme)
+      (load-theme selected-theme t)))
+  :config
+  (+load-theme-random))
+
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode)
   :custom
+  (doom-modeline-project-detection 'relative-to-project)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-lsp nil)
+  (doom-modeline-github nil)
+  (doom-modeline-time t)
+  (doom-modeline-env-version nil)
+  (doom-modeline-height 21)
+  (doom-modeline-persp-icon nil)
   (doom-modeline-irc nil)
   (doom-modeline-mu4e nil)
   (doom-modeline-gnus nil)
-  (doom-modeline-github nil)
   (doom-modeline-persp-name nil)
   (doom-modeline-unicode-fallback t)
-  (doom-modeline-enable-word-count nil))
+  (doom-modeline-enable-word-count nil)
+  (size-indication-mode nil))
 
 ;; Customize popwin behavior
 (use-package shackle
