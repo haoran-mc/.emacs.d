@@ -38,6 +38,9 @@
 - ctrl c ctrl f n 跳转到函数名
 - ctrl c ctrl f r 跳转到返回值
 - ctrl c ctrl f m 跳转到接收者
+- ctrl-M-a 光标移动到函数定义开头
+- ctrl-M-e 光标移动到函数定义末尾
+- ctrl-M-h 标记当前函数的整个内容
 
 ## lsp-bridge
 

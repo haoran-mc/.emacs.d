@@ -13,7 +13,6 @@
   (which-key-add-key-based-replacements
     "C-c !" "flycheck"
     "C-c @" "hideshow"
-    "C-c i" "ispell"
     "C-c t" "hl-todo"
     "C-x a" "abbrev"
     "C-x n" "narrow"
@@ -37,8 +36,9 @@
     (setq-default hungry-delete-chars-to-skip " \t\f\v") ; only horizontal whitespace
     (define-key hungry-delete-mode-map (kbd "DEL") 'hungry-delete-backward)
     (define-key hungry-delete-mode-map (kbd "S-DEL") 'delete-backward-char))
-  :custom
-  (hungry-delete-join-reluctantly t))
+  ;; :custom
+  ;; (hungry-delete-join-reluctantly t)
+  )
 
 ;; Jump to arbitrary positions
 (use-package avy

@@ -104,8 +104,13 @@ values are either integers, symbol sor lists of these.")
 
 (setq-default mode-line-misc-info (assq-delete-all 'which-func-mode mode-line-misc-info))
 
+;; normal filename.el                                                  (107:71) (22:52)
+
 (setq-default mode-line-format
               (list
+               ;; evil state
+               '(:eval evil-mode-line-tag)
+
                "%1 "
                ;; the buffer name; the file name as a tool tip
                '(:eval (propertize "%b " 'face 'font-lock-keyword-face
@@ -141,24 +146,24 @@ values are either integers, symbol sor lists of these.")
                '(:eval (propertize "%m" 'face 'font-lock-string-face
                                    'help-echo buffer-file-coding-system))
 
+               ;; ;; git info
+               ;; '(:eval (when (> (window-width) 90)
+               ;;           `(vc-mode vc-mode)))
+               ;; " "
+
+               ;; ;; global-mode-string goes in mode-line-misc-info
+               ;; '(:eval (when (> (window-width) 120)
+               ;;           mode-line-misc-info))
+
+               ;; fill for set modeline tail
+               (mode-line-fill 'mode-line 25)
+
+               ;; '(:eval (ogmc/display-mode-indent-width))
+
                "%1 "
                my-flycheck-mode-line
                "%1 "
-               ;; evil state
-               '(:eval evil-mode-line-tag)
 
-               ;; git info
-               '(:eval (when (> (window-width) 90)
-                         `(vc-mode vc-mode)))
-               " "
-
-               ;; global-mode-string goes in mode-line-misc-info
-               '(:eval (when (> (window-width) 120)
-                         mode-line-misc-info))
-
-               (mode-line-fill 'mode-line 25)
-
-               '(:eval (ogmc/display-mode-indent-width))
                ;; line and column
                " (" ;; '%02' to set to 2 chars at least; prevents flickering
                (propertize "%l" 'face 'font-lock-constant-face) ", "
