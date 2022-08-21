@@ -23,6 +23,9 @@
   :load-path "~/.emacs.d/etc/lsp-bridge"
   :init
   (require 'lsp-bridge-jdtls)
+  (with-eval-after-load 'lsp-bridge
+    ;; No display on modeline
+    (setq mode-line-misc-info nil))
   :hook ((go-mode . lsp-bridge-mode)
          (emacs-lisp-mode . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode-map
