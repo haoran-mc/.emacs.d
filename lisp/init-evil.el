@@ -218,8 +218,8 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; user's
       "u" '(:wk "user")
-      "uy" 'youdao-dictionary-search-at-point+
-      "uf" '+indent-region-or-buffer
+      "ui" '+indent-region-or-buffer
+      "uf" 'fanyi-dwim2
       )
 
     (with-eval-after-load 'org
