@@ -256,8 +256,9 @@
 (use-package simple-httpd
   :ensure t
   ;; :hook (org-mode . simple-httpd-mode)
+  :init
+  (use-package htmlize)
   :custom
-  (load-file "~/.emacs.d/htmlize.el")
   (httpd-port 9517)
   (httpd-root "~/haoran/Notes/Org/Programming/public")
   (org-html-mathjax-options
