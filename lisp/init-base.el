@@ -151,7 +151,7 @@
   ;; show line/column/filesize in modeline
   (line-number-mode t)
   (column-number-mode t)
-  (size-indication-mode t)
+  (size-indication-mode nil)
   ;; No visual feedback on copy/delete.
   (copy-region-blink-delay 0)
   (delete-pair-blink-delay 0)

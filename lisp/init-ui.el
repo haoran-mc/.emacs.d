@@ -49,8 +49,7 @@
   (doom-modeline-gnus nil)
   (doom-modeline-persp-name nil)
   (doom-modeline-unicode-fallback t)
-  (doom-modeline-enable-word-count nil)
-  (size-indication-mode nil))
+  (doom-modeline-enable-word-count nil))
 
 ;; Customize popwin behavior
 (use-package shackle
