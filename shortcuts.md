@@ -44,19 +44,29 @@
 
 ## lsp-bridge
 
-- ctrl c j 进入函数
-- ctrl c b 返回进入位置
-- ctrl c ctrl r 变量重命名
+- ctrl c j       进入函数
+- ctrl c b       返回进入位置
+- ctrl c ctrl r  变量重命名
 
 ## markdown-mode
 
-- ctrl c ctrl s - 插入分割线
-- ctrl c ctrl s f 插入脚注
-- ctrl c ctrl s w 插入wikilink
-- ctrl c ctrl n 下一个标题
-- ctrl c ctrl p 上一个标题
-- ctrl c ctrl f 下一个同级标题
-- ctrl c ctrl b 下一个同级标题
-- ctrl c ctrl u 前往所处标题的父标题
-- ctrl c r 插入ruby-tag
-- ctrl c d 插入详细样式
+- ctrl c ctrl s -  插入分割线
+- ctrl c ctrl s f  插入脚注
+- ctrl c ctrl s w  插入wikilink
+- ctrl c ctrl n    下一个标题
+- ctrl c ctrl p    上一个标题
+- ctrl c ctrl f    下一个同级标题
+- ctrl c ctrl b    下一个同级标题
+- ctrl c ctrl u    前往所处标题的父标题
+- ctrl c r         插入ruby-tag
+- ctrl c d         插入详细样式
+
+## treemacs
+
+- [f8]             开启treemacs
+- ctrl x t t       开启treemacs
+- ctrl x 1         删除其他窗口
+- ctrl x t 1       删除其他窗口
+- ctrl x t b       使用treemacs打开书签
+- ctrl x t ctrl t  使用treemacs寻找、打开文件
+- ctrl x t alt t   使用treemacs寻找、打开标签
