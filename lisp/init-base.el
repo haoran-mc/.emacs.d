@@ -89,6 +89,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;; Delete trailing whitespace after save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
 (set-face-attribute 'default nil :font "Source Code Pro" :weight 'semi-bold)
