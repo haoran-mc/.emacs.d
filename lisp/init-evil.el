@@ -15,11 +15,9 @@
   (setq evil-want-Y-yank-to-eol t)
   :hook (after-init . evil-mode)
   ;; Don't quit Emacs on `:q'.
-  ;;
-  ;; Rebind `f'/`s' to mimic `evil-snipe'.
   :bind (([remap evil-quit] . kill-this-buffer)
          :map evil-motion-state-map
-         ("f" . evil-avy-goto-char-in-line))
+         ("F" . evil-avy-goto-char-in-line))
   :config
   ;; Install `undo-fu' when necessary
   (when (< emacs-major-version 28)
@@ -112,6 +110,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; Resume
       "'" 'vertico-repeat
       "." 'avy-menu
+      "0" '+add-whitespace-around-current-word
 
       ;; app
       "a" '(:wk "app")
