@@ -15,9 +15,9 @@
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode))
   :bind (:map markdown-mode-map
-              ("C-c r" . +markdown-insert-ruby-tag)
-              ("C-c d" . +markdown-insert-details)
-              ("C-c p" . +markdown-preview-as-html))
+              ("C-c m r" . +markdown-insert-ruby-tag)
+              ("C-c m d" . +markdown-insert-details)
+              ("C-c m p" . +markdown-preview-as-html))
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t

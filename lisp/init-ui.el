@@ -5,24 +5,15 @@
 
 ;;; Code:
 
-(use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-project-detection 'relative-to-project)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-lsp nil)
-  (doom-modeline-github nil)
-  (doom-modeline-time t)
-  (doom-modeline-env-version nil)
-  (doom-modeline-height 21)
-  (doom-modeline-persp-icon nil)
-  (doom-modeline-irc nil)
-  (doom-modeline-mu4e nil)
-  (doom-modeline-gnus nil)
-  (doom-modeline-persp-name nil)
-  (doom-modeline-unicode-fallback t)
-  (doom-modeline-enable-word-count nil))
+;; git clone --depth=1 https://github.com/manateelazycat/awesome-tray
+(use-package awesome-tray
+  :ensure nil
+  :load-path "~/.emacs.d/etc/awesome-tray/"
+  :hook (after-init . awesome-tray-mode)
+  :init
+  (require 'awesome-tray)
+  (custom-set-variables
+   '(awesome-tray-active-modules '("location" "belong" "file-path" "mode-name" "date"))))
 
 (use-package emacs
   :ensure nil
@@ -37,7 +28,6 @@
   (add-to-list 'load-path "~/.emacs.d/etc/spacemacs-theme")
   (add-to-list 'load-path "~/.emacs.d/etc/lazycat-theme")
   (add-to-list 'load-path "~/.emacs.d/etc/painting-theme")
-  (add-to-list 'load-path "~/.emacs.d/etc/awesome-tray")
   (require 'painting-dark-theme)
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
@@ -62,20 +52,11 @@
     (let* ((selected-theme (random-choice pretty-dark-themes)))
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
-  (defun +load-lazycat-theme ()
-    (interactive)
-    (load-theme 'lazycat-dark t)
-    (custom-theme-set-faces
-     `user
-     `(mode-line           ((t (:background "#323232" :height 1.0)))))
-    (require 'awesome-tray)
-    (awesome-tray-mode 1))
   :config
   (+load-theme-random)
   ;; (+load-theme-from-selected)
   ;; (load-theme 'painting-dark t)
   ;; (load-theme 'modus-vivendi t)
-  ;; (+load-lazycat-theme)
   )
 
 ;; Customize popwin behavior
