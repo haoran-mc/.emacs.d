@@ -113,23 +113,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "'" 'vertico-repeat
       "." 'avy-menu
 
-      ;; file
-      "f"  '(:wk "files")
-      "ff" 'find-file
-      "fF" 'find-file-other-window
-      "f/" 'find-file-other-window
-      "fC" '+copy-current-file
-      "fD" '+delete-current-file
-      "fy" '+copy-current-filename
-      "fR" '+rename-current-file
-      "fr" 'recentf-open-files
-      "fl" 'find-file-literally
-
-      ;; dired
-      "d" '(:wk "dired")
-      "dj" 'dired-jump
-      "dJ" 'dired-jump-other-window
-      "dp" 'dired-at-point
+      ;; app
+      "a" '(:wk "app")
+      "aa" 'org-agenda
+      "ac" 'calendar
+      "ag" 'gnus
+      "ai" 'rcirc
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
@@ -162,43 +151,23 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "cw" 'delete-trailing-whitespace
       "cx" 'quickrun
 
-      ;; window
-      "w" 'evil-window-map
-      "wx" 'kill-buffer-and-window
-      "wu" '+transient-tab-bar-history
-      "w-" 'split-window-vertically
-      "w/" 'split-window-horizontally
-      "wm" 'spacemacs/toggle-maxmize-buffer
+      ;; dired
+      "d" '(:wk "dired")
+      "dj" 'dired-jump
+      "dJ" 'dired-jump-other-window
+      "dp" 'dired-at-point
 
-      ;; tab
-      "t" '(:wk "tab")
-      "t9" 'tab-bar-switch-to-last-tab
-      "tc" 'tab-bar-close-tab
-      "tC" 'tab-bar-close-group-tabs
-      "tg" 'tab-bar-change-tab-group
-      "ti" 'tab-switcher
-      "tn" 'tab-bar-new-tab
-      "to" 'tab-bar-close-other-tabs
-      "tt" 'tab-bar-switch-to-tab
-      "tp" 'tab-bar-switch-to-recent-tab
-      "tr" 'tab-bar-rename-tab
-
-      ;; search
-      "s" '(:wk "search")
-      "sj" 'evil-show-jumps
-      "sm" 'evil-show-marks
-      "sr" 'evil-show-registers
-      "si" 'imenu
-
-      ;; project
-      "p" 'projectile-command-map
-
-      ;; app
-      "a" '(:wk "app")
-      "aa" 'org-agenda
-      "ac" 'calendar
-      "ag" 'gnus
-      "ai" 'rcirc
+      ;; file
+      "f"  '(:wk "files")
+      "ff" 'find-file
+      "fF" 'find-file-other-window
+      "f/" 'find-file-other-window
+      "fC" '+copy-current-file
+      "fD" '+delete-current-file
+      "fy" '+copy-current-filename
+      "fR" '+rename-current-file
+      "fr" 'recentf-open-files
+      "fl" 'find-file-literally
 
       ;; open
       "o" '(:wk "open")
@@ -216,10 +185,41 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; open buffer in browser
       "obb" '+preview-current-buffer-in-browser
 
+      ;; project
+      "p" 'projectile-command-map
+
+      ;; search
+      "s" '(:wk "search")
+      "sj" 'evil-show-jumps
+      "sm" 'evil-show-marks
+      "sr" 'evil-show-registers
+      "si" 'imenu
+
+      ;; tab/tree
+      "t" '(:wk "tab/tree")
+      "t9" 'tab-bar-switch-to-last-tab
+      "tc" 'tab-bar-close-tab
+      "tC" 'tab-bar-close-group-tabs
+      "tg" 'tab-bar-change-tab-group
+      "ti" 'tab-switcher
+      "tn" 'tab-bar-new-tab
+      "to" 'tab-bar-close-other-tabs
+      "tt" 'tab-bar-switch-to-tab
+      "tp" 'tab-bar-switch-to-recent-tab
+      "tr" 'tab-bar-rename-tab
+
       ;; user's
       "u" '(:wk "user")
       "ui" '+indent-region-or-buffer
       "uf" 'fanyi-dwim2
+
+      ;; window
+      "w" 'evil-window-map
+      "wx" 'kill-buffer-and-window
+      "wu" '+transient-tab-bar-history
+      "w-" 'split-window-vertically
+      "w/" 'split-window-horizontally
+      "wm" 'spacemacs/toggle-maxmize-buffer
       )
 
     (with-eval-after-load 'org
