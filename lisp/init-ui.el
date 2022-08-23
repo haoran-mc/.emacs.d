@@ -5,33 +5,6 @@
 
 ;;; Code:
 
-(use-package emacs
-  :ensure nil
-  :unless (display-graphic-p)
-  :config
-  (load-theme 'doom-molokai t))
-
-(use-package emacs
-  :ensure nil
-  :when (display-graphic-p)
-  :init
-  (add-to-list 'load-path "~/.emacs.d/etc/spacemacs-theme")
-  (add-to-list 'load-path "~/.emacs.d/etc/lazycat-theme")
-  (add-to-list 'load-path "~/.emacs.d/etc/painting-theme")
-  (defun random-choice (items)
-    "Random choice in ITEMS."
-    (let* ((size (length items))
-           (index (random size)))
-      (nth index items)))
-  (defun +load-theme-random ()
-    "Load random all of user's themes."
-    (interactive)
-    (let* ((selected-theme (random-choice (custom-available-themes))))
-      (message "Current random theme is: %s" selected-theme)
-      (load-theme selected-theme t)))
-  :config
-  (+load-theme-random))
-
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode)
@@ -50,6 +23,60 @@
   (doom-modeline-persp-name nil)
   (doom-modeline-unicode-fallback t)
   (doom-modeline-enable-word-count nil))
+
+(use-package emacs
+  :ensure nil
+  :unless (display-graphic-p)
+  :config
+  (load-theme 'doom-molokai t))
+
+(use-package emacs
+  :ensure nil
+  :when (display-graphic-p)
+  :init
+  (add-to-list 'load-path "~/.emacs.d/etc/spacemacs-theme")
+  (add-to-list 'load-path "~/.emacs.d/etc/lazycat-theme")
+  (add-to-list 'load-path "~/.emacs.d/etc/painting-theme")
+  (add-to-list 'load-path "~/.emacs.d/etc/awesome-tray")
+  (require 'painting-dark-theme)
+  (require 'spacemacs-dark-theme)
+  (require 'lazycat-dark-theme)
+  (defvar pretty-dark-themes
+    (list 'painting-dark 'modus-vivendi 'doom-one 'spacemacs-dark 'doom-gruvbox-light
+          'doom-gruvbox
+          ))
+  (defun random-choice (items)
+    "Random choice in ITEMS."
+    (let* ((size (length items))
+           (index (random size)))
+      (nth index items)))
+  (defun +load-theme-random ()
+    "Load random all of user's themes."
+    (interactive)
+    (let* ((selected-theme (random-choice (custom-available-themes))))
+      (message "Current random theme is: %s" selected-theme)
+      (load-theme selected-theme t)))
+  (defun +load-theme-from-selected ()
+    "Load random from pretty-dark-themes."
+    (interactive)
+    (let* ((selected-theme (random-choice pretty-dark-themes)))
+      (message "Current random theme is: %s" selected-theme)
+      (load-theme selected-theme t)))
+  (defun +load-lazycat-theme ()
+    (interactive)
+    (load-theme 'lazycat-dark t)
+    (custom-theme-set-faces
+     `user
+     `(mode-line           ((t (:background "#323232" :height 1.0)))))
+    (require 'awesome-tray)
+    (awesome-tray-mode 1))
+  :config
+  (+load-theme-random)
+  ;; (+load-theme-from-selected)
+  ;; (load-theme 'painting-dark t)
+  ;; (load-theme 'modus-vivendi t)
+  ;; (+load-lazycat-theme)
+  )
 
 ;; Customize popwin behavior
 (use-package shackle
@@ -131,6 +158,10 @@
   (dashboard-items '((recents   . 10)
                      (projects  . 5)
                      (bookmarks . 5))))
+
+;; show color when css
+(use-package rainbow-mode
+  :defer t)
 
 (provide 'init-ui)
 
