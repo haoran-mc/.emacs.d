@@ -346,6 +346,9 @@
     (`(t . _)
      (treemacs-git-mode 'simple)))
 
+  (use-package treemacs-evil
+    :after evil)
+
   (use-package treemacs-projectile
     :after projectile
     :bind (:map projectile-command-map
