@@ -13,7 +13,9 @@
   :init
   (require 'awesome-tray)
   (custom-set-variables
-   '(awesome-tray-active-modules '("location" "belong" "file-path" "mode-name" "date"))))
+   '(awesome-tray-active-modules '("location" "belong" "file-path" "mode-name" "date"))
+   '(awesome-tray-file-path-show-filename t))
+  )
 
 (use-package emacs
   :ensure nil
@@ -32,8 +34,26 @@
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
   (defvar pretty-dark-themes
-    (list 'painting-dark 'modus-vivendi 'doom-one 'spacemacs-dark 'doom-gruvbox-light
-          'doom-gruvbox
+    (list 'painting-dark 'modus-vivendi 'spacemacs-dark
+          'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
+          'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
+          'doom-horizon 'doom-Iosvkem 'doom-lantern 'doom-laserwave
+          'doom-material-dark 'doom-molokai 'doom-monokai-octagon
+          'doom-monokai-pro 'doom-monokai-spectrum 'doom-moonlight
+          'doom-old-hope 'doom-one 'doom-opera 'doom-outrun-electric
+          'doom-palenight 'doom-peacock 'doom-rouge 'doom-snazzy
+          'doom-solarized-dark 'doom-solarized-dark-high-contrast
+          'doom-sourcerer 'doom-spacegrey 'doom-tokyo-night 'doom-tomorrow-night
+          'doom-vibrant 'doom-wilmersdorf 'doom-xcode 'doom-zenburn
+          ))
+  (defvar pretty-light-themes
+    (list 'doom-acario-light 'doom-ayu-light 'doom-flatwhite 'doom-gruvbox-light
+          'doom-homage-white 'doom-monokai-classic 'doom-one-light
+          'doom-opera-light 'doom-solarized-light 'doom-tomorrow-day
+          ))
+  (defvar strange-themes
+    (list 'doom-1337 'doom-dark+ 'doom-manegarm 'doom-miramare 'doom-nord-light
+          'doom-plain 'doom-plain-dark 'doom-shades-of-purple
           ))
   (defun random-choice (items)
     "Random choice in ITEMS."
@@ -53,8 +73,8 @@
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
   :config
-  (+load-theme-random)
-  ;; (+load-theme-from-selected)
+  ;; (+load-theme-random)
+  (+load-theme-from-selected)
   ;; (load-theme 'painting-dark t)
   ;; (load-theme 'modus-vivendi t)
   )
