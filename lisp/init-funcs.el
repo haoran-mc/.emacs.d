@@ -191,7 +191,7 @@ the current layouts buffers."
   (while (search-forward "\r" nil t) (replace-match "")))
 
 ;;;###autoload
-(defun +add-whitespace-around-current-word()
+(defun +add-whitespace-around()
   "Add one whitespace before and behind the current word."
   (interactive)
   (backward-word)
@@ -199,6 +199,21 @@ the current layouts buffers."
   (forward-word)
   (insert " ")
   (backward-char 2))
+
+;;;###autoload
+(defun +create-scratch-buffer ()
+  "Create a scratch buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
+;;;###autoload
+(defun spacemacs/sudo-edit (&optional arg)
+  "Forcibly write to a file without permission after password `ARG'."
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here
