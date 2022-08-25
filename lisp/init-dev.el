@@ -69,6 +69,27 @@
   (quickrun-input-file-extension ".qr"))
 
 ;; Project management
+;; sudo apt-get install silversearcher-ag
+;; sudo apt-get install ripgrep
+;; ? Commander help buffer.
+;; D Open project root in dired.
+;; R Regenerate the project’s etags/gtags.
+;; T Find test file in project.
+;; V Browse dirty projects
+;; a Run ag on project.
+;; b Switch to project buffer.
+;; d Find directory in project.
+;; e Find recently visited file in project.
+;; f Find file in project.
+;; g Run grep on project.
+;; j Find tag in project.
+;; k Kill all project buffers.
+;; o Run multi-occur on project buffers.
+;; r Replace a string in the project.
+;; s Switch project.
+;; v Open project root in vc-dir or magit.
+;; projectile-add-know-project
+;; projectile-project-root-
 (use-package projectile
   :ensure t
   :hook (after-init . projectile-mode)
@@ -236,6 +257,7 @@
 (require 'init-elisp)
 (require 'init-sh)
 (require 'init-golang)
+(require 'init-protobuf)
 
 (provide 'init-dev)
 
