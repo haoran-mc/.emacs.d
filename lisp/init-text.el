@@ -17,7 +17,8 @@
   :bind (:map markdown-mode-map
               ("C-c m r" . +markdown-insert-ruby-tag)
               ("C-c m d" . +markdown-insert-details)
-              ("C-c m p" . +markdown-preview-as-html))
+              ("C-c m p" . +markdown-preview-as-html)
+              ("C-c m k" . +markdown-kill-grip))
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
@@ -50,6 +51,12 @@
     (browse-url (format "http://localhost:5000/%s.%s"
                         (file-name-base (buffer-file-name))
                         (file-name-extension (buffer-file-name)))))
+
+  ;; kill grip process, M-x list-processes to list processes
+  (defun +markdown-kill-grip ()
+    "Preview is avaiable after kill grip."
+    (interactive)
+    (kill-process "grip"))
 
   ;; Table of contents
   (use-package markdown-toc))
