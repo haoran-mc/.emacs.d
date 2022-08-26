@@ -143,8 +143,8 @@
 ;; Auto complete parens
 (use-package elec-pair
   :ensure nil
-  :hook ((go-mode . electric-pair-mode)
-         (emacs-lisp-mode . electric-pair-mode))
+  :hook ((go-mode . electric-pair-local-mode)
+         (emacs-lisp-mode . electric-pair-local-mode))
   :custom (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 
 ;; Show line/column number and more
