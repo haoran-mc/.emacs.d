@@ -106,6 +106,18 @@ confirmation."
   (dired "/home/haoran/haoran/Notes/Markdown/"))
 
 ;;;###autoload
+(defun +open-file-navigate ()
+  "Open file: Navigate.org."
+  (interactive)
+  (find-file "/home/haoran/haoran/Notes/Org/Programming/org/Navigation.org"))
+
+;;;###autoload
+(defun +open-file-backup ()
+  "Open file: Backup.org."
+  (interactive)
+  (find-file "/home/haoran/haoran/Notes/Org/Diary/Backup.org"))
+
+;;;###autoload
 (defun +indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
