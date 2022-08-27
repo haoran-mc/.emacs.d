@@ -110,7 +110,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; Resume
       "'" 'vertico-repeat
       "." 'avy-menu
-      "0" '+add-whitespace-around-current-word
+      "0" '+add-whitespace-around
 
       ;; app
       "a" '(:wk "app")
@@ -127,7 +127,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "bC" 'clone-indirect-buffer-other-window
       "by" '+copy-current-buffer-name
       "bv" 'revert-buffer
-      "bx" 'scratch-buffer
+      "bx" '+create-scratch-buffer
       "bz" 'bury-buffer
       ;; --------------
       "bm" 'bookmark-set
@@ -181,7 +181,10 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "ofi" '+open-file-note
       "ofr" '+open-file-init
       "ofm" '+open-file-markdown
+      "ofn" '+open-file-navigate
+      "ofb" '+open-file-backup
       ;; open buffer in browser
+      "ob" '(:wk "browser site")
       "obb" '+preview-current-buffer-in-browser
 
       ;; project
@@ -201,11 +204,16 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "tC" 'tab-bar-close-group-tabs
       "tg" 'tab-bar-change-tab-group
       "ti" 'tab-switcher
-      "tn" 'tab-bar-new-tab
+      "tn" '+create-new-tab-bar
       "to" 'tab-bar-close-other-tabs
       "tt" 'tab-bar-switch-to-tab
       "tp" 'tab-bar-switch-to-recent-tab
       "tr" 'tab-bar-rename-tab
+
+      ;; toggle
+      "T" '(:wk "toggle")
+      "Tf" 'follow-mode
+      "Tt" 'awesome-tray-mode
 
       ;; user's
       "u" '(:wk "user")

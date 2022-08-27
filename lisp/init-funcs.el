@@ -97,7 +97,8 @@ confirmation."
 (defun +open-file-note ()
   "Open file: init.el."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/Programming/org/index.org"))
+  (find-file "/home/haoran/haoran/Notes/Org/Programming/org/index.org")
+  (tab-bar-rename-tab "note"))
 
 ;;;###autoload
 (defun +open-file-markdown ()
@@ -218,6 +219,13 @@ the current layouts buffers."
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))
   (lisp-interaction-mode))
+
+;;;###autoload
+(defun +create-new-tab-bar ()
+  "Create a new tab bar and switch dashboard."
+  (interactive)
+  (tab-bar-new-tab)
+  (dashboard-refresh-buffer))
 
 ;;;###autoload
 (defun spacemacs/sudo-edit (&optional arg)
