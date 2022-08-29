@@ -5,17 +5,37 @@
 
 ;;; Code:
 
+(use-package doom-modeline
+  :ensure t
+  :unless (display-graphic-p)
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-project-detection 'relative-to-project)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-lsp nil)
+  (doom-modeline-github nil)
+  (doom-modeline-time t)
+  (doom-modeline-env-version nil)
+  (doom-modeline-height 21)
+  (doom-modeline-persp-icon nil)
+  (doom-modeline-irc nil)
+  (doom-modeline-mu4e nil)
+  (doom-modeline-gnus nil)
+  (doom-modeline-persp-name nil)
+  (doom-modeline-unicode-fallback t)
+  (doom-modeline-enable-word-count nil))
+
 ;; git clone --depth=1 https://github.com/manateelazycat/awesome-tray
 (use-package awesome-tray
   :ensure nil
   :load-path "~/.emacs.d/etc/awesome-tray/"
+  :when (display-graphic-p)
   :hook (after-init . awesome-tray-mode)
   :init
   (require 'awesome-tray)
   (custom-set-variables
    '(awesome-tray-active-modules '("location" "belong" "file-path" "mode-name" "date"))
-   '(awesome-tray-file-path-show-filename t))
-  )
+   '(awesome-tray-file-path-show-filename t)))
 
 (use-package emacs
   :ensure nil
