@@ -240,6 +240,11 @@
   :custom
   (graphviz-dot-indent-width 2))
 
+;; Protobuf mode
+(use-package protobuf-mode
+  :ensure t
+  :mode ("\\.proto\\'" . protobuf-mode))
+
 ;; Syntax highlighting for systemd files
 (use-package conf-mode
   :ensure nil
@@ -257,7 +262,6 @@
 (require 'init-elisp)
 (require 'init-sh)
 (require 'init-golang)
-(require 'init-protobuf)
 
 (provide 'init-dev)
 
