@@ -31,7 +31,7 @@
   :bind (:map lsp-bridge-mode-map
               ("C-c j" . +lsp-bridge-jump)
               ("C-c b" . +lsp-bridge-jump-back)
-              ("C-c C-r" . lsp-bridge-rename))
+              ("C-c r" . lsp-bridge-rename))
   :config
   (defun +lsp-bridge-jump ()
     "Fuses LSP-bridge find-function and dumb-jump intelligent jumps."
