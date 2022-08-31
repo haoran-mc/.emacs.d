@@ -13,7 +13,9 @@
   (which-key-add-key-based-replacements
     "C-c !" "flycheck"
     "C-c @" "hideshow"
+    "C-c c" "citre"
     "C-c t" "hl-todo"
+    "C-c y" "yasnippet"
     "C-x a" "abbrev"
     "C-x n" "narrow"
     "C-x t" "tab")
@@ -285,9 +287,9 @@
 ;; Snippest
 (use-package yasnippet
   :ensure t
-  :bind (("C-c y C-s" . yas-insert-snippet)
-         ("C-c y C-n" . yas-new-snippet)
-         ("C-c y C-v" . yas-visit-snippet-file))
+  :bind (("C-c y s" . yas-insert-snippet)
+         ("C-c y n" . yas-new-snippet)
+         ("C-c y v" . yas-visit-snippet-file))
   :init
   (yas-global-mode 1)
   :config
