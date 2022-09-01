@@ -52,6 +52,15 @@
 - ctrl-M-a  光标移动到函数定义开头
 - ctrl-M-e  光标移动到函数定义末尾
 - ctrl-M-h  标记当前函数的整个内容
+- ctrl c t a  添加tag
+- ctrl c t r  移除tag
+- ctrl c t g  生成测试代码
+- ctrl c t f  测试当前文件
+- ctrl c t t  测试当前测试
+- ctrl c t j  测试整个项目的测试代码
+- ctrl c t b  基准测试
+- ctrl c t c  平均测试
+- ctrl c t x  运行当前代码
 
 ## lsp-bridge
 
