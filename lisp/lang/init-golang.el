@@ -24,11 +24,31 @@
   (defun +go-run-buffer()
     "Run go code in buffer."
     (interactive)
-    (shell-command (concat "go run " (buffer-name)))))
+    (shell-command (concat "go run " (buffer-name))))
+
+  (use-package go-tag
+    :bind (:map go-mode-map
+           ("C-c t a" . go-tag-add)
+           ("C-c t r" . go-tag-remove))
+    :init (setq go-tag-args (list "-transform" "camelcase")))
+
+  (use-package go-gen-test
+    :bind (:map go-mode-map
+           ("C-c t g" . go-gen-test-dwim)))
+
+  (use-package gotest
+    :bind (:map go-mode-map
+           ("C-c t f" . go-test-current-file)
+           ("C-c t t" . go-test-current-test)
+           ("C-c t j" . go-test-current-project)
+           ("C-c t b" . go-test-current-benchmark)
+           ("C-c t c" . go-test-current-coverage)
+           ("C-c t x" . go-run))))
 
 (use-package go-guru
   :defer t
   :hook (go-mode . go-guru-hl-identifier-mode))
+
 
 ;; failure maybe cause by lsp_bridge
 ;; (use-package go-eldoc
@@ -50,6 +70,7 @@
 ;; go install golang.org/x/tools/cmd/guru
 ;; go install github.com/golang/lint/golint
 ;; go install github.com/zmb3/gogetdoc
+;; go install github.com/fatih/gomodifytags@latest
 ;; Go come with godoc, no download required
 ;; Go come with gofmt, no download required
 
