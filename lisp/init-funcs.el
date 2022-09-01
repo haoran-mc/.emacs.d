@@ -228,7 +228,8 @@ the current layouts buffers."
   ;; TODO use if instead
   (pcase (treemacs-current-visibility)
     ('visible (delete-window (treemacs-get-local-window))))
-  (dashboard-refresh-buffer))
+  (dashboard-refresh-buffer)
+  (tab-bar-rename-tab "xxx"))
 
 ;;;###autoload
 (defun spacemacs/sudo-edit (&optional arg)
