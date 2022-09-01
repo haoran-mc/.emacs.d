@@ -218,7 +218,8 @@ the current layouts buffers."
   "Create a scratch buffer."
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))
-  (lisp-interaction-mode))
+  (lisp-interaction-mode)
+  (read-only-mode 0))
 
 ;;;###autoload
 (defun +create-new-tab-bar ()
