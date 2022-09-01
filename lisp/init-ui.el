@@ -43,7 +43,7 @@
   :config
   (load-theme 'doom-molokai t))
 
-(use-package emacs
+(use-package doom-themes
   :ensure nil
   :when (display-graphic-p)
   :init
@@ -141,6 +141,10 @@
 (use-package tab-bar
   :ensure nil
   :hook (after-init . tab-bar-history-mode)
+  :init
+  (with-eval-after-load 'doom-themes
+    (custom-set-faces
+     '(tab-line-tab ((t (:foreground red))))))
   :custom
   (tab-bar-history-buttons-show nil))
 
