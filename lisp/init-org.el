@@ -17,7 +17,6 @@
                        (message "hello world"))))
   :init
   (require 'org-tempo) ;; <s
-  (require 'ox-publish)
   :custom
   (org-directory "~/.org/")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
@@ -104,46 +103,6 @@
   (org-M-RET-may-split-line '((header-line . nil)))
   (org-startup-folded 'content)
   (org-hide-block-startup t)
-  ;; ox-publish
-  (org-publish-project-alist
-   '(("org-notes"
-      :base-directory "~/haoran/Notes/Org/Programming/org"
-      :base-extension "org"
-      :publishing-directory "~/haoran/Notes/Org/Programming/public"
-	  :exclude "wiki*\.org|Diary\.org|Book\.org|Film\.org|Note\.org"
-      :recursive t
-      :publishing-function org-html-publish-to-html ;; Publishing action
-      :html-head-include-default-style nil ;; org-html-head-include-default-style
-      :html-head-include-scripts nil       ;; org-html-head-include-scripts
-	  :with-sub-superscript {}             ;; 禁用 _ 转义成下标，^转义成上标。但加 {} 就可以转义了
-	  :preserve-breaks t                   ;; 是否保留换行符。如果设置为 nil，导出后就会多行文本显示在一行
-	  :author "haoran"
-	  :email "haoran.mc@outlook.com"
-      :html-doctype "html5" ;; org-html-doctype
-      :headline-levels 6    ;; org-export-headline-levels
-      :language "zh"        ;; org-export-default-language
-      :html-checkbox-type unicode  ;; org-html-checkbox-type
-      :section-numbers nil  ;; org-export-with-section-numbers
-      :with-toc t           ;; org-export-with-toc
-      :html-head
-      "<link rel=\"stylesheet\" href=\"static/css/org.css\" type=\"text/css\"  />
-      <script type=\"module\" src=\"static/js/main.js\" defer></script>
-      <link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />"
-      )))
-  (define-minor-mode auto-save-and-publish-file-mode
-    "Toggle auto save and publish current file."
-    :global nil
-    :lighter ""
-    (if auto-save-and-publish-file-mode
-        ;; When the mode is enabled
-        (progn
-          (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
-      ;; When the mode is disabled
-      (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
-  (let ((fileurl (concat "~/haoran/Notes/Org/Programming/public/"
-                         (file-name-base (buffer-name)) ".html")))
-    (if (file-exists-p fileurl)
-	    (add-hook 'org-mode-hook 'auto-save-and-publish-file-mode)))
   (org-html-text-markup-alist
    '((bold . "<b>%s</b>")
      (code . "<code>%s</code>")
@@ -253,11 +212,40 @@
   ;; (setq org-superstar-bullet-list '("☰" "☷" "■" "◆" "▲" "▶"))
   (org-ellipsis " ▼ "))
 
+(use-package ox-publish
+  :config
+  ;; ox-publish
+  (setq org-publish-project-alist
+   '(("org-notes"
+      :base-directory "~/haoran/Notes/Org/Programming/org"
+      :base-extension "org"
+      :publishing-directory "~/haoran/Notes/Org/Programming/public"
+	  :exclude "wiki*\.org|Diary\.org|Book\.org|Film\.org|Note\.org"
+      :recursive t
+      :publishing-function org-html-publish-to-html ;; Publishing action
+      :html-head-include-default-style nil ;; org-html-head-include-default-style
+      :html-head-include-scripts nil       ;; org-html-head-include-scripts
+	  :with-sub-superscript {}             ;; 禁用 _ 转义成下标，^转义成上标。但加 {} 就可以转义了
+	  :preserve-breaks t                   ;; 是否保留换行符。如果设置为 nil，导出后就会多行文本显示在一行
+	  :author "haoran"
+	  :email "haoran.mc@outlook.com"
+      :html-doctype "html5" ;; org-html-doctype
+      :headline-levels 6    ;; org-export-headline-levels
+      :language "zh"        ;; org-export-default-language
+      :html-checkbox-type unicode  ;; org-html-checkbox-type
+      :section-numbers nil  ;; org-export-with-section-numbers
+      :with-toc t           ;; org-export-with-toc
+      :html-head
+      "<link rel=\"stylesheet\" href=\"static/css/org.css\" type=\"text/css\"  />
+      <script type=\"module\" src=\"static/js/main.js\" defer></script>
+      <link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />"
+      ))))
+
+(use-package htmlize
+  :ensure t)
+
 (use-package simple-httpd
   :ensure t
-  ;; :hook (org-mode . simple-httpd-mode)
-  :init
-  (use-package htmlize)
   :custom
   (httpd-port 9517)
   (httpd-root "~/haoran/Notes/Org/Programming/public")
