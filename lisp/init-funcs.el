@@ -225,6 +225,9 @@ the current layouts buffers."
   "Create a new tab bar and switch dashboard."
   (interactive)
   (tab-bar-new-tab)
+  ;; TODO use if instead
+  (pcase (treemacs-current-visibility)
+    ('visible (delete-window (treemacs-get-local-window))))
   (dashboard-refresh-buffer))
 
 ;;;###autoload
