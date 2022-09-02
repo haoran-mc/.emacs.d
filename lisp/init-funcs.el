@@ -91,7 +91,8 @@ confirmation."
 (defun +open-file-init ()
   "Open file: init.el."
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file "~/.emacs.d/init.el")
+  (tab-bar-rename-tab "hack"))
 
 ;;;###autoload
 (defun +open-file-note ()
