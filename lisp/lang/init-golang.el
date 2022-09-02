@@ -30,7 +30,7 @@
     :bind (:map go-mode-map
            ("C-c t a" . go-tag-add)
            ("C-c t r" . go-tag-remove))
-    :init (setq go-tag-args (list "-transform" "camelcase")))
+    :init (setq go-tag-args (list "-transform" "snakecase")))
 
   (use-package go-gen-test
     :bind (:map go-mode-map
