@@ -17,8 +17,7 @@
   :bind (:map markdown-mode-map
               ("C-c m r" . +markdown-insert-ruby-tag)
               ("C-c m d" . +markdown-insert-details)
-              ("C-c m p" . +markdown-preview-as-html)
-              ("C-c m k" . +markdown-kill-grip))
+              ("C-c m p" . grip-mode))
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
@@ -42,24 +41,13 @@
     (interactive "sTitle: ")
     (insert (format "<details><summary>%s</summary>\n\n</details>" title)))
 
-  ;; sudo pip install grip
-  (defun +markdown-preview-as-html ()
-    "Preview markdown as html."
-    (interactive)
-    (start-process "grip" "*gfm-to-html*" "grip"
-                   (buffer-file-name) "5000")
-    (browse-url (format "http://localhost:5000/%s.%s"
-                        (file-name-base (buffer-file-name))
-                        (file-name-extension (buffer-file-name)))))
-
-  ;; kill grip process, M-x list-processes to list processes
-  (defun +markdown-kill-grip ()
-    "Preview is avaiable after kill grip."
-    (interactive)
-    (kill-process "grip"))
-
   ;; Table of contents
-  (use-package markdown-toc))
+  (use-package markdown-toc)
+
+  ;; sudo pip install grip or pip install grip
+  (use-package grip-mode
+    :ensure t
+    :hook (markdown-mode . grip-mode)))
 
 (provide 'init-text)
 ;;; init-text.el ends here
