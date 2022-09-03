@@ -47,7 +47,7 @@
   ;; sudo pip install grip or pip install grip
   (use-package grip-mode
     :ensure t
-    :hook ((markdown-mode org-mode) . grip-mode)))
+    :hook (markdown-mode . grip-mode)))
 
 (provide 'init-text)
 ;;; init-text.el ends here
