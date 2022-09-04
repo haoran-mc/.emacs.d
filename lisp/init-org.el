@@ -269,5 +269,19 @@
 	 (tagindent ".8em")
 	 (tagside "right"))))
 
+(define-minor-mode auto-save-and-publish-file-mode
+  "Toggle auto save and publish current file."
+  :global nil
+  :lighter ""
+  (if auto-save-and-publish-file-mode
+      ;; When the mode is enabled
+      (progn
+        (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
+    ;; When the mode is disabled
+    (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
+
+(use-package auto-save-and-publish-file-mode
+  :hook (org-mode))
+
 (provide 'init-org)
 ;;; init-org.el ends here
