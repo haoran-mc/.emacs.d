@@ -77,7 +77,13 @@ current directory."
   (eshell-destroy-buffer-when-process-dies t)
   ;; Completion like bash
   (eshell-cmpl-ignore-case t)
-  (eshell-cmpl-cycle-completions nil))
+  (eshell-cmpl-cycle-completions nil)
+  ;; (eshell-prompt-function
+  ;;       (lambda ()
+  ;;         (concat (abbreviate-file-name (eshell/pwd))
+  ;;                 " $ ")))
+  )
+
 
 (use-package em-rebind
   :ensure nil
