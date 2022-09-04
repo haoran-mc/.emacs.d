@@ -104,21 +104,6 @@ current directory."
          (shell-mode . revert-tab-width-to-default))
   :bind ("M-`" . shell-toggle) ;; was `tmm-menubar'
   :config
-  (defun shell-toggle ()
-    "Toggle a persistent shell popup window.
-If popup is visible but unselected, select it.
-If popup is focused, kill it."
-    (interactive)
-    (if-let ((win (get-buffer-window "*shell-popup*")))
-        (if (eq (selected-window) win)
-            ;; If users attempt to delete the sole ordinary window, silence it.
-            (ignore-errors (delete-window win))
-          (select-window win))
-      (let ((display-comint-buffer-action '(display-buffer-at-bottom
-                                            (inhibit-same-window . nil))))
-        (when-let ((proc (ignore-errors (get-buffer-process (shell "*shell-popup*")))))
-          (set-process-sentinel proc #'shell-self-destroy-sentinel)))))
-
   ;; Correct indentation for `ls'
   (defun revert-tab-width-to-default ()
     "Revert `tab-width' to default value."
