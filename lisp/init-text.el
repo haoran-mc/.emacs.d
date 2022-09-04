@@ -42,12 +42,20 @@
     (insert (format "<details><summary>%s</summary>\n\n</details>" title)))
 
   ;; Table of contents
-  (use-package markdown-toc)
+  (use-package markdown-toc
+    :bind (:map markdown-mode-command-map
+                ("r" . markdown-toc-generate-or-refresh-toc)))
 
   ;; sudo pip install grip or pip install grip
   (use-package grip-mode
-    :ensure t
-    :hook (markdown-mode . grip-mode)))
+    :defines org-mode-map
+    :bind (:map markdown-mode-command-map
+                ("g" . grip-mode))
+    :init
+    (with-eval-after-load 'org
+      (bind-key "C-c C-g" #'grip-mode org-mode-map))
+
+    (setq grip-update-after-change nil)))
 
 (provide 'init-text)
 ;;; init-text.el ends here
