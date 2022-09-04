@@ -33,11 +33,14 @@
     (require 'aweshell)
     :bind(("C-c e n"   . aweshell-new)
           ("C-c e t"   . aweshell-toggle)
-          ("C-c e d" . aweshell-dedicated-toggle)
-          ))
+          ("C-c e d" . aweshell-dedicated-toggle))
+    :config
+    (with-eval-after-load "esh-opt"
+      (autoload 'epe-theme-lambda "eshell-prompt-extras")
+      (setq eshell-highlight-prompt nil
+            eshell-prompt-function 'epe-theme-dakrone)))
   :custom
   (eshell-banner-message ""))
-
 
 (use-package em-rebind
   :ensure nil
