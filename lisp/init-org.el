@@ -147,9 +147,10 @@
               ("C-c C-c" . org-edit-src-exit))
   :custom
   (org-confirm-babel-evaluate nil)
-  (org-src-fontify-natively t)
+  (org-src-fontify-natively t) ;; syntax code on org mode
+  (org-edit-src-content-indentation 2) ;; src content indent 2
   (org-src-tab-acts-natively t)
-  (org-src-preserve-indentation t)
+  (org-src-preserve-indentation nil) ;; used with the sentence above
   (org-src-window-setup 'other-window)
   (org-src-lang-modes '(("C"      . c)
                         ("C++"    . c++)
