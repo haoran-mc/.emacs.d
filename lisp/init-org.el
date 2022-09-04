@@ -159,13 +159,15 @@
                         ("dot"    . graphviz-dot) ;; was `fundamental-mode'
                         ("elisp"  . emacs-lisp)
                         ("ocaml"  . tuareg)
-                        ("shell"  . sh)))
+                        ("shell"  . sh)
+                        ("go"     . go)))
   (org-babel-load-languages '((C          . t)
                               (dot        . t)
                               (emacs-lisp . t)
                               (eshell     . t)
                               (python     . t)
-                              (shell      . t))))
+                              (shell      . t)
+                              (go         . t))))
 
 ;; Create structured information quickly
 (use-package org-capture
