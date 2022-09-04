@@ -17,25 +17,6 @@
     (kill-buffer (process-buffer proc))
     (ignore-errors (delete-window))))
 
-;; General term mode
-;;
-;; If you use bash, directory track is supported natively.
-;; See https://www.emacswiki.org/emacs/AnsiTermHints for more information.
-(use-package term
-  :ensure nil
-  :hook ((term-mode . shell-mode-common-init)
-         (term-mode . term-mode-prompt-regexp-setup)
-         (term-exec . term-mode-set-sentinel))
-  :config
-  (defun term-mode-prompt-regexp-setup ()
-    "Setup `term-prompt-regexp' for term-mode."
-    (setq-local term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
-
-  (defun term-mode-set-sentinel ()
-    "Close buffer after exit."
-    (when-let ((proc (ignore-errors (get-buffer-process (current-buffer)))))
-      (set-process-sentinel proc #'shell-self-destroy-sentinel))))
-
 ;; the Emacs shell & friends
 (use-package eshell
   :ensure nil
