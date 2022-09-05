@@ -1,6 +1,10 @@
-- intro: introduction, document, comment
+- add: add functions, add package,
+- set: set :custom configuration, set :config configuration, set :hook...
+- remove: remove package
+- delete: delete functions, delete configuration
+- modify: modify code
+- change: change keys
 - ui: user interface
-- funcs: add functions
-- package: add packages
-- custom: customize configuration
-- hook: add hooks
+- backup: backup functions, packages, configuration
+- info: introduction, document, comment, data, steps
+- refactor: refactor code
