@@ -57,12 +57,11 @@
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
-          'doom-horizon 'doom-Iosvkem 'doom-lantern 'doom-laserwave
-          'doom-material-dark 'doom-molokai 'doom-monokai-octagon
-          'doom-monokai-pro 'doom-monokai-spectrum 'doom-moonlight
-          'doom-old-hope 'doom-one 'doom-opera 'doom-outrun-electric
-          'doom-palenight 'doom-peacock 'doom-rouge 'doom-snazzy
-          'doom-solarized-dark 'doom-solarized-dark-high-contrast
+          'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
+          'doom-monokai-octagon 'doom-monokai-pro 'doom-monokai-spectrum
+          'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
+          'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
+          'doom-snazzy 'doom-solarized-dark 'doom-solarized-dark-high-contrast
           'doom-sourcerer 'doom-spacegrey 'doom-tokyo-night 'doom-tomorrow-night
           'doom-vibrant 'doom-wilmersdorf 'doom-xcode 'doom-zenburn
           ))
@@ -72,8 +71,9 @@
           'doom-opera-light 'doom-solarized-light 'doom-tomorrow-day
           ))
   (defvar strange-themes
-    (list 'doom-1337 'doom-dark+ 'doom-manegarm 'doom-miramare 'doom-nord-light
-          'doom-plain 'doom-plain-dark 'doom-shades-of-purple
+    (list 'doom-1337 'doom-dark+ 'doom-lantern 'doom-laserwave 'doom-manegarm
+          'doom-miramare 'doom-nord-light 'doom-plain 'doom-plain-dark
+          'doom-shades-of-purple
           ))
   (defun random-choice (items)
     "Random choice in ITEMS."
