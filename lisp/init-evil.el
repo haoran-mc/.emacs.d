@@ -16,6 +16,8 @@
   :hook (after-init . evil-mode)
   ;; Don't quit Emacs on `:q'.
   :bind (([remap evil-quit] . kill-this-buffer)
+         :map evil-normal-state-map
+         ("Q" . kill-this-buffer)
          :map evil-motion-state-map
          ("F" . evil-avy-goto-char-in-line))
   :config
@@ -170,6 +172,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "fR" '+rename-current-file
       "fr" 'recentf-open-files
       "fl" 'find-file-literally
+      "ft" 'treemacs
 
       ;; open
       "o" '(:wk "open")
@@ -181,6 +184,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oo" '+open-in-browser
       ;; open file
       "of" '(:wk "open file")
+      "oi"  '+open-file-note
       "ofi" '+open-file-note
       "ofr" '+open-file-init
       "ofm" '+open-file-markdown
