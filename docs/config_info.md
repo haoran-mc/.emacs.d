@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![Build Status](https://github.com/haoran-mc/.emacs.d/workflows/CI/badge.svg)](https://github.com/haoran-mc/.emacs.d/actions)
+[![Build Status](https://github.com/condy0919/.emacs.d/workflows/CI/badge.svg)](https://github.com/haoran-mc/.emacs.d/actions)
 [![License](http://img.shields.io/:license-gpl3-blue.svg)](LICENSE)
 ![Supports Emacs 27.1-29.x](https://img.shields.io/badge/Supports-Emacs_27.1_--_29.x-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white)
 
