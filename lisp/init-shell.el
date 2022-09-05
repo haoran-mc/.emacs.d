@@ -73,27 +73,16 @@
        '(epe-pipeline-host-face ((t (:foreground "skyblue"))))
        '(epe-pipeline-user-face ((t (:foreground "darkcyan"))))
        '(epe-pipeline-time-face ((t (:foreground "darkorange"))))))
-    :bind(("C-c e n" . aweshell-new)
-          ("C-c e t" . aweshell-toggle)
-          ("C-c e d" . aweshell-dedicated-toggle))
+    :bind(("C-c C-e n"   . aweshell-new)
+          ("C-c C-e t"   . aweshell-toggle)
+          ("C-c C-e d"   . aweshell-dedicated-toggle)
+          ("C-c C-e C-n" . aweshell-next)
+          ("C-c C-e C-p" . aweshell-prev))
     :config
     (with-eval-after-load "esh-opt"
       (autoload 'epe-theme-lambda "eshell-prompt-extras")
       (setq eshell-highlight-prompt nil
             eshell-prompt-function 'epe-theme-pipeline)))
-  ;; functions
-  (defun eshell/ll (&rest args) (eshell/ls "-l" args))
-  (defun eshell/lll (&rest args) (eshell/ls "-all" args))
-  (defun eshell/e (file) (find-file file))
-  (defun eshell/clear ()
-    "Clear the eshell buffer."
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (eshell-send-input)))
-  ;; alias
-  (defalias 'eshell/vi 'find-file)
-  (defalias 'eshell/vim 'find-file)
-  (defalias 'eshell/nvim 'find-file)
   :custom
   (eshell-banner-message ""))
 
