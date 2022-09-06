@@ -18,7 +18,12 @@
     "C-c y" "yasnippet"
     "C-x a" "abbrev"
     "C-x n" "narrow"
-    "C-x t" "tab")
+    "C-x t" "tab"
+    "C-c C-e" "eshell")
+  (which-key-add-major-mode-key-based-replacements 'markdown-mode
+    "C-c m" "markdown")
+  (which-key-add-major-mode-key-based-replacements 'go-mode
+    "C-c t" "hl-todo/go-tag")
   :custom
   (which-key-idle-delay 0.5)
   (which-key-add-column-padding 1))
