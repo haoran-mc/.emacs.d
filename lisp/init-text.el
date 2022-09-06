@@ -17,7 +17,7 @@
   :bind (:map markdown-mode-map
               ("C-c m r" . +markdown-insert-ruby-tag)
               ("C-c m d" . +markdown-insert-details)
-              ("C-c m p" . grip-mode))
+              ("C-c m g" . grip-mode))
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
