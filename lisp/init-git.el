@@ -14,7 +14,11 @@
   :ensure t
   :bind (("C-x g"   . magit-status)
          ("C-x M-g" . magit-dispatch)
-         ("C-c M-g" . magit-file-dispatch))
+         ("C-c M-g" . magit-file-dispatch)
+         :map magit-status-mode-map
+         ("Q"       . quit-window)) ;; TODO set q quit-window
+  ;; (add-hook 'magit-status-mode-hook  ;; TODO why it doesn't work
+  ;;           #'(lambda () (local-set-key (kbd "q") 'quit-window)))
   :custom
   (magit-diff-refine-hunk t)
   (magit-diff-paint-whitespace nil)
@@ -65,8 +69,8 @@
 (use-package browse-at-remote
   :ensure t
   :bind (:map vc-prefix-map
-         ("b" . bar-browse)         ;; was `vc-switch-backend', obsolete since 28.1
-         ("c" . bar-to-clipboard))
+              ("b" . bar-browse)         ;; was `vc-switch-backend', obsolete since 28.1
+              ("c" . bar-to-clipboard))
   :custom
   (browse-at-remote-add-line-number-if-no-region-selected nil))
 
