@@ -12,13 +12,12 @@
 ;; See `magit-define-global-key-bindings' for more information.
 (use-package magit
   :ensure t
-  :bind (("C-x g"   . magit-status)
+  :bind (([remap magit-mode-bury-buffer] . kill-this-buffer)
+         ("C-x g"   . magit-status)
          ("C-x M-g" . magit-dispatch)
          ("C-c M-g" . magit-file-dispatch)
          :map magit-status-mode-map
-         ("Q"       . quit-window)) ;; TODO set q quit-window
-  ;; (add-hook 'magit-status-mode-hook  ;; TODO why it doesn't work
-  ;;           #'(lambda () (local-set-key (kbd "q") 'quit-window)))
+         ("Q"       . quit-window))
   :custom
   (magit-diff-refine-hunk t)
   (magit-diff-paint-whitespace nil)
