@@ -336,7 +336,7 @@
          ("C-x t M-t" . treemacs-find-tag)
          :map treemacs-mode-map
          ([mouse-1]   . treemacs-single-click-expand-action)
-         ("a"         . treemacs-visit-node-no-split))
+         ("o 1"       . treemacs-visit-node-no-split))
   :config
   (setq treemacs-collapse-dirs           (if treemacs-python-executable 3 0)
         treemacs-missing-project-action  'remove
