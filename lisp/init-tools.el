@@ -341,6 +341,10 @@
         treemacs-sorting                 'alphabetic-asc
         treemacs-follow-after-init       t
         treemacs-width                   30)
+  (treemacs-define-RET-action 'file-node-closed
+                              #'(lambda(&optional arg)
+                                  (treemacs-visit-node-in-most-recently-used-window)
+                                  (delete-window (treemacs-get-local-window))))
   :config
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
