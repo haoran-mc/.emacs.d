@@ -324,7 +324,8 @@
              treemacs-fringe-indicator-mode
              treemacs-git-mode)
   :custom-face
-  (cfrs-border-color ((t (:background ,(face-foreground 'font-lock-comment-face nil t)))))
+  (cfrs-border-color
+   ((t (:background ,(face-foreground 'font-lock-comment-face nil t)))))
   :bind (([f8]        . treemacs)
          ("M-0"       . treemacs-select-window)
          ("C-x 1"     . treemacs-delete-other-windows)
@@ -334,7 +335,8 @@
          ("C-x t C-t" . treemacs-find-file)
          ("C-x t M-t" . treemacs-find-tag)
          :map treemacs-mode-map
-         ([mouse-1]   . treemacs-single-click-expand-action))
+         ([mouse-1]   . treemacs-single-click-expand-action)
+         ("a"         . treemacs-visit-node-no-split))
   :config
   (setq treemacs-collapse-dirs           (if treemacs-python-executable 3 0)
         treemacs-missing-project-action  'remove
