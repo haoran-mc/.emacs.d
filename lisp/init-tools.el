@@ -336,7 +336,7 @@
          ("C-x t M-t" . treemacs-find-tag)
          :map treemacs-mode-map
          ([mouse-1]   . treemacs-single-click-expand-action)
-         ("o 1"       . treemacs-visit-node-no-split))
+         ("o 1"       . treemacs-visit-node-first-window))
   :config
   (setq treemacs-collapse-dirs           (if treemacs-python-executable 3 0)
         treemacs-missing-project-action  'remove
@@ -347,6 +347,10 @@
                               #'(lambda(&optional arg)
                                   (treemacs-visit-node-in-most-recently-used-window)
                                   (delete-window (treemacs-get-local-window))))
+  (defun treemacs-visit-node-first-window(&optional arg)
+    (interactive "P")
+    (treemacs-visit-node-no-split)
+    (delete-window (treemacs-get-local-window)))
   :config
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
