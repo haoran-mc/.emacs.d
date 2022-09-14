@@ -191,9 +191,6 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "ofm" '+open-file-markdown
       "ofn" '+open-file-navigate
       "ofb" '+open-file-backup
-      ;; open buffer in browser
-      "ob" '(:wk "browser site")
-      "obb" '+preview-current-buffer-in-browser
 
       ;; project
       "p" 'projectile-command-map
@@ -254,6 +251,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "T" 'org-todo-list
 
         ;; babel
+        "b"  '(:wk "babel")
         "bp" 'org-babel-previous-src-block
         "bn" 'org-babel-next-src-block
         "be" 'org-babel-expand-src-block
@@ -268,6 +266,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "bk" 'org-babel-remove-result-one-or-many
 
         ;; clock
+        "c"  '(:wk "clock")
         "cc" 'org-clock-in
         "cC" 'org-clock-out
         "cd" 'org-clock-mark-default-task
@@ -281,10 +280,17 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "c-" 'org-clock-timestamps-down
 
         ;; insert
+        "i"  '(:wk "insert")
         "id" 'org-insert-drawer
         "in" 'org-add-note
         "it" 'org-time-stamp-inactive
-        "iT" 'org-time-stamp))
+        "iT" 'org-time-stamp
+
+        ;; user
+        "u"   '(:wk "user")
+        "ub"  '(:wk "browser")
+        "ubb" '+preview-current-buffer-in-browser
+        ))
 
     (with-eval-after-load 'elisp-mode
       (dolist (keymap (list emacs-lisp-mode-map lisp-interaction-mode-map))
