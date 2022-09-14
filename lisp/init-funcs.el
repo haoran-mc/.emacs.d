@@ -98,7 +98,7 @@ confirmation."
 (defun +open-file-note ()
   "Open file: init.el."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/Programming/org/index.org")
+  (find-file "/home/haoran/haoran/Notes/Org/site/org/index.org")
   (tab-bar-rename-tab "note"))
 
 ;;;###autoload
@@ -137,22 +137,6 @@ confirmation."
       (progn
         (+indent-buffer)
         (message "Indented buffer.")))))
-
-;;;###autoload
-(defun +save-and-publish-file ()
-  "Save current buffer and publish."
-  (interactive)
-  (save-buffer t)
-  (org-publish-current-file t))
-
-;;;###autoload
-(defun +preview-current-buffer-in-browser ()
-  "Open current buffer as html."
-  (interactive)
-  (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
-    (+save-and-publish-file)
-    (unless (httpd-running-p) (httpd-start))
-    (browse-url-chrome fileurl)))
 
 ;;;###autoload
 (defun spacemacs/alternate-buffer (&optional window)
