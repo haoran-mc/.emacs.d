@@ -92,6 +92,8 @@
 ;; Delete trailing whitespace after save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(global-set-key (kbd "M-:") 'execute-extended-command)
+
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
 (set-face-attribute 'default nil :font "Source Code Pro" :weight 'semi-bold)

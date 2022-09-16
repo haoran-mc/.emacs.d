@@ -110,6 +110,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; SPC, quit minibuffer.
       ;; "SPC" 'keyboard-escape-quit
       "SPC" 'execute-extended-command
+      ":"   'execute-extended-command
       "TAB" 'spacemacs/alternate-buffer
 
       ;; Resume
