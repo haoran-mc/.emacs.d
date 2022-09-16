@@ -105,7 +105,7 @@
 - C-c r    lsp-bridge-rename
 - C-c C-c  eval-to-comment
 
-## 其他原生快捷键
+## 其他原生快捷键（ctrl）
 
 **帮助**
 - ctrl h v  查看变量
@@ -175,6 +175,12 @@
 - ctrl x  +prefix
 - ctrl y  粘贴
 - ctrl z  evil-exit-emacs-state
+
+## Meta 快捷键
+
+- M-;  comment-or-uncomment
+- M-:  eval-expression -> execute-extended-commend
+- M-x  execute-extended-command
 
 ## 根据插件/功能分类，方便查找
 ### org-mode
