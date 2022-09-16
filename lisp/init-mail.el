@@ -121,7 +121,7 @@
   :ensure nil
   :hook (message-mode . auto-fill-mode)
   :custom
-  (user-full-name "HaoRan Liu")
+  (user-full-name "Haoran Liu")
   (user-mail-address "haoran.mc@gmail.com")
   (message-kill-buffer-on-exit t)
   (message-signature user-full-name)
