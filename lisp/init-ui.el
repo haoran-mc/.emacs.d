@@ -69,6 +69,7 @@
     (list 'doom-acario-light 'doom-ayu-light 'doom-flatwhite 'doom-gruvbox-light
           'doom-homage-white 'doom-monokai-classic 'doom-one-light
           'doom-opera-light 'doom-solarized-light 'doom-tomorrow-day
+          'modus-operandi
           ))
   (defvar strange-themes
     (list 'doom-1337 'doom-dark+ 'doom-lantern 'doom-laserwave 'doom-manegarm
@@ -92,11 +93,13 @@
     (let* ((selected-theme (random-choice pretty-dark-themes)))
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
+  (defun +load-theme-accoriding-time ()) ;; TODO
   :config
   ;; (+load-theme-random)
-  (+load-theme-from-selected)
+  ;; (+load-theme-from-selected)
   ;; (load-theme 'painting-dark t)
-  ;; (load-theme 'modus-vivendi t)
+  (load-theme 'modus-vivendi t)
+  ;; (load-theme 'modus-operandi t)
   )
 
 ;; Customize popwin behavior
