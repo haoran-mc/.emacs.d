@@ -126,25 +126,25 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
-      "bb" 'switch-to-buffer
-      "bB" 'switch-to-buffer-other-window
-      "bc" 'clone-indirect-buffer
-      "bC" 'clone-indirect-buffer-other-window
-      "by" '+copy-current-buffer-name
-      "bv" 'revert-buffer
-      "bx" '+create-scratch-buffer
-      "bz" 'bury-buffer
+      "bb" 'switch-to-buffer                    ;; switch buffer
+      "bB" 'switch-to-buffer-other-window       ;; switch buffer other window
+      "bc" 'clone-indirect-buffer               ;; clone indirect buffer
+      "bC" 'clone-indirect-buffer-other-window  ;; clone indirect buffer other window
+      "by" '+copy-current-buffer-name           ;; copy current buffer name
+      "bv" 'revert-buffer                       ;; revert buffer
+      "bx" '+create-scratch-buffer              ;; create scratch buffer
+      "bz" 'bury-buffer                         ;; bury buffer
       ;; --------------
-      "bm" 'bookmark-set
-      "bM" 'bookmark-set-no-overwrite
-      "bi" 'bookmark-insert
-      "br" 'bookmark-rename
-      "bd" 'bookmark-delete
-      "bw" 'bookmark-write
-      "bj" 'bookmark-jump
-      "bJ" 'bookmark-jump-other-window
-      "bl" 'bookmark-bmenu-list
-      "bs" 'bookmark-save
+      "bm" 'bookmark-set                        ;; add a new bookmark
+      "bM" 'bookmark-set-no-overwrite           ;; add a new bookmark while no overwrite
+      "bi" 'bookmark-insert                     ;; insert the selected bookmark content current postion
+      "br" 'bookmark-rename                     ;; rename bookmark
+      "bd" 'bookmark-delete                     ;; delete bookmark
+      "bw" 'bookmark-write                      ;; write bookmark into a file
+      "bj" 'bookmark-jump                       ;; jump bookmark
+      "bJ" 'bookmark-jump-other-window          ;; jump bookmark other window
+      "bl" 'bookmark-bmenu-list                 ;; list bookmark
+      "bs" 'bookmark-save                       ;; save bookmark
 
       ;; code
       "c" '(:wk "code")
