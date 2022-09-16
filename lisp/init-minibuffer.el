@@ -5,6 +5,7 @@
 
 ;;; Code:
 
+;; enhance minibuffer
 (use-package vertico
   :ensure t
   :hook ((after-init . vertico-mode)
@@ -12,12 +13,24 @@
   :custom
   (vertico-sort-function nil))
 
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless)))
+
+;; show description on minibuffer
+(use-package marginalia
+  :ensure t
+  :hook (after-init . marginalia-mode))
+
 (use-package embark
   :ensure t
   :bind (:map minibuffer-local-map
          ("M-o"     . embark-act)
          ("C-c C-c" . embark-export)
-         ("C-c C-o" . embark-collect)))
+         ("C-c C-o" . embark-collect))
+  :custom
+  (prefix-help-command 'embark-prefix-help-command))
 
 (use-package consult
   :ensure t
@@ -26,7 +39,9 @@
          ([remap bookmark-jump]          . consult-bookmark)
          ([remap evil-show-marks]        . consult-mark)
          ([remap recentf-open-files]     . consult-recent-file)
-         ([remap repeat-complex-command] . consult-complex-command))
+         ([remap repeat-complex-command] . consult-complex-command)
+         ([remap isearch-forward]        . consult-line)
+         ([remap projectile-ripgrep]     . consult-ripgrep))
   :config
   (with-no-warnings
     (consult-customize consult-ripgrep consult-git-grep consult-grep
