@@ -18,7 +18,7 @@
   :init
   (require 'org-tempo) ;; <s
   :custom
-  (org-directory "~/.org/")
+  (org-directory "~/haoran/Notes/Org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
   (org-startup-indented t)
@@ -128,8 +128,8 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files (list (expand-file-name "tasks.org" org-directory)))
-  (org-agenda-diary-file (expand-file-name "diary.org" org-directory))
+  (org-agenda-files '("~/haoran/Notes/Org/agenda/"))
+  (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
   (org-agenda-insert-diary-extract-time t)
   (org-agenda-inhibit-startup t)
   (org-agenda-time-leading-zero t)
