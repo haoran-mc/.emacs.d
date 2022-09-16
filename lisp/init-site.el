@@ -24,6 +24,9 @@
 
 ;;; Code:
 
+(require 'ox)
+(require 'ox-html)
+
 (progn
   "Settings of `org-export'."
   (setq org-export-in-background t
