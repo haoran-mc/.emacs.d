@@ -8,3 +8,5 @@
 - backup: backup functions, packages, configuration
 - info: introduction, document, comment, data, steps
 - refactor: refactor code
+- construction: no major changes
+- keybindings: bind keys
