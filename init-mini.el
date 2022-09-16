@@ -35,7 +35,7 @@
 (add-to-list 'load-path (file-name-as-directory (locate-user-emacs-file "lisp")))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
-(require 'init-base)
+;; (require 'init-base)
 
 ;; Incremental complete in minibuffer
 (use-package icomplete
