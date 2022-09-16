@@ -5,20 +5,7 @@
 - C-m RET
 - C-i TAB
 
-## 帮助
-
-- ctrl h v  查看变量
-- ctrl h k  查看按键绑定
-- ctrl h m  查看major-mode
-- ctrl h f  查看函数
-- ctrl h w  查看函数绑定按键
-- ctrl h e  查看message buffer
-- ctrl h o  查看标志
-- ctrl h d  查看文档
-- ctrl h c  简短介绍按键功能
-- ctrl h b  查看键绑定
-
-## 其他原生快捷键（C-x）
+## 原生快捷键（C-x）
 
 - ctrl x ctrl f  查询、创建文件
 - ctrl x 0       关闭当前窗口
@@ -52,6 +39,7 @@
 | C-x & | C-x '  | C-x C-\` | C-x C-* | C-x C-> | C-x C-SPC |           |
 | C-x _ | C-x "  | C-x C-~  | C-x C-( | C-x C-, | C-x C-DEL |           |
 | C-x 9 | C-x c  | C-x C-!  | C-x C-) | C-x C-. | C-x C-RET |           |
+
 ## 自定义 C-x 为前缀的快捷键
 
 - C-x 1      treemacs-delete-other-windows
@@ -63,7 +51,7 @@
 - C-x g      margit-status
 - C-x M-g    magit-dispatch
 
-## 其他原生快捷键（C-c）
+## 原生快捷键（C-c）
 
 - ctrl c ctrl q  只读可写转换
 
@@ -117,14 +105,78 @@
 - C-c r    lsp-bridge-rename
 - C-c C-c  eval-to-comment
 
+## 其他原生快捷键
+
+**帮助**
+- ctrl h v  查看变量
+- ctrl h k  查看按键绑定
+- ctrl h m  查看major-mode
+- ctrl h f  查看函数
+- ctrl h w  查看函数绑定按键
+- ctrl h e  查看message buffer
+- ctrl h o  查看标志
+- ctrl h d  查看文档
+- ctrl h c  简短介绍按键功能
+- ctrl h b  查看键绑定
+
+
+**evil-normal-state**
+- ctrl a  前往行首
+- ctrl b  上翻一页
+- ctrl c  +prefix
+- ctrl d  下翻半页
+- ctrl e  上移一行
+- ctrl f  下翻一页
+- ctrl g  keyboard-quit
+- ctrl h  帮助
+- ctrl i  evil-jump-forward
+- ctrl j  electric-newline-and-maybe-indent
+- ctrl k  删除光标到行尾
+- ctrl l  recenter-top-bottom
+- ctrl m  回车，部分 mode 有其他作用
+- ctrl n  evil-paste-pop-next
+- ctrl o  evil-jump-backward
+- ctrl p  evil-paste-pop
+- ctrl q  quoted-insert
+- ctrl r  redo
+- ctrl s  isearch
+- ctrl t  pop-tag-mark
+- ctrl u  上翻半页
+- ctrl v  可视块
+- ctrl w  +windows
+- ctrl x  +prefix
+- ctrl y  evil-scroll-line-up
+- ctrl z  evil-exit-emacs-state
+
+**evil-insert-state**
+- ctrl a  前往行首
+- ctrl b  后退一个字符
+- ctrl c  +prefix
+- ctrl d  删除前面一个字符
+- ctrl e  前往行尾
+- ctrl f  前进一个字符
+- ctrl g  keyboark-quit
+- ctrl h  帮助
+- ctrl i  TAB
+- ctrl j  electric-newline-and-maybe-indent
+- ctrl k  删除光标到行尾
+- ctrl l  recenter-top-bottom
+- ctrl m  RET
+- ctrl n  下一行
+- ctrl o  下面创建新行
+- ctrl p  上一行
+- ctrl q  quoted-insert
+- ctrl r  isearch-backward
+- ctrl s  isearch
+- ctrl t  交换当前字符与前一个字符
+- ctrl u  重复插入
+- ctrl v  scroll-up-command
+- ctrl w  删除前一个单词
+- ctrl x  +prefix
+- ctrl y  粘贴
+- ctrl z  evil-exit-emacs-state
+
 ## 根据插件/功能分类，方便查找
-### evil-mode
-
-- ctrl d 下翻半页
-- ctrl u 上翻半页
-- ctrl f 下翻一页
-- ctrl b 上翻一页
-
 ### org-mode
 
 - ctrl c ctrl l  创建、修改链接
@@ -156,7 +208,6 @@
 
 ### treemacs
 
-- [X] [f8]             开启treemacs
 - [X] ctrl x t t       开启treemacs
 - [X] ctrl x 1         删除其他窗口
 - [X] ctrl x t 1       删除其他窗口
@@ -176,14 +227,13 @@
 - [X] ctrl c b  返回进入位置
 - [X] ctrl c r  变量重命名
 
-### prog-mode
-#### go-mode
+### go-mode
 
-- [X] ctrl c ctrl c    运行当前buffer
-- ctrl c ctrl a    添加import
-- [X] ctrl c ctrl u    删除未使用的import
-- ctrl c ctrl d    描述鼠标位置表达式
-- ctrl c ctrl j    跳转到当前变量、函数定义
+- [X] ctrl c ctrl c  运行当前buffer
+- ctrl c ctrl a      添加import
+- [X] ctrl c ctrl u  删除未使用的import
+- ctrl c ctrl d      描述鼠标位置表达式
+- ctrl c ctrl j      跳转到当前变量、函数定义
 - ctrl x 4 ctrl c ctrl j  用其他窗口跳转当前变量、函数定义
 - ctrl c ctrl f i  跳转到import
 - ctrl c ctrl f a  跳转到参数列表
