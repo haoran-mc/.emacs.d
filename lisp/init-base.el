@@ -132,6 +132,11 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
+(use-package bookmark
+  :ensure nil
+  :custom
+  (bookmark-default-file "/home/haoran/haoran/Notes/Org/bookmark-default.el"))
+
 ;; Highlight parenthesises
 (use-package paren
   :ensure nil
