@@ -73,11 +73,11 @@
        '(epe-pipeline-host-face ((t (:foreground "skyblue"))))
        '(epe-pipeline-user-face ((t (:foreground "darkcyan"))))
        '(epe-pipeline-time-face ((t (:foreground "darkorange"))))))
-    :bind(("C-c C-e n"   . aweshell-new)
-          ("C-c C-e t"   . aweshell-toggle)
-          ("C-c C-e d"   . aweshell-dedicated-toggle)
-          ("C-c C-e C-n" . aweshell-next)
-          ("C-c C-e C-p" . aweshell-prev))
+    :bind(("C-c e n"   . aweshell-new)
+          ("C-c e t"   . aweshell-toggle)
+          ("C-c e d"   . aweshell-dedicated-toggle)
+          ("C-c e C-n" . aweshell-next)
+          ("C-c e C-p" . aweshell-prev))
     :config
     (with-eval-after-load "esh-opt"
       (autoload 'epe-theme-lambda "eshell-prompt-extras")

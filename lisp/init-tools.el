@@ -23,7 +23,7 @@
   (which-key-add-major-mode-key-based-replacements 'markdown-mode
     "C-c m" "markdown")
   (which-key-add-major-mode-key-based-replacements 'go-mode
-    "C-c t" "hl-todo/go-tag")
+    "C-c t" "hl-todo/go-tag/test")
   :custom
   (which-key-idle-delay 0.5)
   (which-key-add-column-padding 1))
@@ -207,7 +207,7 @@
 (use-package webjump
   :ensure nil
   ;; C-c / will be shadowed by `org-sparse-tree' in org-mode
-  :bind ("C-c C-/" . webjump)
+  :bind ("C-c /" . webjump)
   :config
   (defconst webjump-weather-default-cities '("杭州" "深圳" "北京" "上海"))
   (defconst webjump-weather-url-template "https://weathernew.pae.baidu.com/weathernew/pc?query=%s天气&srcid=4982")
@@ -326,8 +326,7 @@
   :custom-face
   (cfrs-border-color
    ((t (:background ,(face-foreground 'font-lock-comment-face nil t)))))
-  :bind (([f8]        . treemacs)
-         ("M-0"       . treemacs-select-window)
+  :bind (("M-0"       . treemacs-select-window)
          ("C-x 1"     . treemacs-delete-other-windows)
          ("C-x t 1"   . treemacs-delete-other-windows)
          ("C-x t t"   . treemacs)
