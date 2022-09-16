@@ -163,7 +163,7 @@
 ;; Browse devdocs.io
 (use-package devdocs
   :ensure t
-  :bind ("C-c b" . devdocs-lookup)
+  :bind ("C-c B" . devdocs-lookup)
   :config
   (add-to-list 'completion-category-defaults '(devdocs (styles . (flex)))))
 
