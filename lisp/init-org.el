@@ -10,11 +10,13 @@
 
 (use-package org
   :ensure nil
-  :hook ((org-mode . visual-line-mode)
+  :hook ((org-mode . (lambda()
+                       (visual-line-mode)
+                       (setq word-wrap nil)))
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto)
-                       (message "hello world"))))
+                       (message "hello org-mode"))))
   :init
   (require 'org-tempo) ;; <s
   :custom
