@@ -184,6 +184,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oe" 'eshell
       "os" 'shell
       "oo" '+open-in-browser
+      "od" '+open-current-directory  ;; depend on consult
       ;; open file
       "of" '(:wk "open file")
       "oi"  '+open-file-note

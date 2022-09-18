@@ -26,9 +26,9 @@
 (use-package embark
   :ensure t
   :bind (:map minibuffer-local-map
-         ("M-o"     . embark-act)
-         ("C-c C-c" . embark-export)
-         ("C-c C-o" . embark-collect))
+              ("M-o"     . embark-act)
+              ("C-c C-c" . embark-export)
+              ("C-c C-o" . embark-collect))
   :custom
   (prefix-help-command 'embark-prefix-help-command))
 
@@ -49,6 +49,32 @@
                        consult-recent-file
                        consult-buffer
                        :preview-key nil))
+
+  (defun +consult-directory-externally (file)
+    "Open FILE externally using the default application of the system."
+    (interactive "fOpen externally: ")
+    (if (and (eq system-type 'windows-nt)
+	         (fboundp 'w32-shell-execute))
+        (shell-command-to-string
+         (encode-coding-string
+          (replace-regexp-in-string
+           "/" "\\\\" (format "explorer.exe %s"
+                              (file-name-directory
+                               (expand-file-name file)))) 'gbk))
+      (call-process (pcase system-type
+		              ('darwin "open")
+		              ('cygwin "cygstart")
+		              (_ "xdg-open"))
+		            nil 0 nil
+		            (file-name-directory (expand-file-name file)))))
+  (with-eval-after-load 'embark
+    (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
+
+  (defun +open-current-directory ()
+    "Open current FILE directory externally using the default application
+of the system."
+    (interactive)
+    (+consult-directory-externally default-directory))
   :custom
   (consult-fontify-preserve nil)
   (consult-async-min-input 2)
