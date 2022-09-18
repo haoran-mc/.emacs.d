@@ -94,6 +94,8 @@
 
 (global-set-key (kbd "M-:") 'execute-extended-command)
 
+(global-auto-revert-mode 1)
+
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
 (set-face-attribute 'default nil :font "Source Code Pro" :weight 'semi-bold)
