@@ -8,112 +8,11 @@
 (require 'init-macros)
 (require 'evil)
 
-;; beautify org star
-(use-package org-superstar
-  :ensure nil
-  :hook (org-mode . org-superstar-mode)
-  :custom
-  (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
-  ;; (setq org-superstar-bullet-list '("☰" "☷" "■" "◆" "▲" "▶"))
-  (org-ellipsis " ▼ "))
-
-;; Write codes in org-mode
-(use-package org-src
-  :ensure nil
-  :hook (org-babel-after-execute . org-redisplay-inline-images)
-  :bind (:map org-src-mode-map
-              ;; consistent with separedit/magit
-              ("C-c C-c" . org-edit-src-exit))
-  :custom
-  (org-confirm-babel-evaluate nil)
-  (org-src-fontify-natively t) ;; syntax code on org mode
-  (org-edit-src-content-indentation 2) ;; src content indent 2
-  (org-src-tab-acts-natively t)
-  (org-src-preserve-indentation nil) ;; used with the sentence above
-  (org-src-window-setup 'other-window)
-  (org-src-lang-modes '(("C"      . c)
-                        ("C++"    . c++)
-                        ("bash"   . sh)
-                        ("cpp"    . c++)
-                        ("dot"    . graphviz-dot) ;; was `fundamental-mode'
-                        ("elisp"  . emacs-lisp)
-                        ("ocaml"  . tuareg)
-                        ("shell"  . sh)
-                        ("go"     . go)))
-  (org-babel-load-languages '((C          . t)
-                              (dot        . t)
-                              (emacs-lisp . t)
-                              (eshell     . t)
-                              (python     . t)
-                              (shell      . t)
-                              (go         . t))))
-
-;; Create structured information quickly
-(use-package org-capture
-  :ensure nil
-  :hook (org-capture-mode . org-capture-setup)
-  :config
-  (with-no-warnings
-    (defun org-capture-setup ()
-      (setq-local org-complete-tags-always-offer-all-agenda-tags t))
-
-    (defun project-todo-org-file (headline)
-      (let* ((file (expand-file-name "TODO.org" (projectile-acquire-root)))
-             (buf (find-file-noselect file)))
-        (set-buffer buf)
-        ;; Set to UTF-8 because we may be visiting raw file.
-        (setq buffer-file-coding-system 'utf-8-unix)
-        (unless (org-find-exact-headline-in-buffer headline)
-          (goto-char (point-max))
-          (insert "* " headline)
-          (org-set-tags (downcase headline))))))
-  :custom
-  (org-capture-use-agenda-date t)
-  (org-capture-templates-contexts nil)
-  (org-capture-templates `(;; Tasks
-                           ("t" "Tasks")
-                           ("tt" "Today" entry (file+olp+datetree "tasks.org")
-                            "* %? %^{EFFORT}p"
-                            :prepend t)
-                           ("ti" "Inbox" entry (file+headline "tasks.org" "Inbox")
-                            "* %?\n%i\n")
-                           ("tm" "Mail" entry (file+headline "tasks.org" "Inbox")
-                            "* TODO %^{type|reply to|contact} %^{recipient} about %^{subject} :MAIL:\n")
-                           ;; Capture
-                           ("c" "Capture")
-                           ("cn" "Note" entry (file+headline "capture.org" "Notes")
-                            "* %? %^g\n%i\n")
-                           ;; Project
-                           ("p" "Project")
-                           ("pb" "Bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
-                           ("pf" "Feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
-                           ("ps" "Security"      entry (function ,(lazy! (project-todo-org-file "Security")))      "* %?")
-                           ("pe" "Enhancement"   entry (function ,(lazy! (project-todo-org-file "Enhancements")))  "* %?")
-                           ("po" "Optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
-                           ("pd" "Documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
-                           ("pm" "Miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?"))))
-
-;; Keep track of tasks
-(use-package org-agenda
-  :ensure nil
-  :hook (org-agenda-finalize . org-agenda-to-appt)
-  :config
-  ;; update appt list every 5 minutes
-  (run-at-time t 300 #'org-agenda-to-appt)
-  (shut-up! #'org-agenda-to-appt)
-  :custom
-  (org-agenda-files '("~/haoran/Notes/Org/gtd/"))
-  (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
-  (org-agenda-insert-diary-extract-time t)
-  (org-agenda-inhibit-startup t)
-  (org-agenda-time-leading-zero t)
-  (org-agenda-remove-tags t)
-  (org-agenda-columns-add-appointments-to-effort-sum t)
-  (org-agenda-restore-windows-after-quit t)
-  (org-agenda-window-setup 'current-window))
+(assq-delete-all 'org package--builtins)
+(assq-delete-all 'org package--builtin-versions)
 
 (use-package org
-  :ensure nil
+  :ensure t
   :hook ((org-mode . (lambda()
                        (visual-line-mode)
                        (setq word-wrap nil)))
@@ -227,10 +126,115 @@
                      (org-level-7 :inherit outline-7 :height 1.0)
                      (org-level-8 :inherit outline-8 :height 1.0))))
 
-(use-package org-contrib
+;; beautify org star
+(use-package org-superstar
   :ensure nil
-  :load-path
-  )
+  :hook (org-mode . org-superstar-mode)
+  :custom
+  (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
+  ;; (setq org-superstar-bullet-list '("☰" "☷" "■" "◆" "▲" "▶"))
+  (org-ellipsis " ▼ "))
+
+;; Write codes in org-mode
+(use-package org-src
+  :ensure nil
+  :hook (org-babel-after-execute . org-redisplay-inline-images)
+  :bind (:map org-src-mode-map
+              ;; consistent with separedit/magit
+              ("C-c C-c" . org-edit-src-exit))
+  :custom
+  (org-confirm-babel-evaluate nil)
+  (org-src-fontify-natively t) ;; syntax code on org mode
+  (org-edit-src-content-indentation 2) ;; src content indent 2
+  (org-src-tab-acts-natively t)
+  (org-src-preserve-indentation nil) ;; used with the sentence above
+  (org-src-window-setup 'other-window)
+  (org-src-lang-modes '(("C"      . c)
+                        ("C++"    . c++)
+                        ("bash"   . sh)
+                        ("cpp"    . c++)
+                        ("dot"    . graphviz-dot) ;; was `fundamental-mode'
+                        ("elisp"  . emacs-lisp)
+                        ("ocaml"  . tuareg)
+                        ("shell"  . sh)
+                        ("go"     . go)))
+  (org-babel-load-languages '((C          . t)
+                              (dot        . t)
+                              (emacs-lisp . t)
+                              (eshell     . t)
+                              (python     . t)
+                              (shell      . t)
+                              (go         . t))))
+
+;; Create structured information quickly
+(use-package org-capture
+  :ensure nil
+  :hook (org-capture-mode . org-capture-setup)
+  :config
+  (with-no-warnings
+    (defun org-capture-setup ()
+      (setq-local org-complete-tags-always-offer-all-agenda-tags t))
+
+    (defun project-todo-org-file (headline)
+      (let* ((file (expand-file-name "TODO.org" (projectile-acquire-root)))
+             (buf (find-file-noselect file)))
+        (set-buffer buf)
+        ;; Set to UTF-8 because we may be visiting raw file.
+        (setq buffer-file-coding-system 'utf-8-unix)
+        (unless (org-find-exact-headline-in-buffer headline)
+          (goto-char (point-max))
+          (insert "* " headline)
+          (org-set-tags (downcase headline))))))
+  :custom
+  (org-capture-use-agenda-date t)
+  (org-capture-templates-contexts nil)
+  (org-capture-templates `(;; Tasks
+                           ("t" "Tasks")
+                           ("tt" "Today" entry (file+olp+datetree "tasks.org")
+                            "* %? %^{EFFORT}p"
+                            :prepend t)
+                           ("ti" "Inbox" entry (file+headline "tasks.org" "Inbox")
+                            "* %?\n%i\n")
+                           ("tm" "Mail" entry (file+headline "tasks.org" "Inbox")
+                            "* TODO %^{type|reply to|contact} %^{recipient} about %^{subject} :MAIL:\n")
+                           ;; Capture
+                           ("c" "Capture")
+                           ("cn" "Note" entry (file+headline "capture.org" "Notes")
+                            "* %? %^g\n%i\n")
+                           ;; Project
+                           ("p" "Project")
+                           ("pb" "Bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
+                           ("pf" "Feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
+                           ("ps" "Security"      entry (function ,(lazy! (project-todo-org-file "Security")))      "* %?")
+                           ("pe" "Enhancement"   entry (function ,(lazy! (project-todo-org-file "Enhancements")))  "* %?")
+                           ("po" "Optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
+                           ("pd" "Documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
+                           ("pm" "Miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?"))))
+
+;; Keep track of tasks
+(use-package org-agenda
+  :ensure nil
+  :hook (org-agenda-finalize . org-agenda-to-appt)
+  :config
+  ;; update appt list every 5 minutes
+  (run-at-time t 300 #'org-agenda-to-appt)
+  (shut-up! #'org-agenda-to-appt)
+  :custom
+  (org-agenda-files '("~/haoran/Notes/Org/gtd/"))
+  (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
+  (org-agenda-insert-diary-extract-time t)
+  (org-agenda-inhibit-startup t)
+  (org-agenda-time-leading-zero t)
+  (org-agenda-remove-tags t)
+  (org-agenda-columns-add-appointments-to-effort-sum t)
+  (org-agenda-restore-windows-after-quit t)
+  (org-agenda-window-setup 'current-window))
+
+(use-package org-contrib
+  :pin nongnu
+  :ensure t
+  :config
+  (require 'org-checklist))
 
 (provide 'init-org)
 ;;; init-org.el ends here

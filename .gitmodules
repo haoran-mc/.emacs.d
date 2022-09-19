@@ -16,3 +16,6 @@
 [submodule "extensions/painting-theme"]
 	path = extensions/painting-theme
 	url = git@github.com:haoran-mc/painting-theme.git
+[submodule "extensions/org-contrib"]
+	path = extensions/org-contrib
+	url = git@github.com:emacsmirror/org-contrib.git
