@@ -220,8 +220,14 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/Notes/Org/gtd/"))
+  (org-agenda-files '("~/haoran/Notes/Org/gtd/" "~/haoran/Notes/Org/org-directory/"))
   (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
+  (org-agenda-span 'day)
+  (org-agenda-custom-commands
+   '(("c" "The most import priority!"
+      ((tags-todo "+PRIORITY=\"A\"")))
+     ;; ...other commands here
+     ))
   (org-agenda-insert-diary-extract-time t)
   (org-agenda-inhibit-startup t)
   (org-agenda-time-leading-zero t)
