@@ -26,7 +26,7 @@
   (org-directory "~/haoran/Notes/Org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
-  (org-startup-indented nil)
+  (org-startup-indented t)
   (org-fontify-todo-headline t)
   (org-fontify-done-headline t)
   (org-fontify-whole-heading-line t)
