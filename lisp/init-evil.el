@@ -162,6 +162,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "dJ" 'dired-jump-other-window
       "dp" 'dired-at-point
 
+      ;; eshell
+      "e"  '(:k "eshell")
+      "ed" 'aweshell-dedicated-toggle
+      "en" 'aweshell-new
+      "et" 'aweshell-toggle
+
       ;; file
       "f"  '(:wk "files")
       "ff" 'find-file
