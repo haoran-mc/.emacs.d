@@ -313,7 +313,9 @@
   (define-auto-insert "\\.org$"
     ["~/.emacs.d/templates/default-org.org" autoinsert-yas-expand])
   (define-auto-insert "\\.html$"
-    ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand]))
+    ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand])
+  (define-auto-insert "\\.cpp$"
+    ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand]))
 
 ;; A tree layout file explorer
 (use-package treemacs
