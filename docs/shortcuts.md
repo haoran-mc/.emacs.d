@@ -1,9 +1,9 @@
 # 记录常用的快捷键
 ## 计算机快捷键
 
-- C-[ ESC
-- C-m RET
-- C-i TAB
+- C-[  ESC
+- C-m  RET
+- C-i  TAB
 
 ## 原生快捷键（C-x）
 
@@ -118,7 +118,7 @@
 - ctrl h d  查看文档
 - ctrl h c  简短介绍按键功能
 - ctrl h b  查看键绑定
-
+- ctrl h i  教程
 
 **evil-normal-state**
 - ctrl a  前往行首
