@@ -163,7 +163,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "dp" 'dired-at-point
 
       ;; eshell
-      "e"  '(:k "eshell")
+      "e"  '(:wk "eshell")
       "ed" 'aweshell-dedicated-toggle
       "en" 'aweshell-new
       "et" 'aweshell-toggle
