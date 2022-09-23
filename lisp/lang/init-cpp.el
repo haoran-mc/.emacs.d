@@ -25,7 +25,7 @@
   (defun +run-file ()
     (interactive)
     (compile
-     (format "g++ -o ac %s -g -lm -Wall"
+     (format "g++ -o a %s -g -lm -Wall"
              (buffer-name))))
 
   (use-package modern-cpp-font-lock
