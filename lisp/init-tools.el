@@ -11,15 +11,15 @@
   :hook (after-init . which-key-mode)
   :config
   (which-key-add-key-based-replacements
-    "C-c !" "flycheck"
-    "C-c @" "hideshow"
-    "C-c c" "citre"
-    "C-c t" "hl-todo"
-    "C-c y" "yasnippet"
     "C-x a" "abbrev"
     "C-x n" "narrow"
     "C-x t" "tab"
-    "C-c C-e" "eshell")
+    "C-c !" "flycheck"
+    "C-c @" "hideshow"
+    "C-c c" "citre"
+    "C-c e" "eshell"
+    "C-c t" "hl-todo"
+    "C-c y" "yasnippet")
   (which-key-add-major-mode-key-based-replacements 'markdown-mode
     "C-c m" "markdown")
   (which-key-add-major-mode-key-based-replacements 'go-mode
