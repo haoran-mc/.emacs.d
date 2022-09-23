@@ -24,9 +24,10 @@
 
   (defun +run-file ()
     (interactive)
-    (compile
-     (format "g++ -o a %s -g -lm -Wall"
-             (buffer-name))))
+    (if (with-no-warnings (eshell-command
+           (format "g++ -o a %s -g -lm -Wall"
+                   (buffer-name))))
+        (aweshell-dedicated-toggle)))
 
   (use-package modern-cpp-font-lock
     :diminish
