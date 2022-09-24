@@ -4,9 +4,15 @@
 [submodule "site-lisp/lsp-bridge"]
 	path = site-lisp/lsp-bridge
 	url = git@github.com:manateelazycat/lsp-bridge.git
-[submodule "site-lisp/org-contrib"]
-	path = site-lisp/org-contrib
-	url = git@github.com:emacsmirror/org-contrib.git
 [submodule "site-lisp/spacemacs-theme"]
 	path = site-lisp/spacemacs-theme
 	url = git@github.com:nashamri/spacemacs-theme.git
+[submodule "site-lisp/aweshell"]
+	path = site-lisp/aweshell
+	url = git@github.com:manateelazycat/aweshell.git
+[submodule "site-lisp/painting-theme"]
+	path = site-lisp/painting-theme
+	url = git@github.com:haoran-mc/painting-theme.git
+[submodule "site-lisp/lazycat-theme"]
+	path = site-lisp/lazycat-theme
+	url = git@github.com:manateelazycat/lazycat-theme.git

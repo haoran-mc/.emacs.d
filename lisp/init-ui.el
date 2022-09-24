@@ -28,7 +28,7 @@
 ;; git clone --depth=1 https://github.com/manateelazycat/awesome-tray
 (use-package awesome-tray
   :ensure nil
-  :load-path "~/.emacs.d/extensions/awesome-tray/"
+  :load-path "~/.emacs.d/site-lisp/awesome-tray/"
   :when (display-graphic-p)
   :hook (after-init . awesome-tray-mode)
   :init
@@ -47,9 +47,9 @@
   :ensure nil
   :when (display-graphic-p)
   :init
-  (add-to-list 'load-path "~/.emacs.d/extensions/spacemacs-theme")
-  (add-to-list 'load-path "~/.emacs.d/extensions/lazycat-theme")
-  (add-to-list 'load-path "~/.emacs.d/extensions/painting-theme")
+  (add-to-list 'load-path "~/.emacs.d/site-lisp/spacemacs-theme")
+  (add-to-list 'load-path "~/.emacs.d/site-lisp/lazycat-theme")
+  (add-to-list 'load-path "~/.emacs.d/site-lisp/painting-theme")
   (require 'painting-dark-theme)
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)

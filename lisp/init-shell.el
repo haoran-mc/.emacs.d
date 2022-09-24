@@ -63,7 +63,7 @@
 
   ;; git clone git@github.com:manateelazycat/aweshell.git ~/.emacs.d/etc/
   (use-package aweshell
-    :load-path "~/.emacs.d/extensions/aweshell"
+    :load-path "~/.emacs.d/site-lisp/aweshell"
     :init
     (require 'aweshell)
     (with-eval-after-load 'eshell
