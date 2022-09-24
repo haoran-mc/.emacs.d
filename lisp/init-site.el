@@ -200,11 +200,12 @@ Which is a reverse operation of `save-and-publish-statics'."
   (if auto-save-and-publish-file-mode
       ;; When the mode is enabled
       (progn
-        (add-hook 'after-save-hook #'save-and-publish-file :append :local))
+        (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
     ;; When the mode is disabled
-    (remove-hook 'after-save-hook #'save-and-publish-file :local)))
+    (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
 
-(use-package auto-save-and-publish-file-mode :hook (org-mode))
+(use-package auto-save-and-publish-file-mode
+  :hook (org-mode))
 
 (provide 'init-site)
 ;;; init-site.el ends here
