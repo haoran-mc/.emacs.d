@@ -77,20 +77,21 @@ Which is a reverse operation of `save-and-publish-statics'."
     "Just delete the relative html when it exists."
     (interactive)
     (when (yes-or-no-p "Really delete the relative html?")
-
       (let ((fileurl (concat "~/haoran/Notes/Org/site/public" (file-name-base (buffer-name)) ".html")))
         (if (file-exists-p fileurl)
             (progn
               (delete-file fileurl)
-              (message "Delete the relative html done.")
-              )
+              (message "Delete the relative html done."))
           (message "None relative html.")))))
 
   (defun +save-and-publish-file ()
     "Save current buffer and publish."
     (interactive)
     (save-buffer t)
-    (org-publish-current-file t))
+    (if (string= (file-name-directory (buffer-file-name))
+                 "/home/haoran/haoran/Notes/Org/site/org/")
+        ;; 是site文件夹
+        (org-publish-current-file t)))
 
   (defun +preview-current-buffer-in-browser ()
     "Open current buffer as html."
