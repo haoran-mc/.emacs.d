@@ -190,13 +190,15 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oe" 'eshell
       "os" 'shell
       "oo" '+open-in-browser
-      "od" '+open-current-directory  ;; depend on consult
+      ;; open directory
+      "odc" '+open-directory-code
+      "odm" '+open-directory-markdown
+      "oD"  '+open-current-directory  ;; depend on consult
       ;; open file
-      "of" '(:wk "open file")
+      "of"  '(:wk "open file")
       "oi"  '+open-file-note
       "ofi" '+open-file-note
       "ofr" '+open-file-init
-      "ofm" '+open-file-markdown
       "ofn" '+open-file-navigate
       "ofb" '+open-file-backup
 

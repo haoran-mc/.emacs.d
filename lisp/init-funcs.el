@@ -102,12 +102,6 @@ confirmation."
   (tab-bar-rename-tab "note"))
 
 ;;;###autoload
-(defun +open-file-markdown ()
-  "Open file: init.el."
-  (interactive)
-  (dired "/home/haoran/haoran/Notes/Markdown/"))
-
-;;;###autoload
 (defun +open-file-navigate ()
   "Open file: Navigate.org."
   (interactive)
@@ -118,6 +112,18 @@ confirmation."
   "Open file: Backup.org."
   (interactive)
   (find-file "/home/haoran/haoran/Notes/Org/Diary/Backup.org"))
+
+;;;###autoload
+(defun +open-directory-markdown ()
+  "Open file: init.el."
+  (interactive)
+  (dired "/home/haoran/haoran/Notes/Markdown/"))
+
+;;;###autoload
+(defun +open-directory-code ()
+  "Open directory: Code."
+  (interactive)
+  (dired "/home/haoran/haoran/Code/"))
 
 ;;;###autoload
 (defun +indent-buffer ()
