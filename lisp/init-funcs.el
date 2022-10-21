@@ -114,6 +114,12 @@ confirmation."
   (find-file "/home/haoran/haoran/Notes/Org/Diary/Backup.org"))
 
 ;;;###autoload
+(defun +open-directory-haoran ()
+  "Open directory: haoran."
+  (interactive)
+  (dired "/home/haoran/haoran/"))
+
+;;;###autoload
 (defun +open-directory-markdown ()
   "Open file: init.el."
   (interactive)

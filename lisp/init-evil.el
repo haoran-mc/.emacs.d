@@ -191,6 +191,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "os" 'shell
       "oo" '+open-in-browser
       ;; open directory
+      "odh" '+open-directory-haoran
       "odc" '+open-directory-code
       "odm" '+open-directory-markdown
       "oD"  '+open-current-directory  ;; depend on consult
