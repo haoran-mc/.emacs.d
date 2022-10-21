@@ -26,7 +26,8 @@
   (with-eval-after-load 'lsp-bridge
     ;; No display on modeline
     (setq mode-line-misc-info nil))
-  :hook ((go-mode . lsp-bridge-mode)
+  :hook ((go-mode         . lsp-bridge-mode)
+         (python-mode     . lsp-bridge-mode)
          (emacs-lisp-mode . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode-map
               ("C-c j" . +lsp-bridge-jump)
