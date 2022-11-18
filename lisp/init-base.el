@@ -547,7 +547,14 @@ Else, call `comment-or-uncomment-region' on the current line."
 (use-package exec-path-from-shell
   :ensure t
   :when (eq system-type 'darwin)
-  :hook (after-init . exec-path-from-shell-initialize))
+  :hook (after-init . exec-path-from-shell-initialize)
+  :init
+  (progn
+    (setq exec-path (append exec-path '("/root/go/bin")))
+    (exec-path-from-shell-copy-envs
+      '("PYTHONPATH"))
+    )
+  )
 
 (provide 'init-base)
 
