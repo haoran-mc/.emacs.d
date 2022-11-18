@@ -25,7 +25,6 @@
   (doom-modeline-unicode-fallback t)
   (doom-modeline-enable-word-count nil))
 
-;; git clone --depth=1 https://github.com/manateelazycat/awesome-tray
 (use-package awesome-tray
   :ensure nil
   :load-path "~/.emacs.d/site-lisp/awesome-tray/"
