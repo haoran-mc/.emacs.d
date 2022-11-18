@@ -98,26 +98,26 @@ confirmation."
 (defun +open-file-note ()
   "Open file: init.el."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/site/org/index.org")
+  (find-file "~/haoran/Notes/Org/site/org/index.org")
   (tab-bar-rename-tab "note"))
 
 ;;;###autoload
 (defun +open-file-markdown ()
   "Open file: init.el."
   (interactive)
-  (dired "/home/haoran/haoran/Notes/Markdown/"))
+  (dired "~/haoran/Notes/Markdown/"))
 
 ;;;###autoload
 (defun +open-file-navigate ()
   "Open file: Navigate.org."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/site/org/Navigation.org"))
+  (find-file "~/haoran/Notes/Org/site/org/Navigation.org"))
 
 ;;;###autoload
 (defun +open-file-backup ()
   "Open file: Backup.org."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/Diary/Backup.org"))
+  (find-file "~/haoran/Notes/Org/Diary/Backup.org"))
 
 ;;;###autoload
 (defun +indent-buffer ()
