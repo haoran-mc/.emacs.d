@@ -100,7 +100,7 @@
 
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
-(set-face-attribute 'default nil :font "Source Code Pro" :weight 'semi-bold)
+(set-face-attribute 'default nil :font "SauceCodePro Nerd Font" :weight 'semi-bold)
 
 ;; Sane defaults
 (setq use-short-answers t)
