@@ -44,7 +44,7 @@
   (load-theme 'doom-molokai t))
 
 (use-package doom-themes
-  :ensure nil
+  :ensure t
   :when (display-graphic-p)
   :init
   (add-to-list 'load-path "~/.emacs.d/site-lisp/spacemacs-theme")

@@ -12,7 +12,7 @@
 (assq-delete-all 'org package--builtin-versions)
 
 (use-package org
-  :ensure t
+  :ensure nil
   :hook ((org-mode . (lambda()
                        (visual-line-mode)
                        (setq word-wrap nil)))
@@ -146,7 +146,7 @@
 
 ;; beautify org star
 (use-package org-superstar
-  :ensure nil
+  :ensure t
   :hook (org-mode . org-superstar-mode)
   :custom
   (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
