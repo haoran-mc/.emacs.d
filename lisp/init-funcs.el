@@ -119,6 +119,12 @@ confirmation."
   (interactive)
   (find-file "~/haoran/n/Org/Diary/Backup.org"))
 
+(defun +open-current-directory ()
+    "Open current FILE directory externally using the default application
+of the system."
+    (interactive)
+    (+consult-directory-externally default-directory))
+
 ;;;###autoload
 (defun +indent-buffer ()
   "Indent the currently visited buffer."
