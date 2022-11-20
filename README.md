@@ -15,6 +15,7 @@
 **Table of Contents**
 
 - [个人**Emacs**配置](#个人emacs配置)
+- [需要的依赖](#需要的依赖)
 
 <!-- markdown-toc end -->
 
@@ -27,7 +28,7 @@
 git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
 ```
 
-* 需要的依赖
+# 需要的依赖
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)：更快的 `grep`；
 - [git](https://git-scm.com/)：分布式版本控制工具；
