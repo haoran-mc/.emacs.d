@@ -19,29 +19,11 @@
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto)
-                       (message "hello org-mode")))
-         (org-mode . (lambda ()
-                       (setq prettify-symbols-alist
-                             '(("lambda"  . ?λ)
-                               (":PROPERTIES:" . ?)
-                               (":ID:" . ?)
-                               (":END:" . ?)
-                               ("#+TITLE:" . ?)
-                               ("#+AUTHOR" . ?)
-                               ("#+BEGIN_QUOTE" . ?)
-                               ("#+END_QUOTE" . ?)
-                               ("#+RESULTS:" . ?)
-                               ("[ ]" . ?)
-                               ("[-]" . ?)
-                               ("[X]" . ?)
-                               ("[#A]" . ?🅐)
-                               ("[#B]" . ?🅑)
-                               ("[#C]" . ?🅒)))
-                       (prettify-symbols-mode))))
+                       (message "hello org-mode"))))
   :init
   (require 'org-tempo) ;; <s
   :custom
-  (org-directory "~/haoran/Notes/Org/org-directory")
+  (org-directory "~/haoran/n/Org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
   (org-startup-indented t)
