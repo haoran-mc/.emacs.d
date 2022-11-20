@@ -36,6 +36,6 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
   - gopls
   - goimports
   - guru...
-- [python](https://www.python.org/)编程语言；
+- [python](https://www.python.org/)：编程语言；
   - python -m venv ENV_DIR
-- [lsp-bridge 需要的依赖](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)
+- [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)：需要的依赖；
