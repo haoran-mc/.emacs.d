@@ -217,7 +217,7 @@
                             "* TODO %^{type|reply to|contact} %^{recipient} about %^{subject} :MAIL:\n")
                            ;; Capture
                            ("c" "Capture")
-                           ("cn" "Note" entry (file+headline "capture.org" "Notes")
+                           ("cn" "Note" entry (file+headline "capture.org" "n")
                             "* %? %^g\n%i\n")
                            ;; Project
                            ("p" "Project")
@@ -238,8 +238,8 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/Notes/Org/gtd/" "~/haoran/Notes/Org/org-directory/"))
-  (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
+  (org-agenda-files '("~/haoran/n/Org/gtd/" "~/haoran/n/Org/org-directory/"))
+  (org-agenda-diary-file '("~/haoran/n/Org/diary/diary.org"))
   (org-agenda-span 'day)
   (org-agenda-custom-commands
    '(("c" "The most import priority!"

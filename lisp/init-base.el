@@ -141,7 +141,7 @@
 (use-package bookmark
   :ensure nil
   :custom
-  (bookmark-default-file "~/haoran/Notes/Org/bookmark-default.el"))
+  (bookmark-default-file "~/haoran/n/Org/bookmark-default.el"))
 
 ;; Highlight parenthesises
 (use-package paren
