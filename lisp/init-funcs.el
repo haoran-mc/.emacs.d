@@ -102,12 +102,6 @@ confirmation."
   (tab-bar-rename-tab "note"))
 
 ;;;###autoload
-(defun +open-file-markdown ()
-  "Open file: init.el."
-  (interactive)
-  (dired "~/haoran/n/Markdown/"))
-
-;;;###autoload
 (defun +open-file-navigate ()
   "Open file: Navigate.org."
   (interactive)
@@ -119,11 +113,17 @@ confirmation."
   (interactive)
   (find-file "~/haoran/n/Org/Diary/Backup.org"))
 
-(defun +open-current-directory ()
-    "Open current FILE directory externally using the default application
-of the system."
-    (interactive)
-    (+consult-directory-externally default-directory))
+;;;###autoload
+(defun +open-directory-markdown ()
+  "Open directory: markdown."
+  (interactive)
+  (dired "~/haoran/n/Markdown/"))
+
+;;;###autoload
+(defun +open-directory-haoran ()
+  "Open directory: haoran."
+  (interactive)
+  (dired "~/haoran/"))
 
 ;;;###autoload
 (defun +open-directory-haoran ()

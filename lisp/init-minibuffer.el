@@ -67,8 +67,15 @@
 		              (_ "xdg-open"))
 		            nil 0 nil
 		            (file-name-directory (expand-file-name file)))))
+
   (with-eval-after-load 'embark
     (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
+
+  (defun +open-current-directory ()
+    "Open current FILE directory.
+externally using the default application of the system."
+    (interactive)
+    (+consult-directory-externally default-directory))
   :custom
   (consult-fontify-preserve nil)
   (consult-async-min-input 2)
