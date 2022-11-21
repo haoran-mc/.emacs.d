@@ -98,9 +98,13 @@
 
 (setq system-time-locale "C")
 
+(setq initial-scratch-message ";; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+")
+
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
-(set-face-attribute 'default nil :font "SauceCodePro Nerd Font" :weight 'semi-bold)
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :weight 'semi-bold)
 
 ;; Sane defaults
 (setq use-short-answers t)
