@@ -8,7 +8,8 @@
 ;; Use ( to toggle dired-hide-details-mode
 (use-package dired
   :ensure nil
-  :hook (after-init . dired-mode)
+  ;; TODO ? add this config, then the default message of scratch disappear.
+  ;; :hook (after-init . dired-mode)
   :bind (:map dired-mode-map
          ;; consistent with ivy
          ("C-c C-e"   . wdired-change-to-wdired-mode))
