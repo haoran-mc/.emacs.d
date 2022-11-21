@@ -236,9 +236,9 @@ the current layouts buffers."
   (interactive)
   (tab-bar-new-tab)
   ;; TODO use if instead
-  (pcase (treemacs-current-visibility)
-    ('visible (delete-window (treemacs-get-local-window))))
-  (dashboard-refresh-buffer)
+  ;; (pcase (treemacs-current-visibility)
+  ;;   ('visible (delete-window (treemacs-get-local-window))))
+  ;; (dashboard-refresh-buffer)
   (tab-bar-rename-tab "xxx"))
 
 ;;;###autoload
