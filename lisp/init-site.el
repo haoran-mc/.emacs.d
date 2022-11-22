@@ -89,7 +89,7 @@ Which is a reverse operation of `save-and-publish-statics'."
     (interactive)
     (save-buffer t)
     (if (string= (file-name-directory (buffer-file-name))
-                 "/home/haoran/haoran/n/Org/site/org/")
+                 "/Users/haoran/haoran/n/Org/site/org/")
         ;; 是site文件夹
         (org-publish-current-file t)))
 
