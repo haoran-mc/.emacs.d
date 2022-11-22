@@ -98,8 +98,10 @@
   ;; (+load-theme-random)
   ;; (+load-theme-from-selected)
   ;; (load-theme 'painting-dark t)
-  (load-theme 'modus-vivendi t)
+  ;; (load-theme 'modus-vivendi t)
   ;; (load-theme 'modus-operandi t)
+  ;; (load-theme 'doom-gruvbox-light t)
+  (load-theme 'doom-old-hope t)
   )
 
 ;; Customize popwin behavior
