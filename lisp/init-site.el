@@ -66,7 +66,7 @@ Which is a reverse operation of `save-and-publish-statics'."
     (interactive)
     (when (yes-or-no-p "Really delete current org and the relative html?")
 
-      (let ((fileurl (concat "~/haoran/n/Org/site/public" (file-name-base (buffer-name)) ".html")))
+      (let ((fileurl (concat "~/haoran/gr/haoran-mc.github.io" (file-name-base (buffer-name)) ".html")))
         (if (file-exists-p fileurl)
             (delete-file fileurl))
         (delete-file (buffer-file-name))
@@ -77,7 +77,7 @@ Which is a reverse operation of `save-and-publish-statics'."
     "Just delete the relative html when it exists."
     (interactive)
     (when (yes-or-no-p "Really delete the relative html?")
-      (let ((fileurl (concat "~/haoran/n/Org/site/public" (file-name-base (buffer-name)) ".html")))
+      (let ((fileurl (concat "~/haoran/gr/haoran-mc.github.io" (file-name-base (buffer-name)) ".html")))
         (if (file-exists-p fileurl)
             (progn
               (delete-file fileurl)
@@ -105,7 +105,7 @@ Which is a reverse operation of `save-and-publish-statics'."
    '(("orgfiles"
       :base-directory "~/haoran/n/Org/site/org/"
       ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
-      :publishing-directory "~/haoran/n/Org/site/public/"
+      :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
       :base-extension "org"
       ;; exclude files like "_draft-demo-1.org"
       :exclude "^_[[:word:]-]*.org"     ;; regexp
@@ -143,27 +143,27 @@ Which is a reverse operation of `save-and-publish-statics'."
      ("images"
       :base-directory "~/haoran/n/Org/site/images/"
       :base-extension any
-      :publishing-directory "~/haoran/n/Org/site/public/images/"
+      :publishing-directory "~/haoran/gr/haoran-mc.github.io/images/"
       :recursive t
       :publishing-function org-publish-attachment
       )
      ("static"
       :base-directory "~/haoran/n/Org/site/static/"
       :base-extension any
-      :publishing-directory "~/haoran/n/Org/site/public/static/"
+      :publishing-directory "~/haoran/gr/haoran-mc.github.io/static/"
       :recursive t
       :publishing-function org-publish-attachment
       )
 
      ("rimages"
-      :base-directory "~/haoran/n/Org/site/public/images/"
+      :base-directory "~/haoran/gr/haoran-mc.github.io/images/"
       :base-extension any
       :publishing-directory "~/haoran/n/Org/site/images/"
       :recursive t
       :publishing-function org-publish-attachment
       )
      ("rstatic"
-      :base-directory "~/haoran/n/Org/site/public/static/"
+      :base-directory "~/haoran/gr/haoran-mc.github.io/static/"
       :base-extension any
       :publishing-directory "~/haoran/n/Org/site/static/"
       :recursive t
@@ -181,7 +181,7 @@ Which is a reverse operation of `save-and-publish-statics'."
   :ensure t
   :custom
   (httpd-port 9517)
-  (httpd-root "~/haoran/n/Org/site/public/")
+  (httpd-root "~/haoran/gr/haoran-mc.github.io/")
   (org-html-mathjax-options
    '((path "static/MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
 	 (scale "100")
