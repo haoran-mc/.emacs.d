@@ -13,9 +13,19 @@
 
 (require 'package) ;; install package
 (setq package-archives
-      '(("melpa"  . "https://melpa.org/packages/")
-        ("gnu"    . "https://elpa.gnu.org/packages/")
-        ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+      '(
+        ("gnu"   . "http://1.15.88.122/gnu/")
+        ("melpa" . "http://1.15.88.122/melpa/")
+
+        ;; https://mirrors.tuna.tsinghua.edu.cn/help/elpa/
+        ;; ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ;; ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+
+        ;; stop using it as wrong connect
+        ;; ("melpa"  . "https://melpa.org/packages/")
+        ;; ("gnu"    . "https://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+        ))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
