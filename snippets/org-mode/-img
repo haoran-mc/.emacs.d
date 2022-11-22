@@ -3,4 +3,6 @@
 # key: -img
 # --
 
-<img src="images/."  alt="" />
+#+begin_export html
+<img src="./images/." width="650px" />
+#+end_export
