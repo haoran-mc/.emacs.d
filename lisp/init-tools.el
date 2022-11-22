@@ -296,7 +296,9 @@
   :init
   (yas-global-mode 1)
   :config
-  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (use-package yasnippet-snippets
+    :ensure t))
 
 ;; Auto-insert templates when create file
 (use-package autoinsert
