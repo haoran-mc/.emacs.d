@@ -21,7 +21,6 @@
 
 (use-package lsp-bridge
   :load-path "~/.emacs.d/site-lisp/lsp-bridge"
-  :after '(go-mode python-mode emacs-lis-mode)
   :init
   (require 'lsp-bridge-jdtls)
   (with-eval-after-load 'lsp-bridge
