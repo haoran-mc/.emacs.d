@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: -ref
+# key: -ref
+# --
+
+#+begin_export html
+<div class="reference">
+  <ul style="list-style: none;">
+    <li><a href="" target="_blank"></a></li>
+  </ul>
+</div>
+#+end_export
