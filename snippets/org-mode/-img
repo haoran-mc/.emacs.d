@@ -4,5 +4,5 @@
 # --
 
 #+begin_export html
-<img src="./images/." width="650px" />
+<img src="./images/$1" width="650px" />
 #+end_export

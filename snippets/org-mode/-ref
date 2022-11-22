@@ -6,7 +6,7 @@
 #+begin_export html
 <div class="reference">
   <ul style="list-style: none;">
-    <li><a href="" target="_blank"></a></li>
+    <li><a href="$1" target="_blank"></a></li>
   </ul>
 </div>
 #+end_export

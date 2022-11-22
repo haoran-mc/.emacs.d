@@ -5,6 +5,6 @@
 
 #+begin_export html
 <div class="div-center">
-  <img src="./images/." width="620px" />
+  <img src="./images/$1" width="620px" />
 </div>
 #+end_export
