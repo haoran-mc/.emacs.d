@@ -22,6 +22,10 @@
                        (message "hello org-mode"))))
   :init
   (require 'org-tempo) ;; <s
+  :config
+  ;; TODO I write it again as I don't know
+  ;; why this configuration which in init-tools doesn't take effect
+  (yas-global-mode 1)
   :custom
   (org-directory "~/haoran/n/Org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
