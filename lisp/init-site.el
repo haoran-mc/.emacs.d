@@ -114,7 +114,7 @@ Which is a reverse operation of `save-and-publish-statics'."
 
       ;; personal information
 	  :author "Haoran Liu"
-	  :email "haoran.mc@gmail.com"
+	  :email "haoran.mc@outlook.com"
       ;; :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"
 
       ;; generic properties
