@@ -142,6 +142,9 @@
   :bind (:map org-src-mode-map
               ;; consistent with separedit/magit
               ("C-c C-c" . org-edit-src-exit))
+  :config
+  (use-package ob-go
+    :ensure t)
   :custom
   (org-confirm-babel-evaluate nil)
   (org-src-fontify-natively t) ;; syntax code on org mode
