@@ -194,19 +194,21 @@ Which is a reverse operation of `save-and-publish-statics'."
 	 (tagindent ".8em")
 	 (tagside "right"))))
 
-(define-minor-mode auto-save-and-publish-file-mode
+(define-minor-mode +auto-save-and-publish-file-mode
   "Toggle auto save and publish current file."
   :global nil
   :lighter ""
-  (if auto-save-and-publish-file-mode
+  (if +auto-save-and-publish-file-mode
       ;; When the mode is enabled
       (progn
         (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
     ;; When the mode is disabled
     (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
 
-(use-package auto-save-and-publish-file-mode
-  :hook (org-mode))
+(use-package +auto-save-and-publish-file-mode
+  :hook org-mode
+  :custom
+  (+auto-save-and-publish-file-mode 1))
 
 (provide 'init-site)
 ;;; init-site.el ends here
