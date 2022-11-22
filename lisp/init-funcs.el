@@ -129,19 +129,19 @@ confirmation."
 (defun +open-directory-haoran ()
   "Open directory: haoran."
   (interactive)
-  (dired "/home/haoran/haoran/"))
+  (dired "~/haoran/"))
 
 ;;;###autoload
 (defun +open-directory-markdown ()
   "Open file: init.el."
   (interactive)
-  (dired "/home/haoran/haoran/Notes/Markdown/"))
+  (dired "~/haoran/Notes/Markdown/"))
 
 ;;;###autoload
 (defun +open-directory-code ()
   "Open directory: Code."
   (interactive)
-  (dired "/home/haoran/haoran/Code/"))
+  (dired "~/haoran/Code/"))
 
 ;;;###autoload
 (defun +indent-buffer ()
