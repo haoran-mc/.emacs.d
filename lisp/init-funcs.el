@@ -98,20 +98,32 @@ confirmation."
 (defun +open-file-note ()
   "Open file: init.el."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/site/org/index.org")
+  (find-file "~/haoran/n/Org/site/org/index.org")
   (tab-bar-rename-tab "note"))
+
+;;;###autoload
+(defun +open-file-markdown ()
+  "Open file: init.el."
+  (interactive)
+  (dired "~/haoran/n/Markdown/"))
 
 ;;;###autoload
 (defun +open-file-navigate ()
   "Open file: Navigate.org."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/site/org/Navigation.org"))
+  (find-file "~/haoran/n/Org/site/org/Navigation.org"))
 
 ;;;###autoload
 (defun +open-file-backup ()
   "Open file: Backup.org."
   (interactive)
-  (find-file "/home/haoran/haoran/Notes/Org/Diary/Backup.org"))
+  (find-file "~/haoran/n/Org/Diary/Backup.org"))
+
+(defun +open-current-directory ()
+    "Open current FILE directory externally using the default application
+of the system."
+    (interactive)
+    (+consult-directory-externally default-directory))
 
 ;;;###autoload
 (defun +open-directory-haoran ()

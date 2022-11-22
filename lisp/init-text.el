@@ -43,11 +43,13 @@
 
   ;; Table of contents
   (use-package markdown-toc
+    :ensure t
     :bind (:map markdown-mode-command-map
                 ("r" . markdown-toc-generate-or-refresh-toc)))
 
   ;; sudo pip install grip or pip install grip
   (use-package grip-mode
+    :ensure t
     :defines org-mode-map
     :bind (:map markdown-mode-command-map
                 ("g" . grip-mode))

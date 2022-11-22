@@ -100,7 +100,7 @@
 
 ;; Font size
 ;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
-(set-face-attribute 'default nil :font "Source Code Pro" :weight 'semi-bold)
+(set-face-attribute 'default nil :font "SauceCodePro Nerd Font" :weight 'semi-bold)
 
 ;; Sane defaults
 (setq use-short-answers t)
@@ -141,7 +141,7 @@
 (use-package bookmark
   :ensure nil
   :custom
-  (bookmark-default-file "/home/haoran/haoran/Notes/Org/bookmark-default.el"))
+  (bookmark-default-file "~/haoran/n/Org/bookmark-default.el"))
 
 ;; Highlight parenthesises
 (use-package paren
@@ -547,7 +547,14 @@ Else, call `comment-or-uncomment-region' on the current line."
 (use-package exec-path-from-shell
   :ensure t
   :when (eq system-type 'darwin)
-  :hook (after-init . exec-path-from-shell-initialize))
+  :hook (after-init . exec-path-from-shell-initialize)
+  :init
+  (progn
+    (setq exec-path (append exec-path '("/root/go/bin")))
+    (exec-path-from-shell-copy-envs
+      '("PYTHONPATH"))
+    )
+  )
 
 (provide 'init-base)
 

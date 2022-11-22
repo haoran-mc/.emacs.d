@@ -12,36 +12,18 @@
 (assq-delete-all 'org package--builtin-versions)
 
 (use-package org
-  :ensure t
+  :ensure nil
   :hook ((org-mode . (lambda()
                        (visual-line-mode)
                        (setq word-wrap nil)))
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto)
-                       (message "hello org-mode")))
-         (org-mode . (lambda ()
-                       (setq prettify-symbols-alist
-                             '(("lambda"  . ?λ)
-                               (":PROPERTIES:" . ?)
-                               (":ID:" . ?)
-                               (":END:" . ?)
-                               ("#+TITLE:" . ?)
-                               ("#+AUTHOR" . ?)
-                               ("#+BEGIN_QUOTE" . ?)
-                               ("#+END_QUOTE" . ?)
-                               ("#+RESULTS:" . ?)
-                               ("[ ]" . ?)
-                               ("[-]" . ?)
-                               ("[X]" . ?)
-                               ("[#A]" . ?🅐)
-                               ("[#B]" . ?🅑)
-                               ("[#C]" . ?🅒)))
-                       (prettify-symbols-mode))))
+                       (message "hello org-mode"))))
   :init
   (require 'org-tempo) ;; <s
   :custom
-  (org-directory "~/haoran/Notes/Org/org-directory")
+  (org-directory "~/haoran/n/Org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
   (org-startup-indented t)
@@ -146,7 +128,7 @@
 
 ;; beautify org star
 (use-package org-superstar
-  :ensure nil
+  :ensure t
   :hook (org-mode . org-superstar-mode)
   :custom
   (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
@@ -217,7 +199,7 @@
                             "* TODO %^{type|reply to|contact} %^{recipient} about %^{subject} :MAIL:\n")
                            ;; Capture
                            ("c" "Capture")
-                           ("cn" "Note" entry (file+headline "capture.org" "Notes")
+                           ("cn" "Note" entry (file+headline "capture.org" "n")
                             "* %? %^g\n%i\n")
                            ;; Project
                            ("p" "Project")
@@ -238,8 +220,8 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/Notes/Org/gtd/" "~/haoran/Notes/Org/org-directory/"))
-  (org-agenda-diary-file '("~/haoran/Notes/Org/diary/diary.org"))
+  (org-agenda-files '("~/haoran/n/Org/gtd/" "~/haoran/n/Org/org-directory/"))
+  (org-agenda-diary-file '("~/haoran/n/Org/diary/diary.org"))
   (org-agenda-span 'day)
   (org-agenda-custom-commands
    '(("c" "The most import priority!"

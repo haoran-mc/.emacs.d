@@ -36,7 +36,7 @@
   :hook (after-init . rg-enable-default-bindings))
 
 (use-package hungry-delete
-  :defer t
+  :ensure t
   :hook (after-init . global-hungry-delete-mode)
   :config
   (progn
@@ -365,14 +365,17 @@
      (treemacs-git-mode 'simple)))
 
   (use-package treemacs-evil
+    :ensure t
     :after evil)
 
   (use-package treemacs-projectile
+    :ensure t
     :after projectile
     :bind (:map projectile-command-map
                 ("h" . treemacs-projectile)))
 
   (use-package treemacs-magit
+    :ensure t
     :after magit
     :commands treemacs-magit--schedule-update
     :hook ((magit-post-commit
@@ -382,6 +385,7 @@
            . treemacs-magit--schedule-update))
 
   (use-package treemacs-persp
+    :ensure t
     :after persp-mode
     :demand t
     :functions treemacs-set-scope-type
