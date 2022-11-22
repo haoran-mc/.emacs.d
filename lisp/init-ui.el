@@ -92,14 +92,17 @@
     (let* ((selected-theme (random-choice pretty-dark-themes)))
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
-  (defun +load-theme-accoriding-time ()) ;; TODO
-  :config
+  (defun +load-theme-accoriding-time ()
+    (interactive)
+    (load-theme 'modus-vivendi t)
+    ) ;; TODO
   ;; (+load-theme-random)
-  ;; (+load-theme-from-selected)
+  (+load-theme-from-selected)
   ;; (load-theme 'painting-dark t)
   ;; (load-theme 'modus-vivendi t)
   ;; (load-theme 'modus-operandi t)
   ;; (load-theme 'doom-gruvbox-light t)
+  ;; (load-theme 'doom-monokai-pro t)
   (load-theme 'doom-old-hope t)
   )
 

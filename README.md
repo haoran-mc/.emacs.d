@@ -40,3 +40,4 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
   - python -m venv ENV_DIR
   - npm install -g pyright
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)；
+- [grip](https://github.com/joeyespo/grip)：预览 markdown，`brew install grip`；
