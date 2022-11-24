@@ -392,5 +392,9 @@
     :functions treemacs-set-scope-type
     :config (treemacs-set-scope-type 'Perspectives)))
 
+;; for aweshell
+(use-package company
+  :ensure nil)
+
 (provide 'init-tools)
 ;;; init-tools.el ends here
