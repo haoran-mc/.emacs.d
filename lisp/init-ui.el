@@ -193,6 +193,7 @@
 
 ;; show color when css
 (use-package rainbow-mode
+  :ensure t
   :defer t)
 
 (provide 'init-ui)
