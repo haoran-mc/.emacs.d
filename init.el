@@ -88,5 +88,10 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+(use-package emacs
+  :ensure nil
+  :hook ((after-init . (lambda()
+                         (message "hello, emacser ^_^ !")))))
+
 (provide 'init)
 ;;; init.el ends here

@@ -190,6 +190,7 @@
 - ctrl c &       返回进入链接的位置
 - ctrl c %       存储文件位置
 - ctrl c ;       注释段落
+- ctrl c ctrl ,  插入模板
 
 ### markdown-mode
 

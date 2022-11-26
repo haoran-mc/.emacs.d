@@ -102,7 +102,6 @@
   ;; (load-theme 'modus-operandi t)
   ;; (load-theme 'doom-gruvbox-light t)
   ;; (load-theme 'doom-monokai-pro t)
-  (load-theme 'doom-old-hope t)
   )
 
 ;; Customize popwin behavior

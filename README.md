@@ -16,6 +16,7 @@
 
 - [个人**Emacs**配置](#个人emacs配置)
 - [需要的依赖](#需要的依赖)
+- [私人配置](#私人配置)
 
 <!-- markdown-toc end -->
 
@@ -41,6 +42,7 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
   - npm install -g pyright
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)；
 - [grip](https://github.com/joeyespo/grip)：预览 markdown，`brew install grip`；
+- [all-the-icons](https://github.com/domtronn/all-the-icons.el)：`M-x all-the-icons-install-fonts`；
 
 # 私人配置
 
