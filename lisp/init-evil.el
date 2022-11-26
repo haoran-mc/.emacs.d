@@ -301,6 +301,10 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "u"   '(:wk "user")
         "ub"  '(:wk "browser")
         "ubb" '+preview-current-buffer-in-browser
+        "ue"  '(:wk "export")
+        "ueh" '+org-export-html-to-my-dir
+        "uep" '+org-preview-html-in-my-dir
+        "ueH" '+org-export-html-to-my-dir-and-preview
         ))
 
     (with-eval-after-load 'elisp-mode
