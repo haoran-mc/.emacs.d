@@ -227,8 +227,8 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/n/Org/gtd/" "~/haoran/n/Org/org-directory/"))
-  (org-agenda-diary-file '("~/haoran/n/Org/diary/diary.org"))
+  (org-agenda-files '("~/haoran/n/org/gtd/" "~/haoran/n/org/org-directory/"))
+  (org-agenda-diary-file '("~/haoran/n/org/diary/diary.org"))
   (org-agenda-span 'day)
   (org-agenda-custom-commands
    '(("c" "The most import priority!"

@@ -98,50 +98,38 @@ confirmation."
 (defun +open-file-note ()
   "Open file: init.el."
   (interactive)
-  (find-file "~/haoran/n/Org/site/org/index.org")
+  (find-file "~/haoran/n/org/site/org/index.org")
   (tab-bar-rename-tab "note"))
 
 ;;;###autoload
 (defun +open-file-navigate ()
   "Open file: Navigate.org."
   (interactive)
-  (find-file "~/haoran/n/Org/site/org/Navigation.org"))
+  (find-file "~/haoran/n/org/site/org/Navigation.org"))
 
 ;;;###autoload
 (defun +open-file-backup ()
   "Open file: Backup.org."
   (interactive)
-  (find-file "~/haoran/n/Org/Diary/Backup.org"))
+  (find-file "~/haoran/n/org/diary/Backup.org"))
 
 ;;;###autoload
 (defun +open-directory-markdown ()
   "Open directory: markdown."
   (interactive)
-  (dired "~/haoran/n/Markdown/"))
+  (dired "~/haoran/n/markdown/"))
 
 ;;;###autoload
 (defun +open-directory-haoran ()
   "Open directory: haoran."
   (interactive)
   (dired "~/haoran/"))
-
-;;;###autoload
-(defun +open-directory-haoran ()
-  "Open directory: haoran."
-  (interactive)
-  (dired "~/haoran/"))
-
-;;;###autoload
-(defun +open-directory-markdown ()
-  "Open file: init.el."
-  (interactive)
-  (dired "~/haoran/Notes/Markdown/"))
 
 ;;;###autoload
 (defun +open-directory-code ()
   "Open directory: Code."
   (interactive)
-  (dired "~/haoran/Code/"))
+  (dired "~/haoran/c/"))
 
 ;;;###autoload
 (defun +indent-buffer ()
