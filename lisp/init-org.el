@@ -26,8 +26,26 @@
   ;; TODO I write it again as I don't know
   ;; why this configuration which in init-tools doesn't take effect
   (yas-global-mode 1)
+  (defun +org-export-html-to-my-dir()
+    "Export org to my dir."
+    (interactive)
+    (save-buffer)
+    (shell-command
+     (format "mv -v %s %s"
+             (shell-quote-argument (org-html-export-to-html))
+             "~/haoran/n/org/export")))
+  (defun +org-preview-html-in-my-dir()
+    "Preview html in my dir."
+    (interactive)
+    (browse-url (concat "/Users/haoran/haoran/n/org/export/"
+                        (file-name-base (buffer-name)) ".html")))
+  (defun +org-export-html-to-my-dir-and-preview()
+    (interactive)
+    (progn
+      (+org-export-html-to-my-dir)
+      (+org-preview-html-in-my-dir)))
   :custom
-  (org-directory "~/haoran/n/Org/org-directory")
+  (org-directory "~/haoran/n/org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
   (org-startup-indented t)
