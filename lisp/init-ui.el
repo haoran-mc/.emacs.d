@@ -7,7 +7,6 @@
 
 (use-package doom-modeline
   :ensure t
-  :unless (display-graphic-p)
   :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-project-detection 'relative-to-project)
@@ -28,7 +27,7 @@
 (use-package awesome-tray
   :ensure nil
   :load-path "~/.emacs.d/site-lisp/awesome-tray/"
-  :when (display-graphic-p)
+  :unless (display-graphic-p)
   :hook (after-init . awesome-tray-mode)
   :init
   (require 'awesome-tray)
