@@ -135,8 +135,8 @@
   :ensure t
   :hook (org-mode . org-superstar-mode)
   :custom
-  (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
-  ;; (setq org-superstar-bullet-list '("☰" "☷" "■" "◆" "▲" "▶"))
+  (org-superstar-headline-bullets-list '("☰" "☷" "■" "✿" "✸" "▶"))
+  ;; (org-superstar-headline-bullets-list '("◉" "○" "✸" "■" "◆" "▲" "▶"))
   (org-ellipsis " ▼ "))
 
 ;; Write codes in org-mode
