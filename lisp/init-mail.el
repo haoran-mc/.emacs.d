@@ -122,7 +122,7 @@
   :hook (message-mode . auto-fill-mode)
   :custom
   (user-full-name "Haoran Liu")
-  (user-mail-address "haoran.mc@gmail.com")
+  (user-mail-address "haoran.mc@outlook.com")
   (message-kill-buffer-on-exit t)
   (message-signature user-full-name)
   (message-mail-alias-type 'ecomplete)
