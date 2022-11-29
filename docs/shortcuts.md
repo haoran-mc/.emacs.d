@@ -88,13 +88,16 @@
 **isearch-mode**
 - C-c C-o  isearch-occur
 
+**lsp-bridge-mode**
+- C-c b    +lsp-bridge-jump-back
+- C-c j    +lsp-bridge-jump
+- C-c r    lsp-bridge-rename
+- C-c R    lsp-bridge-find-refenerce
+
 **prog-mode**
 - C-c '  separedit
 
 **go-mode**
-- C-c b    +lsp-bridge-jump-back
-- C-c j    +lsp-bridge-jump
-- C-c r    lsp-bridge-rename
 - C-c t    hl-todo/tag/test
 - C-c C-c  +go-run-buffer
 - C-c C-u  go-remove-unused-imports
@@ -233,6 +236,7 @@
 - [X] ctrl c j  进入函数
 - [X] ctrl c b  返回进入位置
 - [X] ctrl c r  变量重命名
+- [X] ctrl c R  跳转到引用
 
 ### go-mode
 
