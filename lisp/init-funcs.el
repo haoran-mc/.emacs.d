@@ -227,6 +227,7 @@ the current layouts buffers."
   ;; (pcase (treemacs-current-visibility)
   ;;   ('visible (delete-window (treemacs-get-local-window))))
   ;; (dashboard-refresh-buffer)
+  (+create-scratch-buffer)
   (tab-bar-rename-tab "xxx"))
 
 ;;;###autoload
