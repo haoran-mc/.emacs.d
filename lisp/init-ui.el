@@ -10,6 +10,7 @@
   :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-project-detection 'relative-to-project)
+  (doom-modeline-buffer-file-name-style 'relative-from-project)
   (doom-modeline-buffer-encoding nil)
   (doom-modeline-lsp nil)
   (doom-modeline-github nil)
