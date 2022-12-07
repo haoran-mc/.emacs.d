@@ -242,7 +242,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "wu" '+transient-tab-bar-history
       "w-" 'split-window-vertically
       "w/" 'split-window-horizontally
-      "wm" 'spacemacs/toggle-maxmize-buffer
+      "wm" '+toggle-maxmize-buffer
       )
 
     (with-eval-after-load 'org

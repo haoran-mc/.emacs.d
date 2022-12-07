@@ -175,16 +175,14 @@ the current layouts buffers."
       (set-window-buffer-start-and-point window buf start pos))))
 
 ;;;###autoload
-(defun spacemacs/toggle-maximize-buffer ()
+(defun +toggle-maximize-buffer()
   "Maximize buffer."
   (interactive)
-  (save-excursion
-    (if (and (= 1 (length (window-list)))
-             (assoc ?_ register-alist))
-        (jump-to-register ?_)
-      (progn
-        (window-configuration-to-register ?_)
-        (delete-other-windows)))))
+  (if (= 1 (length (window-list)))
+    (jump-to-register '_)
+    (progn
+      (set-register '_ (list (current-window-configuration)))
+      (delete-other-windows))))
 
 ;;;###autoload
 (defun +hidden-dos-eol()
