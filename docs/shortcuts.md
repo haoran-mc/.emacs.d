@@ -11,6 +11,7 @@
 - ctrl x 0       关闭当前窗口
 - ctrl x o       光标多窗口切换
 
+|-------------------------------------------|---------------------------------|-----------------------------------|------------------------------------|---------------------------------|
 | `DEL` → backward-kill-sentence            | `4` → `+ctl-x-4-prefix`         | `g` → magit-status                | `C-SPC` → pop-global-mark          | `C-q` → read-only-mode          |
 | `ESC` → repeat-complex-command            | `5` → `+ctl-x-5-prefix`         | `h` → mark-whole-buffer           | `C-+` → text-scale-adjust          | `C-r` → find-file-read-only     |
 | `RET` → `+prefix`                         | `6` → `+2C-command`             | `i` → insert-file                 | `C--` → text-scale-adjust          | `C-s` → save-buffer             |
@@ -24,13 +25,14 @@
 | `+` → balance-windows                     | `^` → enlarge-window            | `s` → save-some-buffers           | `C-e` → eval-last-sexp             | `M-g` → magit-dispatch          |
 | `-` → shrink-window-if-larger-than-buffer | \` → next-error                 | `t` → `+tab`                      | `C-f` → find-file                  | `C-left` → previous-buffer      |
 | `.` → set-fill-prefix                     | `a` → `+abbrev`                 | `u` → undo                        | `C-k` → `+kmacro-keymap`           | `C-right` → next-buffer         |
-| `0` → delete-window                       | `b` → switch-to-buffer          | `v` → `+vc-prefix-map`            | `C-l` → downcase-region            | `←` → previous-buffer          |
-| `1` → delete-other-windows                | `d` → dired                     | `z` → repeat                      | `C-n` → set-goal-column            | `→` → next-buffer              |
-| `2` → split-window-below                  | `e` → kmacro-end-and-call-macro | `{` → shrink-window-horizontally  | `C-o` → delete-blank-lines         |                                  |
-| `3` → split-window-right                  | `f` → set-fill-column           | `}` → enlarge-window-horizontally | `C-p` → mark-page                  |                                  |
+| `0` → delete-window                       | `b` → switch-to-buffer          | `v` → `+vc-prefix-map`            | `C-l` → downcase-region            | `←` → previous-buffer           |
+| `1` → delete-other-windows                | `d` → dired                     | `z` → repeat                      | `C-n` → set-goal-column            | `→` → next-buffer               |
+| `2` → split-window-below                  | `e` → kmacro-end-and-call-macro | `{` → shrink-window-horizontally  | `C-o` → delete-blank-lines         |                                 |
+| `3` → split-window-right                  | `f` → set-fill-column           | `}` → enlarge-window-horizontally | `C-p` → mark-page                  |                                 |
 
 未被系统使用的以 C-x 为前缀的快捷键：
 
+|-------|--------|----------|---------|---------|-----------|-----------|
 | C-x ~ | C-x \  | C-x j    | C-x C-# | C-x C-_ | C-x C-/   | C-x C-ESC |
 | C-x ! | C-x ,  | C-x p    | C-x C-$ | C-x C-: | C-x C-?   | C-x C-a   |
 | C-x @ | C-x /  | C-x w    | C-x C-% | C-x C-' | C-x C-\   | C-x C-h   |
@@ -58,6 +60,7 @@
 ## 自定义 C-c 为前缀的快捷键
 
 **global**
+|------------------------|
 | `C-c !` flycheck       |
 | `C-c @` hideshow       |
 | `C-c /` webjump        |
