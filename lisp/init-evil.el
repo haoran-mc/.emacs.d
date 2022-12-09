@@ -238,6 +238,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; window
       "w" 'evil-window-map
+      "wa" 'ace-window
       "wx" 'kill-buffer-and-window
       "wu" '+transient-tab-bar-history
       "w-" 'split-window-vertically
