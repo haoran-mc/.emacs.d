@@ -57,7 +57,7 @@
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
           'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
-          'doom-monokai-octagon 'doom-monokai-pro 'doom-monokai-spectrum
+          'doom-monokai-pro 'doom-monokai-spectrum
           'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
           'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
           'doom-snazzy 'doom-solarized-dark 'doom-solarized-dark-high-contrast
@@ -74,6 +74,9 @@
     (list 'doom-1337 'doom-dark+ 'doom-lantern 'doom-laserwave 'doom-manegarm
           'doom-miramare 'doom-nord-light 'doom-plain 'doom-plain-dark
           'doom-shades-of-purple
+          ))
+  (defvar bad-themes
+    (list 'doom-monokai-octagon ;; the highlight is inconspicuous
           ))
   (defun random-choice (items)
     "Random choice in ITEMS."
