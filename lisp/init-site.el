@@ -89,7 +89,7 @@ Which is a reverse operation of `save-and-publish-statics'."
     (interactive)
     (save-buffer t)
     (if (string= (file-name-directory (buffer-file-name))
-                 "/Users/haoran/haoran/n/org/site/org/")
+                 "/Users/haoran/haoran/no/org/site/org/")
         ;; 是site文件夹
         (org-publish-current-file t)))
 
@@ -103,7 +103,7 @@ Which is a reverse operation of `save-and-publish-statics'."
   :custom
   (org-publish-project-alist
    '(("orgfiles"
-      :base-directory "~/haoran/n/org/site/org/"
+      :base-directory "~/haoran/no/org/site/org/"
       ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
       :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
       :base-extension "org"
@@ -141,14 +141,14 @@ Which is a reverse operation of `save-and-publish-statics'."
       )
 
      ("images"
-      :base-directory "~/haoran/n/org/site/images/"
+      :base-directory "~/haoran/no/org/site/images/"
       :base-extension any
       :publishing-directory "~/haoran/gr/haoran-mc.github.io/images/"
       :recursive t
       :publishing-function org-publish-attachment
       )
      ("static"
-      :base-directory "~/haoran/n/org/site/static/"
+      :base-directory "~/haoran/no/org/site/static/"
       :base-extension any
       :publishing-directory "~/haoran/gr/haoran-mc.github.io/static/"
       :recursive t
@@ -158,14 +158,14 @@ Which is a reverse operation of `save-and-publish-statics'."
      ("rimages"
       :base-directory "~/haoran/gr/haoran-mc.github.io/images/"
       :base-extension any
-      :publishing-directory "~/haoran/n/org/site/images/"
+      :publishing-directory "~/haoran/no/org/site/images/"
       :recursive t
       :publishing-function org-publish-attachment
       )
      ("rstatic"
       :base-directory "~/haoran/gr/haoran-mc.github.io/static/"
       :base-extension any
-      :publishing-directory "~/haoran/n/org/site/static/"
+      :publishing-directory "~/haoran/no/org/site/static/"
       :recursive t
       :publishing-function org-publish-attachment)
 

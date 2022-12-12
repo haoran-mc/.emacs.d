@@ -33,11 +33,11 @@
     (shell-command
      (format "mv -v %s %s"
              (shell-quote-argument (org-html-export-to-html))
-             "~/haoran/n/org/export")))
+             "~/haoran/no/org/export")))
   (defun +org-preview-html-in-my-dir()
     "Preview html in my dir."
     (interactive)
-    (browse-url (concat "/Users/haoran/haoran/n/org/export/"
+    (browse-url (concat "/Users/haoran/haoran/no/org/export/"
                         (file-name-base (buffer-name)) ".html")))
   (defun +org-export-html-to-my-dir-and-preview()
     (interactive)
@@ -45,7 +45,7 @@
       (+org-export-html-to-my-dir)
       (+org-preview-html-in-my-dir)))
   :custom
-  (org-directory "~/haoran/n/org/org-directory")
+  (org-directory "~/haoran/no/org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
   ;; prettify
   (org-startup-indented t)
@@ -246,8 +246,8 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/n/org/gtd/" "~/haoran/n/org/org-directory/"))
-  (org-agenda-diary-file '("~/haoran/n/org/diary/diary.org"))
+  (org-agenda-files '("~/haoran/no/org/gtd/" "~/haoran/no/org/org-directory/"))
+  (org-agenda-diary-file '("~/haoran/no/org/diary/diary.org"))
   (org-agenda-span 'day)
   (org-agenda-custom-commands
    '(("c" "The most import priority!"
