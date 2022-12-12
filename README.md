@@ -47,6 +47,7 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
   - python -m venv ENV_DIR
   - npm install -g pyright
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)；
+  - macOS 用户需要给 brew 命令增加选项 `--with-rsvg` 来安装 Emacs 才能显示 SVG 图片；
 - [grip](https://github.com/joeyespo/grip)：预览 markdown，`brew install grip`；
 - [all-the-icons](https://github.com/domtronn/all-the-icons.el)：`M-x all-the-icons-install-fonts`；
 
