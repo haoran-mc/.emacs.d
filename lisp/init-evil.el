@@ -16,10 +16,10 @@
   :hook (after-init . evil-mode)
   ;; Don't quit Emacs on `:q'.
   :bind (([remap evil-quit] . kill-this-buffer)
+         ;; :map evil-motion-state-map
+         ;; ("F" . evil-avy-goto-char-in-line)
          :map evil-normal-state-map
-         ("Q" . kill-this-buffer)
-         :map evil-motion-state-map
-         ("F" . evil-avy-goto-char-in-line))
+         ("Q" . kill-this-buffer))
   :config
   ;; Install `undo-fu' when necessary
   (when (< emacs-major-version 28)
