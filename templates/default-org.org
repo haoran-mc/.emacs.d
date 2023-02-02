@@ -2,5 +2,5 @@
 #+AUTHOR: `user-full-name`
 #+EMAIL: `user-mail-address`
 #+DATE: `(format-time-string "%Y-%m-%d %H:%m %a")`
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="static/css/org.css"/>
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="static/css/org.css"/>
 #+DESCRIPTION: Copyright © `(format-time-string "%Y")`, `user-full-name`, all rights reserved.
