@@ -169,7 +169,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "et" 'aweshell-toggle
 
       ;; file
-      "f"  '(:wk "files")
+      "f"  '(:wk "files/find")
       "ff" 'find-file
       "fd" 'ediff-buffers
       "fF" 'find-file-other-window
@@ -179,8 +179,15 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "fy" '+copy-current-filename
       "fR" '+rename-current-file
       "fr" 'recentf-open-files
-      "fl" 'find-file-literally
+      ;; "fl" 'find-file-literally
       "ft" 'treemacs
+      "fs" 'evil-avy-goto-char-timer  ;; avy
+      "fh" 'evil-avy-goto-char-in-line
+      "fj" 'evil-avy-goto-line-below
+      "fk" 'evil-avy-goto-line-above
+      "fl" 'evil-avy-goto-char-in-line
+      "fw" 'evil-avy-goto-word-1
+      "fW" 'evil-avy-goto-word-0
 
       ;; open
       "o" '(:wk "open")
