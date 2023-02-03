@@ -57,7 +57,8 @@
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
           'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
-          'doom-monokai-pro 'doom-monokai-spectrum
+          'doom-monokai-pro ;; ripgrep highlight bad
+          'doom-monokai-spectrum
           'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
           'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
           'doom-snazzy 'doom-solarized-dark 'doom-solarized-dark-high-contrast
