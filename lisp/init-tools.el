@@ -318,8 +318,9 @@
     ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand])
   (define-auto-insert "\\.cpp$"
     ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand])
-  (define-auto-insert "\\.go$"
-    ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand]))
+  ;; (define-auto-insert "\\.go$"
+  ;;   ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
+  )
 
 ;; A tree layout file explorer
 (use-package treemacs
