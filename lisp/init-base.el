@@ -277,24 +277,6 @@
   (completions-max-height 13)
   (completions-detailed t))
 
-;; Appointment
-(use-package appt
-  :ensure nil
-  :hook (after-init . appt-activate)
-  :config
-  (defun appt-display-with-notification (min-to-app new-time appt-msg)
-    (notify-send :title (format "Appointment in %s minutes" min-to-app)
-                 :body appt-msg
-                 :urgency 'critical)
-    (appt-disp-window min-to-app new-time appt-msg))
-  :custom
-  (appt-audible nil)
-  (appt-display-diary nil)
-  (appt-display-interval 5)
-  (appt-display-mode-line t)
-  (appt-message-warning-time 15)
-  (appt-disp-window-function #'appt-display-with-notification))
-
 ;; Build regexp with visual feedback
 (use-package re-builder
   :ensure nil
