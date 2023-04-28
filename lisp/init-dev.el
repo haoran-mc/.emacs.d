@@ -190,11 +190,6 @@
   :custom
   (hs-set-up-overlay #'hideshow-folded-overlay-fn))
 
-;; Antlr mode
-(use-package antlr-mode
-  :ensure nil
-  :mode ("\\.g4\\'" . antlr-mode))
-
 ;; XML
 (use-package nxml-mode
   :ensure nil
