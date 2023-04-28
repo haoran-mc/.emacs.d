@@ -17,13 +17,6 @@
   ;; Save all buffers on M-x `compile'
   (compilation-ask-about-save nil))
 
-;; Insert SPDX license header
-(use-package spdx
-  :ensure t
-  :hook (prog-mode . spdx-tempo-setup)
-  :custom
-  (spdx-ignore-deprecated t))
-
 ;; Highlight TODO
 (use-package hl-todo
   :ensure t
