@@ -171,11 +171,6 @@
   :ensure t
   :mode ("\\.ya?ml\\'" . yaml-mode))
 
-;; Protobuf mode
-(use-package protobuf-mode
-  :ensure t
-  :mode ("\\.proto\\'" . protobuf-mode))
-
 ;; Syntax highlighting for systemd files
 (use-package conf-mode
   :ensure nil
