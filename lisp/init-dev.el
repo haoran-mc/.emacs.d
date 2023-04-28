@@ -23,18 +23,6 @@
   :ensure nil
   :hook (gud-mode . gud-tooltip-mode))
 
-;; GDB specific config
-(use-package gdb-mi
-  :ensure nil
-  :commands gdb
-  :custom
-  (gdb-show-main t)
-  (gdb-display-io-nopopup t)
-  (gdb-show-changed-values t)
-  (gdb-delete-out-of-scope t)
-  (gdb-use-colon-colon-notation t)
-  (gdb-restore-window-configuration-after-quit t))
-
 ;; Insert SPDX license header
 (use-package spdx
   :ensure t
