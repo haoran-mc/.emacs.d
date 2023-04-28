@@ -145,13 +145,6 @@
   (dumb-jump-aggressive t)
   (dumb-jump-selector 'completing-read))
 
-;; Browse devdocs.io
-(use-package devdocs
-  :ensure t
-  :bind ("C-c B" . devdocs-lookup)
-  :config
-  (add-to-list 'completion-category-defaults '(devdocs (styles . (flex)))))
-
 ;; Hiding structured data
 ;;
 ;; zm hide-all
