@@ -204,15 +204,6 @@
   :ensure t
   :mode ("\\.ya?ml\\'" . yaml-mode))
 
-;; The dot-language
-(use-package graphviz-dot-mode
-  :ensure t
-  :mode ("\\.dot\\'" . graphviz-dot-mode)
-  :config
-  (set-company-backends-for! graphviz-dot-mode company-dabbrev-code company-dabbrev company-graphviz-dot-backend)
-  :custom
-  (graphviz-dot-indent-width 2))
-
 ;; Protobuf mode
 (use-package protobuf-mode
   :ensure t
