@@ -17,12 +17,6 @@
   ;; Save all buffers on M-x `compile'
   (compilation-ask-about-save nil))
 
-;; The unified debugger
-;; WIP: upstreaming
-(use-package gud
-  :ensure nil
-  :hook (gud-mode . gud-tooltip-mode))
-
 ;; Insert SPDX license header
 (use-package spdx
   :ensure t
