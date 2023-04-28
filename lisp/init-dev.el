@@ -7,16 +7,6 @@
 
 (require 'init-macros)
 
-;; Compilation Mode
-(use-package compile
-  :ensure nil
-  :hook (compilation-filter . ansi-color-compilation-filter)
-  :custom
-  (compilation-always-kill t)
-  (compilation-scroll-output t)
-  ;; Save all buffers on M-x `compile'
-  (compilation-ask-about-save nil))
-
 ;; Highlight TODO
 (use-package hl-todo
   :ensure t
