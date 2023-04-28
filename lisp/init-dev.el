@@ -35,14 +35,6 @@
   :custom
   (whitespace-style '(face trailing)))
 
-;; Quickrun codes, including cpp. awesome!
-(use-package quickrun
-  :ensure t
-  :bind ("C-c x" . quickrun)
-  :custom
-  (quickrun-focus-p nil)
-  (quickrun-input-file-extension ".qr"))
-
 ;; Project management
 ;; sudo apt-get install silversearcher-ag
 ;; sudo apt-get install ripgrep
