@@ -318,15 +318,6 @@ Else, call `comment-or-uncomment-region' on the current line."
   ;; quoted text can be `auto-fill'ed.
   (comment-auto-fill-only-comments t))
 
-;; transparent remote access
-(use-package tramp
-  :ensure nil
-  :defer t
-  :custom
-  ;; Always use file cache when using tramp
-  (remote-file-name-inhibit-cache nil)
-  (tramp-default-method "ssh"))
-
 ;; Command line interpreter
 (use-package comint
   :ensure nil
