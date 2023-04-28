@@ -277,17 +277,6 @@
   (completions-max-height 13)
   (completions-detailed t))
 
-;; Build regexp with visual feedback
-(use-package re-builder
-  :ensure nil
-  :commands re-builder
-  :bind (:map reb-mode-map
-              ("C-c C-k" . reb-quit)
-              ("C-c C-p" . reb-prev-match)
-              ("C-c C-n" . reb-next-match))
-  :custom
-  (reb-re-syntax 'string))
-
 ;; window layout manager
 ;;
 ;; gt next-tab
