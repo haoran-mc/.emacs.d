@@ -115,51 +115,41 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; Resume
       "'" 'vertico-repeat
-      "." 'avy-menu
       "0" '+add-whitespace-around
 
       ;; app
       "a" '(:wk "app")
       "aa" 'org-agenda
       "ac" 'calendar
-      "ag" 'gnus
-      "ai" 'rcirc
+      "af" 'fanyi-dwim2
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
-      "bb" 'switch-to-buffer                    ;; switch buffer
-      "bB" 'switch-to-buffer-other-window       ;; switch buffer other window
-      "bc" 'clone-indirect-buffer               ;; clone indirect buffer
-      "bC" 'clone-indirect-buffer-other-window  ;; clone indirect buffer other window
-      "by" '+copy-current-buffer-name           ;; copy current buffer name
-      "bv" 'revert-buffer                       ;; revert buffer
-      "bx" '+create-scratch-buffer              ;; create scratch buffer
-      "bz" 'bury-buffer                         ;; bury buffer
+      "bb" 'switch-to-buffer                ;; switch buffer
+      "bc" 'clone-indirect-buffer           ;; clone indirect buffer
+      "by" '+copy-current-buffer-name       ;; copy current buffer name
+      "bv" 'revert-buffer                   ;; revert buffer
+      "bx" '+create-scratch-buffer          ;; create scratch buffer
+      "bz" 'bury-buffer                     ;; bury buffer
       ;; --------------
-      "bm" 'bookmark-set                        ;; add a new bookmark
-      "bM" 'bookmark-set-no-overwrite           ;; add a new bookmark while no overwrite
-      "bi" 'bookmark-insert                     ;; insert the selected bookmark content current postion
-      "br" 'bookmark-rename                     ;; rename bookmark
-      "bd" 'bookmark-delete                     ;; delete bookmark
-      "bw" 'bookmark-write                      ;; write bookmark into a file
-      "bj" 'bookmark-jump                       ;; jump bookmark
-      "bJ" 'bookmark-jump-other-window          ;; jump bookmark other window
-      "bl" 'bookmark-bmenu-list                 ;; list bookmark
-      "bs" 'bookmark-save                       ;; save bookmark
+      "bm" 'bookmark-set                    ;; add a new bookmark
+      "bM" 'bookmark-set-no-overwrite       ;; add a new bookmark while no overwrite
+      "bi" 'bookmark-insert                 ;; insert the selected bookmark content current postion
+      "br" 'bookmark-rename                 ;; rename bookmark
+      "bd" 'bookmark-delete                 ;; delete bookmark
+      "bw" 'bookmark-write                  ;; write bookmark into a file
+      "bj" 'bookmark-jump                   ;; jump bookmark
+      "bJ" 'bookmark-jump-other-window      ;; jump bookmark other window
+      "bl" 'bookmark-bmenu-list             ;; list bookmark
+      "bs" 'bookmark-save                   ;; save bookmark
 
       ;; code
       "c" '(:wk "code")
-      "cd" 'rmsbolt-compile
-      "cc" 'compile
-      "cC" 'recompile
-      "ck" 'kill-compilation
       "cw" 'delete-trailing-whitespace
-      "cx" 'quickrun
 
       ;; dired
       "d" '(:wk "dired")
       "dj" 'dired-jump
-      "dJ" 'dired-jump-other-window
       "dp" 'dired-at-point
 
       ;; eshell
@@ -172,8 +162,6 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "f"  '(:wk "files/find")
       "ff" 'find-file
       "fd" 'ediff-buffers
-      "fF" 'find-file-other-window
-      "f/" 'find-file-other-window
       "fC" '+copy-current-file
       "fD" '+delete-current-file
       "fy" '+copy-current-filename
@@ -182,22 +170,16 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; "fl" 'find-file-literally
       "ft" 'treemacs
       "fs" 'evil-avy-goto-char-timer  ;; avy
-      "fh" 'evil-avy-goto-char-in-line
       "fj" 'evil-avy-goto-line-below
       "fk" 'evil-avy-goto-line-above
-      "fl" 'evil-avy-goto-char-in-line
-      "fw" 'evil-avy-goto-word-1
-      "fW" 'evil-avy-goto-word-0
+      "fw" 'evil-avy-goto-word-0
 
       ;; open
       "o" '(:wk "open")
       "oc" 'org-capture
       "ol" 'org-store-link
-      "ot" 'ansi-term
-      "oe" 'eshell
-      "os" 'shell
       "oo" '+open-in-browser
-      "oD"  '+open-current-directory  ;; depend on consult
+      "oD" '+open-current-directory  ;; depend on consult
       ;; open directory
       "od" '(:wk "open directory")
       "odm" '+open-directory-markdown
@@ -205,24 +187,13 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; open file
       "of"  '(:wk "open file")
       "oi"  '+open-file-note
-      "ofi" '+open-file-note
       "ofr" '+open-file-init
-      "ofn" '+open-file-navigate
-      "ofb" '+open-file-backup
 
       ;; project
       "p" 'projectile-command-map
 
-      ;; search
-      "s" '(:wk "search")
-      "sj" 'evil-show-jumps
-      "sm" 'evil-show-marks
-      "sr" 'evil-show-registers
-      "si" 'imenu
-
       ;; tab/tree
       "t" '(:wk "tab/tree")
-      "t9" 'tab-bar-switch-to-last-tab
       "tc" 'tab-bar-close-tab
       "tC" 'tab-bar-close-group-tabs
       "tg" 'tab-bar-change-tab-group
@@ -241,15 +212,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; user's
       "u" '(:wk "user")
       "ui" '+indent-region-or-buffer
-      "uf" 'fanyi-dwim2
 
       ;; window
       "w" 'evil-window-map
       "wa" 'ace-window
       "wx" 'kill-buffer-and-window
       "wu" '+transient-tab-bar-history
-      "w-" 'split-window-vertically
-      "w/" 'split-window-horizontally
       "wm" '+toggle-maxmize-buffer
       )
 
