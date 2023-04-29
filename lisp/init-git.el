@@ -14,8 +14,6 @@
   :ensure t
   :bind (([remap magit-mode-bury-buffer] . kill-this-buffer)
          ("C-x g"   . magit-status)
-         ("C-x M-g" . magit-dispatch)
-         ("C-c M-g" . magit-file-dispatch)
          :map magit-status-mode-map
          ("Q"       . quit-window))
   :custom
