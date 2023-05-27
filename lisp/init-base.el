@@ -154,149 +154,34 @@
   :custom
   (bookmark-default-file "~/haoran/no/org/bookmark-default.el"))
 
-;; Highlight parenthesises
-(use-package paren
-  :ensure nil
-  :hook (after-init . show-paren-mode)
-  :custom
-  (show-paren-when-point-inside-paren t)
-  (show-paren-when-point-in-periphery t))
-
-;; Auto complete parens
-(use-package elec-pair
-  :ensure nil
-  :hook ((go-mode . electric-pair-local-mode)
-         (emacs-lisp-mode . electric-pair-local-mode))
-  :custom (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
-
-;; Show line/column number and more
-(use-package simple
-  :ensure nil
-  :custom
-  ;; show line/column/filesize in modeline
-  (line-number-mode t)
-  (column-number-mode t)
-  (size-indication-mode nil)
-  ;; No visual feedback on copy/delete.
-  (copy-region-blink-delay 0)
-  (delete-pair-blink-delay 0)
-  ;; confusing if no fringes (GUI only).
-  (visual-line-fringe-indicators '(nil right-curly-arrow))
-  ;; don't save current clipboard text before replacing it
-  (save-interprogram-paste-before-kill nil)
-  ;; eliminate duplicates
-  (kill-do-not-save-duplicates t)
-  ;; include '\n' when point starts at the beginning-of-line
-  (kill-whole-line t)
-  ;; show cwd when `shell-command' and `async-shell-command'
-  (shell-command-prompt-show-cwd t)
-  ;; show the name of character in `what-cursor-position'
-  (what-cursor-show-names t)
-  ;; List only applicable commands.
-  ;;
-  ;; ``` elisp
-  ;; (defun foo ()
-  ;;   (interactive nil org-mode)
-  ;;   (message "foo"))
-  ;; ```
-  ;;
-  ;; M-x foo should only be available in `org-mode` or modes derived from `org-mode`.
-  (read-extended-command-predicate #'command-completion-default-include-p))
-
-;; Type text
-(use-package text-mode
-  :ensure nil
-  :custom
-  ;; better word wrapping for CJK characters
-  (word-wrap-by-category t)
-  ;; paragraphs
-  (sentence-end-double-space nil))
-
 ;; Back to the previous position
 (use-package saveplace
   :ensure nil
   :hook (after-init . save-place-mode))
+
+;; Recently opened files
+(use-package recentf
+  :ensure nil
+  :hook (after-init . recentf-mode)
+  :custom
+  (recentf-max-saved-items 300)
+  (recentf-auto-cleanup 'never)
+  (recentf-exclude '(;; Folders on MacOS start
+                     "^/private/tmp/"
+                     "^/var/folders/"
+                     ;; Folders on MacOS end
+                     "^/tmp/"
+                     "/ssh\\(x\\)?:"
+                     "/su\\(do\\)?:"
+                     "^/usr/include/"
+                     "/TAGS\\'"
+                     "COMMIT_EDITMSG\\'")))
 
 ;; Highlight current line in GUI
 (use-package hl-line
   :ensure nil
   :when (display-graphic-p)
   :hook (after-init . global-hl-line-mode))
-
-;;;; Enable `repeat-mode' to reduce key sequence length
-;;;;
-;;;; If we have been idle for `repeat-exit-timeout' seconds, exit the repeated
-;;;; state.
-;;(use-package repeat
-;;  :ensure nil
-;;  :custom
-;;  (repeat-mode t)
-;;  (repeat-exit-timeout 3)
-;;  (repeat-exit-key (kbd "RET")))
-
-;; Server mode.
-;; Use emacsclient to connect
-(use-package server
-  :ensure nil
-  :hook (after-init . server-mode))
-
-;; Workaround with minified source files
-(use-package so-long
-  :ensure nil
-  :hook (after-init . global-so-long-mode))
-
-;; Completion engine
-(use-package minibuffer
-  :ensure nil
-  :bind (:map minibuffer-local-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-ns-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-completion-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-must-match-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-isearch-map
-              ([escape] . abort-recursive-edit))
-  :custom
-  ;; Default minibuffer is fine-tuned since Emacs 29
-  (completion-auto-help t)
-  (completion-show-help nil)
-  (completion-cycle-threshold nil)
-  (completion-auto-select 'second-tab)
-  (enable-recursive-minibuffers t)
-  (minibuffer-depth-indicate-mode t)
-  (minibuffer-eldef-shorten-default t)
-  (minibuffer-electric-default-mode t)
-  ;; Don't insert completion at point into minibuffer
-  (minibuffer-completion-auto-choose nil)
-  ;; One frame one minibuffer.
-  (minibuffer-follows-selected-frame nil)
-  ;; Ignore cases when complete
-  (completion-ignore-case t)
-  (read-buffer-completion-ignore-case t)
-  (read-file-name-completion-ignore-case t)
-  ;; `selectrum', `vertico' and `icomplete' will honoring
-  (completion-styles '(basic partial-completion substring flex))
-  (completion-category-overrides '((buffer (styles . (flex)))))
-  ;; vertical view
-  (completions-format 'one-column)
-  (completions-max-height 13)
-  (completions-detailed t))
-
-;; window layout manager
-;;
-;; gt next-tab
-;; gT prev-tab
-(use-package tab-bar
-  :ensure nil
-  :hook (after-init . tab-bar-mode)
-  :custom
-  (tab-bar-show nil)
-  (tab-bar-tab-hints t)
-  (tab-bar-close-button-show nil)
-  (tab-bar-tab-name-function 'tab-bar-tab-name-all)
-  (tab-bar-format '(tab-bar-format-tabs tab-bar-separator)))
 
 (use-package newcomment
   :ensure nil
@@ -325,38 +210,97 @@ Else, call `comment-or-uncomment-region' on the current line."
   ;; quoted text can be `auto-fill'ed.
   (comment-auto-fill-only-comments t))
 
-;; Command line interpreter
-(use-package comint
+;; Hiding structured data
+;;
+;; zm hide-all
+;; zr show-all
+;; za toggle-fold
+;; zo show-block
+;; zc hide-block
+(use-package hideshow
   :ensure nil
-  :bind (:map comint-mode-map
-              ([remap kill-region]   . backward-kill-word))
-  :custom
-  ;; Make the prompt of "*Python*" buffer readonly
-  (comint-prompt-read-only t)
-  (comint-history-isearch 'dwim)
-  ;; Colorize
-  (comint-terminfo-terminal "dumb-emacs-ansi"))
-
-;; Better abbrev expansion
-(use-package hippie-exp
-  :ensure nil
-  :bind ([remap dabbrev-expand] . hippie-expand)
+  :hook (prog-mode . hs-minor-mode)
   :config
-  (defun try-expand-tempo (_old)
-    (require 'tempo)
-    (tempo-expand-if-complete))
+  (defconst hideshow-folded-face '((t (:inherit 'font-lock-comment-face :box nil))))
+
+  (defface hideshow-border-face
+    '((((background light))
+       :background "rosy brown" :extend t)
+      (t
+       :background "sandy brown" :extend t))
+    "Face used for hideshow fringe."
+    :group 'hideshow)
+
+  (define-fringe-bitmap 'hideshow-folded-fringe
+    (vector #b00000000
+            #b00000000
+            #b00000000
+            #b11000011
+            #b11100111
+            #b01111110
+            #b00111100
+            #b00011000))
+
+  (defun hideshow-folded-overlay-fn (ov)
+    "Display a folded region indicator with the number of folded lines."
+    (when (eq 'code (overlay-get ov 'hs))
+      (let* ((nlines (count-lines (overlay-start ov) (overlay-end ov)))
+             (info (format " (%d)..." nlines)))
+        ;; fringe indicator
+        (overlay-put ov 'before-string (propertize " "
+                                                   'display '(left-fringe hideshow-folded-fringe
+                                                                          hideshow-border-face)))
+        ;; folding indicator
+        (overlay-put ov 'display (propertize info 'face hideshow-folded-face)))))
   :custom
-  (hippie-expand-try-functions-list '(try-expand-tempo
-                                      try-expand-dabbrev
-                                      try-expand-dabbrev-all-buffers
-                                      try-expand-dabbrev-from-kill
-                                      try-complete-file-name-partially
-                                      try-complete-file-name
-                                      try-expand-all-abbrevs
-                                      try-expand-list
-                                      try-expand-line
-                                      try-complete-lisp-symbol-partially
-                                      try-complete-lisp-symbol)))
+  (hs-set-up-overlay #'hideshow-folded-overlay-fn))
+
+;; Show trailing whitespaces
+(use-package whitespace
+  :ensure nil
+  :hook ((prog-mode markdown-mode conf-mode) . whitespace-mode)
+  :custom
+  (whitespace-style '(face trailing)))
+
+;; Workaround with minified source files
+(use-package so-long
+  :ensure nil
+  :hook (after-init . global-so-long-mode))
+
+;; Highlight parenthesises
+(use-package paren
+  :ensure nil
+  :hook (after-init . show-paren-mode)
+  :custom
+  (show-paren-when-point-inside-paren t)
+  (show-paren-when-point-in-periphery t))
+
+;; Auto complete parens
+(use-package elec-pair
+  :ensure nil
+  :hook ((go-mode . electric-pair-local-mode)
+         (emacs-lisp-mode . electric-pair-local-mode))
+  :custom (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+
+;; Server mode.
+;; Use emacsclient to connect
+(use-package server
+  :ensure nil
+  :hook (after-init . server-mode))
+
+;; window layout manager
+;;
+;; gt next-tab
+;; gT prev-tab
+(use-package tab-bar
+  :ensure nil
+  :hook (after-init . tab-bar-mode)
+  :custom
+  (tab-bar-show nil)
+  (tab-bar-tab-hints t)
+  (tab-bar-close-button-show nil)
+  (tab-bar-tab-name-function 'tab-bar-tab-name-all)
+  (tab-bar-format '(tab-bar-format-tabs tab-bar-separator)))
 
 ;; Buffer index
 (use-package imenu
@@ -417,69 +361,107 @@ Else, call `comment-or-uncomment-region' on the current line."
       ("IRC" (or (mode . rcirc-mode)
                  (mode . erc-mode)))))))
 
-;; Notifications
-;;
-;; Actually, `notify-send' is not defined in notifications package, but the
-;; autoload cookie will make Emacs load `notifications' first, then our
-;; `defalias' will be evaluated.
-(pcase system-type
-  ('gnu/linux
-   (use-package notifications
-     :ensure nil
-     :commands notify-send
-     :config
-     (defalias 'notify-send 'notifications-notify)))
-  ('darwin
-   (defun notify-send (&rest params)
-     "Send notifications via `terminal-notifier'."
-     (let ((title (plist-get params :title))
-           (body (plist-get params :body)))
-       (start-process "terminal-notifier"
-                      nil
-                      "terminal-notifier"
-                      "-group" "Emacs"
-                      "-title" title
-                      "-message" body
-                      "-activate" "org.gnu.Emacs"))))
-  (_
-   (defalias 'notify-send 'ignore)))
-
-;; Recently opened files
-(use-package recentf
+;; Show line/column number and more
+(use-package simple
   :ensure nil
-  :hook (after-init . recentf-mode)
   :custom
-  (recentf-max-saved-items 300)
-  (recentf-auto-cleanup 'never)
-  (recentf-exclude '(;; Folders on MacOS start
-                     "^/private/tmp/"
-                     "^/var/folders/"
-                     ;; Folders on MacOS end
-                     "^/tmp/"
-                     "/ssh\\(x\\)?:"
-                     "/su\\(do\\)?:"
-                     "^/usr/include/"
-                     "/TAGS\\'"
-                     "COMMIT_EDITMSG\\'")))
+  ;; show line/column/filesize in modeline
+  (line-number-mode t)
+  (column-number-mode t)
+  (size-indication-mode nil)
+  ;; No visual feedback on copy/delete.
+  (copy-region-blink-delay 0)
+  (delete-pair-blink-delay 0)
+  ;; confusing if no fringes (GUI only).
+  (visual-line-fringe-indicators '(nil right-curly-arrow))
+  ;; don't save current clipboard text before replacing it
+  (save-interprogram-paste-before-kill nil)
+  ;; eliminate duplicates
+  (kill-do-not-save-duplicates t)
+  ;; include '\n' when point starts at the beginning-of-line
+  (kill-whole-line t)
+  ;; show cwd when `shell-command' and `async-shell-command'
+  (shell-command-prompt-show-cwd t)
+  ;; show the name of character in `what-cursor-position'
+  (what-cursor-show-names t)
+  ;; List only applicable commands.
+  ;;
+  ;; ``` elisp
+  ;; (defun foo ()
+  ;;   (interactive nil org-mode)
+  ;;   (message "foo"))
+  ;; ```
+  ;;
+  ;; M-x foo should only be available in `org-mode` or modes derived from `org-mode`.
+  (read-extended-command-predicate #'command-completion-default-include-p))
 
-;; Try out emacs package without installing
-(use-package try
-  :ensure t
-  :commands try try-and-refresh)
+;; The builtin incremental search
+(use-package isearch
+  :ensure nil
+  :bind (:map isearch-mode-map
+              ;; consistent with ivy-occur
+              ("C-c C-o"                   . isearch-occur)
+              ([escape]                    . isearch-cancel)
+              ;; Edit the search string instead of jumping back
+              ([remap isearch-delete-char] . isearch-del-char))
+  :config
+  (define-advice isearch-occur (:after (_regexp &optional _nlines))
+    (isearch-exit))
+  :custom
+  ;; Record isearch in minibuffer history, so C-x ESC ESC can repeat it.
+  (isearch-resume-in-command-history t)
+  ;; One space can represent a sequence of whitespaces
+  (isearch-lax-whitespace t)
+  (isearch-regexp-lax-whitespace t)
+  (isearch-repeat-on-direction-change t)
+  ;; M-< and M-> move to the first/last occurrence of the current search string.
+  (isearch-allow-motion t)
+  (isearch-motion-changes-direction t)
+  ;; lazy isearch
+  (isearch-lazy-count t)
+  (isearch-lazy-highlight t)
+  (lazy-count-prefix-format nil)
+  (lazy-count-suffix-format " [%s/%s]")
+  (lazy-highlight-buffer t)
+  ;; Mimic Vim
+  (lazy-highlight-cleanup nil))
 
-;; MacOS specific
-(use-package exec-path-from-shell
-  :ensure t
-  :when (eq system-type 'darwin)
-  :hook (after-init . exec-path-from-shell-initialize)
-  :init
-  (progn
-    (setq exec-path (append exec-path '("/root/go/bin")))
-    (exec-path-from-shell-copy-envs
-     '("PYTHONPATH"))
-    )
-  )
+;; Web search
+(use-package webjump
+  :ensure nil
+  ;; C-c / will be shadowed by `org-sparse-tree' in org-mode
+  :bind ("C-c /" . webjump)
+  :config
+  (defconst webjump-weather-default-cities '("杭州" "深圳" "北京" "上海"))
+  (defconst webjump-weather-url-template "https://weathernew.pae.baidu.com/weathernew/pc?query=%s天气&srcid=4982")
+
+  (defun webjump-weather (_name)
+    (let ((city (completing-read "City: " webjump-weather-default-cities)))
+      (format webjump-weather-url-template city)))
+  :custom
+  (webjump-sites '(;; Internet search engines.
+                   ("Google" .
+                    [simple-query "www.google.com"
+                                  "www.google.com/search?q=" ""])
+                   ("Wikipedia" .
+                    [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
+                   ("Ludwig Guru" .
+                    [simple-query "ludwig.guru" "ludwig.guru/s/" ""])
+                   ("Stack Overflow" .
+                    [simple-query "stackoverflow.com" "stackoverflow.com/search?q=" ""])
+                   ("Man Search" .
+                    [simple-query "archlinux.org" "man.archlinux.org/search?q=" ""])
+                   ("Man Go" .
+                    [simple-query "archlinux.org" "man.archlinux.org/search?q=" "&go=Go"])
+                   ;; Code search
+                   ("Code Search" .
+                    [simple-query "sourcegraph.com" "sourcegraph.com/search?q=context:global+" "&patternType=literal"])
+                   ;; Life
+                   ("Weather" . webjump-weather)
+                   ;; Language specific engines.
+                   ("x86 Instructions Reference" .
+                    [simple-query "www.felixcloutier.com"
+                                  "www.felixcloutier.com/x86/" ""]))))
 
 (provide 'init-base)
-
 ;;; init-base.el ends here

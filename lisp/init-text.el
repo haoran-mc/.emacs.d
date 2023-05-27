@@ -11,6 +11,15 @@
   :ensure t
   :hook ((markdown-mode org-mode) . valign-mode))
 
+;; Type text
+(use-package text-mode
+  :ensure nil
+  :custom
+  ;; better word wrapping for CJK characters
+  (word-wrap-by-category t)
+  ;; paragraphs
+  (sentence-end-double-space nil))
+
 ;; The markdown mode is awesome! unbeatable
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode))

@@ -94,6 +94,7 @@ confirmation."
   (find-file "~/.emacs.d/init.el")
   (tab-bar-rename-tab "hack"))
 
+;; FIXME
 ;;;###autoload
 (defun +open-file-note ()
   "Open file: init.el."
@@ -101,35 +102,19 @@ confirmation."
   (find-file "~/haoran/no/org/site/org/index.org")
   (tab-bar-rename-tab "note"))
 
-;;;###autoload
-(defun +open-file-navigate ()
-  "Open file: Navigate.org."
-  (interactive)
-  (find-file "~/haoran/no/org/site/org/Navigation.org"))
-
-;;;###autoload
-(defun +open-file-backup ()
-  "Open file: Backup.org."
-  (interactive)
-  (find-file "~/haoran/no/org/diary/Backup.org"))
-
+;; FIXME
 ;;;###autoload
 (defun +open-directory-markdown ()
   "Open directory: markdown."
   (interactive)
   (dired "~/haoran/no/markdown/"))
 
+;; FIXME
 ;;;###autoload
 (defun +open-directory-haoran ()
   "Open directory: haoran."
   (interactive)
   (dired "~/haoran/"))
-
-;;;###autoload
-(defun +open-directory-code ()
-  "Open directory: Code."
-  (interactive)
-  (dired "~/haoran/co/"))
 
 ;;;###autoload
 (defun +indent-buffer ()

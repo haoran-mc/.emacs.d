@@ -74,6 +74,7 @@
 (require 'init-dev)
 (require 'init-dired)
 (require 'init-minibuffer)
+(require 'init-company)
 
 ;; standalone apps
 (require 'init-org)

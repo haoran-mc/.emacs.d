@@ -1,4 +1,4 @@
-;;; hl-todo.el --- Highlight TODO -*- lexical-binding: t; -*-
+;;; ext-hl-todo.el --- Highlight TODO -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -24,5 +24,5 @@
               ("C-c t s" . hl-todo-rgrep)))
 
 
-(provide 'hl-todo)
-;;; hl-todo.el ends here
+(provide 'ext-hl-todo)
+;;; ext-hl-todo.el ends here
