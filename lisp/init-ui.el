@@ -46,12 +46,16 @@
   :ensure t
   :when (display-graphic-p)
   :init
+  (add-to-list 'load-path "~/.emacs.d/theme/mac-classic-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/spacemacs-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/lazycat-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/painting-theme")
+  (add-to-list 'load-path "~/.emacs.d/theme")
   (require 'painting-dark-theme)
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
+  (require 'sitaramv-nt)
+  (require 'mac-classic-theme)
   (defvar pretty-dark-themes
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
@@ -66,7 +70,8 @@
           'doom-vibrant 'doom-wilmersdorf 'doom-xcode 'doom-zenburn
           ))
   (defvar pretty-light-themes
-    (list 'doom-acario-light 'doom-ayu-light 'doom-flatwhite 'doom-gruvbox-light
+    (list 'doom-acario-light ;; comment not obvious
+          'doom-ayu-light 'doom-flatwhite 'doom-gruvbox-light
           'doom-homage-white 'doom-monokai-classic 'doom-one-light
           'doom-opera-light 'doom-solarized-light 'doom-tomorrow-day
           'modus-operandi
@@ -93,19 +98,17 @@
   (defun +load-theme-from-selected ()
     "Load random from pretty-dark-themes."
     (interactive)
-    (let* ((selected-theme (random-choice pretty-dark-themes)))
+    (let* ((selected-theme (random-choice pretty-light-themes)))
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
   (defun +load-theme-accoriding-time ()
     (interactive)
     (load-theme 'modus-vivendi t)
     ) ;; TODO
+  ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
-  (+load-theme-from-selected)
+  ;; (load-theme 'mac-classic t)
   ;; (load-theme 'painting-dark t)
-  ;; (load-theme 'modus-vivendi t)
-  ;; (load-theme 'modus-operandi t)
-  ;; (load-theme 'doom-gruvbox-light t)
   ;; (load-theme 'doom-monokai-pro t)
   )
 

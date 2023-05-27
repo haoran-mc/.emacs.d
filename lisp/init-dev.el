@@ -95,8 +95,6 @@
 ;; Jump to definition, used as a fallback of lsp-find-definition
 (use-package dumb-jump
   :ensure t
-  :bind (("M-g j" . lsp-bridge-jump)
-         ("M-g J" . lsp-bridge-jump))
   :custom
   (dumb-jump-quiet t)
   (dumb-jump-aggressive t)

@@ -53,9 +53,6 @@
   ;; integrate with isearch and others
   ;; C-' to select isearch-candidate with avy
   :hook (after-init . avy-setup-default)
-  :bind (("M-g M-l" . avy-goto-line)
-         ("M-g M-j" . avy-goto-char-timer)
-         ("M-f"     . evil-avy-goto-char-in-line))
   :config
   (when (>= emacs-major-version 28)
     (use-package transient
@@ -393,10 +390,6 @@
     :demand t
     :functions treemacs-set-scope-type
     :config (treemacs-set-scope-type 'Perspectives)))
-
-;; for aweshell
-(use-package company
-  :ensure nil)
 
 (provide 'init-tools)
 ;;; init-tools.el ends here

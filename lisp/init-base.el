@@ -142,6 +142,7 @@
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
+;; FIXME
 (use-package bookmark
   :ensure nil
   :custom
@@ -469,7 +470,7 @@ Else, call `comment-or-uncomment-region' on the current line."
   (progn
     (setq exec-path (append exec-path '("/root/go/bin")))
     (exec-path-from-shell-copy-envs
-      '("PYTHONPATH"))
+     '("PYTHONPATH"))
     )
   )
 
