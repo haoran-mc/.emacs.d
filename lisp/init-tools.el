@@ -247,44 +247,6 @@
   :ensure t
   :commands fanyi-dwim fanyi-dwim2)
 
-;; Edit text for browser with GhostText or AtomicChrome extension
-(use-package atomic-chrome
-  :ensure t
-  :hook ((emacs-startup . atomic-chrome-start-server)
-         (atomic-chrome-edit-mode . delete-other-windows))
-  :custom
-  (atomic-chrome-buffer-open-style 'frame)
-  (atomic-chrome-default-major-mode 'markdown-mode)
-  (atomic-chrome-url-major-mode-alist '(("github\\.com" . gfm-mode))))
-
-;; IRC client
-(use-package rcirc
-  :ensure nil
-  :hook (rcirc-mode . rcirc-omit-mode)
-  :config
-  (with-no-warnings
-    (defun rcirc-notify-me (proc sender _response target text)
-      "Notify me if SENDER sends a TEXT that matches my nick."
-      (when (and (not (string= (rcirc-nick proc) sender))        ;; Skip my own message
-                 (not (string= (rcirc-server-name proc) sender)) ;; Skip the response of server
-                 (rcirc-channel-p target))
-        (when (string-match (rcirc-nick proc) text)
-          (notify-send :title (format "%s mention you" sender)
-                       :body text
-                       :urgency 'critical))))
-
-    (add-hook 'rcirc-print-functions #'rcirc-notify-me))
-  :custom
-  (rcirc-default-port 7000)
-  (rcirc-kill-channel-buffers t)
-  ;; Always cycle for completions
-  (rcirc-cycle-completion-flag t)
-  (rcirc-auto-authenticate-flag t)
-  (rcirc-authenticate-before-join t)
-  (rcirc-fill-column #'window-text-width)
-  ;; print messages in current channel buffer
-  (rcirc-always-use-server-buffer-flag nil))
-
 ;; Snippest
 (use-package yasnippet
   :ensure t
