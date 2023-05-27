@@ -14,8 +14,14 @@
       inhibit-startup-message t
       inhibit-startup-buffer-menu t)
 
-;; fullscreen on startup
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;; screen pos and size on startup
+(setq initial-frame-alist
+      '((left . 55)
+        (top . 50)
+        (width . 141)
+        (height . 40)))
+
+(setq-default mode-line-format nil)
 
 ;; Pixelwise resize
 (setq window-resize-pixelwise t
