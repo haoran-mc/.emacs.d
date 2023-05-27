@@ -218,7 +218,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "wa" 'ace-window
       "wx" 'kill-buffer-and-window
       "wu" '+transient-tab-bar-history
-      "wm" '+toggle-maxmize-buffer
+      "wm" '+toggle-maximize-buffer
       )
 
     (with-eval-after-load 'org
