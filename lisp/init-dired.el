@@ -11,8 +11,8 @@
   ;; TODO ? add this config, then the default message of scratch disappear.
   ;; :hook (after-init . dired-mode)
   :bind (:map dired-mode-map
-         ;; consistent with ivy
-         ("C-c C-e"   . wdired-change-to-wdired-mode))
+              ;; consistent with ivy
+              ("C-c C-e"   . wdired-change-to-wdired-mode))
   :custom
   (dired-dwim-target t)
   (dired-bind-vm nil)

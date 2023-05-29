@@ -32,8 +32,6 @@
                          (eshell/alias "ll" "ls -l")
                          (eshell/alias "la" "ls -lAFh")
                          (eshell/alias "lr" "ls -tRFh")
-                         (eshell/alias "lrt" "ls -lFcrt")
-                         (eshell/alias "lsa" "ls -lah")
                          (eshell/alias "gm" "go run main.go")))
   :config
   (with-no-warnings

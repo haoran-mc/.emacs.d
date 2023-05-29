@@ -19,7 +19,8 @@
          ;; :map evil-motion-state-map
          ;; ("F" . evil-avy-goto-char-in-line)
          :map evil-normal-state-map
-         ("Q" . kill-this-buffer))
+         ("Q" . kill-this-buffer)
+         ("/" . consult-line))
   :config
   ;; Install `undo-fu' when necessary
   (when (< emacs-major-version 28)
@@ -107,20 +108,17 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
                    do (which-key-add-key-based-replacements key replacement)))))
 
     (define-leader-key 'normal 'global nil
-      ;; SPC, quit minibuffer.
-      ;; "SPC" 'keyboard-escape-quit
       "SPC" 'execute-extended-command
-      ":"   'execute-extended-command
       "TAB" 'spacemacs/alternate-buffer
 
       ;; Resume
       "'" 'vertico-repeat
-      "0" '+add-whitespace-around
 
       ;; app
       "a" '(:wk "app")
       "aa" 'org-agenda
-      "ac" 'calendar
+      "ac" 'org-capture
+      "ad" 'calendar
       "af" 'fanyi-dwim2
 
       ;; buffer & bookmark
@@ -143,40 +141,34 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "bl" 'bookmark-bmenu-list             ;; list bookmark
       "bs" 'bookmark-save                   ;; save bookmark
 
-      ;; code
-      "c" '(:wk "code")
-      "cw" 'delete-trailing-whitespace
-
       ;; dired
       "d" '(:wk "dired")
       "dj" 'dired-jump
       "dp" 'dired-at-point
 
-      ;; eshell
-      "e"  '(:wk "eshell")
+      ;; eshell & edit
+      "e"  '(:wk "eshell/edit")
       "ed" 'aweshell-dedicated-toggle
       "en" 'aweshell-new
       "et" 'aweshell-toggle
+      "ei" 'imenu
 
       ;; file
       "f"  '(:wk "files/find")
-      "ff" 'find-file
-      "fd" 'ediff-buffers
       "fC" '+copy-current-file
       "fD" '+delete-current-file
-      "fy" '+copy-current-filename
+      "fY" '+copy-current-filename
       "fR" '+rename-current-file
+      "fd" 'ediff-buffers
+      "ff" 'find-file
       "fr" 'recentf-open-files
-      ;; "fl" 'find-file-literally
       "ft" 'treemacs
-      "fs" 'evil-avy-goto-char-timer  ;; avy
       "fj" 'evil-avy-goto-line-below
       "fk" 'evil-avy-goto-line-above
       "fw" 'evil-avy-goto-word-0
 
       ;; open
       "o" '(:wk "open")
-      "oc" 'org-capture
       "ol" 'org-store-link
       "oo" '+open-in-browser
       "oD" '+open-current-directory  ;; depend on consult
@@ -192,8 +184,8 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; project
       "p" 'projectile-command-map
 
-      ;; tab/tree
-      "t" '(:wk "tab/tree")
+      ;; tab
+      "t" '(:wk "tab")
       "tc" 'tab-bar-close-tab
       "tC" 'tab-bar-close-group-tabs
       "tg" 'tab-bar-change-tab-group
@@ -204,20 +196,13 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "tp" 'tab-bar-switch-to-recent-tab
       "tr" 'tab-bar-rename-tab
 
-      ;; toggle
-      "T" '(:wk "toggle")
-      "Tf" 'follow-mode
-      "Tt" 'awesome-tray-mode
-
       ;; user's
       "u" '(:wk "user")
       "ui" '+indent-region-or-buffer
 
       ;; window
       "w" 'evil-window-map
-      "wa" 'ace-window
       "wx" 'kill-buffer-and-window
-      "wu" '+transient-tab-bar-history
       "wm" '+toggle-maximize-buffer
       )
 

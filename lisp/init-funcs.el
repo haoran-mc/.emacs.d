@@ -67,20 +67,6 @@ confirmation."
   (message "Copying '%s' to clipboard" (buffer-name)))
 
 ;;;###autoload
-(defun +transient-tab-bar-history ()
-  "Transient map of command `tab-bar-history'."
-  (interactive)
-  (let ((echo-keystrokes nil))
-    (tab-bar-history-back)
-    (message "tab-bar-history: [u]back [r]forward")
-    (set-transient-map
-     (let ((map (make-sparse-keymap)))
-       (define-key map "u" #'tab-bar-history-back)
-       (define-key map "r" #'tab-bar-history-forward)
-       map)
-     t)))
-
-;;;###autoload
 (defun +open-in-browser ()
   "Open in browser."
   (interactive)

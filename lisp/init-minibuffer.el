@@ -89,6 +89,9 @@
                        consult-buffer
                        :preview-key nil))
 
+  (with-eval-after-load 'embark
+    (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
+
   (defun +consult-directory-externally (file)
     "Open FILE externally using the default application of the system."
     (interactive "fOpen externally: ")
@@ -106,9 +109,6 @@
 		              (_ "xdg-open"))
 		            nil 0 nil
 		            (file-name-directory (expand-file-name file)))))
-
-  (with-eval-after-load 'embark
-    (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
 
   (defun +open-current-directory ()
     "Open current FILE directory.
