@@ -43,13 +43,6 @@
   ;; (hungry-delete-join-reluctantly t)
   )
 
-;; Writable grep buffer
-(use-package wgrep
-  :ensure t
-  :hook (grep-setup . wgrep-setup)
-  :custom
-  (wgrep-change-readonly-file t))
-
 ;; GC optimization
 (use-package gcmh
   :ensure t
@@ -57,27 +50,6 @@
   :custom
   (gcmh-idle-delay 10)
   (gcmh-high-cons-threshold #x6400000)) ;; 100 MB
-
-;; Write documentation comment in an easy way
-(use-package separedit
-  :ensure t
-  :bind (:map prog-mode-map
-              ("C-c '" . separedit))
-  :custom
-  (separedit-default-mode 'markdown-mode)
-  (separedit-remove-trailing-spaces-in-comment t)
-  (separedit-continue-fill-column t)
-  (separedit-buffer-creation-hook #'auto-fill-mode))
-
-;; Pastebin service
-(use-package webpaste
-  :ensure t
-  :commands webpaste-paste-buffer-or-region
-  :custom
-  (webpaste-open-in-browser t)
-  (webpaste-paste-confirmation t)
-  (webpaste-add-to-killring nil)
-  (webpaste-provider-priority '("paste.mozilla.org" "dpaste.org" "ix.io")))
 
 ;; Translator for Emacs
 ;; M-x fanyi-dwim{,2}, that's all.
