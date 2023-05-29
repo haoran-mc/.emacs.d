@@ -75,6 +75,7 @@
 (require 'init-dired)
 (require 'init-minibuffer)
 (require 'init-company)
+(require 'init-keybindings)
 
 ;; standalone apps
 (require 'init-org)
