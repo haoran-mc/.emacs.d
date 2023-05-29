@@ -12,10 +12,10 @@
 
 **插件介绍**
 
-- [builtin](./builtin-modes.md)
+- [builtin](./emacs-newbie/introduction-to-builtin-modes.md)
 - [use-package](./use-package-keywords.md)
 - minibuffer
-  - [ivy](./ivy.md)，已放弃
+  - [ivy](./emacs-newbie/introduction-to-ivy.md)，已放弃
   - [vertico, orderless, marginalia, embark, consult, embark-consult](./vertico,orderless,marginalia,embark.md)
 
 
