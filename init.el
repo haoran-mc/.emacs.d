@@ -66,7 +66,7 @@
 
 (require 'init-base)
 (require 'init-utils)
-;; (require 'init-ui)
+(require 'init-ui)
 (require 'init-tools)
 (require 'init-evil)
 ;; (require 'init-lsp_bridge)

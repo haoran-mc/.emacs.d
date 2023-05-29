@@ -20,7 +20,8 @@
          ;; ("F" . evil-avy-goto-char-in-line)
          :map evil-normal-state-map
          ("Q" . kill-this-buffer)
-         ("/" . consult-line))
+         ;; ("/" . consult-line)
+         )
   :config
   ;; Install `undo-fu' when necessary
   (when (< emacs-major-version 28)
@@ -166,6 +167,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "fj" 'evil-avy-goto-line-below
       "fk" 'evil-avy-goto-line-above
       "fw" 'evil-avy-goto-word-0
+      "fc" 'evil-avy-goto-char
 
       ;; open
       "o" '(:wk "open")

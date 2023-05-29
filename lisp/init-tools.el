@@ -91,9 +91,15 @@
   ;;   ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
   )
 
+(use-package ace-pinyin
+  :ensure t
+  :custom
+  (ace-pinyin-global-mode +1)
+  (ace-pinyin-treat-word-as-char nil)) ;; keep <leader>fw original
+
 (require 'ext-treemacs)
 (require 'ext-hl-todo)
-(require 'ext-avy)
+;; (require 'ext-avy)
 (require 'ext-projectile)
 (require 'ext-which-key)
 

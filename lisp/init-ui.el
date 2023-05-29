@@ -5,57 +5,26 @@
 
 ;;; Code:
 
-(use-package doom-modeline
-  :ensure t
-  :hook (after-init . doom-modeline-mode)
-  :custom
-  (doom-modeline-project-detection 'relative-to-project)
-  (doom-modeline-buffer-file-name-style 'relative-from-project)
-  (doom-modeline-buffer-encoding nil)
-  (doom-modeline-lsp nil)
-  (doom-modeline-github nil)
-  (doom-modeline-time t)
-  (doom-modeline-env-version nil)
-  (doom-modeline-height 21)
-  (doom-modeline-persp-icon nil)
-  (doom-modeline-irc nil)
-  (doom-modeline-mu4e nil)
-  (doom-modeline-gnus nil)
-  (doom-modeline-persp-name nil)
-  (doom-modeline-unicode-fallback t)
-  (doom-modeline-enable-word-count nil))
-
 (use-package awesome-tray
   :ensure nil
   :load-path "~/.emacs.d/site-lisp/awesome-tray/"
-  :unless (display-graphic-p)
+  :when (display-graphic-p)
   :hook (after-init . awesome-tray-mode)
   :init
   (require 'awesome-tray)
-  (custom-set-variables
-   '(awesome-tray-active-modules '("location" "belong" "file-path" "mode-name" "date"))
-   '(awesome-tray-file-path-show-filename t)))
-
-(use-package emacs
-  :ensure nil
-  :unless (display-graphic-p)
-  :config
-  (load-theme 'doom-molokai t))
+  :custom
+  (awesome-tray-active-modules '("location" "buffer-name" "word-count")))
 
 (use-package doom-themes
   :ensure t
   :when (display-graphic-p)
   :init
-  (add-to-list 'load-path "~/.emacs.d/theme/mac-classic-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/spacemacs-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/lazycat-theme")
   (add-to-list 'load-path "~/.emacs.d/site-lisp/painting-theme")
-  (add-to-list 'load-path "~/.emacs.d/theme")
   (require 'painting-dark-theme)
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
-  (require 'sitaramv-nt)
-  (require 'mac-classic-theme)
   (defvar pretty-dark-themes
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
@@ -107,6 +76,7 @@
     ) ;; TODO
   ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
+  (load-theme 'doom-one t)
   ;; (load-theme 'mac-classic t)
   ;; (load-theme 'painting-dark t)
   ;; (load-theme 'doom-monokai-pro t)
@@ -203,5 +173,4 @@
   :defer t)
 
 (provide 'init-ui)
-
 ;;; init-ui.el ends here
