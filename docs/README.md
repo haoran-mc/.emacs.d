@@ -14,4 +14,11 @@
 
 - [builtin](./builtin-modes.md)
 - [use-package](./use-package-keywords.md)
-- [ivy](./ivy.md)
+- minibuffer
+  - [ivy](./ivy.md)，已放弃
+  - [vertico, orderless, marginalia, embark, consult, embark-consult](./vertico,orderless,marginalia,embark.md)
+
+
+**教程推荐**
+
+An Introduction to Programming in Emacs Lisp (`M-x` info)
