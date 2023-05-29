@@ -20,7 +20,7 @@
 ;;; Code:
 
 (use-package lsp-bridge
-  :load-path "~/.emacs.d/site-lisp/lsp-bridge"
+  :load-path "~/Documents/emacs/local-packages/lsp-bridge"
   :init
   (require 'lsp-bridge-jdtls)
   (with-eval-after-load 'lsp-bridge

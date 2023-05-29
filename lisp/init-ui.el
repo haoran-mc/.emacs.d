@@ -7,24 +7,23 @@
 
 (use-package awesome-tray
   :ensure nil
-  :load-path "~/.emacs.d/site-lisp/awesome-tray/"
+  :load-path "~/Documents/emacs/local-packages/awesome-tray"
   :when (display-graphic-p)
   :hook (after-init . awesome-tray-mode)
   :init
   (require 'awesome-tray)
   :custom
-  (awesome-tray-active-modules '("location" "buffer-name" "word-count")))
+  (awesome-tray-active-modules '("location" "buffer-name")))
 
 (use-package doom-themes
   :ensure t
   :when (display-graphic-p)
   :init
-  (add-to-list 'load-path "~/.emacs.d/site-lisp/spacemacs-theme")
-  (add-to-list 'load-path "~/.emacs.d/site-lisp/lazycat-theme")
-  (add-to-list 'load-path "~/.emacs.d/site-lisp/painting-theme")
-  (require 'painting-dark-theme)
+  (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
+  (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
+  :config
   (defvar pretty-dark-themes
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
