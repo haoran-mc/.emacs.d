@@ -23,6 +23,8 @@
 
 (setq-default mode-line-format nil)
 
+(setq-default cursor-type 'bar)
+
 ;; Pixelwise resize
 (setq window-resize-pixelwise t
       frame-resize-pixelwise t)

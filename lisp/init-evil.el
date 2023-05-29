@@ -27,7 +27,7 @@
       :ensure t))
 
   (with-eval-after-load 'evil
-    (setq evil-insert-state-cursor 'box))
+    (setq evil-insert-state-cursor 'bar))
 
   ;; Silence line out of range error.
   (shut-up! #'evil-indent)
