@@ -25,7 +25,7 @@
 
 ;; screen pos and size on startup
 (setq initial-frame-alist
-      '((left . 55)
+      '((left . 445) ;; left 55
         (top . 50)
         (width . 141)
         (height . 40)))
