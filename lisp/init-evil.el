@@ -111,6 +111,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
     (define-leader-key 'normal 'global nil
       "SPC" 'execute-extended-command
       "TAB" 'spacemacs/alternate-buffer
+      "RET" 'bookmark-jump
 
       ;; Resume
       "'" 'vertico-repeat
@@ -124,21 +125,15 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
+      "bY" '+copy-current-buffer-name       ;; copy current buffer name
       "bb" 'switch-to-buffer                ;; switch buffer
-      "bc" 'clone-indirect-buffer           ;; clone indirect buffer
-      "by" '+copy-current-buffer-name       ;; copy current buffer name
-      "bv" 'revert-buffer                   ;; revert buffer
       "bx" '+create-scratch-buffer          ;; create scratch buffer
       "bz" 'bury-buffer                     ;; bury buffer
       ;; --------------
       "bm" 'bookmark-set                    ;; add a new bookmark
-      "bM" 'bookmark-set-no-overwrite       ;; add a new bookmark while no overwrite
-      "bi" 'bookmark-insert                 ;; insert the selected bookmark content current postion
       "br" 'bookmark-rename                 ;; rename bookmark
       "bd" 'bookmark-delete                 ;; delete bookmark
-      "bw" 'bookmark-write                  ;; write bookmark into a file
       "bj" 'bookmark-jump                   ;; jump bookmark
-      "bJ" 'bookmark-jump-other-window      ;; jump bookmark other window
       "bl" 'bookmark-bmenu-list             ;; list bookmark
       "bs" 'bookmark-save                   ;; save bookmark
 
@@ -170,15 +165,13 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "fc" 'evil-avy-goto-char
 
       ;; open
-      "o" '(:wk "open")
-      "ol" 'org-store-link
-      "oo" '+open-in-browser
-      "oD" '+open-current-directory  ;; depend on consult
-      ;; open directory
-      "od" '(:wk "open directory")
+      "o"   '(:wk "open")
+      "ol"  'org-store-link
+      "oo"  '+open-in-browser
+      "oD"  '+open-current-directory  ;; depend on consult
+      "od"  '(:wk "open directory")
       "odm" '+open-directory-markdown
       "odh" '+open-directory-haoran
-      ;; open file
       "of"  '(:wk "open file")
       "oi"  '+open-file-note
       "ofr" '+open-file-init
@@ -187,7 +180,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "p" 'projectile-command-map
 
       ;; tab
-      "t" '(:wk "tab")
+      "t"  '(:wk "tab")
       "tc" 'tab-bar-close-tab
       "tC" 'tab-bar-close-group-tabs
       "tg" 'tab-bar-change-tab-group
@@ -199,11 +192,11 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "tr" 'tab-bar-rename-tab
 
       ;; user's
-      "u" '(:wk "user")
+      "u" '(:wk "user funcs")
       "ui" '+indent-region-or-buffer
 
       ;; window
-      "w" 'evil-window-map
+      "w"  'evil-window-map
       "wx" 'kill-buffer-and-window
       "wm" '+toggle-maximize-buffer
       )
@@ -213,7 +206,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "." 'org-goto
         "a" 'org-archive-subtree
         "d" 'org-deadline
-        "e" 'org-set-effort
+        ;; "e" 'org-set-effort
         "f" 'org-footnote-action
         "l" 'org-lint
         "o" 'org-toggle-ordered-property
