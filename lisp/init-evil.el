@@ -253,21 +253,17 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "c=" 'org-clock-timestamps-up
         "c-" 'org-clock-timestamps-down
 
+        ;; export
+        "e"  '(:wk "export")
+        "eb" '+preview-current-buffer-in-browser
+        "ep" '+org-export-html-to-my-dir-and-preview
+
         ;; insert
         "i"  '(:wk "insert")
         "id" 'org-insert-drawer
         "in" 'org-add-note
         "it" 'org-time-stamp-inactive
         "iT" 'org-time-stamp
-
-        ;; user
-        "u"   '(:wk "user")
-        "ub"  '(:wk "browser")
-        "ubb" '+preview-current-buffer-in-browser
-        "ue"  '(:wk "export")
-        "ueh" '+org-export-html-to-my-dir
-        "uep" '+org-preview-html-in-my-dir
-        "ueH" '+org-export-html-to-my-dir-and-preview
         ))
 
     (with-eval-after-load 'elisp-mode
