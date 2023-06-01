@@ -1,6 +1,6 @@
 ;;; init-site.el --- site built by org               -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  HaoRan Liu
+;; Copyright (C) 2022  Haoran Liu
 
 ;; Author: HaoRan Liu <haoran.mc@gmail.com>
 ;; Keywords:
@@ -27,15 +27,8 @@
 (require 'ox)
 (require 'ox-html)
 
-(progn
-  "Settings of `org-export'."
-  (setq org-export-in-background t
-        ;; Hide html built-in style and script.
-        org-html-htmlize-output-type 'inline-css
-        ))
-
-(eval-after-load 'ox-html
-  (setq user-full-name "Haoran Liu"))
+;; "Settings of `org-export'."
+(setq org-html-htmlize-output-type 'inline-css) ;; Hide html built-in style and script.
 
 (use-package ox-publish
   :after org
@@ -107,37 +100,13 @@ Which is a reverse operation of `save-and-publish-statics'."
       ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
       :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
       :base-extension "org"
-      ;; exclude files like "_draft-demo-1.org"
-      :exclude "^_[[:word:]-]*.org"     ;; regexp
+      :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
       :recursive t
       :publishing-function org-html-publish-to-html ;; Publishing action
-
-      ;; personal information
 	  :author "Haoran Liu"
 	  :email "haoran.mc@outlook.com"
       ;; :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"
-
-      ;; generic properties
-      :headline-levels 6    ;; org-export-headline-levels
-      :language "zh"        ;; org-export-default-language
-      :section-numbers nil  ;; org-export-with-section-numbers
-      :with-planning t      ;; org-export-with-planning
-      :with-priority t      ;; org-export-with-priority
-      ;; :with-tags not-in-toc ;; org-export-with-tags
-      :with-toc t           ;; org-export-with-toc
-	  :with-sub-superscript {}     ;; 禁用 _ 转义成下标，^转义成上标。但加 {} 就可以转义了
-	  :preserve-breaks t           ;; 是否保留换行符。如果设置为 nil，导出后就会多行文本显示在一行
-
-      :html-doctype "html5" ;; org-html-doctype
-      :html-checkbox-type unicode   ;; org-html-checkbox-type
-
-      :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
-      :html-head-include-default-style nil ;; org-html-head-include-default-style
-      :html-head-include-scripts nil ;; org-html-head-include-scripts
-      :html-head
-      "<link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />
-           <link rel=\"stylesheet\" href=\"static/css/org.css\" type=\"text/css\"  />
-           <script type=\"module\" src=\"static/js/main.js\" defer></script>"
+      ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
       )
 
      ("images"
@@ -199,10 +168,9 @@ Which is a reverse operation of `save-and-publish-statics'."
   :global nil
   :lighter ""
   (if +auto-save-and-publish-file-mode
-      ;; When the mode is enabled
-      (progn
+      (progn ;; mode is enabled
         (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
-    ;; When the mode is disabled
+    ;; mode is disabled
     (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
 
 (use-package +auto-save-and-publish-file-mode
