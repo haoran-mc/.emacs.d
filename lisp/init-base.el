@@ -5,6 +5,15 @@
 
 ;;; Code:
 
+(setq user-full-name "Haoran Liu")
+(setq user-mail-address "haoran.mc@outlook.com")
+
+(setq-default default-process-coding-system '(utf-8-unix . utf-8-unix))
+(setq-default default-enable-multibyte-characters t)
+(set-language-environment "English")
+
+(setq diary-file "~/haoran/no/org/diary/diary.org")
+
 ;; Suppress GUI features and more
 (setq use-file-dialog nil
       use-dialog-box nil
