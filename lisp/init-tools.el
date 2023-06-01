@@ -102,6 +102,7 @@
 ;; (require 'ext-avy)
 (require 'ext-projectile)
 (require 'ext-which-key)
+(require 'ext-ligature)
 
 (provide 'init-tools)
 ;;; init-tools.el ends here
