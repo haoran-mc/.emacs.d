@@ -69,7 +69,7 @@
 (require 'init-ui)
 (require 'init-tools)
 (require 'init-evil)
-;; (require 'init-lsp_bridge)
+(require 'init-lsp_bridge)
 (require 'init-git)
 (require 'init-dev)
 (require 'init-dired)
