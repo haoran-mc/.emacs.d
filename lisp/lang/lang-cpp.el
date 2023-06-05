@@ -1,4 +1,4 @@
-;;; init-cpp.el --- Cpp -*- lexical-binding: t -*-
+;;; lang-cpp.el --- Cpp -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -33,6 +33,5 @@
     :diminish
     :init (modern-c++-font-lock-global-mode t)))
 
-(provide 'init-cpp)
-
-;;; init-cpp.el ends here
+(provide 'lang-cpp)
+;;; lang-cpp.el ends here

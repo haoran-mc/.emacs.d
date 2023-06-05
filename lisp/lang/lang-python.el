@@ -1,4 +1,4 @@
-;;; init-python.el --- Python -*- lexical-binding: t -*-
+;;; lang-python.el --- Python -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -8,22 +8,24 @@
 (use-package python
   :ensure nil
   :mode ("\\.py\\'" . python-mode)
-  :custom
-  (python-indent-guess-indent-offset-verbose nil)
+  :hook ((python-mode . python-mode-delete-trailing-whitespace))
+  :init
+  (defun python-mode-delete-trailing-whitespace ()
+    "Delete trailing whitespace before saving file."
+    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
   :config
   ;; Default to Python 3. Prefer the versioned Python binaries since some
   ;; systems stupidly make the unversioned one point at Python 2.
   (when (and (executable-find "python3")
              (string= python-shell-interpreter "python"))
     (setq python-shell-interpreter "python3"))
+  :custom
+  (python-indent-guess-indent-offset-verbose nil))
 
-  ;; Env vars
-  (with-eval-after-load 'exec-path-from-shell
-    (exec-path-from-shell-copy-env "PYTHONPATH"))
-
-  ;; Live Coding in Python
-  (use-package live-py-mode
-    :ensure t))
+;; Live Coding in Python
+(use-package live-py-mode
+  :ensure t
+  :defer t)
 
 ;; python -m venv ENV_DIR
 (use-package pyvenv
@@ -31,5 +33,5 @@
   :commands pyvenv-deactivate pyvenv-deactivate)
 
 
-(provide 'init-python)
-;;; init-python.el ends here
+(provide 'lang-python)
+;;; lang-python.el ends here

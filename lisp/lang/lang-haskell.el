@@ -1,4 +1,4 @@
-;;; init-haskell.el --- haskell -*- lexical-binding: t -*-
+;;; lang-haskell.el --- haskell -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 
@@ -17,5 +17,5 @@
   (haskell-process-suggest-overloaded-strings nil)
   (haskell-process-suggest-restart nil))
 
-(provide 'init-haskell)
-;;; init-haskell.el ends here
+(provide 'lang-haskell)
+;;; lang-haskell.el ends here

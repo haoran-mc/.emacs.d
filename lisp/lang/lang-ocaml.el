@@ -1,4 +1,4 @@
-;;; init-ocaml.el --- ocaml -*- lexical-binding: t -*-
+;;; lang-ocaml.el --- ocaml -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -36,6 +36,5 @@
   :when (executable-find "dune")
   :mode ("dune\\(?:\\.inc\\)?\\'" . dune-mode))
 
-(provide 'init-ocaml)
-
-;;; init-ocaml.el ends here
+(provide 'lang-ocaml)
+;;; lang-ocaml.el ends here

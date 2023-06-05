@@ -1,4 +1,4 @@
-;;; init-bazel.el --- bazel is the future -*- lexical-binding: t -*-
+;;; lang-bazel.el --- bazel is the future -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -13,6 +13,5 @@
   :custom
   (bazel-buildifier-before-save (executable-find "buildifier")))
 
-(provide 'init-bazel)
-
-;;; init-bazel.el ends here
+(provide 'lang-bazel)
+;;; lang-bazel.el ends here

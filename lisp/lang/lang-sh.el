@@ -1,4 +1,4 @@
-;;; init-sh.el --- Shell scripts -*- lexical-binding: t -*-
+;;; lang-sh.el --- Shell scripts -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -25,5 +25,5 @@
   (sh-basic-offset 2)
   (sh-indentation 2))
 
-(provide 'init-sh)
-;;; init-sh.el ends here
+(provide 'lang-sh)
+;;; lang-sh.el ends here

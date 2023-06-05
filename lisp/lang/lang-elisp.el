@@ -1,17 +1,20 @@
-;;; init-elisp.el --- elisp -*- lexical-binding: t -*-
+;;; lang-elisp.el --- elisp -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;
 
 ;;; Code:
 
-(require 'init-funcs)
-
 (use-package elisp-mode
   :ensure nil
   :bind (:map emacs-lisp-mode-map
-         ("C-c C-c" . eval-to-comment)
-         :map lisp-interaction-mode-map
-         ("C-c C-c" . eval-to-comment))
+              ("C-c C-c" . eval-to-comment)
+              :map lisp-interaction-mode-map
+              ("C-c C-c" . eval-to-comment))
+  :hook ((emacs-lisp-mode . elisp-mode-delete-trailing-whitespace))
+  :init
+  (defun elisp-mode-delete-trailing-whitespace ()
+    "Delete trailing whitespace before saving file."
+    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
   :config
   (defconst eval-as-comment-prefix ";;=> ")
 
@@ -29,8 +32,7 @@
 
 (use-package ielm
   :ensure nil
-  :hook (ielm-mode . company-mode))
+  :hook (ielm-mode . lsp-bridge-mode))
 
-(provide 'init-elisp)
-
-;;; init-elisp.el ends here
+(provide 'lang-elisp)
+;;; lang-elisp.el ends here

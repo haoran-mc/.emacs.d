@@ -1,4 +1,4 @@
-;;; init-rust.el --- Rust -*- lexical-binding: t -*-
+;;; lang-rust.el --- Rust -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -21,5 +21,5 @@
   :ensure t
   :hook (rust-mode . cargo-minor-mode))
 
-(provide 'init-rust)
-;;; init-rust.el ends here
+(provide 'lang-rust)
+;;; lang-rust.el ends here

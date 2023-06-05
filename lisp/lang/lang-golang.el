@@ -1,4 +1,4 @@
-;;; init-golang.el --- Golang -*- lexical-binding: t -*-
+;;; lang-golang.el --- Golang -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;;
@@ -81,5 +81,5 @@
 ;; go-outline Outline of the file
 ;; gofmt  Formatting code
 
-(provide 'init-golang)
-;;; init-golang.el ends here
+(provide 'lang-golang)
+;;; lang-golang.el ends here
