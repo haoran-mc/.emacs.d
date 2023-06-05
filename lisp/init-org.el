@@ -272,17 +272,16 @@
   :custom
   (org-capture-use-agenda-date t) ;; capture 创建条目时使用 agenda 的日期
   (org-capture-templates-contexts nil) ;; 禁用 capture 模板的上下文功能，手动选择模板
-  (org-capture-templates `(("t" "Tasks") ;; task
-                           ("tt" "Today" entry (file+olp+datetree "tasks.org")
-                            "* %? %^{EFFORT}p"
-                            :prepend t)
-                           ("ti" "Inbox" entry (file+headline "tasks.org" "Inbox")
-                            "* %?\n%i\n")
-                           ("tm" "Mail" entry (file+headline "tasks.org" "Inbox")
-                            "* TODO %^{type|reply to|contact} %^{recipient} about %^{subject} :MAIL:\n")
+  (org-capture-templates `(("d" "Diary")
+                           ("dj" "Journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+                            "* %<%H:%M>\n%?\n")
+                           ("dw" "Work" entry (file+datetree "work.org") "* %<%H:%M> - %^{title}\n%?")
                            ("c" "Capture") ;; capture
-                           ("cn" "Note" entry (file+headline "capture.org" "n")
-                            "* %? %^g\n%i\n")
+                           ("cn" "Note" entry (file+headline "capture.org" "客观")
+                            "* %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ("t" "Tasks") ;; task
+                           ("ti" "Inbox" entry (file+headline "tasks.org" "inbox")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("p" "Project") ;; project
                            ("pb" "Bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
                            ("pf" "Feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
@@ -300,8 +299,7 @@
 
 (use-package org-download
   :ensure t
-  :hook (dired-mode . org-download-enable)
-  )
+  :hook (dired-mode . org-download-enable))
 
 (provide 'init-org)
 ;;; init-org.el ends here

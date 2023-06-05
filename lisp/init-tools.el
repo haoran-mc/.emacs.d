@@ -17,12 +17,8 @@
   :when (eq system-type 'darwin)
   :hook (after-init . exec-path-from-shell-initialize)
   :init
-  (progn
-    (setq exec-path (append exec-path '("/root/go/bin")))
-    (exec-path-from-shell-copy-envs
-     '("PYTHONPATH"))
-    )
-  )
+  (setq exec-path (append exec-path '("/root/go/bin")))
+  (exec-path-from-shell-copy-envs '("PYTHONPATH")))
 
 ;; The blazing grep tool
 ;;
@@ -84,12 +80,7 @@
   (define-auto-insert "\\.org$"
     ["~/.emacs.d/templates/default-org.org" autoinsert-yas-expand])
   (define-auto-insert "\\.html$"
-    ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand])
-  ;; (define-auto-insert "\\.cpp$"
-  ;;   ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand])
-  ;; (define-auto-insert "\\.go$"
-  ;;   ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
-  )
+    ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand]))
 
 (use-package ace-pinyin
   :ensure t
@@ -99,10 +90,10 @@
 
 (require 'ext-treemacs)
 (require 'ext-hl-todo)
-;; (require 'ext-avy)
 (require 'ext-projectile)
 (require 'ext-which-key)
 (require 'ext-ligature)
+;; (require 'ext-eaf)
 
 (provide 'init-tools)
 ;;; init-tools.el ends here

@@ -106,11 +106,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; Delete trailing whitespace after save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(global-set-key (kbd "M-:") 'execute-extended-command)
-
 (global-auto-revert-mode 1)
 
 (setq system-time-locale "C")

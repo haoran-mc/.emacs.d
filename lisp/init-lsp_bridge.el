@@ -3,10 +3,12 @@
 ;;; Commentary:
 ;; download the dependency first
 ;; https://github.com/manateelazycat/lsp-bridge.git
+;; lsp-bridge 仅支持补全、跳转、重命名！
+;; 代码检查使用 flycheck
 
 ;;; Code:
 
-;; Jump to definition, used as a fallback of lsp-find-definition
+;; Jump to definition, I keep it anyway though it doesn't load most of the time
 (use-package dumb-jump
   :ensure t
   :defer t
@@ -42,7 +44,6 @@
           (push (point-marker) +lsp-bridge-jump-stack)
           (find-function symb))))
      (lsp-bridge-mode
-      (message "lsp-bridge-find-def")
       (lsp-bridge-find-def))
      (t
       (require 'dumb-jump)
@@ -62,7 +63,6 @@
                 (goto-char (marker-position marker)))
             (message "Jump location is no longer available.")))))
      (lsp-bridge-mode
-      (message "lsp-bridge-find-def-return")
       (lsp-bridge-find-def-return))
      (t
       (require 'dumb-jump)

@@ -65,6 +65,7 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
 (require 'init-base)
+(require 'init-funcs)
 (require 'init-utils)
 (require 'init-ui)
 (require 'init-tools)
@@ -74,7 +75,6 @@
 (require 'init-dev)
 (require 'init-dired)
 (require 'init-minibuffer)
-(require 'init-company)
 (require 'init-keybindings)
 
 ;; standalone apps
