@@ -21,11 +21,6 @@
 
 (use-package lsp-bridge
   :load-path "~/Documents/emacs/local-packages/lsp-bridge"
-  :init
-  (require 'lsp-bridge-jdtls)
-  (with-eval-after-load 'lsp-bridge
-    ;; No display on modeline
-    (setq mode-line-misc-info nil))
   :hook ((python-mode     . lsp-bridge-mode)
          (emacs-lisp-mode . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode-map
