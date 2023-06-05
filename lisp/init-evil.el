@@ -133,7 +133,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "bm" 'bookmark-set                    ;; add a new bookmark
       "br" 'bookmark-rename                 ;; rename bookmark
       "bd" 'bookmark-delete                 ;; delete bookmark
-      "bj" 'bookmark-jump                   ;; jump bookmark
+      ;; "bj" 'bookmark-jump                   ;; jump bookmark
       "bl" 'bookmark-bmenu-list             ;; list bookmark
       "bs" 'bookmark-save                   ;; save bookmark
 
@@ -166,14 +166,15 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
       ;; open
       "o"   '(:wk "open")
-      "ol"  'org-store-link
-      "oo"  '+open-in-browser
+      "oO"  '+open-in-browser
       "oD"  '+open-current-directory  ;; depend on consult
+      "ol"  'org-store-link
+      "oi"  '+open-wiki-note
+      "oo"  '+open-daily-task
       "od"  '(:wk "open directory")
       "odm" '+open-directory-markdown
       "odh" '+open-directory-haoran
       "of"  '(:wk "open file")
-      "oi"  '+open-file-note
       "ofr" '+open-file-init
 
       ;; project

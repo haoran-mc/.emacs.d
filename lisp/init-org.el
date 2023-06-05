@@ -172,7 +172,7 @@
   :ensure t
   :hook (org-mode . org-superstar-mode)
   :custom
-  ;; ● ☰ ☷ ☲ ☵ ❖ ■ ◆ ▲ ▼ ▶ ✦ ✧ ✶ ▸ ▪ ▫  ◇ ◆ ☀ ☁ ☂ ☃ ☎ ☑ ☢ ☣ ☪ ☮ ☸ ☹ ☺ ☻ ☼
+  ;; ● ☰ ☷ ☲ ☵ ❖ ■ ◆ ▲ ▼ ▶ ✦ ✧ ✶ ▸ ▪ ▫ ◇ ◆ ☀ ☁ ☂ ☃ ☎ ☑ ☢ ☣ ☪ ☮ ☸ ☹ ☺ ☻ ☼
   (org-superstar-headline-bullets-list '("☯" "◉" "○" "❂" "❉" "✸"))
   (org-superstar-special-todo-items t) ;; 用于定义在标题行中特殊的待办事项标记的显示样式
   (org-superstar-prettify-item-bullets t) ;; 使用列表的美化

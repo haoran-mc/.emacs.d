@@ -120,7 +120,7 @@
 ")
 
 ;; Font size
-;; (set-face-attribute 'default nil :font "JetBrains Mono" :weight 'semi-bold)
+;; (set-face-attribute 'default nil :font "Fira Code" :weight 'semi-bold)
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :weight 'semi-bold)
 
 ;; Sane defaults

@@ -76,8 +76,6 @@
   ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
   (load-theme 'doom-one t)
-  ;; (load-theme 'mac-classic t)
-  ;; (load-theme 'painting-dark t)
   ;; (load-theme 'doom-monokai-pro t)
   )
 

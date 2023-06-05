@@ -82,10 +82,17 @@ confirmation."
 
 ;; FIXME
 ;;;###autoload
-(defun +open-file-note ()
+(defun +open-wiki-note ()
   "Open file: init.el."
   (interactive)
   (find-file "~/haoran/no/org/site/org/index.org")
+  (tab-bar-rename-tab "note"))
+
+;;;###autoload
+(defun +open-daily-task ()
+  "Open file: gtd-daily.el."
+  (interactive)
+  (find-file "~/haoran/no/org/org-directory/daily.org")
   (tab-bar-rename-tab "note"))
 
 ;; FIXME

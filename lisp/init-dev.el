@@ -7,14 +7,6 @@
 
 (require 'init-macros)
 
-;; Jump to definition, used as a fallback of lsp-find-definition
-(use-package dumb-jump
-  :ensure t
-  :custom
-  (dumb-jump-quiet t)
-  (dumb-jump-aggressive t)
-  (dumb-jump-selector 'completing-read))
-
 ;; XML
 (use-package nxml-mode
   :ensure nil
