@@ -4,6 +4,128 @@
 
 ;;; Code:
 
+
+;;;###autoload
+(defun +set-frame-size-mac ()
+  "Set the current frame's size to 120x50."
+  (interactive)
+  (set-frame-size (selected-frame) 120 50))
+
+;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+;;;###autoload
+(defun +unfill-paragraph (&optional region)
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive (progn (barf-if-buffer-read-only) '(t)))
+    (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
+
+;;;###autoload
+(defun +open-with-vscode ()
+  "Open current file with vscode."
+  (interactive)
+  (let ((line (number-to-string (line-number-at-pos)))
+        (column (number-to-string (current-column))))
+    (apply 'call-process "code" nil nil nil (list
+                                             (concat buffer-file-name ":" line ":" column)
+                                             "--goto"))))
+
+;;;###autoload
+(defun spacemacs/sudo-edit (&optional arg)
+  "Forcibly write to a file without permission after password `ARG'."
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+;;;###autoload
+(defun +create-new-tab-bar ()
+  "Create a new tab bar and switch dashboard."
+  (interactive)
+  (tab-bar-new-tab)
+  ;; TODO use if instead
+  ;; (pcase (treemacs-current-visibility)
+  ;;   ('visible (delete-window (treemacs-get-local-window))))
+  ;; (dashboard-refresh-buffer)
+  (+create-scratch-buffer)
+  (tab-bar-rename-tab "xxx"))
+
+;;;###autoload
+(defun +create-scratch-buffer ()
+  "Create a scratch buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode)
+  (read-only-mode 0))
+
+;;;###autoload
+(defun +remove-dos-eol()
+  "Replace DOS eolns CR LF with Unix eolns CR."
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
+;;;###autoload
+(defun +hidden-dos-eol()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+;;;###autoload
+(defun +toggle-maximize-buffer()
+  "Maximize buffer."
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (set-register '_ (list (current-window-configuration)))
+      (delete-other-windows))))
+
+;;;###autoload
+(defun spacemacs/alternate-buffer (&optional window)
+  "Switch back and forth between current and last buffer in the current WINDOW.
+If `spacemacs-layouts-restrict-spc-tab' is 't' then this only switches between
+the current layouts buffers."
+  (interactive)
+  (cl-destructuring-bind (buf start pos)
+      (if (bound-and-true-p spacemacs-layouts-restrict-spc-tab)
+          (let ((buffer-list (persp-buffer-list))
+                (my-buffer (window-buffer window)))
+            ;; find buffer of the same persp in window
+            (seq-find (lambda (it) ;; predicate
+                        (and (not (eq (car it) my-buffer))
+                             (member (car it) buffer-list)))
+                      (window-prev-buffers)
+                      ;; default if found none
+                      (list nil nil nil)))
+        (or (cl-find (window-buffer window) (window-prev-buffers)
+                     :key #'car :test-not #'eq)
+            (list (other-buffer) nil nil)))
+    (if (not buf)
+        (message "Last buffer not found.")
+      (set-window-buffer-start-and-point window buf start pos))))
+
+;;;###autoload
+(defun +indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (+indent-buffer)
+        (message "Indented buffer.")))))
+
+;;;###autoload
+(defun +indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
 ;;;###autoload
 (defun +rename-current-file (newname)
   "Rename current visiting file to NEWNAME.
