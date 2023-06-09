@@ -21,7 +21,9 @@
               ("C-c t n" . hl-todo-next)
               ("C-c t i" . hl-todo-insert)
               ("C-c t o" . hl-todo-occur)
-              ("C-c t s" . hl-todo-rgrep)))
+              ("C-c t s" . hl-todo-rgrep))
+  :config
+  (add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000")))
 
 
 (provide 'ext-hl-todo)

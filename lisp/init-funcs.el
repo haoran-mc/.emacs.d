@@ -210,6 +210,7 @@ confirmation."
   (find-file "~/haoran/no/org/site/org/index.org")
   (tab-bar-rename-tab "note"))
 
+;; FIXME
 ;;;###autoload
 (defun +open-daily-task ()
   "Open file: gtd-daily.el."

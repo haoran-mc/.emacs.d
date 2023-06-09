@@ -12,8 +12,6 @@
 (setq-default default-enable-multibyte-characters t)
 (set-language-environment "English")
 
-(setq diary-file "~/haoran/no/org/diary/diary.org")
-
 ;; Suppress GUI features and more
 (setq use-file-dialog nil
       use-dialog-box nil
@@ -116,6 +114,7 @@
 
 ;; Font size
 ;; (set-face-attribute 'default nil :font "Fira Code" :weight 'semi-bold)
+;; (set-face-attribute 'default nil :font "PingFang SC")
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :weight 'semi-bold)
 
 ;; Sane defaults

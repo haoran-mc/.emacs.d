@@ -20,8 +20,6 @@
 - [插件配置、升级](#插件配置升级)
 - [按键绑定](#按键绑定)
 - [prog-mode](#prog-mode)
-    - [golang-mode](#golang-mode)
-- [个人文件快速打开](#个人文件快速打开)
 - [Emacs 最小配置](#emacs-最小配置)
 
 <!-- markdown-toc end -->
@@ -39,13 +37,6 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)：更快的 `grep`；
 - [git](https://git-scm.com/)：分布式版本控制工具；
-- [golang](https://go.dev)：编程语言；
-  - gopls
-  - goimports
-  - guru...
-- [python](https://www.python.org/)：编程语言；
-  - python -m venv ENV_DIR
-  - npm install -g pyright
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/blob/master/README.zh-CN.md)；
   - macOS 用户需要给 brew 命令增加选项 `--with-rsvg` 来安装 Emacs 才能显示 SVG 图片；
 - [grip](https://github.com/joeyespo/grip)：预览 markdown，`brew install grip`；
@@ -57,8 +48,6 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
 
 | 包名          | 功能                                         |
 |---------------|----------------------------------------------|
-| appt          | 任务提醒，可以与org-mode结合                 |
-| hippie-expand | 用来展开文本                                 |
 | hl-line       | 高亮当前行                                   |
 | newcomment    | 注释、反注释功能                             |
 | paren         | 高亮匹配的括号                               |
@@ -66,11 +55,12 @@ git clone --depth 1 https://github.com/haoran-mc/.emacs.d ~/.emacs.d
 | simple        | 在modeline里显示行号、列号以及当前文本的大小 |
 | so-long       | 打开长行的文件不再痛苦 (Emacs 27+ 自带)      |
 | tab-bar       | 窗口布局管理 (Emacs 27+ 自带)                |
-| tramp         | 远程编辑就靠它                               |
 
 而这几个包也是 Emacs 自带的。
 
 为了保持界面的整洁，禁用了菜单栏、工具栏和滚动条。
+
+更多的基础配置看 [lisp/init-base.el](https://github.com/haoran-mc/.emacs.d/blob/main/lisp/init-base.el) 文件。
 
 # 插件配置、升级
 
@@ -85,13 +75,9 @@ Emacs 29 引入了 `package-update-all`，需要更新直接 `M-x package-update
 
 # prog-mode
 
-## golang-mode
+仅配置了 python、elisp 的编程环境，更多的代码编辑使用 neovim。
 
-使用 `lsp-bridge` 作为补全、符号查找的工具，默认后端使用 `gopls`，需要额外安装 `gopls` 的包。
-
-# 个人文件快速打开
-
-为一些常用的文件设置函数并绑定了快捷键，具体的位置在 [docs/secret_files.md](https://github.com/haoran-mc/.emacs.d/blob/main/docs/secret_files.md) 这个文件里说明了。
+补全、符号查找的工具使用 `lsp-bridge`。
 
 # Emacs 最小配置
 

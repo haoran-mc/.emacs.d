@@ -45,8 +45,8 @@
           ("#+ATTR_HTML:"     . ?🄗) ;; 🄗
           ("#+CAPTION:"       . ?☰)
           ("#+HEADER:"        . ?›)
-          ("#+begin_quote"    . ?«)
-          ("#+end_quote"      . ?»)
+          ("#+begin_quote"    . ?»)
+          ("#+end_quote"      . ?«)
           ("#+begin_export"   . ?↠)
           ("#+end_export"     . ?↞)
           ("#+RESULTS:"       . ?⚑)

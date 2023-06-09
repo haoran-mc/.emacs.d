@@ -118,6 +118,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "ac" 'org-capture
       "ad" 'calendar
       "af" 'fanyi-dwim2
+      "ao" 'consult-org-agenda ;; outlines in agenda dir
 
       ;; buffer & bookmark
       "b" '(:wk "bufmark")
@@ -205,6 +206,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "d" 'org-deadline
         ;; "e" 'org-set-effort
         "f" 'org-footnote-action
+        "h" 'consult-org-heading
         "l" 'org-lint
         "o" 'org-toggle-ordered-property
         "p" 'org-set-property

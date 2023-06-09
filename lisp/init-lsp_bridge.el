@@ -21,6 +21,7 @@
   :ensure t
   :defer t)
 
+;; LOCAL-PACKAGES
 (use-package lsp-bridge
   :load-path "~/Documents/emacs/local-packages/lsp-bridge"
   :hook ((python-mode     . lsp-bridge-mode)

@@ -71,9 +71,9 @@
   ;; (set-face-background 'org-bold "#fefefe")
   ;; (set-face-background 'org-verbatim "#fefefe")
 
-  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-  (add-hook 'org-babel-after-execute-hook 'org-toggle-latex-fragment 'append)
-  (add-hook! 'org-mode-hook #'+org-pretty-mode #'mixed-pitch-mode)
+  ;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+  ;; (add-hook 'org-babel-after-execute-hook 'org-toggle-latex-fragment 'append)
+  ;; (add-hook! 'org-mode-hook #'+org-pretty-mode #'mixed-pitch-mode)
   :custom ;; base
   (org-directory "~/haoran/no/org/org-directory")
   (org-default-notes-file (expand-file-name "notes.org" org-directory))
@@ -272,24 +272,32 @@
   :custom
   (org-capture-use-agenda-date t) ;; capture 创建条目时使用 agenda 的日期
   (org-capture-templates-contexts nil) ;; 禁用 capture 模板的上下文功能，手动选择模板
-  (org-capture-templates `(("d" "Diary")
-                           ("dj" "Journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+  (org-capture-templates `(("d" "diary")
+                           ("dj" "journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                             "* %<%H:%M>\n%?\n")
-                           ("dw" "Work" entry (file+datetree "work.org") "* %<%H:%M> - %^{title}\n%?")
-                           ("c" "Capture") ;; capture
-                           ("cn" "Note" entry (file+headline "capture.org" "客观")
-                            "* %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ("t" "Tasks") ;; task
-                           ("ti" "Inbox" entry (file+headline "tasks.org" "inbox")
+                           ("dw" "work" entry (file+datetree "work.org") "* %<%H:%M> - %^{title}\n%?")
+                           ("c" "capture") ;; capture
+                           ("ca" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
+                            "* %<%Y.%m.%d - %H:%M>\n%?")
+                           ("cb" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
+                            "* %<%Y.%m.%d - %H:%M>\n%?")
+                           ("cc" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ("t" "tasks") ;; task
+                           ("ti" "inbox" entry (file+headline "tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ("p" "Project") ;; project
-                           ("pb" "Bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
-                           ("pf" "Feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
-                           ("ps" "Security"      entry (function ,(lazy! (project-todo-org-file "Security")))      "* %?")
-                           ("pe" "Enhancement"   entry (function ,(lazy! (project-todo-org-file "Enhancements")))  "* %?")
-                           ("po" "Optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
-                           ("pd" "Documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
-                           ("pm" "Miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?"))))
+                           ("p" "project") ;; project
+                           ("pb" "bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
+                           ("pf" "feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
+                           ("ps" "security"      entry (function ,(lazy! (project-todo-org-file "Security")))      "* %?")
+                           ("pe" "enhancement"   entry (function ,(lazy! (project-todo-org-file "Enhancements")))  "* %?")
+                           ("po" "optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
+                           ("pd" "documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
+                           ("pm" "miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?"))))
+
+;; (quelpa
+;;  '(org-imenu :fetcher url
+;;              :url "https://raw.githubusercontent.com/rougier/org-imenu/master/org-imenu.el"))
 
 ;; (use-package org-contrib
 ;;   :pin nongnu

@@ -16,7 +16,6 @@
   #+begin_src elisp
     (add-hook 'newsticker-mode-hook 'imenu-add-menubar-index) 
   #+end_src
-
 * 使用
   * newsticker-show-news
     显示出所有可用的headline. 在headline上按鼠标中间或回车就会调用`browse-url`来打开链接.

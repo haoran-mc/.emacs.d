@@ -5,6 +5,7 @@
 
 ;;; Code:
 
+;; LOCAL-PACKAGES
 (use-package awesome-tray
   :ensure nil
   :load-path "~/Documents/emacs/local-packages/awesome-tray"
@@ -15,6 +16,7 @@
   :custom
   (awesome-tray-active-modules '("location" "buffer-name")))
 
+;; LOCAL-PACKAGES
 (use-package doom-themes
   :ensure t
   :when (display-graphic-p)
@@ -166,6 +168,10 @@
 
 ;; show color when css
 (use-package rainbow-mode
+  :ensure t
+  :defer t)
+
+(use-package rainbow-identifiers
   :ensure t
   :defer t)
 

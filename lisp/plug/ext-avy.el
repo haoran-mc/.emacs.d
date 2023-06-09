@@ -6,7 +6,7 @@
 ;; Keywords:
 
 ;;; Commentary:
-;;
+;; use evil-avy-... firstly as we use evil
 
 ;;; Code:
 

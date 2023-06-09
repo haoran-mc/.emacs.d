@@ -93,6 +93,7 @@
 (require 'ext-projectile)
 (require 'ext-which-key)
 (require 'ext-ligature)
+;; (require 'ext-reader)
 ;; (require 'ext-eaf)
 
 (provide 'init-tools)
