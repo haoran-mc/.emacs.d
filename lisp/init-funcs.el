@@ -1,28 +1,45 @@
 ;;; init-funcs.el --- core functions -*- lexical-binding: t -*-
 ;;; Commentary:
-;;
+;; functions that are not assigned keys and need to be called manually have the +func prefix
 
 ;;; Code:
 
+;;;###autoload
+(defun +func-make-emacs-opaque ()
+  "Make Emacs window opaque."
+  (interactive)
+  (set-frame-parameter (selected-frame) 'alpha '(100 100)))
+
+(defun +func-make-emacs-transparent ()
+  "Make Emacs window transparent."
+  (interactive)
+  (set-frame-parameter (selected-frame) 'alpha '(85 60))
+  (add-to-list 'default-frame-alist '(alpha (85 60))))
 
 ;;;###autoload
-(defun +set-frame-size-mac ()
+(defun +func-set-frame-size-vertical-alignment ()
   "Set the current frame's size to 120x50."
   (interactive)
   (set-frame-size (selected-frame) 120 50))
 
+;;;###autoload
+(defun +func-set-frame-size-horizontal-alignment ()
+  "Set the current frame's size to 120x50."
+  (interactive)
+  (set-frame-size (selected-frame) 141 40))
+
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 ;;;###autoload
 (defun +unfill-paragraph (&optional region)
-    "Takes a multi-line paragraph and makes it into a single line of text."
-    (interactive (progn (barf-if-buffer-read-only) '(t)))
-    (let ((fill-column (point-max))
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
         ;; This would override `fill-column' if it's an integer.
         (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
 ;;;###autoload
-(defun +open-with-vscode ()
+(defun +func-open-with-vscode ()
   "Open current file with vscode."
   (interactive)
   (let ((line (number-to-string (line-number-at-pos)))
@@ -32,7 +49,7 @@
                                              "--goto"))))
 
 ;;;###autoload
-(defun spacemacs/sudo-edit (&optional arg)
+(defun +func-spacemacs/sudo-edit (&optional arg)
   "Forcibly write to a file without permission after password `ARG'."
   (interactive "p")
   (if (or arg (not buffer-file-name))
@@ -60,14 +77,14 @@
   (read-only-mode 0))
 
 ;;;###autoload
-(defun +remove-dos-eol()
+(defun +func-remove-dos-eol()
   "Replace DOS eolns CR LF with Unix eolns CR."
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
 ;;;###autoload
-(defun +hidden-dos-eol()
+(defun +func-hidden-dos-eol()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
   (setq buffer-display-table (make-display-table))
