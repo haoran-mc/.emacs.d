@@ -245,10 +245,10 @@ confirmation."
 
 ;; FIXME
 ;;;###autoload
-(defun +open-daily-task ()
-  "Open file: gtd-daily.el."
+(defun +open-centre-org ()
+  "Open file: gtd-centre.org."
   (interactive)
-  (find-file "~/haoran/no/org/org-directory/daily.org")
+  (find-file "~/haoran/no/org/org-directory/centre.org")
   (tab-bar-rename-tab "note"))
 
 ;; FIXME

@@ -167,7 +167,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oD"  '+open-current-directory  ;; depend on consult
       "ol"  'org-store-link
       "oi"  '+open-wiki-note
-      "oo"  '+open-daily-task
+      "oo"  '+open-centre-org
       "od"  '(:wk "open directory")
       "odm" '+open-directory-markdown
       "odh" '+open-directory-haoran
