@@ -32,6 +32,9 @@
 
 (setq-default cursor-type 'bar)
 
+;; The nano style for truncated long lines.
+(setq auto-hscroll-mode t)
+
 ;; Pixelwise resize
 (setq window-resize-pixelwise t
       frame-resize-pixelwise t)
@@ -83,9 +86,6 @@
       hscroll-margin 2
       scroll-conservatively 101
       scroll-preserve-screen-position 'always)
-
-;; The nano style for truncated long lines.
-(setq auto-hscroll-mode 'current-line)
 
 ;; Disable auto vertical scroll for tall lines
 (setq auto-window-vscroll nil)

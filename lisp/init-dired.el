@@ -10,6 +10,7 @@
   :ensure nil
   ;; TODO ? add this config, then the default message of scratch disappear.
   ;; :hook (after-init . dired-mode)
+  :hook ((dired-mode . (lambda() (setq truncate-lines t))))
   :bind (:map dired-mode-map
               ;; consistent with ivy
               ("C-c C-e"   . wdired-change-to-wdired-mode))

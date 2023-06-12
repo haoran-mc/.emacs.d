@@ -29,6 +29,11 @@
                  "path" "service" "slice" "socket" "swap" "target" "timer")
              string-end) . conf-toml-mode))
 
+(use-package prog-mode
+  :ensure nil
+  :hook ((prog-mode . (lambda() (setq truncate-lines t))))
+  )
+
 ;; (require 'lang-cpp)
 ;; (require 'lang-rust)
 ;; (require 'lang-ocaml)

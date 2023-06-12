@@ -14,7 +14,8 @@
   :init
   (require 'awesome-tray)
   :custom
-  (awesome-tray-active-modules '("location" "buffer-name")))
+  (awesome-tray-active-modules '("location" "buffer-name"))
+  (awesome-tray-update-interval 0.5))
 
 ;; LOCAL-PACKAGES
 (use-package doom-themes

@@ -5,6 +5,18 @@
 ;;; Code:
 
 ;;;###autoload
+(defun +scroll-left-half-page ()
+  "Scroll the window left by half the page height."
+  (interactive)
+  (scroll-left (/ (window-body-height) 2)))
+
+;;;###autoload
+(defun +scroll-right-half-page ()
+  "Scroll the window right by half the page height."
+  (interactive)
+  (scroll-right (/ (window-body-height) 2)))
+
+;;;###autoload
 (defun +func-make-emacs-opaque ()
   "Make Emacs window opaque."
   (interactive)
@@ -17,16 +29,20 @@
   (add-to-list 'default-frame-alist '(alpha (85 60))))
 
 ;;;###autoload
-(defun +func-set-frame-size-vertical-alignment ()
-  "Set the current frame's size to 120x50."
+(defun +func-set-frame-vertical-alignment ()
+  "| Set the current frame's size(120x50) and position(445, 50)."
   (interactive)
-  (set-frame-size (selected-frame) 120 50))
+  (let ((frame (selected-frame)))
+    (set-frame-size frame 120 50)
+    (set-frame-position frame 445 50)))
 
 ;;;###autoload
-(defun +func-set-frame-size-horizontal-alignment ()
-  "Set the current frame's size to 120x50."
+(defun +func-set-frame-horizontal-alignment ()
+  "- Set the current frame's size(141x40) and position(445, 50)."
   (interactive)
-  (set-frame-size (selected-frame) 141 40))
+  (let ((frame (selected-frame)))
+    (set-frame-size frame 141 40)
+    (set-frame-position frame 445 50)))
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 ;;;###autoload

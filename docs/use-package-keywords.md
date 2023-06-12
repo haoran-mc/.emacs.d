@@ -1,23 +1,42 @@
 Use the following ordering for `use-package` keywords:
 
-- `:ensure`
-- `:when`
-- `:requires`
-- `:defines`
-- `:functions`
-- `:commands`
-- `:demand`
-- `:defer`
-- `:after`
-- `:preface`
-- `:init`
-- `:magic`
-- `:mode`
-- `:hook`
-- `:bind`
-- `:config`
-- `:custom-face`
-- `:custom`
+- :init 
+- :config
+- :commands
+- :bind
+- :bind-keymap
+- :map
+- :mode
+- :interpreter
+- :defer
+- :hook
+- :magic
+- :magic-fallback
+- :custom
+- :custom-face
+- :demand
+- :if
+- :ensure
+- :disable
+- :when
+- :preface
+- :load-path
+- :after
+  - (:after (foo bar))
+  - (:after (:all foo bar))
+  - (:after (:any foo bar))
+  - (:after (:all (:any foo bar) (:any baz quux)))
+  - (:after (:any (:all foo bar) (:all baz quux)))
+- :requires
+- :defines
+- :functions
+- :no-require
+- :load-path
+- :catch
+- :diminish
+- :delight
+- :ensure
+- :pin
 
 
 在Emacs的配置文件中，`use-package`宏是一种常用的包管理工具，用于安装、配置和延迟加载包。`use-package`提供了一种结构化和可读性强的方式来组织和管理包的配置。

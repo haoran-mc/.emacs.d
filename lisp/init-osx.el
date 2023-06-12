@@ -7,9 +7,8 @@
 (use-package emacs
   :ensure nil
   ;; CUA for MacOS
-  :bind (("H-v" . clipboard-yank)
-         ("H-c" . clipboard-kill-ring-save)
-         ("H-x" . clipboard-kill-region))
+  :bind (("H-h" . +scroll-right-half-page)
+         ("H-l" . +scroll-left-half-page))
   :config
   ;; Make titlebar dark
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -35,12 +34,12 @@
              when (member font (font-family-list))
              return (custom-set-faces `(variable-pitch ((t (:family ,font)))))))
   :custom
-  (mac-option-modifier 'hyper)
-  (mac-command-modifier 'meta)
+  (mac-option-modifier 'hyper) ;; set option(key) as hyper(key)
+  (mac-command-modifier 'meta) ;; set command(key) as meta(key)
   (delete-by-moving-to-trash t)
   ;; Curse Lion and its sudden but inevitable fullscreen mode!
   ;; NOTE Meaningless to railwaycat's emacs-mac build
-  (ns-use-native-fullscreen nil)
+  (ns-use-native-fullscreen t)
   ;; Visit files opened outside of Emacs in existing frame, not a new one
   (ns-pop-up-frames nil))
 

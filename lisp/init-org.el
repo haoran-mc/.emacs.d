@@ -15,7 +15,8 @@
   :ensure nil
   :hook ((org-mode . (lambda()
                        (visual-line-mode)
-                       (setq word-wrap nil)))
+                       (setq word-wrap nil) ;; 折行
+                       ))
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto))))
@@ -89,7 +90,7 @@
                           (gnus . gnus)
                           (file . find-file)
                           (wl . wl-frame)))
-  (org-M-RET-may-split-line '((header-line . nil)))
+  (org-M-RET-may-split-line '((header-line . nil))) ;; M-RET 不分割标题
   (org-startup-folded 'content) ;; 打开文件时只显示标题，不显示内容
   (org-hide-block-startup t) ;; 打开文件时，初始状态隐藏代码块
   :custom ;; log
@@ -235,8 +236,10 @@
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
   :custom
-  (org-agenda-files '("~/haoran/no/org/org-directory/")) ;; 此文件夹的日程将被 agenda 管理
-  (org-agenda-span 'week) ;; 将 agenda 的默认时间跨度设置为「一周」
+  (org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
+                      "~/haoran/no/org/org-directory/agenda/"
+                      )) ;; 此文件夹的日程将被 agenda 管理
+  (org-agenda-span 'day) ;; 将 agenda 的默认时间跨度设置为「一周」
   (org-agenda-start-on-weekday 1) ;; 起始日期设为周一
   (org-agenda-log-mode-items '(clock)) ;; 仅在日程条目中显示 "clock" 类型的日志
   (org-agenda-include-all-todo t) ;; 将所有的待办事项包括在 agenda 中
@@ -275,17 +278,35 @@
   (org-capture-templates `(("d" "diary")
                            ("dj" "journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                             "* %<%H:%M>\n%?\n")
-                           ("dw" "work" entry (file+datetree "work.org") "* %<%H:%M> - %^{title}\n%?")
+                           ("dw" "work" entry (file+datetree "journay/work.org") "* %<%H:%M> - %^{title}\n%?")
                            ("c" "capture") ;; capture
-                           ("ca" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
-                            "* %<%Y.%m.%d - %H:%M>\n%?")
-                           ("cb" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
-                            "* %<%Y.%m.%d - %H:%M>\n%?")
-                           ("cc" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
-                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                            :prepend t)
+                           ;; cb book
+                           ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
+                            "* %<%Y.%m.%d - %H:%M>\n%?"
+                            :prepend t)
+                           ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
+                            "* %<%Y.%m.%d - %H:%M>\n%?"
+                            :prepend t)
                            ("t" "tasks") ;; task
-                           ("ti" "inbox" entry (file+headline "tasks.org" "inbox")
+                           ("ti" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ("tw" "work" plain (file "tasks/work.org")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ("tt" "invest" plain (file "tasks/invest.org")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ;; * book -> 《》
+                           ;; * book -> 心理学
+                           ;; * movie -> 《》
+                           ;; * fruit
+                           ;; * read news
+                           ("tl" "learn" plain (file "tasks/learn.org")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ;; * go language -> ...
+                           ;; * machine learning -> ...
+                           ;; * emacs -> ...
                            ("p" "project") ;; project
                            ("pb" "bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
                            ("pf" "feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")

@@ -202,6 +202,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
     (with-eval-after-load 'org
       (define-leader-key 'normal org-mode-map :localleader
         "." 'org-goto
+        "," 'org-priority
         "a" 'org-archive-subtree
         "d" 'org-deadline
         ;; "e" 'org-set-effort
