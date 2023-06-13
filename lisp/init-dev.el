@@ -40,7 +40,7 @@
 ;; (require 'lang-bazel)
 ;; (require 'lang-haskell)
 ;; (require 'lang-sh)
-;; (require 'lang-golang)
+(require 'lang-golang)
 (require 'lang-python)
 (require 'lang-elisp)
 (require 'lang-latex)

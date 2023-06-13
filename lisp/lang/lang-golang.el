@@ -9,15 +9,13 @@
   :ensure t
   :mode ("\\.go\\'" . go-mode)
   :bind (:map go-mode-map
-         ("C-c C-c" . +go-run-buffer)
-         ("C-c C-u" . go-remove-unused-imports))
+              ("C-c C-c" . +go-run-buffer))
   :init
-  (progn ;; env vars
-    (exec-path-from-shell-initialize)
-    (setq exec-path (append exec-path '("/root/go/bin")))
-    (exec-path-from-shell-copy-envs '("GOPATH" "GO111MODULE" "GOPROXY")))
-  (progn ;; command args
-    (setq gofmt-command "goimports"))
+  (exec-path-from-shell-copy-envs '("GOROOT"
+                                    "GOPATH"
+                                    "GOBIN"
+                                    "GO111MODULE"
+                                    "GOPROXY"))
   :config
   (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -25,35 +23,9 @@
     "Run go code in buffer."
     (interactive)
     (shell-command (concat "go run " (buffer-name))))
+  :custom
+  (gofmt-command "goimports"))
 
-  (use-package go-tag
-    :bind (:map go-mode-map
-           ("C-c t a" . go-tag-add)
-           ("C-c t r" . go-tag-remove))
-    :init (setq go-tag-args (list "-transform" "snakecase")))
-
-  (use-package go-gen-test
-    :bind (:map go-mode-map
-           ("C-c t g" . go-gen-test-dwim)))
-
-  (use-package gotest
-    :bind (:map go-mode-map
-           ("C-c t f" . go-test-current-file)
-           ("C-c t t" . go-test-current-test)
-           ("C-c t j" . go-test-current-project)
-           ("C-c t b" . go-test-current-benchmark)
-           ("C-c t c" . go-test-current-coverage)
-           ("C-c t x" . go-run))))
-
-(use-package go-guru
-  :defer t
-  :hook (go-mode . go-guru-hl-identifier-mode))
-
-
-;; failure maybe cause by lsp_bridge
-;; (use-package go-eldoc
-;;   :defer t
-;;   :hook (go-mode . go-eldoc-setup))
 
 ;; Install the tools manually in the current GOPATH
 ;; go install golang.org/x/tools/gopls

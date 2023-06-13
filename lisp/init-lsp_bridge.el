@@ -25,7 +25,8 @@
 (use-package lsp-bridge
   :load-path "~/Documents/emacs/local-packages/lsp-bridge"
   :hook ((python-mode     . lsp-bridge-mode)
-         (emacs-lisp-mode . lsp-bridge-mode))
+         (emacs-lisp-mode . lsp-bridge-mode)
+         (go-mode         . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode-map
               ("C-c j" . +lsp-bridge-jump)
               ("C-c b" . +lsp-bridge-jump-back)
@@ -67,7 +68,18 @@
       (lsp-bridge-find-def-return))
      (t
       (require 'dumb-jump)
-      (dumb-jump-back)))))
+      (dumb-jump-back))))
+
+  :config
+  (setq lsp-bridge-get-project-path-by-filepath
+        (lambda (filepath)
+          "Set `project-path` variable to FILEPATH and return its value."
+          (if (string-suffix-p ".go" filepath)
+              (let ((project-path filepath))
+                project-path))))
+
+  :custom
+  (lsp-bridge-enable-hover-diagnostic t))
 
 (provide 'init-lsp_bridge)
 ;;; init-lsp_bridge.el ends here
