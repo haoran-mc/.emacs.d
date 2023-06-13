@@ -27,12 +27,14 @@
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
   :config
+  (doom-themes-treemacs-config)
+  (setq doom-themes-treemacs-theme "doom-colors")
+
   (defvar pretty-dark-themes
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
           'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
           'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
-          'doom-monokai-pro ;; ripgrep highlight bad
           'doom-monokai-spectrum
           'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
           'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
