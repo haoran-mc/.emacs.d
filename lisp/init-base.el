@@ -301,11 +301,17 @@ Else, call `comment-or-uncomment-region' on the current line."
   :ensure nil
   :hook (after-init . tab-bar-mode)
   :custom
-  (tab-bar-show 1)
+  (tab-bar-show nil)
   (tab-bar-tab-hints nil)
   (tab-bar-close-button-show nil)
   (tab-bar-tab-name-function 'tab-bar-tab-name-all)
   (tab-bar-format '(tab-bar-format-tabs tab-bar-separator)))
+
+(use-package help
+  :ensure nil
+  :custom
+  (help-window-select t)
+  (help-enable-variable-value-editing t))
 
 ;; Buffer index
 (use-package imenu

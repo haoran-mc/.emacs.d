@@ -17,8 +17,7 @@
   :when (eq system-type 'darwin)
   :hook (after-init . exec-path-from-shell-initialize)
   :init
-  (setq exec-path (append exec-path '("/root/go/bin")))
-  (exec-path-from-shell-copy-envs '("PYTHONPATH")))
+  (setq exec-path (append exec-path '("/root/go/bin"))))
 
 ;; The blazing grep tool
 ;;

@@ -249,7 +249,7 @@ confirmation."
   "Open file: gtd-centre.org."
   (interactive)
   (find-file "~/haoran/no/org/org-directory/centre.org")
-  (tab-bar-rename-tab "note"))
+  (tab-bar-rename-tab "centre"))
 
 ;; FIXME
 ;;;###autoload

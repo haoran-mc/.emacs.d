@@ -13,6 +13,8 @@
   (defun python-mode-delete-trailing-whitespace ()
     "Delete trailing whitespace before saving file."
     (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+
+  (exec-path-from-shell-copy-envs '("PYTHONPATH"))
   :config
   ;; Default to Python 3. Prefer the versioned Python binaries since some
   ;; systems stupidly make the unversioned one point at Python 2.

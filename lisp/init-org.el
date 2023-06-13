@@ -275,10 +275,9 @@
   :custom
   (org-capture-use-agenda-date t) ;; capture 创建条目时使用 agenda 的日期
   (org-capture-templates-contexts nil) ;; 禁用 capture 模板的上下文功能，手动选择模板
-  (org-capture-templates `(("d" "diary")
-                           ("dj" "journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+  (org-capture-templates `(("d" "datetree")
+                           ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                             "* %<%H:%M>\n%?\n")
-                           ("dw" "work" entry (file+datetree "journay/work.org") "* %<%H:%M> - %^{title}\n%?")
                            ("c" "capture") ;; capture
                            ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
                             "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
@@ -293,12 +292,12 @@
                            ("t" "tasks") ;; task
                            ("ti" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ("tw" "work" plain (file "tasks/work.org")
+                           ("tb" "invest book" entry (file+headline "tasks/invest.org" "book")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ("tt" "invest" plain (file "tasks/invest.org")
+                           ;; 汇编 -> 《汇编语言》
+                           ;; 心理学 -> 《被讨厌的勇气》
+                           ("tt" "invest inbox" entry (file+headline "tasks/invest.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ;; * book -> 《》
-                           ;; * book -> 心理学
                            ;; * movie -> 《》
                            ;; * fruit
                            ;; * read news
@@ -307,6 +306,13 @@
                            ;; * go language -> ...
                            ;; * machine learning -> ...
                            ;; * emacs -> ...
+                           ("w" "work")
+                           ("wd" "work docs" plain (file "work/docs.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                            :prepend t)
+                           ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
+                           ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("p" "project") ;; project
                            ("pb" "bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
                            ("pf" "feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
