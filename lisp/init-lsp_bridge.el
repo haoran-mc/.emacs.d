@@ -31,7 +31,8 @@
               ("C-c j" . +lsp-bridge-jump)
               ("C-c b" . +lsp-bridge-jump-back)
               ("C-c r" . lsp-bridge-find-references)
-              ("C-c R" . lsp-bridge-rename))
+              ("C-c R" . lsp-bridge-rename)
+              ([tab]   . yas-expand))
   :init
   (defvar +lsp-bridge-jump-stack nil
     "Stack to store jump locations for +lsp-bridge-jump-back.")
