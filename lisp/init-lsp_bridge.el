@@ -78,6 +78,11 @@
               (let ((project-path filepath))
                 project-path))))
 
+  (defun +func-reset-go-project-path()
+    "Reset go project path, for multi lang server."
+    (interactive)
+    (setq lsp-bridge-get-project-path-by-filepath nil))
+
   :custom
   (lsp-bridge-enable-hover-diagnostic t))
 
