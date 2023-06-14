@@ -229,6 +229,13 @@ confirmation."
     (browse-url (concat "file://" filename))))
 
 ;;;###autoload
+(defun +open-file-algo ()
+  "Open file: main.go."
+  (interactive)
+  (find-file "~/haoran/co/algo/draw/main.go")
+  (tab-bar-rename-tab "algo"))
+
+;;;###autoload
 (defun +open-file-init ()
   "Open file: init.el."
   (interactive)
@@ -257,6 +264,13 @@ confirmation."
   "Open directory: markdown."
   (interactive)
   (dired "~/haoran/no/markdown/"))
+
+;; FIXME
+;;;###autoload
+(defun +open-directory-org ()
+  "Open directory: haoran."
+  (interactive)
+  (dired "~/haoran/no/org/org-directory"))
 
 ;; FIXME
 ;;;###autoload

@@ -9,7 +9,8 @@
   :ensure t
   :mode ("\\.go\\'" . go-mode)
   :bind (:map go-mode-map
-              ("C-c C-c" . +go-run-buffer))
+              ("C-c C-c" . +go-run-buffer)
+              ("C-c C-d" . godoc))
   :init
   (exec-path-from-shell-copy-envs '("GOROOT"
                                     "GOPATH"

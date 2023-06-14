@@ -169,10 +169,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oi"  '+open-wiki-note
       "oo"  '+open-centre-org
       "od"  '(:wk "open directory")
-      "odm" '+open-directory-markdown
       "odh" '+open-directory-haoran
+      "odm" '+open-directory-markdown
+      "odo" '+open-directory-org
       "of"  '(:wk "open file")
       "ofr" '+open-file-init
+      "ofa" '+open-file-algo
 
       ;; project
       "p" 'projectile-command-map

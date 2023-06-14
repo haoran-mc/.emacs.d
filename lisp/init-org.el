@@ -13,13 +13,16 @@
 
 (use-package org
   :ensure nil
-  :hook ((org-mode . (lambda()
+  :hook (((org-babel-after-execute org-mode) . org-redisplay-inline-images)
+         (org-mode . (lambda()
                        (visual-line-mode)
                        (setq word-wrap nil) ;; 折行
                        ))
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto))))
+  :bind (("C-c a" . org-agenda)
+         ("C-c x" . org-capture))
   :init
   (require 'org-tempo) ;; <s
   :config
@@ -239,6 +242,12 @@
   (org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
                       "~/haoran/no/org/org-directory/agenda/"
                       )) ;; 此文件夹的日程将被 agenda 管理
+  (org-agenda-block-separator ?─)
+  (org-agenda-time-grid '((daily today require-timed)
+                          (800 1000 1200 1400 1600 1800 2000)
+                          " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"))
+  (org-agenda-current-time-string
+   "⭠ now ─────────────────────────────────────────────────")
   (org-agenda-span 'day) ;; 将 agenda 的默认时间跨度设置为「一周」
   (org-agenda-start-on-weekday 1) ;; 起始日期设为周一
   (org-agenda-log-mode-items '(clock)) ;; 仅在日程条目中显示 "clock" 类型的日志
