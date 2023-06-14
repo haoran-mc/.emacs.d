@@ -81,7 +81,7 @@
 (require 'init-org)
 (require 'init-site)
 (require 'init-text)
-(require 'init-shell)
+(require 'init-eshell)
 
 ;; MacOS specific
 (when (eq system-type 'darwin)

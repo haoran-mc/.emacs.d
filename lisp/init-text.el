@@ -21,6 +21,10 @@
   ;; paragraphs
   (sentence-end-double-space nil))
 
+(use-package writeroom-mode
+  :ensure t
+  :commands (writeroom-mode))
+
 ;; The markdown mode is awesome! unbeatable
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode))

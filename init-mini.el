@@ -57,5 +57,7 @@
   (which-key-idle-delay 0.5)
   (which-key-add-column-padding 1))
 
+(global-set-key (kbd "M-:") 'execute-extended-command)
+
 (provide 'init-mini)
 ;;; init-mini.el ends here
