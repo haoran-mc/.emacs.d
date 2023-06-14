@@ -3,6 +3,7 @@
 ;;; Commentary:
 ;;
 ;; `org-mode' is too huge to place here.
+;; `txt'
 
 ;;; Code:
 
@@ -23,10 +24,6 @@
 ;; The markdown mode is awesome! unbeatable
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode))
-  :bind (:map markdown-mode-map
-              ("C-c m r" . +markdown-insert-ruby-tag)
-              ("C-c m d" . +markdown-insert-details)
-              ("C-c m g" . grip-mode))
   :init
   (setq markdown-enable-wiki-links t
         markdown-italic-underscore t
@@ -34,38 +31,34 @@
         markdown-make-gfm-checkboxes-buttons t
         markdown-gfm-uppercase-checkbox t
         markdown-fontify-code-blocks-natively t)
+
   :config
   (with-no-warnings
     ;; Use `which-key' instead
     (advice-add #'markdown--command-map-prompt :override #'ignore)
     (advice-add #'markdown--style-map-prompt   :override #'ignore))
 
-  (defun +markdown-insert-ruby-tag (text ruby)
+  (defun +func-markdown-insert-ruby-tag (text ruby)
     "Insert ruby tag with `TEXT' and `RUBY' quickly."
     (interactive "sText: \nsRuby: \n")
     (insert (format "<ruby>%s<rp>(</rp><rt>%s</rt><rp>)</rp></ruby>" text ruby)))
 
-  (defun +markdown-insert-details (title)
+  (defun +func-markdown-insert-details (title)
     "Insert details tag (collapsible) quickly."
     (interactive "sTitle: ")
     (insert (format "<details><summary>%s</summary>\n\n</details>" title)))
 
+  :config
   ;; Table of contents
   (use-package markdown-toc
-    :ensure t
-    :bind (:map markdown-mode-command-map
-                ("r" . markdown-toc-generate-or-refresh-toc)))
+    :ensure t)
 
   ;; sudo pip install grip or pip install grip
+  ;; use grip-mode in markdown-mode and org-mode
   (use-package grip-mode
     :ensure t
     :defines org-mode-map
-    :bind (:map markdown-mode-command-map
-                ("g" . grip-mode))
-    :init
-    (with-eval-after-load 'org
-      (bind-key "C-c C-g" #'grip-mode org-mode-map))
-
+    :config
     (setq grip-update-after-change nil)))
 
 (provide 'init-text)
