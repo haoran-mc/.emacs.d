@@ -85,7 +85,12 @@
     (setq lsp-bridge-get-project-path-by-filepath nil))
 
   :custom
-  (lsp-bridge-enable-hover-diagnostic t))
+  (lsp-bridge-enable-hover-diagnostic t)
+  ;; (lsp-bridge-enable-debug t)
+  ;; (lsp-bridge-enable-log t)
+  ;; (acm-quick-access-keys nil)
+  ;; (acm-quick-access-use-number-select nil)
+  (acm-enable-quick-access nil))
 
 (provide 'init-lsp_bridge)
 ;;; init-lsp_bridge.el ends here

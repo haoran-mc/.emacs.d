@@ -174,7 +174,6 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "odo" '+open-directory-org
       "of"  '(:wk "open file")
       "ofr" '+open-file-init
-      "ofa" '+open-file-algo
 
       ;; project
       "p" 'projectile-command-map

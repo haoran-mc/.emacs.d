@@ -3,7 +3,6 @@
 ;;; Commentary:
 ;;
 ;; Emacs minimal configuration for debugging.
-;;
 
 ;;; Code:
 
@@ -16,7 +15,6 @@
 
 (package-initialize)
 
-;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -31,33 +29,21 @@
 
 (setq debug-on-error t)
 (setq-default lexical-binding t)
-
-(add-to-list 'load-path (file-name-as-directory (locate-user-emacs-file "lisp")))
-(setq custom-file (locate-user-emacs-file "custom.el"))
-
-;; (require 'init-base)
-
-;; Incremental complete in minibuffer
-(use-package icomplete
-  :ensure nil
-  :hook (emacs-startup . icomplete-mode)
-  :custom
-  (icomplete-vertical-mode t)
-  (icomplete-prospects-height 10)
-  (icomplete-hide-common-prefix nil)
-  (icomplete-show-matches-on-no-input nil))
-
-(when (file-exists-p custom-file)
-  (load custom-file))
-
-(use-package which-key
+;; MacOS specific
+(use-package exec-path-from-shell
   :ensure t
-  :hook (emacs-startup . which-key-mode)
-  :custom
-  (which-key-idle-delay 0.5)
-  (which-key-add-column-padding 1))
+  :when (eq system-type 'darwin)
+  :hook (after-init . exec-path-from-shell-initialize)
+  :init
+  (setq exec-path (append exec-path '("/root/go/bin"))))
 
-(global-set-key (kbd "M-:") 'execute-extended-command)
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (use-package yasnippet-snippets
+    :ensure t))
 
-(provide 'init-mini)
-;;; init-mini.el ends here
+(provide 'init)
+;;; init.el ends here
