@@ -84,7 +84,7 @@
   (org-log-repeat 'time) ;; 任务可以重复，任务可以重复 DONE
   :custom ;; beautify
   (org-startup-indented t) ;; 标题的子级会相对于父级标题进行缩进，层次结构的视觉效果
-  (org-ellipsis " ▼ ") ;; 设置在折叠文本或被截断的文本中显示省略号的样式
+  (org-ellipsis " ⤵ ") ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
   (org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+"))) ;; not know
   (org-hide-emphasis-markers t) ;; 隐藏强调标识符
   (org-emphasis-alist '(("*" org-bold)
