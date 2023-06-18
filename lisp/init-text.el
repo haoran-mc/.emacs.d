@@ -10,7 +10,9 @@
 ;; Pixel alignment for org/markdown tables
 (use-package valign
   :ensure t
-  :hook ((markdown-mode org-mode) . valign-mode))
+  :hook ((markdown-mode org-mode) . valign-mode)
+  :custom
+  (valign-fancy-bar t))
 
 ;; Type text
 (use-package text-mode

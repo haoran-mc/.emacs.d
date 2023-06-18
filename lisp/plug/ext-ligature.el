@@ -50,6 +50,8 @@
           ("#+begin_export"   . ?↠)
           ("#+end_export"     . ?↞)
           ("#+RESULTS:"       . ?⚑)
+          ("#+begin_src"      . ?ƒ)
+          ("#+end_src"        . ?ƒ)
           ;; (":PROPERTIES:"     . ?⚙)
           ;; (":END:"            . ?∎)
           ("[#A]"             . ?🅰)

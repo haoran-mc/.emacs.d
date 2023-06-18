@@ -27,11 +27,7 @@
     (if (with-no-warnings (eshell-command
            (format "g++ -o a %s -g -lm -Wall"
                    (buffer-name))))
-        (aweshell-dedicated-toggle)))
-
-  (use-package modern-cpp-font-lock
-    :diminish
-    :init (modern-c++-font-lock-global-mode t)))
+        (aweshell-dedicated-toggle))))
 
 (provide 'lang-cpp)
 ;;; lang-cpp.el ends here

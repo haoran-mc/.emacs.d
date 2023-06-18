@@ -123,6 +123,7 @@
   :custom ;; archive
   (org-archive-location "%s_archive::datetree/")
   :custom ;; latex
+  ;; EXTERNAL-TOOLS
   (org-preview-latex-default-process 'imagemagick) ;; C-c C-x C-l 使用 imagemagick 作为预览公式图像的工具
   (org-latex-create-formula-image-program 'imagemagick) ;; 使用 imagemagick 作为生成公式图像的工具
   :custom ;; todo

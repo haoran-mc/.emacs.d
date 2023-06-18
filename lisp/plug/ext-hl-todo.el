@@ -23,7 +23,8 @@
               ("C-c t o" . hl-todo-occur)
               ("C-c t s" . hl-todo-rgrep))
   :config
-  (add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000")))
+  (add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000"))
+  (add-to-list 'hl-todo-keyword-faces '("EXTERNAL-TOOLS" . "#FF0000")))
 
 
 (provide 'ext-hl-todo)

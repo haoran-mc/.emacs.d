@@ -229,13 +229,6 @@ confirmation."
     (browse-url (concat "file://" filename))))
 
 ;;;###autoload
-(defun +open-file-algo ()
-  "Open file: main.go."
-  (interactive)
-  (find-file "~/haoran/co/algo/draw/main.go")
-  (tab-bar-rename-tab "algo"))
-
-;;;###autoload
 (defun +open-file-init ()
   "Open file: init.el."
   (interactive)
