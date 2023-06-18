@@ -33,32 +33,10 @@
 (use-package ox-publish
   :after org
   :config
-  (defun +save-and-publish-website()
-    "Save all buffers and publish."
-    (interactive)
-    (when (yes-or-no-p "Really save and publish current project?")
-      (save-some-buffers t)
-      (org-publish-project "website" t)
-      (message "Site published done.")))
-
-  (defun +save-and-publish-statics ()
-    "Just copy statics like js, css, and image file .etc."
-    (interactive)
-    (org-publish-project "statics" t)
-    (message "Copy statics done."))
-
-  (defun +save-and-publish-rstatics ()
-    "Just copy statics like js, css, and image file .etc.
-Which is a reverse operation of `save-and-publish-statics'."
-    (interactive)
-    (org-publish-project "rstatics" t)
-    (message "Copy rstatics done."))
-
   (defun +delete-org-and-html ()
     "Delete current org and the relative html when it exists."
     (interactive)
     (when (yes-or-no-p "Really delete current org and the relative html?")
-
       (let ((fileurl (concat "~/haoran/gr/haoran-mc.github.io" (file-name-base (buffer-name)) ".html")))
         (if (file-exists-p fileurl)
             (delete-file fileurl))
@@ -77,28 +55,87 @@ Which is a reverse operation of `save-and-publish-statics'."
               (message "Delete the relative html done."))
           (message "None relative html.")))))
 
-  (defun +save-and-publish-file ()
+  
+  (defun +save-and-publish-wiki-file ()
     "Save current buffer and publish."
     (interactive)
     (save-buffer t)
-    (if (string= (file-name-directory (buffer-file-name))
-                 "/Users/haoran/haoran/no/org/site/org/")
-        ;; 是site文件夹
-        (org-publish-current-file t)))
+    (org-publish-current-file 'wiki)
+    (message "hello wiki"))
 
+  (defun +preview-wiki-current-buffer-in-browser ()
+    "Open current wiki buffer as html."
+    (interactive)
+    (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
+      (+save-and-publish-wiki-file)
+      (httpd-stop)
+      (unless (httpd-running-p)
+        (progn
+          (setq httpd-port 9517)
+          (setq httpd-root "~/haoran/no/org/export/wiki-export/") ;; Corresponding to org-publish-project-alist - wiki
+          (httpd-start)))
+      (browse-url fileurl)))
+
+  
+  (defun +save-and-publish-site-file ()
+    "Save current buffer and publish."
+    (interactive)
+    (save-buffer t)
+    ;; Disable auto-save-and-publish-site-file-mode for other folders
+    (if (string= (file-name-directory (buffer-file-name))
+                 "/Users/haoran/haoran/no/org/site/") ;; FIXME
+        (org-publish-current-file 'site))
+    (message "hello site"))
+
+  (defun +preview-site-current-buffer-in-browser ()
+    "Open current site buffer as html."
+    (interactive)
+    (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
+      (+save-and-publish-site-file)
+      (httpd-stop)
+      (unless (httpd-running-p)
+        (progn
+          (setq httpd-port 9517)
+          (setq httpd-root "~/haoran/gr/haoran-mc.github.io/") ;; Corresponding to org-publish-project-alist - site
+          (httpd-start)))
+      (browse-url fileurl)))
+
+  
+  (defun +org-export-html-to-my-dir-and-preview()
+    "Export org to my dir and preview."
+    (interactive)
+    (save-buffer)
+    (shell-command
+     (format "mv -v %s %s"
+             (shell-quote-argument (org-html-export-to-html))
+             "~/haoran/no/org/export/org-preview"))
+    (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
+      (httpd-stop)
+      (unless (httpd-running-p)
+        (progn
+          (setq httpd-port 9517)
+          (setq httpd-root "~/haoran/no/org/export/org-preview/") ;; Corresponding to org-publish-project-alist - site
+          (httpd-start)))
+      (browse-url fileurl)))
+
+  
   (defun +preview-current-buffer-in-browser ()
     "Open current buffer as html."
     (interactive)
-    (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
-      (+save-and-publish-file)
-      (unless (httpd-running-p) (httpd-start))
-      (browse-url fileurl)))
+    (let ((file-path (buffer-file-name)))
+      (cond
+       ((string-prefix-p "/Users/haoran/haoran/no/org/wiki/" file-path)
+        (+preview-wiki-current-buffer-in-browser))
+       ((string-prefix-p "/Users/haoran/haoran/no/org/site/" file-path)
+        (+preview-site-current-buffer-in-browser))
+       (t
+        (+org-export-html-to-my-dir-and-preview)))))
   :custom
   (org-publish-project-alist
-   '(("orgfiles"
-      :base-directory "~/haoran/no/org/site/org/"
+   '(("wiki"
+      :base-directory "~/haoran/no/org/wiki/"
       ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
-      :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
+      :publishing-directory "~/haoran/no/org/export/wiki-export/"
       :base-extension "org"
       :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
       :recursive t
@@ -107,40 +144,24 @@ Which is a reverse operation of `save-and-publish-statics'."
 	  :email "haoran.mc@outlook.com"
       ;; :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"
       ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
+      :html-head ;; wiki-css wiki-js
+      "<link rel=\"stylesheet\" href=\"wiki-css/org.css\" type=\"text/css\" />
+           <script type=\"module\" src=\"wiki-js/main.js\" defer></script>"
       )
-
-     ("images"
-      :base-directory "~/haoran/no/org/site/images/"
-      :base-extension any
-      :publishing-directory "~/haoran/gr/haoran-mc.github.io/images/"
+     ("site"
+      :base-directory "~/haoran/no/org/site/"
+      :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
+      :base-extension "org"
+      :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
       :recursive t
-      :publishing-function org-publish-attachment
+      :publishing-function org-html-publish-to-html ;; Publishing action
+	  :author "Haoran Liu"
+	  :email "haoran.mc@outlook.com"
+      :html-head
+      "<link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />
+           <link rel=\"stylesheet\" href=\"css/org.css\" type=\"text/css\"  />
+           <script type=\"module\" src=\"js/main.js\" defer></script>"
       )
-     ("static"
-      :base-directory "~/haoran/no/org/site/static/"
-      :base-extension any
-      :publishing-directory "~/haoran/gr/haoran-mc.github.io/static/"
-      :recursive t
-      :publishing-function org-publish-attachment
-      )
-
-     ("rimages"
-      :base-directory "~/haoran/gr/haoran-mc.github.io/images/"
-      :base-extension any
-      :publishing-directory "~/haoran/no/org/site/images/"
-      :recursive t
-      :publishing-function org-publish-attachment
-      )
-     ("rstatic"
-      :base-directory "~/haoran/gr/haoran-mc.github.io/static/"
-      :base-extension any
-      :publishing-directory "~/haoran/no/org/site/static/"
-      :recursive t
-      :publishing-function org-publish-attachment)
-
-     ("website" :components ("orgfiles" "images" "static"))
-     ("statics" :components ("images" "static"))
-     ("rstatics" :components ("rimages" "rstatic"))
      ))
   )
 
@@ -149,10 +170,10 @@ Which is a reverse operation of `save-and-publish-statics'."
 (use-package simple-httpd
   :ensure t
   :custom
-  (httpd-port 9517)
-  (httpd-root "~/haoran/gr/haoran-mc.github.io/")
+  ;; (httpd-port 9517)
+  ;; (httpd-root "~/haoran/gr/haoran-mc.github.io/")
   (org-html-mathjax-options
-   '((path "static/MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
+   '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
 	 (scale "100")
 	 (align "center")
 	 (font "TeX")
@@ -163,20 +184,20 @@ Which is a reverse operation of `save-and-publish-statics'."
 	 (tagindent ".8em")
 	 (tagside "right"))))
 
-(define-minor-mode +auto-save-and-publish-file-mode
+(define-minor-mode +auto-save-and-publish-site-file-mode
   "Toggle auto save and publish current file."
   :global nil
   :lighter ""
-  (if +auto-save-and-publish-file-mode
+  (if +auto-save-and-publish-site-file-mode
       (progn ;; mode is enabled
-        (add-hook 'after-save-hook #'+save-and-publish-file :append :local))
+        (add-hook 'after-save-hook #'+save-and-publish-site-file :append :local))
     ;; mode is disabled
-    (remove-hook 'after-save-hook #'+save-and-publish-file :local)))
+    (remove-hook 'after-save-hook #'+save-and-publish-site-file :local)))
 
-(use-package +auto-save-and-publish-file-mode
+(use-package +auto-save-and-publish-site-file-mode
   :hook org-mode
   :custom
-  (+auto-save-and-publish-file-mode 1))
+  (+auto-save-and-publish-site-file-mode 1))
 
 (provide 'init-site)
 ;;; init-site.el ends here

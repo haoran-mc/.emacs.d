@@ -167,11 +167,9 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "oD"  '+open-current-directory  ;; depend on consult
       "ol"  'org-store-link
       "oi"  '+open-wiki-note
+      "os"  '+open-site-note
       "oo"  '+open-centre-org
       "od"  '(:wk "open directory")
-      "odh" '+open-directory-haoran
-      "odm" '+open-directory-markdown
-      "odo" '+open-directory-org
       "of"  '(:wk "open file")
       "ofr" '+open-file-init
 
@@ -249,8 +247,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
 
         ;; export
         "e"  '(:wk "export")
-        "eb" '+preview-current-buffer-in-browser
-        "ep" '+org-export-html-to-my-dir-and-preview
+        "ep" '+preview-current-buffer-in-browser
 
         ;; insert
         "i"  '(:wk "insert")

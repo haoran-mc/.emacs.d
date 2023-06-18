@@ -245,9 +245,17 @@ confirmation."
 ;; FIXME
 ;;;###autoload
 (defun +open-wiki-note ()
-  "Open file: init.el."
+  "Open file: wiki.org."
   (interactive)
-  (find-file "~/haoran/no/org/site/org/index.org")
+  (find-file "~/haoran/no/org/wiki/index.org")
+  (tab-bar-rename-tab "note"))
+
+;; FIXME
+;;;###autoload
+(defun +open-site-note ()
+  "Open file: site.org."
+  (interactive)
+  (find-file "~/haoran/no/org/site/index.org")
   (tab-bar-rename-tab "note"))
 
 ;; FIXME
@@ -257,27 +265,6 @@ confirmation."
   (interactive)
   (find-file "~/haoran/no/org/org-directory/centre.org")
   (tab-bar-rename-tab "centre"))
-
-;; FIXME
-;;;###autoload
-(defun +open-directory-markdown ()
-  "Open directory: markdown."
-  (interactive)
-  (dired "~/haoran/no/markdown/"))
-
-;; FIXME
-;;;###autoload
-(defun +open-directory-org ()
-  "Open directory: haoran."
-  (interactive)
-  (dired "~/haoran/no/org/org-directory"))
-
-;; FIXME
-;;;###autoload
-(defun +open-directory-haoran ()
-  "Open directory: haoran."
-  (interactive)
-  (dired "~/haoran/"))
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here

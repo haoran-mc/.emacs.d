@@ -29,24 +29,6 @@
   ;; TODO I write it again as I don't know
   ;; why this configuration which in init-tools doesn't take effect
   (yas-global-mode 1)
-  (defun +org-export-html-to-my-dir()
-    "Export org to my dir."
-    (interactive)
-    (save-buffer)
-    (shell-command
-     (format "mv -v %s %s"
-             (shell-quote-argument (org-html-export-to-html))
-             "~/haoran/no/org/export")))
-  (defun +org-preview-html-in-my-dir()
-    "Preview html in my dir."
-    (interactive)
-    (browse-url (concat "/Users/haoran/haoran/no/org/export/"
-                        (file-name-base (buffer-name)) ".html")))
-  (defun +org-export-html-to-my-dir-and-preview()
-    (interactive)
-    (progn
-      (+org-export-html-to-my-dir)
-      (+org-preview-html-in-my-dir)))
 
   (defun xah-show-formfeed-as-line ()
     "Display the formfeed ^L char as line. Version 2018-08-30"
@@ -175,9 +157,7 @@
   (org-export-with-toc t) ;; 导出时包含 toc
   (org-html-head-include-default-style nil) ;; 导出时不包含默认的 css 样式表，默认的样式表在 org 安装目录中
   (org-html-head-include-scripts nil) ;; 导出时不包含默认的 script 脚本文件
-  (org-html-head "<link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/>
-            <link rel='stylesheet' href='static/css/org.css' type='text/css'/>
-            <script type='module' src='static/js/main.js' defer></script>")
+  (org-html-head "<link rel='stylesheet' href='org.css' type='text/css'/>")
   (org-html-text-markup-alist '((bold . "<b>%s</b>")
                                 (code . "<code>%s</code>")
                                 (italic . "<i>%s</i>")
