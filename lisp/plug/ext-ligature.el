@@ -27,22 +27,22 @@
           ("[-]"              . ?◼)
           ("[X]"              . ?☑)
           ("::"               . ?∷)
-          ("#+TITLE:"         . ?T) ;; ❤ ☺ ⊘ ⨀ Τ
-          ("#+AUTHOR:"        . ?♥)
-          ("#+EMAIL:"         . ?␤) ;; ＠ ﹫ ⌂ ⚙
-          ("#+DATE:"          . ?⌨)
-          ("#+DESCRIPTION:"   . ?𝇊) ;;
+          ;; ("#+TITLE:"         . ?T) ;; ❤ ☺ ⊘ ⨀ Τ
+          ;; ("#+AUTHOR:"        . ?♥)
+          ;; ("#+EMAIL:"         . ?␤) ;; ＠ ﹫ ⌂ ⚙
+          ;; ("#+DATE:"          . ?⌨)
+          ;; ("#+DESCRIPTION:"   . ?𝇊) ;;
+          ;; ("#+KEYWORDS:"      . ?)
+          ;; ("#+TAGS:"          . ?)
+          ;; ("#+OPTIONS:"       . ?⌥)
+          ;; ("#+STARTUP:"       . ?⑆)
+          ;; ("#+ATTR_LATEX:"    . ?🄛) ;; 🄛
+          ;; ("#+ATTR_HTML:"     . ?🄗) ;; 🄗
           ("#+BLOCK_LINE: "   . ?━)
           ("#+PROPERTY:"      . ?⚙)
-          ("#+OPTIONS:"       . ?⌥)
-          ("#+STARTUP:"       . ?⑆)
-          ("#+KEYWORDS:"      . ?)
-          ("#+TAGS:"          . ?)
           ("#+LATEX_CLASS:"   . ?C) ;; 🄲
           ("#+LATEX_HEADER:"  . ?⇥)
           ("#+BEAMER_HEADER:" . ?↔)
-          ("#+ATTR_LATEX:"    . ?🄛) ;; 🄛
-          ("#+ATTR_HTML:"     . ?🄗) ;; 🄗
           ("#+CAPTION:"       . ?☰)
           ("#+HEADER:"        . ?›)
           ("#+begin_quote"    . ?»)
@@ -52,6 +52,8 @@
           ("#+RESULTS:"       . ?⚑)
           ("#+begin_src"      . ?ƒ)
           ("#+end_src"        . ?ƒ)
+          ;; ("#+begin_example"  . ?∴) ;; ⧉
+          ;; ("#+end_example"    . ?∵)
           ;; (":PROPERTIES:"     . ?⚙)
           ;; (":END:"            . ?∎)
           ("[#A]"             . ?🅰)
@@ -59,7 +61,8 @@
           ("[#C]"             . ?🅲)
           ("[#D]"             . ?🅳)
           ("[#E]"             . ?🅴)
-          ))
+          ("~/haoran/gr/haoran-mc.github.io/images" . ?A)
+          ("~/haoran/no/org/export/images" . ?B)))
   (prettify-symbols-mode))
 
 

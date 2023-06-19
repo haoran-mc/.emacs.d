@@ -94,12 +94,7 @@
                         ("+" (
                               :foreground "dark gray"
                               :strike-through t))
-                        ("~" (:box (
-                                    :line-width 1
-                                    :color "grey75"
-                                    :style released-button
-                                    )))
-                        ))
+                        ("~" org-code verbatim)))
   (org-goto-interface 'ortline-path-completion) ;; org-goto 命令的界面样式
   (org-level-faces '((org-level-1 :inherit outline-1 :height 1.0)
                      (org-level-2 :inherit outline-2 :height 1.0)

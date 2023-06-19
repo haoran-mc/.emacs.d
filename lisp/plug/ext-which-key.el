@@ -18,16 +18,18 @@
   :hook (after-init . which-key-mode)
   :config
   (which-key-add-key-based-replacements
-    "C-x a" "abbrev"
-    "C-x n" "narrow"
-    "C-x t" "tab"
-    "C-c e" "eshell"
-    "C-c t" "hl-todo"
-    "C-c y" "yasnippet")
+    "C-c @"   "hideshow"
+    "C-x a"   "abbrev"
+    "C-x n"   "narrow"
+    "C-x t"   "tab"
+    "C-c e"   "eshell"
+    "C-c i"   "insert"
+    "C-c u"   "user"
+    "C-c t"   "hl-todo"
+    "C-c y"   "yasnippet"
+    "C-c C-v" "babel")
   (which-key-add-major-mode-key-based-replacements 'markdown-mode
     "C-c m" "markdown")
-  (which-key-add-major-mode-key-based-replacements 'go-mode
-    "C-c t" "hl-todo")
   :custom
   (which-key-idle-delay 0.5)
   (which-key-add-column-padding 1))
