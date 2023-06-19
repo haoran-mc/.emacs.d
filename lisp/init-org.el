@@ -193,23 +193,25 @@
   (org-src-preserve-indentation nil) ;; used with the sentence above
   (org-edit-src-content-indentation 2) ;; src content indent 2
   (org-confirm-babel-evaluate nil) ;; 执行代码块前是否确认
-  (org-src-window-setup 'other-window) ;; 当编辑代码块时，在其他窗口显示
-  (org-src-lang-modes '(("C"      . c) ;; 配置代码块的 major mode
-                        ("C++"    . c++)
-                        ("bash"   . sh)
-                        ("cpp"    . c++)
-                        ("dot"    . graphviz-dot) ;; was `fundamental-mode'
-                        ("elisp"  . emacs-lisp)
-                        ("ocaml"  . tuareg)
-                        ("shell"  . sh)
-                        ("go"     . go)))
+  (org-src-window-setup 'current-window) ;; 当编辑代码块时，在当前窗口显示
+  (org-src-lang-modes '(("C"        . c) ;; 配置代码块的 major mode
+                        ("C++"      . c++)
+                        ("bash"     . sh)
+                        ("cpp"      . c++)
+                        ("dot"      . graphviz-dot) ;; was `fundamental-mode'
+                        ("elisp"    . emacs-lisp)
+                        ("ocaml"    . tuareg)
+                        ("shell"    . sh)
+                        ("go"       . go)
+                        ("plantuml" . plantuml)))
   (org-babel-load-languages '((C          . t) ;; 哪些代码块可以在 org 中运行
                               (dot        . t)
                               (emacs-lisp . t)
                               (eshell     . t)
                               (python     . t)
                               (shell      . t)
-                              (go         . t))))
+                              (go         . t)
+                              (plantuml   . t))))
 
 ;; Keep track of tasks
 (use-package org-agenda
@@ -325,6 +327,8 @@
 (use-package org-download
   :ensure t
   :hook (dired-mode . org-download-enable))
+
+(require 'ext-plantuml)
 
 (provide 'init-org)
 ;;; init-org.el ends here
