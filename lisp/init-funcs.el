@@ -229,16 +229,6 @@ confirmation."
     (browse-url (concat "file://" filename))))
 
 ;;;###autoload
-(defun +insert-github-io-images-dir-pwd()
-  (interactive)
-  (insert "~/haoran/gr/haoran-mc.github.io/images"))
-
-;;;###autoload
-(defun +insert-export-images-dir-pwd()
-  (interactive)
-  (insert "~/haoran/no/org/export/images"))
-
-;;;###autoload
 (defun +open-file-init ()
   "Open file: init.el."
   (interactive)

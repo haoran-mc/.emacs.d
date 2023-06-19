@@ -19,10 +19,6 @@
 (global-set-key (kbd "C-c u f") '+unfill-paragraph)
 
 
-(global-set-key (kbd "C-c i a") '+insert-github-io-images-dir-pwd)
-(global-set-key (kbd "C-c i b") '+insert-export-images-dir-pwd)
-
-
 
 
 (provide 'init-keybindings)
