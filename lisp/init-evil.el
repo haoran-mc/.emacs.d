@@ -202,48 +202,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       (define-leader-key 'normal org-mode-map :localleader
         "." 'org-goto
         "," 'org-priority
-        "a" 'org-archive-subtree
-        "d" 'org-deadline
-        ;; "e" 'org-set-effort
-        "f" 'org-footnote-action
         "h" 'consult-org-heading
-        "l" 'org-lint
-        "o" 'org-toggle-ordered-property
+        "d" 'org-deadline
+        "s" 'org-schedule
         "p" 'org-set-property
         "q" 'org-set-tags-command
-        "r" 'org-refile
-        "s" 'org-schedule
         "t" 'org-todo
-        "T" 'org-todo-list
-
-        ;; babel
-        "b"  '(:wk "babel")
-        "bp" 'org-babel-previous-src-block
-        "bn" 'org-babel-next-src-block
-        "be" 'org-babel-expand-src-block
-        "bg" 'org-babel-goto-named-src-block
-        "bs" 'org-babel-execute-subtree
-        "bb" 'org-babel-execute-buffer
-        "bt" 'org-babel-tangle
-        "bf" 'org-babel-tangle-file
-        "bc" 'org-babel-check-src-block
-        "bi" 'org-babel-insert-header-arg
-        "bI" 'org-babel-view-src-block-info
-        "bk" 'org-babel-remove-result-one-or-many
-
-        ;; clock
-        "c"  '(:wk "clock")
-        "cc" 'org-clock-in
-        "cC" 'org-clock-out
-        "cd" 'org-clock-mark-default-task
-        "ce" 'org-clock-modify-effort-estimate
-        "cg" 'org-clock-goto
-        "cl" 'org-clock-in-last
-        "cr" 'org-clock-report
-        "cs" 'org-clock-display
-        "cx" 'org-clock-cancel
-        "c=" 'org-clock-timestamps-up
-        "c-" 'org-clock-timestamps-down
 
         ;; export
         "e"  '(:wk "export")
@@ -253,7 +217,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "i"  '(:wk "insert")
         "id" 'org-insert-drawer
         "in" 'org-add-note
-        "it" 'org-time-stamp-inactive
+        "it" 'org-time-stamp-inactive ;; not recognised by org-mode
         "iT" 'org-time-stamp
         ))
 
