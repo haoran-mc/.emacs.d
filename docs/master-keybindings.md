@@ -17,12 +17,12 @@
 
 详细的快捷键设置[在这里](./shortcuts.md)
 
-
 # 以 C-c 为前缀的快捷键
 
 - C-c a         org-agenda
 - C-c b         lsp-bridge 返回
 - C-c e +       eshell 的前缀
+- C-c i         插入文本
 - C-c j         lsp-bridge 前往函数定义处
 - C-c r         lsp-bridge 前往函数使用处
 - C-c p +       projectile 的前缀
