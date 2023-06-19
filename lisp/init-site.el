@@ -72,7 +72,7 @@
       (unless (httpd-running-p)
         (progn
           (setq httpd-port 9517)
-          (setq httpd-root "~/haoran/no/org/export/wiki-export/") ;; Corresponding to org-publish-project-alist - wiki
+          (setq httpd-root "~/haoran/no/org/wiki/") ;; Corresponding to org-publish-project-alist - wiki
           (httpd-start)))
       (browse-url fileurl)))
 
@@ -83,7 +83,7 @@
     (save-buffer t)
     ;; Disable auto-save-and-publish-site-file-mode for other folders
     (if (string= (file-name-directory (buffer-file-name))
-                 "/Users/haoran/haoran/no/org/site/") ;; FIXME
+                 "/Users/haoran/haoran/no/org/site/")
         (org-publish-current-file 'site))
     (message "hello site"))
 
@@ -102,7 +102,8 @@
 
   
   (defun +org-export-html-to-my-dir-and-preview()
-    "Export org to my dir and preview."
+    "Export org to my dir and preview. NOTE that org files in
+other org folders should use absolute paths to define images."
     (interactive)
     (save-buffer)
     (shell-command
@@ -135,7 +136,8 @@
    '(("wiki"
       :base-directory "~/haoran/no/org/wiki/"
       ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
-      :publishing-directory "~/haoran/no/org/export/wiki-export/"
+      ;; .gitignore will ignore .html files, you may not find images after changing it
+      :publishing-directory "~/haoran/no/org/wiki/"
       :base-extension "org"
       :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
       :recursive t
