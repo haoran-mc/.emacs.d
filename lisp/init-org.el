@@ -14,10 +14,7 @@
 (use-package org
   :ensure nil
   :hook (((org-babel-after-execute org-mode) . org-redisplay-inline-images)
-         (org-mode . (lambda()
-                       (visual-line-mode)
-                       (setq word-wrap nil) ;; 折行
-                       ))
+         (org-mode . visual-line-mode) ;; 折行
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
                        (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto))))
@@ -25,6 +22,43 @@
          ("C-c x" . org-capture))
   :init
   (require 'org-tempo) ;; <s
+  :custom-face
+  (org-level-1 ((t (:inherit outline-1 :height 1.0))))
+  (org-level-2 ((t (:inherit outline-2 :height 1.0))))
+  (org-level-3 ((t (:inherit outline-3 :height 1.0))))
+  (org-level-4 ((t (:inherit outline-4 :height 1.0))))
+  (org-level-5 ((t (:inherit outline-5 :height 1.0))))
+  (org-level-6 ((t (:inherit outline-6 :height 1.0))))
+  (org-level-7 ((t (:inherit outline-7 :height 1.0))))
+  (org-level-8 ((t (:inherit outline-8 :height 1.0))))
+  ;; 设置代码块用上下边线包裹
+  ;; (org-block-begin-line ((t (:underline t :background unspecified))))
+  ;; (org-block-end-line ((t (:overline t :underline nil :background unspecified))))
+  :config
+  (defun my-func/open-and-play-gif-image (file &optional link)
+	"Open and play GIF image `FILE' in Emacs buffer.
+
+Optional for Org-mode file: `LINK'."
+	(let ((gif-image (create-image file))
+		  (tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
+	  (switch-to-buffer tmp-buf)
+	  (erase-buffer)
+	  (insert-image gif-image)
+	  (image-animate gif-image nil t)
+	  (local-set-key (kbd "q") 'bury-buffer)
+	  ))
+  (setq org-file-apps '(("\\.png\\'"     . default)
+                        (auto-mode       . emacs)
+                        (directory       . emacs)
+                        ("\\.mm\\'"      . default)
+                        ("\\.x?html?\\'" . default)
+                        ("\\.pdf\\'"     . emacs)
+                        ("\\.md\\'"      . emacs)
+                        ("\\.gif\\'"     . my-func/open-and-play-gif-image)
+                        ("\\.xlsx\\'"    . default)
+                        ("\\.svg\\'"     . default)
+                        ("\\.pptx\\'"    . default)
+                        ("\\.docx\\'"    . default)))
   :config
   ;; TODO I write it again as I don't know
   ;; why this configuration which in init-tools doesn't take effect
@@ -96,14 +130,8 @@
                               :strike-through t))
                         ("~" org-code verbatim)))
   (org-goto-interface 'ortline-path-completion) ;; org-goto 命令的界面样式
-  (org-level-faces '((org-level-1 :inherit outline-1 :height 1.0)
-                     (org-level-2 :inherit outline-2 :height 1.0)
-                     (org-level-3 :inherit outline-3 :height 1.0)
-                     (org-level-4 :inherit outline-4 :height 1.0)
-                     (org-level-5 :inherit outline-5 :height 1.0)
-                     (org-level-6 :inherit outline-6 :height 1.0)
-                     (org-level-7 :inherit outline-7 :height 1.0)
-                     (org-level-8 :inherit outline-8 :height 1.0)))
+  (org-fontify-todo-headline t) ;; TODO 标签美化
+  (org-fontify-done-headline t) ;; DONE 标签美化
   :custom ;; priority
   (org-priority-highest ?A) ;; 最高优先级是字母 A
   (org-priority-lowest ?E) ;; 最低优先级是字母 E
@@ -313,11 +341,20 @@
 ;;  '(org-imenu :fetcher url
 ;;              :url "https://raw.githubusercontent.com/rougier/org-imenu/master/org-imenu.el"))
 
-;; (use-package org-contrib
-;;   :pin nongnu
-;;   :ensure t
-;;   :config
-;;   (require 'org-checklist))
+;; org mode 的附加包，有诸多附加功能
+(use-package org-contrib
+  :pin nongnu
+  :ensure t
+  :config
+  (require 'org-checklist))
+
+(use-package org-appear
+  :ensure t
+  :hook (org-mode . org-appear-mode)
+  :custom
+  (org-appear-autoemphasis t)
+  (org-appear-autolinks nil)
+  (org-appear-autosubmarkers t))
 
 (use-package org-download
   :ensure t

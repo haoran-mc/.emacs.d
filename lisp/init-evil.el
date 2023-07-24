@@ -202,7 +202,6 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       (define-leader-key 'normal org-mode-map :localleader
         "." 'org-goto
         "," 'org-priority
-        "h" 'consult-org-heading
         "d" 'org-deadline
         "s" 'org-schedule
         "p" 'org-set-property

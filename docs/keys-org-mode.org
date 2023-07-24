@@ -21,7 +21,7 @@ org-mode 内置的快捷键很多，这里记录一些常用的快捷键：
 - C-c C->       outline-demote
 - C-c C-d       deadline
 - C-c C-e       export-dispatch
-- C-c C-j       org-goto
+- C-c C-j       org-goto -> consult-org-heading
 - C-c C-k       折叠标题
 - C-c C-l       插入连接
 - C-c C-q       设置tag

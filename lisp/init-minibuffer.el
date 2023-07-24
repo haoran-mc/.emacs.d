@@ -44,43 +44,57 @@
   (completions-max-height 13)
   (completions-detailed t))
 
-;; enhance minibuffer
+;; vertical style minibuffer
 (use-package vertico
   :ensure t
   :hook ((after-init . vertico-mode)
          (minibuffer-setup . vertico-repeat-save))
   :custom
+  (vertico-cycle t)
   (vertico-sort-function nil))
+
+;; support Pinyin first character match for orderless, avy etc.
+(use-package pinyinlib
+  :ensure t)
 
 (use-package orderless
   :ensure t
+  :config
+  ;; make completion support pinyin, refer to
+  ;; https://emacs-china.org/t/vertico/17913/2
+  (defun completion--regex-pinyin (str)
+    (orderless-regexp (pinyinlib-build-regexp-string str)))
+  (add-to-list 'orderless-matching-styles 'completion--regex-pinyin)
   :custom
   (completion-styles '(orderless)))
 
-;; show description on minibuffer
+;; show description on minibuffer, like this:
+;; lisp/      drwxr-xr-x    192  19 mis ago
 (use-package marginalia
   :ensure t
   :hook (after-init . marginalia-mode))
 
-(use-package embark
-  :ensure t
-  :bind (:map minibuffer-local-map
-              ("M-o"     . embark-act)
-              ("C-c C-c" . embark-export)
-              ("C-c C-o" . embark-collect))
-  :custom
-  (prefix-help-command 'embark-prefix-help-command))
-
+;; provides commands for finding and completing
 (use-package consult
   :ensure t
   :bind (([remap imenu]                  . consult-imenu)
          ([remap goto-line]              . consult-goto-line)
+         ([remap switch-to-buffer]       . consult-buffer)
+         ([remap yank-pop]               . consult-yank-pop)
+         ([remap apropos]                . consult-apropos)
          ([remap bookmark-jump]          . consult-bookmark)
-         ([remap evil-show-marks]        . consult-mark)
          ([remap recentf-open-files]     . consult-recent-file)
+         ([remap multi-occur]            . consult-multi-occur)
          ([remap repeat-complex-command] . consult-complex-command)
          ([remap isearch-forward]        . consult-line)
-         ([remap projectile-ripgrep]     . consult-ripgrep))
+         ([remap projectile-ripgrep]     . consult-ripgrep)
+         ([remap evil-show-marks]        . consult-mark)
+         ("C-x j"                        . consult-mark)
+         ([remap org-goto]               . consult-org-heading)
+         :map org-mode-map
+         ("C-c C-j"                      . consult-org-heading)
+         :map prog-mode-map
+         ("C-c C-j"                      . consult-outline))
   :config
   (with-no-warnings
     (consult-customize consult-ripgrep consult-git-grep consult-grep
@@ -121,6 +135,15 @@ externally using the default application of the system."
   (consult-async-refresh-delay 0.15)
   (consult-async-input-throttle 0.2)
   (consult-async-input-debounce 0.1))
+
+(use-package embark
+  :ensure t
+  :bind (:map minibuffer-local-map
+              ("M-o"     . embark-act)
+              ("C-c C-c" . embark-export)
+              ("C-c C-o" . embark-collect))
+  :custom
+  (prefix-help-command 'embark-prefix-help-command))
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult

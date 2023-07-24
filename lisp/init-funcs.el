@@ -5,6 +5,24 @@
 ;;; Code:
 
 ;;;###autoload
+(defun +dwim-create-link-with-datetime ()
+  "Create a link with current datetime and filename from the word at point.
+The word at point is treated as a filename. Any consecutive hyphens or underscores
+are treated as a single unit and preserved in the filename."
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'symbol))
+         (start (car bounds))
+         (end (cdr bounds))
+         (filename (buffer-substring-no-properties start end))
+         (clean-filename (replace-regexp-in-string "\\([-_]+\\)" " " filename))
+         (clean-filename (replace-regexp-in-string "^\\s-+\\|\\s-+$" "" clean-filename))
+         (date (format-time-string "%Y-%m-%d"))
+         (link-filename (format "%s-%s.org" date filename))
+         (link-description clean-filename))
+    (delete-region start end)
+    (org-insert-link nil (concat "./" link-filename) link-description)))
+
+;;;###autoload
 (defun +scroll-left-half-page ()
   "Scroll the window left by half the page height."
   (interactive)
@@ -257,7 +275,8 @@ confirmation."
   "Open file: gtd-centre.org."
   (interactive)
   (find-file "~/haoran/no/org/org-directory/centre.org")
-  (tab-bar-rename-tab "centre"))
+  ;; (tab-bar-rename-tab "centre")
+  )
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here
