@@ -85,7 +85,7 @@
     (if (string= (file-name-directory (buffer-file-name))
                  "/Users/haoran/haoran/no/org/site/")
         (org-publish-current-file 'site))
-    (message "hello site"))
+    (message "hello org-mode"))
 
   (defun +preview-site-current-buffer-in-browser ()
     "Open current site buffer as html."

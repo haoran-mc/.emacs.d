@@ -72,23 +72,22 @@
       (dumb-jump-back))))
 
   :config
-  (setq lsp-bridge-get-project-path-by-filepath
-        (lambda (filepath)
-          "Set `project-path` variable to FILEPATH and return its value."
-          (if (string-suffix-p ".go" filepath)
-              (let ((project-path filepath))
-                project-path))))
-
-  (defun +func-reset-go-project-path()
+  ;; (setq lsp-bridge-get-project-path-by-filepath nil)
+  (defun +func-eset-go-project-path()
     "Reset go project path, for multi lang server."
     (interactive)
-    (setq lsp-bridge-get-project-path-by-filepath nil))
+    (setq lsp-bridge-get-project-path-by-filepath
+          (lambda (filepath)
+            "Set `project-path` variable to FILEPATH and return its value."
+            (if (string-suffix-p ".go" filepath)
+                (let ((project-path filepath))
+                  project-path))
+            (message "lsp-bridge single-mode"))))
 
   :custom
   (lsp-bridge-enable-hover-diagnostic t)
   ;; (lsp-bridge-enable-debug t)
   ;; (lsp-bridge-enable-log t)
-  ;; (acm-quick-access-keys nil)
   ;; (acm-quick-access-use-number-select nil)
   (acm-enable-quick-access nil))
 

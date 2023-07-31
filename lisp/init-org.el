@@ -247,6 +247,7 @@ Optional for Org-mode file: `LINK'."
   :custom
   (org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
                       "~/haoran/no/org/org-directory/agenda/"
+                      "~/haoran/no/org/org-directory/work/"
                       )) ;; 此文件夹的日程将被 agenda 管理
   (org-agenda-block-separator ?─)
   (org-agenda-time-grid '((daily today require-timed)
@@ -254,7 +255,7 @@ Optional for Org-mode file: `LINK'."
                           " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"))
   (org-agenda-current-time-string
    "⭠ now ─────────────────────────────────────────────────")
-  (org-agenda-span 'day) ;; 将 agenda 的默认时间跨度设置为「一周」
+  (org-agenda-span 'week) ;; 将 agenda 的默认时间跨度设置为「一周」
   (org-agenda-start-on-weekday 1) ;; 起始日期设为周一
   (org-agenda-log-mode-items '(clock)) ;; 仅在日程条目中显示 "clock" 类型的日志
   (org-agenda-include-all-todo t) ;; 将所有的待办事项包括在 agenda 中
@@ -296,7 +297,7 @@ Optional for Org-mode file: `LINK'."
                            ("c" "capture") ;; capture
                            ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
                             "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                            :prepend t)
+                            :prepend t) ;; 每次在最上面新增
                            ;; cb book
                            ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
                             "* %<%Y.%m.%d - %H:%M>\n%?"
@@ -323,8 +324,7 @@ Optional for Org-mode file: `LINK'."
                            ;; * emacs -> ...
                            ("w" "work")
                            ("wd" "work docs" plain (file "work/docs.org")
-                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                            :prepend t)
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
                            ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
