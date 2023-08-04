@@ -291,10 +291,10 @@ Optional for Org-mode file: `LINK'."
   :custom
   (org-capture-use-agenda-date t) ;; capture 创建条目时使用 agenda 的日期
   (org-capture-templates-contexts nil) ;; 禁用 capture 模板的上下文功能，手动选择模板
-  (org-capture-templates `(("d" "datetree")
+  (org-capture-templates `(("d" "diary")
                            ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                             "* %<%H:%M>\n%?\n")
-                           ("c" "capture") ;; capture
+                           ("c" "sync-notes") ;; capture
                            ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
                             "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                             :prepend t) ;; 每次在最上面新增
@@ -305,7 +305,7 @@ Optional for Org-mode file: `LINK'."
                            ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
                             "* %<%Y.%m.%d - %H:%M>\n%?"
                             :prepend t)
-                           ("t" "tasks") ;; task
+                           ("t" "all in tasks") ;; task
                            ("ti" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("tb" "invest book" entry (file+headline "tasks/invest.org" "book")
