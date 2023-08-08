@@ -341,6 +341,30 @@ Optional for Org-mode file: `LINK'."
 ;;  '(org-imenu :fetcher url
 ;;              :url "https://raw.githubusercontent.com/rougier/org-imenu/master/org-imenu.el"))
 
+(use-package ox
+  :ensure nil
+  :after org
+  :config
+  (add-to-list 'org-export-backends 'pandoc)
+  :custom
+  (org-export-with-toc t)
+  (org-export-with-tags 'not-in-toc)
+  (org-export-with-email t)
+  (org-export-with-author t)
+  (org-export-with-drawers nil)
+  (org-export-with-priority t)
+  (org-export-with-footnotes t)
+  (org-export-with-smart-quotes t)
+  (org-export-with-section-numbers nil)
+  (org-export-with-sub-superscripts '{})
+  ;; Use :eval never-export header argument to avoid evaluating.
+  (org-export-use-babel t)
+  (org-export-headline-levels 5)
+  (org-export-coding-system 'utf-8)
+  (org-export-with-broken-links 'mark)
+  ;; (org-export-backends '(ascii html md icalendar man))) ; original value
+  )
+
 ;; org mode 的附加包，有诸多附加功能
 (use-package org-contrib
   :pin nongnu
