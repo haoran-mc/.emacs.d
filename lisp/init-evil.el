@@ -109,6 +109,8 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "TAB" 'spacemacs/alternate-buffer
       "RET" 'bookmark-jump
 
+      "0" '+func-start-writing-at-the-next-special-word
+
       ;; Resume
       "'" 'vertico-repeat
 

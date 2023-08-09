@@ -5,6 +5,24 @@
 ;;; Code:
 
 ;;;###autoload
+(defun +func-start-writing-at-the-next-special-word()
+  "Jump to the next '<++>' placeholder, delete it, and switch to insert mode."
+  (interactive)
+  (let ((forward-pos (search-forward "<++>" nil t))
+        (backward-pos (search-backward "<++>" nil t)))
+    (if forward-pos
+        (progn
+          (goto-char forward-pos)
+          (replace-match "" nil nil)
+          (evil-insert-state))
+      (if backward-pos
+          (progn
+            (goto-char backward-pos)
+            (replace-match "" nil nil)
+            (evil-insert-state))
+        (message "No more <++> placeholders found")))))
+
+;;;###autoload
 (defun +dwim-create-link-with-datetime ()
   "Create a link with current datetime and filename from the word at point.
 The word at point is treated as a filename. Any consecutive hyphens or underscores
