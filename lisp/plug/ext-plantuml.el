@@ -26,8 +26,8 @@
 
 (use-package plantuml-mode
   :ensure t
-  :config
-  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+  ;; :config
+  ;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
   :custom
   ;; EXTERNAL-TOOLS
   (plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))

@@ -19,12 +19,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(doom-themes-treemacs-file-face ((t nil)))
- '(epe-dir-face ((t (:inherit bold :foreground "gray"))))
- '(epe-git-face ((t (:foreground "skyblue"))))
- '(epe-pipeline-host-face ((t (:foreground "skyblue"))))
- '(epe-pipeline-time-face ((t (:foreground "darkorange"))))
- '(epe-pipeline-user-face ((t (:foreground "darkcyan"))))
- '(tab-line-tab ((t (:foreground red)))))
+ '(treemacs-directory-face ((t (:height 1 :blod nil :family "JetBrainsMono Nerd Font"))))
+ '(treemacs-file-face ((t (:height 1 :blod nil :family "JetBrainsMono Nerd Font"))))
+ '(treemacs-git-added-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-conflict-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-deleted-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-ignored-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-modified-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-renamed-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-unmodified-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-git-untracked-face ((t (:inherit treemacs-file-face))))
+ '(treemacs-root-face ((t (:height 1 :blod nil :family "JetBrainsMono Nerd Font"))))
+ '(variable-pitch ((t nil))))
 
 ;;; custom.el ends here

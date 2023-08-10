@@ -130,7 +130,11 @@
 ;; Font size
 ;; (set-face-attribute 'default nil :font "Fira Code" :weight 'semi-bold)
 ;; (set-face-attribute 'default nil :font "PingFang SC")
-(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :weight 'semi-bold)
+(set-face-attribute 'default nil
+                    :font (font-spec :family
+                                     "JetBrainsMono Nerd Font"
+                                     :weight 'semi-bold
+                                     :height 102)) ;; set height in arch
 
 ;; Sane defaults
 (setq use-short-answers t)

@@ -21,11 +21,11 @@
 (use-package doom-themes
   :ensure t
   :when (display-graphic-p)
-  :init
-  (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
-  (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
-  (require 'spacemacs-dark-theme)
-  (require 'lazycat-dark-theme)
+  ;; :init
+  ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
+  ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
+  ;; (require 'spacemacs-dark-theme)
+  ;; (require 'lazycat-dark-theme)
   :config
   (doom-themes-treemacs-config)
   (setq doom-themes-treemacs-theme "doom-colors")

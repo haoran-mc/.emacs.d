@@ -92,8 +92,8 @@
 
   :config
   ;; `cd' to frequent directory in `eshell'
-  (use-package eshell-z
-    :hook (eshell-mode . (lambda () (require 'eshell-z))))
+  ;; (use-package eshell-z
+  ;;   :hook (eshell-mode . (lambda () (require 'eshell-z))))
 
   :custom
   (comint-prompt-read-only t)
