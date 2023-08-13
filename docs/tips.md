@@ -1,1 +1,0 @@
-- command + enter: 在创建 `.el` 文件时需要输入 keywords，使用这个快捷键可以终止输入。
