@@ -307,23 +307,25 @@ Optional for Org-mode file: `LINK'."
                            ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
                             "* %<%Y.%m.%d - %H:%M>\n%?"
                             :prepend t)
-                           ("t" "all in tasks") ;; task
-                           ("ti" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
+                           ("a" "all in tasks") ;; task
+                           ("ai" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ("tb" "invest book" entry (file+headline "tasks/invest.org" "book")
-                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ;; 汇编 -> 《汇编语言》
-                           ;; 心理学 -> 《被讨厌的勇气》
-                           ("tt" "invest inbox" entry (file+headline "tasks/invest.org" "inbox")
-                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                           ;; * movie -> 《》
-                           ;; * fruit
-                           ;; * read news
-                           ("tl" "learn" plain (file "tasks/learn.org")
+                           ("al" "learn" plain (file "tasks/learn.org")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ;; * go language -> ...
                            ;; * machine learning -> ...
                            ;; * emacs -> ...
+                           ("at" "invest inbox" entry (file+headline "tasks/invest.org" "inbox")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ;; * movie -> 《》
+                           ;; * fruit
+                           ;; * read news
+                           ("ab" "invest book" entry (file+headline "tasks/invest.org" "book")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           ;; 汇编 -> 《汇编语言》
+                           ;; 心理学 -> 《被讨厌的勇气》
+                           ("af" "invest life" entry (file+headline "tasks/invest.org" "life")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("w" "work")
                            ("wd" "work docs" plain (file "work/docs.org")
                             "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")

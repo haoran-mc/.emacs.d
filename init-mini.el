@@ -45,5 +45,18 @@
   (use-package yasnippet-snippets
     :ensure t))
 
+(use-package evil
+  :ensure t)
+
+(use-package holo-layer
+  :ensure nil
+  :load-path "~/Documents/emacs/local-packages/holo-layer"
+  :when (display-graphic-p)
+  :init
+  (require 'holo-layer)
+  :config
+  (holo-layer-enable))
+
+
 (provide 'init)
 ;;; init.el ends here
