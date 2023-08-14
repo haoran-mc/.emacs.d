@@ -99,7 +99,11 @@
 (require 'ext-which-key)
 (require 'ext-ligature)
 ;; (require 'ext-reader)
-;; (require 'ext-eaf)
+(if (eq system-type 'gnu/linux)
+    (progn
+      ;; Load the ext-eaf package here
+      (require 'ext-eaf)))
+
 
 (provide 'init-tools)
 ;;; init-tools.el ends here

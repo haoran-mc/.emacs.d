@@ -84,7 +84,7 @@ Optional for Org-mode file: `LINK'."
   (defface org-bold '((t :foreground "white"
                          :background "#282C34"
                          :weight bold
-                         :underline (:color "red" :style line :position 9)
+                         :underline (:color "red" :style line)
                          :overline nil))
     "Face for org-mode bold."
     :group 'org-faces)
