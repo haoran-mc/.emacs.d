@@ -137,15 +137,5 @@
   :ensure t
   :defer t)
 
-(use-package holo-layer
-  :ensure nil
-  :load-path "~/Documents/emacs/local-packages/holo-layer"
-  :init
-  (exec-path-from-shell-copy-envs '("PYTHONPATH"
-                                    "PYENV_ROOT"
-                                    ))
-  :config
-  (holo-layer-enable))
-
 (provide 'init-ui)
 ;;; init-ui.el ends here
