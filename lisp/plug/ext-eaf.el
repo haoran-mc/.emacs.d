@@ -29,6 +29,8 @@
 (add-to-list 'load-path "~/Documents/emacs/local-packages/emacs-application-framework")
 (require 'eaf)
 (require 'eaf-rss-reader)
+(require 'eaf-browser)
+(require 'eaf-pdf-viewer)
 
 (add-hook 'eaf-mode-hook #'turn-off-evil-mode t)
 
@@ -36,6 +38,13 @@
 (setq eaf-python-command "python3")
 (setq eaf-buffer-background-color "#282C34")
 (setq eaf-start-python-process-when-require nil)
+
+(setq eaf-browser-continue-where-left-off t)
+(setq eaf-browser-enable-adblocker t)
+
+(defalias 'browse-web #'eaf-open-browser)
+(eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+(eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
 
 (eaf-bind-key eaf-rss-reader-scroll-up-web-page "SPC" eaf-rss-reader-keybinding)
 (eaf-bind-key eaf-rss-reader-scroll-down-web-page "b" eaf-rss-reader-keybinding)
