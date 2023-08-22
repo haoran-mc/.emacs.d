@@ -117,7 +117,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       ;; app
       "a" '(:wk "app")
       "aa" 'org-agenda
-      "ac" 'org-capture
+      "ax" 'org-capture
       "ad" 'calendar
       "af" 'fanyi-dwim2
       "ao" 'consult-org-agenda ;; outlines in agenda dir

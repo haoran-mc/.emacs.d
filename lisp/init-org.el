@@ -302,16 +302,22 @@ Optional for Org-mode file: `LINK'."
                             :prepend t) ;; 每次在最上面新增
                            ;; cb book
                            ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
-                            "* %<%Y.%m.%d - %H:%M>\n%?"
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
                             :prepend t)
                            ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
-                            "* %<%Y.%m.%d - %H:%M>\n%?"
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
+                            :prepend t)
+                           ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/专业、职业发展/行业内幕.org")
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
+                            :prepend t)
+                           ("cz" "capture trivia, 小知识" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                             :prepend t)
                            ("a" "all in tasks") ;; task
                            ("ai" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("al" "learn" plain (file "tasks/learn.org")
-                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n.")
                            ;; * go language -> ...
                            ;; * machine learning -> ...
                            ;; * emacs -> ...
