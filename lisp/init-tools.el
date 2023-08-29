@@ -21,10 +21,9 @@
 
 ;; The blazing grep tool
 ;;
-;; Press C-c s to search
+;; invoke rg-menu to search
 (use-package rg
-  :ensure t
-  :hook (after-init . rg-enable-default-bindings))
+  :ensure t)
 
 (use-package hungry-delete
   :ensure t
