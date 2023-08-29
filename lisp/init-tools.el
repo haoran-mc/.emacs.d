@@ -55,9 +55,6 @@
 ;; Snippest
 (use-package yasnippet
   :ensure t
-  :bind (("C-c y s" . yas-insert-snippet)
-         ("C-c y n" . yas-new-snippet)
-         ("C-c y v" . yas-visit-snippet-file))
   :config
   (yas-global-mode 1)
   (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))

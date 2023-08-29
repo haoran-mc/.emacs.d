@@ -198,6 +198,12 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "w"  'evil-window-map
       "wx" 'kill-buffer-and-window
       "wm" '+toggle-maximize-buffer
+
+      ;; yasnippet
+      "y" '(:wk "yasnippet")
+      "ys" 'yas-insert-snippet
+      "yn" 'yas-new-snippet
+      "yv" 'yas-visit-snippet-file
       )
 
     (with-eval-after-load 'org

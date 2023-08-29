@@ -21,6 +21,7 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c i l") #'+dwim-create-link-with-datetime))
 
+(global-set-key (kbd "C-c s") 'tab-bar-switch-to-tab)
 
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

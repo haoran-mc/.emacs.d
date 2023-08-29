@@ -459,7 +459,7 @@ Else, call `comment-or-uncomment-region' on the current line."
 (use-package webjump
   :ensure nil
   ;; C-c / will be shadowed by `org-sparse-tree' in org-mode
-  :bind ("C-c /" . webjump)
+  :bind ("C-c /" . webjump) ;; TODO put it in keybindings but keep `org-sparse-tree'
   :config
   (defconst webjump-weather-default-cities '("杭州" "深圳" "北京" "上海"))
   (defconst webjump-weather-url-template "https://weathernew.pae.baidu.com/weathernew/pc?query=%s天气&srcid=4982")
