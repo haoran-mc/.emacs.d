@@ -21,11 +21,11 @@
 (use-package doom-themes
   :ensure t
   :when (display-graphic-p)
-  ;; :init
+  :init
   ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
-  ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
+  (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
   ;; (require 'spacemacs-dark-theme)
-  ;; (require 'lazycat-dark-theme)
+  (require 'lazycat-dark-theme)
   :config
   (doom-themes-treemacs-config)
   (setq doom-themes-treemacs-theme "doom-colors")
@@ -90,8 +90,10 @@
   :config
   ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
-  (load-theme 'doom-one t)
   ;; (load-theme 'doom-monokai-pro t)
+  ;; (load-theme 'doom-one t)
+  (lazycat-theme-load-dark)
+  ;; (lazycat-theme-load-light)
   )
 
 ;; Customize popwin behavior
