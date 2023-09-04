@@ -103,13 +103,14 @@
   
   (defun +org-export-html-to-my-dir-and-preview()
     "Export org to my dir and preview. NOTE that org files in
-other org folders should use absolute paths to define images."
+other org folders should use absolute paths to define images. Those html files
+use export/org-preview/org.css render style."
     (interactive)
     (save-buffer)
     (shell-command
      (format "mv -v %s %s"
              (shell-quote-argument (org-html-export-to-html))
-             "~/haoran/no/org/export/org-preview"))
+             "~/haoran/no/org/export/org-preview")) ;; USER-DIRECTORY
     (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
       (httpd-stop)
       (unless (httpd-running-p)

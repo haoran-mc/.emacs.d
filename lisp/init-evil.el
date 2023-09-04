@@ -186,7 +186,7 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
       "ti" 'tab-switcher
       "tn" '+create-new-tab-bar
       "to" 'tab-bar-close-other-tabs
-      "tt" 'tab-bar-switch-to-tab
+      ;; "tt" 'tab-bar-switch-to-tab
       "tp" 'tab-bar-switch-to-recent-tab
       "tr" 'tab-bar-rename-tab
 
