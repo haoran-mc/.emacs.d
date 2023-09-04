@@ -81,6 +81,7 @@
 (require 'init-org)
 (require 'init-site)
 (require 'init-text)
+(require 'init-reader)
 (require 'init-eshell)
 
 ;; MacOS specific

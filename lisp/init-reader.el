@@ -40,6 +40,18 @@
 
 (require 'elfeed)
 
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode)
+  :hook (nov-mode . evil-email-state-entry))
+
+;; (use-package nov-xwidget
+;;   :demand t
+;;   :after nov
+;;   :config
+;;   (define-key nov-mode-map (kbd "o") 'nov-xwidget-view)
+;;   (add-hook 'nov-mode-hook 'nov-xwidget-inject-all-files))
+
 
 (provide 'init-reader)
 ;;; init-reader.el ends here
