@@ -114,6 +114,7 @@ Optional for Org-mode file: `LINK'."
   (org-M-RET-may-split-line '((header-line . nil))) ;; M-RET 不分割标题
   (org-startup-folded 'content) ;; 打开文件时只显示标题，不显示内容
   (org-hide-block-startup t) ;; 打开文件时，初始状态隐藏代码块
+  (org-imenu-depth 6)
   :custom ;; log
   (org-log-done t) ;; 完成任务时自动记录时间
   (org-log-into-drawer t) ;; 将日志放在一个抽屉里 :LOGBOOK:
