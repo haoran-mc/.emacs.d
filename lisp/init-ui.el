@@ -24,8 +24,10 @@
   :init
   (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
   (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
+  (add-to-list 'load-path "~/Documents/emacs/local-packages/nano-emacs")
   (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
+  ;; (require 'nano) ;; a great theme
   :config
   (doom-themes-treemacs-config)
   (setq doom-themes-treemacs-theme "doom-colors")
