@@ -25,7 +25,8 @@
   :config
   (add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000"))
   (add-to-list 'hl-todo-keyword-faces '("EXTERNAL-TOOLS" . "#FF0000"))
-  (add-to-list 'hl-todo-keyword-faces '("USER-DIRECTORY" . "#FF0000")))
+  (add-to-list 'hl-todo-keyword-faces '("USER-DIRECTORY" . "#FF0000"))
+  (add-to-list 'hl-todo-keyword-faces '("CUSTOM-COLOURS" . "#FF0000")))
 
 
 (provide 'ext-hl-todo)

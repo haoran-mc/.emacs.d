@@ -32,7 +32,7 @@
   (org-level-7 ((t (:inherit outline-7 :weight semi-bold :height 1.0))))
   (org-level-8 ((t (:inherit outline-8 :weight semi-bold :height 1.0))))
   (org-document-title ((t (:weight semi-bold))))
-  (org-link    ((t (:inherit link :weight semi-bold))))
+  (org-link ((t (:inherit link :foreground "#2AA1AE" :weight semi-bold)))) ;; CUSTOM-COLOURS
   ;; 设置代码块用上下边线包裹
   ;; (org-block-begin-line ((t (:underline t :background unspecified))))
   ;; (org-block-end-line ((t (:overline t :underline nil :background unspecified))))
