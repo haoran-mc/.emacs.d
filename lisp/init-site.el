@@ -148,7 +148,8 @@ use export/org-preview/org.css render style."
       ;; :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"
       ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
       :html-head ;; wiki-css wiki-js
-      "<link rel=\"stylesheet\" href=\"wiki-css/org.css\" type=\"text/css\" />
+      "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
+           <link rel=\"stylesheet\" href=\"wiki-css/org.css\" type=\"text/css\" />
            <script type=\"module\" src=\"wiki-js/main.js\" defer></script>"
       )
      ("site"
@@ -161,11 +162,12 @@ use export/org-preview/org.css render style."
 	  :author "Haoran Liu"
 	  :email "haoran.mc@outlook.com"
       :html-head
-      "<link rel=\"shortcut icon\" href=\"images/favicon.ico\" type=\"image/x-icon\" />
+      "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
            <link rel=\"stylesheet\" href=\"css/org.css\" type=\"text/css\"  />
            <script type=\"module\" src=\"js/main.js\" defer></script>"
       )
      ))
+  (org-html-postamble nil)
   )
 
 (use-package htmlize :ensure t)

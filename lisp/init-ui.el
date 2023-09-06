@@ -22,9 +22,9 @@
   :ensure t
   :when (display-graphic-p)
   :init
-  ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
+  (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
   (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
-  ;; (require 'spacemacs-dark-theme)
+  (require 'spacemacs-dark-theme)
   (require 'lazycat-dark-theme)
   :config
   (doom-themes-treemacs-config)
@@ -32,7 +32,7 @@
 
   (defvar pretty-dark-themes
     (list 'painting-dark 'modus-vivendi 'spacemacs-dark
-          'doom-acario-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
+          'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
           'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
           'doom-monokai-spectrum
@@ -60,6 +60,7 @@
     (list 'doom-monokai-octagon ;; the highlight is inconspicuous
           'doom-monokai-pro ;; ripgrep highlight bad
           'doom-acario-light ;; comment not obvious
+          'doom-acario-dark ;; bad org-link
           ))
 
   (defun random-choice (items)
@@ -78,7 +79,7 @@
   (defun +load-theme-from-selected ()
     "Load random from pretty-dark-themes."
     (interactive)
-    (let* ((selected-theme (random-choice pretty-light-themes)))
+    (let* ((selected-theme (random-choice pretty-dark-themes)))
       (message "Current random theme is: %s" selected-theme)
       (load-theme selected-theme t)))
 
@@ -90,7 +91,7 @@
   :config
   ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
-  ;; (load-theme 'doom-monokai-pro t)
+  ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
   (lazycat-theme-load-dark)
   ;; (lazycat-theme-load-light)
