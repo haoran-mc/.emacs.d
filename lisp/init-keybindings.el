@@ -19,7 +19,12 @@
 (global-set-key (kbd "C-c u f") '+unfill-paragraph)
 
 (with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c i l") #'+dwim-create-link-with-datetime))
+  (define-key org-mode-map (kbd "C-c i l") #'+dwim-create-link-with-datetime)
+  (define-key org-mode-map (kbd "C-c i i") #'+org-insert-image)
+  (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
+  )
+
+
 
 (global-set-key (kbd "C-c s") 'tab-bar-switch-to-tab)
 
