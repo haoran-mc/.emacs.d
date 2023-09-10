@@ -79,6 +79,7 @@
 
 ;; standalone apps
 (require 'init-org)
+(require 'init-font) ;; load(fira code) after org
 (require 'init-site)
 (require 'init-text)
 (require 'init-reader)

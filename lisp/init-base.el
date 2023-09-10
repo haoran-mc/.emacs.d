@@ -127,14 +127,6 @@
 ;; To create a file, visit it with C-x C-f and enter text in its buffer.
 ")
 
-;; Font size
-;; (set-face-attribute 'default nil :font "Fira Code" :weight 'semi-bold)
-;; (set-face-attribute 'default nil :font "PingFang SC")
-(set-face-attribute 'default nil
-                    :font (font-spec :family
-                                     "JetBrainsMono Nerd Font"
-                                     :weight 'semi-bold)) ;; set height in arch
-
 ;; Sane defaults
 (setq use-short-answers t)
 (unless (>= emacs-major-version 28)
