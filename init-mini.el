@@ -37,26 +37,22 @@
   :init
   (setq exec-path (append exec-path '("/root/go/bin"))))
 
-(use-package yasnippet
-  :ensure t
-  :config
-  (yas-global-mode 1)
-  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
-  (use-package yasnippet-snippets
-    :ensure t))
-
 (use-package evil
-  :ensure t)
-
-(use-package holo-layer
-  :ensure nil
-  :load-path "~/Documents/emacs/local-packages/holo-layer"
-  :when (display-graphic-p)
+  :ensure t
   :init
-  (require 'holo-layer)
+  (setq evil-disable-insert-state-bindings t)
+  :hook (after-init . evil-mode)
   :config
-  (holo-layer-enable))
+  (with-eval-after-load 'evil
+    (setq evil-insert-state-cursor 'bar)))
 
+(use-package org
+  :ensure nil
+  :hook (((org-babel-after-execute org-mode) . org-redisplay-inline-images)
+         (org-mode . visual-line-mode) ;; 折行
+         ;; (org-mode . (lambda() (setq truncate-lines nil)))
+         )
+  )
 
 (provide 'init)
 ;;; init.el ends here

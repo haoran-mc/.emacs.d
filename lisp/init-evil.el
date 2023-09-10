@@ -38,7 +38,7 @@
   (evil-ex-complete-emacs-commands nil)
   (evil-ex-interactive-search-highlight 'selected-window)
   ;; when `visual-line-mode' enabled, exchange j/k with gj/gk
-  (evil-respect-visual-line-mode t)
+  (evil-respect-visual-line-mode t) ;; FIXME cc, generate.el
   (evil-want-integration t)
   (evil-want-keybinding nil)
   (evil-want-fine-undo t)
@@ -51,9 +51,10 @@
   :ensure t
   :hook (after-init . global-evil-surround-mode))
 
+;; help-mode calendar
 (use-package evil-collection
   :ensure t
-  :hook (evil-mode . evil-collection-init)
+  :hook (evil-mode . evil-collection-init) ;; init all
   :custom
   (evil-collection-setup-debugger-keys nil)
   (evil-collection-calendar-want-org-bindings t)
