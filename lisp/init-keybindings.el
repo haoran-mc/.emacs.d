@@ -24,6 +24,7 @@
   (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
   )
 
+(global-set-key (kbd "C-c i t") 'hl-todo-insert)
 
 
 (global-set-key (kbd "C-c s") 'tab-bar-switch-to-tab)

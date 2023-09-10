@@ -294,26 +294,7 @@ Optional for Org-mode file: `LINK'."
   :custom
   (org-capture-use-agenda-date t) ;; capture 创建条目时使用 agenda 的日期
   (org-capture-templates-contexts nil) ;; 禁用 capture 模板的上下文功能，手动选择模板
-  (org-capture-templates `(("d" "diary")
-                           ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
-                            "* %<%H:%M>\n%?\n")
-                           ("c" "sync-notes") ;; capture
-                           ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
-                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                            :prepend t) ;; 每次在最上面新增
-                           ;; cb book
-                           ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
-                            "%<%Y.%m.%d - %H:%M>\n%?\n."
-                            :prepend t)
-                           ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
-                            "%<%Y.%m.%d - %H:%M>\n%?\n."
-                            :prepend t)
-                           ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/专业、职业发展/行业内幕.org")
-                            "%<%Y.%m.%d - %H:%M>\n%?\n."
-                            :prepend t)
-                           ("cz" "capture trivia, 小知识" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
-                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                            :prepend t)
+  (org-capture-templates `(
                            ("a" "all in tasks") ;; task
                            ("ai" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
@@ -333,12 +314,42 @@ Optional for Org-mode file: `LINK'."
                            ;; 心理学 -> 《被讨厌的勇气》
                            ("af" "invest life" entry (file+headline "tasks/invest.org" "life")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           
+                           ("c" "sync-notes") ;; capture
+                           ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                            :prepend t) ;; 每次在最上面新增
+                           ;; cb book
+                           ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
+                            :prepend t)
+                           ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
+                            :prepend t)
+                           ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/专业、职业发展/行业内幕.org")
+                            "%<%Y.%m.%d - %H:%M>\n%?\n."
+                            :prepend t)
+                           ("cz" "capture trivia, 小知识" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
+                            "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                            :prepend t)
+                           
+                           ("d" "diary")
+                           ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+                            "* %<%H:%M>\n%?\n")
+                           
+                           ("e" "emacs")
+                           ("el" "emacs learn" entry (file+headline "tasks/emacs.org" "learn")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n.")
+                           ("et" "emacs todo" entry (file+headline "tasks/emacs.org" "tasks")
+                            "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           
                            ("w" "work")
                            ("wd" "work docs" plain (file "work/docs.org")
                             "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                            ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
                            ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")
                             "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                           
                            ("p" "project") ;; project
                            ("pb" "bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
                            ("pf" "feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
@@ -347,10 +358,6 @@ Optional for Org-mode file: `LINK'."
                            ("po" "optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
                            ("pd" "documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
                            ("pm" "miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?"))))
-
-;; (quelpa
-;;  '(org-imenu :fetcher url
-;;              :url "https://raw.githubusercontent.com/rougier/org-imenu/master/org-imenu.el"))
 
 (use-package ox
   :ensure nil

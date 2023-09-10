@@ -107,6 +107,7 @@ other org folders should use absolute paths to define images. Those html files
 use export/org-preview/org.css render style."
     (interactive)
     (save-buffer)
+    ;; (org-html-export-to-html)
     (shell-command
      (format "mv -v %s %s"
              (shell-quote-argument (org-html-export-to-html))
