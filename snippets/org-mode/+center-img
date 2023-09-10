@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: -center-img
-# key: -center-img
+# name: +center-img
+# key: +center-img
 # --
 
 #+begin_export html

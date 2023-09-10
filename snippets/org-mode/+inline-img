@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: +inline-img
+# key: +inline-img
+# --
+
+#+attr_org: :width 600px
+[[file:~/haoran/no/org/org-images/][image: ]]
