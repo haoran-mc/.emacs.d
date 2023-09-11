@@ -16,6 +16,13 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
+(global-set-key (kbd "C-c c b") 'literate-calc-eval-buffer)
+(global-set-key (kbd "C-c c i") 'literate-calc-insert-results)
+(global-set-key (kbd "C-c c m") 'literate-calc-minor-mode)
+(global-set-key (kbd "C-c c l") 'literate-calc-eval-line)
+(global-set-key (kbd "C-c c c") 'literate-calc-clear-overlays)
+
 (global-set-key (kbd "C-c u f") '+unfill-paragraph)
 
 (with-eval-after-load 'org

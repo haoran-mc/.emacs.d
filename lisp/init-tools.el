@@ -89,11 +89,16 @@
   (ace-pinyin-global-mode +1)
   (ace-pinyin-treat-word-as-char nil)) ;; keep <leader>fw original
 
+(use-package literate-calc-mode
+  :ensure t
+  :defer t)
+
 (require 'ext-treemacs)
 (require 'ext-hl-todo)
 (require 'ext-projectile)
 (require 'ext-which-key)
 (require 'ext-ligature)
+;; (require 'ext-telega)
 ;; (require 'ext-reader)
 (if (eq system-type 'gnu/linux)
     (progn
