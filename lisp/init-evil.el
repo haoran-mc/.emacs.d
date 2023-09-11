@@ -212,9 +212,10 @@ if LOCALLEADER is nil, otherwise \"<localleader>\"."
         "." 'org-goto
         "," 'org-priority
         "d" 'org-deadline
-        "s" 'org-schedule
+        "l" 'imenu-list-smart-toggle
         "p" 'org-set-property
         "q" 'org-set-tags-command
+        "s" 'org-schedule
         "t" 'org-todo
 
         ;; export

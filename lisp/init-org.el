@@ -402,6 +402,10 @@ Optional for Org-mode file: `LINK'."
   :ensure t
   :hook (dired-mode . org-download-enable))
 
+(use-package imenu-list
+  :ensure t
+  :commands (imenu-list-smart-toggle))
+
 (require 'ext-plantuml)
 
 (provide 'init-org)
