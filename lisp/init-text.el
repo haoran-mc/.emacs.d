@@ -23,6 +23,7 @@
   ;; paragraphs
   (sentence-end-double-space nil))
 
+;; another nice writing environment
 (use-package writeroom-mode
   :ensure t
   :commands (writeroom-mode))

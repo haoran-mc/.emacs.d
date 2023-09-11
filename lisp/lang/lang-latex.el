@@ -10,6 +10,7 @@
 
 ;;; Code:
 
+;; 鼠标放在 LaTeX 代码上，可编辑状态，离开即显示编译后的公式效果
 ;; (use-package org-fragtog
 ;;   :hook (org-mode . org-fragtog-mode))
 

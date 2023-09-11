@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2022  Haoran Liu
 
-;; Author: HaoRan Liu <haoran.mc@gmail.com>
+;; Author: HaoRan Liu <haoran.mc@outlook.com>
 ;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
