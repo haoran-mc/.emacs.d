@@ -16,5 +16,13 @@
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
+;; https://emacs-china.org/t/emacs-utf-8/21143/28
+(set-charset-priority 'unicode)
+(prefer-coding-system 'utf-8)
+(setq system-time-locale "C")
+
+;; (when (eq system-type 'windows-nt)
+;;   (setq file-name-coding-system 'gbk))
+
 (provide 'early-init)
 ;;; early-init.el ends here

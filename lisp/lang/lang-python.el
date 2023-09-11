@@ -21,6 +21,8 @@
   (when (and (executable-find "python3")
              (string= python-shell-interpreter "python"))
     (setq python-shell-interpreter "python3"))
+
+  (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
   :custom
   (python-indent-guess-indent-offset-verbose nil))
 
