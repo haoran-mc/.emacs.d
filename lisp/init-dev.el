@@ -32,6 +32,9 @@
 (use-package json-mode
   :ensure t)
 
+(use-package toml-mode
+  :ensure t)
+
 (use-package prog-mode
   :ensure nil
   :hook ((prog-mode . (lambda() (setq truncate-lines t)))))
