@@ -138,9 +138,5 @@
   :ensure t
   :defer t)
 
-(use-package rainbow-identifiers
-  :ensure t
-  :hook (emacs-lisp-mode . rainbow-identifiers-mode))
-
 (provide 'init-ui)
 ;;; init-ui.el ends here
