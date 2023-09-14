@@ -136,6 +136,19 @@ externally using the default application of the system."
   (consult-async-input-throttle 0.2)
   (consult-async-input-debounce 0.1))
 
+(use-package prescient
+  :ensure t
+  :hook (after-init . prescient-persist-mode)
+  :init
+  (use-package vertico-prescient
+    :ensure t
+    :hook (vertico-mode . vertico-prescient-mode)
+    :init
+    (setq vertico-prescient-enable-filtering nil))
+  :config
+  (setq prescient-sort-full-matches-first t
+        prescient-sort-length-enable nil))
+
 (use-package embark
   :ensure t
   :bind (:map minibuffer-local-map
