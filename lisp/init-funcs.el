@@ -56,7 +56,7 @@ are treated as a single unit and preserved in the filename."
          (filename (buffer-substring-no-properties start end))
          (clean-filename (replace-regexp-in-string "\\([-_]+\\)" " " filename))
          (clean-filename (replace-regexp-in-string "^\\s-+\\|\\s-+$" "" clean-filename))
-         (date (format-time-string "%Y-%m-%d"))
+         (date (format-time-string "%y%m%d"))
          (link-filename (format "%s-%s.org" date filename))
          (link-description clean-filename))
     (delete-region start end)
