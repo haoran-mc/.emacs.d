@@ -29,10 +29,10 @@
   (define-key org-mode-map (kbd "C-c i l") #'+dwim-create-link-with-datetime)
   (define-key org-mode-map (kbd "C-c i i") #'+org-insert-image)
   (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
+  (define-key org-mode-map (kbd "C-c i ,") #'org-insert-structure-template)
   )
 
 (global-set-key (kbd "C-c i t") 'hl-todo-insert)
-
 
 (global-set-key (kbd "C-c s") 'tab-bar-switch-to-tab)
 
