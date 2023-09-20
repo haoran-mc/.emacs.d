@@ -33,8 +33,7 @@
   (setq doom-themes-treemacs-theme "doom-colors")
 
   (defvar pretty-dark-themes
-    (list 'painting-dark 'modus-vivendi 'spacemacs-dark
-          'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
+    (list 'spacemacs-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
           'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
           'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
           'doom-monokai-spectrum
@@ -91,12 +90,11 @@
     ) ;; TODO
 
   :config
-  ;; (+load-theme-from-selected)
+  (+load-theme-from-selected)
   ;; (+load-theme-random)
   ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
-  (lazycat-theme-load-dark)
-  ;; (lazycat-theme-load-light)
+  ;; (lazycat-theme-load-dark)
   )
 
 ;; Customize popwin behavior
