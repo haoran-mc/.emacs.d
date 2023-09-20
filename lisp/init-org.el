@@ -247,6 +247,12 @@ Optional for Org-mode file: `LINK'."
   ;; update appt list every 5 minutes
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
+
+  (define-key org-agenda-mode-map "h" 'evil-backward-char)
+  (define-key org-agenda-mode-map "j" 'evil-next-line)
+  (define-key org-agenda-mode-map "k" 'evil-previous-line)
+  (define-key org-agenda-mode-map "l" 'evil-forward-char)
+  (define-key org-agenda-mode-map (kbd "C-w") 'evil-window-map)
   :custom
   (org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
                       "~/haoran/no/org/org-directory/agenda/"
