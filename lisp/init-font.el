@@ -27,13 +27,13 @@
 
 
 ;; NOTE: change org-mode custom-face when change font-weight
-(set-face-attribute 'default nil :font "Fira Code" :weight 'normal)
+;; (set-face-attribute 'default nil :font "Fira Code" :weight 'normal)
 ;; (set-face-attribute 'default nil :font "Roboto Mono" :weight 'normal)
 ;; (set-face-attribute 'default nil :font "PingFang SC")
-;; (set-face-attribute 'default nil
-;;                     :font (font-spec :family
-;;                                      "JetBrainsMono Nerd Font"
-;;                                      :weight 'semi-bold)) ;; set height in arch
+(set-face-attribute 'default nil
+                    :font (font-spec :family
+                                     "JetBrainsMono Nerd Font"
+                                     :weight 'semi-bold)) ;; set height in arch
 
 (defun my-correct-symbol-bounds (pretty-alist)
   "Prepend a TAB character to each symbol in this alist,
@@ -77,8 +77,8 @@
   (prettify-symbols-mode))
 
 
-(add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
-(add-hook 'org-mode-hook 'my-set-fira-code-ligatures)
+;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
+;; (add-hook 'org-mode-hook 'my-set-fira-code-ligatures)
 
 
 (provide 'init-font)
