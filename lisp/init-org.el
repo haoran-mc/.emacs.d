@@ -145,7 +145,7 @@ Optional for Org-mode file: `LINK'."
                         (?E . 'all-the-icons-blue)))
   :custom ;; image
   (org-image-actual-width '(500)) ;; 统一图片的宽度
-  (org-startup-with-inline-images t) ;; 每次打开文件时主动加载内联图片
+  (org-startup-with-inline-images nil) ;; 每次打开文件时主动加载内联图片
   :custom ;; archive
   (org-archive-location "%s_archive::datetree/")
   :custom ;; latex
@@ -206,7 +206,6 @@ Optional for Org-mode file: `LINK'."
 ;; Write codes in org-mode
 (use-package org-src
   :ensure nil
-  :hook (org-babel-after-execute . org-redisplay-inline-images)
   :bind (:map org-src-mode-map
               ;; consistent with separedit/magit
               ("C-c C-c" . org-edit-src-exit))

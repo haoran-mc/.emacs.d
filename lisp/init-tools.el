@@ -17,7 +17,9 @@
   :when (eq system-type 'darwin)
   :hook (after-init . exec-path-from-shell-initialize)
   :init
-  (setq exec-path (append exec-path '("/root/go/bin"))))
+  (setq exec-path (append exec-path '("/root/go/bin")))
+  :config
+  (setenv "LANG" "zh_CN.UTF-8"))
 
 ;; The blazing grep tool
 ;;
