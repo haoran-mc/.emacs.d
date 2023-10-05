@@ -30,6 +30,7 @@
   (define-key org-mode-map (kbd "C-c i i") #'+org-insert-image)
   (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
   (define-key org-mode-map (kbd "C-c i ,") #'org-insert-structure-template)
+  (define-key org-mode-map (kbd "C-c i !") #'(lambda () (interactive) (org-time-stamp-inactive '(16))))
   )
 
 (global-set-key (kbd "C-c i t") 'hl-todo-insert)
