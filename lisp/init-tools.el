@@ -29,7 +29,7 @@
 
 (use-package hungry-delete
   :ensure t
-  :hook (after-init . global-hungry-delete-mode)
+  :hook ((org-mode . hungry-delete-mode))
   :config
   (progn
     (setq-default hungry-delete-chars-to-skip " \t\f\v") ; only horizontal whitespace

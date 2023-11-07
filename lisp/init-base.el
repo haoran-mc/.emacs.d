@@ -277,9 +277,10 @@ Else, call `comment-or-uncomment-region' on the current line."
 ;; Auto complete parens
 (use-package elec-pair
   :ensure nil
-  :hook ((go-mode . electric-pair-local-mode)
-         (emacs-lisp-mode . electric-pair-local-mode))
-  :custom (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+  :hook ((go-mode         . electric-pair-local-mode)
+         (emacs-lisp-mode . electric-pair-local-mode)
+         (python-mode     . electric-pair-local-mode))
+  :custom (electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 
 ;; Server mode.
 ;; Use emacsclient to connect
