@@ -32,7 +32,7 @@
               ("C-c b" . +lsp-bridge-jump-back)
               ("C-c r" . lsp-bridge-find-references)
               ("C-c R" . lsp-bridge-rename)
-              ([tab]   . yas-expand))
+              ([tab]   . my/yas-expand))
   :init
   (defvar +lsp-bridge-jump-stack nil
     "Stack to store jump locations for +lsp-bridge-jump-back.")
@@ -84,6 +84,16 @@
                   project-path))
             (message "lsp-bridge single-mode"))))
 
+  (defun my/yas-expand()
+    (interactive)
+    (if (use-region-p) ; indent region instead if it's active
+        (indent-region (region-beginning) (region-end))
+      (when (and (let ((indent (current-indentation)))
+                   (funcall indent-line-function)
+                   (= indent (current-indentation)))
+                 (looking-at "[[:space:]\n]")) ; or "[^[:word:]]"
+        (setq this-command 'yas-expand)
+        (call-interactively #'yas-expand))))
   :custom
   (lsp-bridge-enable-hover-diagnostic t)
   ;; (lsp-bridge-enable-debug t)
