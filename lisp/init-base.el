@@ -11,6 +11,9 @@
 (setq-default default-enable-multibyte-characters t)
 (set-language-environment "English")
 
+;; encoding
+(prefer-coding-system 'utf-8)
+
 ;; Suppress GUI features and more
 (setq use-file-dialog nil
       use-dialog-box nil
