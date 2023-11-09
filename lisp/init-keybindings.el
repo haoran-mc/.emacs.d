@@ -17,6 +17,7 @@
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
+;; a = 140 * 12 => a: 1,680
 (global-set-key (kbd "C-c c b") 'literate-calc-eval-buffer)
 (global-set-key (kbd "C-c c i") 'literate-calc-insert-results)
 (global-set-key (kbd "C-c c m") 'literate-calc-minor-mode)
@@ -30,8 +31,7 @@
   (define-key org-mode-map (kbd "C-c i i") #'+org-insert-image)
   (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
   (define-key org-mode-map (kbd "C-c i ,") #'org-insert-structure-template)
-  (define-key org-mode-map (kbd "C-c i !") #'(lambda () (interactive) (org-time-stamp-inactive '(16))))
-  )
+  (define-key org-mode-map (kbd "C-c i !") #'(lambda () (interactive) (org-time-stamp-inactive '(16)))))
 
 (global-set-key (kbd "C-c i t") 'hl-todo-insert)
 

@@ -95,6 +95,7 @@
   ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
   ;; (lazycat-theme-load-dark)
+  ;; (load-theme 'doom-solarized-light t)
   )
 
 ;; Customize popwin behavior

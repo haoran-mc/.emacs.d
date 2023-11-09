@@ -50,7 +50,7 @@
 (require 'lang-python)
 (require 'lang-elisp)
 (require 'lang-latex)
-(require 'lang-lua) ;; just for syntax for org-mode src
+(require 'lang-lua) ;; just syntax for org-mode src
 
 (provide 'init-dev)
 

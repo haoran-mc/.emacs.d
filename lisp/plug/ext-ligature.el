@@ -36,9 +36,9 @@
           ;; ("#+TAGS:"          . ?)
           ;; ("#+OPTIONS:"       . ?⌥)
           ;; ("#+STARTUP:"       . ?⑆)
-		  ("#+ATTR_LATEX:"    . ?🄛)
-		  ("#+ATTR_HTML:"     . ?🄗)
-		  ("#+ATTR_ORG:"      . ?🄞)
+		  ;; ("#+ATTR_LATEX:"    . ?🄛)
+		  ;; ("#+ATTR_HTML:"     . ?🄗)
+		  ;; ("#+ATTR_ORG:"      . ?🄞)
           ("#+BLOCK_LINE: "   . ?━)
           ("#+PROPERTY:"      . ?⚙)
           ("#+LATEX_CLASS:"   . ?C) ;; 🄲

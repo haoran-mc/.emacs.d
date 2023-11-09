@@ -58,6 +58,7 @@
   (add-hook 'eshell-mode #'(eshell/alias "la" "ls -lAFh"))
   (add-hook 'eshell-mode #'(eshell/alias "lr" "ls -tRFh"))
   (add-hook 'eshell-mode #'(eshell/alias "gm" "go run main.go"))
+  (add-hook 'eshell-mode #'(eshell/alias "pm" "python main.py"))
   (defalias 'eshell/e #'eshell/emacs)
   (defalias 'eshell/q #'eshell/exit)
   (defalias 'eshell/c #'eshell/clear)

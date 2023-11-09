@@ -91,7 +91,7 @@
       (when (and (let ((indent (current-indentation)))
                    (funcall indent-line-function)
                    (= indent (current-indentation)))
-                 (looking-at "[[:space:]\n]")) ; or "[^[:word:]]"
+                 (looking-at "[[:space:]\n]")) ;; TODO or "[^[:word:]]"
         (setq this-command 'yas-expand)
         (call-interactively #'yas-expand))))
   :custom

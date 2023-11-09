@@ -31,7 +31,7 @@
   (org-level-6 ((t (:inherit outline-6 :weight semi-bold :height 1.0))))
   (org-level-7 ((t (:inherit outline-7 :weight semi-bold :height 1.0))))
   (org-level-8 ((t (:inherit outline-8 :weight semi-bold :height 1.0))))
-  (org-document-title ((t (:weight normal))))
+  (org-document-title ((t (:weight semi-bold :height 1.0))))
   (org-link ((t (:inherit link :foreground "#2AA1AE" :weight semi-bold)))) ;; CUSTOM-COLOURS
   ;; 设置代码块用上下边线包裹
   ;; (org-block-begin-line ((t (:underline t :background unspecified))))
@@ -144,7 +144,7 @@ Optional for Org-mode file: `LINK'."
                         (?D . 'all-the-icons-green)
                         (?E . 'all-the-icons-blue)))
   :custom ;; image
-  (org-image-actual-width '(500)) ;; 统一图片的宽度
+  (org-image-actual-width '(565)) ;; 统一图片的宽度
   (org-startup-with-inline-images nil) ;; 每次打开文件时主动加载内联图片
   :custom ;; archive
   (org-archive-location "%s_archive::datetree/")
@@ -184,7 +184,8 @@ Optional for Org-mode file: `LINK'."
   (org-export-with-toc t) ;; 导出时包含 toc
   (org-html-head-include-default-style nil) ;; 导出时不包含默认的 css 样式表，默认的样式表在 org 安装目录中
   (org-html-head-include-scripts nil) ;; 导出时不包含默认的 script 脚本文件
-  (org-html-head "<link rel='stylesheet' href='org.css' type='text/css'/>")
+  (org-html-head "<link rel='stylesheet' href='org.css' type='text/css'/>
+           <script type='module' src='main.js' defer></script>")
   (org-html-text-markup-alist '((bold . "<b>%s</b>")
                                 (code . "<code>%s</code>")
                                 (italic . "<i>%s</i>")
