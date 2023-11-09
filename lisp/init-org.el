@@ -13,7 +13,7 @@
 
 (use-package org
   :ensure nil
-  :hook (((org-babel-after-execute org-mode) . org-redisplay-inline-images)
+  :hook ((org-babel-after-execute . org-redisplay-inline-images)
          (org-mode . visual-line-mode) ;; 折行
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
