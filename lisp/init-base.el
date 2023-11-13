@@ -282,6 +282,7 @@ Else, call `comment-or-uncomment-region' on the current line."
   :ensure nil
   :hook ((go-mode         . electric-pair-local-mode)
          (emacs-lisp-mode . electric-pair-local-mode)
+         (cc-mode         . electric-pair-local-mode)
          (python-mode     . electric-pair-local-mode))
   :custom (electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 
