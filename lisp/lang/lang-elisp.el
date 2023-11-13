@@ -7,7 +7,7 @@
 (use-package elisp-mode
   :ensure nil
   :bind (:map emacs-lisp-mode-map
-              ("C-c C-c" . eval-to-comment)
+              ("C-j" . eval-to-comment)
               :map lisp-interaction-mode-map
               ("C-j" . eval-to-comment)) ;; eval-print-last-sexp -> eval-to-comment
   :hook ((emacs-lisp-mode . elisp-mode-delete-trailing-whitespace))
