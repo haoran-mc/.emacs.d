@@ -28,11 +28,12 @@
          (emacs-lisp-mode . lsp-bridge-mode)
          (go-mode         . lsp-bridge-mode))
   :bind (:map lsp-bridge-mode-map
-              ("C-c j" . +lsp-bridge-jump)
-              ("C-c b" . +lsp-bridge-jump-back)
-              ("C-c r" . lsp-bridge-find-references)
-              ("C-c R" . lsp-bridge-rename)
-              ([tab]   . my/yas-expand))
+              ("C-j" . +lsp-bridge-jump)           ;; evil-goto-definition
+              ("C-k" . +lsp-bridge-jump-back)      ;; go back
+              ([tab]   . my/yas-expand)
+              :map evil-normal-state-map
+              ("gr" . lsp-bridge-find-references) ;; find references
+              ("gR" . lsp-bridge-rename))
   :init
   (defvar +lsp-bridge-jump-stack nil
     "Stack to store jump locations for +lsp-bridge-jump-back.")
