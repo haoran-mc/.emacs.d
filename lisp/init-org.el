@@ -81,9 +81,11 @@ Optional for Org-mode file: `LINK'."
   (add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
 
   ;; learn from: https://github.com/lijigang/emacs.d
-  (defface org-bold '((t :foreground "white"
-                         :background "#282C34"
-                         :weight bold
+  (defface org-bold '((t :weight bold
+                         ;; :foreground "white" ;; dark color
+                         ;; :background "#282C34"
+                         :foreground "purple" ;; light color
+                         :background "#EFF1F2"
                          :underline (:color "red" :style line)
                          :overline nil))
     "Face for org-mode bold."
@@ -124,12 +126,13 @@ Optional for Org-mode file: `LINK'."
   (org-ellipsis " ⤵ ") ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
   (org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+"))) ;; not know
   (org-hide-emphasis-markers t) ;; 隐藏强调标识符
-  (org-emphasis-alist '(("*" org-bold)
+  (org-emphasis-alist '(("*" org-bold) ;; org-bold 在 :config 的 defface 中定义
                         ("/" italic)
                         ("_" underline)
-                        ("=" (:foreground "#fef7ca"))
-                        ("+" (
-                              :foreground "dark gray"
+                        ("=" (:foreground "orange" ;; light color
+                              :background "#EFF1F2"))
+                        ;; ("=" (:foreground "#fef7ca")) ;; dark color
+                        ("+" (:foreground "dark gray"
                               :strike-through t))
                         ("~" org-code verbatim)))
   (org-goto-interface 'ortline-path-completion) ;; org-goto 命令的界面样式
