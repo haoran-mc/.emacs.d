@@ -24,6 +24,7 @@
     "C-x t"   "tab"
     "C-c e"   "eshell"
     "C-c i"   "insert"
+    "C-c n"   "narrow"
     "C-c u"   "user"
     "C-c t"   "hl-todo"
     "C-c y"   "yasnippet"
