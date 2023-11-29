@@ -19,7 +19,9 @@
 ;; Config files mode
 (use-package yaml-mode
   :ensure t
-  :mode ("\\.ya?ml\\'" . yaml-mode))
+  :mode ("\\.ya?ml\\'" . yaml-mode)
+  :custom
+  (setq yaml-indent-offset 2))
 
 ;; Syntax highlighting for systemd files
 (use-package conf-mode
@@ -30,7 +32,10 @@
              string-end) . conf-toml-mode))
 
 (use-package json-mode
-  :ensure t)
+  :ensure t
+  :hook (json-mode . (lambda() (make-local-variable 'js-indent-level)
+                       ;; https://stackoverflow.com/a/24668842/14093697
+                       (setq js-indent-level 2))))
 
 (use-package toml-mode
   :ensure t)
@@ -51,6 +56,7 @@
 (require 'lang-elisp)
 (require 'lang-latex)
 (require 'lang-lua) ;; just syntax for org-mode src
+(require 'lang-js)
 
 (provide 'init-dev)
 
