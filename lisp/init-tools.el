@@ -102,10 +102,10 @@
 (require 'ext-ligature)
 ;; (require 'ext-telega)
 ;; (require 'ext-reader)
-(if (eq system-type 'gnu/linux)
-    (progn
-      ;; Load the ext-eaf package here
-      (require 'ext-eaf)))
+;; (if (eq system-type 'gnu/linux)
+;;     (progn
+;;       ;; Load the ext-eaf package here
+;;       (require 'ext-eaf)))
 
 
 (provide 'init-tools)
