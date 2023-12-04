@@ -90,12 +90,12 @@
     ) ;; TODO
 
   :config
-  (+load-theme-from-selected)
+  ;; (+load-theme-from-selected)
   ;; (+load-theme-random)
   ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
   ;; (lazycat-theme-load-dark)
-  ;; (load-theme 'doom-solarized-light t)
+  (load-theme 'doom-solarized-light t)
   )
 
 ;; Customize popwin behavior
