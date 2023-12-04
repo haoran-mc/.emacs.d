@@ -26,6 +26,9 @@
   :custom
   (python-indent-guess-indent-offset-verbose nil))
 
+(use-package jupyter
+   :ensure t)
+
 ;; Live Coding in Python
 (use-package live-py-mode
   :ensure t

@@ -130,10 +130,10 @@ Optional for Org-mode file: `LINK'."
                         ("/" italic)
                         ("_" underline)
                         ("=" (:foreground "orange" ;; light color
-                              :background "#EFF1F2"))
+                                          :background "#EFF1F2"))
                         ;; ("=" (:foreground "#fef7ca")) ;; dark color
                         ("+" (:foreground "dark gray"
-                              :strike-through t))
+                                          :strike-through t))
                         ("~" org-code verbatim)))
   (org-goto-interface 'ortline-path-completion) ;; org-goto 命令的界面样式
   (org-fontify-todo-headline t) ;; TODO 标签美化
@@ -240,7 +240,8 @@ Optional for Org-mode file: `LINK'."
                               (python     . t)
                               (shell      . t)
                               (go         . t)
-                              (plantuml   . t))))
+                              (plantuml   . t)
+                              (jupyter    . t))))
 
 ;; Keep track of tasks
 (use-package org-agenda
