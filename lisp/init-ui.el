@@ -113,8 +113,9 @@
   ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
   ;; (lazycat-theme-load-dark)
-  (load-theme 'doom-solarized-light t)
-  )
+  (if (eq system-type 'gnu/linux)
+      (+load-theme-from-selected)
+    (load-theme 'doom-solarized-light t)))
 
 ;; Customize popwin behavior
 (use-package shackle
