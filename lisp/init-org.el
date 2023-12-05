@@ -35,7 +35,9 @@
          (org-mode . visual-line-mode) ;; 折行
          (org-mode . (lambda()
                        (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
-                       (define-key evil-motion-state-map (kbd "C-c &") 'org-mark-ring-goto))))
+                       (define-key evil-motion-state-map (kbd "C-c &") #'(lambda() (interactive)
+                                                                           (org-mark-ring-goto)
+                                                                           (evil-scroll-line-to-center (1+ (current-line))))))))
   :bind (("C-c a" . org-agenda)
          ("C-c x" . org-capture))
   :init
