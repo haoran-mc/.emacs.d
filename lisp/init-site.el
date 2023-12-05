@@ -19,7 +19,6 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
@@ -122,23 +121,41 @@ use export/org-preview/org.css render style."
           (httpd-start)))
       (browse-url fileurl)))
 
+  (defun +org-export-html-to-current-path-and-preview()
+    "Export org to current dir as +org-export-html-to-my-dir-and-preview only
+copy imgs to `org-preview' dir, my njuos note has other resource files"
+    (interactive)
+    (message "here")
+    (save-buffer)
+    (org-html-export-to-html)
+    (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
+      (httpd-stop)
+      (unless (httpd-running-p)
+        (progn
+          (setq httpd-port 9517)
+          (setq httpd-root default-directory)
+          (httpd-start)))
+      (browse-url fileurl)))
+
   
   (defun +preview-current-buffer-in-browser ()
     "Open current buffer as html."
     (interactive)
     (let ((file-path (buffer-file-name)))
       (cond
-       ((string-prefix-p "/Users/haoran/haoran/no/org/wiki/" file-path)
+       ((string-prefix-p "/Users/haoran/haoran/no/org/wiki/" file-path) ;; too many images, no cp images
         (+preview-wiki-current-buffer-in-browser))
-       ((string-prefix-p "/Users/haoran/haoran/no/org/site/" file-path)
+       ((string-prefix-p "/Users/haoran/haoran/no/org/site/" file-path) ;; my site
         (+preview-site-current-buffer-in-browser))
+       ((string-prefix-p "/Users/haoran/haoran/no/org/" file-path) ;; at org but not wiki or site
+        (+org-export-html-to-my-dir-and-preview))
        (t
-        (+org-export-html-to-my-dir-and-preview)))))
+        (+org-export-html-to-current-path-and-preview))))) ;; put export file on current path
   :custom
   (org-publish-project-alist
    '(("wiki"
       :base-directory "~/haoran/no/org/wiki/"
-      ;; :publishing-directory "/ssh:jack@192.112.245.112:~/site/public/"
+      ;; :publishing-directory "/ssh:jack@192.168.0.112:~/site/public/"
       ;; .gitignore will ignore .html files, you may not find images after changing it
       :publishing-directory "~/haoran/no/org/wiki/"
       :base-extension "org"
@@ -147,7 +164,6 @@ use export/org-preview/org.css render style."
       :publishing-function org-html-publish-to-html ;; Publishing action
 	  :author "Haoran Liu"
 	  :email "haoran.mc@outlook.com"
-      ;; :html-validation-link "<a href=\"http://beian.miit.gov.cn/\">豫ICP备19900901号</a>"
       ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
       :html-head ;; wiki-css wiki-js
       "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
