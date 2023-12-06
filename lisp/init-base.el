@@ -334,61 +334,6 @@ Else, call `comment-or-uncomment-region' on the current line."
 (use-package imenu
   :hook (imenu-after-jump . recenter))
 
-;; Buffer manager
-;;
-;; `sR': switch to saved filter groups
-(use-package ibuffer
-  :ensure nil
-  :hook (ibuffer-mode . ibuffer-auto-mode)
-  :bind ([remap list-buffers] . ibuffer)
-  :custom
-  (ibuffer-expert t)
-  (ibuffer-movement-cycle nil)
-  (ibuffer-show-empty-filter-groups nil)
-  (ibuffer-saved-filter-groups
-   '(("Default"
-      ("Emacs" (or (name . "\\*scratch\\*")
-                   (name . "\\*dashboard\\*")
-                   (name . "\\*compilation\\*")
-                   (name . "\\*Backtrace\\*")
-                   (name . "\\*Packages\\*")
-                   (name . "\\*Messages\\*")
-                   (name . "\\*Customize\\*")))
-      ("Browser" (or (mode . eww-mode)
-                     (mode . xwidget-webkit-mode)))
-      ("Help" (or (name . "\\*Help\\*")
-                  (name . "\\*Apropos\\*")
-                  (name . "\\*info\\*")
-                  (mode . Man-mode)
-                  (mode . woman-mode)))
-      ("Repl" (or (mode . gnuplot-comint-mode)
-                  (mode . inferior-emacs-lisp-mode)
-                  (mode . inferior-python-mode)))
-      ("Term" (or (mode . term-mode)
-                  (mode . shell-mode)
-                  (mode . eshell-mode)))
-      ("Mail" (or (mode . mail-mode)
-                  (mode . message-mode)
-                  (derived-mode . gnus-mode)))
-      ("Conf" (or (mode . yaml-mode)
-                  (mode . conf-mode)))
-      ("Dict" (or (mode . fanyi-mode)
-                  (mode . dictionary-mode)))
-      ("Text" (and (derived-mode . text-mode)
-                   (not (starred-name))))
-      ("Magit" (or (mode . magit-repolist-mode)
-                   (mode . magit-submodule-list-mode)
-                   (mode . git-rebase-mode)
-                   (derived-mode . magit-section-mode)
-                   (mode . vc-annotate-mode)))
-      ("VC" (or (mode . diff-mode)
-                (derived-mode . log-view-mode)))
-      ("Prog" (and (derived-mode . prog-mode)
-                   (not (starred-name))))
-      ("Dired" (mode . dired-mode))
-      ("IRC" (or (mode . rcirc-mode)
-                 (mode . erc-mode)))))))
-
 ;; Show line/column number and more
 (use-package simple
   :ensure nil
