@@ -34,7 +34,9 @@
   :hook ((org-babel-after-execute . org-redisplay-inline-images)
          (org-mode . visual-line-mode) ;; 折行
          (org-mode . (lambda()
-                       (define-key evil-motion-state-map (kbd "RET") 'org-open-at-point)
+                       (define-key evil-motion-state-map (kbd "RET") #'(lambda() (interactive)
+                                                                         (org-open-at-point)
+                                                                         (evil-scroll-line-to-center (1+ (current-line)))))
                        (define-key evil-motion-state-map (kbd "C-c &") #'(lambda() (interactive)
                                                                            (org-mark-ring-goto)
                                                                            (evil-scroll-line-to-center (1+ (current-line))))))))
