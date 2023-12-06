@@ -454,42 +454,5 @@ Else, call `comment-or-uncomment-region' on the current line."
   ;; Mimic Vim
   (lazy-highlight-cleanup nil))
 
-;; Web search
-(use-package webjump
-  :ensure nil
-  ;; C-c / will be shadowed by `org-sparse-tree' in org-mode
-  :bind ("C-c /" . webjump) ;; TODO put it in keybindings but keep `org-sparse-tree'
-  :config
-  (defconst webjump-weather-default-cities '("杭州" "深圳" "北京" "上海"))
-  (defconst webjump-weather-url-template "https://weathernew.pae.baidu.com/weathernew/pc?query=%s天气&srcid=4982")
-
-  (defun webjump-weather (_name)
-    (let ((city (completing-read "City: " webjump-weather-default-cities)))
-      (format webjump-weather-url-template city)))
-  :custom
-  (webjump-sites '(;; Internet search engines.
-                   ("Google" .
-                    [simple-query "www.google.com"
-                                  "www.google.com/search?q=" ""])
-                   ("Wikipedia" .
-                    [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
-                   ("Ludwig Guru" .
-                    [simple-query "ludwig.guru" "ludwig.guru/s/" ""])
-                   ("Stack Overflow" .
-                    [simple-query "stackoverflow.com" "stackoverflow.com/search?q=" ""])
-                   ("Man Search" .
-                    [simple-query "archlinux.org" "man.archlinux.org/search?q=" ""])
-                   ("Man Go" .
-                    [simple-query "archlinux.org" "man.archlinux.org/search?q=" "&go=Go"])
-                   ;; Code search
-                   ("Code Search" .
-                    [simple-query "sourcegraph.com" "sourcegraph.com/search?q=context:global+" "&patternType=literal"])
-                   ;; Life
-                   ("Weather" . webjump-weather)
-                   ;; Language specific engines.
-                   ("x86 Instructions Reference" .
-                    [simple-query "www.felixcloutier.com"
-                                  "www.felixcloutier.com/x86/" ""]))))
-
 (provide 'init-base)
 ;;; init-base.el ends here
