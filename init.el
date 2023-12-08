@@ -88,7 +88,7 @@
 (require 'init-utils)
 (require 'init-ui)
 (require 'init-tools)
-(require 'init-evil)
+;; (require 'init-evil)
 (require 'init-lsp_bridge)
 (require 'init-git)
 (require 'init-dev)

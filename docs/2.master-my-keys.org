@@ -1,0 +1,49 @@
+#+STARTUP: showall noindent
+
+* 如何安排我的 emacs 快捷键
+*osx:*
+
+#+begin_example
+  +----------+----------+-----------+
+  | control  | option   | command   |
+  +----------+----------+-----------+
+      ↓
+  +----------+----------+-----------+
+  | control  | super    | meta      |
+  +----------+----------+-----------+
+#+end_example
+
+| keys                  | desc                                                                                            |
+|-----------------------+-------------------------------------------------------------------------------------------------|
+| C-?                   | 移动、编辑等重要按键，尽量不修改，mac 系统中的一些按键借鉴了 emacs，在 mac 系统中也可以使用     |
+| C-x                   | 系统快捷键，emacs 原生的快捷键，一般不修改以 C-x 为前缀的快捷键                                 |
+| C-c C-c               | 这是每个 major-mode 的按键                                                                      |
+| C-c ?                 | C-c 后跟一个字母是 emacs 为用户保留的按键绑定，用户应该尽量将按键绑定到这里（C-c ? 会打断编辑） |
+| C-c C-?               | 显然 `C-c ?` 这种并不能足以用户使用，在保证不会影响已有快捷键的情况下使用 C-c C-?               |
+| M-?                   | C-? > C-c ? > M-? （强化编辑、搜索）                                                            |
+| s-?                   | 功能                                                                                            |
+| C-s-? C-M-? s-M-? ... | 慢捷键，补充                                                                                    |
+
+
+* COMMENT 以 C-c 为前缀的快捷键
+
+- C-c a         org-agenda
+- C-c b         lsp-bridge 返回
+- C-c e +       eshell 的前缀
+- C-c i +       插入文本（这个按键保留下来了，插入模式下只能使用 C-c ?）
+- C-c j         lsp-bridge 前往函数定义处
+- C-c r         lsp-bridge 前往函数使用处
+- C-c p +       projectile
+- C-c s         tab-switch
+- C-c t +       hl-todo
+- C-c x         org-capture
+
+- C-c R         lsp-bridge 变量、函数改名
+- C-c &         org-mode 链接跳转返回
+- C-c /         webjump
+
+- C-c u f       +unfill-paragraph
+
+- C-c C-c       golang、elisp、org-src 运行代码
+- C-c C-d       golang doc
+

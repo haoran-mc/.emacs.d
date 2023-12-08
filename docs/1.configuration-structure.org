@@ -1,3 +1,30 @@
+#+STARTUP: showall
+
+
+*download pacakge:*
+# emacs 自带的 package.el 会帮助下载编译安装包。
+
+package.el 的配置源我很不喜欢。
+
+都用 emacs 了，使用手动安装控制力更强。
+
+gitsubmodule 手动安装，如果有找不到的库，继续 magit-submodule 添加缺少的包。
+
+
+*manage package configuration:*
+使用 use-package，关闭 use-package 的 always-ensure，只使用 use-package 的配置功能。
+
+# 是否选择摆脱 use-package？
+
+
+*package package:*
+增加测试分支 testing，新加的包放在测试分支里面，使用满意后合并到主分支 main。
+
+使用 submodule 方式添加新安装包，如果还有依赖，继续 submodule。
+
+使用不满意 submodule-remove。
+
+#+begin_comment
 Use the following ordering for `use-package` keywords:
 
 - :init 
@@ -52,3 +79,4 @@ Use the following ordering for `use-package` keywords:
 - 使用`use-package`的`:custom`块：当您需要修改包的自定义变量时，或者需要在Emacs启动时设置这些变量。
 
 总结起来，`use-package`的`:config`块用于在包加载时进行配置和设置，而`:custom`块用于自定义包的变量。这两个块可以根据需要在同一个`use-package`表达式中使用，以便统一管理包的安装、配置和自定义。
+#+end_comment
