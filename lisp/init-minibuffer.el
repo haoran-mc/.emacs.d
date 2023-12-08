@@ -106,7 +106,6 @@
          ([remap repeat-complex-command] . consult-complex-command)
          ([remap isearch-forward]        . consult-line)
          ([remap projectile-ripgrep]     . consult-ripgrep)
-         ([remap evil-show-marks]        . consult-mark)
          ("C-x j"                        . consult-mark)
          ([remap org-goto]               . consult-org-heading)
          :map org-mode-map

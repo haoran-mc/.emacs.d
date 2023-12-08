@@ -42,8 +42,7 @@
 
 (use-package nov
   :ensure t
-  :mode ("\\.epub\\'" . nov-mode)
-  :hook (nov-mode . evil-email-state-entry))
+  :mode ("\\.epub\\'" . nov-mode))
 
 ;; (use-package nov-xwidget
 ;;   :demand t

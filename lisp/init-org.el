@@ -24,22 +24,15 @@
 ;;; Code:
 
 (require 'init-macros)
-(require 'evil)
 
 (assq-delete-all 'org package--builtins)
 (assq-delete-all 'org package--builtin-versions)
 
+;; BUILT-IN
 (use-package org
   :ensure nil
   :hook ((org-babel-after-execute . org-redisplay-inline-images)
-         (org-mode . visual-line-mode) ;; 折行
-         (org-mode . (lambda()
-                       (define-key evil-motion-state-map (kbd "RET") #'(lambda() (interactive)
-                                                                         (org-open-at-point)
-                                                                         (evil-scroll-line-to-center (1+ (current-line)))))
-                       (define-key evil-motion-state-map (kbd "C-c &") #'(lambda() (interactive)
-                                                                           (org-mark-ring-goto)
-                                                                           (evil-scroll-line-to-center (1+ (current-line))))))))
+         (org-mode . visual-line-mode)) ;; 折行
   :bind (("C-c a" . org-agenda)
          ("C-c x" . org-capture))
   :init
@@ -273,12 +266,6 @@ Optional for Org-mode file: `LINK'."
   ;; update appt list every 5 minutes
   (run-at-time t 300 #'org-agenda-to-appt)
   (shut-up! #'org-agenda-to-appt)
-
-  (define-key org-agenda-mode-map "h" 'evil-backward-char)
-  (define-key org-agenda-mode-map "j" 'evil-next-line)
-  (define-key org-agenda-mode-map "k" 'evil-previous-line)
-  (define-key org-agenda-mode-map "l" 'evil-forward-char)
-  (define-key org-agenda-mode-map (kbd "C-w") 'evil-window-map)
   :custom
   (org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
                       "~/haoran/no/org/org-directory/agenda/"

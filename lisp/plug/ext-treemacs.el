@@ -59,10 +59,6 @@
     (treemacs-visit-node-no-split)
     (delete-window (treemacs-get-local-window)))
 
-  (use-package treemacs-evil
-    :ensure t
-    :after evil)
-
   :custom
   (treemacs-filewatch-mode t)
   (treemacs-git-mode nil)

@@ -32,7 +32,7 @@
 (require 'eaf-browser)
 (require 'eaf-pdf-viewer)
 
-(add-hook 'eaf-mode-hook #'turn-off-evil-mode t)
+;; (add-hook 'eaf-mode-hook #'turn-off-evil-mode t)
 
 ;; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
 (setq eaf-python-command "python3")
