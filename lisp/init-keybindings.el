@@ -32,13 +32,6 @@
 (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map)
 (lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
 
-;; b for buffer, bookmark
-(lazy-load-set-keys '(("C-c b m" . bookmark-set)
-                      ("C-c b r" . bookmark-rename)
-                      ("C-c b d" . bookmark-delete)
-                      ("C-c b l" . bookmark-bmenu-list)
-                      ("C-c b s" . bookmark-save)))
-
 ;; h for help
 (lazy-load-set-keys '(("C-h C-f" . find-function)
                       ("C-h C-v" . find-variable)
@@ -48,31 +41,55 @@
                          ("C-l" . open-newline-below))
                        "open-newline")
 
-;; w for window, unify keys with vim, M-w instead of C-w
-(global-set-key (kbd "C-w h") 'windmove-left)
-(global-set-key (kbd "C-w j") 'windmove-down)
-(global-set-key (kbd "C-w n") 'windmove-down)
-(global-set-key (kbd "C-w p") 'windmove-up)
-(global-set-key (kbd "C-w k") 'windmove-up)
-(global-set-key (kbd "C-w l") 'windmove-right)
-(global-set-key (kbd "C-w s") 'split-window-vertically)
-(global-set-key (kbd "C-w v") 'split-window-horizontally)
-(global-set-key (kbd "C-w m") 'delete-other-windows)
-(global-set-key (kbd "C-w c") 'delete-window)
-(global-set-key (kbd "C-w =") 'balance-windows)
+;; w for window, unify keys with vim, s-w instead of C-w
+(lazy-load-set-keys '(("C-w h" . windmove-left)
+                      ("C-w j" . windmove-down)
+                      ("C-w n" . windmove-down)
+                      ("C-w k" . windmove-up)
+                      ("C-w p" . windmove-up)
+                      ("C-w l" . windmove-right)
+                      ("C-w =" . balance-windows)
+                      ("C-w m" . delete-other-windows)))
+(lazy-load-global-keys '(("C-w v" . split-window-right-with-balance)
+                         ("C-w s" . split-window-below-with-balance)
+                         ("C-w c" . delete-window-with-balance)
+                         ("C-w x" . exchange-split-window-position-structure)
+                         ("C-w |" . split-window-horizontally-instead)
+                         ("C-w _" . split-window-vertically-instead))
+                       "windowop")
+
+
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-set-keys '(("M-:" . execute-extended-command)))
 ;; M-e -> expand-region ?
 
 
+
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(lazy-load-set-keys '(("s-w" . kill-region)))
+(lazy-load-global-keys '(("s-h" . scroll-right-half-page)
+                         ("s-l" . scroll-left-half-page))
+                       "move")
+(lazy-load-set-keys '(("s-w" . kill-region))) ;; origin kill-region key is c-w
 (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map) ;; origin C-RET
+
+
+
+
+
+
+
 
 
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; check ext-which-key.el for prompt
+
+;; b for buffer, bookmark
+(lazy-load-set-keys '(("C-c b m" . bookmark-set)
+                      ("C-c b r" . bookmark-rename)
+                      ("C-c b d" . bookmark-delete)
+                      ("C-c b l" . bookmark-bmenu-list)
+                      ("C-c b s" . bookmark-save)))
 
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680

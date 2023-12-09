@@ -1,0 +1,76 @@
+;;; windowop.el --- enhance poor emacs window operation  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2023  Haoran Liu
+
+;; Author: Haoran Liu <haoran.mc@outlook.com>
+;; Keywords:
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;;
+
+;;; Code:
+
+(defun split-window-below-with-balance ()
+  "Balance windows after split window, and move cursor to the new window."
+  (interactive)
+  (split-window-below)
+  (other-window 1)
+  (balance-windows))
+
+(defun split-window-right-with-balance ()
+  "Balance windows after split window, and move cursor to the new window."
+  (interactive)
+  (split-window-right)
+  (other-window 1)
+  (balance-windows))
+
+(defun delete-window-with-balance ()
+  "Balance windows after delete current window."
+  (interactive)
+  (delete-window)
+  (balance-windows))
+
+;; https://github.com/purcell/emacs.d/blob/master/lisp/init-windows.el
+(defun split-window-horizontally-instead ()
+  "Kill any other windows and re-split such that the current window is on the top half of the frame."
+  (interactive)
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
+    (delete-other-windows)
+    (split-window-horizontally)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
+
+(defun split-window-vertically-instead ()
+  "Kill any other windows and re-split such that the current window is on the left half of the frame."
+  (interactive)
+  (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
+    (delete-other-windows)
+    (split-window-vertically)
+    (when other-buffer
+      (set-window-buffer (next-window) other-buffer))))
+
+(defun exchange-split-window-position-structure ()
+  "Exchange vertically to horizontally or vice versa."
+  (interactive)
+  (if (eq (window-width) (frame-width))
+      (split-window-horizontally-instead)
+    (split-window-vertically-instead)))
+
+
+
+(provide 'windowop) ;; window operation
+;;; windowop.el ends here
