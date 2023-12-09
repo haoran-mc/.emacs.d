@@ -287,32 +287,6 @@ confirmation."
   (let ((filename (buffer-file-name)))
     (browse-url (concat "file://" filename))))
 
-;;;###autoload
-(defun +open-file-init ()
-  "Open file: init.el."
-  (interactive)
-  (find-file "~/.emacs.d/init.el")
-  ;; (tab-bar-rename-tab "hack")
-  )
-
-;; FIXME
-;;;###autoload
-(defun +open-wiki-note ()
-  "Open file: wiki.org."
-  (interactive)
-  (find-file "~/haoran/no/org/wiki/index.org")
-  ;; (tab-bar-rename-tab "note")
-  )
-
-;; FIXME
-;;;###autoload
-(defun +open-site-note ()
-  "Open file: site.org."
-  (interactive)
-  (find-file "~/haoran/no/org/site/index.org")
-  ;; (tab-bar-rename-tab "note")
-  )
-
 ;; FIXME
 ;;;###autoload
 (defun +open-centre-org ()

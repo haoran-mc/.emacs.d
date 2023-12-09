@@ -64,24 +64,41 @@
   :ensure t
   :demand t)
 
-;; Bootstrap `quelpa'.
-(use-package quelpa
-  :ensure t
-  :commands quelpa
-  :custom
-  (quelpa-git-clone-depth 1)
-  (quelpa-self-upgrade-p nil)
-  (quelpa-update-melpa-p nil)
-  (quelpa-checkout-melpa-p nil))
-
 ;; --debug-init implies `debug-on-error'.
 (setq debug-on-error init-file-debug)
 
-(let ((dir (locate-user-emacs-file "lisp")))
-  (add-to-list 'load-path (file-name-as-directory dir))
-  (add-to-list 'load-path (file-name-as-directory (expand-file-name "lang" dir)))
-  (add-to-list 'load-path (file-name-as-directory (expand-file-name "plug" dir))))
+(require 'cl-lib)
+(defun add-subdirs-to-load-path (search-dir)
+  (interactive)
+  (let* ((dir (file-name-as-directory search-dir)))
+    (dolist (subdir
+             (cl-remove-if ;; 过滤不必要的目录
+              #'(lambda (subdir)
+                  (or
+                   (not (file-directory-p (concat dir subdir))) ;; 移除非目录文件
+                   (member subdir '("." ".."
+                                    "dist" "node_modules" "__pycache__"
+                                    "RCS" "CVS" "rcs" "cvs" ".git" ".github"))))
+              (directory-files dir)))
+      (let ((subdir-path (concat dir (file-name-as-directory subdir))))
+        ;; 目录下有 .el .so .dll 文件的路径才添加到 `load-path' 中，提升启动速度
+        (when (cl-some #'(lambda (subdir-file)
+                           (and (file-regular-p (concat subdir-path subdir-file))
+                                ;; .so .dll 文件指非 elisp 语言编写的 emacs 动态库
+                                (member (file-name-extension subdir-file) '("el" "so" "dll"))))
+                       (directory-files subdir-path))
+          (add-to-list 'load-path subdir-path t)) ;; `add-to-list' 第三个参数必须为 t，表示加到列表末尾 bfs
+        ;; 继续递归搜索子目录
+        (add-subdirs-to-load-path subdir-path)))))
+
+(let ((userdir (locate-user-emacs-file "lisp"))
+      (extdir  (locate-user-emacs-file "site-lisp")))
+  (add-subdirs-to-load-path (file-name-directory userdir))
+  (add-subdirs-to-load-path (file-name-directory extdir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
+
+
+(require 'lazy-load)
 
 (require 'init-base)
 (require 'init-funcs)

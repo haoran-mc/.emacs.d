@@ -23,103 +23,105 @@
 
 ;;; Code:
 
-(global-unset-key (kbd "C-w"))
+;; (global-unset-key (kbd "C-w")) ;; s-w kill-region
+(lazy-load-unset-keys '("C-x C-f" "C-z" "C-q" "s-T" "s-W" "s-z" "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"))
 
-
-;; here is csM-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "M-:") 'execute-extended-command)
-;; M-e -> expand-region ?
-(global-set-key (kbd "C-<return>") 'bookmark-jump)
-(global-set-key (kbd "C-<tab>") 'spacemacs/alternate-buffer)
-;; (global-set-key (kbd "C-[") 'keyboard-quit)
+;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (lazy-load-global-keys '(("C-<return>" . bookmark-jump)) "bookmark")
+(lazy-load-set-keys '(("C-<return>" . bookmark-jump)))
+(lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map)
+(lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
 
 ;; b for buffer, bookmark
-(global-set-key (kbd "C-c b m") 'bookmark-set)
-(global-set-key (kbd "C-c b r") 'bookmark-rename)
-(global-set-key (kbd "C-c b d") 'bookmark-delete)
-(global-set-key (kbd "C-c b l") 'bookmark-bmenu-list)
-(global-set-key (kbd "C-c b s") 'bookmark-save)
+(lazy-load-set-keys '(("C-c b m" . bookmark-set)
+                      ("C-c b r" . bookmark-rename)
+                      ("C-c b d" . bookmark-delete)
+                      ("C-c b l" . bookmark-bmenu-list)
+                      ("C-c b s" . bookmark-save)))
 
 ;; h for help
-(global-set-key (kbd "C-h C-f") 'find-function)
-(global-set-key (kbd "C-h C-v") 'find-variable)
-(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+(lazy-load-set-keys '(("C-h C-f" . find-function)
+                      ("C-h C-v" . find-variable)
+                      ("C-h C-k" . find-function-on-key)))
 
-;; j for jump
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-j") #'(lambda() (interactive)
-                                           (org-open-at-point)))
-  (define-key org-mode-map (kbd "C-k") #'(lambda() (interactive)
-                                           (org-mark-ring-goto)))
-  (define-key org-mode-map (kbd "C-<return>") 'bookmark-jump)
-  (define-key org-mode-map (kbd "s-<return>") 'org-insert-heading-respect-content)
-)
-
-
-(global-set-key (kbd "C-o") 'open-newline-above)
-(global-set-key (kbd "C-l") 'open-newline-below)
-
+(lazy-load-global-keys '(("C-o" . open-newline-above)
+                         ("C-l" . open-newline-below))
+                       "open-newline")
 
 ;; w for window, unify keys with vim, M-w instead of C-w
-(global-set-key (kbd "s-w") 'kill-region)
 (global-set-key (kbd "C-w h") 'windmove-left)
 (global-set-key (kbd "C-w j") 'windmove-down)
+(global-set-key (kbd "C-w n") 'windmove-down)
+(global-set-key (kbd "C-w p") 'windmove-up)
 (global-set-key (kbd "C-w k") 'windmove-up)
 (global-set-key (kbd "C-w l") 'windmove-right)
 (global-set-key (kbd "C-w s") 'split-window-vertically)
 (global-set-key (kbd "C-w v") 'split-window-horizontally)
-(global-set-key (kbd "C-w o") 'delete-other-windows)
+(global-set-key (kbd "C-w m") 'delete-other-windows)
 (global-set-key (kbd "C-w c") 'delete-window)
-;; (global-set-key (kbd "C-w ="))
+(global-set-key (kbd "C-w =") 'balance-windows)
+
+;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(lazy-load-set-keys '(("M-:" . execute-extended-command)))
+;; M-e -> expand-region ?
+
+
+;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(lazy-load-set-keys '(("s-w" . kill-region)))
+(lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map) ;; origin C-RET
+
 
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; check ext-which-key.el for prompt
 
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680
-(global-set-key (kbd "C-c c b") 'literate-calc-eval-buffer)
-(global-set-key (kbd "C-c c i") 'literate-calc-insert-results)
-(global-set-key (kbd "C-c c m") 'literate-calc-minor-mode)
-(global-set-key (kbd "C-c c l") 'literate-calc-eval-line)
-(global-set-key (kbd "C-c c c") 'literate-calc-clear-overlays)
-
+(lazy-load-global-keys '(("C-c c b" . literate-calc-eval-buffer)
+                         ("C-c c i" . literate-calc-insert-results)
+                         ("C-c c m" . literate-calc-minor-mode)
+                         ("C-c c l" . literate-calc-eval-line)
+                         ("C-c c c" . literate-calc-clear-overlays))
+                       "literate-calc-mode")
 
 ;; f for file
-(global-set-key (kbd "C-c f r") 'recentf-open-files)
-(global-set-key (kbd "C-c f f") 'find-file)
-
+(lazy-load-set-keys '(("C-c f r" . recentf-open-files)
+                      ("C-c f f" . find-file)))
 
 ;; i for insert
-(global-set-key (kbd "C-c i t") 'hl-todo-insert)
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c i l") #'+dwim-create-link-with-datetime)
-  (define-key org-mode-map (kbd "C-c i i") #'+org-insert-image)
-  (define-key org-mode-map (kbd "C-c i y") #'yas-insert-snippet)
-  (define-key org-mode-map (kbd "C-c i ,") #'org-insert-structure-template)
-  (define-key org-mode-map (kbd "C-c i !") #'(lambda () (interactive) (org-time-stamp-inactive '(16)))))
+(lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
+(lazy-load-global-keys '(("C-c i y" . yas-insert-snippet)) "yasnippet")
+;; org-mode-map
+(lazy-load-set-keys '(("C-c i l" . +dwim-create-link-with-datetime)
+                      ("C-c i i" . +org-insert-image)
+                      ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
+                    org-mode-map)
 
+;; jk for jump and jump back
+(lazy-load-set-keys '(("C-c j" . (lambda() (interactive) (org-open-at-point)))
+                      ("C-c k" . (lambda() (interactive) (org-mark-ring-goto))))
+                    org-mode-map) ;; and lsp-bridge
 
 ;; n for narrow
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c n s") #'org-narrow-to-subtree)
-  (define-key org-mode-map (kbd "C-c n w") #'widen))
+(lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
+                      ("C-c n w" . widen))
+                    org-mode-map)
 
 ;; o for open
-(global-set-key (kbd "C-c o i") #'(lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
-(global-set-key (kbd "C-c o s") #'(lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
+(lazy-load-set-keys '(("C-c o i" . (lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
+                      ("C-c o s" . (lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
+                      ("C-c o f r" . (lambda() (interactive) (find-file "~/.emacs.d/init.el")))))
 
 ;; s for switch
-(global-set-key (kbd "C-c s") 'tab-bar-switch-to-tab)
+(lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
 
 ;; t for tab
-(global-set-key (kbd "C-c t n") '+create-new-tab-bar)
-(global-set-key (kbd "C-c t c") 'tab-bar-close-tab)
-(global-set-key (kbd "C-c t r") 'tab-bar-rename-tab)
+(lazy-load-set-keys '(("C-c t n" . +create-new-tab-bar)
+                      ("C-c t c" . tab-bar-close-tab)
+                      ("C-c t r" . tab-bar-rename-tab)))
 
 ;; u for user
-(global-set-key (kbd "C-c u f") '+unfill-paragraph)
-(global-set-key (kbd "C-c u r") '+open-file-init)
-
+(lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
+                      ("C-c u i" . +indent-buffer)))
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
