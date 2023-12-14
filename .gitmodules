@@ -41,3 +41,8 @@
 [submodule "site-lisp/yasnippet"]
 	path = site-lisp/yasnippet
 	url = git@github.com:joaotavora/yasnippet.git
+	shallow = true
+[submodule "site-lisp/diredfl"]
+	path = site-lisp/diredfl
+	url = git@github.com:purcell/diredfl.git
+	shallow = true

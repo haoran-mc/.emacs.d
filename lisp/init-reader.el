@@ -38,7 +38,7 @@
                 ;; ("Emacs Reddit" "https://www.reddit.com/r/emacs.rss")
                 )))
 
-(require 'ext-elfeed)
+(require 'init-elfeed)
 
 (use-package nov
   :ensure t

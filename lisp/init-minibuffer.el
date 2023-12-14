@@ -23,44 +23,36 @@
 
 ;;; Code:
 
+
+(setq minibuffer-eldef-shorten-default t) ;; shorten "(default ...)" to "[...]"
 ;; Completion engine
-(use-package minibuffer
-  :ensure nil
-  :bind (:map minibuffer-local-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-ns-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-completion-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-must-match-map
-              ([escape] . abort-recursive-edit)
-              :map minibuffer-local-isearch-map
-              ([escape] . abort-recursive-edit))
-  :custom
-  ;; Default minibuffer is fine-tuned since Emacs 29
-  (completion-auto-help t)
-  (completion-show-help nil)
-  (completion-cycle-threshold nil)
-  (completion-auto-select 'second-tab)
-  (enable-recursive-minibuffers t)
-  (minibuffer-depth-indicate-mode t)
-  (minibuffer-eldef-shorten-default t)
-  (minibuffer-electric-default-mode t)
-  ;; Don't insert completion at point into minibuffer
-  (minibuffer-completion-auto-choose nil)
-  ;; One frame one minibuffer.
-  (minibuffer-follows-selected-frame nil)
-  ;; Ignore cases when complete
-  (completion-ignore-case t)
-  (read-buffer-completion-ignore-case t)
-  (read-file-name-completion-ignore-case t)
-  ;; `selectrum', `vertico' and `icomplete' will honoring
-  (completion-styles '(basic partial-completion substring flex))
-  (completion-category-overrides '((buffer (styles . (flex)))))
-  ;; vertical view
-  (completions-format 'one-column)
-  (completions-max-height 13)
-  (completions-detailed t))
+;; (use-package minibuffer
+;;   :ensure nil
+;;   :custom
+;;   ;; Default minibuffer is fine-tuned since Emacs 29
+;;   (completion-auto-help t)
+;;   (completion-show-help nil)
+;;   (completion-cycle-threshold nil)
+;;   (completion-auto-select 'second-tab)
+;;   (enable-recursive-minibuffers t)
+;;   (minibuffer-depth-indicate-mode t)
+;;   (minibuffer-eldef-shorten-default t)
+;;   (minibuffer-electric-default-mode t)
+;;   ;; Don't insert completion at point into minibuffer
+;;   (minibuffer-completion-auto-choose nil)
+;;   ;; One frame one minibuffer.
+;;   (minibuffer-follows-selected-frame nil)
+;;   ;; Ignore cases when complete
+;;   (completion-ignore-case t)
+;;   (read-buffer-completion-ignore-case t)
+;;   (read-file-name-completion-ignore-case t)
+;;   ;; `selectrum', `vertico' and `icomplete' will honoring
+;;   (completion-styles '(basic partial-completion substring flex))
+;;   (completion-category-overrides '((buffer (styles . (flex)))))
+;;   ;; vertical view
+;;   (completions-format 'one-column)
+;;   (completions-max-height 13)
+;;   (completions-detailed t))
 
 ;; vertical style minibuffer
 (use-package vertico
@@ -95,7 +87,8 @@
 ;; provides commands for finding and completing
 (use-package consult
   :ensure t
-  :bind (([remap imenu]                  . consult-imenu)
+  :bind (("C-c f g"                      . consult-ripgrep)
+         ([remap imenu]                  . consult-imenu)
          ([remap goto-line]              . consult-goto-line)
          ([remap switch-to-buffer]       . consult-buffer)
          ([remap yank-pop]               . consult-yank-pop)
@@ -108,8 +101,8 @@
          ([remap projectile-ripgrep]     . consult-ripgrep)
          ("C-x j"                        . consult-mark)
          ([remap org-goto]               . consult-org-heading)
-         :map org-mode-map
-         ("C-c C-j"                      . consult-org-heading)
+         ;; :map org-mode-map
+         ;; ("C-c C-j"                      . consult-org-heading)
          :map prog-mode-map
          ("C-c C-j"                      . consult-outline))
   :config
@@ -153,32 +146,32 @@ externally using the default application of the system."
   (consult-async-input-throttle 0.2)
   (consult-async-input-debounce 0.1))
 
-(use-package prescient
-  :ensure t
-  :hook (after-init . prescient-persist-mode)
-  :init
-  (use-package vertico-prescient
-    :ensure t
-    :hook (vertico-mode . vertico-prescient-mode)
-    :init
-    (setq vertico-prescient-enable-filtering nil))
-  :config
-  (setq prescient-sort-full-matches-first t
-        prescient-sort-length-enable nil))
-
-(use-package embark
-  :ensure t
-  :bind (:map minibuffer-local-map
-              ("M-o"     . embark-act)
-              ("C-c C-c" . embark-export)
-              ("C-c C-o" . embark-collect))
-  :custom
-  (prefix-help-command 'embark-prefix-help-command))
-
-;; Consult users will also want the embark-consult package.
-(use-package embark-consult
-  :ensure t
-  :after embark consult)
+;; (use-package prescient
+;;   :ensure t
+;;   :hook (after-init . prescient-persist-mode)
+;;   :init
+;;   (use-package vertico-prescient
+;;     :ensure t
+;;     :hook (vertico-mode . vertico-prescient-mode)
+;;     :init
+;;     (setq vertico-prescient-enable-filtering nil))
+;;   :config
+;;   (setq prescient-sort-full-matches-first t
+;;         prescient-sort-length-enable nil))
+;;
+;; (use-package embark
+;;   :ensure t
+;;   :bind (:map minibuffer-local-map
+;;               ("M-o"     . embark-act)
+;;               ("C-c C-c" . embark-export)
+;;               ("C-c C-o" . embark-collect))
+;;   :custom
+;;   (prefix-help-command 'embark-prefix-help-command))
+;;
+;; ;; Consult users will also want the embark-consult package.
+;; (use-package embark-consult
+;;   :ensure t
+;;   :after embark consult)
 
 (provide 'init-minibuffer)
 ;;; init-minibuffer.el ends here

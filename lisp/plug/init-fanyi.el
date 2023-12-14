@@ -1,9 +1,9 @@
-;;; init-which-key.el --- prompt keys                 -*- lexical-binding: t; -*-
+;;; init-fanyi.el --- translator for emacs           -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords:
+;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -19,36 +19,14 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
+
+;; 
 
 ;;; Code:
 
+(add-to-list 'load-path "~/Documents/emacs/local-packages/fanyi.el")
 
+(require 'fanyi)
 
-;; Tips for next keystroke
-(use-package which-key
-  :ensure t
-  :hook (after-init . which-key-mode)
-  :config
-  (which-key-add-key-based-replacements
-    "C-c @"   "hideshow"
-    "C-x a"   "abbrev"
-    "C-c f"   "file"
-    "C-c e"   "eshell"
-    "C-c i"   "insert"
-    "C-c n"   "narrow"
-    "C-c u"   "user"
-    "C-c t"   "hl-todo"
-    "C-c y"   "yasnippet"
-    "C-c C-v" "babel"
-    "C-x n"   "narrow"
-    "C-x t"   "tab")
-  (which-key-add-major-mode-key-based-replacements 'markdown-mode
-    "C-c m" "markdown")
-  :custom
-  (which-key-idle-delay 0.5)
-  (which-key-add-column-padding 1))
-
-
-(provide 'init-which-key)
-;;; init-which-key.el ends here
+(provide 'init-fanyi)
+;;; init-fanyi.el ends here

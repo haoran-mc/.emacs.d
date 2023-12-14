@@ -33,72 +33,57 @@
 
 ;; emacs command shell
 
-;; LOCAL-PACKAGES
-(use-package aweshell
-  :load-path "~/Documents/emacs/local-packages/aweshell"
-  :init (require 'aweshell)
-  :hook ((eshell-mode . (lambda() (setq truncate-lines t))))
-  :bind(("C-c e n"   . aweshell-new)
-        ("C-c e t"   . aweshell-toggle)
-        ("C-c e d"   . aweshell-dedicated-toggle)
-        ("C-c e C-n" . aweshell-next)
-        ("C-c e C-p" . aweshell-prev)
-        :map eshell-mode-map
-        ([remap recenter-top-bottom] . eshell/clear))
-  :init
-  (with-eval-after-load "esh-opt"
-    (autoload 'epe-theme-lambda "eshell-prompt-extras")
-    (setq eshell-highlight-prompt nil
-          eshell-prompt-function 'epe-theme-lambda))
+(require 'aweshell)
 
-  :init
-  (add-hook 'eshell-mode #'(bind-key "C-l" 'eshell/clear eshell-mode-map))
-  (add-hook 'eshell-mode #'(eshell/alias "l" "ls -lah"))
-  (add-hook 'eshell-mode #'(eshell/alias "ll" "ls -l"))
-  (add-hook 'eshell-mode #'(eshell/alias "la" "ls -lAFh"))
-  (add-hook 'eshell-mode #'(eshell/alias "lr" "ls -tRFh"))
-  (add-hook 'eshell-mode #'(eshell/alias "gm" "go run main.go"))
-  (add-hook 'eshell-mode #'(eshell/alias "pm" "python main.py"))
-  (defalias 'eshell/e #'eshell/emacs)
-  (defalias 'eshell/q #'eshell/exit)
-  (defalias 'eshell/c #'eshell/clear)
-  (defalias 'eshell/imgcat #'eshell/imgcat)
+(define-key eshell-mode-map (kbd "C-l") 'eshell/clear)
 
-  :config
-  (defun eshell/clear ()
-    "Clear the eshell buffer."
-    (interactive)
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (eshell-send-input)))
+(add-hook 'eshell-mode-hook (lambda() (setq truncate-lines t)))
 
-  (defun eshell/emacs (&rest args)
-    "Open a file (ARGS) in Emacs.  Some habits die hard."
-    (if (null args)
-        ;; If I just ran "emacs", I probably expect to be launching
-        ;; Emacs, which is rather silly since I'm already in Emacs.
-        ;; So just pretend to do what I ask.
-        (bury-buffer)
-      ;; We have to expand the file names or else naming a directory in an
-      ;; argument causes later arguments to be looked for in that directory,
-      ;; not the starting directory
-      (mapc #'find-file (mapcar #'expand-file-name (flatten-tree (reverse args))))))
+(with-eval-after-load "esh-opt"
+  (autoload 'epe-theme-lambda "eshell-prompt-extras")
+  (setq eshell-highlight-prompt nil
+        eshell-prompt-function 'epe-theme-lambda))
 
-  (defun eshell/imgcat (&rest args)
-    "Display image files."
-    (unless args (error "Usage: imgcat FILE ..."))
-    (dolist (img (eshell-flatten-list args))
-      (eshell-printn
-       (propertize " " 'display (create-image img)))))
+(add-hook 'eshell-mode #'(bind-key "C-l" 'eshell/clear eshell-mode-map))
+(add-hook 'eshell-mode #'(eshell/alias "l" "ls -lah"))
+(add-hook 'eshell-mode #'(eshell/alias "ll" "ls -l"))
+(add-hook 'eshell-mode #'(eshell/alias "la" "ls -lAFh"))
+(add-hook 'eshell-mode #'(eshell/alias "lr" "ls -tRFh"))
+(add-hook 'eshell-mode #'(eshell/alias "gm" "go run main.go"))
+(add-hook 'eshell-mode #'(eshell/alias "pm" "python main.py"))
+(defalias 'eshell/e #'eshell/emacs)
+(defalias 'eshell/q #'eshell/exit)
+(defalias 'eshell/c #'eshell/clear)
+(defalias 'eshell/imgcat #'eshell/imgcat)
 
-  :config
-  ;; `cd' to frequent directory in `eshell'
-  ;; (use-package eshell-z
-  ;;   :hook (eshell-mode . (lambda () (require 'eshell-z))))
+(defun eshell/clear ()
+  "Clear the eshell buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (eshell-send-input)))
 
-  :custom
-  (comint-prompt-read-only t)
-  (eshell-banner-message ""))
+(defun eshell/emacs (&rest args)
+  "Open a file (ARGS) in Emacs.  Some habits die hard."
+  (if (null args)
+      ;; If I just ran "emacs", I probably expect to be launching
+      ;; Emacs, which is rather silly since I'm already in Emacs.
+      ;; So just pretend to do what I ask.
+      (bury-buffer)
+    ;; We have to expand the file names or else naming a directory in an
+    ;; argument causes later arguments to be looked for in that directory,
+    ;; not the starting directory
+    (mapc #'find-file (mapcar #'expand-file-name (flatten-tree (reverse args))))))
+
+(defun eshell/imgcat (&rest args)
+  "Display image files."
+  (unless args (error "Usage: imgcat FILE ..."))
+  (dolist (img (eshell-flatten-list args))
+    (eshell-printn
+     (propertize " " 'display (create-image img)))))
+
+(setq comint-prompt-read-only t
+      eshell-banner-message "")
 
 (provide 'init-eshell)
 ;;; init-eshell.el ends here

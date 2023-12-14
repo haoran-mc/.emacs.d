@@ -1,9 +1,9 @@
-;;; ext-elfeed.el --- emacs web feed reader          -*- lexical-binding: t; -*-
+;;; init-rg.el --- ripgrep                           -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords:
+;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,11 +20,17 @@
 
 ;;; Commentary:
 
-;;
+;; 
 
 ;;; Code:
 
 
+;; The blazing grep tool
+;;
+;; invoke rg-menu to search
+(require 'rg)
 
-(provide 'ext-elfeed)
-;;; ext-elfeed.el ends here
+
+
+(provide 'init-rg)
+;;; init-rg.el ends here

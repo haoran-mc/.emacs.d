@@ -23,29 +23,35 @@
 
 ;;; Code:
 
-;; C/C++ Mode
-(use-package cc-mode
-  :ensure nil
-  :bind (:map c-mode-base-map
-              ("C-c C-c" . +compile-file)
-              ("<f9>"    . +run-file)
-              ("<f10>"   . gud-gdb))
-  :hook (c-mode-common . (lambda () (c-set-style "stroustrup")))
-  :init (setq-default c-basic-offset 4)
-  :config
-  (defun +compile-file ()
-    (interactive)
-    (compile
-     (format "g++ -o %s %s -g -lm -Wall"
-             (file-name-sans-extension (buffer-name))
-             (buffer-name))))
 
-  (defun +run-file ()
-    (interactive)
-    (if (with-no-warnings (eshell-command
-           (format "g++ -o a %s -g -lm -Wall"
-                   (buffer-name))))
-        (aweshell-dedicated-toggle))))
+;; Mode association (autoload cc-mode for *.cpp files)
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . cc-mode))
+
+;; BUILT-IN
+(with-eval-after-load 'cc-mode
+  '(progn
+     (defun +compile-file ()
+       (interactive)
+       (compile
+        (format "g++ -o %s %s -g -lm -Wall"
+                (file-name-sans-extension (buffer-name))
+                (buffer-name))))
+
+     (defun +run-file ()
+       (interactive)
+       (if (with-no-warnings (eshell-command
+                              (format "g++ -o a %s -g -lm -Wall"
+                                      (buffer-name))))
+           (aweshell-dedicated-toggle)))
+
+     (setq-default c-basic-offset 4)
+     (add-hook 'c-mode-common (lambda () (c-set-style "stroustrup")))
+     (define-key c-mode-base-map (kbd "C-c C-c") '+compile-file)
+     (define-key c-mode-base-map (kbd "<f9>") '+run-file)
+     (define-key c-mode-base-map (kbd "<f10>") 'gud-gdb)
+     )
+  )
+
 
 (provide 'lang-cpp)
 ;;; lang-cpp.el ends here

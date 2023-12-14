@@ -1,9 +1,9 @@
-;;; init-which-key.el --- prompt keys                 -*- lexical-binding: t; -*-
+;;; init-gc.el --- GC optimization                 -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords:
+;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -19,36 +19,17 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
+
+;; 
 
 ;;; Code:
 
+(require 'gcmh)
 
+(add-hook 'after-init-hook 'gcmh-mode)
 
-;; Tips for next keystroke
-(use-package which-key
-  :ensure t
-  :hook (after-init . which-key-mode)
-  :config
-  (which-key-add-key-based-replacements
-    "C-c @"   "hideshow"
-    "C-x a"   "abbrev"
-    "C-c f"   "file"
-    "C-c e"   "eshell"
-    "C-c i"   "insert"
-    "C-c n"   "narrow"
-    "C-c u"   "user"
-    "C-c t"   "hl-todo"
-    "C-c y"   "yasnippet"
-    "C-c C-v" "babel"
-    "C-x n"   "narrow"
-    "C-x t"   "tab")
-  (which-key-add-major-mode-key-based-replacements 'markdown-mode
-    "C-c m" "markdown")
-  :custom
-  (which-key-idle-delay 0.5)
-  (which-key-add-column-padding 1))
+(setq gcmh-idle-delay 10
+      gcmh-high-cons-threshold #x6400000) ;; 100 MB
 
-
-(provide 'init-which-key)
-;;; init-which-key.el ends here
+(provide 'init-gc)
+;;; init-gc.el ends here

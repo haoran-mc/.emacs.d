@@ -23,14 +23,28 @@
 
 ;;; Code:
 
-;; (global-unset-key (kbd "C-w")) ;; s-w kill-region
-(lazy-load-unset-keys '("C-x C-f" "C-z" "C-q" "s-T" "s-W" "s-z" "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"))
+(lazy-load-unset-keys '("C-x C-f"
+                        "C-z"
+                        "C-q"
+                        "s-T"
+                        "s-W"
+                        "s-z"
+                        "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
+                        "M-z" ;; zap-to-char like vim df?
+                        ))
+
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (lazy-load-global-keys '(("C-<return>" . bookmark-jump)) "bookmark")
 (lazy-load-set-keys '(("C-<return>" . bookmark-jump)))
-(lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map)
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
 (lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
+(lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
+
+(lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
+                         ("C-e" . mwim-end-of-line-or-code))
+                       "mwim")
 
 ;; h for help
 (lazy-load-set-keys '(("C-h C-f" . find-function)
@@ -42,39 +56,55 @@
                        "open-newline")
 
 ;; w for window, unify keys with vim, s-w instead of C-w
-(lazy-load-set-keys '(("C-w h" . windmove-left)
-                      ("C-w j" . windmove-down)
-                      ("C-w n" . windmove-down)
-                      ("C-w k" . windmove-up)
-                      ("C-w p" . windmove-up)
-                      ("C-w l" . windmove-right)
-                      ("C-w =" . balance-windows)
-                      ("C-w m" . delete-other-windows)))
-(lazy-load-global-keys '(("C-w v" . split-window-right-with-balance)
-                         ("C-w s" . split-window-below-with-balance)
-                         ("C-w c" . delete-window-with-balance)
-                         ("C-w x" . exchange-split-window-position-structure)
-                         ("C-w |" . split-window-horizontally-instead)
-                         ("C-w _" . split-window-vertically-instead))
+(lazy-load-set-keys '(("C-\\ h" . windmove-left)
+                      ("C-\\ j" . windmove-down)
+                      ("C-\\ k" . windmove-up)
+                      ("C-\\ l" . windmove-right)
+                      ("C-\\ =" . balance-windows)
+                      ("C-\\ m" . delete-other-windows)))
+(lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
+                         ("C-\\ J" . vanilla/split-window-below-with-balance)
+                         ("C-\\ K" . vanilla/split-window-up-with-balance)
+                         ("C-\\ L" . vanilla/split-window-right-with-balance)
+                         ("C-\\ c" . vanilla/delete-window-with-balance)
+                         ("C-\\ x" . vanilla/exchange-split-window-position-structure)
+                         ("C-\\ |" . split-window-horizontally-instead)
+                         ("C-\\ _" . split-window-vertically-instead))
                        "windowop")
 
 
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-set-keys '(("M-:" . execute-extended-command)))
+(lazy-load-set-keys '(("M-;" . comment-dwim)))
+(lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
+                         ("M-d" . delete-block-forward))
+                       "delete-block")
 ;; M-e -> expand-region ?
+(lazy-load-set-keys '(("M-h" . mark-paragraph)))
+
+(lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down)
+                         ("M-p" . vanilla/move-cursor-8-lines-up))
+                       "cursormove")
+
+(lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
+
+(lazy-load-global-keys '(("M-z t" . vanilla/move-to-window-top)
+                         ("M-z z" . vanilla/move-to-window-middle)
+                         ("M-z b" . vanilla/move-to-window-bottom))
+                       "cursormove")
 
 
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(lazy-load-global-keys '(("s-h" . scroll-right-half-page)
-                         ("s-l" . scroll-left-half-page))
-                       "move")
-(lazy-load-set-keys '(("s-w" . kill-region))) ;; origin kill-region key is c-w
-(lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map) ;; origin C-RET
-
-
-
+(lazy-load-global-keys '(("s-h" . vanilla/scroll-right-half-page)
+                         ("s-l" . vanilla/scroll-left-half-page))
+                       "cursormove")
+(lazy-load-global-keys '(("s-N" . move-text-down)
+                         ("s-P" . move-text-up))
+                       "move-text")
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
 
 
 
@@ -84,12 +114,18 @@
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; check ext-which-key.el for prompt
 
+;; a for alone apps
+(lazy-load-global-keys '(("C-c a f" . fanyi-dwim)) "init-fanyi")
+
 ;; b for buffer, bookmark
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
                       ("C-c b r" . bookmark-rename)
                       ("C-c b d" . bookmark-delete)
                       ("C-c b l" . bookmark-bmenu-list)
                       ("C-c b s" . bookmark-save)))
+(lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "basic-tookit")
+(lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
+
 
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680
@@ -100,28 +136,53 @@
                          ("C-c c c" . literate-calc-clear-overlays))
                        "literate-calc-mode")
 
+;; e for eshell
+(lazy-load-global-keys '(("C-c e n" . aweshell-new)
+                         ("C-c e t" . aweshell-toggle)
+                         ("C-c e d" . aweshell-dedicated-toggle)
+                         ("C-c e C-n" . aweshell-next)
+                         ("C-c e C-p" . aweshell-prev))
+                       "init-eshell")
+
 ;; f for file
 (lazy-load-set-keys '(("C-c f r" . recentf-open-files)
-                      ("C-c f f" . find-file)))
+                      ("C-c f f" . find-file)
+                      ("C-c f p" . project-find-file)))
+(lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
+
+;; h for hideshow unify with vim
+;; zm hide-all
+;; zr show-all
+;; za toggle-fold
+;; zo show-block
+;; zc hide-block
+(lazy-load-set-keys '(("C-c h m" . hs-toggle-hiding)
+                      ("C-c h r" . hs-show-all)
+                      ("C-c h a" . hs-hide-all)
+                      ("C-c h o" . hs-show-block)
+                      ("C-c h c" . hs-hide-block)))
 
 ;; i for insert
 (lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
 (lazy-load-global-keys '(("C-c i y" . yas-insert-snippet)) "yasnippet")
 ;; org-mode-map
-(lazy-load-set-keys '(("C-c i l" . +dwim-create-link-with-datetime)
-                      ("C-c i i" . +org-insert-image)
-                      ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
-                    org-mode-map)
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("C-c i l" . +dwim-create-link-with-datetime)
+                        ("C-c i i" . +org-insert-image)
+                        ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
+                      org-mode-map))
 
 ;; jk for jump and jump back
-(lazy-load-set-keys '(("C-c j" . (lambda() (interactive) (org-open-at-point)))
-                      ("C-c k" . (lambda() (interactive) (org-mark-ring-goto))))
-                    org-mode-map) ;; and lsp-bridge
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("C-c j" . (lambda() (interactive) (org-open-at-point)))
+                        ("C-c k" . (lambda() (interactive) (org-mark-ring-goto))))
+                      org-mode-map)) ;; and lsp-bridge
 
 ;; n for narrow
-(lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
-                      ("C-c n w" . widen))
-                    org-mode-map)
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
+                        ("C-c n w" . widen))
+                      org-mode-map))
 
 ;; o for open
 (lazy-load-set-keys '(("C-c o i" . (lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
@@ -132,9 +193,10 @@
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
 
 ;; t for tab
-(lazy-load-set-keys '(("C-c t n" . +create-new-tab-bar)
-                      ("C-c t c" . tab-bar-close-tab)
-                      ("C-c t r" . tab-bar-rename-tab)))
+(lazy-load-global-keys '(("C-c t n" . +create-new-tab-bar)
+                         ("C-c t c" . tab-bar-close-tab)
+                         ("C-c t r" . tab-bar-rename-tab))
+                       "init-tab-bar")
 
 ;; u for user
 (lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
@@ -143,5 +205,5 @@
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-(provide 'init-keybindings)
-;;; init-keybindings.el ends here
+(provide 'init-keys)
+;;; init-keys.el ends here

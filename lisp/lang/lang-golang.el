@@ -23,27 +23,29 @@
 
 ;;; Code:
 
-(use-package go-mode
-  :ensure t
-  :mode ("\\.go\\'" . go-mode)
-  :bind (:map go-mode-map
-              ("C-c C-c" . +go-run-buffer)
-              ("C-c C-d" . godoc))
-  :init
-  (exec-path-from-shell-copy-envs '("GOROOT"
-                                    "GOPATH"
-                                    "GOBIN"
-                                    "GO111MODULE"
-                                    "GOPROXY"))
-  :config
-  (add-hook 'before-save-hook 'gofmt-before-save)
+;; Mode association (autoload go-mode for *.go files)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
-  (defun +go-run-buffer()
-    "Run go code in buffer."
-    (interactive)
-    (shell-command (concat "go run " (buffer-name))))
-  :custom
-  (gofmt-command "goimports"))
+(eval-after-load 'go-mode
+  '(progn
+     ;; Custom function
+     (defun +go-run-buffer ()
+       "Run go code in buffer."
+       (interactive)
+       (shell-command (concat "go run " (buffer-name))))
+
+     ;; Key bindings
+     (define-key go-mode-map (kbd "C-c C-c") '+go-run-buffer)
+     (define-key go-mode-map (kbd "C-c C-d") 'godoc)
+
+     ;; Initialization
+     (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY"))
+
+     ;; Configuration
+     (add-hook 'before-save-hook 'gofmt-before-save)
+
+     ;; Customization
+     (setq gofmt-command "goimports")))
 
 
 ;; Install the tools manually in the current GOPATH

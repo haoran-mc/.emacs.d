@@ -1,4 +1,4 @@
-;;; ext-hl-todo.el --- Highlight TODO -*- lexical-binding: t; -*-
+;;; init-hl-todo.el --- Highlight TODO -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -30,18 +30,20 @@
   :ensure t
   :hook (after-init . global-hl-todo-mode)
   :bind (:map hl-todo-mode-map
-              ("C-c t p" . hl-todo-previous)
-              ("C-c t n" . hl-todo-next)
+              ;; ("C-c t p" . hl-todo-previous)
+              ;; ("C-c t n" . hl-todo-next)
               ("C-c t i" . hl-todo-insert)
               ("C-c t o" . hl-todo-occur)
-              ("C-c t s" . hl-todo-rgrep))
+              ;; ("C-c t s" . hl-todo-rgrep)
+              )
   :config
   (add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000"))
   (add-to-list 'hl-todo-keyword-faces '("EXTERNAL-TOOLS" . "#FF0000"))
   (add-to-list 'hl-todo-keyword-faces '("USER-DIRECTORY" . "#FF0000"))
   (add-to-list 'hl-todo-keyword-faces '("CUSTOM-COLOURS" . "#FF0000"))
-  (add-to-list 'hl-todo-keyword-faces '("IMPORTANT" . "#FF0000")))
+  (add-to-list 'hl-todo-keyword-faces '("IMPORTANT"      . "#FF0000"))
+  (add-to-list 'hl-todo-keyword-faces '("BUILT-IN"       . "#C066DB")))
 
 
-(provide 'ext-hl-todo)
-;;; ext-hl-todo.el ends here
+(provide 'init-hl-todo)
+;;; init-hl-todo.el ends here

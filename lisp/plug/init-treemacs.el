@@ -1,4 +1,4 @@
-;;; ext-treemacs.el --- file tree -*- lexical-binding: t; -*-
+;;; init-treemacs.el --- file tree -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -68,5 +68,5 @@
   (treemacs-missing-project-action 'remove)
   (treemacs-width 30))
 
-(provide 'ext-treemacs)
-;;; ext-treemacs.el ends here
+(provide 'init-treemacs)
+;;; init-treemacs.el ends here

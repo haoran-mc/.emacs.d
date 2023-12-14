@@ -138,6 +138,7 @@ copy imgs to `org-preview' dir, my njuos note has other resource files"
       (browse-url fileurl)))
 
   
+  ;; from -> to
   (defun +preview-current-buffer-in-browser ()
     "Open current buffer as html."
     (interactive)

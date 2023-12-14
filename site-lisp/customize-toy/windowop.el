@@ -24,28 +24,40 @@
 
 ;;; Code:
 
-(defun split-window-below-with-balance ()
+(defun vanilla/split-window-below-with-balance ()
   "Balance windows after split window, and move cursor to the new window."
   (interactive)
   (split-window-below)
   (other-window 1)
   (balance-windows))
 
-(defun split-window-right-with-balance ()
+(defun vanilla/split-window-up-with-balance ()
+  "Balance windows after split window, split window below but cursor stay up still."
+  (interactive)
+  (split-window-below)
+  (balance-windows))
+
+(defun vanilla/split-window-right-with-balance ()
   "Balance windows after split window, and move cursor to the new window."
   (interactive)
   (split-window-right)
   (other-window 1)
   (balance-windows))
 
-(defun delete-window-with-balance ()
+(defun vanilla/split-window-left-with-balance ()
+  "Balance windows after split window, split window right but cursor stay left still."
+  (interactive)
+  (split-window-right)
+  (balance-windows))
+
+(defun vanilla/delete-window-with-balance ()
   "Balance windows after delete current window."
   (interactive)
   (delete-window)
   (balance-windows))
 
 ;; https://github.com/purcell/emacs.d/blob/master/lisp/init-windows.el
-(defun split-window-horizontally-instead ()
+(defun vanilla/split-window-horizontally-instead ()
   "Kill any other windows and re-split such that the current window is on the top half of the frame."
   (interactive)
   (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
@@ -54,7 +66,7 @@
     (when other-buffer
       (set-window-buffer (next-window) other-buffer))))
 
-(defun split-window-vertically-instead ()
+(defun vanilla/split-window-vertically-instead ()
   "Kill any other windows and re-split such that the current window is on the left half of the frame."
   (interactive)
   (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
@@ -63,7 +75,7 @@
     (when other-buffer
       (set-window-buffer (next-window) other-buffer))))
 
-(defun exchange-split-window-position-structure ()
+(defun vanilla/exchange-split-window-position-structure ()
   "Exchange vertically to horizontally or vice versa."
   (interactive)
   (if (eq (window-width) (frame-width))

@@ -1,4 +1,4 @@
-;;; ext-eaf.el --- emacs application frameword       -*- lexical-binding: t; -*-
+;;; init-eaf.el --- emacs application frameword       -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -50,5 +50,5 @@
 (eaf-bind-key eaf-rss-reader-scroll-down-web-page "b" eaf-rss-reader-keybinding)
 
 
-(provide 'ext-eaf)
-;;; ext-eaf.el ends here
+(provide 'init-eaf)
+;;; init-eaf.el ends here

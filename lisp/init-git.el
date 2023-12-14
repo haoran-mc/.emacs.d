@@ -51,6 +51,7 @@
 (use-package diff-hl
   :ensure t
   :hook (;; (after-init         . global-diff-hl-mode)
+         (go-mode            . diff-hl-mode)
          (emacs-lisp-mode    . diff-hl-mode)
          (dired-mode         . diff-hl-dired-mode-unless-remote)
          (magit-pre-refresh  . diff-hl-magit-pre-refresh)
@@ -60,7 +61,7 @@
   ;; (unless (display-graphic-p)
   ;;   (diff-hl-margin-mode))
 
-;; Visual diff interface
+;; BUILT-IN: Visual diff interface
 (use-package ediff
   :ensure nil
   ;; Restore window config after quitting ediff

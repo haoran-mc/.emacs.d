@@ -222,7 +222,7 @@ Optional for Org-mode file: `LINK'."
   (org-superstar-prettify-item-bullets t) ;; 使用列表的美化
   (org-superstar-item-bullet-alist '((?- . ?•) (?* . ?–) (?+ . ?◦))))
 
-;; Write codes in org-mode
+;; write codes in org-mode
 (use-package org-src
   :ensure nil
   :bind (:map org-src-mode-map
@@ -247,7 +247,8 @@ Optional for Org-mode file: `LINK'."
                         ("ocaml"    . tuareg)
                         ("shell"    . sh)
                         ("go"       . go)
-                        ("plantuml" . plantuml)))
+                        ("plantuml" . plantuml)
+                        ("sql"      . sql)))
   (org-babel-load-languages '((C          . t) ;; 哪些代码块可以在 org 中运行
                               (dot        . t)
                               (emacs-lisp . t)
@@ -256,7 +257,8 @@ Optional for Org-mode file: `LINK'."
                               (shell      . t)
                               (go         . t)
                               (plantuml   . t)
-                              (jupyter    . t))))
+                              (jupyter    . t)
+                              (sql        . t))))
 
 ;; Keep track of tasks
 (use-package org-agenda
@@ -427,7 +429,7 @@ Optional for Org-mode file: `LINK'."
   :ensure t
   :commands (imenu-list-smart-toggle))
 
-(require 'ext-plantuml)
+(require 'init-plantuml)
 
 (provide 'init-org)
 ;;; init-org.el ends here

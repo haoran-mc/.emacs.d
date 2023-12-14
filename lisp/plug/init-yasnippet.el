@@ -1,9 +1,9 @@
-;;; ext-telega.el --- telegram                       -*- lexical-binding: t; -*-
+;;; init-yasnippet.el ---                            -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords:
+;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,15 +20,18 @@
 
 ;;; Commentary:
 
-;;
+;; 
 
 ;;; Code:
 
-(use-package telega
-  :ensure t
-  :defer t)
-  ;; :commands ())
+
+(require 'yasnippet)
+
+(setq yas-global-mode 1)
+(add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+(add-to-list 'yas-snippet-dirs "/Users/haoran/.emacs.d/snippets")
 
 
-(provide 'ext-telega)
-;;; ext-telega.el ends here
+
+(provide 'init-yasnippet)
+;;; init-yasnippet.el ends here

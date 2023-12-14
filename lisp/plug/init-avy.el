@@ -1,4 +1,4 @@
-;;; ext-avy.el --- quick move -*- lexical-binding: t; -*-
+;;; init-avy.el --- quick move -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -55,5 +55,5 @@
   (avy-styles-alist '((avy-isearch . pre))))
 
 
-(provide 'ext-avy)
-;;; ext-avy.el ends here
+(provide 'init-avy)
+;;; init-avy.el ends here

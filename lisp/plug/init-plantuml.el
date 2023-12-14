@@ -1,4 +1,4 @@
-;;; init-which-key.el --- prompt keys                 -*- lexical-binding: t; -*-
+;;; init-plantuml.el --- PlantUML mode for emacs      -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -19,36 +19,25 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+
 ;;
 
 ;;; Code:
 
-
-
-;; Tips for next keystroke
-(use-package which-key
+(use-package plantuml-mode
   :ensure t
-  :hook (after-init . which-key-mode)
-  :config
-  (which-key-add-key-based-replacements
-    "C-c @"   "hideshow"
-    "C-x a"   "abbrev"
-    "C-c f"   "file"
-    "C-c e"   "eshell"
-    "C-c i"   "insert"
-    "C-c n"   "narrow"
-    "C-c u"   "user"
-    "C-c t"   "hl-todo"
-    "C-c y"   "yasnippet"
-    "C-c C-v" "babel"
-    "C-x n"   "narrow"
-    "C-x t"   "tab")
-  (which-key-add-major-mode-key-based-replacements 'markdown-mode
-    "C-c m" "markdown")
+  ;; :config
+  ;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
   :custom
-  (which-key-idle-delay 0.5)
-  (which-key-add-column-padding 1))
+  ;; EXTERNAL-TOOLS
+  (plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
+  (plantuml-default-exec-mode 'jar)
+  (org-plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
+  (plantuml-jar-args '("-charset" "UTF-8"))
+  ;; Enable plantuml-mode for PlantUML files
+  (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+  (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
 
 
-(provide 'init-which-key)
-;;; init-which-key.el ends here
+(provide 'init-plantuml)
+;;; init-plantuml.el ends here

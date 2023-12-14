@@ -24,16 +24,16 @@
 ;;; Code:
 
 ;; LOCAL-PACKAGES
-(use-package awesome-tray
-  :ensure nil
-  :load-path "~/Documents/emacs/local-packages/awesome-tray"
-  :when (display-graphic-p)
-  :hook (after-init . awesome-tray-mode)
-  :init
-  (require 'awesome-tray)
-  :custom
-  (awesome-tray-active-modules '("location" "buffer-name"))
-  (awesome-tray-update-interval 0.5))
+;; (use-package awesome-tray
+;;   :ensure nil
+;;   :load-path "~/Documents/emacs/local-packages/awesome-tray"
+;;   :when (display-graphic-p)
+;;   :hook (after-init . awesome-tray-mode)
+;;   :init
+;;   (require 'awesome-tray)
+;;   :custom
+;;   (awesome-tray-active-modules '("location" "buffer-name"))
+;;   (awesome-tray-update-interval 0.5))
 
 ;; LOCAL-PACKAGES
 (use-package doom-themes
@@ -43,8 +43,8 @@
   (add-to-list 'load-path "~/Documents/emacs/local-packages/spacemacs-theme")
   (add-to-list 'load-path "~/Documents/emacs/local-packages/lazycat-theme")
   (add-to-list 'load-path "~/Documents/emacs/local-packages/nano-emacs")
-  (require 'spacemacs-dark-theme)
-  (require 'lazycat-dark-theme)
+  ;; (require 'spacemacs-dark-theme)
+  ;; (require 'lazycat-dark-theme)
   ;; (require 'nano) ;; a great theme
   :config
   (doom-themes-treemacs-config)
@@ -113,9 +113,14 @@
   ;; (load-theme 'spacemacs-dark t)
   ;; (load-theme 'doom-one t)
   ;; (lazycat-theme-load-dark)
-  (if (eq system-type 'gnu/linux)
+   (if (eq system-type 'gnu/linux)
       (+load-theme-from-selected)
-    (load-theme 'doom-solarized-light t)))
+     ;; (load-theme 'doom-solarized-light t)
+     (+load-theme-from-selected)
+     )
+)
+
+
 
 ;; Customize popwin behavior
 (use-package shackle

@@ -23,39 +23,48 @@
 
 ;;; Code:
 
-(use-package python
-  :ensure nil
-  :mode ("\\.py\\'" . python-mode)
-  :hook ((python-mode . python-mode-delete-trailing-whitespace))
-  :init
-  (defun python-mode-delete-trailing-whitespace ()
-    "Delete trailing whitespace before saving file."
-    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
-  (exec-path-from-shell-copy-envs '("PYTHONPATH"))
-  :config
-  ;; Default to Python 3. Prefer the versioned Python binaries since some
-  ;; systems stupidly make the unversioned one point at Python 2.
-  (when (and (executable-find "python3")
-             (string= python-shell-interpreter "python"))
-    (setq python-shell-interpreter "python3"))
+;; Mode association (autoload python-mode for *.py files)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
-  (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
-  :custom
-  (python-indent-guess-indent-offset-verbose nil))
+(with-eval-after-load 'python
+  '(progn
+     ;; Initialization
+     (defun python-mode-delete-trailing-whitespace ()
+       "Delete trailing whitespace before saving file."
+       (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
-(use-package jupyter
-   :ensure t)
+     ;; error when open org
+     ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
 
-;; Live Coding in Python
-(use-package live-py-mode
-  :ensure t
-  :defer t)
+     ;; Configuration
+     ;; Default to Python 3. Prefer the versioned Python binaries since some
+     ;; systems stupidly make the unversioned one point at Python 2.
+     (when (and (executable-find "python3")
+                (string= python-shell-interpreter "python"))
+       (setq python-shell-interpreter "python3"))
 
-;; python -m venv ENV_DIR
-(use-package pyvenv
-  :ensure t
-  :commands pyvenv-deactivate pyvenv-deactivate)
+     (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
+
+     ;; Customization
+     (setq python-indent-guess-indent-offset-verbose nil)
+
+     ;; Hook
+     (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)))
+
+
+;; (use-package jupyter
+;;   :ensure t)
+;;
+;; ;; Live Coding in Python
+;; (use-package live-py-mode
+;;   :ensure t
+;;   :defer t)
+;;
+;; ;; python -m venv ENV_DIR
+;; (use-package pyvenv
+;;   :ensure t
+;;   :commands pyvenv-deactivate pyvenv-deactivate)
 
 
 (provide 'lang-python)

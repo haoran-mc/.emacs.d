@@ -1,4 +1,4 @@
-;;; ext-plantuml.el --- PlantUML mode for emacs      -*- lexical-binding: t; -*-
+;;; init-tab-bar.el --- vanilla tab bar              -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -24,20 +24,24 @@
 
 ;;; Code:
 
-(use-package plantuml-mode
-  :ensure t
-  ;; :config
-  ;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-  :custom
-  ;; EXTERNAL-TOOLS
-  (plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
-  (plantuml-default-exec-mode 'jar)
-  (org-plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
-  (plantuml-jar-args '("-charset" "UTF-8"))
-  ;; Enable plantuml-mode for PlantUML files
-  (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
-  (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
+;;;###autoload
+(defun +create-new-tab-bar ()
+  "Create a new tab bar and switch dashboard."
+  (interactive)
+  (tab-bar-new-tab)
+  ;; TODO use if instead
+  ;; (pcase (treemacs-current-visibility)
+  ;;   ('visible (delete-window (treemacs-get-local-window))))
+  ;; (dashboard-refresh-buffer)
+  (+create-scratch-buffer)
+  (tab-bar-rename-tab "xxx"))
+
+(require 'tab-bar)
+(setq tab-bar-close-button nil
+      tab-bar-tab-hints nil
+      tab-bar-tab-name-function 'tab-bar-tab-name-all
+      tab-bar-format '(tab-bar-format-tabs tab-bar-separator))
 
 
-(provide 'ext-plantuml)
-;;; ext-plantuml.el ends here
+(provide 'init-tab-bar)
+;;; init-tab-bar.el ends here

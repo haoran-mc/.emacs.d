@@ -1,4 +1,4 @@
-;;; ext-ligature.el --- maps ordinary graphemes to fancy ligatures  -*- lexical-binding: t; -*-
+;;; init-ligature.el --- maps ordinary graphemes to fancy ligatures  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -95,5 +95,5 @@
   (prettify-symbols-mode))
 
 
-(provide 'ext-ligature)
-;;; ext-ligature.el ends here
+(provide 'init-ligature)
+;;; init-ligature.el ends here

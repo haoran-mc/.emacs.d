@@ -24,79 +24,82 @@
 
 ;;; Code:
 
-;; Use ( to toggle dired-hide-details-mode
-(use-package dired
-  :ensure nil
-  ;; TODO ? add this config, then the default message of scratch disappear.
-  ;; :hook (after-init . dired-mode)
-  :hook ((dired-mode . (lambda() (setq truncate-lines t))))
-  :bind (:map dired-mode-map
-              ;; consistent with ivy
-              ("C-c C-e"   . wdired-change-to-wdired-mode))
-  :custom
-  (dired-dwim-target t)
-  (dired-bind-vm nil)
-  (dired-kill-when-opening-new-dired-buffer t)
-  ;; Dont prompt about killing buffer visiting delete file
-  (dired-clean-confirm-killing-deleted-buffers nil)
-  (dired-auto-revert-buffer #'dired-directory-changed-p)
-  (dired-hide-details-hide-symlink-targets nil)
-  (dired-listing-switches "-AFhlv"))
+;; dired-aux ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(lazy-load-global-keys '(("C-x C-j" . dired-jump)) "dired")
 
-(use-package dired-aux
-  :ensure nil
-  :after dired
-  :config
-  (with-no-warnings
-    (defvar dired-dotfiles-show t)
-    (defun dired-dotfiles-toggle (&rest _)
-      "Show/hide dotfiles."
-      (interactive)
-      (if (not dired-dotfiles-show)
-          (revert-buffer)
-        (dired-mark-files-regexp "^\\.")
-        (dired-do-kill-lines))
-      (setq-local dired-dotfiles-show (not dired-dotfiles-show)))
+;; (add-hook 'dired-mode-hook (lambda ()
+;;                              (setq truncate-lines t)))
 
-    (advice-add 'dired-do-print :override #'dired-dotfiles-toggle))
-  :custom
-  (dired-vc-rename-file t)
-  (dired-do-revert-buffer t)
-  (dired-isearch-filenames 'dwim)
-  (dired-create-destination-dirs 'ask))
+;; see also dired+.el
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "C-c C-e") 'wdired-change-to-wdired-mode)
+  (add-hook 'dired-mode-hook 'dired-hide-details-mode))
 
-(use-package dired-x
-  :ensure nil
-  :hook (dired-mode . dired-omit-mode)
-  :custom
-  (dired-omit-verbose nil)
-  (dired-omit-files (rx string-start
-                        (or ".DS_Store"
-                            ".cache"
-                            ".vscode"
-                            ".ccls-cache" ".clangd")
-                        string-end))
-  (dired-guess-shell-alist-user `((,(rx "."
-                                        (or
-                                         ;; Videos
-                                         "mp4" "avi" "mkv" "flv" "ogv" "ogg" "mov"
-                                         ;; Music
-                                         "wav" "mp3" "flac"
-                                         ;; Images
-                                         "jpg" "jpeg" "png" "gif" "xpm" "svg" "bmp"
-                                         ;; Docs
-                                         "pdf" "md" "djvu" "ps" "eps" "doc" "docx" "xls" "xlsx" "ppt" "pptx")
-                                        string-end)
-                                   ,(pcase system-type
-                                      ('gnu/linux "xdg-open")
-                                      ('darwin "open")
-                                      ('windows-nt "start")
-                                      (_ ""))))))
 
+(setq  dired-dwim-target t
+       dired-bind-vm nil
+       dired-kill-when-opening-new-dired-buffer t
+       dired-clean-confirm-killing-deleted-buffers nil
+       dired-auto-revert-buffer #'dired-directory-changed-p
+       dired-hide-details-hide-symlink-targets nil
+       dired-listing-switches "-AFhlv")
+
+
+;; dired-aux ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'dired-load-hook (lambda ()
+                             (require 'dired-aux)))
+(with-no-warnings
+  (defvar dired-dotfiles-show t)
+  (defun dired-dotfiles-toggle (&rest _)
+    "Show/hide dotfiles."
+    (interactive)
+    (if (not dired-dotfiles-show)
+        (revert-buffer)
+      (dired-mark-files-regexp "^\\.")
+      (dired-do-kill-lines))
+    (setq-local dired-dotfiles-show (not dired-dotfiles-show)))
+
+  (advice-add 'dired-do-print :override #'dired-dotfiles-toggle))
+
+(setq dired-vc-rename-file t
+      dired-do-revert-buffer t
+      dired-isearch-filenames 'dwim
+      dired-create-destination-dirs 'ask)
+
+
+;; dired-x ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq dired-omit-verbose nil
+      dired-omit-files (rx string-start
+                           (or ".DS_Store"
+                               ".cache"
+                               ".vscode"
+                               ".ccls-cache" ".clangd")
+                           string-end)
+      dired-guess-shell-alist-user `((,(rx "."
+                                           (or
+                                            ;; Videos
+                                            "mp4" "avi" "mkv" "flv" "ogv" "ogg" "mov"
+                                            ;; Music
+                                            "wav" "mp3" "flac"
+                                            ;; Images
+                                            "jpg" "jpeg" "png" "gif" "xpm" "svg" "bmp"
+                                            ;; Docs
+                                            "pdf" "md" "djvu" "ps" "eps" "doc" "docx" "xls" "xlsx" "ppt" "pptx")
+                                           string-end)
+                                      ,(pcase system-type
+                                         ('gnu/linux "xdg-open")
+                                         ('darwin "open")
+                                         ('windows-nt "start")
+                                         (_ "")))))
+(add-hook 'dired-mode-hook 'dired-omit-mode)
+
+
+;; dired-x ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Make dired colorful
-(use-package diredfl
-  :ensure t
-  :hook (dired-mode . diredfl-mode))
+(with-eval-after-load 'dired
+  (require 'diredfl)
+  (add-hook 'dired-mode-hook #'diredfl-mode))
+
 
 (provide 'init-dired)
 ;;; init-dired.el ends here

@@ -64,23 +64,12 @@ are treated as a single unit and preserved in the filename."
     (org-insert-link nil (concat "./" link-filename) link-description)))
 
 ;;;###autoload
-(defun +scroll-left-half-page ()
-  "Scroll the window left by half the page height."
-  (interactive)
-  (scroll-left (/ (window-body-height) 2)))
-
-;;;###autoload
-(defun +scroll-right-half-page ()
-  "Scroll the window right by half the page height."
-  (interactive)
-  (scroll-right (/ (window-body-height) 2)))
-
-;;;###autoload
 (defun +func-make-emacs-opaque ()
   "Make Emacs window opaque."
   (interactive)
   (set-frame-parameter (selected-frame) 'alpha '(100 100)))
 
+;;;###autoload
 (defun +func-make-emacs-transparent ()
   "Make Emacs window transparent."
   (interactive)
@@ -130,18 +119,6 @@ are treated as a single unit and preserved in the filename."
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-;;;###autoload
-(defun +create-new-tab-bar ()
-  "Create a new tab bar and switch dashboard."
-  (interactive)
-  (tab-bar-new-tab)
-  ;; TODO use if instead
-  ;; (pcase (treemacs-current-visibility)
-  ;;   ('visible (delete-window (treemacs-get-local-window))))
-  ;; (dashboard-refresh-buffer)
-  (+create-scratch-buffer)
-  (tab-bar-rename-tab "xxx"))
 
 ;;;###autoload
 (defun +create-scratch-buffer ()
@@ -287,14 +264,6 @@ confirmation."
   (let ((filename (buffer-file-name)))
     (browse-url (concat "file://" filename))))
 
-;; FIXME
-;;;###autoload
-(defun +open-centre-org ()
-  "Open file: gtd-centre.org."
-  (interactive)
-  (find-file "~/haoran/no/org/org-directory/centre.org")
-  ;; (tab-bar-rename-tab "centre")
-  )
 
 (provide 'init-funcs)
 ;;; init-funcs.el ends here

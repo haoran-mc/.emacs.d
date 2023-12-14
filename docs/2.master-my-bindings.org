@@ -25,6 +25,23 @@
 | C-s-? C-M-? s-M-? ... | 慢捷键，补充                                                                                    |
 
 
+
+- 不可或缺的 M-?: M-w M-r M-; M-x M-v M-< M->
+- 单词操作 M-?: 
+不像 vim 的 leader，emacs 的功能按键很少很奢侈，vim 中少被使用 ALT 在 emacs 中是一个重要位置。这么一个按键绑定的却是一些不常用的操作，是否考虑将 meta 按键绑定到 option，super 绑定到 command，相同绑定 super 尽量和 meta 的功能相似。
+在 vim 中都很少使用 word 的移动操作，emacs 我觉得也会很少使用。
+而且把 meta 放在 option 上，还可以通过 C-[。
+
+建议冷落 C-x，因为很容易会 C-x C-c 弄混，心理负担很重。
+
+
+C-w 不像换了，因为剪切的需求还是很大的，用 C-c w hjkl 来操作窗口。
+
+
+
+
+
+
 * COMMENT 以 C-c 为前缀的快捷键
 
 - C-c a         org-agenda
