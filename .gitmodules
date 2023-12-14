@@ -1,0 +1,43 @@
+[submodule "site-lisp/go-mode"]
+	path = site-lisp/go-mode
+	url = git@github.com:dominikh/go-mode.el.git
+	shallow = true
+[submodule "site-lisp/posframe"]
+	path = site-lisp/posframe
+	url = git@github.com:tumashu/posframe.git
+	shallow = true
+[submodule "site-lisp/dumb-jump"]
+	path = site-lisp/dumb-jump
+	url = git@github.com:jacktasia/dumb-jump.git
+	shallow = true
+[submodule "site-lisp/lsp-bridge"]
+	path = site-lisp/lsp-bridge
+	url = git@github.com:manateelazycat/lsp-bridge.git
+	shallow = true
+[submodule "site-lisp/yaml-mode"]
+	path = site-lisp/yaml-mode
+	url = git@github.com:yoshiki/yaml-mode.git
+	shallow = true
+[submodule "site-lisp/toml-mode"]
+	path = site-lisp/toml-mode
+	url = git@github.com:dryman/toml-mode.el.git
+	shallow = true
+[submodule "site-lisp/json-mode"]
+	path = site-lisp/json-mode
+	url = git@github.com:json-emacs/json-mode.git
+	shallow = true
+[submodule "site-lisp/aweshell"]
+	path = site-lisp/aweshell
+	url = git@github.com:manateelazycat/aweshell.git
+	shallow = true
+[submodule "site-lisp/symbol-overlay"]
+	path = site-lisp/symbol-overlay
+	url = git@github.com:wolray/symbol-overlay.git
+	shallow = true
+[submodule "site-lisp/rg"]
+	path = site-lisp/rg
+	url = git@github.com:dajva/rg.el.git
+	shallow = true
+[submodule "site-lisp/yasnippet"]
+	path = site-lisp/yasnippet
+	url = git@github.com:joaotavora/yasnippet.git
