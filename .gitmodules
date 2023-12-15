@@ -62,3 +62,15 @@
 	path = site-lisp/orderless
 	url = git@github.com:oantolin/orderless.git
 	shallow = true
+[submodule "site-lisp/org-superstar-mode"]
+	path = site-lisp/org-superstar-mode
+	url = git@github.com:integral-dw/org-superstar-mode.git
+	shallow = true
+[submodule "site-lisp/ob-go"]
+	path = site-lisp/ob-go
+	url = git@github.com:pope/ob-go.git
+	shallow = true
+[submodule "site-lisp/org-appear"]
+	path = site-lisp/org-appear
+	url = git@github.com:awth13/org-appear.git
+	shallow = true

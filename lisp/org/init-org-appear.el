@@ -1,4 +1,4 @@
-;;; init-yasnippet.el ---                            -*- lexical-binding: t; -*-
+;;; init-org-appear.el --- make invisible parts of Org elements appear visible  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -25,14 +25,9 @@
 ;;; Code:
 
 
-(require 'yasnippet)
+(setq org-appear-autoemphasis t
+      org-appear-autolinks nil
+      org-appear-autosubmarkers t)
 
-(setq yas-global-mode 1)
-(add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
-(add-to-list 'yas-snippet-dirs "/Users/haoran/.emacs.d/snippets")
-
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook #'yas-minor-mode))
-
-(provide 'init-yasnippet)
-;;; init-yasnippet.el ends here
+(provide 'init-org-appear)
+;;; init-org-appear.el ends here

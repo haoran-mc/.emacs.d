@@ -23,6 +23,23 @@
 
 ;;; Code:
 
+
+;;;###autoload
+(defun xah-show-formfeed-as-line ()
+  "Display the formfeed ^L char as line. Version 2018-08-30"
+  (interactive)
+  ;; 2016-10-11 thanks to Steve Purcell's page-break-lines.el
+  (progn
+    (when (not buffer-display-table)
+      (setq buffer-display-table (make-display-table)))
+    (aset buffer-display-table ?\^L
+          (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
+    (redraw-frame)))
+
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook #'xah-show-formfeed-as-line))
+(add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
+
 ;;;###autoload
 (defun +org-insert-image ()
   "insert a image from clipboard"

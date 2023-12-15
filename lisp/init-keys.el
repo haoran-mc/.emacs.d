@@ -116,6 +116,10 @@
 ;; check ext-which-key.el for prompt
 
 ;; a for alone apps
+(lazy-load-global-keys '(("C-c a a" . org-agenda)
+                         ("C-c a x" . org-capture))
+                       "init-org")
+
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim)) "init-fanyi")
 
 ;; b for buffer, bookmark

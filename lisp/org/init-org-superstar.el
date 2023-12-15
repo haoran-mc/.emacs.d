@@ -1,4 +1,4 @@
-;;; init-yasnippet.el ---                            -*- lexical-binding: t; -*-
+;;; init-org-superstar.el --- prettify headings and plain lists in org mode.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -25,14 +25,14 @@
 ;;; Code:
 
 
-(require 'yasnippet)
+(require 'org-superstar)
 
-(setq yas-global-mode 1)
-(add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
-(add-to-list 'yas-snippet-dirs "/Users/haoran/.emacs.d/snippets")
 
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook #'yas-minor-mode))
+;; ● ☰ ☷ ☲ ☵ ❖ ■ ◆ ▲ ▼ ▶ ✦ ✧ ✶ ▸ ▪ ▫ ◇ ◆ ☀ ☁ ☂ ☃ ☎ ☑ ☢ ☣ ☪ ☮ ☸ ☹ ☺ ☻ ☼
+(setq org-superstar-headline-bullets-list '("☯" "◉" "○" "❂" "❉" "✸")
+      org-superstar-special-todo-items t ;; 用于定义在标题行中特殊的待办事项标记的显示样式
+      org-superstar-prettify-item-bullets t ;; 使用列表的美化
+      org-superstar-item-bullet-alist '((?- . ?•) (?* . ?–) (?+ . ?◦)))
 
-(provide 'init-yasnippet)
-;;; init-yasnippet.el ends here
+(provide 'init-org-superstar)
+;;; init-org-superstar.el ends here
