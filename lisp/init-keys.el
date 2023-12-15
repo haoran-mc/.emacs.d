@@ -35,8 +35,7 @@
 
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (lazy-load-global-keys '(("C-<return>" . bookmark-jump)) "bookmark")
-(lazy-load-set-keys '(("C-<return>" . bookmark-jump)))
+(lazy-load-global-keys '(("C-<return>" . consult-bookmark)) "consult")
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
 (lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
@@ -88,6 +87,8 @@
                        "cursormove")
 
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
+
+(lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
 
 (lazy-load-global-keys '(("M-z t" . vanilla/move-to-window-top)
                          ("M-z z" . vanilla/move-to-window-middle)
@@ -144,11 +145,17 @@
                          ("C-c e C-p" . aweshell-prev))
                        "init-eshell")
 
-;; f for file
-(lazy-load-set-keys '(("C-c f r" . recentf-open-files)
-                      ("C-c f f" . find-file)
+;; f for find
+(lazy-load-set-keys '(("C-c f f" . find-file)
                       ("C-c f p" . project-find-file)))
+
+(lazy-load-global-keys '(("C-c f r" . consult-recent-file)
+                         ("C-c f g" . consult-ripgrep)
+                         ("C-c f m" . consult-mark))
+                       "consult")
+
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
+
 
 ;; h for hideshow unify with vim
 ;; zm hide-all

@@ -25,126 +25,111 @@
 
 
 (setq minibuffer-eldef-shorten-default t) ;; shorten "(default ...)" to "[...]"
-;; Completion engine
-;; (use-package minibuffer
-;;   :ensure nil
-;;   :custom
-;;   ;; Default minibuffer is fine-tuned since Emacs 29
-;;   (completion-auto-help t)
-;;   (completion-show-help nil)
-;;   (completion-cycle-threshold nil)
-;;   (completion-auto-select 'second-tab)
-;;   (enable-recursive-minibuffers t)
-;;   (minibuffer-depth-indicate-mode t)
-;;   (minibuffer-eldef-shorten-default t)
-;;   (minibuffer-electric-default-mode t)
-;;   ;; Don't insert completion at point into minibuffer
-;;   (minibuffer-completion-auto-choose nil)
-;;   ;; One frame one minibuffer.
-;;   (minibuffer-follows-selected-frame nil)
-;;   ;; Ignore cases when complete
-;;   (completion-ignore-case t)
-;;   (read-buffer-completion-ignore-case t)
-;;   (read-file-name-completion-ignore-case t)
-;;   ;; `selectrum', `vertico' and `icomplete' will honoring
-;;   (completion-styles '(basic partial-completion substring flex))
-;;   (completion-category-overrides '((buffer (styles . (flex)))))
-;;   ;; vertical view
-;;   (completions-format 'one-column)
-;;   (completions-max-height 13)
-;;   (completions-detailed t))
 
+
+;; vertico ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; vertical style minibuffer
-(use-package vertico
-  :ensure t
-  :hook ((after-init . vertico-mode)
-         (minibuffer-setup . vertico-repeat-save))
-  :custom
-  (vertico-cycle t)
-  (vertico-sort-function nil))
+(require 'vertico)
+(add-hook 'after-init-hook 'vertico-mode)
+(add-hook 'minibuffer-setup-hook 'vertico-repeat-save)
+(setq vertico-cycle t
+      vertico-sort-function nil)
 
-;; support Pinyin first character match for orderless, avy etc.
-(use-package pinyinlib
-  :ensure t)
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(require 'savehist)
+(savehist-mode)
 
-(use-package orderless
-  :ensure t
-  :config
-  ;; make completion support pinyin, refer to
-  ;; https://emacs-china.org/t/vertico/17913/2
-  (defun completion--regex-pinyin (str)
-    (orderless-regexp (pinyinlib-build-regexp-string str)))
-  (add-to-list 'orderless-matching-styles 'completion--regex-pinyin)
-  :custom
-  (completion-styles '(orderless)))
 
+;; orderless ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'orderless)
+;; make completion support pinyin, refer to
+;; https://emacs-china.org/t/vertico/17913/2
+(defun completion--regex-pinyin (str)
+  (orderless-regexp (pinyinlib-build-regexp-string str)))
+(add-to-list 'orderless-matching-styles 'completion--regex-pinyin)
+(setq completion-styles '(orderless))
+
+
+;; marginalia ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; show description on minibuffer, like this:
 ;; lisp/      drwxr-xr-x    192  19 mis ago
-(use-package marginalia
-  :ensure t
-  :hook (after-init . marginalia-mode))
+(with-eval-after-load 'vertico
+  (require 'marginalia)
+  (add-hook 'vertico-mode-hook 'marginalia-mode))
 
+
+;; pingyinlib ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; support Pinyin first character match for orderless, avy etc.
+(require 'pinyinlib)
+
+
+
+
+;; consult ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; provides commands for finding and completing
-(use-package consult
-  :ensure t
-  :bind (("C-c f g"                      . consult-ripgrep)
-         ([remap imenu]                  . consult-imenu)
-         ([remap goto-line]              . consult-goto-line)
-         ([remap switch-to-buffer]       . consult-buffer)
-         ([remap yank-pop]               . consult-yank-pop)
-         ([remap apropos]                . consult-apropos)
-         ([remap bookmark-jump]          . consult-bookmark)
-         ([remap recentf-open-files]     . consult-recent-file)
-         ([remap multi-occur]            . consult-multi-occur)
-         ([remap repeat-complex-command] . consult-complex-command)
-         ([remap isearch-forward]        . consult-line)
-         ([remap projectile-ripgrep]     . consult-ripgrep)
-         ("C-x j"                        . consult-mark)
-         ([remap org-goto]               . consult-org-heading)
-         ;; :map org-mode-map
-         ;; ("C-c C-j"                      . consult-org-heading)
-         :map prog-mode-map
-         ("C-c C-j"                      . consult-outline))
-  :config
+;; lazy load by key
+;; consult-ripgrep
+;; consult-imenu
+;; consult-goto-line
+;; consult-goto-buffer
+;; consult-yank-pop
+;; consult-apropos
+;; consult-bookmark
+;; consult-recent-file
+;; consult-multi-occur
+;; consult-complex-command
+;; consult-line
+;; consult-mark
+;; consult-org-heading
+;; consult-line
+(with-eval-after-load 'consult
+  (define-key prog-mode-map (kbd "C-c C-j") 'consult-outline)
+  (with-eval-after-load 'org
+    (define-key org-mode-map [remap org-goto] 'consult-org-heading))
+
   (with-no-warnings
-    (consult-customize consult-ripgrep consult-git-grep consult-grep
+    (consult-customize consult-git-grep consult-grep ;; consult-ripgrep
                        consult-bookmark
                        consult-recent-file
                        consult-buffer
                        :preview-key nil))
 
-  (with-eval-after-load 'embark
-    (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
+  (setq consult-fontify-preserve nil
+        consult-async-min-input 2
+        consult-async-refresh-delay 0.15
+        consult-async-input-throttle 0.2
+        consult-async-input-debounce 0.1))
 
-  (defun +consult-directory-externally (file)
-    "Open FILE externally using the default application of the system."
-    (interactive "fOpen externally: ")
-    (if (and (eq system-type 'windows-nt)
-	         (fboundp 'w32-shell-execute))
-        (shell-command-to-string
-         (encode-coding-string
-          (replace-regexp-in-string
-           "/" "\\\\" (format "explorer.exe %s"
-                              (file-name-directory
-                               (expand-file-name file)))) 'gbk))
-      (call-process (pcase system-type
-		              ('darwin "open")
-		              ('cygwin "cygstart")
-		              (_ "xdg-open"))
-		            nil 0 nil
-		            (file-name-directory (expand-file-name file)))))
 
-  (defun +open-current-directory ()
-    "Open current FILE directory.
-externally using the default application of the system."
-    (interactive)
-    (+consult-directory-externally default-directory))
-  :custom
-  (consult-fontify-preserve nil)
-  (consult-async-min-input 2)
-  (consult-async-refresh-delay 0.15)
-  (consult-async-input-throttle 0.2)
-  (consult-async-input-debounce 0.1))
+;; (with-eval-after-load 'embark
+;;   (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
+;;
+;; (defun +consult-directory-externally (file)
+;;   "Open FILE externally using the default application of the system."
+;;   (interactive "fOpen externally: ")
+;;   (if (and (eq system-type 'windows-nt)
+;; 	       (fboundp 'w32-shell-execute))
+;;       (shell-command-to-string
+;;        (encode-coding-string
+;;         (replace-regexp-in-string
+;;          "/" "\\\\" (format "explorer.exe %s"
+;;                             (file-name-directory
+;;                              (expand-file-name file)))) 'gbk))
+;;     (call-process (pcase system-type
+;; 		            ('darwin "open")
+;; 		            ('cygwin "cygstart")
+;; 		            (_ "xdg-open"))
+;; 		          nil 0 nil
+;; 		          (file-name-directory (expand-file-name file)))))
+;;
+;; (defun +open-current-directory ()
+;;   "Open current FILE directory.
+;; externally using the default application of the system."
+;;   (interactive)
+;;   (+consult-directory-externally default-directory))
+
+
+
 
 ;; (use-package prescient
 ;;   :ensure t

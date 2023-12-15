@@ -46,3 +46,19 @@
 	path = site-lisp/diredfl
 	url = git@github.com:purcell/diredfl.git
 	shallow = true
+[submodule "site-lisp/marginalia"]
+	path = site-lisp/marginalia
+	url = git@github.com:minad/marginalia.git
+	shallow = true
+[submodule "site-lisp/vertico"]
+	path = site-lisp/vertico
+	url = git@github.com:minad/vertico.git
+	shallow = true
+[submodule "site-lisp/consult"]
+	path = site-lisp/consult
+	url = git@github.com:minad/consult.git
+	shallow = true
+[submodule "site-lisp/orderless"]
+	path = site-lisp/orderless
+	url = git@github.com:oantolin/orderless.git
+	shallow = true

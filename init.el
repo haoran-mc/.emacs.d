@@ -61,10 +61,12 @@
         ;; 继续递归搜索子目录
         (add-subdirs-to-load-path subdir-path)))))
 
-(let ((userdir (locate-user-emacs-file "lisp"))
-      (extdir  (locate-user-emacs-file "site-lisp")))
+(let ((userdir  (locate-user-emacs-file "lisp"))
+      (extdir   (locate-user-emacs-file "site-lisp"))
+      (themedir (locate-user-emacs-file "theme")))
   (add-subdirs-to-load-path (file-name-directory userdir))
-  (add-subdirs-to-load-path (file-name-directory extdir)))
+  (add-subdirs-to-load-path (file-name-directory extdir))
+  (add-subdirs-to-load-path (file-name-directory themedir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
 (require 'no-littering) ;; keep ~/.emacs.d clean
