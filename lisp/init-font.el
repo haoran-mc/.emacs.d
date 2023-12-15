@@ -20,65 +20,86 @@
 
 ;;; Commentary:
 
-;; install Fira Code and Fira Code Symbol Font
-;; https://github.com/tonsky/FiraCode/files/412440/FiraCode-Regular-Symbol.zip
+;;
 
 ;;; Code:
 
 
 ;; NOTE: change org-mode custom-face when change font-weight
 ;; (set-face-attribute 'default nil :font "Fira Code" :weight 'normal)
+;; (set-face-attribute 'default nil :font "Victor Mono" :weight 'normal)
 ;; (set-face-attribute 'default nil :font "Roboto Mono" :weight 'normal)
 ;; (set-face-attribute 'default nil :font "PingFang SC")
-(set-face-attribute 'default nil
-                    :font (font-spec :family
-                                     "JetBrainsMono Nerd Font"
-                                     :weight 'semi-bold)) ;; set height in arch
+;; (set-face-attribute 'default nil
+;;                     :font (font-spec :family
+;;                                      "JetBrainsMono Nerd Font"
+;;                                      :weight 'semi-bold
+;;                                      :size 12.5)) ;; set height in arch
+;; monaco nerd mono font
 
-(defun my-correct-symbol-bounds (pretty-alist)
-  "Prepend a TAB character to each symbol in this alist,
-  this way compose-region called by prettify-symbols-mode
-  will use the correct width of the symbols
-  instead of the width measured by char-width."
-  (mapcar (lambda (el)
-            (setcdr el (string ?\t (cdr el)))
-            el)
-          pretty-alist))
-
-
-(defun my-ligature-list (ligatures codepoint-start)
-  "Create an alist of strings to replace with
-  codepoints starting from codepoint-start."
-  (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
-    (-zip-pair ligatures codepoints)))
+(defvar +font-family "JetBrainsMono Nerd Font")
+(defvar +line-font-family "JetBrainsMono Nerd Font")
+(defvar +font-unicode-family "LXGW WenKai") ;; 霞鸳文楷
+(defvar +fixed-pitch-family "Sarasa Mono SC Nerd") ;; 更纱黑体
+(defvar +variable-pitch-family "LXGW WenKai")
+(defvar +font-size-list '(10 11 12 13 14 15 16 17 18))
+(defvar +font-size 13)
 
 
-(setq my-fira-code-ligatures
-      (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-                     "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
-                     "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-                     "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-                     ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-                     "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-                     "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-                     "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-                     ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-                     "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-                     "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-                     "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-                     "x" ":" "+" "+" "*")))
-        (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+;; set base font
+(let* ((font-spec (format "%s-%d" +font-family +font-size)))
+  (set-frame-parameter nil 'font font-spec)
+  (add-to-list 'default-frame-alist `(font . ,font-spec)))
 
 
-(defun my-set-fira-code-ligatures ()
-  "Add fira code ligatures for use with prettify-symbols-mode."
-  (setq prettify-symbols-alist
-        (append my-fira-code-ligatures prettify-symbols-alist))
-  (prettify-symbols-mode))
+(defun +set-face-font (&optional frame)
+  (let ((font-spec (format "%s-%d" +font-family +font-size))
+        (line-font-spec (format "%s-%d" +font-family +font-size))
+        (variable-pitch-font-spec (format "%s-%d" +variable-pitch-family +font-size))
+        (fixed-pitch-font-spec (format "%s-%d" +fixed-pitch-family +font-size)))
+    (set-face-attribute 'variable-pitch frame
+                        :font variable-pitch-font-spec
+                        :height 1.2) ;; variable-pitch
+    ;; (set-face-attribute 'fixed-pitch frame :font fixed-pitch-font-spec)
+    ;; (set-face-attribute 'fixed-pitch-serif frame :font fixed-pitch-font-spec)
+    (set-face-attribute 'tab-bar frame :font font-spec :height 1.0)
+    (set-face-attribute 'mode-line frame :font line-font-spec)
+    (set-face-attribute 'mode-line-inactive frame :font line-font-spec)))
+;; (+set-face-font)
 
 
-;; (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
-;; (add-hook 'org-mode-hook 'my-set-fira-code-ligatures)
+;; load unicode font
+(when window-system
+  (let ((font (frame-parameter nil 'font))
+        (font-spec (font-spec :family +font-unicode-family)))
+    (dolist (charset '(kana han hangul cjk-misc bopomofo symbol))
+      (set-fontset-font font charset font-spec))))
+
+
+
+(defun +larger-font ()
+  (interactive)
+  (if-let ((size (--find (> it +font-size) +font-size-list)))
+      (progn (setq +font-size size)
+             (+load-font)
+             (message "font size: %s" +font-size))
+    (message "using largest font")))
+
+(defun +smaller-font ()
+  (interactive)
+  (if-let ((size (--find (< it +font-size) (reverse +font-size-list))))
+      (progn (setq +font-size size)
+             (message "font size: %s" +font-size)
+             (+load-font))
+    (message "using smallest font")))
+
+(global-set-key (kbd "M-+") #'+larger-font)
+(global-set-key (kbd "M--") #'+smaller-font)
+
+
+(require 'init-ligature)
+;; use hyphenated font
+
 
 
 (provide 'init-font)
