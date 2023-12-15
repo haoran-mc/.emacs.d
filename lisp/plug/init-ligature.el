@@ -25,73 +25,126 @@
 ;;; Code:
 
 
-(add-hook 'org-mode-hook 'my-org-ligature-mode-hook)
+;; default font ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun +correct-symbol-bounds-with-TAB (pretty-alist)
+  "Prepend a TAB character to each symbol in this alist, this way
+compose-region called by prettify-symbols-mode will use the correct
+width of the symbols instead of the width measured by char-width."
+  (mapcar (lambda (el)
+            (setcdr el (string ?\t (cdr el)))
+            el)
+          pretty-alist))
 
-(defun my-org-ligature-mode-hook ()
+
+(defun +create-ligature-list (ligatures codepoint-start)
+  "Create an alist of strings to replace with codepoints starting
+from codepoint-start."
+  (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+    (-zip-pair ligatures codepoints)))
+
+
+(setq +font-ligatures
+      (let ((ligature-chars '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+                              "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+                              "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
+                              "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
+                              ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
+                              "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
+                              "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
+                              "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+                              ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+                              "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+                              "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+                              "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
+                              "x" ":" "+" "+" "*")))
+        ;; Private Use Area
+        (+correct-symbol-bounds-with-TAB (+create-ligature-list ligature-chars #Xe100))))
+
+
+(defun +set-font-ligature-chars ()
+  "Add fira code ligatures for use with prettify-symbols-mode."
   (setq prettify-symbols-alist
-        '(("lambda"           . ?λ)
-          ("\\pagebreak"      . 128204)
-          ("#+tblfm:"         . 8756) ;; ∴
-          ("->"               . 8594) ;; →
-          ("<-"               . 8592) ;; ←
-          ("=>"               . 8658) ;; ⇒
-          ("<="               . 8656) ;; ⇐
-		  ("[ ]"              . 9744)         ; ☐
-		  ("[X]"              . 9745)         ; ☑
-		  ("[-]"              . 8863)         ; ⊟
-          ("::"               . ?∷)
-          ;; ("#+TITLE:"         . 10162) ;; ➲ ☺ ⊘ ⨀ Τ
-          ;; ("#+AUTHOR:"        . 9998) ;; ✎ ♥
-          ;; ("#+EMAIL:"         . ?﹫)  ;; ␤ ＠ ﹫ ⌂ ⚙
-          ;; ("#+DATE:"          . ?⌨)
-          ;; ("#+DESCRIPTION:"   . ?𝇊) ;;
-          ;; ("#+KEYWORDS:"      . ?)
-          ;; ("#+TAGS:"          . ?)
-          ;; ("#+OPTIONS:"       . ?⌥)
-          ;; ("#+STARTUP:"       . ?⑆)
-		  ;; ("#+ATTR_LATEX:"    . ?🄛)
-		  ;; ("#+ATTR_HTML:"     . ?🄗)
-		  ;; ("#+ATTR_ORG:"      . ?🄞)
-          ("#+BLOCK_LINE: "   . ?━)
-          ("#+PROPERTY:"      . ?⚙)
-          ("#+LATEX_CLASS:"   . ?C) ;; 🄲
-          ("#+LATEX_HEADER:"  . ?⇥)
-          ("#+BEAMER_HEADER:" . ?↔)
-          ("#+CAPTION:"       . ?☰)
-          ("#+HEADER:"        . ?›)
-          ("#+begin_quote"    . 187) ;; »
-          ("#+end_quote"      . 171) ;; «
-          ("#+begin_export"   . ?↠)
-          ("#+end_export"     . ?↞)
-          ("#+RESULTS:"       . ?⚑)
-          ("#+begin_results"  . 8943) ;; ⋯
-          ("#+end_results"    . 8943)
-          ("#+begin_src"      . ?ƒ)
-          ("#+end_src"        . ?ƒ)
-          ;; ("#+begin_example"  . ?∴) ;; ⧉
-          ;; ("#+end_example"    . ?∵)
-          ;; (":PROPERTIES:"     . ?⚙)
-          ;; (":END:"            . ?∎)
-          ("[#A]"             . ?🅰)
-          ("[#B]"             . ?🅱)
-          ("[#C]"             . ?🅲)
-          ("[#D]"             . ?🅳)
-          ("[#E]"             . ?🅴)
-          ("~/haoran/gr/haoran-mc.github.io/images" . ?A)
-          ("~/haoran/no/org/export/images" . ?B)))
+        (append +font-ligatures prettify-symbols-alist))
   (prettify-symbols-mode))
 
 
-(add-hook 'lisp-mode-hook 'my-lisp-ligature-mode-hook)
+(add-hook 'prog-mode-hook '+set-font-ligature-chars)
+;; (with-eval-after-load 'org
+;;   (add-hook 'org-mode-hook '+set-font-ligature-chars))
 
-(defun my-lisp-ligature-mode-hook ()
-  (setq prettify-symbols-alist
-        '(("lambda"           . ?λ)
-          ("\\pagebreak"      . 128204)
-          ("#+tblfm:"         . 8756) ;; ∴
-          ("->"               . 8594) ;; →
-          ("=>"               . 8658) ;; ⇒
-          ))
+
+;; hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook '+customized-org-ligature-chars))
+
+
+(defun +customized-org-ligature-chars ()
+  (let ((fancy-chars '(("lambda"           . ?λ)
+                       ("\\pagebreak"      . 128204)
+                       ("#+tblfm:"         . 8756) ;; ∴
+                       ("->"               . 8594) ;; →
+                       ("<-"               . 8592) ;; ←
+                       ("=>"               . 8658) ;; ⇒
+                       ("<="               . 8656) ;; ⇐
+		               ("[ ]"              . 9744)         ; ☐
+		               ("[X]"              . 9745)         ; ☑
+		               ("[-]"              . 8863)         ; ⊟
+                       ("::"               . ?∷)
+                       ;; ("#+TITLE:"         . 10162) ;; ➲ ☺ ⊘ ⨀ Τ
+                       ;; ("#+AUTHOR:"        . 9998) ;; ✎ ♥
+                       ;; ("#+EMAIL:"         . ?﹫)  ;; ␤ ＠ ﹫ ⌂ ⚙
+                       ;; ("#+DATE:"          . ?⌨)
+                       ;; ("#+DESCRIPTION:"   . ?𝇊) ;;
+                       ;; ("#+KEYWORDS:"      . ?)
+                       ;; ("#+TAGS:"          . ?)
+                       ;; ("#+OPTIONS:"       . ?⌥)
+                       ;; ("#+STARTUP:"       . ?⑆)
+		               ;; ("#+ATTR_LATEX:"    . ?🄛)
+		               ;; ("#+ATTR_HTML:"     . ?🄗)
+		               ;; ("#+ATTR_ORG:"      . ?🄞)
+                       ("#+BLOCK_LINE: "   . ?━)
+                       ("#+PROPERTY:"      . ?⚙)
+                       ("#+LATEX_CLASS:"   . ?C) ;; 🄲
+                       ("#+LATEX_HEADER:"  . ?⇥)
+                       ("#+BEAMER_HEADER:" . ?↔)
+                       ("#+CAPTION:"       . ?☰)
+                       ("#+HEADER:"        . ?›)
+                       ("#+begin_quote"    . 187) ;; »
+                       ("#+end_quote"      . 171) ;; «
+                       ("#+begin_export"   . ?↠)
+                       ("#+end_export"     . ?↞)
+                       ("#+RESULTS:"       . ?⚑)
+                       ("#+begin_results"  . 8943) ;; ⋯
+                       ("#+end_results"    . 8943)
+                       ("#+begin_src"      . ?ƒ)
+                       ("#+end_src"        . ?ƒ)
+                       ;; ("#+begin_example"  . ?∴) ;; ⧉
+                       ;; ("#+end_example"    . ?∵)
+                       ;; (":PROPERTIES:"     . ?⚙)
+                       ;; (":END:"            . ?∎)
+                       ("[#A]"             . ?🅰)
+                       ("[#B]"             . ?🅱)
+                       ("[#C]"             . ?🅲)
+                       ("[#D]"             . ?🅳)
+                       ("[#E]"             . ?🅴)
+                       ("~/haoran/gr/haoran-mc.github.io/images" . ?A)
+                       ("~/haoran/no/org/export/images" . ?B))))
+    (setq prettify-symbols-alist
+          (append fancy-chars prettify-symbols-alist)))
+  (prettify-symbols-mode))
+
+
+(add-hook 'emacs-lisp-mode-hook '+customized-elisp-ligature-chars)
+
+(defun +customized-elisp-ligature-chars ()
+  (let ((fancy-chars '(("lambda"           . ?λ)
+                       ("\\pagebreak"      . 128204)
+                       ("#+tblfm:"         . 8756) ;; ∴
+                       ("->"               . 8594) ;; →
+                       ("=>"               . 8658) ;; ⇒
+                       )))
+    (setq prettify-symbols-alist
+          (append fancy-chars prettify-symbols-alist)))
   (prettify-symbols-mode))
 
 
