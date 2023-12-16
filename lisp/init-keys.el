@@ -39,7 +39,9 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
 (lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
+
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
+(lazy-load-global-keys '(("C-;" . avy-goto-char-2)) "init-avy")
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
                          ("C-e" . mwim-end-of-line-or-code))
