@@ -37,17 +37,18 @@
 ;;                                      :size 12.5)) ;; set height in arch
 ;; monaco nerd mono font
 
-(defvar +font-family "JetBrainsMono Nerd Font")
-(defvar +line-font-family "JetBrainsMono Nerd Font")
+(defvar +font-family "Fira Code")
+(defvar +line-font-family "Fira Code")
 (defvar +font-unicode-family "LXGW WenKai") ;; 霞鸳文楷
 (defvar +fixed-pitch-family "Sarasa Mono SC Nerd") ;; 更纱黑体
 (defvar +variable-pitch-family "LXGW WenKai")
 (defvar +font-size-list '(10 11 12 13 14 15 16 17 18))
 (defvar +font-size 13)
+(defvar +font-weight "normal")
 
 
 ;; set base font
-(let* ((font-spec (format "%s-%d" +font-family +font-size)))
+(let* ((font-spec (format "%s-%d:weight=%s" +font-family +font-size +font-weight)))
   (set-frame-parameter nil 'font font-spec)
   (add-to-list 'default-frame-alist `(font . ,font-spec)))
 

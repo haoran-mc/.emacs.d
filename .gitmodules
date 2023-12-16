@@ -74,3 +74,27 @@
 	path = site-lisp/org-appear
 	url = git@github.com:awth13/org-appear.git
 	shallow = true
+[submodule "theme/spacemacs-theme"]
+	path = theme/spacemacs-theme
+	url = git@github.com:nashamri/spacemacs-theme.git
+	shallow = true
+[submodule "theme/lazycat-theme"]
+	path = theme/lazycat-theme
+	url = git@github.com:manateelazycat/lazycat-theme.git
+	shallow = true
+[submodule "theme/doom-themes"]
+	path = theme/doom-themes
+	url = git@github.com:doomemacs/themes.git
+	shallow = true
+[submodule "site-lisp/rainbow-mode"]
+	path = site-lisp/rainbow-mode
+	url = git@github.com:emacsmirror/rainbow-mode.git
+	shallow = true
+[submodule "site-lisp/all-the-icons"]
+	path = site-lisp/all-the-icons
+	url = git@github.com:domtronn/all-the-icons.el.git
+	shallow = true
+[submodule "site-lisp/nano-emacs"]
+	path = site-lisp/nano-emacs
+	url = git@github.com:rougier/nano-emacs.git
+	shallow = true

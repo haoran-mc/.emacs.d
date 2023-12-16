@@ -49,8 +49,6 @@
         (width . 141)
         (height . 40)))
 
-(setq-default mode-line-format nil)
-
 ;; The nano style for truncated long lines.
 (setq auto-hscroll-mode t)
 
