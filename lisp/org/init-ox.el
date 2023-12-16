@@ -24,7 +24,7 @@
 
 ;;; Code:
 
-(add-to-list 'org-export-backends 'pandoc)
+;; (add-to-list 'org-export-backends 'pandoc)
 
 (setq org-export-with-toc t
       org-export-with-tags 'not-in-toc

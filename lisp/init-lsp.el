@@ -1,4 +1,4 @@
-;;; init-lsp-bridge.el --- The lsp client -*- lexical-binding: t -*-
+;;; init-lsp.el --- The lsp client -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -101,5 +101,5 @@
   (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand))
 
-(provide 'init-lsp-bridge)
-;;; init-lsp-bridge.el ends here
+(provide 'init-lsp)
+;;; init-lsp.el ends here

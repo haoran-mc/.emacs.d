@@ -42,23 +42,25 @@
   (interactive)
   (let* ((dir (file-name-as-directory search-dir)))
     (dolist (subdir
-             (cl-remove-if ;; 过滤不必要的目录
+             (cl-remove-if ;; filter catalog
               #'(lambda (subdir)
                   (or
-                   (not (file-directory-p (concat dir subdir))) ;; 移除非目录文件
+                   (not (file-directory-p (concat dir subdir))) ;; remove non-directory files
                    (member subdir '("." ".."
                                     "dist" "node_modules" "__pycache__"
                                     "RCS" "CVS" "rcs" "cvs" ".git" ".github"))))
               (directory-files dir)))
       (let ((subdir-path (concat dir (file-name-as-directory subdir))))
-        ;; 目录下有 .el .so .dll 文件的路径才添加到 `load-path' 中，提升启动速度
+        ;; paths with .el .so .dll files in the directory are added to `load-path' only.
         (when (cl-some #'(lambda (subdir-file)
                            (and (file-regular-p (concat subdir-path subdir-file))
-                                ;; .so .dll 文件指非 elisp 语言编写的 emacs 动态库
+                                ;; .so .dll: dynamic library
                                 (member (file-name-extension subdir-file) '("el" "so" "dll"))))
                        (directory-files subdir-path))
-          (add-to-list 'load-path subdir-path t)) ;; `add-to-list' 第三个参数必须为 t，表示加到列表末尾 bfs
-        ;; 继续递归搜索子目录
+          ;; `add-to-list' The third argument must be t
+          ;; which means add to the end of the list. BFS
+          (add-to-list 'load-path subdir-path t))
+        ;; recursive search
         (add-subdirs-to-load-path subdir-path)))))
 
 (let ((userdir  (locate-user-emacs-file "lisp"))
@@ -69,6 +71,8 @@
   (add-subdirs-to-load-path (file-name-directory themedir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+(require 'init-variables)
+
 (require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
 
@@ -76,8 +80,9 @@
 (require 'init-funcs)
 (require 'init-utils)
 (require 'init-ui)
+(require 'init-modeline)
 ;; (require 'init-evil)
-(require 'init-lsp-bridge)
+(require 'init-lsp)
 (require 'init-git)
 (require 'init-dev)
 (require 'init-dired)
@@ -85,10 +90,8 @@
 
 ;; standalone apps
 (with-eval-after-load 'org
-  (require 'init-org)
-  (require 'init-site)
-  (require 'init-ligature))
-(require 'init-font) ;; load(fira code) after org
+  (require 'init-org))
+(require 'init-font)
 (require 'init-text)
 (require 'init-reader)
 
@@ -102,7 +105,8 @@
 (require 'init-which-key)
 (require 'init-yasnippet)
 (require 'init-autoinsert)
-;; (require 'init-theme)
+
+(require 'init-theme)
 
 ;; (require 'init-1keys)
 

@@ -56,6 +56,9 @@
                          ("C-l" . open-newline-below))
                        "open-newline")
 
+(lazy-load-set-keys '(("C-q" . quoted-insert)))
+(lazy-load-global-keys '(("C-s" . consult-line)) "consult")
+
 ;; w for window, unify keys with vim, s-w instead of C-w
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
                       ("C-\\ j" . windmove-down)
@@ -150,6 +153,9 @@
                          ("C-c e C-n" . aweshell-next)
                          ("C-c e C-p" . aweshell-prev))
                        "init-eshell")
+
+(with-eval-after-load 'org
+  (lazy-load-local-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
 
 ;; f for find
 (lazy-load-set-keys '(("C-c f f" . find-file)

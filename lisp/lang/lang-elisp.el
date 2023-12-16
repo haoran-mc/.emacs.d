@@ -29,38 +29,34 @@
                                                (require 'lsp-bridge)
                                                (lsp-bridge-mode))))
 
-(with-eval-after-load 'emacs-lisp-mode
-  '(progn
-     ;; Initialization
-     (defun elisp-mode-delete-trailing-whitespace ()
-       "Delete trailing whitespace before saving file."
-       (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+(with-eval-after-load 'elisp-mode
+  ;; Initialization
+  (defun elisp-mode-delete-trailing-whitespace ()
+    "Delete trailing whitespace before saving file."
+    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
-     ;; Configuration
+  ;; Configuration
+  (defconst eval-as-comment-prefix ";;=> ")
 
-     (defconst eval-as-comment-prefix ";;=> ")
+  ;; Imitate scala-mode
+  ;; from https://github.com/dakra/dmacs
+  (defun eval-to-comment (&optional arg)
+    (interactive "P")
+    (let ((start (point)))
+      (eval-print-last-sexp arg)
+      (save-excursion
+        (goto-char start)
+        (save-match-data
+          (re-search-forward "[[:space:]\n]+" nil t)
+          (insert eval-as-comment-prefix)))))
 
-     ;; Imitate scala-mode
-     ;; from https://github.com/dakra/dmacs
-     (defun eval-to-comment (&optional arg)
-       (interactive "P")
-       (let ((start (point)))
-         (eval-print-last-sexp arg)
-         (save-excursion
-           (goto-char start)
-           (save-match-data
-             (re-search-forward "[[:space:]\n]+" nil t)
-             (insert eval-as-comment-prefix)))))
+  ;; Key bindings
+  ;; eval-print-last-sexp -> eval-to-comment
+  (define-key emacs-lisp-mode-map (kbd "s-j") 'eval-to-comment)
+  (define-key lisp-interaction-mode-map (kbd "s-j") 'eval-to-comment)
 
-     ;; Key bindings
-     ;; eval-print-last-sexp -> eval-to-comment
-     (define-key emacs-lisp-mode-map (kbd "s-j") 'eval-to-comment)
-     (define-key lisp-interaction-mode-map (kbd "s-j") 'eval-to-comment)
-
-     ;; Hook
-     (add-hook 'emacs-lisp-mode-hook elisp-mode-delete-trailing-whitespace)
-     )
-  )
+  ;; Hook
+  (add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace))
 
 
 ;; (use-package ielm

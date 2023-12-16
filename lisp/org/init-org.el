@@ -301,5 +301,8 @@ Optional for Org-mode file: `LINK'."
 
 (require 'init-plantuml)
 
+;; load when need
+(require 'init-site)
+
 (provide 'init-org)
 ;;; init-org.el ends here
