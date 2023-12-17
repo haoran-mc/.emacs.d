@@ -146,7 +146,7 @@
 ;;   (set-scroll-bar-mode nil))
 
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq bookmark-default-file (concat haoran/home-directory "/no/org/bookmark-default.el"))
+(setq bookmark-default-file (concat haoran/home-directory "/haoran/no/org/bookmark-default.el"))
 
 
 ;; saveplace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

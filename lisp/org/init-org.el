@@ -154,6 +154,7 @@ Optional for Org-mode file: `LINK'."
 
 ;; Keep track of tasks
 (require 'init-macros)
+
 (require 'org-agenda)
 
 ;; (add-hook org-agenda-finalize-hook 'org-agenda-to-appt)

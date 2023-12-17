@@ -30,6 +30,7 @@
                         "s-W"
                         "s-z"
                         "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
+                        "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         ))
 
@@ -121,9 +122,8 @@
 ;; check ext-which-key.el for prompt
 
 ;; a for alone apps
-(lazy-load-global-keys '(("C-c a a" . org-agenda)
-                         ("C-c a x" . org-capture))
-                       "init-org")
+(lazy-load-set-keys '(("C-c x" . org-capture)
+                      ("C-c a a" . org-agenda)))
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim)) "init-fanyi")
 
@@ -155,7 +155,7 @@
                        "init-eshell")
 
 (with-eval-after-load 'org
-  (lazy-load-local-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
+  (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
 
 ;; f for find
 (lazy-load-set-keys '(("C-c f f" . find-file)
