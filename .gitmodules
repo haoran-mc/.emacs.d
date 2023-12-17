@@ -98,3 +98,7 @@
 	path = site-lisp/nano-emacs
 	url = git@github.com:rougier/nano-emacs.git
 	shallow = true
+[submodule "site-lisp/highlight-thing"]
+	path = site-lisp/highlight-thing
+	url = git@github.com:fgeller/highlight-thing.el.git
+	shallow = true
