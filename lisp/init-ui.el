@@ -93,7 +93,7 @@
 (require 'spacemacs-dark-theme)
 
 ;; painting-theme
-(add-to-list 'load-path "/Users/haoran/Documents/emacs/local-packages/painting-theme")
+(add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
 (require 'painting-theme)
 
 

@@ -27,6 +27,13 @@
 
 (setq haoran/font-weight "normal")
 
+(cond ((eq system-type 'gnu/linux)
+       (setq haoran/home-directory "/home/haoran")
+       (setq haoran/test-packages-dir "/home/haoran/Documents/emacs/local-packages"))
+      ((eq system-type 'darwin)
+       (setq haoran/home-directory "/Users/haoran")
+       (setq haoran/test-packages-dir "/Users/haoran/Documents/emacs/local-packages")))
+
 
 (provide 'init-variables)
 ;;; init-variables.el ends here

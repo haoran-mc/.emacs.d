@@ -77,7 +77,7 @@ Optional for Org-mode file: `LINK'."
 
 
 ;; base
-(setq org-directory "~/haoran/no/org/org-directory" ;; USER-DIRECTORY
+(setq org-directory (concat haoran/home-directory "/haoran/no/org/org-directory") ;; USER-DIRECTORY
       org-default-notes-file (expand-file-name "notes.org" org-directory)
       org-use-property-inheritance t ;; 子标题会继承父标题的属性
       org-list-allow-alphabetical t ;; 允许使用字母作为有序列表
@@ -162,9 +162,9 @@ Optional for Org-mode file: `LINK'."
 (run-at-time t 300 #'org-agenda-to-appt)
 (shut-up! #'org-agenda-to-appt)
 
-(setq org-agenda-files '("~/haoran/no/org/org-directory/tasks/"
-                         "~/haoran/no/org/org-directory/agenda/"
-                         "~/haoran/no/org/org-directory/work/"
+(setq org-agenda-files '((concat haoran/home-directory "/haoran/no/org/org-directory/tasks/")
+                         (concat haoran/home-directory "/haoran/no/org/org-directory/agenda/")
+                         (concat haoran/home-directory "/haoran/no/org/org-directory/work/")
                          ) ;; 此文件夹的日程将被 agenda 管理
       org-agenda-block-separator ?─
       org-agenda-time-grid '((daily today require-timed)
