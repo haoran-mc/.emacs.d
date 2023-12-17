@@ -158,8 +158,8 @@
   (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
 
 ;; f for find
-(lazy-load-set-keys '(("C-c f f" . find-file)
-                      ("C-c f p" . project-find-file)))
+(lazy-load-set-keys '(("C-c f x" . find-file)
+                      ("C-c f f" . project-find-file)))
 
 (lazy-load-global-keys '(("C-c f r" . consult-recent-file)
                          ("C-c f g" . consult-ripgrep)
