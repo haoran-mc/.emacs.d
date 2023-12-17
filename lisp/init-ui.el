@@ -93,8 +93,8 @@
 (require 'spacemacs-dark-theme)
 
 ;; painting-theme
-(add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
-(require 'painting-theme)
+;; (add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
+;; (require 'painting-theme)
 
 
 (if (eq system-type 'gnu/linux)

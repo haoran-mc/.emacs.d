@@ -29,10 +29,12 @@
 
 (cond ((eq system-type 'gnu/linux)
        (setq haoran/home-directory "/home/haoran")
-       (setq haoran/test-packages-dir "/home/haoran/Documents/emacs/local-packages"))
+       (setq haoran/test-packages-dir "/home/haoran/Documents/emacs/local-packages")
+       (setq haoran/font-size 11))
       ((eq system-type 'darwin)
        (setq haoran/home-directory "/Users/haoran")
-       (setq haoran/test-packages-dir "/Users/haoran/Documents/emacs/local-packages")))
+       (setq haoran/test-packages-dir "/Users/haoran/Documents/emacs/local-packages")
+       (setq haoran/font-size 13)))
 
 
 (provide 'init-variables)
