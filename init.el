@@ -105,6 +105,7 @@
 (require 'init-which-key)
 (require 'init-yasnippet)
 (require 'init-autoinsert)
+(require 'init-highlight-thing)
 
 (require 'init-theme)
 

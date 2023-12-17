@@ -80,11 +80,20 @@
 
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(lazy-load-set-keys '(("M-:" . execute-extended-command)))
-(lazy-load-set-keys '(("M-;" . comment-dwim)))
+(lazy-load-set-keys '(("M-:" . execute-extended-command)
+                      ("M-;" . comment-dwim)))
+
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
                          ("M-d" . delete-block-forward))
                        "delete-block")
+
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("M-." . (lambda() (interactive) (org-open-at-point)))
+                        ("M-," . (lambda() (interactive) (org-mark-ring-goto))))
+                      org-mode-map))
+
+(lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
+
 ;; M-e -> expand-region ?
 (lazy-load-set-keys '(("M-h" . mark-paragraph)))
 
@@ -190,12 +199,6 @@
                         ("C-c i i" . +org-insert-image)
                         ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
                       org-mode-map))
-
-;; jk for jump and jump back
-(with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c j" . (lambda() (interactive) (org-open-at-point)))
-                        ("C-c k" . (lambda() (interactive) (org-mark-ring-goto))))
-                      org-mode-map)) ;; and lsp-bridge
 
 ;; n for narrow
 (with-eval-after-load 'org
