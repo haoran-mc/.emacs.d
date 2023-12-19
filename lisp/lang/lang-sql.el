@@ -24,12 +24,13 @@
 
 ;;; Code:
 
-(use-package sqlformat
-  :ensure t
-  :hook (sql-mode . sqlformat-on-save-mode)
-  :custom
-  (sqlformat-command 'pgformatter)
-  (sqlformat-args '("-s2" "-g")))
+
+(require 'sqlformat)
+
+;; :hook (sql-mode . sqlformat-on-save-mode)
+
+(setq sqlformat-command 'pgformatter
+      sqlformat-args '("-s2" "-g"))
 
 
 (provide 'lang-sql)
