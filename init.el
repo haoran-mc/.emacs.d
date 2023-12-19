@@ -106,6 +106,7 @@
 (require 'init-yasnippet)
 (require 'init-autoinsert)
 (require 'init-highlight-thing)
+(require 'init-autosave)
 
 ;; (require 'init-theme)
 (if (display-graphic-p)
@@ -122,7 +123,6 @@
 
 (when (file-exists-p custom-file)
   (load custom-file))
-
 
 (provide 'init)
 ;;; init.el ends here

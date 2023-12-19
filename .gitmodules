@@ -102,3 +102,7 @@
 	path = site-lisp/highlight-thing
 	url = git@github.com:fgeller/highlight-thing.el.git
 	shallow = true
+[submodule "site-lisp/auto-save"]
+	path = site-lisp/auto-save
+	url = git@github.com:manateelazycat/auto-save.git
+	shallow = true
