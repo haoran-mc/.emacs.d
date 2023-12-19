@@ -34,5 +34,7 @@
       org-superstar-prettify-item-bullets t ;; 使用列表的美化
       org-superstar-item-bullet-alist '((?- . ?•) (?* . ?–) (?+ . ?◦)))
 
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
 (provide 'init-org-superstar)
 ;;; init-org-superstar.el ends here
