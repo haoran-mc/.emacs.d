@@ -78,8 +78,9 @@
 ;; No annoying bell
 (setq ring-bell-function 'ignore)
 
-;; No eyes distraction
-(setq blink-cursor-mode nil)
+;; Help me find the cursor quickly
+(blink-cursor-mode 1)
+(setq blink-cursor-mode 0) ;; Flashes a million times.
 
 ;; Smooth scroll & friends
 (setq scroll-step 2
