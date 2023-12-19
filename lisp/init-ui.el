@@ -27,8 +27,7 @@
 (defvar pretty-dark-themes
   (list 'spacemacs-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
         'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
-        'doom-horizon 'doom-Iosvkem 'doom-material-dark 'doom-molokai
-        'doom-monokai-spectrum
+        'doom-horizon 'doom-material-dark 'doom-molokai 'doom-monokai-spectrum
         'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
         'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
         'doom-snazzy 'doom-solarized-dark 'doom-solarized-dark-high-contrast
@@ -51,6 +50,7 @@
         'doom-monokai-pro ;; ripgrep highlight bad
         'doom-acario-light ;; comment not obvious
         'doom-acario-dark ;; bad org-link
+        'doom-Iosvkem ;; bad highlight-thing
         ))
 
 (defun random-choice (items)
@@ -79,9 +79,9 @@
   ) ;; TODO
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (require 'doom-themes)
-;; (doom-themes-treemacs-config)
-;; (setq doom-themes-treemacs-theme "doom-colors")
+(require 'doom-themes)
+(doom-themes-treemacs-config)
+(setq doom-themes-treemacs-theme "doom-colors")
 
 ;; nano
 ;; (require 'nano)
@@ -93,45 +93,58 @@
 (require 'spacemacs-dark-theme)
 
 ;; painting-theme
-;; (add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
-;; (require 'painting-theme)
+(add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
+(require 'painting-theme)
 
 
 (if (eq system-type 'gnu/linux)
     (+load-theme-from-selected)
   ;; (load-theme 'doom-solarized-light t)
-  ;; (+load-theme-from-selected)
-  ;; (load-theme 'painting-dark-theme t)
-  (load-theme 'spacemacs-dark t)
+  (+load-theme-from-selected)
+  ;; (load-theme 'painting t)
+  ;; (load-theme 'spacemacs-dark t)
+  ;; (require 'nano)
   )
 
 
 ;; shackle ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Customize popwin behavior
-(require 'shackle)
-(setq shackle-default-size 0.5
-      shackle-default-alignment 'below
-      shackle-rules '((magit-status-mode    :select t :inhibit-window-quit t :same t)
-                      (magit-log-mode       :select t :inhibit-window-quit t :same t)
-                      (vc-annotate-mode     :select t :inhibit-window-quit t :same t)
-                      ("*quickrun*"         :select t :inhibit-window-quit t :same t)
-                      (profiler-report-mode :select t)
-                      (xwidget-webkit-mode  :select t :same t)
-                      (comint-mode          :select t :align t :size 0.4)
-                      (grep-mode            :select t :align t)
-                      (rg-mode              :select t :align t)
-                      ;; See also `help-window-select'
-                      (apropos-mode         :select nil :align t :size 0.4)
-                      (help-mode            :select nil :align t :size 0.4)
-                      ("*Flycheck errors*"         :select t   :align t :size 10)
-                      ("*Backtrace*"               :select t   :align t :size 15)
-                      ("*Shell Command Output*"    :select nil :align t :size 0.4)
-                      ("*Async Shell Command*"     :select nil :align t :size 0.4)
-                      ("*Org-Babel Error Output*"  :select nil :align t :size 0.3)
-                      ("*package update results*"  :select nil :align t :size 10)
-                      ("*Process List*"            :select t   :align t :size 0.3)
-                      ("*Occur*"                   :select t   :align t)
-                      ("\\*eldoc\\( for \\)?.*\\*" :select nil :align t :size 15 :regexp t)))
+;; (require 'shackle)
+;; (setq shackle-default-size 0.5
+;;       shackle-default-alignment 'right
+;;       shackle-rules '((magit-status-mode    :select t :inhibit-window-quit t :same t)
+;;                       (magit-log-mode       :select t :inhibit-window-quit t :same t)
+;;                       (vc-annotate-mode     :select t :inhibit-window-quit t :same t)
+;;                       ("*quickrun*"         :select t :inhibit-window-quit t :same t)
+;;                       (profiler-report-mode :select t)
+;;                       (xwidget-webkit-mode  :select t :same t)
+;;                       (comint-mode          :select t :align t :size 0.4)
+;;                       (grep-mode            :select t :align t)
+;;                       (rg-mode              :select t :align t)
+;;                       ;; See also `help-window-select'
+;;                       (apropos-mode         :select nil :align t :size 0.4)
+;;                       (help-mode            :select nil :align t :size 0.4)
+;;                       ("*Flycheck errors*"         :select t   :align t :size 10)
+;;                       ("*Backtrace*"               :select t   :align t :size 15)
+;;                       ("*Shell Command Output*"    :select nil :align t :size 0.4)
+;;                       ("*Async Shell Command*"     :select nil :align t :size 0.4)
+;;                       ("*Org-Babel Error Output*"  :select nil :align t :size 0.3)
+;;                       ("*package update results*"  :select nil :align t :size 10)
+;;                       ("*Process List*"            :select t   :align t :size 0.3)
+;;                       ("*Occur*"                   :select t   :align t)
+;;                       ("\\*eldoc\\( for \\)?.*\\*" :select nil :align t :size 15 :regexp t)
+;;                       ;; ("\\*Org Src"                :select t   :align "right")
+;;                       ))
+
+(setq display-buffer-alist
+      '(("\\*Org Src"  ; Adjust this pattern based on the actual buffer name
+         (display-buffer-in-side-window)
+         (window-width . 0.5)  ; Adjust the width as needed
+         (side . right))
+        ("\\*magit:.*"  ; Adjust this pattern based on the actual buffer name
+         (display-buffer-same-window)
+         (fullscreen . fullboth))))
+
 
 ;; all-the-icons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'all-the-icons)

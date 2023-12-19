@@ -107,7 +107,12 @@
 (require 'init-autoinsert)
 (require 'init-highlight-thing)
 
-(require 'init-theme)
+;; (require 'init-theme)
+(if (display-graphic-p)
+    (if (eq 'light (frame-parameter nil 'background-mode))
+        (require 'init-theme-light) ;; light theme
+      (require 'init-theme-dark)) ;; dark theme
+  (message "Emacs running in non-GUI mode"))
 
 ;; (require 'init-1keys)
 
