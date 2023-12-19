@@ -26,10 +26,8 @@
 
 
 (require 'yasnippet)
-
-(setq yas-global-mode 1)
 (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
-;; (add-to-list 'yas-snippet-dirs "/Users/haoran/.emacs.d/snippets")
+(yas-global-mode 1)
 
 (with-eval-after-load 'org
   (add-hook 'org-mode-hook #'yas-minor-mode))
