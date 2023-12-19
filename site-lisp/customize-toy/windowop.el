@@ -57,7 +57,7 @@
   (balance-windows))
 
 ;; https://github.com/purcell/emacs.d/blob/master/lisp/init-windows.el
-(defun vanilla/split-window-horizontally-instead ()
+(defun split-window-horizontally-instead ()
   "Kill any other windows and re-split such that the current window is on the top half of the frame."
   (interactive)
   (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
@@ -66,7 +66,7 @@
     (when other-buffer
       (set-window-buffer (next-window) other-buffer))))
 
-(defun vanilla/split-window-vertically-instead ()
+(defun split-window-vertically-instead ()
   "Kill any other windows and re-split such that the current window is on the left half of the frame."
   (interactive)
   (let ((other-buffer (and (next-window) (window-buffer (next-window)))))
