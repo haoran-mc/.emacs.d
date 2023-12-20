@@ -73,9 +73,11 @@
 ;; 在初始化之后加载 exec-path-from-shell，并初始化环境变量
 (when (eq system-type 'darwin)
   (require 'exec-path-from-shell)
-  (exec-path-from-shell-initialize)
+  ;; https://emacs-china.org/t/exec-path-from-shell/2515/4
+  (setq exec-path-from-shell-arguments '("-l")) ;; not load ~/.zshrc, only ~/.zshenv
   (setq exec-path (append exec-path '("/root/go/bin")))
-  (setenv "LANG" "zh_CN.UTF-8"))
+  (setenv "LANG" "zh_CN.UTF-8")
+  (exec-path-from-shell-initialize))
 
 
 (provide 'init-osx)
