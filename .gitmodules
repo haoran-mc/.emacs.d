@@ -106,3 +106,11 @@
 	path = site-lisp/auto-save
 	url = git@github.com:manateelazycat/auto-save.git
 	shallow = true
+[submodule "site-lisp/avy"]
+	path = site-lisp/avy
+	url = git@github.com:abo-abo/avy.git
+	shallow = true
+[submodule "site-lisp/ace-pinyin"]
+	path = site-lisp/ace-pinyin
+	url = git@github.com:cute-jumper/ace-pinyin.git
+	shallow = true
