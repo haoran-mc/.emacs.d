@@ -94,7 +94,14 @@
 
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
-;; M-e -> expand-region ?
+(lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
+
+(lazy-load-global-keys '(("M-e" . er/expand-region)
+                         ("M--" . er/contract-region))
+                       "init-expand-region")
+
+(lazy-load-global-keys '(("M-f" . avy-goto-char-in-line)) "init-avy")
+
 (lazy-load-set-keys '(("M-h" . mark-paragraph)))
 
 (lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down)

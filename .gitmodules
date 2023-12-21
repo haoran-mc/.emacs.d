@@ -121,3 +121,8 @@
 [submodule "site-lisp/treemacs"]
 	path = site-lisp/treemacs
 	url = git@github.com:Alexander-Miller/treemacs.git
+	shallow = true
+[submodule "site-lisp/expand-region.el"]
+	path = site-lisp/expand-region.el
+	url = git@github.com:magnars/expand-region.el.git
+	shallow = true
