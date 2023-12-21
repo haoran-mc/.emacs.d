@@ -114,3 +114,10 @@
 	path = site-lisp/ace-pinyin
 	url = git@github.com:cute-jumper/ace-pinyin.git
 	shallow = true
+[submodule "site-lisp/vundo"]
+	path = site-lisp/vundo
+	url = git@github.com:casouri/vundo.git
+	shallow = true
+[submodule "site-lisp/treemacs"]
+	path = site-lisp/treemacs
+	url = git@github.com:Alexander-Miller/treemacs.git
