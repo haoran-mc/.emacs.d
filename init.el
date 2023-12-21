@@ -75,6 +75,7 @@
 
 (require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
+(require 'one-key)
 
 (require 'init-base)
 (require 'init-funcs)
@@ -107,6 +108,7 @@
 (require 'init-autoinsert)
 (require 'init-highlight-thing)
 (require 'init-autosave)
+(require 'init-vundo)
 
 ;; (require 'init-theme)
 (if (display-graphic-p)
