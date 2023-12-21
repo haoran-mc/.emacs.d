@@ -46,7 +46,10 @@
 
 (setq avy-background t
       avy-all-windows nil
-      avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l ?q ?w ?e ?r ?u ?i ?o ?p)
+      ;; asdghklqwertyuiopzxcvbnmfj;
+      avy-keys '(?;
+                 ?j ?f ?m ?n ?b ?v ?c ?x ?z ?p ?o
+                 ?i ?e ?e ?q ?l ?k ?h ?g ?d ?s ?a)
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
       avy-styles-alist '((avy-isearch . pre)))
 

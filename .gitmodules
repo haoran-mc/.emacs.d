@@ -126,3 +126,10 @@
 	path = site-lisp/expand-region.el
 	url = git@github.com:magnars/expand-region.el.git
 	shallow = true
+[submodule "site-lisp/goto-line-preview"]
+	path = site-lisp/goto-line-preview
+	url = git@github.com:emacs-vs/goto-line-preview.git
+	shallow = true
+[submodule "theme/solarized-emacs"]
+	path = theme/solarized-emacs
+	url = git@github.com:bbatsov/solarized-emacs.git
