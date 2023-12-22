@@ -46,10 +46,13 @@
 
 (setq avy-background t
       avy-all-windows nil
-      ;; asdghklqwertyuiopzxcvbnmfj;
-      avy-keys '(?;
-                 ?j ?f ?m ?n ?b ?v ?c ?x ?z ?p ?o
-                 ?i ?e ?e ?q ?l ?k ?h ?g ?d ?s ?a)
+      ;; 单页字符数量一般不会需要超过三个字符定位
+      ;; 两个字符定位时，会优先使用倒叙的字符作为开头，建议左手按第一个字符，右手按第二个字符
+      ;; ; 是 macvim 中 easymotion 的首字母，这里沿用
+      ;; 单字符选择时，把右手下面的几个按键排在前面
+      avy-keys '(?j ?i ?o ?k ?l ?c ?x ?z ?n ?m ?h ?p
+                    ?a ?w ?e ?s ?d ?f ?;
+                    )
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
       avy-styles-alist '((avy-isearch . pre)))
 
