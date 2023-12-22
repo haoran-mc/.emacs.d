@@ -78,8 +78,55 @@
                        "windowop")
 
 
+;; ----------------------------------
+;; I combined vim's hjkl and emacs' npbf movement direction
+;;
+;; M-?:
+;;                  ^  vanilla/scroll-half-page-down
+;; mark-paragraph   k
+;;            < h       l >  downcase-word
+;;                  j
+;;                  v  vanilla/scroll-half-page-up
+;;
+;;
+;; M-?:
+;;                 ^  vanilla/move-cursor-8-lines-up
+;; backward-word   p
+;;           < b       f >  forward-word
+;;                 n
+;;                 v  vanilla/move-cursor-8-lines-down
+;;
+;;
+;; M-?:
+;;                                   ^  duplicate-line-above-comment
+;; duplicate-line-or-region-below    K
+;;                             < H       L >  duplicate-line-or-region-above
+;;                                   J
+;;                                   v  duplicate-line-below-comment
+;;
+;;
+;;
+;; s-?:
+;;                                   ^  lazycat/scroll-down-one-line
+;; vanilla/scroll-right-half-page    k
+;;                             < h       l >  vanilla/scroll-left-half-page
+;;                                   j
+;;                                   v  lazycat/scroll-up-one-line
+;;
+;;
+;; s-?:
+;;              ^  move-text-up
+;;              K
+;;        < H       L >
+;;              J
+;;              v  move-text-down
+;;
+;; ----------------------------------
+
+
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
                       ("M-;" . comment-dwim)))
 
