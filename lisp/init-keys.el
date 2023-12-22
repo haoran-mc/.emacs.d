@@ -107,11 +107,11 @@
 ;;
 ;;
 ;; s-?:
-;;                                   ^  lazycat/scroll-down-one-line
+;;                                   ^  vanilla/scroll-down-one-line
 ;; vanilla/scroll-right-half-page    k
 ;;                             < h       l >  vanilla/scroll-left-half-page
 ;;                                   j
-;;                                   v  lazycat/scroll-up-one-line
+;;                                   v  vanilla/scroll-up-one-line
 ;;
 ;;
 ;; s-?:
