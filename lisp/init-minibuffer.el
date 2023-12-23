@@ -27,17 +27,20 @@
 (setq minibuffer-eldef-shorten-default t) ;; shorten "(default ...)" to "[...]"
 
 
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(require 'savehist)
+(savehist-mode 1)
+(setq history-length 1000)
+
+
 ;; vertico ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; vertical style minibuffer
 (require 'vertico)
 (add-hook 'after-init-hook 'vertico-mode)
 (add-hook 'minibuffer-setup-hook 'vertico-repeat-save)
-(setq vertico-cycle t
-      vertico-sort-function nil)
-
-;; Persist history over Emacs restarts. Vertico sorts by history position.
-(require 'savehist)
-(savehist-mode)
+(setq vertico-cycle t)
+;; extensions
+(require 'vertico-repeat)
 
 
 ;; orderless ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

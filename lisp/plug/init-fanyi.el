@@ -3,7 +3,7 @@
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,11 +20,9 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
-
-(add-to-list 'load-path "~/Documents/emacs/local-packages/fanyi.el")
 
 (require 'fanyi)
 

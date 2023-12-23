@@ -24,9 +24,9 @@
 
 ;;; Code:
 
-(use-package lua-mode
-  :ensure t
-  :mode ("\\.lua\\'" . lua-mode))
+
+(require 'lua-mode)
+(add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
 
 
 (provide 'lang-lua)

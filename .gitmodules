@@ -149,3 +149,80 @@
 [submodule "site-lisp/grip-mode"]
 	path = site-lisp/grip-mode
 	url = git@github.com:seagle0128/grip-mode.git
+	shallow = true
+[submodule "site-lisp/benchmark-init-el"]
+	path = site-lisp/benchmark-init-el
+	url = git@github.com:dholm/benchmark-init-el.git
+	shallow = true
+[submodule "site-lisp/fanyi.el"]
+	path = site-lisp/fanyi.el
+	url = git@github.com:condy0919/fanyi.el.git
+	shallow = true
+[submodule "site-lisp/plantuml-mode"]
+	path = site-lisp/plantuml-mode
+	url = git@github.com:skuro/plantuml-mode.git
+	shallow = true
+[submodule "site-lisp/emacs-which-key"]
+	path = site-lisp/emacs-which-key
+	url = git@github.com:justbur/emacs-which-key.git
+	shallow = true
+[submodule "site-lisp/no-littering"]
+	path = site-lisp/no-littering
+	url = git@github.com:emacscollective/no-littering.git
+	shallow = true
+[submodule "site-lisp/compat"]
+	path = site-lisp/compat
+	url = git@github.com:emacs-compat/compat.git
+	shallow = true
+[submodule "site-lisp/doom-modeline"]
+	path = site-lisp/doom-modeline
+	url = git@github.com:seagle0128/doom-modeline.git
+	shallow = true
+[submodule "site-lisp/nerd-icons"]
+	path = site-lisp/nerd-icons
+	url = git@github.com:rainstormstudio/nerd-icons.el.git
+	shallow = true
+[submodule "site-lisp/shrink-path"]
+	path = site-lisp/shrink-path
+	url = git@gitlab.com:bennya/shrink-path.el.git
+	shallow = true
+[submodule "site-lisp/dash"]
+	path = site-lisp/dash
+	url = git@github.com:magnars/dash.el.git
+	shallow = true
+[submodule "site-lisp/s"]
+	path = site-lisp/s
+	url = git@github.com:magnars/s.el.git
+	shallow = true
+[submodule "site-lisp/f"]
+	path = site-lisp/f
+	url = git@github.com:rejeep/f.el.git
+	shallow = true
+[submodule "site-lisp/popup-el"]
+	path = site-lisp/popup-el
+	url = git@github.com:auto-complete/popup-el.git
+	shallow = true
+[submodule "site-lisp/sqlformat"]
+	path = site-lisp/sqlformat
+	url = git@github.com:purcell/sqlformat.git
+	shallow = true
+[submodule "site-lisp/emacs-reformatter"]
+	path = site-lisp/emacs-reformatter
+	url = git@github.com:purcell/emacs-reformatter.git
+	shallow = true
+[submodule "site-lisp/lua-mode"]
+	path = site-lisp/lua-mode
+	url = git@github.com:immerrr/lua-mode.git
+	shallow = true
+[submodule "site-lisp/hl-todo"]
+	path = site-lisp/hl-todo
+	url = git@github.com:tarsius/hl-todo.git
+	shallow = true
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = git@github.com:magit/magit.git
+	shallow = true
+[submodule "site-lisp/with-editor"]
+	path = site-lisp/with-editor
+	url = git@github.com:magit/with-editor.git
+	shallow = true

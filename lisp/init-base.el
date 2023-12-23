@@ -195,7 +195,7 @@ Else, call `comment-or-uncomment-region' on the current line."
         (comment-dwim nil)
       (comment-or-uncomment-region (line-beginning-position) (line-end-position)))))
 
-(bind-key [remap comment-dwim] 'comment-or-uncomment)
+(global-set-key [remap comment-dwim] 'comment-or-uncomment)
 
 
 ;; hideshow ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

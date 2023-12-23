@@ -24,19 +24,16 @@
 
 ;;; Code:
 
-(use-package plantuml-mode
-  :ensure t
-  ;; :config
-  ;; (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
-  :custom
-  ;; EXTERNAL-TOOLS
-  (plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
-  (plantuml-default-exec-mode 'jar)
-  (org-plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar"))
-  (plantuml-jar-args '("-charset" "UTF-8"))
-  ;; Enable plantuml-mode for PlantUML files
-  (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
-  (add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode)))
+(require 'plantuml-mode)
+
+(setq plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar")
+      plantuml-default-exec-mode 'jar
+      org-plantuml-jar-path (expand-file-name "~/Documents/emacs/org/private/plantuml.jar")
+      plantuml-jar-args '("-charset" "UTF-8"))
+
+;; Enable plantuml-mode for PlantUML files
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+(add-to-list 'auto-mode-alist '("\\.plantuml\\'" . plantuml-mode))
 
 
 (provide 'init-plantuml)
