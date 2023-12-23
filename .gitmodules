@@ -137,3 +137,15 @@
 [submodule "site-lisp/diff-hl"]
 	path = site-lisp/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
+	shallow = true
+[submodule "site-lisp/valign"]
+	path = site-lisp/valign
+	url = git@github.com:casouri/valign.git
+	shallow = true
+[submodule "site-lisp/markdown-mode"]
+	path = site-lisp/markdown-mode
+	url = git@github.com:jrblevin/markdown-mode.git
+	shallow = true
+[submodule "site-lisp/grip-mode"]
+	path = site-lisp/grip-mode
+	url = git@github.com:seagle0128/grip-mode.git
