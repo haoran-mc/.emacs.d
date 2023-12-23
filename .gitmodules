@@ -134,3 +134,6 @@
 	path = site-lisp/dirvish
 	url = git@github.com:alexluigit/dirvish.git
 	shallow = true
+[submodule "site-lisp/diff-hl"]
+	path = site-lisp/diff-hl
+	url = git@github.com:dgutov/diff-hl.git
