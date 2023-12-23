@@ -86,7 +86,8 @@
 (require 'init-lsp)
 (require 'init-git)
 (require 'init-dev)
-(require 'init-dired)
+;; (require 'init-dired)
+(require 'init-dirvish)
 (require 'init-minibuffer)
 
 ;; standalone apps

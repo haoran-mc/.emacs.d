@@ -130,6 +130,7 @@
 	path = site-lisp/goto-line-preview
 	url = git@github.com:emacs-vs/goto-line-preview.git
 	shallow = true
-[submodule "theme/solarized-emacs"]
-	path = theme/solarized-emacs
-	url = git@github.com:bbatsov/solarized-emacs.git
+[submodule "site-lisp/dirvish"]
+	path = site-lisp/dirvish
+	url = git@github.com:alexluigit/dirvish.git
+	shallow = true
