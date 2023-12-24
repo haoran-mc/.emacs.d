@@ -28,29 +28,28 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 (with-eval-after-load 'python
-  '(progn
-     ;; Initialization
-     (defun python-mode-delete-trailing-whitespace ()
-       "Delete trailing whitespace before saving file."
-       (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+  ;; Initialization
+  (defun python-mode-delete-trailing-whitespace ()
+    "Delete trailing whitespace before saving file."
+    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
-     ;; error when open org
-     ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
+  ;; error when open org
+  ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
 
-     ;; Configuration
-     ;; Default to Python 3. Prefer the versioned Python binaries since some
-     ;; systems stupidly make the unversioned one point at Python 2.
-     (when (and (executable-find "python3")
-                (string= python-shell-interpreter "python"))
-       (setq python-shell-interpreter "python3"))
+  ;; Configuration
+  ;; Default to Python 3. Prefer the versioned Python binaries since some
+  ;; systems stupidly make the unversioned one point at Python 2.
+  (when (and (executable-find "python3")
+             (string= python-shell-interpreter "python"))
+    (setq python-shell-interpreter "python3"))
 
-     (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
+  (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
 
-     ;; Customization
-     (setq python-indent-guess-indent-offset-verbose nil)
+  ;; Customization
+  (setq python-indent-guess-indent-offset-verbose nil)
 
-     ;; Hook
-     (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)))
+  ;; Hook
+  (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace))
 
 
 ;; (use-package jupyter
