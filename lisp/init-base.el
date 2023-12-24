@@ -68,6 +68,9 @@
 ;; Cutting and pasting use clipboard
 (setq select-enable-clipboard t)
 
+;; Delete selected part when type
+(delete-selection-mode 1)
+
 ;; No gc for font caches
 (setq inhibit-compacting-font-caches t)
 
@@ -80,7 +83,7 @@
 
 ;; Help me find the cursor quickly
 (blink-cursor-mode 1)
-(setq blink-cursor-mode 0) ;; Flashes a million times.
+(setq blink-cursor-blinks 100) ;; Flashes one hundred times.
 
 ;; Smooth scroll & friends
 (setq scroll-step 2

@@ -76,7 +76,6 @@
 
 (require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
-(require 'one-key)
 
 (require 'init-base)
 (require 'init-funcs)
@@ -118,8 +117,6 @@
         (require 'init-theme-light) ;; light theme
       (require 'init-theme-dark)) ;; dark theme
   (message "Emacs running in non-GUI mode"))
-
-;; (require 'init-1keys)
 
 ;; os specific
 (cond ((eq system-type 'gnu/linux) (require 'init-linux))

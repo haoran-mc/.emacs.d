@@ -44,7 +44,7 @@
  '(org-link ((t (:inherit link :foreground "#2AA1AE" :weight normal))))
 
  ;; highlight-thing
- '(highlight-thing ((t (:background "#606689"))))
+ '(highlight-thing ((t (:background "#606689" :foreground "white"))))
 
  ;; symbol-thing
  '(symbol-overlay-face-1 ((t (:foreground "black" :background "#A4E57E"))))

@@ -52,8 +52,8 @@
 
   ;; Key bindings
   ;; eval-print-last-sexp -> eval-to-comment
-  (define-key emacs-lisp-mode-map (kbd "s-j") 'eval-to-comment)
-  (define-key lisp-interaction-mode-map (kbd "s-j") 'eval-to-comment)
+  (define-key emacs-lisp-mode-map (kbd "M-<return>") 'eval-to-comment)
+  (define-key lisp-interaction-mode-map (kbd "M-<return>") 'eval-to-comment)
 
   ;; Hook
   (add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace))

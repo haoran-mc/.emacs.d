@@ -24,7 +24,7 @@
 ;;; Code:
 
 (lazy-load-unset-keys '("C-x C-f"
-                        "C-z"
+                        "C-z" ;; suspend-frame
                         "C-q"
                         "s-T"
                         "s-W"
@@ -42,7 +42,8 @@
 (lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
-(lazy-load-global-keys '(("C-;" . avy-goto-char-2)) "init-avy")
+(lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
+(lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
                          ("C-e" . mwim-end-of-line-or-code))
@@ -53,14 +54,15 @@
                       ("C-h C-v" . find-variable)
                       ("C-h C-k" . find-function-on-key)))
 
-(lazy-load-global-keys '(("C-o" . open-newline-above)
-                         ("C-l" . open-newline-below))
+(lazy-load-global-keys '(("C-o" . open-newline-above)  ;; open-line
+                         ("C-l" . open-newline-below)) ;; recenter-top-bottom
                        "open-newline")
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
-;; w for window, unify keys with vim, s-w instead of C-w
+(lazy-load-set-keys '(("C-z" . kill-this-buffer)))
+
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
                       ("C-\\ j" . windmove-down)
                       ("C-\\ k" . windmove-up)
@@ -139,17 +141,24 @@
                         ("M-," . (lambda() (interactive) (org-mark-ring-goto))))
                       org-mode-map))
 
+;; you may use M-e (expand-region) more
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
+;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
-(lazy-load-global-keys '(("M-e" . er/expand-region)
+(lazy-load-global-keys '(("M-e" . er/expand-region) ;; like M-a confusing sentence ending
                          ("M--" . er/contract-region))
                        "init-expand-region")
 
-(lazy-load-global-keys '(("M-f" . avy-goto-char-in-line)) "init-avy")
+(lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview")
 
 (lazy-load-set-keys '(("M-h" . mark-paragraph)))
+
+;; M-j M-k
+(lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
+                         ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
+                       "cursormove")
 
 (lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down)
                          ("M-p" . vanilla/move-cursor-8-lines-up))
@@ -164,14 +173,25 @@
                          ("M-z b" . vanilla/move-to-window-bottom))
                        "cursormove")
 
+;; capital letters
+(lazy-load-global-keys '(("M-L" . duplicate-line-or-region-above)
+                         ("M-H" . duplicate-line-or-region-below)
+                         ("M-J" . duplicate-line-below-comment)
+                         ("M-K" . duplicate-line-above-comment))
+                       "duplicate-line")
+
 
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; s-? -> text operation
 (lazy-load-global-keys '(("s-h" . vanilla/scroll-right-half-page)
-                         ("s-l" . vanilla/scroll-left-half-page))
+                         ("s-l" . vanilla/scroll-left-half-page)
+                         ("s-j" . vanilla/scroll-up-one-line)
+                         ("s-k" . vanilla/scroll-down-one-line))
                        "cursormove")
-(lazy-load-global-keys '(("s-N" . move-text-down)
-                         ("s-P" . move-text-up))
+
+(lazy-load-global-keys '(("s-J" . move-text-down)
+                         ("s-K" . move-text-up))
                        "move-text")
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
@@ -190,6 +210,7 @@
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim)) "init-fanyi")
 
+
 ;; b for buffer, bookmark
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
                       ("C-c b r" . bookmark-rename)
@@ -199,7 +220,6 @@
 (lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "basic-tookit")
 (lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
 
-
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680
 (lazy-load-global-keys '(("C-c c b" . literate-calc-eval-buffer)
@@ -208,6 +228,9 @@
                          ("C-c c l" . literate-calc-eval-line)
                          ("C-c c c" . literate-calc-clear-overlays))
                        "literate-calc-mode")
+
+;; c for code
+
 
 ;; e for eshell
 (lazy-load-global-keys '(("C-c e n" . aweshell-new)
@@ -222,7 +245,8 @@
 
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)
-                      ("C-c f f" . project-find-file)))
+                      ("C-c f f" . project-find-file)
+                      ("C-c f R" . +rename-current-file)))
 
 (lazy-load-global-keys '(("C-c f r" . consult-recent-file)
                          ("C-c f g" . consult-ripgrep)
@@ -231,6 +255,8 @@
 
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
 
+;; g for git
+(lazy-load-set-keys '(("C-c g b" . magit-blame)))
 
 ;; h for hideshow unify with vim
 ;; zm hide-all
@@ -253,6 +279,10 @@
                         ("C-c i i" . +org-insert-image)
                         ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
                       org-mode-map))
+
+(lazy-load-global-keys '(("C-c k" . avy-goto-line-above)
+                         ("C-c j" . avy-goto-line-below))
+                       "init-avy")
 
 ;; n for narrow
 (with-eval-after-load 'org
@@ -281,6 +311,7 @@
                       ("C-c u i" . +indent-buffer)))
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(lazy-load-global-keys '(("C-x g" . magit-status)) "magit")
 
 
 (provide 'init-keys)

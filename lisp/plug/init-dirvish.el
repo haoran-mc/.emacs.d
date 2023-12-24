@@ -33,10 +33,12 @@
      (setq dirvish-mode-map (make-sparse-keymap))
      ;; cursor move
      (define-key dirvish-mode-map (kbd "n") #'dired-next-line)
+     (define-key dirvish-mode-map (kbd "p") #'dired-previous-line)
      (define-key dirvish-mode-map (kbd "h") #'dired-up-directory)
      (define-key dirvish-mode-map (kbd "j") #'dired-next-line)
      (define-key dirvish-mode-map (kbd "k") #'dired-previous-line)
      (define-key dirvish-mode-map (kbd "l") #'dired-find-file)
+     (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
      ;; mark
      (define-key dirvish-mode-map (kbd "d") #'dired-flag-file-deletion)
      (define-key dirvish-mode-map (kbd "x") #'dired-do-flagged-delete)

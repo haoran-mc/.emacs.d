@@ -80,8 +80,11 @@
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'doom-themes)
-(doom-themes-treemacs-config)
-(setq doom-themes-treemacs-theme "doom-colors")
+;; (doom-themes-treemacs-config)
+;; (doom-themes-org-config)
+(setq doom-themes-treemacs-theme "doom-colors"
+      doom-themes-enable-bold nil
+      doom-themes-enable-italic t)
 
 ;; nano
 ;; (require 'nano)
@@ -90,17 +93,18 @@
 ;; (require 'lazycat-dark-theme)
 
 ;; spacemacs-theme
-(require 'spacemacs-dark-theme)
+;; (require 'spacemacs-dark-theme)
 
 ;; painting-theme
-(add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
-(require 'painting-theme)
+;; (add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
+;; (require 'painting-theme)
 
 
 (if (eq system-type 'gnu/linux)
     (+load-theme-from-selected)
-  ;; (load-theme 'doom-solarized-light t)
-  (+load-theme-from-selected)
+  ;; (load-theme 'doom-solarized-dark-high-contrast t)
+  (load-theme 'doom-solarized-light t)
+  ;; (+load-theme-from-selected)
   ;; (load-theme 'painting t)
   ;; (load-theme 'spacemacs-dark t)
   ;; (require 'nano)
@@ -137,11 +141,11 @@
 ;;                       ))
 
 (setq display-buffer-alist
-      '(("\\*Org Src"  ; Adjust this pattern based on the actual buffer name
+      '(("\\*Org Src" ;; Adjust this pattern based on the actual buffer name
          (display-buffer-in-side-window)
          (window-width . 0.5)  ; Adjust the width as needed
          (side . right))
-        ("\\*magit:.*"  ; Adjust this pattern based on the actual buffer name
+        ("Magit"
          (display-buffer-same-window)
          (fullscreen . fullboth))))
 

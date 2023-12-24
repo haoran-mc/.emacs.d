@@ -64,7 +64,7 @@
 (add-hook 'prog-mode-hook (lambda() (setq truncate-lines t)))
 
 
-(require 'lang-cpp)
+;; (require 'lang-cpp)
 ;; (require 'lang-rust)
 ;; (require 'lang-ocaml)
 ;; (require 'lang-bazel)

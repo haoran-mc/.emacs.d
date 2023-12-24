@@ -24,32 +24,32 @@
 
 ;;; Code:
 
-;; Another Atom/RSS reader
-(use-package newsticker
-  :ensure nil
-  :bind ("C-x w" . newsticker-show-news)
-  ;; :hook (newsticker-treeview-item-mode . centaur-read-mode)
-  :init (setq newsticker-url-list
-              '(("Planet Emacslife" "https://planet.emacslife.com/atom.xml")
-                ("Mastering Emacs" "http://www.masteringemacs.org/feed/")
-                ("Oremacs" "https://oremacs.com/atom.xml")
-                ("EmacsCast" "https://pinecast.com/feed/emacscast")
-                ("Emacs TIL" "https://emacstil.com/feed.xml")
-                ;; ("Emacs Reddit" "https://www.reddit.com/r/emacs.rss")
-                )))
-
-(require 'init-elfeed)
-
-(use-package nov
-  :ensure t
-  :mode ("\\.epub\\'" . nov-mode))
-
-;; (use-package nov-xwidget
-;;   :demand t
-;;   :after nov
-;;   :config
-;;   (define-key nov-mode-map (kbd "o") 'nov-xwidget-view)
-;;   (add-hook 'nov-mode-hook 'nov-xwidget-inject-all-files))
+;; ;; Another Atom/RSS reader
+;; (use-package newsticker
+;;   :ensure nil
+;;   :bind ("C-x w" . newsticker-show-news)
+;;   ;; :hook (newsticker-treeview-item-mode . centaur-read-mode)
+;;   :init (setq newsticker-url-list
+;;               '(("Planet Emacslife" "https://planet.emacslife.com/atom.xml")
+;;                 ("Mastering Emacs" "http://www.masteringemacs.org/feed/")
+;;                 ("Oremacs" "https://oremacs.com/atom.xml")
+;;                 ("EmacsCast" "https://pinecast.com/feed/emacscast")
+;;                 ("Emacs TIL" "https://emacstil.com/feed.xml")
+;;                 ;; ("Emacs Reddit" "https://www.reddit.com/r/emacs.rss")
+;;                 )))
+;; 
+;; (require 'init-elfeed)
+;; 
+;; (use-package nov
+;;   :ensure t
+;;   :mode ("\\.epub\\'" . nov-mode))
+;; 
+;; ;; (use-package nov-xwidget
+;; ;;   :demand t
+;; ;;   :after nov
+;; ;;   :config
+;; ;;   (define-key nov-mode-map (kbd "o") 'nov-xwidget-view)
+;; ;;   (add-hook 'nov-mode-hook 'nov-xwidget-inject-all-files))
 
 
 (provide 'init-reader)

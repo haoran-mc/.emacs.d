@@ -37,10 +37,14 @@
   (tab-bar-rename-tab "xxx"))
 
 (require 'tab-bar)
-(setq tab-bar-close-button nil
+(setq tab-bar-show t
+      tab-bar-close-button nil
       tab-bar-tab-hints nil
       tab-bar-tab-name-function 'tab-bar-tab-name-all
       tab-bar-format '(tab-bar-format-tabs tab-bar-separator))
+
+
+
 
 
 (provide 'init-tab-bar)

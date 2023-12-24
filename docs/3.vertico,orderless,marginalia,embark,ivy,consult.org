@@ -1,0 +1,53 @@
+#+title: minibuffer
+#+startup: noindent showeverything
+
+* vertico
+
+垂直 minibuffer 补全，原生的 emacs 补全例如： evil-1 | evil-2 | evil-3 | ...，横着的补全排版不容易选择。
+
+vertico 仅提供了垂直样式。
+
+* savehist
+
+vertico 使用 savehist 命令排序，常用命令将放在列表前面。
+
+* orderless
+
+模糊补全。
+
+* marginalia
+
+显示命令的解释、变量的值、快捷键绑定、文件的大小、文件的权限属性、buffer major mode等。
+
+#+begin_example
+  show description on minibuffer, like this:
+  lisp/      drwxr-xr-x    192  19 mis ago
+#+end_example
+
+* consult
+
+替换了原本的 emacs 的一些功能，比如 recentf、mark、bookmark 等。
+
+C-s 替换了 ivy 的 swiper 功能，更强大的搜索能力。
+
+还有非常强大的 consult-imenu、consult-ripgrep...
+
+* embark NOTUSE
+
+M-o 增强 minibuffer。
+
+C-x C-h 不需要再记快捷键了，通过模糊查找就可以执行有快捷键的命令。
+
+其实这个反而用得少了。
+
+* embark-consult NOTUSE
+
+没搞懂
+
+* ivy swiper counsel Deprecated
+
+{ counsel { swiper { ivy } } }
+
+- ivy 是核心
+- swiper 是 ivy 上面对 isearch 的增强工具
+- counsel 是实用工具

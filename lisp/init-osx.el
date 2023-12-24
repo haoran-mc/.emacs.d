@@ -75,7 +75,6 @@
   (require 'exec-path-from-shell)
   ;; https://emacs-china.org/t/exec-path-from-shell/2515/4
   (setq exec-path-from-shell-arguments '("-l")) ;; not load ~/.zshrc, only ~/.zshenv
-  (setq exec-path (append exec-path '("/root/go/bin")))
   (setenv "LANG" "zh_CN.UTF-8")
   (exec-path-from-shell-initialize))
 

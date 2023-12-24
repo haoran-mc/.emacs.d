@@ -94,8 +94,8 @@
              (+load-font))
     (message "using smallest font")))
 
-(global-set-key (kbd "M-+") #'+larger-font)
-(global-set-key (kbd "M--") #'+smaller-font)
+(global-set-key (kbd "s-+") #'+larger-font)
+(global-set-key (kbd "s--") #'+smaller-font)
 
 
 (require 'init-ligature)

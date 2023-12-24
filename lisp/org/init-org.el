@@ -25,7 +25,8 @@
 
 (require 'org)
 
-;; (add-hook org-mode-hook 'visual-line-mode) ;; 折行
+;; (add-hook 'org-mode-hook 'visual-line-mode) ;; 折行
+(add-hook 'org-mode-hook 'toggle-truncate-lines) ;;
 
 (require 'org-tempo) ;; <s
 

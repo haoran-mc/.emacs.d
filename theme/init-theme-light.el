@@ -25,9 +25,31 @@
 
 
 (custom-set-faces
+ ;; org-mode
+ '(org-level-1 ((t (:inherit outline-1 :weight normal :height 1.0))))
+ '(org-level-2 ((t (:inherit outline-2 :weight normal :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :weight normal :height 1.0))))
+ '(org-level-4 ((t (:inherit outline-4 :weight normal :height 1.0))))
+ '(org-level-5 ((t (:inherit outline-5 :weight normal :height 1.0))))
+ '(org-level-6 ((t (:inherit outline-6 :weight normal :height 1.0))))
+ '(org-level-7 ((t (:inherit outline-7 :weight normal :height 1.0))))
+ '(org-level-8 ((t (:inherit outline-8 :weight normal :height 1.0))))
+ '(org-document-title ((t (:weight normal :height 1.0))))
+ '(org-link ((t (:inherit link :foreground "#2AA1AE" :weight normal))))
 
  ;; highlight-thing
  '(highlight-thing ((t (:background "#ECEFF1"))))
+
+ ;; symbol-thing
+ '(symbol-overlay-face-1 ((t (:foreground "black" :background "#A4E57E"))))
+ '(symbol-overlay-face-2 ((t (:foreground "black" :background "#8CCBEA"))))
+ '(symbol-overlay-face-3 ((t (:foreground "black" :background "#FFDB72"))))
+ '(symbol-overlay-face-4 ((t (:foreground "black" :background "#FF7272"))))
+ '(symbol-overlay-face-5 ((t (:foreground "black" :background "#FFB3FF"))))
+ '(symbol-overlay-face-6 ((t (:foreground "black" :background "#9999FF"))))
+ '(symbol-overlay-face-7 ((t (:foreground "black" :background "#1E90FF"))))
+ '(symbol-overlay-face-8 ((t (:foreground "black" :background "#40E0D0"))))
+
  )
 
 
