@@ -26,6 +26,23 @@
 
 
 ;;;###autoload
+(defun vanilla/delete-current-line ()
+  "Delete the current line without removing the final newline."
+  (interactive)
+  (delete-region (point-at-bol) (point-at-eol)))
+
+;;;###autoload
+(defun vanilla/smart-kill-line ()
+  "Kill to the end of the line and kill whole line on the next call."
+  (interactive)
+  (let ((orig-point (point)))
+    (move-end-of-line 1)
+    (if (= orig-point (point))
+        (delete-current-line)
+      (goto-char orig-point)
+      (kill-line))))
+
+;;;###autoload
 (defun vanilla/mark-whole-word ()
   "Mark the whole word at point without moving the cursor."
   (interactive)

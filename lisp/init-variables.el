@@ -35,6 +35,12 @@
                                     "~/haoran/no/org/org-directory/agenda"
                                     "~/haoran/no/org/org-directory/work"))
 
+(setq haoran/private-notes "~/haoran/no/org/wiki/index.org")
+
+(setq haoran/public-notes "~/haoran/no/org/site/index.org")
+
+(setq haoran/github-page "~/haoran/gr/haoran-mc.github.io")
+
 (cond ((eq system-type 'gnu/linux)
        (setq haoran/home-directory "/home/haoran")
        (setq haoran/font-size 11))

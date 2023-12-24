@@ -128,6 +128,10 @@
 (put 'narrow-to-page   'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; enable upcase and downcase region
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 ;; Enable the disabled dired commands
 (put 'dired-find-alternate-file 'disabled nil)
 
@@ -148,6 +152,7 @@
 ;;   (tool-bar-mode -1))
 ;; (when (fboundp 'set-scroll-bar-mode)
 ;;   (set-scroll-bar-mode nil))
+
 
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq bookmark-default-file haoran/bookmark-file)

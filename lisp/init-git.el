@@ -48,6 +48,7 @@
 (dolist (mode-hook '(go-mode-hook
                      emacs-lisp-mode-hook))
   (add-hook mode-hook 'diff-hl-mode))
+(require 'diff-hl-dired)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)

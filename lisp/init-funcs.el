@@ -173,7 +173,8 @@ are treated as a single unit and preserved in the filename."
 (defun spacemacs/alternate-buffer (&optional window)
   "Switch back and forth between current and last buffer in the current WINDOW.
 If `spacemacs-layouts-restrict-spc-tab' is 't' then this only switches between
-the current layouts buffers."
+the current layouts buffers.
+Deprecated by crux-switch-to-previous-buffer."
   (interactive)
   (cl-destructuring-bind (buf start pos)
       (if (bound-and-true-p spacemacs-layouts-restrict-spc-tab)

@@ -36,10 +36,14 @@
 
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; init-funs has be required by init.el
 (lazy-load-global-keys '(("C-<return>" . consult-bookmark)) "consult")
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
-(lazy-load-set-keys '(("C-<tab>" . spacemacs/alternate-buffer))) ;; init-funs has be required by init.el
+
+(lazy-load-global-keys '(("C-<tab>" . bookmark-jump-switch-to-previous-buffer)
+                         ("C-<backspace>" . crux-kill-line-backwards))
+                       "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
@@ -53,6 +57,8 @@
 (lazy-load-set-keys '(("C-h C-f" . find-function)
                       ("C-h C-v" . find-variable)
                       ("C-h C-k" . find-function-on-key)))
+
+(lazy-load-global-keys '(("C-k" . vanilla/smart-kill-line)) "basic-tookit")
 
 (lazy-load-global-keys '(("C-o" . open-newline-above)  ;; open-line
                          ("C-l" . open-newline-below)) ;; recenter-top-bottom
@@ -291,11 +297,14 @@
                       org-mode-map))
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
-                      ("C-c o s" . (lambda () (interactive) (find-file "~/haoran/no/org/site/index.org")))
-                      ("C-c o f r" . (lambda () (interactive) (find-file "~/.emacs.d/init.el")))))
+(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran/private-notes)))
+                      ("C-c o s" . (lambda () (interactive) (find-file haoran/public-notes)))
+                      ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
+                      ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))))
 
-(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired "~/haoran/gr/haoran-mc.github.io")))))
+(lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
+
+(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran/github-page)))))
 
 ;; s for switch
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
