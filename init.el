@@ -73,7 +73,6 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
 (require 'init-variables)
-
 (require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
 
@@ -110,6 +109,7 @@
 (require 'init-autosave)
 (require 'init-vundo)
 (require 'init-whole-line-or-region)
+(require 'init-keyfreq)
 
 ;; (require 'init-theme)
 (if (display-graphic-p)
