@@ -26,11 +26,9 @@
 
 
 (require 'highlight-thing)
-(add-hook 'prog-mode-hook 'highlight-thing-mode)
+;; (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (setq highlight-thing-delay-seconds 0.2)
 
-;; (custom-set-faces
-;;    '(highlight-thing ((t (:background "yellow" :foreground "black")))))
 
 (provide 'init-highlight-thing)
 ;;; init-highlight-thing.el ends here
