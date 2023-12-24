@@ -230,3 +230,7 @@
 	path = site-lisp/keyfreq
 	url = git@github.com:dacap/keyfreq.git
 	shallow = true
+[submodule "site-lisp/popper"]
+	path = site-lisp/popper
+	url = git@github.com:karthink/popper.git
+	shallow = true

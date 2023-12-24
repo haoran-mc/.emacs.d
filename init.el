@@ -87,6 +87,7 @@
 ;; (require 'init-dired)
 (require 'init-dirvish)
 (require 'init-minibuffer)
+(require 'init-windows)
 
 ;; standalone apps
 (with-eval-after-load 'org
