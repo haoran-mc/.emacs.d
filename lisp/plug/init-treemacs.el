@@ -46,10 +46,10 @@
 ;; ([mouse-1]   . treemacs-single-click-expand-action)
 ;; ("o 1"       . treemacs-visit-node-first-window))
 
-(treemacs-define-RET-action 'file-node-closed
-                            #'(lambda(&optional arg)
-                                (treemacs-visit-node-in-most-recently-used-window)
-                                (delete-window (treemacs-get-local-window))))
+;; (treemacs-define-RET-action 'file-node-closed
+;;                             #'(lambda(&optional arg)
+;;                                 (treemacs-visit-node-in-most-recently-used-window)
+;;                                 (delete-window (treemacs-get-local-window))))
 
 (defun treemacs-visit-node-first-window(&optional arg)
   (interactive "P")
