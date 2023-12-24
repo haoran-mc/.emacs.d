@@ -27,13 +27,19 @@
 
 (setq haoran/font-weight "normal")
 
+(setq haoran/bookmark-file "~/haoran/no/org/bookmark-default.el")
+
+(setq haoran/org-directory "~/haoran/no/org/org-directory")
+
+(setq haoran/org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
+                                    "~/haoran/no/org/org-directory/agenda"
+                                    "~/haoran/no/org/org-directory/work"))
+
 (cond ((eq system-type 'gnu/linux)
        (setq haoran/home-directory "/home/haoran")
-       (setq haoran/test-packages-dir "/home/haoran/Documents/emacs/local-packages")
        (setq haoran/font-size 11))
       ((eq system-type 'darwin)
        (setq haoran/home-directory "/Users/haoran")
-       (setq haoran/test-packages-dir "/Users/haoran/Documents/emacs/local-packages")
        (setq haoran/font-size 13)))
 
 

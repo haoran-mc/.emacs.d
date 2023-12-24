@@ -261,9 +261,11 @@
                       org-mode-map))
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o i" . (lambda() (interactive) (find-file (concat haoran/home-directory "/haoran/no/org/wiki/index.org"))))
-                      ("C-c o s" . (lambda() (interactive) (find-file (concat haoran/home-directory "/haoran/no/org/site/index.org"))))
-                      ("C-c o f r" . (lambda() (interactive) (find-file (concat haoran/home-directory "/.emacs.d/init.el"))))))
+(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
+                      ("C-c o s" . (lambda () (interactive) (find-file "~/haoran/no/org/site/index.org")))
+                      ("C-c o f r" . (lambda () (interactive) (find-file "~/.emacs.d/init.el")))))
+
+(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired "~/haoran/gr/haoran-mc.github.io")))))
 
 ;; s for switch
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
