@@ -82,7 +82,6 @@
 (require 'init-utils)
 (require 'init-ui)
 (require 'init-modeline)
-;; (require 'init-evil)
 (require 'init-lsp)
 (require 'init-git)
 (require 'init-dev)
