@@ -50,12 +50,15 @@ if [ $# -eq 3 ] && [ $1 == "add" ]; then
 
     git submodule add --depth 1 ${url} ${path_to_submodule}
 
-    # strip prefix: ./site-lisp -> site-lisp 
+    # strip prefix: ./site-lisp -> site-lisp
     if [[ ${path_to_submodule} =~ ^\.\/* ]]; then
         path_to_submodule=${path_to_submodule:2}
     fi
 
     git config -f .gitmodules submodule."${path_to_submodule}".shallow true
+
+    # https://stackoverflow.com/a/57551051/14093697
+    git config -f .gitmodules submodule."${path_to_submodule}".ignore all
     print_succ
     exit
 fi
@@ -72,7 +75,7 @@ fi
 if [ $# -eq 2 ] && [ $1 == "branch" ]; then
     path_to_submodule=$2
 
-    # strip prefix: ./site-lisp -> site-lisp 
+    # strip prefix: ./site-lisp -> site-lisp
     if [[ ${path_to_submodule} =~ ^\.\/* ]]; then
         path_to_submodule=${path_to_submodule:2}
     fi
@@ -81,4 +84,3 @@ if [ $# -eq 2 ] && [ $1 == "branch" ]; then
 fi
 
 echo "parameter is not support!"
-
