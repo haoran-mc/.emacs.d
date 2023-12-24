@@ -54,7 +54,8 @@
                     ?a ?w ?e ?s ?d ?f ?;
                     )
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
-      avy-styles-alist '((avy-isearch . pre)))
+      avy-styles-alist '((avy-isearch . pre))
+      avy-case-fold-search nil)
 
 
 
