@@ -21,7 +21,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path "~/Documents/emacs/local-packages/benchmark-init-el")
+;; A simple benchmark of calls to Emacs require and load functions.
+(add-to-list 'load-path "~/.emacs.d/site-lisp/benchmark-init-el")
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
 
