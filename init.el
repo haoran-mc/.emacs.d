@@ -109,6 +109,7 @@
 (require 'init-highlight-thing)
 (require 'init-autosave)
 (require 'init-vundo)
+(require 'init-whole-line-or-region)
 
 ;; (require 'init-theme)
 (if (display-graphic-p)

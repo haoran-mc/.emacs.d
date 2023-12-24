@@ -38,7 +38,7 @@
   (let ((orig-point (point)))
     (move-end-of-line 1)
     (if (= orig-point (point))
-        (delete-current-line)
+        (vanilla/delete-current-line)
       (goto-char orig-point)
       (kill-line))))
 
