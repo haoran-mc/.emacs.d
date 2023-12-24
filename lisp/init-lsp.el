@@ -85,7 +85,8 @@
       (call-interactively #'yas-expand))))
 
 (setq lsp-bridge-enable-hover-diagnostic t
-      acm-enable-quick-access nil)
+      acm-enable-quick-access nil
+      lsp-bridge-enable-mode-line nil)
 
 ;; (require 'lsp-bridge)
 (dolist (mode-hook '(python-mode-hook
