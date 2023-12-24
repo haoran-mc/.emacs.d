@@ -74,7 +74,13 @@
                       ("C-\\ k" . windmove-up)
                       ("C-\\ l" . windmove-right)
                       ("C-\\ =" . balance-windows)
-                      ("C-\\ m" . delete-other-windows)))
+                      ("C-\\ m" . delete-other-windows)
+                      ;; resize window
+                      ("<up>"   . shrink-window)
+                      ("<down>" . enlarge-window)
+                      ("<left>" . shrink-window-horizontally)
+                      ("<right>" . enlarge-window-horizontally)))
+
 (lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
                          ("C-\\ J" . vanilla/split-window-below-with-balance)
                          ("C-\\ K" . vanilla/split-window-up-with-balance)
