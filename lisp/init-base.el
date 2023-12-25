@@ -34,10 +34,10 @@
 
 ;; Suppress GUI features and more
 (setq use-file-dialog nil
-      use-dialog-box nil
+      use-dialog-box nil          ;; never pop dialog
       inhibit-x-resources t
       inhibit-default-init t
-      inhibit-startup-screen t
+      inhibit-startup-screen t    ;; inhibit start screen
       inhibit-startup-message t
       inhibit-startup-buffer-menu t)
 
@@ -53,6 +53,8 @@
 
 ;; Pixelwise resize
 (setq window-resize-pixelwise t
+      ;; 设置缩放的模式，避免 mac 平台最大化窗口
+      ;; 以后右边和下边有空隙
       frame-resize-pixelwise t)
 
 (setq auto-save-default nil
@@ -70,7 +72,7 @@
 ;; Delete selected part when type
 (delete-selection-mode 1)
 
-;; No gc for font caches
+;; 使用字体缓存，避免卡顿
 (setq inhibit-compacting-font-caches t)
 
 ;; Improve display
@@ -80,16 +82,12 @@
 ;; No annoying bell
 (setq ring-bell-function 'ignore)
 
-;; Help me find the cursor quickly
-(blink-cursor-mode 1)
-(setq blink-cursor-blinks 100) ;; Flashes one hundred times.
-
 ;; Smooth scroll & friends
 (setq scroll-step 2
+      scroll-conservatively 101
       scroll-margin 2
       hscroll-step 2
       hscroll-margin 2
-      scroll-conservatively 101
       scroll-preserve-screen-position 'always)
 
 ;; Disable auto vertical scroll for tall lines
@@ -97,13 +95,24 @@
 
 (setq-default fill-column 80)
 
+
+(blink-cursor-mode 1)                   ;; 指针闪动，帮助我快速定位光标位置
+(setq blink-cursor-blinks 100)          ;; 闪动 100 次
+(transient-mark-mode 1)                 ;; 标记高亮
+(global-subword-mode 1)                 ;; Word移动支持 FooBar 的格式
+(setq-default comment-style 'indent)    ;; 设定自动缩进的注释风格
+(setq default-major-mode 'text-mode)    ;; 设置默认地主模式为 TEXT 模式
+;; 按照中文折行
+(setq word-wrap-by-category t
+      ;; paragraphs
+      sentence-end-double-space nil)
+
+
 ;; Treats the `_' as a word constituent
 (add-hook 'after-change-major-mode-hook
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (modify-syntax-entry ?- "w")))
-
-(global-auto-revert-mode 1)
 
 (setq initial-scratch-message ";; This buffer is for text that is not saved, and for Lisp evaluation.
 ;; To create a file, visit it with C-x C-f and enter text in its buffer.
@@ -111,21 +120,11 @@
 
 ;; Sane defaults
 (setq use-short-answers t)
-(unless (>= emacs-major-version 28)
-  (fset 'yes-or-no-p 'y-or-n-p))
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Inhibit switching out from `y-or-n-p' and `read-char-choice'
 (setq y-or-n-p-use-read-key t
       read-char-choice-use-read-key t)
-
-;; Enable the disabled narrow commands
-(put 'narrow-to-defun  'disabled nil)
-(put 'narrow-to-page   'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-
-;; enable upcase and downcase region
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 
 ;; Enable the disabled dired commands
 (put 'dired-find-alternate-file 'disabled nil)
@@ -174,12 +173,6 @@
                         "COMMIT_EDITMSG\\'"))
 
 
-;; hl-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Highlight current line in GUI
-(when (display-graphic-p)
-  (add-hook 'after-init-hook 'global-hl-line-mode))
-
-
 ;; newcomment ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun comment-or-uncomment ()
   "Comment or uncomment the current line or region.
@@ -201,66 +194,9 @@ Else, call `comment-or-uncomment-region' on the current line."
 (global-set-key [remap comment-dwim] 'comment-or-uncomment)
 
 
-;; hideshow ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defconst hideshow-folded-face '((t (:inherit 'font-lock-comment-face :box nil))))
-
-(defface hideshow-border-face
-  '((((background light))
-     :background "rosy brown" :extend t)
-    (t
-     :background "sandy brown" :extend t))
-  "Face used for hideshow fringe."
-  :group 'hideshow)
-
-(define-fringe-bitmap 'hideshow-folded-fringe
-  (vector #b00000000
-          #b00000000
-          #b00000000
-          #b11000011
-          #b11100111
-          #b01111110
-          #b00111100
-          #b00011000))
-
-(defun hideshow-folded-overlay-fn (ov)
-  "Display a folded region indicator with the number of folded lines."
-  (when (eq 'code (overlay-get ov 'hs))
-    (let* ((nlines (count-lines (overlay-start ov) (overlay-end ov)))
-           (info (format " (%d)..." nlines)))
-      ;; fringe indicator
-      (overlay-put ov 'before-string (propertize " "
-                                                 'display '(left-fringe hideshow-folded-fringe
-                                                                        hideshow-border-face)))
-      ;; folding indicator
-      (overlay-put ov 'display (propertize info 'face hideshow-folded-face)))))
-
-(setq hs-set-up-overlay #'hideshow-folded-overlay-fn)
-
-
-;; whitespace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Show trailing whitespaces
-(dolist (mode-hook '(prog-mode-hook markdown-mode-hook conf-mode-hook))
-  (add-hook mode-hook 'whitespace-mode))
-
-(setq whitespace-style '(face trailing))
-
-
-;; so-long ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun my-enable-so-long-maybe ()
-  "Enable so-long-mode if the file size is greater than 1MB."
-  (when (> (buffer-size) 1000000)
-    (so-long-mode 1)))
-
-(add-hook 'find-file-hook 'my-enable-so-long-maybe)
-
-
 ;; server-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Use emacsclient to connect
 (add-hook 'after-init-hook 'server-mode)
-
-
-;; help ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq help-window-select t)
 
 
 ;; imenu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

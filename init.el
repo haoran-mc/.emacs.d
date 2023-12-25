@@ -105,6 +105,7 @@
  1 nil
  #'(lambda ()
      (require 'init-utils)
+     (require 'init-idle)
      (require 'init-parens)
      (require 'init-isearch)
      (require 'init-cursor-chg)
