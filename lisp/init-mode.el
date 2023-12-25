@@ -73,6 +73,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'toml-mode "lang-toml")
 (autoload 'xml-mode "lang-xml")
 (autoload 'yaml-mode "lang-yaml")
+(autoload 'markdown-mode "init-markdown")
 
 
 (provide 'init-mode)

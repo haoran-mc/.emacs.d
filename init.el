@@ -93,7 +93,6 @@
 (require 'init-keys)
 
 ;; standalone apps
-(require 'init-text)
 (require 'init-reader)
 (require 'init-gc)
 (require 'init-autosave)
@@ -116,6 +115,7 @@
      (require 'init-vundo)
      (require 'init-whole-line-or-region)
      (require 'init-project)
+     (require 'init-valign)
      ))
 
 (if (display-graphic-p)

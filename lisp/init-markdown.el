@@ -1,4 +1,4 @@
-;;; init-text.el --- Writing -*- lexical-binding: t -*-
+;;; init-markdown.el --- markdown                    -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -19,33 +19,10 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+
 ;;
-;; `org-mode' is too huge to place here.
-;; `txt'
 
 ;;; Code:
-
-;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Pixel alignment for org/markdown tables
-(require 'valign)
-(dolist (mode-hook '(markdown-mode-hook org-mode-hook))
-  (add-hook mode-hook 'valign-mode))
-(setq valign-fancy-bar t)
-
-
-;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Type text
-(require 'text-mode)
-;; better word wrapping for CJK characters
-(setq word-wrap-by-category t
-      ;; paragraphs
-      sentence-end-double-space nil)
-
-
-;; writeroom-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; another nice writing environment
-;; (require 'writeroom-mode)
-
 
 ;; markdown ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The markdown mode is awesome! unbeatable
@@ -89,5 +66,5 @@
 (setq grip-update-after-change nil)
 
 
-(provide 'init-text)
-;;; init-text.el ends here
+(provide 'init-markdown)
+;;; init-markdown.el ends here
