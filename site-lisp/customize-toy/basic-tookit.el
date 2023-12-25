@@ -24,6 +24,21 @@
 
 ;;; Code:
 
+;;;###autoload
+(defun lazycat/remember-jump ()
+  "Jump to latest position and setup."
+  (interactive)
+  (let ((tmp (point-marker)))
+    (jump-to-register 8)
+    (set-register 8 tmp))
+  (message "Have back to remember position"))
+
+;;;###autoload
+(defun lazycat/remember-init ()
+  "Remember current position and setup."
+  (interactive)
+  (point-to-register 8)
+  (message "Have remember one position"))
 
 ;;;###autoload
 (defun vanilla/clear-current-line ()
