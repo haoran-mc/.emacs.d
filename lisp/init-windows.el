@@ -34,9 +34,9 @@
 (setq popper-group-function #'popper-group-by-directory
       popper-echo-dispatch-actions t)
 
-(define-key popper-mode-map (kbd "C-h z") 'popper-toggle)
-(define-key popper-mode-map (kbd "C-<tab>") 'popper-cycle)
-(define-key popper-mode-map (kbd "C-M-<tab>") 'popper-toggle-type)
+;; (define-key popper-mode-map (kbd "C-h z") 'popper-toggle)
+;; (define-key popper-mode-map (kbd "C-<tab>") 'popper-cycle)
+;; (define-key popper-mode-map (kbd "C-M-<tab>") 'popper-toggle-type)
 
 
 (setq popper-reference-buffers

@@ -41,11 +41,12 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
 
-(lazy-load-global-keys '(("C-<tab>" . bookmark-jump-switch-to-previous-buffer)
+(lazy-load-global-keys '(("C-<tab>" . crux-switch-to-previous-buffer)
                          ("C-<backspace>" . crux-kill-line-backwards))
                        "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
+;; C-. format code
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
@@ -76,10 +77,10 @@
                       ("C-\\ =" . balance-windows)
                       ("C-\\ m" . delete-other-windows)
                       ;; resize window
-                      ("<up>"   . shrink-window)
-                      ("<down>" . enlarge-window)
-                      ("<left>" . shrink-window-horizontally)
-                      ("<right>" . enlarge-window-horizontally)))
+                      ("C-<up>"   . shrink-window)
+                      ("C-<down>" . enlarge-window)
+                      ("C-<left>" . shrink-window-horizontally)
+                      ("C-<right>" . enlarge-window-horizontally)))
 
 (lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
                          ("C-\\ J" . vanilla/split-window-below-with-balance)
@@ -208,7 +209,9 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
 
-
+(lazy-load-global-keys '(("s-." . lazycat/remember-init)
+                         ("s-," . lazycat/remember-jump))
+                       "basic-tookit")
 
 
 

@@ -3,7 +3,7 @@
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
@@ -40,12 +40,12 @@
   ["~/.emacs.d/templates/default-org.org" autoinsert-yas-expand])
 (define-auto-insert "\\.html$"
   ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand])
-(define-auto-insert "\\.go$"
-  ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
-(define-auto-insert "\\.py$"
-  ["~/.emacs.d/templates/default-py.py" autoinsert-yas-expand])
-(define-auto-insert "\\.c++$"
-  ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand])
+;; (define-auto-insert "\\.go$"
+;;   ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
+;; (define-auto-insert "\\.py$"
+;;   ["~/.emacs.d/templates/default-py.py" autoinsert-yas-expand])
+;; (define-auto-insert "\\.c++$"
+;;   ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand])
 
 
 (provide 'init-autoinsert)

@@ -36,7 +36,7 @@
 (setq auto-save-disable-predicates
       '((lambda ()
           (string-suffix-p
-           "go"
+           "pgp"
            (file-name-extension (buffer-name)) t))))
 
 

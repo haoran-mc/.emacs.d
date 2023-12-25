@@ -35,7 +35,10 @@
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
 ;; larger than the system default.
-(setq frame-inhibit-implied-resize t)
+(setq frame-inhibit-implied-resize t  ;; 不缩放 frame
+      initial-major-mode 'fundamental-mode
+      package-enable-at-startup nil
+      package--init-file-ensured t)
 
 ;; https://emacs-china.org/t/emacs-utf-8/21143/28
 (set-charset-priority 'unicode)

@@ -50,6 +50,8 @@
  '(symbol-overlay-face-7 ((t (:foreground "black" :background "#1E90FF"))))
  '(symbol-overlay-face-8 ((t (:foreground "black" :background "#40E0D0"))))
 
+ ;; diff-hl
+ '(diff-hl-change ((t (:background "#bbbb00" :foreground "#bbbb00"))))
  )
 
 

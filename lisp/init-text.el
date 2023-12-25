@@ -28,7 +28,7 @@
 ;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pixel alignment for org/markdown tables
 (require 'valign)
-(dolist (mode-hook '(markdown-mode org-mode))
+(dolist (mode-hook '(markdown-mode-hook org-mode-hook))
   (add-hook mode-hook 'valign-mode))
 (setq valign-fancy-bar t)
 

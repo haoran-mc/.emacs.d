@@ -88,9 +88,8 @@
       acm-enable-quick-access nil
       lsp-bridge-enable-mode-line nil)
 
-;; (require 'lsp-bridge)
 (dolist (mode-hook '(python-mode-hook
-                     ;; emacs-lisp-mode-hook
+                     emacs-lisp-mode-hook
                      go-mode-hook))
   (add-hook mode-hook (lambda () (require 'lsp-bridge)
                         (message "major mode is: %s" major-mode)
