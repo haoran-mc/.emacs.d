@@ -73,46 +73,50 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
 (require 'init-variables)
+(require 'init-font)
+(require 'init-base)
 (require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
-
-(require 'init-base)
 (require 'init-funcs)
-(require 'init-utils)
+
 (require 'init-ui)
+(require 'init-mode)
 (require 'init-modeline)
 (require 'init-lsp)
 (require 'init-git)
 (require 'init-dev)
-;; (require 'init-dired)
 (require 'init-dirvish)
 (require 'init-minibuffer)
 (require 'init-windows)
+(require 'init-time)
+(require 'init-indent)
+(require 'init-keys)
 
 ;; standalone apps
-(with-eval-after-load 'org
-  (require 'init-org))
-(require 'init-font)
 (require 'init-text)
 (require 'init-reader)
-
-;; load at last
-(require 'init-parens)
-(require 'init-isearch)
-(require 'init-keys)
-(require 'init-cursor-chg)
 (require 'init-gc)
-(require 'init-hl-todo)
-(require 'init-which-key)
-(require 'init-yasnippet)
-(require 'init-autoinsert)
-(require 'init-highlight-thing)
 (require 'init-autosave)
-(require 'init-vundo)
-(require 'init-whole-line-or-region)
+(require 'init-autoinsert)
 (require 'init-keyfreq)
 
-;; (require 'init-theme)
+;; load later
+(run-with-idle-timer
+ 1 nil
+ #'(lambda ()
+     (require 'init-utils)
+     (require 'init-parens)
+     (require 'init-isearch)
+     (require 'init-cursor-chg)
+     (require 'init-hl-todo)
+     (require 'init-which-key)
+     (require 'init-yasnippet)
+     (require 'init-highlight-thing)
+     (require 'init-vundo)
+     (require 'init-whole-line-or-region)
+     (require 'init-project)
+     ))
+
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))
         (require 'init-theme-light) ;; light theme
