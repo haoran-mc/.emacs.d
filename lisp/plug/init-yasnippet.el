@@ -24,10 +24,10 @@
 
 ;;; Code:
 
-
 (require 'yasnippet)
-(add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
-(yas-global-mode 1)
+(with-temp-message ""
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (yas-global-mode 1))
 
 (with-eval-after-load 'org
   (add-hook 'org-mode-hook #'yas-minor-mode))

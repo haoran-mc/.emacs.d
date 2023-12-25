@@ -3,7 +3,7 @@
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Require:
 
@@ -29,8 +29,9 @@
 ;;; Code:
 
 ;; Change cursor dynamically, depending on the context.
-(change-cursor-mode 1)
-(toggle-cursor-type-when-idle 1)
+(with-temp-message ""
+  (change-cursor-mode 1)
+  (toggle-cursor-type-when-idle 1))
 
 (provide 'init-cursor-chg)
 ;;; init-cursor-chg.el ends here
