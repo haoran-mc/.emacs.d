@@ -85,11 +85,22 @@
 ;; consult-mark
 ;; consult-org-heading
 ;; consult-line
+;; consult requied by lazy-load
 (with-eval-after-load 'consult
-  (define-key prog-mode-map (kbd "C-c C-j") 'consult-outline)
+  ;; require
+  (require 'consult-imenu)
+  (with-eval-after-load 'org
+    (require 'consult-org))
+
+  ;; binding keys
+  (define-key prog-mode-map (kbd "C-c C-j") 'consult-outline) ;; make sense?
+  (with-eval-after-load 'go-mode
+    (define-key go-mode-map (kbd "C-c C-j") 'consult-imenu))
+
   (with-eval-after-load 'org
     (define-key org-mode-map [remap org-goto] 'consult-org-heading))
 
+  ;; config
   (with-no-warnings
     (consult-customize consult-git-grep consult-grep ;; consult-ripgrep
                        consult-bookmark
@@ -97,6 +108,7 @@
                        consult-buffer
                        :preview-key nil))
 
+  ;; custom
   (setq consult-fontify-preserve nil
         consult-async-min-input 2
         consult-async-refresh-delay 0.15
