@@ -29,18 +29,23 @@
 (require 'which-key)
 (add-hook 'after-init-hook 'which-key-mode)
 (which-key-add-key-based-replacements
-  "C-c @"   "hideshow"
   "C-x a"   "abbrev"
-  "C-c f"   "file"
+  "C-x n"   "narrow"
+  "C-x t"   "tab"
+  "C-c &"   "yasnippet"
+  "C-c a"   "app"
+  "C-c b"   "buffer/bookmark"
+  "C-c c"   "code/calc"
   "C-c e"   "eshell"
+  "C-c f"   "find/file"
+  "C-c g"   "git"
+  "C-c h"   "hideshow"
   "C-c i"   "insert"
   "C-c n"   "narrow"
-  "C-c u"   "user"
+  "C-c o"   "open"
   "C-c t"   "hl-todo"
-  "C-c y"   "yasnippet"
-  "C-c C-v" "babel"
-  "C-x n"   "narrow"
-  "C-x t"   "tab")
+  "C-c u"   "user"
+  "C-c C-v" "babel")
 (which-key-add-major-mode-key-based-replacements 'markdown-mode
   "C-c m" "markdown")
 
