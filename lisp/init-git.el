@@ -52,6 +52,8 @@
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(require 'diff-hl-margin)
+(diff-hl-margin-mode)
 
 
 ;; ediff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
