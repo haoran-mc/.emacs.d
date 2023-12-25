@@ -61,7 +61,33 @@
 
 
 ;; prog ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook (lambda() (setq truncate-lines t)))
+(add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
+
+
+;; imenu-list?
+
+
+;; TODO org-mode src
+(defun +load-lang-config ()
+  "Load lang-golang.el configuration when visiting a .go file."
+  (cond ((and buffer-file-name
+              (string= (file-name-extension buffer-file-name) "go"))
+         (require 'lang-golang))
+        ((and buffer-file-name
+              (string= (file-name-extension buffer-file-name) "py"))
+         (require 'lang-python))
+        ((and buffer-file-name
+              (string= (file-name-extension buffer-file-name) "el"))
+         (require 'lang-elisp))
+        ((and buffer-file-name
+              (string= (file-name-extension buffer-file-name) "sql"))
+         (require 'lang-sql))
+        ((and buffer-file-name
+              (string= (file-name-extension buffer-file-name) "lua"))
+         (require 'lang-lua))))
+
+
+(add-hook 'find-file-hook '+load-lang-config)
 
 
 ;; (require 'lang-cpp)
@@ -70,12 +96,12 @@
 ;; (require 'lang-bazel)
 ;; (require 'lang-haskell)
 ;; (require 'lang-sh)
-(require 'lang-golang)
-(require 'lang-sql)
-(require 'lang-python)
-(require 'lang-elisp)
 ;; (require 'lang-latex)
-(require 'lang-lua) ;; just syntax for org-mode src
+;; (require 'lang-lua) ;; just syntax for org-mode src
+;; (require 'lang-golang)
+;; (require 'lang-sql)
+;; (require 'lang-python)
+;; (require 'lang-elisp)
 (require 'lang-js)
 
 (provide 'init-dev)
