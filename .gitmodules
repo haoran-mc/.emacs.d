@@ -293,3 +293,8 @@
 	url = git@github.com:karthink/popper.git
 	shallow = true
     ignore = all
+[submodule "site-lisp/ht.el"]
+	path = site-lisp/ht.el
+	url = git@github.com:Wilfred/ht.el.git
+	shallow = true
+	ignore = all

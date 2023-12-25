@@ -80,11 +80,15 @@
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'doom-themes)
-;; (doom-themes-treemacs-config)
-;; (doom-themes-org-config)
 (setq doom-themes-treemacs-theme "doom-colors"
       doom-themes-enable-bold nil
       doom-themes-enable-italic t)
+
+(require 'doom-themes-ext-treemacs)
+(require 'doom-themes-ext-org)
+(doom-themes-treemacs-config)
+(doom-themes-org-config)
+
 
 ;; nano
 ;; (require 'nano)
