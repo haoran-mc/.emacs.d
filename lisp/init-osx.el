@@ -37,8 +37,6 @@
 ;;; Code:
 
 
-
-
 ;; Make titlebar dark
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -69,14 +67,10 @@
       dired-use-ls-dired nil)
 
 
-;; exec-path-from-shell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 在初始化之后加载 exec-path-from-shell，并初始化环境变量
-(when (eq system-type 'darwin)
-  (require 'exec-path-from-shell)
-  ;; https://emacs-china.org/t/exec-path-from-shell/2515/4
-  (setq exec-path-from-shell-arguments '("-l")) ;; not load ~/.zshrc, only ~/.zshenv
-  (setenv "LANG" "zh_CN.UTF-8")
-  (exec-path-from-shell-initialize))
+;; cache-path-from-shell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 在初始化之后加载 cache-path-from-shell，并初始化环境变量
+(require 'cache-path-from-shell)
+(setenv "LANG" "zh_CN.UTF-8")
 
 
 (provide 'init-osx)

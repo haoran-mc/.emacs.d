@@ -38,11 +38,6 @@
 (define-key go-mode-map (kbd "C-.") 'gofmt)
 ;; (define-key go-mode-map (kbd "C-c C-d") 'godoc)
 
-;; Initialization
-(with-eval-after-load 'exec-path-from-shell
-  (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")))
-;; (setenv "GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")
-
 ;; Configuration
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
 
