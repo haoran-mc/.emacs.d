@@ -74,8 +74,8 @@
 
 (require 'init-variables)
 (require 'init-font)
+(require 'no-littering)
 (require 'init-base)
-(require 'no-littering) ;; keep ~/.emacs.d clean
 (require 'lazy-load)
 (require 'init-funcs)
 
