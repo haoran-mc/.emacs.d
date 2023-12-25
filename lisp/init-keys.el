@@ -282,6 +282,15 @@
                       ("C-c h o" . hs-show-block)
                       ("C-c h c" . hs-hide-block)))
 
+;; git hunk, diff-hl has been required by init.el
+;; C-c g ? for magit
+;; C-c h ? for diff-hl
+(lazy-load-set-keys '(("C-c h h" . +diff-hl-find-hunk)
+                      ("C-c h n" . diff-hl-next-hunk)
+                      ("C-c h p" . diff-hl-previous-hunk)
+                      ;; ("C-c h s" . diff-hl-stage-current-hunk)
+                      ("C-c h d" . diff-hl-diff-goto-hunk)))
+
 ;; i for insert
 (lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
 (lazy-load-global-keys '(("C-c i y" . yas-insert-snippet)) "yasnippet")

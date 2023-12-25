@@ -55,6 +55,17 @@
 (require 'diff-hl-margin)
 (diff-hl-margin-mode)
 
+(defun +diff-hl-find-hunk ()
+  "Go to the next hunk, loop to the beginning of the file."
+  (interactive)
+  (let ((next-hunk (diff-hl-search-next-hunk))
+        (prev-hunk (diff-hl-search-next-hunk t)))
+    (cond (next-hunk (goto-char (overlay-start next-hunk)))
+          (prev-hunk (progn
+                       (goto-line 1)
+                       (goto-char (overlay-start (diff-hl-search-next-hunk)))))
+          (t (message "No further hunks found")))))
+
 
 ;; ediff ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BUILT-IN: Visual diff interface
