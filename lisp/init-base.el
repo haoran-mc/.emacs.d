@@ -28,7 +28,6 @@
 
 (setq-default default-enable-multibyte-characters t)
 (set-language-environment "English")
-(setq system-time-locale "C")
 
 ;; encoding
 (prefer-coding-system 'utf-8)
@@ -103,10 +102,6 @@
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (modify-syntax-entry ?- "w")))
-
-;; No tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 
 (global-auto-revert-mode 1)
 
