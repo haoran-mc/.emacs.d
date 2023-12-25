@@ -25,31 +25,42 @@
 
 
 ;; Mode association (autoload python-mode for *.py files)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; BUILT-IN
+(require 'python)
 
-(with-eval-after-load 'python
-  ;; Initialization
-  (defun python-mode-delete-trailing-whitespace ()
-    "Delete trailing whitespace before saving file."
-    (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+;; Initialization
+(defun python-mode-delete-trailing-whitespace ()
+  "Delete trailing whitespace before saving file."
+  (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
-  ;; error when open org
-  ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
+(defun lazycat/jump-to-import()
+  (interactive)
+  ;; Rember position before jump.
+  (lazycat/remember-init)
+  ;; Jump to `import ...` position.
+  (goto-char (point-min))
+  (search-forward-regexp "\\(^import\\|^from\\)" nil t))
 
-  ;; Configuration
-  ;; Default to Python 3. Prefer the versioned Python binaries since some
-  ;; systems stupidly make the unversioned one point at Python 2.
-  (when (and (executable-find "python3")
-             (string= python-shell-interpreter "python"))
-    (setq python-shell-interpreter "python3"))
+;; binding keys
+(define-key python-mode-map (kbd "C-S-j") 'lazycat/jump-to-import)
 
-  (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
+;; error when open org
+;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
 
-  ;; Customization
-  (setq python-indent-guess-indent-offset-verbose nil)
+;; Configuration
+;; Default to Python 3. Prefer the versioned Python binaries since some
+;; systems stupidly make the unversioned one point at Python 2.
+(when (and (executable-find "python3")
+           (string= python-shell-interpreter "python"))
+  (setq python-shell-interpreter "python3"))
 
-  ;; Hook
-  (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace))
+(setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
+
+;; Customization
+(setq python-indent-guess-indent-offset-verbose nil)
+
+;; Hook
+(add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
 
 
 ;; (use-package jupyter

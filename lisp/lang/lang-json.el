@@ -1,4 +1,4 @@
-;;; lang-lua.el --- lua-mode                         -*- lexical-binding: t; -*-
+;;; lang-json.el ---json                             -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -24,9 +24,10 @@
 
 ;;; Code:
 
+(require 'json-mode)
+(make-local-variable 'js-indent-level)
+;; https://stackoverflow.com/a/24668842/14093697
+(setq js-indent-level 2)
 
-(require 'lua-mode)
-
-
-(provide 'lang-lua)
-;;; lang-lua.el ends here
+(provide 'lang-json)
+;;; lang-json.el ends here

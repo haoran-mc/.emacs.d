@@ -25,9 +25,7 @@
 
 
 ;; Mode association (autoload elisp-mode for *.el files)
-(add-to-list 'auto-mode-alist '("\\.el\\'" . (lambda () (emacs-lisp-mode)
-                                               (require 'lsp-bridge)
-                                               (lsp-bridge-mode))))
+(emacs-lisp-mode)
 
 (with-eval-after-load 'elisp-mode
   ;; Initialization

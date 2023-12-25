@@ -1,4 +1,4 @@
-;;; lang-lua.el --- lua-mode                         -*- lexical-binding: t; -*-
+;;; lang-yaml.el ---yaml                             -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -25,8 +25,11 @@
 ;;; Code:
 
 
-(require 'lua-mode)
+
+(require 'yaml-mode)
+(setq yaml-indent-offset 2)
 
 
-(provide 'lang-lua)
-;;; lang-lua.el ends here
+
+(provide 'lang-yaml)
+;;; lang-yaml.el ends here

@@ -25,6 +25,8 @@
 ;;; Code:
 
 
+(require 'dash)
+
 ;; default font ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +correct-symbol-bounds-with-TAB (pretty-alist)
   "Prepend a TAB character to each symbol in this alist, this way

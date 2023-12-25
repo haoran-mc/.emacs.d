@@ -25,29 +25,29 @@
 
 ;; Mode association (autoload go-mode for *.go files)
 (require 'go-mode)
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
-(with-eval-after-load 'go-mode
-  ;; Custom function
-  (defun +go-run-buffer ()
-    "Run go code in buffer."
-    (interactive)
-    (shell-command (concat "go run " (buffer-name))))
+;; Custom function
+(defun +go-run-buffer ()
+  "Run go code in buffer."
+  (interactive)
+  (shell-command (concat "go run " (buffer-name))))
 
-  ;; Key bindings
-  (define-key go-mode-map (kbd "C-c C-c") '+go-run-buffer)
-  (define-key go-mode-map (kbd "C-c C-d") 'godoc)
+;; Key bindings
+(define-key go-mode-map (kbd "C-c C-c") '+go-run-buffer)
+(define-key go-mode-map (kbd "C-c C-a") 'go-import-add)
+(define-key go-mode-map (kbd "C-.") 'gofmt)
+;; (define-key go-mode-map (kbd "C-c C-d") 'godoc)
 
-  ;; Initialization
-  (with-eval-after-load 'exec-path-from-shell
-    (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")))
-  ;; (setenv "GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")
+;; Initialization
+(with-eval-after-load 'exec-path-from-shell
+  (exec-path-from-shell-copy-envs '("GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")))
+;; (setenv "GOROOT" "GOPATH" "GOBIN" "GO111MODULE" "GOPROXY")
 
-  ;; Configuration
-  (add-hook 'before-save-hook 'gofmt-before-save)
+;; Configuration
+;; (add-hook 'before-save-hook 'gofmt-before-save)
 
-  ;; Customization
-  (setq gofmt-command "goimports"))
+;; Customization
+(setq gofmt-command "goimports")
 
 
 ;; Install the tools manually in the current GOPATH

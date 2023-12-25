@@ -1,4 +1,4 @@
-;;; lang-lua.el --- lua-mode                         -*- lexical-binding: t; -*-
+;;; lang-xml.el ---xml                               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -24,9 +24,8 @@
 
 ;;; Code:
 
+(setq nxml-slash-auto-complete-flag t
+      nxml-auto-insert-xml-declaration-flag t)
 
-(require 'lua-mode)
-
-
-(provide 'lang-lua)
-;;; lang-lua.el ends here
+(provide 'lang-xml)
+;;; lang-xml.el ends here

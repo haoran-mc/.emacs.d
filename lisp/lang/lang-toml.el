@@ -1,4 +1,4 @@
-;;; lang-lua.el --- lua-mode                         -*- lexical-binding: t; -*-
+;;; lang-toml.el ---toml                             -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -25,8 +25,10 @@
 ;;; Code:
 
 
-(require 'lua-mode)
+
+(require 'toml-mode)
 
 
-(provide 'lang-lua)
-;;; lang-lua.el ends here
+
+(provide 'lang-toml)
+;;; lang-toml.el ends here
