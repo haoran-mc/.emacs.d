@@ -157,6 +157,8 @@
 ;; you may use M-e (expand-region) more
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
+(lazy-load-global-keys '(("M-[" . easy-nav-enter)) "init-easy-nav")
+
 ;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
