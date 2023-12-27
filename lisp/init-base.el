@@ -114,9 +114,15 @@
             (modify-syntax-entry ?_ "w")
             (modify-syntax-entry ?- "w")))
 
-(setq initial-scratch-message ";; This buffer is for text that is not saved, and for Lisp evaluation.
-;; To create a file, visit it with C-x C-f and enter text in its buffer.
-")
+(defun file-to-string (file)
+  "File to string function"
+  (with-temp-buffer
+    (insert-file-contents file)
+    (buffer-string)))
+
+(setq initial-scratch-message
+      (file-to-string
+       (locate-user-emacs-file "resources/initial-scratch-message.txt")))
 
 ;; Sane defaults
 (setq use-short-answers t)
