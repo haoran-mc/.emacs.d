@@ -23,6 +23,12 @@
 
 ;;; Code:
 
+;; absolute path of the current file
+(setq frame-title-format
+      '(:eval (if (buffer-file-name)
+                  (abbreviate-file-name (buffer-file-name))
+                "%b")))
+
 (setq user-full-name "Haoran Liu")
 (setq user-mail-address "haoran.mc@outlook.com")
 
