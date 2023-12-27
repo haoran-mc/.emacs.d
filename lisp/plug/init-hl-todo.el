@@ -26,8 +26,7 @@
 ;; Highlight TODO
 (require 'hl-todo)
 
-;; 为什么不直接 global-hl-todo-mode ?
-(add-hook 'after-init-hook 'global-hl-todo-mode)
+(global-hl-todo-mode)
 
 (define-key hl-todo-mode-map (kbd "C-c t i") 'hl-todo-insert)
 (define-key hl-todo-mode-map (kbd "C-c t o") 'hl-todo-occur)

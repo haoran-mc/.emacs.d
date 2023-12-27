@@ -27,7 +27,8 @@
 
 ;; Tips for next keystroke
 (require 'which-key)
-(add-hook 'after-init-hook 'which-key-mode)
+(which-key-mode)
+;; (add-hook 'after-init-hook 'which-key-mode)
 (which-key-add-key-based-replacements
   "C-x a"   "abbrev"
   "C-x n"   "narrow"
