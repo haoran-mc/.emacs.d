@@ -48,7 +48,6 @@
 (setq x-stretch-cursor t)               ;; 光标在 TAB 字符上会显示为一个大方块
 (setq print-escape-newlines t)          ;; 显示字符窗中的换行符为 \n
 (setq tramp-default-method "ssh")       ;; 设置传送文件默认的方法
-(elf-setup-default)                     ;; 二进制文件默认用 elf 模式打开
 (tooltip-mode -1)                       ;; 不要显示任何 tooltips
 (setq package-archives                  ;; 设置中国的镜像源
       '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
@@ -68,6 +67,7 @@
 (put 'narrow-to-region 'disabled nil)
 
 (require 'cl-lib)
+(require 'noflet)
 
 (setq confirm-kill-processes nil)       ;; 退出自动杀掉进程
 
