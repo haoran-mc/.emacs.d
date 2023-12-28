@@ -42,7 +42,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 (dolist (elt-cons '(
-                    ("\\.org\\'" . org-mode)
+                    ("\\.org$" . org-mode)
                     ("\\.go$" . go-mode)
                     ("\\.py$" . python-mode)
                     ("\\.el$" . emacs-lisp-mode)
@@ -67,13 +67,20 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
 (autoload 'emacs-lisp-mode "lang-elisp")
-(autoload 'sql-mode "lang-sql")
 (autoload 'lua-mode "lang-lua")
-(autoload 'json-mode "lang-json")
-(autoload 'toml-mode "lang-toml")
-(autoload 'xml-mode "lang-xml")
-(autoload 'yaml-mode "lang-yaml")
+;; (autoload 'xml-mode "lang-xml")
+;; (autoload 'json-mode "lang-json")
+;; (autoload 'toml-mode "lang-toml")
+;; (autoload 'yaml-mode "lang-yaml")
+;; (autoload 'sql-mode "lang-sql")
 (autoload 'markdown-mode "init-markdown")
+
+;; loading before: config lang
+(require 'lang-xml)
+(require 'lang-json)
+(require 'lang-toml)
+(require 'lang-yaml)
+(require 'lang-sql)
 
 
 (provide 'init-mode)
