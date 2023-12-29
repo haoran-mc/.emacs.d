@@ -298,3 +298,8 @@
 	url = git@github.com:Wilfred/ht.el.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/ace-window"]
+	path = site-lisp/ace-window
+	url = git@github.com:abo-abo/ace-window.git
+	shallow = true
+	ignore = all

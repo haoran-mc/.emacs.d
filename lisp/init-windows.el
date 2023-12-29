@@ -25,6 +25,12 @@
 ;;; Code:
 
 
+;; ace-window ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+
+
+;; popper ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enforce rules for popups
 (require 'popper)
 (require 'popper-echo)
