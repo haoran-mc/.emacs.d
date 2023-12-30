@@ -82,7 +82,7 @@
   (save-buffer t)
   ;; Disable auto-save-and-publish-site-file-mode for other folders
   (if (string= (file-name-directory (buffer-file-name))
-               (concat haoran/home-directory "/haoran/no/org/site/"))
+               (concat haoran--home-directory "/haoran/no/org/site/"))
       (org-publish-current-file 'site))
   (message "hello org-mode"))
 
@@ -144,11 +144,11 @@ copy imgs to `org-preview' dir, my njuos note has other resource files"
   (interactive)
   (let ((file-path (buffer-file-name)))
     (cond
-     ((string-prefix-p (concat haoran/home-directory "/haoran/no/org/wiki/") file-path) ;; too many images, no cp images
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/wiki/") file-path) ;; too many images, no cp images
       (+preview-wiki-current-buffer-in-browser))
-     ((string-prefix-p (concat haoran/home-directory "/haoran/no/org/site/") file-path) ;; my site
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/site/") file-path) ;; my site
       (+preview-site-current-buffer-in-browser))
-     ((string-prefix-p (concat haoran/home-directory "/haoran/no/org/") file-path) ;; at org but not wiki or site
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/") file-path) ;; at org but not wiki or site
       (+org-export-html-to-my-dir-and-preview))
      (t
       (+org-export-html-to-current-path-and-preview))))) ;; put export file on current path

@@ -317,14 +317,14 @@
                       org-mode-map))
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran/private-notes)))
-                      ("C-c o s" . (lambda () (interactive) (find-file haoran/public-notes)))
+(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
+                      ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
                       ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))))
 
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 
-(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran/github-page)))))
+(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran--github-page)))))
 
 ;; s for switch
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))

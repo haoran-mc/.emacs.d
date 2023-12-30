@@ -24,29 +24,27 @@
 
 ;;; Code:
 
+(defvar haoran--os-linux (eq system-type 'gnu/linux))
+(defvar haoran--os-mac (eq system-type 'darwin))
 
-(setq haoran/font-weight "normal")
+(defvar haoran--bookmark-file "~/haoran/no/org/bookmark-default.el")
+(defvar haoran--org-directory "~/haoran/no/org/org-directory")
+(defvar haoran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
+                                       "~/haoran/no/org/org-directory/agenda"
+                                       "~/haoran/no/org/org-directory/work"))
 
-(setq haoran/bookmark-file "~/haoran/no/org/bookmark-default.el")
+(defvar haoran--font-weight "normal")
 
-(setq haoran/org-directory "~/haoran/no/org/org-directory")
+(defvar haoran--private-notes "~/haoran/no/org/wiki/index.org")
+(defvar haoran--public-notes "~/haoran/no/org/site/index.org")
+(defvar haoran--github-page "~/haoran/gr/haoran-mc.github.io")
 
-(setq haoran/org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
-                                    "~/haoran/no/org/org-directory/agenda"
-                                    "~/haoran/no/org/org-directory/work"))
-
-(setq haoran/private-notes "~/haoran/no/org/wiki/index.org")
-
-(setq haoran/public-notes "~/haoran/no/org/site/index.org")
-
-(setq haoran/github-page "~/haoran/gr/haoran-mc.github.io")
-
-(cond ((eq system-type 'gnu/linux)
-       (setq haoran/home-directory "/home/haoran")
-       (setq haoran/font-size 11))
-      ((eq system-type 'darwin)
-       (setq haoran/home-directory "/Users/haoran")
-       (setq haoran/font-size 13)))
+(cond (haoran--os-linux
+       (defvar haoran--home-directory "/home/haoran")
+       (defvar haoran--font-size 11))
+      (haoran--os-mac
+       (defvar haoran--home-directory "/Users/haoran")
+       (defvar haoran--font-size 13)))
 
 
 (provide 'init-variables)

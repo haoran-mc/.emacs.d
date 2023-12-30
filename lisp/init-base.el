@@ -153,7 +153,7 @@
 (scroll-bar-mode -1)
 
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq bookmark-default-file haoran/bookmark-file)
+(setq bookmark-default-file haoran--bookmark-file)
 
 
 ;; saveplace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
