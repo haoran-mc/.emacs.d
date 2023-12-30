@@ -179,6 +179,8 @@
                          ("M-p" . vanilla/move-cursor-8-lines-up))
                        "cursormove")
 
+(lazy-load-global-keys '(("M-o" . ace-window)) "ace-window")
+
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
@@ -215,6 +217,7 @@
                          ("s-," . lazycat/remember-jump))
                        "basic-tookit")
 
+(lazy-load-global-keys '(("s-\\" . toggle-one-window)) "toggle-one-window")
 
 
 
@@ -225,7 +228,7 @@
 (lazy-load-set-keys '(("C-c x" . org-capture)
                       ("C-c a a" . org-agenda)))
 
-(lazy-load-global-keys '(("C-c a f" . fanyi-dwim)) "init-fanyi")
+(lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "init-fanyi")
 
 
 ;; b for buffer, bookmark
@@ -263,7 +266,8 @@
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)
                       ("C-c f f" . project-find-file)
-                      ("C-c f R" . +rename-current-file)))
+                      ("C-c f R" . +rename-current-file)
+                      ("C-c f p" . project-switch-project)))
 
 (lazy-load-global-keys '(("C-c f r" . consult-recent-file)
                          ("C-c f g" . consult-ripgrep)
@@ -273,7 +277,9 @@
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
 
 ;; g for git
-(lazy-load-set-keys '(("C-c g b" . magit-blame)))
+(lazy-load-global-keys '(("C-c g b" . magit-branch)
+                         ("C-c g B" . magit-blame))
+                       "magit")
 
 ;; h for hideshow unify with vim
 ;; zm hide-all
