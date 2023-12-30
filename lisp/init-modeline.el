@@ -35,13 +35,30 @@
 
 
 ;; doom-modeline ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'doom-modeline)
-(doom-modeline-mode 1)
+(if haoran--os-mac
+    (progn
+      (require 'doom-modeline)
 
-(setq doom-modeline-minor-modes nil
-      doom-modeline-lsp nil)
-(setq-default header-line-format mode-line-format)
-(setq-default mode-line-format nil)
+      ;; Define your custom doom-modeline
+      (doom-modeline-def-modeline 'my-simple-line
+        '(bar matches buffer-info remote-host major-mode parrot selection-info)
+        '(misc-info minor-modes input-method buffer-encoding buffer-position process vcs checker))
+
+      ;; Set default mode-line
+      ;; TODO: load fail
+      (add-hook 'doom-modeline-mode-hook
+                #'(lambda ()
+                    (doom-modeline-set-modeline 'my-simple-line 'default)))
+
+      ;; Configure other mode-lines based on major modes
+      ;; (add-to-list 'doom-modeline-mode-alist '(my-mode . my-simple-line))
+
+      (doom-modeline-mode 1)
+
+      (setq doom-modeline-buffer-file-name-style 'relative-from-project
+            doom-modeline-minor-modes nil
+            doom-modeline-lsp nil
+            doom-modeline-buffer-encoding nil)))
 
 
 ;; my-modeline ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -94,16 +111,21 @@ This function is slow, so we have to use cache."
             (cons (buffer-name) file-name))
       file-name)))
 
+;; (setq mode-line-misc-info (cdr mode-line-misc-info))
+
 (defun +format-mode-line ()
-  (let* ((lhs '((:eval (when (bound-and-true-p window-numbering-mode) (concat " " (+win-num))))
+  (let* ((lhs '(" "
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
-                (:eval " L%l C%C")
-                (:eval (when (bound-and-true-p flycheck-mode) flycheck-mode-line))
-                (:eval (when (bound-and-true-p flymake-mode) flymake-mode-line-format))))
-         (rhs '((:eval (+smart-file-name-cached))
-                " "
-                (:eval mode-name)))
+                (:eval (+smart-file-name-cached))
+                (:eval (when (> (window-width) 90)
+                         (propertize vc-mode 'face '(:foreground "#859901"))))))
+         (rhs '((:eval (when (> (window-width) 120)
+                         mode-line-misc-info))
+                (:eval (propertize mode-name 'face '(:foreground "#258BD2"))) ;; %m major-mode
+                (:eval (propertize " [%l:%c] " 'face 'font-lock-constant-face))
+                (:eval (propertize "%p" 'face 'font-lock-builtin-face))
+                ))
          (ww (window-width))
          (lhs-str (format-mode-line lhs))
          (rhs-str (format-mode-line rhs))
@@ -114,8 +136,11 @@ This function is slow, so we have to use cache."
             rhs-str)))
 
 
-;; (setq-default header-line-format '((:eval (+format-mode-line))))
-;; (setq-default mode-line-format nil)
+(if haoran--os-mac
+    (setq-default header-line-format mode-line-format)
+  (setq-default header-line-format '((:eval (+format-mode-line)))))
+
+(setq-default mode-line-format nil)
 
 
 (provide 'init-modeline)
