@@ -23,14 +23,21 @@
 ;;; Code:
 
 ;; Defer garbage collection further back in the startup process
+;; A big contributor to startup times is garbage collection. We up the gc threshold to
+;; temporarily prevent it from running, and then reset it by the `gcmh' package.
 (setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
 ;; Faster to disable these here (before they've been initialized)
+(push '(menu-bar-mode . nil) default-frame-alist)
+(push '(scroll-bar-mode . nil) default-frame-alist)
+(push '(tool-bar-mode . nil) default-frame-alist)
+
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 (setq-default mode-line-format nil)
-(scroll-bar-mode -1)
-;; (push '(menu-bar-lines . 0) default-frame-alist)
-;; (push '(tool-bar-lines . 0) default-frame-alist)
-;; (push '(vertical-scroll-bars) default-frame-alist)
 
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
 ;; font. By inhibiting this, we easily halve startup times with fonts that are

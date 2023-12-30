@@ -26,11 +26,6 @@
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
 
-;; A big contributor to startup times is garbage collection. We up the gc threshold to
-;; temporarily prevent it from running, and then reset it by the `gcmh' package.
-(setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6)
-
 ;; read-process-output-max: the maximum bytes read from processs in a single chunk (default is 4kb).
 ;; This is too small for the LSP protocol that uses JSON communication
 (setq read-process-output-max (* 4 1024 1024))
