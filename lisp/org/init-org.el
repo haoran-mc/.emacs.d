@@ -26,7 +26,7 @@
 (require 'org)
 
 ;; (add-hook 'org-mode-hook 'visual-line-mode) ;; 折行
-(add-hook 'org-mode-hook 'toggle-truncate-lines) ;;
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 
 (require 'org-tempo) ;; <s
 
