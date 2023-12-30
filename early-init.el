@@ -28,15 +28,6 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
-;; Faster to disable these here (before they've been initialized)
-(push '(menu-bar-mode . nil) default-frame-alist)
-(push '(scroll-bar-mode . nil) default-frame-alist)
-(push '(tool-bar-mode . nil) default-frame-alist)
-
-(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
 (setq-default mode-line-format nil)
 
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
