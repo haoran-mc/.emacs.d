@@ -29,6 +29,11 @@
       x-gtk-use-native-input t
       x-underline-at-descent-line t)
 
+
+;; fullscreen
+(require 'fullscreen)
+(fullscreen)
+
 ;; (require 'init-eaf)
 
 (provide 'init-linux)
