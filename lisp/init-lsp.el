@@ -22,15 +22,15 @@
 
 ;;; Code:
 
+
 ;; Jump to definition, I keep it anyway though it doesn't load most of the time
 (require 'dumb-jump)
-(with-eval-after-load 'dumb-jump-mode
-  '(progn
-     (setq dumb-jump-quiet t
-           dumb-jump-aggressive t
-           dumb-jump-selector 'completing-read)))
+(setq dumb-jump-quiet t
+      dumb-jump-aggressive t
+      dumb-jump-selector 'completing-read)
 
 (require 'posframe)
+
 
 ;; lsp-bridge ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar +lsp-bridge-jump-stack nil
