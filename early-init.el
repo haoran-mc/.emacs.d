@@ -28,6 +28,8 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
 
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 (setq-default mode-line-format nil)
 
 ;; Resizing the Emacs frame can be a terribly expensive part of changing the
