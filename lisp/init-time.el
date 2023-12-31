@@ -27,6 +27,7 @@
 (setq system-time-locale "C")
 
 ;; (setq display-time-day-and-date t)    ;; 打开日期显示
+(setq display-time-default-load-average nil)  ;; 不显示系统负载信息
 (setq display-time-format "%H:%M")    ;; 设定时间显示格式
 (setq display-time-24hr-format t)     ;; 打开24小时显示模式
 (display-time-mode 1)                 ;; 打开时间显示
