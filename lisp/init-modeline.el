@@ -24,44 +24,6 @@
 
 ;;; Code:
 
-;; awesome-tray-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (add-to-list 'load-path "~/Documents/emacs/local-packages/awesome-tray")
-;; (require 'awesome-tray)
-
-;; (setq awesome-tray-active-modules '("location" "buffer-name")
-;; awesome-tray-update-interval 0.5)
-
-;; (awesome-tray-mode 1)
-
-
-;; doom-modeline ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(if haoran--os-mac
-    (progn
-      (require 'doom-modeline)
-
-      ;; Define your custom doom-modeline
-      (doom-modeline-def-modeline 'my-simple-line
-        '(bar matches buffer-info remote-host major-mode parrot selection-info)
-        '(misc-info minor-modes input-method buffer-encoding buffer-position process vcs checker))
-
-      ;; Set default mode-line
-      ;; TODO: load fail
-      (add-hook 'doom-modeline-mode-hook
-                #'(lambda ()
-                    (doom-modeline-set-modeline 'my-simple-line 'default)))
-
-      ;; Configure other mode-lines based on major modes
-      ;; (add-to-list 'doom-modeline-mode-alist '(my-mode . my-simple-line))
-
-      (doom-modeline-mode 1)
-
-      (setq doom-modeline-buffer-file-name-style 'relative-from-project
-            doom-modeline-minor-modes nil
-            doom-modeline-lsp nil
-            doom-modeline-buffer-encoding nil)))
-
-
-;; my-modeline ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +win-num ()
   (let ((n (window-numbering-get-number)))
     (alist-get
@@ -118,12 +80,23 @@ This function is slow, so we have to use cache."
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
                 (:eval (+smart-file-name-cached))
+                " "
                 (:eval (when (> (window-width) 90)
-                         (propertize vc-mode 'face '(:foreground "#859901"))))))
+                         (let ((vc-mode-value vc-mode))
+                           (when vc-mode-value
+                             (setq vc-mode-string (propertize
+                                                   (string-trim vc-mode-value)
+                                                   'face '(:foreground "#859901"))))))
+                       )))
          (rhs '((:eval (when (> (window-width) 120)
-                         mode-line-misc-info))
-                (:eval (propertize mode-name 'face '(:foreground "#258BD2"))) ;; %m major-mode
-                (:eval (propertize " [%l:%c] " 'face 'font-lock-constant-face))
+                         (string-trim mode-line-misc-info)))
+                " "
+                (:eval (when (and (> (window-width) 90) (stringp mode-name))
+                         (setq mode-name
+                               (propertize mode-name 'face '(:foreground "#258BD2")))))
+                " "
+                (:eval (propertize "[%l:%c]" 'face 'font-lock-constant-face))
+                " "
                 (:eval (propertize "%p" 'face 'font-lock-builtin-face))
                 ))
          (ww (window-width))
@@ -136,10 +109,7 @@ This function is slow, so we have to use cache."
             rhs-str)))
 
 
-(if haoran--os-mac
-    (setq-default header-line-format mode-line-format)
-  (setq-default header-line-format '((:eval (+format-mode-line)))))
-
+(setq-default header-line-format '((:eval (+format-mode-line))))
 (setq-default mode-line-format nil)
 
 

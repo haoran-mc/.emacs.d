@@ -218,16 +218,6 @@
 	url = git@github.com:emacs-compat/compat.git
 	shallow = true
     ignore = all
-[submodule "site-lisp/doom-modeline"]
-	path = site-lisp/doom-modeline
-	url = git@github.com:seagle0128/doom-modeline.git
-	shallow = true
-    ignore = all
-[submodule "site-lisp/nerd-icons"]
-	path = site-lisp/nerd-icons
-	url = git@github.com:rainstormstudio/nerd-icons.el.git
-	shallow = true
-    ignore = all
 [submodule "site-lisp/shrink-path"]
 	path = site-lisp/shrink-path
 	url = git@gitlab.com:bennya/shrink-path.el.git
