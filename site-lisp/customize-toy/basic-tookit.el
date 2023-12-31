@@ -25,6 +25,13 @@
 ;;; Code:
 
 ;;;###autoload
+(defun vanilla/merge-line-down ()
+  "Merge the current line with the line below it."
+  (interactive)
+  (next-line)
+  (delete-indentation))
+
+;;;###autoload
 (defun lazycat/remember-jump ()
   "Jump to latest position and setup."
   (interactive)

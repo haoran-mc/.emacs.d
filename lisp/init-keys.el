@@ -59,7 +59,9 @@
                       ("C-h C-v" . find-variable)
                       ("C-h C-k" . find-function-on-key)))
 
-(lazy-load-global-keys '(("C-k" . vanilla/smart-kill-line)) "basic-tookit")
+(lazy-load-global-keys '(("C-j" . vanilla/merge-line-down) ;; electric-newline-and-maybe-indent
+                         ("C-k" . vanilla/smart-kill-line))
+                       "basic-tookit")
 
 (lazy-load-global-keys '(("C-o" . open-newline-above)  ;; open-line
                          ("C-l" . open-newline-below)) ;; recenter-top-bottom
