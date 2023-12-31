@@ -76,7 +76,7 @@ This function is slow, so we have to use cache."
 ;; (setq mode-line-misc-info (cdr mode-line-misc-info))
 
 (defun +format-mode-line ()
-  (let* ((lhs '(" "
+  (let* ((lhs '((:eval (propertize " ❯ " 'face '(:foreground "red")))
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
                 (:eval (+smart-file-name-cached))
@@ -89,14 +89,12 @@ This function is slow, so we have to use cache."
                                                    'face '(:foreground "#859901"))))))
                        )))
          (rhs '((:eval (when (> (window-width) 120)
-                         (string-trim mode-line-misc-info)))
-                " "
+                         mode-line-misc-info)) ;; with blank
                 (:eval (when (and (> (window-width) 90) (stringp mode-name))
-                         (setq mode-name
-                               (propertize mode-name 'face '(:foreground "#258BD2")))))
-                " "
-                (:eval (propertize "[%l:%c]" 'face 'font-lock-constant-face))
-                " "
+                         (propertize
+                          (format "%s " (string-trim mode-name))
+                          'face '(:foreground "#258BD2"))))
+                (:eval (propertize "[%l:%c] " 'face 'font-lock-constant-face))
                 (:eval (propertize "%p" 'face 'font-lock-builtin-face))
                 ))
          (ww (window-width))
