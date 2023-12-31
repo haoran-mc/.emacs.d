@@ -53,8 +53,9 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.xml$" . xml-mode)
                     ("\\.rss$" . xml-mode)
                     ("\\.yaml$" . yaml-mode)
-                    ("\\.markdown" . markdown-mode)
-                    ("\\.md" . markdown-mode)
+                    ("\\.markdown$" . markdown-mode)
+                    ("\\.md$" . markdown-mode)
+                    ("\\.js$" . js-mode)
                     ("\\.css\\'" . css-mode)
                     ("\\.wxss\\'" . css-mode)
                     ("\\.cpp$" . c++-mode)
@@ -74,6 +75,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 ;; (autoload 'yaml-mode "lang-yaml")
 ;; (autoload 'sql-mode "lang-sql")
 (autoload 'markdown-mode "init-markdown")
+(autoload 'js-mode "lang-js")
 
 ;; loading before: config lang
 (require 'lang-xml)
@@ -81,6 +83,20 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (require 'lang-toml)
 (require 'lang-yaml)
 (require 'lang-sql)
+
+
+
+;; conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Syntax highlighting for systemd files
+;; (add-to-list 'auto-mode-alist ((rx "."
+;;                                    (or "automount" "busname" "link" "mount" "netdev" "network"
+;;                                        "path" "service" "slice" "socket" "swap" "target" "timer")
+;;                                    string-end) . conf-mode))
+
+
+
+;; prog ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
 
 
 (provide 'init-mode)

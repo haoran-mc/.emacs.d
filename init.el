@@ -80,7 +80,6 @@
 (require 'init-yasnippet)
 (require 'init-lsp)
 (require 'init-git)
-(require 'init-dev)
 (require 'init-dirvish)
 (require 'init-minibuffer)
 (require 'init-windows)
