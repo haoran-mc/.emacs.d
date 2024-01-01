@@ -79,7 +79,9 @@ This function is slow, so we have to use cache."
   (let* ((lhs '((:eval (propertize " ❯ " 'face '(:foreground "red")))
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
-                (:eval (+smart-file-name-cached))
+                (:eval (if (and buffer-file-name (buffer-modified-p))
+                           (propertize (+smart-file-name-cached) 'face '(:foreground "red"))
+			             (+smart-file-name-cached)))
                 " "
                 (:eval (when (> (window-width) 90)
                          (let ((vc-mode-value vc-mode))
