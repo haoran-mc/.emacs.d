@@ -89,23 +89,28 @@
       lsp-bridge-enable-mode-line nil)
 
 
-(dolist (mode '(python-mode
-                emacs-lisp-mode
-                go-mode))
-  (with-eval-after-load mode
+(defvar my/lsp-bridge-loaded nil
+  "Flag to track whether lsp-bridge has been loaded.")
+
+(defun my/load-lsp-bridge ()
+  "Load lsp-bridge if it hasn't been loaded yet."
+  (unless my/lsp-bridge-loaded
     (require 'lsp-bridge)
+    (setq my/lsp-bridge-loaded t)
+    (message "lsp-bridge loaded")
     (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
     (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
     (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
     (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
     (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
-    (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit)))
+    (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit))
+  (message "major mode is: %s" major-mode)
+  (lsp-bridge-mode))
 
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook))
-  (add-hook mode-hook #'(lambda () (message "major mode is: %s" major-mode)
-                          (lsp-bridge-mode))))
+  (add-hook mode-hook #'my/load-lsp-bridge))
 
 
 (provide 'init-lsp)
