@@ -88,21 +88,25 @@
       acm-enable-quick-access nil
       lsp-bridge-enable-mode-line nil)
 
+
+(dolist (mode '(python-mode
+                emacs-lisp-mode
+                go-mode))
+  (with-eval-after-load mode
+    (require 'lsp-bridge)
+    (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
+    (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
+    (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
+    (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
+    (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
+    (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit)))
+
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook))
-  (add-hook mode-hook (lambda () (require 'lsp-bridge)
-                        (message "major mode is: %s" major-mode)
-                        (lsp-bridge-mode))))
+  (add-hook mode-hook #'(lambda () (message "major mode is: %s" major-mode)
+                          (lsp-bridge-mode))))
 
-(with-eval-after-load 'lsp-bridge
-  (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
-  (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
-  (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
-  (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
-  (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
-  (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit)
-  )
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
