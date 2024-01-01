@@ -177,6 +177,10 @@
                          ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
                        "cursormove")
 
+(lazy-load-global-keys '(("M-l" . vanilla/downcase-word) ;; downcase-word
+                         ("M-u" . vanilla/upcase-word)) ;; upcase-word
+                       "basic-tookit")
+
 (lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down)
                          ("M-p" . vanilla/move-cursor-8-lines-up))
                        "cursormove")

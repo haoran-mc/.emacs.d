@@ -24,6 +24,25 @@
 
 ;;; Code:
 
+
+;;;###autoload
+(defun vanilla/upcase-word ()
+  "Convert the entire word at point to uppercase."
+  (interactive)
+  (save-excursion
+    (let ((bounds (bounds-of-thing-at-point 'symbol)))
+      (when bounds
+        (upcase-region (car bounds) (cdr bounds))))))
+
+;;;###autoload
+(defun vanilla/downcase-word ()
+  "Convert the entire word at point to lowercase."
+  (interactive)
+  (save-excursion
+    (let ((bounds (bounds-of-thing-at-point 'symbol)))
+      (when bounds
+        (downcase-region (car bounds) (cdr bounds))))))
+
 ;;;###autoload
 (defun vanilla/merge-line-down ()
   "Merge the current line with the line below it."
