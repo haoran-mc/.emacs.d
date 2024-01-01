@@ -30,6 +30,13 @@
 
 
 
+(setq display-buffer-alist
+      '(("\\*Org Src" ;; Adjust this pattern based on the actual buffer name
+         (display-buffer-in-side-window)
+         (window-width . 0.5)  ;; Adjust the width as needed
+         (side . right))))
+
+
 ;; popper ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Enforce rules for popups
 (require 'popper)
@@ -104,17 +111,6 @@
         "\\*Magit\\*$"
         ))
 
-(with-eval-after-load 'doom-modeline
-  (setq popper-mode-line
-        '(:eval (let ((face (if (doom-modeline--active)
-                                'doom-modeline-emphasis
-                              'doom-modeline)))
-                  (if (and (icons-displayable-p)
-                           (bound-and-true-p doom-modeline-icon)
-                           (bound-and-true-p doom-modeline-mode))
-                      (format " %s "
-                              (nerd-icons-octicon "nf-oct-pin" :face face))
-                    (propertize " POP " 'face face))))))
 
 (with-no-warnings
   (defun my-popper-fit-window-height (win)
@@ -123,6 +119,7 @@
      win
      (floor (frame-height) 3)
      (floor (frame-height) 3)))
+
   (setq popper-window-height #'my-popper-fit-window-height)
 
   (defun popper-close-window-hack (&rest _)
@@ -134,6 +131,7 @@
       (let ((window (caar popper-open-popup-alist)))
         (when (window-live-p window)
           (delete-window window)))))
+
   (advice-add #'keyboard-quit :before #'popper-close-window-hack))
 
 
