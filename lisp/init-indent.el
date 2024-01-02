@@ -28,9 +28,6 @@
 (setq-default tab-width 4)
 
 (defun adjust-languages-indent (n)
-  (setq-local c-basic-offset n)
-
-  (setq-local coffee-tab-width n)
   (setq-local javascript-indent-level n)
   (setq-local js-indent-level n)
   (setq-local js2-basic-offset n)
@@ -46,34 +43,23 @@
 
   (setq-local typescript-indent-level n))
 
-(dolist (hook (list
-               'c-mode-hook
-               'c++-mode-hook
-               'java-mode-hook
-               'haskell-mode-hook
-               'asm-mode-hook
-               'sh-mode-hook
-               'haskell-cabal-mode-hook
-               'ruby-mode-hook
-               'qml-mode-hook
-               'scss-mode-hook
-               'coffee-mode-hook
-               'rust-mode-hook
-               ))
-  (add-hook hook #'(lambda ()
-                     (setq indent-tabs-mode nil)
-                     (adjust-languages-indent 4)
-                     )))
 
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
                'typescript-mode-hook
+               'json-mode-hook         ;; js-indent-level 2
                ))
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
                      (adjust-languages-indent 2)
                      )))
+
+;; just set
+(setq yaml-indent-offset 2)
+(setq-default c-basic-offset 4)
+
+
 
 (provide 'init-indent)
 ;;; init-indent.el ends here

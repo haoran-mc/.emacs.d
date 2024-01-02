@@ -44,7 +44,6 @@
                                       (buffer-name))))
            (aweshell-dedicated-toggle)))
 
-     (setq-default c-basic-offset 4)
      (add-hook 'c-mode-common (lambda () (c-set-style "stroustrup")))
      (define-key c-mode-base-map (kbd "C-c C-c") '+compile-file)
      (define-key c-mode-base-map (kbd "<f9>") '+run-file)

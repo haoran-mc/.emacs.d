@@ -29,9 +29,9 @@
 ;; Key bindings
 (define-key json-mode-map (kbd "C-.") 'json-mode-beautify)
 
-(make-local-variable 'js-indent-level)
+;; (make-local-variable 'js-indent-level)
 ;; https://stackoverflow.com/a/24668842/14093697
-(setq js-indent-level 2)
+;; (setq js-indent-level 2)
 
 (provide 'lang-json)
 ;;; lang-json.el ends here

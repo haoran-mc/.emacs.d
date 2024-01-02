@@ -27,8 +27,6 @@
 
 
 (require 'yaml-mode)
-(setq yaml-indent-offset 2)
-
 
 
 (provide 'lang-yaml)

@@ -24,7 +24,7 @@
 
 ;;; Code:
 
-(setq js-indent-level 2)
+
 
 (provide 'lang-js)
 ;;; lang-js.el ends here
