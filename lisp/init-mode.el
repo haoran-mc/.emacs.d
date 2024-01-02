@@ -96,7 +96,13 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 ;; prog ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq truncate-lines t ;; 默认折行
+      word-wrap-by-category t ;; 按照中文折行
+      sentence-end-double-space nil) ;; 句子结束标点视为句子的结束，不需要额外的两个空格
+
 (add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
+
+
 
 
 (provide 'init-mode)

@@ -32,6 +32,7 @@
 (setq user-full-name "Haoran Liu")
 (setq user-mail-address "haoran.mc@outlook.com")
 
+;; 启用多字节字符集支持，允许使用和显示各种字符，包括中文、日文、韩文等
 (setq-default default-enable-multibyte-characters t)
 (set-language-environment "English")
 
@@ -39,37 +40,30 @@
 (prefer-coding-system 'utf-8)
 
 ;; Suppress GUI features and more
-(setq use-file-dialog nil
-      use-dialog-box nil          ;; never pop dialog
-      inhibit-x-resources t
-      inhibit-default-init t
-      inhibit-startup-screen t    ;; inhibit start screen
-      inhibit-startup-message t
-      inhibit-startup-buffer-menu t)
+(setq use-dialog-box nil          ;; never pop dialog
+      inhibit-x-resources t       ;; 不使用 X 资源文件
+      inhibit-default-init t      ;; 禁用默认的初始化步骤，确保用户的设置不会被覆盖
+      inhibit-startup-screen t    ;; 不显示启动屏幕
+      inhibit-startup-message t   ;; 不显示启动消息
+      inhibit-startup-buffer-menu t) ;; 启动时不显示缓冲区消息
 
 ;; screen pos and size on startup
 (setq initial-frame-alist
-      '((left . 245) ;; left 55
+      '((left . 1145) ;; left 55
         (top . 50)
         (width . 141)
         (height . 40)))
 
-;; The nano style for truncated long lines.
-(setq auto-hscroll-mode t)
-
-;; Pixelwise resize
-(setq window-resize-pixelwise t
-      ;; 设置缩放的模式，避免 mac 平台最大化窗口
-      ;; 以后右边和下边有空隙
-      frame-resize-pixelwise t)
+;; Pixelwise resize 像素级缩放
+;; 保证 mac 平台最大化窗口时无空隙
+(setq frame-resize-pixelwise t
+      window-resize-pixelwise t)
 
 (setq auto-save-default nil
-      ;; No backup files
       make-backup-files nil
-      ;; No lock files
       create-lockfiles nil)
 
-;; Always load the newest file
+;; 包含多版本文件的目录中，emacs 在加载文件时将优先选择最新的版本
 (setq load-prefer-newer t)
 
 ;; Cutting and pasting use clipboard
@@ -85,22 +79,19 @@
 (setq display-raw-bytes-as-hex t
       redisplay-skip-fontification-on-input t)
 
-;; No annoying bell
+;; 完全禁用响铃
 (setq ring-bell-function 'ignore)
 
 ;; Smooth scroll & friends
-(setq scroll-step 2
-      scroll-conservatively 101
-      scroll-margin 2
-      hscroll-step 2
-      hscroll-margin 2
-      scroll-preserve-screen-position 'always)
-
-;; Disable auto vertical scroll for tall lines
-(setq auto-window-vscroll nil)
+(setq scroll-conservatively 101   ;; 控制滚动时的行为，如果设置为一个较大的值（例如 101），则 Emacs 会尽量保持在窗口中显示的内容不变，而不是让光标移动到窗口中央。这有助于使滚动更加平滑。
+      ;; scroll-step 2
+      ;; hscroll-step 2
+      scroll-margin 2             ;; 滚动边缘的行数
+      hscroll-margin 2            ;; 水平滚动边缘的列数
+      scroll-preserve-screen-position 'always ;; 尽量保持屏幕上的内容不变，即使光标在窗口的边缘
+      auto-window-vscroll nil)    ;; 禁用自动垂直滚动的功能
 
 (setq-default fill-column 80)
-
 
 (blink-cursor-mode 1)                   ;; 指针闪动，帮助我快速定位光标位置
 (setq blink-cursor-blinks 100)          ;; 闪动 100 次
@@ -108,11 +99,6 @@
 (global-subword-mode 1)                 ;; Word移动支持 FooBar 的格式
 (setq-default comment-style 'indent)    ;; 设定自动缩进的注释风格
 (setq default-major-mode 'text-mode)    ;; 设置默认地主模式为 TEXT 模式
-;; 按照中文折行
-(setq word-wrap-by-category t
-      ;; paragraphs
-      sentence-end-double-space nil)
-
 
 ;; Treats the `_' as a word constituent
 (add-hook 'after-change-major-mode-hook
