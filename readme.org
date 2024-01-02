@@ -1,9 +1,26 @@
-readme is here
+#+STARTUP: showeverything
 
 
+*quick start:*
 
-1. Don't add unspecified things to the mix
+#+begin_example
+  mv ~/.emacs.d ~/.emacs.d.bak
+  git clone --depth=1 git@github.com:haoran-mc/.emacs.d.git
+  cd ~/.emacs.d && ./submodule init
+#+end_example
+
+1. M-x all-the-icons-install-fonts
 
 
+*dependencies:*
+
+- rg
+- pandoc
+- git
+- fd
 
 
+*features:*
+
+1. managing plugins via submodules
+2. accelerated startup with autoload
