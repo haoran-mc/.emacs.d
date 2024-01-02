@@ -52,6 +52,9 @@
 
  ;; diff-hl
  '(diff-hl-change ((t (:background "#bbbb00" :foreground "#bbbb00"))))
+
+ ;; fringe
+ '(fringe ((t (:background "#EDE8D5"))))
  )
 
 

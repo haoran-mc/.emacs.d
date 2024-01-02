@@ -59,6 +59,16 @@
 (setq frame-resize-pixelwise t
       window-resize-pixelwise t)
 
+;; 设置Fringe的宽度
+(fringe-mode '(6 . 6))  ; 左右各设置为4个像素的宽度
+
+;; 设置Fringe的显示方式
+(setq-default left-fringe-width 6)   ; 设置左侧Fringe的宽度为10个像素
+(setq-default right-fringe-width 6)  ; 设置右侧Fringe的宽度为10个像素
+
+;; confusing if no fringes (GUI only).
+(setq visual-line-fringe-indicators '(nil right-curly-arrow))
+
 (setq auto-save-default nil
       make-backup-files nil
       create-lockfiles nil)
@@ -202,8 +212,6 @@ Else, call `comment-or-uncomment-region' on the current line."
       ;; No visual feedback on copy/delete.
       copy-region-blink-delay 0
       delete-pair-blink-delay 0
-      ;; confusing if no fringes (GUI only).
-      visual-line-fringe-indicators '(nil right-curly-arrow)
       ;; don't save current clipboard text before replacing it
       save-interprogram-paste-before-kill nil
       ;; eliminate duplicates

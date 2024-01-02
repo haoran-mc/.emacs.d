@@ -53,8 +53,8 @@
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-(require 'diff-hl-margin)
-(diff-hl-margin-mode)
+;; (require 'diff-hl-margin)
+;; (diff-hl-margin-mode)
 
 (defun +diff-hl-find-hunk ()
   "Go to the next hunk, loop to the beginning of the file."
