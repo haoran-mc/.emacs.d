@@ -29,6 +29,9 @@
 ;; Explicit binding makes it load lazily although it's the default.
 ;; See `magit-define-global-key-bindings' for more information.
 ;; magit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(with-eval-after-load 'magit
+  ;; lazy load by lazykey
+  (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
 (setq magit-diff-refine-hunk t
       magit-diff-paint-whitespace nil
       magit-ediff-dwim-show-on-hunks t
