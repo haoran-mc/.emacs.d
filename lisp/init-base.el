@@ -148,6 +148,19 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+
+(defun fixed-do-after-load-evaluation (abs-file)
+  "Override `do-after-load-evaluation' and run additional functions based on file name."
+  (dolist (a-l-element after-load-alist)
+    (when (and (stringp (car a-l-element))
+               (string-match-p (car a-l-element) abs-file))
+      (mapc #'funcall (cdr a-l-element))))
+  (run-hook-with-args 'after-load-functions abs-file))
+
+;; remove *Messages* warning: "Package cl is deprecated"
+(advice-add 'do-after-load-evaluation :override #'fixed-do-after-load-evaluation)
+
+
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq bookmark-default-file haoran--bookmark-file)
 
