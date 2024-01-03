@@ -314,14 +314,20 @@
 (lazy-load-global-keys '(("C-c i y" . yas-insert-snippet)) "yasnippet")
 ;; org-mode-map
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c i l" . +dwim-create-link-with-datetime)
-                        ("C-c i i" . +org-insert-image)
-                        ("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
-                      org-mode-map))
+  (lazy-load-set-keys '(("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
+                      org-mode-map)
+
+  (lazy-load-local-keys '(("C-c i l" . vanilla/dwim-create-link-with-datetime)
+                          ("C-c i i" . vanilla/org-insert-image))
+                        org-mode-map
+                        "org-insert"))
 
 (lazy-load-global-keys '(("C-c k" . avy-goto-line-above)
                          ("C-c j" . avy-goto-line-below))
                        "init-avy")
+
+(lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
+                       "init-symbol-overlay")
 
 ;; n for narrow
 (with-eval-after-load 'org

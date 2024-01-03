@@ -25,62 +25,6 @@
 
 
 ;;;###autoload
-(defun xah-show-formfeed-as-line ()
-  "Display the formfeed ^L char as line. Version 2018-08-30"
-  (interactive)
-  ;; 2016-10-11 thanks to Steve Purcell's page-break-lines.el
-  (progn
-    (when (not buffer-display-table)
-      (setq buffer-display-table (make-display-table)))
-    (aset buffer-display-table ?\^L
-          (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
-    (redraw-frame)))
-
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook #'xah-show-formfeed-as-line))
-(add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
-
-;;;###autoload
-(defun +org-insert-image ()
-  "insert a image from clipboard"
-  (interactive)
-  (let* ((path (concat default-directory "images/"))
-         (fname (read-string "Enter file name: "))
-         (image-file (concat path fname)))
-    (if (not (file-exists-p path))
-        (mkdir path))
-    (do-applescript (concat
-                     "set the_path to \"" image-file "\" \n"
-                     "set png_data to the clipboard as «class PNGf» \n"
-                     "set the_file to open for access (POSIX file the_path as string) with write permission \n"
-                     "write png_data to the_file \n"
-                     "close access the_file"))
-    ;; (shell-command (concat "pngpaste " image-file))
-    (org-insert-link nil
-                     (concat "file:" image-file)
-                     "")
-    (message image-file))
-  (org-display-inline-images))
-
-;;;###autoload
-(defun +dwim-create-link-with-datetime ()
-  "Create a link with current datetime and filename from the word at point.
-The word at point is treated as a filename. Any consecutive hyphens or underscores
-are treated as a single unit and preserved in the filename."
-  (interactive)
-  (let* ((bounds (bounds-of-thing-at-point 'symbol))
-         (start (car bounds))
-         (end (cdr bounds))
-         (filename (buffer-substring-no-properties start end))
-         (clean-filename (replace-regexp-in-string "\\([-_]+\\)" " " filename))
-         (clean-filename (replace-regexp-in-string "^\\s-+\\|\\s-+$" "" clean-filename))
-         (date (format-time-string "%y%m%d"))
-         (link-filename (format "%s-%s.org" date filename))
-         (link-description clean-filename))
-    (delete-region start end)
-    (org-insert-link nil (concat "./" link-filename) link-description)))
-
-;;;###autoload
 (defun +func-make-emacs-opaque ()
   "Make Emacs window opaque."
   (interactive)
