@@ -271,8 +271,10 @@
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)
                       ("C-c f f" . project-find-file)
-                      ("C-c f R" . +rename-current-file)
                       ("C-c f p" . project-switch-project)))
+
+(lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file))
+                       "fileop")
 
 (lazy-load-global-keys '(("C-c f r" . consult-recent-file)
                          ("C-c f g" . consult-ripgrep)
