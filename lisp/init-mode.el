@@ -45,7 +45,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.org$" . org-mode)
                     ("\\.go$" . go-mode)
                     ("\\.py$" . python-mode)
-                    ("\\.el$" . emacs-lisp-mode)
                     ("\\.sql$" . sql-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.json$" . json-mode)
@@ -67,7 +66,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'org-mode "init-org")
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
-(autoload 'emacs-lisp-mode "lang-elisp")
 (autoload 'lua-mode "lang-lua")
 ;; (autoload 'xml-mode "lang-xml")
 ;; (autoload 'json-mode "lang-json")
@@ -84,6 +82,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (require 'lang-yaml)
 (require 'lang-sql)
 
+(require 'lang-elisp)
 
 
 ;; conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
