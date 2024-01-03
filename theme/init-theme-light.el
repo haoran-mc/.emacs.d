@@ -55,6 +55,9 @@
 
  ;; fringe
  '(fringe ((t (:background "#EDE8D5"))))
+
+ ;; magit
+ '(magit-header-line ((t (:background "#EDE8D5"))))
  )
 
 
