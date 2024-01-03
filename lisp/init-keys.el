@@ -223,7 +223,6 @@
                          ("s-," . lazycat/remember-jump))
                        "basic-tookit")
 
-(lazy-load-global-keys '(("s-\\" . toggle-one-window)) "toggle-one-window")
 
 
 

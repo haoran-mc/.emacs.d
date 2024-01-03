@@ -160,16 +160,6 @@ are treated as a single unit and preserved in the filename."
   (aset buffer-display-table ?\^M []))
 
 ;;;###autoload
-(defun +toggle-maximize-buffer()
-  "Maximize buffer."
-  (interactive)
-  (if (= 1 (length (window-list)))
-      (jump-to-register '_)
-    (progn
-      (set-register '_ (list (current-window-configuration)))
-      (delete-other-windows))))
-
-;;;###autoload
 (defun spacemacs/alternate-buffer (&optional window)
   "Switch back and forth between current and last buffer in the current WINDOW.
 If `spacemacs-layouts-restrict-spc-tab' is 't' then this only switches between

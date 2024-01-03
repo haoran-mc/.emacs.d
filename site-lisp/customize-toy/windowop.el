@@ -56,6 +56,16 @@
   (delete-window)
   (balance-windows))
 
+;;;###autoload
+(defun vanilla/toggle-maximize-buffer()
+  "Maximize buffer."
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (set-register '_ (list (current-window-configuration)))
+      (delete-other-windows))))
+
 ;; https://github.com/purcell/emacs.d/blob/master/lisp/init-windows.el
 (defun split-window-horizontally-instead ()
   "Kill any other windows and re-split such that the current window is on the top half of the frame."
@@ -83,6 +93,5 @@
     (split-window-vertically-instead)))
 
 
-
-(provide 'windowop) ;; window operation
+(provide 'windowop)
 ;;; windowop.el ends here
