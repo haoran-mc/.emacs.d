@@ -33,11 +33,6 @@
 	url = git@github.com:json-emacs/json-mode.git
 	shallow = true
     ignore = all
-[submodule "site-lisp/aweshell"]
-	path = site-lisp/aweshell
-	url = git@github.com:manateelazycat/aweshell.git
-	shallow = true
-    ignore = all
 [submodule "site-lisp/symbol-overlay"]
 	path = site-lisp/symbol-overlay
 	url = git@github.com:wolray/symbol-overlay.git

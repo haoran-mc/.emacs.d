@@ -1,4 +1,4 @@
-;;; init-eshell.el --- emacs shell                   -*- lexical-binding: t; -*-
+;;; init-shell.el --- emacs shell                   -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -31,31 +31,6 @@
 
 ;;; Code:
 
-;; emacs command shell
-
-(require 'aweshell)
-
-(define-key eshell-mode-map (kbd "C-l") 'eshell/clear)
-
-(add-hook 'eshell-mode-hook (lambda() (setq truncate-lines t)))
-
-(with-eval-after-load "esh-opt"
-  (autoload 'epe-theme-lambda "eshell-prompt-extras")
-  (setq eshell-highlight-prompt nil
-        eshell-prompt-function 'epe-theme-lambda))
-
-(add-hook 'eshell-mode #'(bind-key "C-l" 'eshell/clear eshell-mode-map))
-(add-hook 'eshell-mode #'(eshell/alias "l" "ls -lah"))
-(add-hook 'eshell-mode #'(eshell/alias "ll" "ls -l"))
-(add-hook 'eshell-mode #'(eshell/alias "la" "ls -lAFh"))
-(add-hook 'eshell-mode #'(eshell/alias "lr" "ls -tRFh"))
-(add-hook 'eshell-mode #'(eshell/alias "gm" "go run main.go"))
-(add-hook 'eshell-mode #'(eshell/alias "pm" "python main.py"))
-(defalias 'eshell/e #'eshell/emacs)
-(defalias 'eshell/q #'eshell/exit)
-(defalias 'eshell/c #'eshell/clear)
-(defalias 'eshell/imgcat #'eshell/imgcat)
-
 (defun eshell/clear ()
   "Clear the eshell buffer."
   (interactive)
@@ -75,15 +50,24 @@
     ;; not the starting directory
     (mapc #'find-file (mapcar #'expand-file-name (flatten-tree (reverse args))))))
 
-(defun eshell/imgcat (&rest args)
-  "Display image files."
-  (unless args (error "Usage: imgcat FILE ..."))
-  (dolist (img (eshell-flatten-list args))
-    (eshell-printn
-     (propertize " " 'display (create-image img)))))
+(require 'eshell)
 
-(setq comint-prompt-read-only t
-      eshell-banner-message "")
+(setq comint-prompt-read-only t) ;; 提示符只读
 
-(provide 'init-eshell)
-;;; init-eshell.el ends here
+(setq shell-command-completion-mode t)     ;; 开启命令补全模式
+(setq eshell-banner-message "")
+
+(add-hook 'eshell-mode #'(bind-key "C-l" 'eshell/clear eshell-mode-map))
+(add-hook 'eshell-mode #'(eshell/alias "l" "ls -lah"))
+(add-hook 'eshell-mode #'(eshell/alias "ll" "ls -l"))
+(add-hook 'eshell-mode #'(eshell/alias "la" "ls -lAFh"))
+(add-hook 'eshell-mode #'(eshell/alias "lr" "ls -tRFh"))
+(add-hook 'eshell-mode #'(eshell/alias "gm" "go run main.go"))
+(add-hook 'eshell-mode #'(eshell/alias "pm" "python main.py"))
+(defalias 'eshell/e #'eshell/emacs)
+(defalias 'eshell/q #'eshell/exit)
+(defalias 'eshell/c #'eshell/clear)
+
+
+(provide 'init-shell)
+;;; init-shell.el ends here

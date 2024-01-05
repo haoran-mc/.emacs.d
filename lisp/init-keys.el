@@ -258,12 +258,7 @@
 
 
 ;; e for eshell
-(lazy-load-global-keys '(("C-c e n" . aweshell-new)
-                         ("C-c e t" . aweshell-toggle)
-                         ("C-c e d" . aweshell-dedicated-toggle)
-                         ("C-c e C-n" . aweshell-next)
-                         ("C-c e C-p" . aweshell-prev))
-                       "init-eshell")
+(lazy-load-global-keys '(("C-c e n" . eshell)) "init-shell")
 
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
