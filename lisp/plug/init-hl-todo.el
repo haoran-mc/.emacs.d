@@ -31,12 +31,21 @@
 (define-key hl-todo-mode-map (kbd "C-c t i") 'hl-todo-insert)
 (define-key hl-todo-mode-map (kbd "C-c t o") 'hl-todo-occur)
 
-(add-to-list 'hl-todo-keyword-faces '("LOCAL-PACKAGES" . "#FF0000"))
-(add-to-list 'hl-todo-keyword-faces '("EXTERNAL-TOOLS" . "#FF0000"))
-(add-to-list 'hl-todo-keyword-faces '("USER-DIRECTORY" . "#FF0000"))
-(add-to-list 'hl-todo-keyword-faces '("CUSTOM-COLOURS" . "#FF0000"))
-(add-to-list 'hl-todo-keyword-faces '("IMPORTANT"      . "#FF0000"))
-(add-to-list 'hl-todo-keyword-faces '("BUILT-IN"       . "#C066DB"))
+(setq hl-todo-keyword-faces
+      '(("LOCAL-PACKAGES" . "#FF0000")
+        ("EXTERNAL-TOOLS" . "#FF0000")
+        ("USER-DIRECTORY" . "#FF0000")
+        ("CUSTOM-COLOURS" . "#FF0000")
+        ("IMPORTANT"      . "#FF0000")
+        ("BUILT-IN"       . "#C066DB")
+
+        ;; org-todo
+        ("TODO"      . "#CC9393")
+        ("DONE"      . "#50a14f")
+        ("CANCELLED" . "#50a14f")
+        ("INBOX"     . "#CC9393")
+        ("WORK"      . "#CC9393")
+        ))
 
 
 (provide 'init-hl-todo)

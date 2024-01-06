@@ -135,15 +135,27 @@ Optional for Org-mode file: `LINK'."
       org-preview-latex-default-process 'imagemagick ;; C-c C-x C-l 使用 imagemagick 作为预览公式图像的工具
       org-latex-create-formula-image-program 'imagemagick ;; 使用 imagemagick 作为生成公式图像的工具
       ;; todo
-      org-todo-keywords
-      '((sequence "TODO(t)" "HOLD(h!)" "WORK(i!)" "|" "DONE(d!)" "CANCELLED(c@/!)"))
-      org-todo-keyword-faces '(("TODO"       :foreground "#7c7c75" :weight bold)
-                               ("HOLD"       :foreground "#feb24c" :weight bold)
-                               ("WORK"       :foreground "#0098dd" :weight bold)
+      org-todo-keywords ;; not use for todo instead of agenda
+      '((sequence "TODO(t)"
+                  "HOLD(h!)"
+                  "|"
+                  "DONE(d!)"
+                  "CANCELLED(c@/!)"
+                  "WORK(w!)"
+                  "INBOX(i!)"
+                  ))
+      org-todo-keyword-faces '(("TODO"       :foreground "#CC9393" :weight bold)
+                               ("HOLD"       :foreground "#D0BF8F" :weight bold)
                                ("DONE"       :foreground "#50a14f" :weight bold)
-                               ("CANCELLED"  :foreground "#ff6480" :weight bold))
+                               ("CANCELLED"  :foreground "#50a14f" :weight bold)
+                               
+                               ("WORK"       :foreground "#CC9393" :weight bold)
+                               ("INBOX"      :foreground "#CC9393" :weight bold))
       org-tag-alist ;; 任务标签中添加 :w: 表示与工作相关
-      '(("@工作" . ?w) ("@生活" . ?l) ("@学习" . ?s))
+      '(("@工作" . ?w)
+        ("@生活" . ?l)
+        ("@学习" . ?s)
+        ("@技术" . ?j))
       org-columns-default-format ;; 使用 org-columns 在表格视图查看任务
       "%25ITEM %TODO %SCHEDULED %DEADLINE %3PRIORITY %TAGS %CLOCKSUM %EFFORT{:}"
       org-use-fast-todo-selection 'expert ;; 快速选择代办状态，输入 "C" 来选择 "CANCEL"
@@ -209,28 +221,10 @@ Optional for Org-mode file: `LINK'."
 
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
+      ;; 减少 capture 的步骤，增加 tag 的选择
       org-capture-templates `(
-                              ("a" "all in tasks") ;; task
-                              ("ai" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                              ("al" "learn" plain (file "tasks/learn.org")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n.")
-                              ("ao" "love" plain (file "tasks/love.org")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n.")
-                              ;; * go language -> ...
-                              ;; * machine learning -> ...
-                              ;; * emacs -> ...
-                              ("at" "invest inbox" entry (file+headline "tasks/invest.org" "inbox")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                              ;; * movie -> 《》
-                              ;; * fruit
-                              ;; * read news
-                              ("ab" "invest book" entry (file+headline "tasks/invest.org" "book")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                              ;; 汇编 -> 《汇编语言》
-                              ;; 心理学 -> 《被讨厌的勇气》
-                              ("af" "invest life" entry (file+headline "tasks/invest.org" "life")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                              ("i" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
+                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                               
                               ("c" "sync-notes") ;; capture
                               ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
@@ -254,27 +248,13 @@ Optional for Org-mode file: `LINK'."
                               ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                                "* %<%H:%M>\n%?\n")
                               
-                              ("e" "emacs")
-                              ("el" "emacs learn" entry (file+headline "tasks/emacs.org" "learn")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n.")
-                              ("et" "emacs todo" entry (file+headline "tasks/emacs.org" "tasks")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                              ("e" "emacs inbox" entry (file+headline "tasks/emacs.org" "inbox")
+                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n")
                               
                               ("w" "work")
-                              ("wd" "work docs" plain (file "work/docs.org")
-                               "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                               ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
                               ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")
-                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                              ;; 
-                              ;; ("p" "project") ;; project
-                              ;; ("pb" "bug"           entry (function ,(lazy! (project-todo-org-file "Bugs")))          "* %?")
-                              ;; ("pf" "feature"       entry (function ,(lazy! (project-todo-org-file "Features")))      "* %?")
-                              ;; ("ps" "security"      entry (function ,(lazy! (project-todo-org-file "Security")))      "* %?")
-                              ;; ("pe" "enhancement"   entry (function ,(lazy! (project-todo-org-file "Enhancements")))  "* %?")
-                              ;; ("po" "optimization"  entry (function ,(lazy! (project-todo-org-file "Optimizations"))) "* %?")
-                              ;; ("pd" "documentation" entry (function ,(lazy! (project-todo-org-file "Documentation"))) "* %?")
-                              ;; ("pm" "miscellaneous" entry (function ,(lazy! (project-todo-org-file "Miscellaneous"))) "* %?")
+                               "* WORK %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
                               )
       )
 
@@ -292,7 +272,7 @@ Optional for Org-mode file: `LINK'."
 ;;   :config
 ;;   (require 'org-checklist))
 
-(require 'org-appear)
+(require 'init-org-appear)
 
 ;; (use-package imenu-list
 ;;   :ensure t

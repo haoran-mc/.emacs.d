@@ -230,8 +230,10 @@
 ;; check ext-which-key.el for prompt
 
 ;; a for alone apps
-(lazy-load-set-keys '(("C-c x" . org-capture)
-                      ("C-c a a" . org-agenda)))
+(lazy-load-set-keys '(("C-c a a" . org-agenda)
+                      ("C-c x" . org-capture)
+                      ("C-c d" . (lambda () (interactive)
+                                   (org-agenda nil "T")))))
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "init-fanyi")
 
