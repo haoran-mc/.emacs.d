@@ -50,7 +50,6 @@
     ;; not the starting directory
     (mapc #'find-file (mapcar #'expand-file-name (flatten-tree (reverse args))))))
 
-(require 'eshell)
 
 (setq comint-prompt-read-only t) ;; 提示符只读
 

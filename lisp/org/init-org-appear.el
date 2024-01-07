@@ -25,6 +25,8 @@
 ;;; Code:
 
 
+(require 'org-appear)
+
 (setq org-appear-autoemphasis t
       org-appear-autolinks nil
       org-appear-autosubmarkers t)

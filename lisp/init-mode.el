@@ -100,7 +100,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
       sentence-end-double-space nil) ;; 句子结束标点视为句子的结束，不需要额外的两个空格
 
 (add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
-
+(add-hook 'eshell-mode-hook (lambda () (setq truncate-lines t)))
 
 
 

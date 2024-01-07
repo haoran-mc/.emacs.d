@@ -108,7 +108,7 @@
 (transient-mark-mode 1)                 ;; 标记高亮
 (global-subword-mode 1)                 ;; Word移动支持 FooBar 的格式
 (setq-default comment-style 'indent)    ;; 设定自动缩进的注释风格
-(setq default-major-mode 'text-mode)    ;; 设置默认地主模式为 TEXT 模式
+(setq default-major-mode 'text-mode)    ;; 设置默认的主模式为 TEXT 模式
 
 ;; Treats the `_' as a word constituent
 (add-hook 'after-change-major-mode-hook
@@ -172,7 +172,7 @@
 
 ;; recentf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'after-init-hook 'recentf-mode)
-(setq recentf-max-saved-items 300
+(setq recentf-max-saved-items 600
       recentf-auto-cleanup 'never
       recentf-exclude '(;; Folders on MacOS start
                         "^/private/tmp/"

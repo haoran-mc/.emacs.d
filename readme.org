@@ -5,7 +5,7 @@
 
 #+begin_example
   mv ~/.emacs.d ~/.emacs.d.bak
-  git clone --depth=1 git@github.com:haoran-mc/.emacs.d.git
+  git clone --depth=1 git@github.com:haoran-mc/.emacs.d.git ~/.emacs.d
   cd ~/.emacs.d && ./submodule init
 #+end_example
 

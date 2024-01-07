@@ -1,6 +1,18 @@
 ;; This buffer is for text that is not saved, and for Lisp evaluation.
-;; To create a file, visit it with C-x C-f and enter text in its buffer.
+;; To create a file, visit it with C-c f x and enter text in its buffer.
 
+• org-capture (C-c x)
+• org-agenda  (C-c d)
+• ⛱ control with centre.org
 
-1. org-agenda (C-c a T enter)
-2. org-capture (C-c x)
+• 操作系统
+• sql, gorm, postgres, clickhouse
+• python 100 days
+• linux-tutorial
+• docker
+• 网络
+• 微积分
+• 金融
+• elisp
+  • autoload
+  • bulit-in

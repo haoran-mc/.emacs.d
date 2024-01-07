@@ -77,12 +77,7 @@
                       ("C-\\ k" . windmove-up)
                       ("C-\\ l" . windmove-right)
                       ("C-\\ =" . balance-windows)
-                      ("C-\\ m" . delete-other-windows)
-                      ;; resize window
-                      ("C-<up>"   . shrink-window)
-                      ("C-<down>" . enlarge-window)
-                      ("C-<left>" . shrink-window-horizontally)
-                      ("C-<right>" . enlarge-window-horizontally)))
+                      ("C-\\ m" . delete-other-windows)))
 
 (lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
                          ("C-\\ J" . vanilla/split-window-below-with-balance)
@@ -101,7 +96,7 @@
 ;; M-?:
 ;;                  ^  vanilla/scroll-half-page-down
 ;; mark-paragraph   k
-;;            < h       l >  downcase-word
+;;            < h       l >  vanilla/downcase-word
 ;;                  j
 ;;                  v  vanilla/scroll-half-page-up
 ;;
@@ -152,8 +147,8 @@
                        "delete-block")
 
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("M-." . (lambda() (interactive) (org-open-at-point)))
-                        ("M-," . (lambda() (interactive) (org-mark-ring-goto))))
+  (lazy-load-set-keys '(("M-." . org-open-at-point)
+                        ("M-," . org-mark-ring-goto))
                       org-mode-map))
 
 ;; you may use M-e (expand-region) more
@@ -168,11 +163,10 @@
                          ("M--" . er/contract-region))
                        "init-expand-region")
 
-(lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview")
+(lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
 
-(lazy-load-set-keys '(("M-h" . mark-paragraph)))
+(lazy-load-set-keys '(("M-h" . mark-paragraph))) ;; mark-paragraph
 
-;; M-j M-k
 (lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
                          ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
                        "cursormove")
@@ -207,6 +201,21 @@
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
+
+(lazy-load-global-keys '(("s-." . lazycat/remember-init)
+                         ("s-," . lazycat/remember-jump))
+                       "basic-tookit")
+
+(lazy-load-global-keys '(("s-\\" . vanilla/toggle-maximize-buffer)) "windowop")
+
+(lazy-load-set-keys '(;; resize window
+                      ("s-<up>"   . shrink-window)
+                      ("s-<down>" . enlarge-window)
+                      ("s-<left>" . shrink-window-horizontally)
+                      ("s-<right>" . enlarge-window-horizontally)))
+
 (lazy-load-global-keys '(("s-h" . vanilla/scroll-right-half-page)
                          ("s-l" . vanilla/scroll-left-half-page)
                          ("s-j" . vanilla/scroll-up-one-line)
@@ -216,14 +225,6 @@
 (lazy-load-global-keys '(("s-J" . move-text-down)
                          ("s-K" . move-text-up))
                        "move-text")
-(with-eval-after-load 'org
-  (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
-
-(lazy-load-global-keys '(("s-." . lazycat/remember-init)
-                         ("s-," . lazycat/remember-jump))
-                       "basic-tookit")
-
-
 
 
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -260,7 +261,7 @@
 
 
 ;; e for eshell
-(lazy-load-global-keys '(("C-c e n" . eshell)) "init-shell")
+(lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
 
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
@@ -336,7 +337,9 @@
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
                       ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
-                      ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))))
+                      ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))
+                      ("C-c o f s" . (lambda () (interactive) (find-file (locate-user-emacs-file "resources/initial-scratch-message.txt"))))
+                      ))
 
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 

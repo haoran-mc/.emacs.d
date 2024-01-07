@@ -89,6 +89,7 @@
 
 ;; standalone apps
 (require 'init-reader)
+(require 'init-shell)
 (require 'init-gc)
 (require 'init-autosave)
 (require 'init-autoinsert)
@@ -110,6 +111,13 @@
      (require 'init-whole-line-or-region)
      (require 'init-project)
      (require 'init-valign)
+     (require 'init-completion)
+     ))
+
+(run-with-idle-timer
+ 3 nil
+ #'(lambda ()
+     (require 'init-org)
      ))
 
 (if (display-graphic-p)
@@ -119,8 +127,8 @@
   (message "Emacs running in non-GUI mode"))
 
 ;; os specific
-(cond ((eq system-type 'gnu/linux) (require 'init-linux))
-      ((eq system-type 'darwin) (require 'init-osx)))
+(cond (haoran--os-linux (require 'init-linux))
+      (haoran--os-mac (require 'init-osx)))
 
 (when (file-exists-p custom-file)
   (load custom-file))

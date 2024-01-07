@@ -24,9 +24,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/Documents/emacs/local-packages/company-mode")
 (require 'company)
-
 
 (defun words-completion-hook-setup ()
   ;; make `company-backends' local is critcal

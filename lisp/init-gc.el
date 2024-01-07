@@ -3,7 +3,7 @@
 ;; Copyright (C) 2023  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
@@ -29,7 +29,12 @@
 (add-hook 'after-init-hook 'gcmh-mode)
 
 (setq gcmh-idle-delay 10
-      gcmh-high-cons-threshold #x6400000) ;; 100 MB
+      ;; gcmh-verbose t
+      gcmh-high-cons-threshold #x6400000) ;; 100MB
+
+;; (+ (* 300 1024 1024) 0)
+;;=> 314572800
+
 
 (provide 'init-gc)
 ;;; init-gc.el ends here

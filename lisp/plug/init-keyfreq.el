@@ -42,10 +42,11 @@
 (with-eval-after-load 'keyfreq
   (setq keyfreq-excluded-commands
         '(self-insert-command
+          org-self-insert-command
           mac-mwheel-scroll
           undefined))
   (setq keyfreq-excluded-regexp
-        '()))
+        '("^acm-")))
 
 
 (keyfreq-mode 1)

@@ -38,8 +38,8 @@
 
 
 ;; Make titlebar dark
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
 ;; Useful when use an external keyboard
 (defun +osx-swap-option-and-command ()

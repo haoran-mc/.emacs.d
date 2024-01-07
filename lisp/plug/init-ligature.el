@@ -71,6 +71,7 @@ from codepoint-start."
 
 
 (add-hook 'prog-mode-hook '+set-font-ligature-chars)
+(add-hook 'sql-mode-hook '+set-font-ligature-chars)
 ;; (with-eval-after-load 'org
 ;;   (add-hook 'org-mode-hook '+set-font-ligature-chars))
 
