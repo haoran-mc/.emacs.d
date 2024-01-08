@@ -106,7 +106,6 @@
 (blink-cursor-mode 1)                   ;; 指针闪动，帮助我快速定位光标位置
 (setq blink-cursor-blinks 100)          ;; 闪动 100 次
 (transient-mark-mode 1)                 ;; 标记高亮
-(global-subword-mode 1)                 ;; Word移动支持 FooBar 的格式
 (setq-default comment-style 'indent)    ;; 设定自动缩进的注释风格
 (setq default-major-mode 'text-mode)    ;; 设置默认的主模式为 TEXT 模式
 
