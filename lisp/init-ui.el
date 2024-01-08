@@ -115,15 +115,6 @@
   )
 
 
-;; beacon ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'beacon)
-;; just blink when buffer change
-(setq beacon-blink-when-buffer-changes t)
-(setq beacon-blink-when-window-changes nil)
-(setq beacon-blink-when-window-scrolls nil)
-(setq beacon-color "#8DCBEA")
-(beacon-mode 1)
-
 ;; all-the-icons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'all-the-icons)
 
