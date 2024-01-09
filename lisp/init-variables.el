@@ -31,7 +31,8 @@
 (defvar haoran--org-directory "~/haoran/no/org/org-directory")
 (defvar haoran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
                                        "~/haoran/no/org/org-directory/agenda"
-                                       "~/haoran/no/org/org-directory/work"))
+                                       "~/haoran/no/org/org-directory/work/journay.org"
+                                       "~/haoran/no/org/org-directory/work/todo.org"))
 
 (defvar haoran--font-weight "normal")
 
