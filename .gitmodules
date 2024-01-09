@@ -293,3 +293,8 @@
 	url = git@github.com:company-mode/company-mode.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/hydra"]
+	path = site-lisp/hydra
+	url = git@github.com:abo-abo/hydra.git
+	shallow = true
+	ignore = all

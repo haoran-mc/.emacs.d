@@ -41,6 +41,8 @@
    '(treemacs-git-untracked-face  ((t (:inherit treemacs-file-face))))
    '(treemacs-root-face           ((t (:height 1 :blod nil :family "JetBrainsMono Nerd Font"))))
    '(variable-pitch               ((t nil)))))
+(require 'treemacs-hydras)
+(require 'hydra)
 
 
 ;; ([mouse-1]   . treemacs-single-click-expand-action)
