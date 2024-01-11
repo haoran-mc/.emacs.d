@@ -34,6 +34,9 @@
                         "M-z" ;; zap-to-char like vim df?
                         ))
 
+;; kill keyboard-escape-quit a few usage scenarios
+(lazy-load-set-keys '(("ESC ESC ESC" . (lambda () (interactive) (message "ESC!")))))
+
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; init-funs has be required by init.el
