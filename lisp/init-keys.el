@@ -181,6 +181,9 @@
 
 (lazy-load-global-keys '(("M-o" . ace-window)) "ace-window")
 
+;; highlight-phrase
+;; highlight-regexp
+;; unhighlight-regexp
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
