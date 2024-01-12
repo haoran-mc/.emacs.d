@@ -79,9 +79,11 @@ This function is slow, so we have to use cache."
   (let* ((lhs '((:eval (propertize " ❯ " 'face '(:foreground "red")))
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
-                (:eval (if (and buffer-file-name (buffer-modified-p))
-                           (propertize (+smart-file-name-cached) 'face '(:foreground "red"))
-			             (+smart-file-name-cached)))
+                ;; TODO check the length of file-name
+                (:eval (let ((file-name (+smart-file-name-cached)))
+                         (if (and buffer-file-name (buffer-modified-p))
+                             (propertize file-name 'face '(:foreground "red"))
+			               file-name)))
                 " "
                 (:eval (when (> (window-width) 90)
                          (let ((vc-mode-value vc-mode))

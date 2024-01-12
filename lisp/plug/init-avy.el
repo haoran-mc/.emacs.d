@@ -58,7 +58,7 @@
       avy-case-fold-search nil)
 
 
-
+;; require before config
 (require 'ace-pinyin)
 (ace-pinyin-global-mode +1)
 

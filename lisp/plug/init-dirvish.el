@@ -28,42 +28,40 @@
 (dirvish-override-dired-mode)
 (setq delete-by-moving-to-trash t)
 
-(eval-after-load 'dirvish
-  '(progn
-     (setq dirvish-mode-map (make-sparse-keymap))
-     ;; cursor move
-     (define-key dirvish-mode-map (kbd "n") #'dired-next-line)
-     (define-key dirvish-mode-map (kbd "p") #'dired-previous-line)
-     (define-key dirvish-mode-map (kbd "h") #'dired-up-directory)
-     (define-key dirvish-mode-map (kbd "j") #'dired-next-line)
-     (define-key dirvish-mode-map (kbd "k") #'dired-previous-line)
-     (define-key dirvish-mode-map (kbd "l") #'dired-find-file)
-     (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
-     ;; mark
-     (define-key dirvish-mode-map (kbd "d") #'dired-flag-file-deletion)
-     (define-key dirvish-mode-map (kbd "x") #'dired-do-flagged-delete)
-     (define-key dirvish-mode-map (kbd "u") #'dired-unmark)
-     (define-key dirvish-mode-map (kbd "U") #'dired-unmark-all-marks)
-     ;; file copy, move, create
-     (define-key dirvish-mode-map (kbd "+") #'dired-create-directory)
-     (define-key dirvish-mode-map (kbd "R") #'dired-do-rename)
-     (define-key dirvish-mode-map (kbd "C") #'dired-do-copy)
-     ;; file access
-     (define-key dirvish-mode-map (kbd "v") #'dired-view-file)
-     (define-key dirvish-mode-map (kbd "o") #'dired-find-file-other-window)
-     (define-key dirvish-mode-map (kbd "C-o") #'dired-display-file)
-     ;; refresh
-     (define-key dirvish-mode-map (kbd "C-/") #'dired-undo)
-     (define-key dirvish-mode-map (kbd "g") #'revert-buffer)
-     ;; quit
-     (define-key dirvish-mode-map (kbd "q") #'dirvish-quit)
-     ;; other
-     (define-key dirvish-mode-map (kbd "w") #'dired-copy-filename-as-kill)
-     (define-key dirvish-mode-map (kbd "Z") #'dired-do-compress)
-     (define-key dirvish-mode-map (kbd "X") #'dired-do-shell-command)
-     (define-key dirvish-mode-map (kbd "B") #'dired-do-byte-compile)
-     (define-key dirvish-mode-map (kbd "L") #'dired-do-load)
-     ))
+(setq dirvish-mode-map (make-sparse-keymap))
+;; cursor move
+(define-key dirvish-mode-map (kbd "n") #'dired-next-line)
+(define-key dirvish-mode-map (kbd "p") #'dired-previous-line)
+(define-key dirvish-mode-map (kbd "h") #'dired-up-directory)
+(define-key dirvish-mode-map (kbd "j") #'dired-next-line)
+(define-key dirvish-mode-map (kbd "k") #'dired-previous-line)
+(define-key dirvish-mode-map (kbd "l") #'dired-find-file)
+(define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
+;; mark
+(define-key dirvish-mode-map (kbd "d") #'dired-flag-file-deletion)
+(define-key dirvish-mode-map (kbd "x") #'dired-do-flagged-delete)
+(define-key dirvish-mode-map (kbd "u") #'dired-unmark)
+(define-key dirvish-mode-map (kbd "U") #'dired-unmark-all-marks)
+;; file copy, move, create
+(define-key dirvish-mode-map (kbd "+") #'dired-create-directory)
+(define-key dirvish-mode-map (kbd "R") #'dired-do-rename)
+(define-key dirvish-mode-map (kbd "C") #'dired-do-copy)
+;; file access
+(define-key dirvish-mode-map (kbd "v") #'dired-view-file)
+(define-key dirvish-mode-map (kbd "o") #'dired-find-file-other-window)
+(define-key dirvish-mode-map (kbd "C-o") #'dired-display-file)
+;; refresh
+(define-key dirvish-mode-map (kbd "C-/") #'dired-undo)
+(define-key dirvish-mode-map (kbd "g") #'revert-buffer)
+;; quit
+(define-key dirvish-mode-map (kbd "q") #'dirvish-quit)
+;; other
+(define-key dirvish-mode-map (kbd "w") #'dired-copy-filename-as-kill)
+(define-key dirvish-mode-map (kbd "Z") #'dired-do-compress)
+(define-key dirvish-mode-map (kbd "X") #'dired-do-shell-command)
+(define-key dirvish-mode-map (kbd "B") #'dired-do-byte-compile)
+(define-key dirvish-mode-map (kbd "L") #'dired-do-load)
+
 
 
 (provide 'init-dirvish)

@@ -3,6 +3,7 @@
 
 • org-capture (C-c x)
 • org-agenda  (C-c d)
+• google calendar
 • ⛱ control with centre.org
 
 • 操作系统
@@ -15,4 +16,9 @@
 • 金融
 • elisp
   • autoload
-  • bulit-in
+  • site
+  • ace-window, treemacs, hydra
+
+1. 浏览器
+2. zhihu
+3. bilibili

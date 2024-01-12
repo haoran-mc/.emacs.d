@@ -60,11 +60,11 @@
       window-resize-pixelwise t)
 
 ;; 设置Fringe的宽度
-(fringe-mode '(6 . 6))  ; 左右各设置为4个像素的宽度
+(fringe-mode '(6 . 6))  ; 左右各设置为6个像素的宽度
 
 ;; 设置Fringe的显示方式
-(setq-default left-fringe-width 6)   ; 设置左侧Fringe的宽度为10个像素
-(setq-default right-fringe-width 6)  ; 设置右侧Fringe的宽度为10个像素
+(setq-default left-fringe-width 6)   ; 设置左侧Fringe的宽度为6个像素
+(setq-default right-fringe-width 6)  ; 设置右侧Fringe的宽度为6个像素
 
 ;; confusing if no fringes (GUI only).
 (setq visual-line-fringe-indicators '(nil right-curly-arrow))

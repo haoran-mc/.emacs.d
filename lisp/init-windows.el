@@ -102,7 +102,8 @@
         "\\*diff-hl\\**"
         "^\\*macro expansion\\**"
 
-        "\\*Agenda Commands\\*" "\\*Org Select\\*" "\\*Capture\\*" "^CAPTURE-.*\\.org*"
+        ;; 无法使用在 capture buffer 中使用 org src
+        ;; "\\*Agenda Commands\\*" "\\*Org Select\\*" "\\*Capture\\*" "^CAPTURE-.*\\.org*"
         "\\*Gofmt Errors\\*$" "\\*Go Test\\*$" godoc-mode
         "\\*docker-.+\\*"
         "\\*prolog\\*" inferior-python-mode inf-ruby-mode swift-repl-mode

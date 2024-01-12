@@ -1,6 +1,6 @@
-;;; init-gc.el --- GC optimization                 -*- lexical-binding: t; -*-
+;;; init-ace-window.el ---use ace-window for a better treemacs experience  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023  Haoran Liu
+;; Copyright (C) 2024  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
 ;; Keywords:
@@ -24,17 +24,16 @@
 
 ;;; Code:
 
-(require 'gcmh)
+(require 'ace-window)
 
-(add-hook 'after-init-hook 'gcmh-mode)
+(setq aw-background nil)
 
-(setq gcmh-idle-delay 10
-      ;; gcmh-verbose t
-      gcmh-high-cons-threshold #x12c00000) ;; 100MB
-
-;; (+ (* 300 1024 1024) 0)
-;;=> 314572800
+;; (custom-set-faces
+;;  '(aw-leading-char-face ((t (:inherit font-lock-keyword-face :foreground unspecified :bold t :height 3.0))))
+;;  '(aw-minibuffer-leading-char-face ((t (:inherit font-lock-keyword-face :bold t :height 1.0))))
+;;  '(aw-mode-line-face ((t (:inherit mode-line-emphasis :bold t)))))
 
 
-(provide 'init-gc)
-;;; init-gc.el ends here
+
+(provide 'init-ace-window)
+;;; init-ace-window.el ends here

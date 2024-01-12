@@ -103,6 +103,7 @@
     (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
     (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
     (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
+    (define-key lsp-bridge-mode-map (kbd "C-c c i") 'lsp-bridge-find-impl-other-window)
     (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit))
   (message "major mode is: %s" major-mode)
   (lsp-bridge-mode))

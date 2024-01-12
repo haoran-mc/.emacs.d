@@ -87,10 +87,13 @@
                          ("C-\\ K" . vanilla/split-window-up-with-balance)
                          ("C-\\ L" . vanilla/split-window-right-with-balance)
                          ("C-\\ c" . vanilla/delete-window-with-balance)
-                         ("C-\\ x" . vanilla/exchange-split-window-position-structure)
                          ("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
                        "windowop")
+
+(lazy-load-global-keys '(("C-\\ x" . ace-swap-window)
+                         ("C-\\ d" . ace-delete-window))
+                       "init-ace-window")
 
 
 ;; ----------------------------------
@@ -182,7 +185,7 @@
                          ("M-p" . vanilla/move-cursor-8-lines-up))
                        "cursormove")
 
-(lazy-load-global-keys '(("M-o" . ace-window)) "ace-window")
+(lazy-load-global-keys '(("M-o" . ace-window)) "init-ace-window")
 
 ;; highlight-phrase
 ;; highlight-regexp
@@ -254,17 +257,7 @@
 (lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "basic-tookit")
 (lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
 
-;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
-;; a = 140 * 12 => a: 1,680
-(lazy-load-global-keys '(("C-c c b" . literate-calc-eval-buffer)
-                         ("C-c c i" . literate-calc-insert-results)
-                         ("C-c c m" . literate-calc-minor-mode)
-                         ("C-c c l" . literate-calc-eval-line)
-                         ("C-c c c" . literate-calc-clear-overlays))
-                       "literate-calc-mode")
-
 ;; c for code
-
 
 ;; e for eshell
 (lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
@@ -333,6 +326,15 @@
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")
 
+;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
+;; a = 140 * 12 => a: 1,680
+(lazy-load-global-keys '(("C-c l b" . literate-calc-eval-buffer)
+                         ("C-c l i" . literate-calc-insert-results)
+                         ("C-c l m" . literate-calc-minor-mode)
+                         ("C-c l l" . literate-calc-eval-line)
+                         ("C-c l c" . literate-calc-clear-overlays))
+                       "literate-calc-mode")
+
 ;; n for narrow
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
@@ -351,6 +353,8 @@
 
 (lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran--github-page)))))
 
+;; r C-c r instead C-x r as inaccessible
+
 ;; s for switch
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
 
@@ -363,6 +367,26 @@
 ;; u for user
 (lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
                       ("C-c u i" . +indent-buffer)))
+
+;; w for window
+(lazy-load-set-keys '(("C-c w h" . windmove-left)
+                      ("C-c w j" . windmove-down)
+                      ("C-c w k" . windmove-up)
+                      ("C-c w l" . windmove-right)
+                      ("C-c w =" . balance-windows)
+                      ("C-c w m" . delete-other-windows)))
+
+(lazy-load-global-keys '(("C-c w H" . vanilla/split-window-left-with-balance)
+                         ("C-c w J" . vanilla/split-window-below-with-balance)
+                         ("C-c w K" . vanilla/split-window-up-with-balance)
+                         ("C-c w L" . vanilla/split-window-right-with-balance)
+                         ("C-c w c" . vanilla/delete-window-with-balance)
+                         ("C-c w |" . split-window-horizontally-instead)
+                         ("C-c w _" . split-window-vertically-instead))
+                         "windowop")
+
+(lazy-load-global-keys '(("C-c w x" . ace-swap-window))
+                       "init-ace-window")
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-global-keys '(("C-x g" . magit-status)) "magit")
