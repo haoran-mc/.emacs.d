@@ -27,6 +27,7 @@
 ;; A tree layout file explorer
 (require 'treemacs)
 (require 'treemacs-hydras)
+(require 'treemacs-mouse-interface)
 (require 'hydra)
 (require 'init-ace-window)
 
