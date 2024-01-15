@@ -298,3 +298,8 @@
 	url = git@github.com:abo-abo/hydra.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/git-messenger"]
+	path = site-lisp/git-messenger
+	url = git@github.com:emacsorphanage/git-messenger.git
+	shallow = true
+	ignore = all

@@ -96,5 +96,11 @@
 (add-to-list 'auto-mode-alist '("\\.gitattributes\\'" . conf-unix-mode))
 
 
+;; git-messenger ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'git-messenger)
+(setq git-messenger:show-detail t
+      git-messenger:use-magit-popup t)
+
+
 (provide 'init-git)
 ;;; init-git.el ends here

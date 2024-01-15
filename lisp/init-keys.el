@@ -281,9 +281,9 @@
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
 
 ;; g for git
-(lazy-load-global-keys '(("C-c g b" . magit-branch)
-                         ("C-c g B" . magit-blame))
-                       "magit")
+(lazy-load-set-keys '(("C-c g b" . git-messenger:popup-message)))
+
+(lazy-load-global-keys '(("C-c g B" . magit-branch)) "magit")
 
 ;; h for hideshow unify with vim
 ;; zm hide-all
