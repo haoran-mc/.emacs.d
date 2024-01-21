@@ -32,10 +32,11 @@
                         "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
+                        "ESC ESC ESC"
                         ))
 
 ;; kill keyboard-escape-quit a few usage scenarios
-(lazy-load-set-keys '(("ESC ESC ESC" . (lambda () (interactive) (message "ESC!")))))
+;; (lazy-load-set-keys '(("ESC ESC ESC" . (lambda () (interactive) (message "ESC!")))))
 
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -50,7 +51,7 @@
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 ;; C-. format code
-(lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
+(lazy-load-set-keys '(("C-;" . avy-goto-char)))
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
@@ -160,7 +161,7 @@
 ;; you may use M-e (expand-region) more
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
-(lazy-load-global-keys '(("M-[" . easy-nav-enter)) "init-easy-nav")
+;; (lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
 
 ;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
@@ -319,9 +320,8 @@
                         org-mode-map
                         "org-insert"))
 
-(lazy-load-global-keys '(("C-c k" . avy-goto-line-above)
-                         ("C-c j" . avy-goto-line-below))
-                       "init-avy")
+(lazy-load-set-keys '(("C-c k" . avy-goto-line-above)
+                      ("C-c j" . avy-goto-line-below)))
 
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")

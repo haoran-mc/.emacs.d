@@ -37,7 +37,7 @@
         (define-key map (kbd "k") #'previous-line)
         (define-key map (kbd "g") #'beginning-of-buffer)
         (define-key map (kbd "G") #'end-of-buffer)
-        (define-key map (kbd "q") #'easy-nav-exist)
+        (define-key map (kbd "i") #'easy-nav-exist)
         map))
 
 (define-minor-mode easy-nav-mode

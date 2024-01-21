@@ -303,3 +303,8 @@
 	url = git@github.com:emacsorphanage/git-messenger.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/meow"]
+	path = site-lisp/meow
+	url = git@github.com:meow-edit/meow.git
+	shallow = true
+	ignore = all
