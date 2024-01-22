@@ -28,4 +28,6 @@ init_zsh.sh
 /eln-cache/
 /eaf/
 
+secret.el
+
 .DS_Store
