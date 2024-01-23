@@ -253,7 +253,7 @@ Optional for Org-mode file: `LINK'."
                               
                               ("w" "work")
                               ("wd" "work docs" plain (file "work/docs.org")
-                               "* %<%m.%d %a %H:%M> - %^{title}\n%?"
+                               "* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
                                :prepend t)
                               ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
                               ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")

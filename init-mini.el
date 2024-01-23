@@ -28,25 +28,10 @@
 ;; (setq debug-on-error t)
 ;; (setq-default lexical-binding t)
 
-
-;; (global-unset-key (kbd "C-w")) ;; s-w kill-region
-
-;; ;; w for window, unify keys with vim, M-w instead of C-w
-;; (global-set-key (kbd "C-w h") 'windmove-left)
-;; (global-set-key (kbd "C-w j") 'windmove-down)
-;; (global-set-key (kbd "C-w n") 'windmove-down)
-;; (global-set-key (kbd "C-w p") 'windmove-up)
-;; (global-set-key (kbd "C-w k") 'windmove-up)
-;; (global-set-key (kbd "C-w l") 'windmove-right)
-;; (global-set-key (kbd "C-w s") 'split-window-vertically)
-;; (global-set-key (kbd "C-w v") 'split-window-horizontally)
-;; (global-set-key (kbd "C-w m") 'delete-other-windows)
-;; (global-set-key (kbd "C-w c") 'delete-window)
-;; (global-set-key (kbd "C-w =") 'balance-windows)
-
 (global-set-key (kbd "C-c o f r") #'(lambda() (interactive) (find-file user-init-file)))
 (global-set-key (kbd "C-c o i") #'(lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
 (global-set-key (kbd "C-c o s") #'(lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
+(global-set-key (kbd "C-c o c") #'(lambda() (interactive) (find-file "~/haoran/no/org/org-directory/centre.org")))
 
 ;; (provide 'init-mini)
 ;;; init-mini.el ends here

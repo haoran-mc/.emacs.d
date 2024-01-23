@@ -34,6 +34,10 @@
       magit-ediff-dwim-show-on-hunks t
       magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 
+(defun +magit-require ()
+  (interactive)
+  (require 'magit))
+
 
 ;; vc ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; NOTE: `diff-hl' depends on `vc'

@@ -95,7 +95,7 @@
 (require 'init-autoinsert)
 (require 'init-avy)
 (require 'init-keyfreq)
-(require 'init-meow)
+;; (require 'init-meow)
 
 ;; load later
 (run-with-idle-timer

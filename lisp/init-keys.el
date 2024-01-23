@@ -161,7 +161,7 @@
 ;; you may use M-e (expand-region) more
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
-;; (lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
+(lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
 
 ;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
@@ -277,7 +277,8 @@
                       ("C-c f f" . project-find-file)
                       ("C-c f p" . project-switch-project)))
 
-(lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file))
+(lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file)
+                         ("C-c f D" . vanilla/delete-current-file))
                        "fileop")
 
 (lazy-load-global-keys '(("C-c f r" . consult-recent-file)
@@ -350,6 +351,7 @@
 ;; o for open
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
                       ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
+                      ("C-c o c" . (lambda () (interactive) (find-file haoran--centre)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
                       ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))
                       ("C-c o f s" . (lambda () (interactive) (find-file (locate-user-emacs-file "resources/initial-scratch-message.txt"))))
@@ -389,7 +391,7 @@
                          ("C-c w c" . vanilla/delete-window-with-balance)
                          ("C-c w |" . split-window-horizontally-instead)
                          ("C-c w _" . split-window-vertically-instead))
-                         "windowop")
+                       "windowop")
 
 (lazy-load-global-keys '(("C-c w x" . ace-swap-window))
                        "init-ace-window")
@@ -400,6 +402,7 @@
 
 
 ;; here is C-M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TODO Incorrect capitalization
 (lazy-load-global-keys '(("C-M-." . vimlike-semicolon)) ;; xref-find-apropos
                        "vim-like")
 

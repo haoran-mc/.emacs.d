@@ -9,7 +9,8 @@
   cd ~/.emacs.d && ./submodule init
 #+end_example
 
-1. M-x all-the-icons-install-fonts
+1. Adjusting the key rate
+2. M-x all-the-icons-install-fonts
 
 
 *dependencies:*

@@ -4,7 +4,9 @@
 • org-capture (C-c x)
 • org-agenda  (C-c d)
 • google calendar
-• ⛱ control with centre.org
+• ⚑ control with centre.org
+• obsidian at Less-edited scenarios
+• manage my tables with excel
 
 • 操作系统
 • sql, gorm, postgres, clickhouse
@@ -14,11 +16,20 @@
 • 网络
 • 微积分
 • 金融
+• algorithm
 • elisp
   • autoload
   • site
   • ace-window, treemacs, hydra
 
-1. 浏览器
-2. zhihu
-3. bilibili
+TODO:
+• 浏览器
+• zhihu
+• bilibili
+• readme && script
+
+
+read:
+lalaland
+
+DICT、FILE、FTP、FTPS、GOPHER、GOPHERS、HTTP、HTTPS、IMAP、IMAPS、LDAP、LDAPS、MQTT、POP3、POP3S、RTMP、RTMPS、RTSP、SCP、SFTP、SMB、SMBS、SMTP、SMTPS、TELNET和TFTP

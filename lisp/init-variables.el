@@ -38,6 +38,7 @@
 
 (defvar haoran--private-notes "~/haoran/no/org/wiki/index.org")
 (defvar haoran--public-notes "~/haoran/no/org/site/index.org")
+(defvar haoran--centre "~/haoran/no/org/org-directory/centre.org")
 (defvar haoran--github-page "~/haoran/gr/haoran-mc.github.io")
 
 (cond (haoran--os-linux

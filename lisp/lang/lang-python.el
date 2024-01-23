@@ -29,8 +29,9 @@
 (require 'python)
 
 ;; Initialization
-(defun python-mode-delete-trailing-whitespace ()
+(defun +python-mode-delete-trailing-whitespace ()
   "Delete trailing whitespace before saving file."
+  (interactive)
   (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
 
 (defun lazycat/jump-to-import()
@@ -60,7 +61,7 @@
 (setq python-indent-guess-indent-offset-verbose nil)
 
 ;; Hook
-(add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
+;; (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
 
 
 ;; (use-package jupyter
