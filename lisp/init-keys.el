@@ -170,6 +170,12 @@
                          ("M--" . er/contract-region))
                        "init-expand-region")
 
+;; only support en_word
+;; see C-M-. for vimlike-semicolon
+(lazy-load-global-keys '(("M-f" . vimlike-f) ;; forward-word
+                         ("M-b" . vimlike-F)) ;; backward-word
+                       "vim-like")
+
 (lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
 
 (lazy-load-set-keys '(("M-h" . mark-paragraph))) ;; mark-paragraph
@@ -390,6 +396,12 @@
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-global-keys '(("C-x g" . magit-status)) "magit")
+
+
+
+;; here is C-M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(lazy-load-global-keys '(("C-M-." . vimlike-semicolon)) ;; xref-find-apropos
+                       "vim-like")
 
 
 (provide 'init-keys)
