@@ -138,19 +138,19 @@ Optional for Org-mode file: `LINK'."
       org-todo-keywords ;; not use for todo instead of agenda
       '((sequence "TODO(t)"
                   "HOLD(h!)"
+                  "WORK(w!)" ;; 方便 C-c d
+                  "INBOX(i!)"
                   "|"
                   "DONE(d!)"
                   "CANCELLED(c@/!)"
-                  "WORK(w!)"
-                  "INBOX(i!)"
                   ))
-      org-todo-keyword-faces '(("TODO"       :foreground "#CC9393" :weight bold)
+      org-todo-keyword-faces '(("TODO"       :foreground "#FF0000" :weight bold)
                                ("HOLD"       :foreground "#D0BF8F" :weight bold)
                                ("DONE"       :foreground "#50a14f" :weight bold)
                                ("CANCELLED"  :foreground "#50a14f" :weight bold)
                                
-                               ("WORK"       :foreground "#CC9393" :weight bold)
-                               ("INBOX"      :foreground "#CC9393" :weight bold))
+                               ("WORK"       :foreground "#FF0000" :weight bold)
+                               ("INBOX"      :foreground "#FF0000" :weight bold))
       org-tag-alist ;; 任务标签中添加 :w: 表示与工作相关
       '(("@工作" . ?w)
         ("@生活" . ?l)
@@ -221,7 +221,11 @@ Optional for Org-mode file: `LINK'."
 
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
-      ;; 减少 capture 的步骤，增加 tag 的选择
+      ;; 减少 capture 的步骤，让自己不惧怕 capture：
+      ;; • 减少 tag 的选择 %^g
+      ;; • 通过 INBOX、WORK todo关键字识别任务类别
+      ;; • todo 项不要太分散，只保留少数 todo 文件
+      ;; • 提示输入「优先[#A]」「学习」
       org-capture-templates `(
                               ("i" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                                "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
@@ -256,8 +260,10 @@ Optional for Org-mode file: `LINK'."
                                "* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
                                :prepend t)
                               ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
-                              ("wt" "work todo" entry (file+headline "work/todo.org" "inbox")
-                               "* WORK %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                              ("wt" "work todo「优先[#A]」「学习」"
+                               entry (file "work/todo.org")
+                               "* WORK %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                               :prepend t)
                               )
       )
 

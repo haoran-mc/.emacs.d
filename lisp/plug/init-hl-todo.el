@@ -40,11 +40,11 @@
         ("BUILT-IN"       . "#C066DB")
 
         ;; org-todo
-        ("TODO"      . "#CC9393")
+        ("TODO"      . "#FF0000") ;; #CC9393
         ("DONE"      . "#50a14f")
         ("CANCELLED" . "#50a14f")
-        ("INBOX"     . "#CC9393")
-        ("WORK"      . "#CC9393")
+        ("INBOX"     . "#FF0000")
+        ("WORK"      . "#FF0000")
         ))
 
 
