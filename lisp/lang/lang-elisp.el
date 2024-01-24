@@ -53,7 +53,7 @@
 (define-key lisp-interaction-mode-map (kbd "M-<return>") 'eval-to-comment)
 
 ;; Hook
-(add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace)
+;; (add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace)
 
 
 ;; (use-package ielm
