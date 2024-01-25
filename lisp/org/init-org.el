@@ -136,18 +136,18 @@ Optional for Org-mode file: `LINK'."
       org-latex-create-formula-image-program 'imagemagick ;; 使用 imagemagick 作为生成公式图像的工具
       ;; todo
       org-todo-keywords ;; not use for todo instead of agenda
-      '((sequence "TODO(t)"
-                  "HOLD(h!)"
-                  "WORK(w!)" ;; 方便 C-c d
-                  "INBOX(i!)"
+      '((sequence "TODO(t)"   ;; 优先处理
+                  "WORK(w!)"  ;; 工作相关
+                  "INBOX(i!)" ;; 待做盒子
+                  "LONG(L!)"  ;; 长期跟踪
                   "|"
-                  "DONE(d!)"
-                  "CANCELLED(c@/!)"
+                  "DONE(d!)"        ;; 完成
+                  "CANCELLED(c@/!)" ;; 删除
                   ))
       org-todo-keyword-faces '(("TODO"       :foreground "#FF0000" :weight bold)
-                               ("HOLD"       :foreground "#D0BF8F" :weight bold)
                                ("DONE"       :foreground "#50a14f" :weight bold)
                                ("CANCELLED"  :foreground "#50a14f" :weight bold)
+                               ("LONG"       :foreground "#D0BF8F" :weight bold)
                                
                                ("WORK"       :foreground "#FF0000" :weight bold)
                                ("INBOX"      :foreground "#FF0000" :weight bold))
@@ -221,11 +221,17 @@ Optional for Org-mode file: `LINK'."
 
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
-      ;; 减少 capture 的步骤，让自己不惧怕 capture：
+      ;; 减少 capture 步骤：
       ;; • 减少 tag 的选择 %^g
       ;; • 通过 INBOX、WORK todo关键字识别任务类别
       ;; • todo 项不要太分散，只保留少数 todo 文件
       ;; • 提示输入「优先[#A]」「学习」
+      ;;
+      ;; todo 关键字分类：
+      ;; • WORK  工作相关
+      ;; • TODO  紧急的待做
+      ;; • INBOX 待做箱子，使用 [#A] [#B] ... 标记优先级
+      ;; • LONG  长期跟踪，这种事情不会很多，手动管理，不通过capture增加
       org-capture-templates `(
                               ("i" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
                                "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")

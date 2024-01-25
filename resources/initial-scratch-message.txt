@@ -3,6 +3,10 @@
 
 • org-capture (C-c x)
 • org-agenda  (C-c d)
+  • TODO 优先的事项
+  • INBOX 待做盒子
+  • WORK 工作相关
+  • LONG 不通过capture增加
 • google calendar
 • ⚑ control with centre.org
 • obsidian at Less-edited scenarios
