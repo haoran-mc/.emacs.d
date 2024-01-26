@@ -74,6 +74,10 @@
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
+(with-eval-after-load 'org
+  ;; only full paths are supported
+  (lazy-load-global-keys '(("C-v" . vanilla/preview-file-link)) "org-funcs")) ;; scroll-up-command
+
 (lazy-load-set-keys '(("C-z" . kill-this-buffer)))
 
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
