@@ -151,11 +151,14 @@ Optional for Org-mode file: `LINK'."
                                
                                ("WORK"       :foreground "#FF0000" :weight bold)
                                ("INBOX"      :foreground "#FF0000" :weight bold))
-      org-tag-alist ;; 任务标签中添加 :w: 表示与工作相关
-      '(("@工作" . ?w)
-        ("@生活" . ?l)
-        ("@学习" . ?s)
-        ("@技术" . ?j))
+      ;; tag 只用在 inbox 中，用来分类
+      ;; 而「工作」只会收录在 work 文件夹下，且 agenda 也有专门入口，不需要增加 tag
+      ;; 书籍不分技术书籍与其他书籍，行为（课程、阅读、学习某个技术）不做割裂
+      org-tag-alist
+      '(("@生活" . ?l)
+        ("@课程" . ?k)
+        ("@书籍" . ?b)
+        ("@某项技术" . ?j))
       org-columns-default-format ;; 使用 org-columns 在表格视图查看任务
       "%25ITEM %TODO %SCHEDULED %DEADLINE %3PRIORITY %TAGS %CLOCKSUM %EFFORT{:}"
       org-use-fast-todo-selection 'expert ;; 快速选择代办状态，输入 "C" 来选择 "CANCEL"
@@ -222,7 +225,7 @@ Optional for Org-mode file: `LINK'."
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
       ;; 减少 capture 步骤：
-      ;; • 减少 tag 的选择 %^g
+      ;; • 减少 tag 的选择 %^g，只在 inbox 中使用 tag，做不到完全依赖文件分类
       ;; • 通过 INBOX、WORK todo关键字识别任务类别
       ;; • todo 项不要太分散，只保留少数 todo 文件
       ;; • 提示输入「优先[#A]」「学习」
@@ -234,7 +237,8 @@ Optional for Org-mode file: `LINK'."
       ;; • LONG  长期跟踪，这种事情不会很多，手动管理，不通过capture增加
       org-capture-templates `(
                               ("i" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
-                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
+                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                               :prepend t)
                               
                               ("c" "sync-notes") ;; capture
                               ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
