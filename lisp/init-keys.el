@@ -33,6 +33,7 @@
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         "ESC ESC ESC"
+                        "C-t" ;; transpose-chars
                         ))
 
 ;; kill keyboard-escape-quit a few usage scenarios
@@ -73,6 +74,10 @@
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
+
+;; C-t transpose-chars
+(cond (haoran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
+      (haoran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
 
 (with-eval-after-load 'org
   ;; only full paths are supported
