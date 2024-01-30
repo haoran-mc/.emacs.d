@@ -2,282 +2,282 @@
 	path = site-lisp/go-mode
 	url = git@github.com:dominikh/go-mode.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/posframe"]
 	path = site-lisp/posframe
 	url = git@github.com:tumashu/posframe.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/dumb-jump"]
 	path = site-lisp/dumb-jump
 	url = git@github.com:jacktasia/dumb-jump.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/lsp-bridge"]
 	path = site-lisp/lsp-bridge
 	url = git@github.com:manateelazycat/lsp-bridge.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
 	url = git@github.com:yoshiki/yaml-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/toml-mode"]
 	path = site-lisp/toml-mode
 	url = git@github.com:dryman/toml-mode.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/json-mode"]
 	path = site-lisp/json-mode
 	url = git@github.com:json-emacs/json-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/symbol-overlay"]
 	path = site-lisp/symbol-overlay
 	url = git@github.com:wolray/symbol-overlay.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/rg"]
 	path = site-lisp/rg
 	url = git@github.com:dajva/rg.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/yasnippet"]
 	path = site-lisp/yasnippet
 	url = git@github.com:joaotavora/yasnippet.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/diredfl"]
 	path = site-lisp/diredfl
 	url = git@github.com:purcell/diredfl.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/marginalia"]
 	path = site-lisp/marginalia
 	url = git@github.com:minad/marginalia.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/vertico"]
 	path = site-lisp/vertico
 	url = git@github.com:minad/vertico.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/consult"]
 	path = site-lisp/consult
 	url = git@github.com:minad/consult.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/orderless"]
 	path = site-lisp/orderless
 	url = git@github.com:oantolin/orderless.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/org-superstar-mode"]
 	path = site-lisp/org-superstar-mode
 	url = git@github.com:integral-dw/org-superstar-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/ob-go"]
 	path = site-lisp/ob-go
 	url = git@github.com:pope/ob-go.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/org-appear"]
 	path = site-lisp/org-appear
 	url = git@github.com:awth13/org-appear.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "theme/spacemacs-theme"]
 	path = theme/spacemacs-theme
 	url = git@github.com:nashamri/spacemacs-theme.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "theme/lazycat-theme"]
 	path = theme/lazycat-theme
 	url = git@github.com:manateelazycat/lazycat-theme.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "theme/doom-themes"]
 	path = theme/doom-themes
 	url = git@github.com:doomemacs/themes.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/rainbow-mode"]
 	path = site-lisp/rainbow-mode
 	url = git@github.com:emacsmirror/rainbow-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/all-the-icons"]
 	path = site-lisp/all-the-icons
 	url = git@github.com:domtronn/all-the-icons.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/nano-emacs"]
 	path = site-lisp/nano-emacs
 	url = git@github.com:rougier/nano-emacs.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/highlight-thing"]
 	path = site-lisp/highlight-thing
 	url = git@github.com:fgeller/highlight-thing.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/auto-save"]
 	path = site-lisp/auto-save
 	url = git@github.com:manateelazycat/auto-save.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/avy"]
 	path = site-lisp/avy
 	url = git@github.com:abo-abo/avy.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/ace-pinyin"]
 	path = site-lisp/ace-pinyin
 	url = git@github.com:cute-jumper/ace-pinyin.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/vundo"]
 	path = site-lisp/vundo
 	url = git@github.com:casouri/vundo.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/treemacs"]
 	path = site-lisp/treemacs
 	url = git@github.com:Alexander-Miller/treemacs.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/expand-region.el"]
 	path = site-lisp/expand-region.el
 	url = git@github.com:magnars/expand-region.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/goto-line-preview"]
 	path = site-lisp/goto-line-preview
 	url = git@github.com:emacs-vs/goto-line-preview.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/dirvish"]
 	path = site-lisp/dirvish
 	url = git@github.com:alexluigit/dirvish.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/diff-hl"]
 	path = site-lisp/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/valign"]
 	path = site-lisp/valign
 	url = git@github.com:casouri/valign.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/markdown-mode"]
 	path = site-lisp/markdown-mode
 	url = git@github.com:jrblevin/markdown-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/grip-mode"]
 	path = site-lisp/grip-mode
 	url = git@github.com:seagle0128/grip-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/benchmark-init-el"]
 	path = site-lisp/benchmark-init-el
 	url = git@github.com:dholm/benchmark-init-el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/fanyi.el"]
 	path = site-lisp/fanyi.el
 	url = git@github.com:condy0919/fanyi.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/plantuml-mode"]
 	path = site-lisp/plantuml-mode
 	url = git@github.com:skuro/plantuml-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/emacs-which-key"]
 	path = site-lisp/emacs-which-key
 	url = git@github.com:justbur/emacs-which-key.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/no-littering"]
 	path = site-lisp/no-littering
 	url = git@github.com:emacscollective/no-littering.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/compat"]
 	path = site-lisp/compat
 	url = git@github.com:emacs-compat/compat.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/shrink-path"]
 	path = site-lisp/shrink-path
 	url = git@gitlab.com:bennya/shrink-path.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/dash"]
 	path = site-lisp/dash
 	url = git@github.com:magnars/dash.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/s"]
 	path = site-lisp/s
 	url = git@github.com:magnars/s.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/f"]
 	path = site-lisp/f
 	url = git@github.com:rejeep/f.el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/popup-el"]
 	path = site-lisp/popup-el
 	url = git@github.com:auto-complete/popup-el.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/sqlformat"]
 	path = site-lisp/sqlformat
 	url = git@github.com:purcell/sqlformat.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/emacs-reformatter"]
 	path = site-lisp/emacs-reformatter
 	url = git@github.com:purcell/emacs-reformatter.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/lua-mode"]
 	path = site-lisp/lua-mode
 	url = git@github.com:immerrr/lua-mode.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/hl-todo"]
 	path = site-lisp/hl-todo
 	url = git@github.com:tarsius/hl-todo.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = git@github.com:magit/magit.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/with-editor"]
 	path = site-lisp/with-editor
 	url = git@github.com:magit/with-editor.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/keyfreq"]
 	path = site-lisp/keyfreq
 	url = git@github.com:dacap/keyfreq.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/popper"]
 	path = site-lisp/popper
 	url = git@github.com:karthink/popper.git
 	shallow = true
-    ignore = all
+	ignore = all
 [submodule "site-lisp/ht.el"]
 	path = site-lisp/ht.el
 	url = git@github.com:Wilfred/ht.el.git

@@ -139,7 +139,7 @@ Optional for Org-mode file: `LINK'."
       '((sequence "TODO(t)"   ;; 优先处理
                   "WORK(w!)"  ;; 工作相关
                   "INBOX(i!)" ;; 待做盒子
-                  "LONG(L!)"  ;; 长期跟踪
+                  "LONG(l!)"  ;; 长期跟踪
                   "|"
                   "DONE(d!)"        ;; 完成
                   "CANCELLED(c@/!)" ;; 删除
