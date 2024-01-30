@@ -44,6 +44,7 @@
         ("DONE"      . "#50a14f")
         ("CANCELLED" . "#50a14f")
         ("LONG"      . "#D0BF8F")
+        ("HOLD"      . "#D0BF8F")
         ("INBOX"     . "#FF0000")
         ("WORK"      . "#FF0000")
         ))

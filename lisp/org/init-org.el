@@ -140,6 +140,7 @@ Optional for Org-mode file: `LINK'."
                   "WORK(w!)"  ;; 工作相关
                   "INBOX(i!)" ;; 待做盒子
                   "LONG(l!)"  ;; 长期跟踪
+                  "HOLD(h!)"  ;; 做到一半，暂存后面再做，事项部分比较简单，剩余的没有能力继续完成
                   "|"
                   "DONE(d!)"        ;; 完成
                   "CANCELLED(c@/!)" ;; 删除
@@ -148,6 +149,7 @@ Optional for Org-mode file: `LINK'."
                                ("DONE"       :foreground "#50a14f" :weight bold)
                                ("CANCELLED"  :foreground "#50a14f" :weight bold)
                                ("LONG"       :foreground "#D0BF8F" :weight bold)
+                               ("HOLD"       :foreground "#D0BF8F" :weight bold)
                                
                                ("WORK"       :foreground "#FF0000" :weight bold)
                                ("INBOX"      :foreground "#FF0000" :weight bold))
