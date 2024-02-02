@@ -109,6 +109,7 @@
   (lsp-bridge-mode))
 
 
+(setq acm-enable-doc nil)
 (setq lsp-bridge-c-lsp-server "clangd")
 
 (dolist (mode-hook '(python-mode-hook
