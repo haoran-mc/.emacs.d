@@ -57,7 +57,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.js$" . js-mode)
                     ("\\.css\\'" . css-mode)
                     ("\\.wxss\\'" . css-mode)
-                    ("\\.cpp$" . c++-mode)
+                    ("\\.cpp$" . c++-mode) ;; .cpp 文件为 c++-mode
                     ("\\.h$" . c++-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
@@ -67,11 +67,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
 (autoload 'lua-mode "lang-lua")
-;; (autoload 'xml-mode "lang-xml")
-;; (autoload 'json-mode "lang-json")
-;; (autoload 'toml-mode "lang-toml")
-;; (autoload 'yaml-mode "lang-yaml")
-;; (autoload 'sql-mode "lang-sql")
 (autoload 'markdown-mode "init-markdown")
 (autoload 'js-mode "lang-js")
 
@@ -83,6 +78,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (require 'lang-sql)
 
 (require 'lang-elisp)
+(require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
 
 
 ;; conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

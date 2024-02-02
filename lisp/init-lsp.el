@@ -108,9 +108,13 @@
   (message "major mode is: %s" major-mode)
   (lsp-bridge-mode))
 
+
+(setq lsp-bridge-c-lsp-server "clangd")
+
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
-                     go-mode-hook))
+                     go-mode-hook
+                     c++-mode-hook))
   (add-hook mode-hook #'my/load-lsp-bridge))
 
 

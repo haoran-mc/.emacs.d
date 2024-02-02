@@ -23,34 +23,38 @@
 
 ;;; Code:
 
+(defun +compile-file ()
+  (interactive)
+  (compile
+   (format "g++ -o %s %s -g -lm -Wall"
+           (file-name-sans-extension (buffer-name))
+           (buffer-name))))
 
-;; Mode association (autoload cc-mode for *.cpp files)
-(add-to-list 'auto-mode-alist '("\\.cpp\\'" . cc-mode))
+(defun +run-file ()
+  (interactive)
+  (if (with-no-warnings (eshell-command
+                         (format "g++ -o a %s -g -lm -Wall"
+                                 (buffer-name))))))
 
-;; BUILT-IN
-(with-eval-after-load 'cc-mode
-  '(progn
-     (defun +compile-file ()
-       (interactive)
-       (compile
-        (format "g++ -o %s %s -g -lm -Wall"
-                (file-name-sans-extension (buffer-name))
-                (buffer-name))))
+;; 直到遇到 hook 才加载
+(dolist (hook '(c-mode-common-hook
+                c-mode-hook
+                c++-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (require 'cc-mode) ;; BUILT-IN c++-mode 定义在 cc-mode 中
+                     ;; (require 'modern-cpp-font-lock)
 
-     (defun +run-file ()
-       (interactive)
-       (if (with-no-warnings (eshell-command
-                              (format "g++ -o a %s -g -lm -Wall"
-                                      (buffer-name))))
-           (aweshell-dedicated-toggle)))
+                     (defun c-mode-style-setup ()
+                       (interactive)
+                       ;; base-style
+                       (c-set-style "stroustrup"))
 
-     (add-hook 'c-mode-common (lambda () (c-set-style "stroustrup")))
-     (define-key c-mode-base-map (kbd "C-c C-c") '+compile-file)
-     (define-key c-mode-base-map (kbd "<f9>") '+run-file)
-     (define-key c-mode-base-map (kbd "<f10>") 'gud-gdb)
-     )
-  )
+                     (c-mode-style-setup)
 
+                     ;; 先只配置 c++
+                     (define-key c++-mode-map (kbd "C-c C-c") '+compile-file)
+                     (define-key c++-mode-map (kbd "<f9>") '+run-file)
+                     (define-key c++-mode-map (kbd "<f10>") 'gud-gdb))))
 
 (provide 'lang-cpp)
 ;;; lang-cpp.el ends here
