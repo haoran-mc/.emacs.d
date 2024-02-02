@@ -76,8 +76,8 @@
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
 ;; C-t transpose-chars
-(cond (haoran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
-      (haoran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
+;; (cond (haoran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
+;;       (haoran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
 
 (with-eval-after-load 'org
   ;; only full paths are supported
