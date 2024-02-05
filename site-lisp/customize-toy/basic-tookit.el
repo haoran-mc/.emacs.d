@@ -77,14 +77,17 @@
   "Kill to the end of the line and kill whole line on the next call.
 1. xxx|xxx  kill-line
 2. xxxxxx|  clear-current-line
-3. |        kill-line"
+3. |xxxxxx  clear-current-line
+4. |        kill-line"
   (interactive)
   (let ((orig-point (point)))
     (move-end-of-line 1)
-    (cond ((bolp) (kill-line))
-          ((= orig-point (point))
+    (cond ((bolp) (kill-line))           ;; 空行
+          ((= orig-point (point))        ;; 光标位于行尾
            (vanilla/clear-current-line))
-          (t (goto-char orig-point)
+          ((= orig-point (point-at-bol)) ;; 光标位于行首
+           (vanilla/clear-current-line))
+          (t (goto-char orig-point)      ;; 光标位于行中
              (kill-line)))))
 
 ;;;###autoload
