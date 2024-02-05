@@ -40,7 +40,8 @@
 (setq tab-bar-show t
       tab-bar-close-button nil
       tab-bar-close-button-show nil
-      tab-bar-tab-hints nil
+      tab-bar-tab-hints nil ;; absolute numbers on tabs
+      tab-bar-auto-width nil
       tab-bar-tab-name-function 'tab-bar-tab-name-all
       tab-bar-format '(tab-bar-format-tabs tab-bar-separator)
       tab-bar-new-tab-to 'rightmost)
