@@ -332,7 +332,8 @@
                       org-mode-map)
 
   (lazy-load-local-keys '(("C-c i l" . vanilla/dwim-create-link-with-datetime)
-                          ("C-c i i" . vanilla/org-insert-image))
+                          ("C-c i i" . vanilla/org-insert-image)
+                          ("C-c i s" . vanilla/org-insert-image-with-timestamp))
                         org-mode-map
                         "org-insert"))
 

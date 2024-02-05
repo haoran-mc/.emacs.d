@@ -48,6 +48,27 @@
   (org-display-inline-images))
 
 ;;;###autoload
+(defun vanilla/org-insert-image-with-timestamp ()
+  "paste image from clipboard, image name is automatically
+assigned to current time timestamp, image only support png type"
+  (interactive)
+  (let* ((path (concat default-directory "images/"))
+         (timestamp-str (number-to-string
+                         (truncate (float-time (current-time))))) ;; timestamp
+         (image-file (concat path timestamp-str ".png")))
+    (if (not (file-exists-p path))
+        (mkdir path))
+    (do-applescript (concat
+                     "set the_path to \"" image-file "\" \n"
+                     "set png_data to the clipboard as «class PNGf» \n"
+                     "set the_file to open for access (POSIX file the_path as string) with write permission \n"
+                     "write png_data to the_file \n"
+                     "close access the_file"))
+    (org-insert-link nil (concat "file:" image-file) "")
+    (message image-file))
+  (org-display-inline-images))
+
+;;;###autoload
 (defun vanilla/dwim-create-link-with-datetime ()
   "Create a link with current datetime and filename from the word at point.
 The word at point is treated as a filename. Any consecutive hyphens or underscores
