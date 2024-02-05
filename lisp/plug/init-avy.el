@@ -51,7 +51,7 @@
       ;; ; 是 macvim 中 easymotion 的首字母，这里沿用
       ;; 单字符选择时，把右手下面的几个按键排在前面
       avy-keys '(?j ?i ?o ?k ?l ?c ?x ?z ?n ?m ?h ?p
-                    ?a ?w ?e ?s ?d ?f ?;
+                    ?a ?w ?e ?s ?d ?f ?\;
                     )
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
       avy-styles-alist '((avy-isearch . pre))
