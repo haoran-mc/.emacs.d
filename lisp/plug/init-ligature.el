@@ -44,10 +44,10 @@ from codepoint-start."
   (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
     (-zip-pair ligatures codepoints)))
 
-
+;; M-x list-character-sets
 (setq +font-ligatures
       (let ((ligature-chars '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-                              "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+                              "{-" "🧊" "::" ":::" ":=" "!!" "!=" "!==" "-}"
                               "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
                               "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
                               ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
@@ -59,7 +59,7 @@ from codepoint-start."
                               "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
                               "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
                               "x" ":" "+" "+" "*")))
-        ;; Private Use Area
+        ;; Private Use Area 57600
         (+correct-symbol-bounds-with-TAB (+create-ligature-list ligature-chars #Xe100))))
 
 
