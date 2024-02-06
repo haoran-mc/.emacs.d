@@ -23,10 +23,11 @@
 
 ;;; Code:
 
+;; remember-init
+(require 'basic-tookit)
 
 ;; Mode association (autoload python-mode for *.py files)
-;; BUILT-IN
-(require 'python)
+(require 'python) ;; BUILT-IN
 
 ;; Initialization
 (defun +python-mode-delete-trailing-whitespace ()
@@ -42,8 +43,22 @@
   (goto-char (point-min))
   (search-forward-regexp "\\(^import\\|^from\\)" nil t))
 
+(defun python/run-current-file (&optional directory)
+  "Execute the current python file."
+  (interactive
+   (list (or (and current-prefix-arg
+                  (read-directory-name "Run in directory: " nil nil t))
+             default-directory)))
+  (when (buffer-file-name)
+    (let* ((command (or (and (boundp 'executable-command) executable-command)
+                        (concat "python3 " (buffer-file-name))))
+           (default-directory directory)
+           (compilation-ask-about-save nil))
+      (executable-interpret (read-shell-command "Run: " command)))))
+
 ;; binding keys
 (define-key python-mode-map (kbd "C-S-j") 'lazycat/jump-to-import)
+(define-key python-mode-map (kbd "C-c C-c") 'python/run-current-file)
 
 ;; error when open org
 ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
