@@ -24,9 +24,6 @@
 ;;; Code:
 
 
-;; Mode association (autoload elisp-mode for *.el files)
-(emacs-lisp-mode)
-
 ;; Initialization
 (defun elisp-mode-delete-trailing-whitespace ()
   "Delete trailing whitespace before saving file."

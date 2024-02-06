@@ -78,7 +78,7 @@
 (require 'init-mode)
 (require 'init-modeline)
 (require 'init-yasnippet)
-(require 'init-lsp)
+(require 'init-lsp) ;; 不过度追求加载速度
 (require 'init-git)
 (require 'init-dirvish)
 (require 'init-minibuffer)
