@@ -11,6 +11,7 @@ function __mkdir {
 
 __mkdir ~/haoran/tr/code-cpp
 touch ~/haoran/tr/code-cpp/main.cpp
+cp ~/.emacs.d/resources/compile_commands.json ~/haoran/tr/code-cpp/compile_commands.json
 
 __mkdir ~/haoran/tr/code-go
 touch ~/haoran/tr/code-go/main.go

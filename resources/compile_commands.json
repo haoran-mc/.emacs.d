@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/Users/haoran/haoran/tr/code-cpp",
+    "command": "/usr/bin/clang++ -Iinclude -std=c++11 main.cpp -o main",
+    "file": "main.cpp"
+  }
+]
