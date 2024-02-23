@@ -28,3 +28,7 @@ touch ~/haoran/tr/code-sql/main.sql
 
 __mkdir ~/haoran/tr/emacs-test
 touch ~/haoran/tr/emacs-test/test.txt
+
+__mkdir ~/haoran/tr/code-shell
+touch ~/haoran/tr/code-shell/script.sh
+chmod +x ~/haoran/tr/code-shell/script.sh
