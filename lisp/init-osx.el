@@ -58,13 +58,20 @@
 (setq mac-option-modifier 'super ;; set option(key) as hyper(key)
       mac-command-modifier 'meta ;; set command(key) as meta(key)
       delete-by-moving-to-trash t
-      ;; Curse Lion and its sudden but inevitable fullscreen mode!
-      ;; NOTE Meaningless to railwaycat's emacs-mac build
-      ns-use-native-fullscreen t
+
       ;; Visit files opened outside of Emacs in existing frame, not a new one
       ns-pop-up-frames nil
+
       ;; https://stackoverflow.com/a/42038174
-      dired-use-ls-dired nil)
+      dired-use-ls-dired nil
+
+      ;; stop cursor blinking bug when typing Chinese/Japanese on OS X
+      ;; redisplay-dont-pause nil
+
+      ;; Curse Lion and its sudden but inevitable fullscreen mode!
+      ;; NOTE Meaningless to railwaycat's emacs-mac build
+      ;; ns-use-native-fullscreen nil
+      )
 
 
 ;; cache-path-from-shell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

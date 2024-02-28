@@ -46,7 +46,7 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
 
-(lazy-load-global-keys '(("C-<tab>" . crux-switch-to-previous-buffer)
+(lazy-load-global-keys '(("C-<tab>" . spacemacs/alternate-buffer)
                          ("C-<backspace>" . crux-kill-line-backwards))
                        "crux")
 

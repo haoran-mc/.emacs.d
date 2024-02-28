@@ -1,15 +1,10 @@
-;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; This buffer is for text that is not saved, and for Lisp evaluation (lisp-interaction-mode).
 ;; To create a file, visit it with C-c f x and enter text in its buffer.
 
 • org-capture (C-c x)
 • org-agenda  (C-c d)
-  • TODO 优先的事项
-  • INBOX 待做盒子
-  • WORK 工作相关
-  • LONG 不通过capture增加
 • google calendar
-• ⚑ control with centre.org
-• obsidian at Less-edited scenarios
+• ☃︎ control with centre.org
 • manage my tables with excel
 
 • 操作系统
@@ -25,13 +20,12 @@
   • autoload
   • site
   • ace-window, treemacs, hydra
+  • https://github.com/syl20bnr/spacemacs/issues/12009
 
-TODO:
 • 浏览器
 • zhihu
 • bilibili
 • readme && script
-
 
 read:
 lalaland

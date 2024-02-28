@@ -69,7 +69,7 @@
       treemacs-show-cursor t
       treemacs-sorting 'alphabetic-asc
       treemacs-missing-project-action 'remove
-      treemacs-width 30)
+      treemacs-width 35)
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here

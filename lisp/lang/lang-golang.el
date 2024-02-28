@@ -30,7 +30,8 @@
 (defun +go-run-buffer ()
   "Run go code in buffer."
   (interactive)
-  (shell-command (concat "go run " (buffer-name))))
+  (executable-interpret
+   (read-shell-command "Run: " (concat "go run " (buffer-file-name)))))
 
 ;; Key bindings
 (define-key go-mode-map (kbd "C-c C-c") '+go-run-buffer)
