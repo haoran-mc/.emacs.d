@@ -58,6 +58,9 @@
 
  ;; magit
  '(magit-header-line ((t (:background "#EDE8D5"))))
+
+ ;; dirvish
+ '(dirvish-hl-line ((t (:background "#F2E6CE"))))
  )
 
 
