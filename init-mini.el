@@ -25,13 +25,30 @@
 ;;; Code:
 
 
-;; (setq debug-on-error t)
+(setq debug-on-error t)
 ;; (setq-default lexical-binding t)
 
-(global-set-key (kbd "C-c o f r") #'(lambda() (interactive) (find-file user-init-file)))
-(global-set-key (kbd "C-c o i") #'(lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
-(global-set-key (kbd "C-c o s") #'(lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
-(global-set-key (kbd "C-c o c") #'(lambda() (interactive) (find-file "~/haoran/no/org/org-directory/centre.org")))
+;; (global-set-key (kbd "C-c o f r") #'(lambda() (interactive) (find-file user-init-file)))
+;; (global-set-key (kbd "C-c o i") #'(lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
+;; (global-set-key (kbd "C-c o s") #'(lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
+;; (global-set-key (kbd "C-c o c") #'(lambda() (interactive) (find-file "~/haoran/no/org/org-directory/centre.org")))
 
-;; (provide 'init-mini)
+
+
+(add-to-list 'load-path "~/Documents/emacs/local-packages/markdown-mode")
+(require 'markdown-mode)
+
+(add-to-list 'load-path "~/Documents/emacs/local-packages/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(add-to-list 'load-path "~/Documents/emacs/local-packages/go-mode.el")
+(require 'go-mode)
+
+;; lsp-bridge
+(add-to-list 'load-path "~/Documents/emacs/local-packages/lsp-bridge")
+(require 'lsp-bridge)
+(global-lsp-bridge-mode)
+
+(provide 'init)
 ;;; init-mini.el ends here
