@@ -114,7 +114,6 @@
      (require 'init-project)
      (require 'init-valign)
      (require 'init-completion)
-     (require 'init-wakatime)
      ))
 
 (run-with-idle-timer
