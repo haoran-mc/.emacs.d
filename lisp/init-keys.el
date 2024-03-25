@@ -24,7 +24,7 @@
 ;;; Code:
 
 (lazy-load-unset-keys '("C-x C-f"
-                        "C-z" ;; suspend-frame
+                        ;; "C-z" ;; suspend-frame
                         "C-q"
                         "s-T"
                         "s-W"
@@ -82,8 +82,6 @@
 (with-eval-after-load 'org
   ;; only full paths are supported
   (lazy-load-global-keys '(("C-v" . vanilla/preview-file-link)) "org-funcs")) ;; scroll-up-command
-
-(lazy-load-set-keys '(("C-z" . kill-this-buffer)))
 
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
                       ("C-\\ j" . windmove-down)
@@ -226,6 +224,8 @@
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
+;; here are some hyper keys used by yabai on macos
+
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
 
@@ -241,11 +241,13 @@
                       ("s-<left>" . shrink-window-horizontally)
                       ("s-<right>" . enlarge-window-horizontally)))
 
-(lazy-load-global-keys '(("s-h" . vanilla/scroll-right-half-page)
-                         ("s-l" . vanilla/scroll-left-half-page)
-                         ("s-j" . vanilla/scroll-up-one-line)
-                         ("s-k" . vanilla/scroll-down-one-line))
+(lazy-load-global-keys '(("s-M-h" . vanilla/scroll-right-half-page)
+                         ("s-M-l" . vanilla/scroll-left-half-page)
+                         ("s-M-j" . vanilla/scroll-up-one-line)
+                         ("s-M-k" . vanilla/scroll-down-one-line))
                        "cursormove")
+
+(lazy-load-set-keys '(("s-z" . kill-this-buffer)))
 
 (lazy-load-global-keys '(("s-J" . move-text-down)
                          ("s-K" . move-text-up))
@@ -360,11 +362,11 @@
 
 ;; o for open
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
-                      ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
-                      ("C-c o c" . (lambda () (interactive) (find-file haoran--centre)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
-                      ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))
-                      ("C-c o f s" . (lambda () (interactive) (find-file (locate-user-emacs-file "resources/initial-scratch-message.txt"))))
+                      ;; ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
+                      ;; ("C-c o c" . (lambda () (interactive) (find-file haoran--centre)))
+                      ;; ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))
+                      ;; ("C-c o f s" . (lambda () (interactive) (find-file (locate-user-emacs-file "resources/initial-scratch-message.txt"))))
                       ))
 
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")

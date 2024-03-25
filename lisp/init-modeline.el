@@ -73,7 +73,8 @@ This function is slow, so we have to use cache."
             (cons (buffer-name) file-name))
       file-name)))
 
-;; (setq mode-line-misc-info (cdr mode-line-misc-info))
+;; time...
+(setq mode-line-misc-info (cdr mode-line-misc-info))
 
 (defun +format-mode-line ()
   (let* ((lhs '((:eval (propertize " ❯ " 'face '(:foreground "red")))

@@ -48,5 +48,7 @@
 ;; (when (eq system-type 'windows-nt)
 ;;   (setq file-name-coding-system 'gbk))
 
+(setq initial-frame-alist '((fullscreen . fullboth)))
+
 (provide 'early-init)
 ;;; early-init.el ends here
