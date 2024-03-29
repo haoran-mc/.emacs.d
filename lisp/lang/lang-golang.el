@@ -48,18 +48,20 @@
 
 ;; Install the tools manually in the current GOPATH
 ;; go install golang.org/x/tools/gopls@latest
+;; go install golang.org/x/tools/cmd/goimports@latest
+;; go install golang.org/x/tools/cmd/gorename@latest
+;; go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
+
 ;; go install golang.org/x/tools/cmd/...
 ;; go install github.com/nsf/gocode@latest
 ;; go install github.com/rogpeppe/godef@latest
 ;; go install github.com/lukehoban/go-outline@latest
-;; go install golang.org/x/tools/cmd/goimports@latest
 ;; go install sourcegraph.com/sqs/goreturns@latest
-;; go install golang.org/x/tools/cmd/gorename@latest
 ;; go install github.com/tpng/gopkgs@latest
 ;; go install github.com/newhook/go-symbols@latest
 ;; go install github.com/cweill/gotests/...
 ;; go install golang.org/x/tools/cmd/guru@latest
-;; go install github.com/golang/lint/golint@latest
+;; go install golang.org/x/lint/golint@latest
 ;; go install github.com/zmb3/gogetdoc@latest
 ;; go install github.com/fatih/gomodifytags@latest
 ;; Go come with godoc, no download required

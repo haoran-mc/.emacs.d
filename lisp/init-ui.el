@@ -115,6 +115,12 @@
   )
 
 
+;; 当前窗口透明度 (活动区 非活动区)
+(set-frame-parameter (selected-frame) 'alpha (list 95 95))
+;; 新窗口透明度 (活动区 非活动区)
+(add-to-list 'default-frame-alist (cons 'alpha (list 95 95)))
+
+
 ;; all-the-icons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'all-the-icons)
 
