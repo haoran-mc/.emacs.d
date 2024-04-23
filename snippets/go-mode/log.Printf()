@@ -1,6 +1,5 @@
 # -*- mode: snippet -*-
-# name: log.Fatal()
+# name: log.Printf()
 # key: lf
 # --
-
-log.Fatal($1)
+log.Printf($1)
