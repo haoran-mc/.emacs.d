@@ -25,6 +25,10 @@
 
 
 (custom-set-faces
+ '(font-lock-comment-face ((t (:italic nil))))
+ '(font-lock-builtin-face ((t (:italic nil))))
+ '(font-lock-type-face    ((t (:italic nil))))
+
  ;; org-mode
  '(org-level-1 ((t (:inherit outline-1 :weight normal :height 1.0))))
  '(org-level-2 ((t (:inherit outline-2 :weight normal :height 1.0))))
