@@ -362,12 +362,7 @@
 
 ;; o for open
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
-                      ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))
-                      ;; ("C-c o s" . (lambda () (interactive) (find-file haoran--public-notes)))
-                      ;; ("C-c o c" . (lambda () (interactive) (find-file haoran--centre)))
-                      ;; ("C-c o f c" . (lambda () (interactive) (find-file custom-file)))
-                      ;; ("C-c o f s" . (lambda () (interactive) (find-file (locate-user-emacs-file "resources/initial-scratch-message.txt"))))
-                      ))
+                      ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))))
 
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 

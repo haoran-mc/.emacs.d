@@ -28,13 +28,6 @@
 (setq debug-on-error t)
 ;; (setq-default lexical-binding t)
 
-;; (global-set-key (kbd "C-c o f r") #'(lambda() (interactive) (find-file user-init-file)))
-;; (global-set-key (kbd "C-c o i") #'(lambda() (interactive) (find-file "~/haoran/no/org/wiki/index.org")))
-;; (global-set-key (kbd "C-c o s") #'(lambda() (interactive) (find-file "~/haoran/no/org/site/index.org")))
-;; (global-set-key (kbd "C-c o c") #'(lambda() (interactive) (find-file "~/haoran/no/org/org-directory/centre.org")))
-
-
-
 (add-to-list 'load-path "~/Documents/emacs/local-packages/markdown-mode")
 (require 'markdown-mode)
 
@@ -45,9 +38,9 @@
 (add-to-list 'load-path "~/Documents/emacs/local-packages/go-mode.el")
 (require 'go-mode)
 
-;; lsp-bridge
 (add-to-list 'load-path "~/Documents/emacs/local-packages/lsp-bridge")
 (require 'lsp-bridge)
+(setq lsp-bridge-enable-log t)
 (global-lsp-bridge-mode)
 
 (provide 'init)
