@@ -113,7 +113,18 @@
         consult-async-min-input 2
         consult-async-refresh-delay 0.15
         consult-async-input-throttle 0.2
-        consult-async-input-debounce 0.1))
+        consult-async-input-debounce 0.1
+        consult-ripgrep-args "rg --ignore-file=/Users/haoran/.emacs.d/.rgignore \
+                                 --null             \
+                                 --line-buffered    \
+                                 --color=never      \
+                                 --max-columns=1000 \
+                                 --path-separator / \
+                                 --smart-case       \
+                                 --no-heading       \
+                                 --with-filename    \
+                                 --line-number      \
+                                 --search-zip"))
 
 
 ;; (with-eval-after-load 'embark
