@@ -67,6 +67,8 @@
 (lazy-load-global-keys '(("C-j" . vanilla/merge-line-down) ;; electric-newline-and-maybe-indent
                          ("C-k" . vanilla/smart-kill-line))
                        "basic-tookit")
+(with-eval-after-load 'org
+  (lazy-load-set-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map))
 
 (lazy-load-global-keys '(("C-o" . open-newline-above)  ;; open-line
                          ("C-l" . open-newline-below)) ;; recenter-top-bottom
@@ -225,6 +227,7 @@
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
 ;; here are some hyper keys used by yabai on macos
+(lazy-load-set-keys '(("s-SPC" . just-one-space))) ;; origin M-SPC
 
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
@@ -406,6 +409,9 @@
 
 (lazy-load-global-keys '(("C-c w x" . ace-swap-window))
                        "init-ace-window")
+
+(lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
+
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-global-keys '(("C-x g" . magit-status)) "magit")
