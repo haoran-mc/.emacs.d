@@ -57,12 +57,12 @@ Optional for Org-mode file: `LINK'."
 
 
 
-;; learn from: https://github.com/lijigang/emacs.d
-(defface org-bold '((t :weight bold
+;; https://github.com/lijigang/emacs.d
+(defface org-bold '((t :weight normal
                        ;; :foreground "white" ;; dark color
                        ;; :background "#282C34"
                        :foreground "purple" ;; light color
-                       :background "#EFF1F2"
+                       ;; :background "#EFF1F2"
                        :underline (:color "red" :style line)
                        :overline nil))
   "Face for org-mode bold."
