@@ -284,17 +284,16 @@
   (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
 
 ;; f for find
-(lazy-load-set-keys '(("C-c f x" . find-file)
-                      ("C-c f f" . project-find-file)
-                      ("C-c f p" . project-switch-project)))
+(lazy-load-set-keys '(("C-c f x" . find-file)))
 
 (lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file)
                          ("C-c f D" . vanilla/delete-current-file))
                        "fileop")
 
-(lazy-load-global-keys '(("C-c f r" . consult-recent-file)
+(lazy-load-global-keys '(("C-c f f" . consult-fd)
                          ("C-c f g" . consult-ripgrep)
-                         ("C-c f m" . consult-mark))
+                         ("C-c f m" . consult-mark)
+                         ("C-c f r" . consult-recent-file))
                        "consult")
 
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
@@ -367,6 +366,11 @@
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 
 (lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran--github-page)))))
+
+;; p for project
+(lazy-load-global-keys '(("C-c p f" . project-find-file)
+                         ("C-c p p" . project-switch-project))
+                       "init-project")
 
 ;; r C-c r instead C-x r as inaccessible
 

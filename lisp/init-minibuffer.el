@@ -102,18 +102,21 @@
 
   ;; config
   (with-no-warnings
-    (consult-customize consult-git-grep consult-grep ;; consult-ripgrep
+    (consult-customize consult-git-grep
+                       consult-grep ;; consult-ripgrep
+                       consult-fd
                        consult-bookmark
                        consult-recent-file
                        consult-buffer
                        :preview-key nil))
 
   ;; custom
-  (setq consult-fontify-preserve nil
-        consult-async-min-input 2
-        consult-async-refresh-delay 0.15
-        consult-async-input-throttle 0.2
-        consult-async-input-debounce 0.1
+  (setq consult-fontify-preserve nil      ;; 不保留文本高亮
+        consult-async-min-input 2         ;; 两个字符开始搜索
+        ;; 异步搜索和输入处理相关参数，我的macos性能足够实时处理，所以设置了足够小的时间间隔0.01，性能不够的机器调大间隔，给出推荐参数0.07
+        consult-async-input-debounce 0.01 ;; 去抖动时间，判定用户的输入结束，然后发送给搜索软件rg。认为0.07秒已经小于用户的连续输入间隔，所以是实时搜索。性能不够时考虑增大此值，减慢发送
+        consult-async-input-throttle 0.01 ;; 输入节流时间，搜索软件rg处理间隔，和抖动时间相同，所以实时搜索。搜索软件性能不够时增大此值，减慢查询
+        consult-async-refresh-delay 0.01  ;; vertico列表的刷新时间间隔，这里设置的值比throttle小，所以每当throttle返回结果就刷新，vertico性能不够时增大此值，减慢刷新
         consult-ripgrep-args "rg --ignore-file=/Users/haoran/.emacs.d/.rgignore \
                                  --null             \
                                  --line-buffered    \

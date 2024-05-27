@@ -1,0 +1,29 @@
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#+TITLE: 5.LAZY LOAD
+#+AUTHOR: Haoran Liu
+#+EMAIL: haoran.mc@outlook.com
+#+DATE: 2024-05-27 11:05 Mon
+#+STARTUP: showeverything
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- lazy-load-unset-keys :: remove key bindings
+
+- lazy-load-set-keys :: 内置或已加载键
+
+- lazy-load-global-keys :: 通过键加载模块，懒加载
+
+- lazy-load-local-keys :: eval-after-load
+
+  #+begin_src emacs-lisp
+    (eval-after-load 'python-mode
+      '(lambda ()
+         (lazy-load-local-keys
+          '(
+            ("C-S-j" . jump-to-import)
+            )
+          python-mode-map
+          "python-mode-utils")
+         ))
+  #+end_src
+
+  with-eval-after-load or eval-after-load
