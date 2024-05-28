@@ -101,14 +101,23 @@
     (define-key org-mode-map [remap org-goto] 'consult-org-heading))
 
   ;; config
-  (with-no-warnings
-    (consult-customize consult-git-grep
-                       consult-grep ;; consult-ripgrep
-                       consult-fd
-                       consult-bookmark
-                       consult-recent-file
-                       consult-buffer
-                       :preview-key nil))
+  (consult-customize consult-git-grep
+                     consult-grep ;; consult-ripgrep
+                     consult-bookmark
+                     consult-recent-file
+                     consult-buffer
+                     :sort nil
+                     :preview-key nil)
+
+  (consult-customize consult-fd
+                     :sort t
+                     :history 'consult--find-history) ;; remember recent find
+
+  (consult-customize consult-theme
+                     :preview-key
+                     '("M-."
+                       :debounce 0.5 "<up>" "<down>"
+                       :debounce 1 any))
 
   ;; custom
   (setq consult-fontify-preserve nil      ;; 不保留文本高亮
@@ -127,7 +136,13 @@
                                  --no-heading       \
                                  --with-filename    \
                                  --line-number      \
-                                 --search-zip"))
+                                 --search-zip"
+        consult-fd-args '((if (executable-find "fdfind" 'remote)
+                              "fdfind" "fd")
+                          "--ignore-file=/Users/haoran/.emacs.d/.fdignore \
+                           --full-path \
+                           --color=never"))
+  )
 
 
 ;; (with-eval-after-load 'embark
