@@ -51,7 +51,7 @@
                        "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
-;; C-. format code
+(lazy-load-global-keys '(("C-." . +format-code-dwim)) "init-formatter")
 (lazy-load-set-keys '(("C-;" . avy-goto-char)))
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 

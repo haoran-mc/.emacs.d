@@ -41,7 +41,8 @@
                            ("shell"    . sh)
                            ("go"       . go)
                            ("plantuml" . plantuml)
-                           ("sql"      . sql))
+                           ("sql"      . sql)
+                           ("python"   . python))
       org-babel-load-languages '((C          . t) ;; 哪些代码块可以在 org 中运行
                                  (dot        . t)
                                  (emacs-lisp . t)
