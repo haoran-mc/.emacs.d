@@ -1,1 +1,20 @@
 site-lisp/
+
+# backup files
+*~
+*.tmp
+*.bak
+
+# image files
+*.pos
+*.svg
+
+# static files, code them by vsc
+*.htm
+*.html
+*.css
+*.js
+html/
+
+# export files
+export/
