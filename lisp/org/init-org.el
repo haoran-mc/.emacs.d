@@ -316,6 +316,7 @@ Optional for Org-mode file: `LINK'."
     (aset buffer-display-table ?\^L
           (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
     (redraw-frame)))
+;; ───────────────────────────────────────
 
 (with-eval-after-load 'org
   (add-hook 'org-mode-hook #'xah-show-formfeed-as-line))

@@ -81,7 +81,7 @@
 (require 'init-lsp) ;; 不过度追求加载速度
 (require 'init-git)
 (require 'init-dirvish)
-(require 'init-minibuffer)
+(require 'init-minibuffer) ;; minibuffer plugins 没有快捷键调用，所以需要开启加载
 (require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
