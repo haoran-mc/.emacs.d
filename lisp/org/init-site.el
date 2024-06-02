@@ -25,13 +25,67 @@
 
 (require 'ox)
 (require 'ox-html)
+(require 'ox-publish)
 
-;; "Settings of `org-export'."
-(setq org-html-htmlize-output-type 'inline-css) ;; Hide html built-in style and script.
+(setq org-html-postamble nil
+      org-html-htmlize-output-type 'inline-css
+      org-publish-project-alist
+      '(("wiki"
+         :base-directory "~/haoran/no/org/wiki/"
+         ;; :publishing-directory "/ssh:jack@192.168.0.112:~/site/public/"
+         ;; .gitignore will ignore .html files, you may not find images after changing it
+         :publishing-directory "~/haoran/no/org/wiki/"
+         :base-extension "org"
+         :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
+         :recursive t
+         :publishing-function org-html-publish-to-html ;; Publishing action
+	     :author "Haoran Liu"
+	     :email "haoran.mc@outlook.com"
+         ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
+         :html-head ;; wiki-css wiki-js
+         "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
+           <link rel=\"stylesheet\" href=\"wiki-css/org.css\" type=\"text/css\" />
+           <script type=\"module\" src=\"wiki-js/main.js\" defer></script>"
+         )
+        ("site"
+         :base-directory "~/haoran/no/org/site/"
+         :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
+         :base-extension "org"
+         :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
+         :recursive t
+         :publishing-function org-html-publish-to-html ;; Publishing action
+	     :author "Haoran Liu"
+	     :email "haoran.mc@outlook.com"
+         :html-head
+         "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
+           <link rel=\"stylesheet\" href=\"css/org.css\" type=\"text/css\"  />
+           <script type=\"module\" src=\"js/main.js\" defer></script>"
+         )
+        ))
+
+;; from -> to
+(defun +preview-current-buffer-in-browser ()
+  "Open current buffer as html."
+  (interactive)
+  (let ((file-path (buffer-file-name)))
+    (cond
+     ;; my site
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/site/")
+                       file-path)
+      (+preview-site-current-buffer-in-browser))
+
+     ;; too many images, no cp images
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/wiki/")
+                       file-path)
+      (+preview-wiki-current-buffer-in-browser))
+
+     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/") file-path) ;; at org but not wiki or site
+      (+org-export-html-to-my-dir-and-preview))
+     (t
+      (+org-export-html-to-current-path-and-preview))))) ;; put export file on current path
 
 
 ;; ox-publish ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'ox-publish)
 (defun +delete-org-and-html ()
   "Delete current org and the relative html when it exists."
   (interactive)
@@ -43,24 +97,13 @@
       (kill-this-buffer)
       (message "Delete org and the relative html done."))))
 
-(defun +just-delete-relative-html ()
-  "Just delete the relative html when it exists."
-  (interactive)
-  (when (yes-or-no-p "Really delete the relative html?")
-    (let ((fileurl (concat "~/haoran/gr/haoran-mc.github.io" (file-name-base (buffer-name)) ".html")))
-      (if (file-exists-p fileurl)
-          (progn
-            (delete-file fileurl)
-            (message "Delete the relative html done."))
-        (message "None relative html.")))))
 
 
 (defun +save-and-publish-wiki-file ()
   "Save current buffer and publish."
   (interactive)
   (save-buffer t)
-  (org-publish-current-file 'wiki)
-  (message "hello wiki"))
+  (org-publish-current-file 'wiki))
 
 (defun +preview-wiki-current-buffer-in-browser ()
   "Open current wiki buffer as html."
@@ -80,11 +123,7 @@
   "Save current buffer and publish."
   (interactive)
   (save-buffer t)
-  ;; Disable auto-save-and-publish-site-file-mode for other folders
-  (if (string= (file-name-directory (buffer-file-name))
-               (concat haoran--home-directory "/haoran/no/org/site/"))
-      (org-publish-current-file 'site))
-  (message "hello org-mode"))
+  (org-publish-current-file 'site))
 
 (defun +preview-site-current-buffer-in-browser ()
   "Open current site buffer as html."
@@ -121,73 +160,6 @@ use export/org-preview/org.css render style."
         (httpd-start)))
     (browse-url fileurl)))
 
-(defun +org-export-html-to-current-path-and-preview()
-  "Export org to current dir as +org-export-html-to-my-dir-and-preview only
-copy imgs to `org-preview' dir, my njuos note has other resource files"
-  (interactive)
-  (message "here")
-  (save-buffer)
-  (org-html-export-to-html)
-  (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
-    (httpd-stop)
-    (unless (httpd-running-p)
-      (progn
-        (setq httpd-port 9517)
-        (setq httpd-root default-directory)
-        (httpd-start)))
-    (browse-url fileurl)))
-
-
-;; from -> to
-(defun +preview-current-buffer-in-browser ()
-  "Open current buffer as html."
-  (interactive)
-  (let ((file-path (buffer-file-name)))
-    (cond
-     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/wiki/") file-path) ;; too many images, no cp images
-      (+preview-wiki-current-buffer-in-browser))
-     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/site/") file-path) ;; my site
-      (+preview-site-current-buffer-in-browser))
-     ((string-prefix-p (concat haoran--home-directory "/haoran/no/org/") file-path) ;; at org but not wiki or site
-      (+org-export-html-to-my-dir-and-preview))
-     (t
-      (+org-export-html-to-current-path-and-preview))))) ;; put export file on current path
-
-(setq org-publish-project-alist
-      '(("wiki"
-         :base-directory "~/haoran/no/org/wiki/"
-         ;; :publishing-directory "/ssh:jack@192.168.0.112:~/site/public/"
-         ;; .gitignore will ignore .html files, you may not find images after changing it
-         :publishing-directory "~/haoran/no/org/wiki/"
-         :base-extension "org"
-         :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
-         :recursive t
-         :publishing-function org-html-publish-to-html ;; Publishing action
-	     :author "Haoran Liu"
-	     :email "haoran.mc@outlook.com"
-         ;; :html-metadata-timestamp-format "%Y-%m-%d" ;; org-html-metadata-timestamp-format
-         :html-head ;; wiki-css wiki-js
-         "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
-           <link rel=\"stylesheet\" href=\"wiki-css/org.css\" type=\"text/css\" />
-           <script type=\"module\" src=\"wiki-js/main.js\" defer></script>"
-         )
-        ("site"
-         :base-directory "~/haoran/no/org/site/"
-         :publishing-directory "~/haoran/gr/haoran-mc.github.io/"
-         :base-extension "org"
-         :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
-         :recursive t
-         :publishing-function org-html-publish-to-html ;; Publishing action
-	     :author "Haoran Liu"
-	     :email "haoran.mc@outlook.com"
-         :html-head
-         "<link rel=\"shortcut icon\" href=\"assets/favicon.ico\" type=\"image/x-icon\" />
-           <link rel=\"stylesheet\" href=\"css/org.css\" type=\"text/css\"  />
-           <script type=\"module\" src=\"js/main.js\" defer></script>"
-         )
-        ))
-
-(setq org-html-postamble nil)
 
 
 
@@ -219,10 +191,14 @@ copy imgs to `org-preview' dir, my njuos note has other resource files"
   :lighter ""
   (if +auto-save-and-publish-site-file-mode
       (progn ;; mode is enabled
+        ;; TODO 直接在这里判断是不是 site 文件夹，是不是需要 auto-publish
         (add-hook 'after-save-hook #'+save-and-publish-site-file :append :local))
     ;; mode is disabled
     (remove-hook 'after-save-hook #'+save-and-publish-site-file :local)))
 
+;; Disable auto-save-and-publish-site-file-mode for other folders
+;; (if (string= (file-name-directory (buffer-file-name))
+;;              (concat haoran--home-directory "/haoran/no/org/site/")))
 
 ;; (require '+auto-save-and-publish-site-file-mode)
 (add-hook 'org-mode-hook '+auto-save-and-publish-site-file-mode)
