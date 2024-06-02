@@ -129,8 +129,8 @@
   (message "Emacs running in non-GUI mode"))
 
 ;; os specific
-(cond (haoran--os-linux (require 'init-linux))
-      (haoran--os-mac (require 'init-osx)))
+(cond (ran--os-linux (require 'init-linux))
+      (ran--os-mac (require 'init-osx)))
 
 (when (file-exists-p custom-file)
   (load custom-file))

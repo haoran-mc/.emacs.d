@@ -24,29 +24,29 @@
 
 ;;; Code:
 
-(defvar haoran--os-linux (eq system-type 'gnu/linux))
-(defvar haoran--os-mac (eq system-type 'darwin))
+(defvar ran--os-linux (eq system-type 'gnu/linux))
+(defvar ran--os-mac (eq system-type 'darwin))
 
-(defvar haoran--bookmark-file "~/haoran/no/org/bookmark-default.el")
-(defvar haoran--org-directory "~/haoran/no/org/org-directory")
-(defvar haoran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
+(defvar ran--bookmark-file "~/haoran/no/org/bookmark-default.el")
+(defvar ran--org-directory "~/haoran/no/org/org-directory")
+(defvar ran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
                                        "~/haoran/no/org/org-directory/agenda"
                                        "~/haoran/no/org/org-directory/work/journay.org"
                                        "~/haoran/no/org/org-directory/work/todo.org"))
 
-(defvar haoran--font-weight "normal")
+(defvar ran--font-weight "normal")
 
-(defvar haoran--private-notes "~/haoran/no/org/wiki/index.org")
-(defvar haoran--public-notes "~/haoran/no/org/site/index.org")
-(defvar haoran--centre "~/haoran/no/org/org-directory/centre.org")
-(defvar haoran--github-page "~/haoran/gr/haoran-mc.github.io")
+(defvar ran--private-notes "~/haoran/no/org/wiki/index.org")
+(defvar ran--public-notes "~/haoran/no/org/site/index.org")
+(defvar ran--centre "~/haoran/no/org/org-directory/centre.org")
+(defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
 
-(cond (haoran--os-linux
-       (defvar haoran--home-directory "/home/haoran")
-       (defvar haoran--font-size 11))
-      (haoran--os-mac
-       (defvar haoran--home-directory "/Users/haoran")
-       (defvar haoran--font-size 13)))
+(cond (ran--os-linux
+       (defvar ran--homedir "/home/haoran")
+       (defvar ran--font-size 11))
+      (ran--os-mac
+       (defvar ran--homedir "/Users/haoran")
+       (defvar ran--font-size 13)))
 
 
 (provide 'init-variables)

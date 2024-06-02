@@ -78,8 +78,8 @@
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
 ;; C-t transpose-chars
-;; (cond (haoran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
-;;       (haoran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
+;; (cond (ran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
+;;       (ran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
 
 (with-eval-after-load 'org
   ;; only full paths are supported
@@ -284,7 +284,7 @@
 (lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
 
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c e p" . +preview-current-buffer-in-browser)) org-mode-map))
+  (lazy-load-set-keys '(("C-c e p" . +org-preview-in-browser)) org-mode-map))
 
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)))
@@ -363,12 +363,9 @@
                       org-mode-map))
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file haoran--private-notes)))
+(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))))
-
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
-
-(lazy-load-set-keys '(("C-c o d s" . (lambda () (interactive) (dired haoran--github-page)))))
 
 ;; p for project
 (lazy-load-global-keys '(("C-c p f" . project-find-file)

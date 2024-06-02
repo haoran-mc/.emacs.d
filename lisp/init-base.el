@@ -161,7 +161,7 @@
 
 
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq bookmark-default-file haoran--bookmark-file)
+(setq bookmark-default-file ran--bookmark-file)
 
 
 ;; saveplace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

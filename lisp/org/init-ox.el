@@ -54,8 +54,6 @@
       org-export-with-toc t ;; 导出时包含 toc
       org-html-head-include-default-style nil ;; 导出时不包含默认的 css 样式表，默认的样式表在 org 安装目录中
       org-html-head-include-scripts nil ;; 导出时不包含默认的 script 脚本文件
-      org-html-head "<link rel='stylesheet' href='org.css' type='text/css'/>
-          <script type='module' src='main.js' defer></script>"
       org-html-text-markup-alist '((bold . "<b>%s</b>")
                                    (code . "<code>%s</code>")
                                    (italic . "<i>%s</i>")

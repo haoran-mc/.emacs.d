@@ -43,8 +43,8 @@
 (defvar +fixed-pitch-family "Sarasa Mono SC Nerd") ;; 更纱黑体
 (defvar +variable-pitch-family "LXGW WenKai")
 (defvar +font-size-list '(10 11 12 13 14 15 16 17 18))
-(defvar +font-size haoran--font-size)
-(defvar +font-weight haoran--font-weight)
+(defvar +font-size ran--font-size)
+(defvar +font-weight ran--font-weight)
 
 
 ;; set base font
