@@ -40,6 +40,7 @@
 (defvar ran--public-notes "~/haoran/no/org/site/index.org")
 (defvar ran--centre "~/haoran/no/org/org-directory/centre.org")
 (defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
+(defvar ran--trash-dir "~/haoran/tr")
 
 (cond (ran--os-linux
        (defvar ran--homedir "/home/haoran")

@@ -28,15 +28,13 @@
 
 (global-hl-todo-mode)
 
-(define-key hl-todo-mode-map (kbd "C-c t i") 'hl-todo-insert)
-(define-key hl-todo-mode-map (kbd "C-c t o") 'hl-todo-occur)
-
 (setq hl-todo-keyword-faces
       '(("LOCAL-PACKAGES" . "#FF0000")
         ("EXTERNAL-TOOLS" . "#FF0000")
         ("USER-DIRECTORY" . "#FF0000")
         ("CUSTOM-COLOURS" . "#FF0000")
         ("IMPORTANT"      . "#FF0000")
+        ("DEPRECATED"     . "#FF0000")
         ("BUILT-IN"       . "#C066DB")
 
         ;; org-todo

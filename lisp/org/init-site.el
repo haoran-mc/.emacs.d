@@ -28,10 +28,10 @@
 (require 'ox-publish)
 
 
-(defvar ran--site-org-dir  (concat ran--homedir "/haoran/no/org/site/"))
-(defvar ran--site-html-dir (concat ran--homedir "/haoran/gr/haoran-mc.github.io/"))
-(defvar ran--wiki-org-dir  (concat ran--homedir "/haoran/no/org/wiki/"))
-(defvar ran--my-export-dir (concat ran--homedir "/haoran/no/org/export/org-preview/"))
+(defvar ran--site-org-dir  (concat ran--homedir "/haoran/no/org/site"))
+(defvar ran--site-html-dir (concat ran--homedir "/haoran/gr/haoran-mc.github.io"))
+(defvar ran--wiki-org-dir  (concat ran--homedir "/haoran/no/org/wiki"))
+(defvar ran--my-export-dir (concat ran--homedir "/haoran/no/org/export/org-preview"))
 
 ;; see init-ox.el for more
 (setq org-html-postamble nil
@@ -131,7 +131,7 @@ use export/org-preview/org.css render style."
   "Delete current org and the relative html when it exists."
   (interactive)
   (when (yes-or-no-p "Really delete current org and the relative html?")
-    (let ((fileurl (concat ran--site-html-dir (file-name-base (buffer-name)) ".html")))
+    (let ((fileurl (concat ran--site-html-dir "/" (file-name-base (buffer-name)) ".html")))
       (if (file-exists-p fileurl)
           (delete-file fileurl))
       (delete-file (buffer-file-name))
@@ -160,12 +160,26 @@ use export/org-preview/org.css render style."
 
 
 ;; define-minor-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun generate-sitemap (base-dir sitemap-file)
+  "Generate a sitemap file for the Org files in BASE-DIR."
+  (interactive "DDirectory: \nFOutput Sitemap File: ")
+  (let ((files (sort (directory-files-recursively base-dir "\.org$") #'string>)))
+    (with-temp-buffer
+      (insert "#+TITLE: Blog Articles\n\n")
+      (dolist (file files)
+        (unless (member (file-name-nondirectory file) '("index.org" "sitemap.org" "404.org"))
+          (insert (format "- [[file:%s][%s]]\n" file (file-name-nondirectory file)))))
+      (write-region (point-min) (point-max) sitemap-file))))
+
 (defun +org-publish-site-file ()
   "Save current buffer and publish if it's in the `ran--site-org-dir' directory."
   (when (and (buffer-file-name) ;; 缓冲区有文件才继续
              (string-prefix-p (expand-file-name ran--site-org-dir)
                               (expand-file-name (buffer-file-name))))
-    (org-publish-current-file 'site)))
+    (org-publish-current-file 'site)
+    (let ((sitemap-file (concat ran--site-org-dir "/sitemap.org")))
+      (generate-sitemap ran--site-org-dir sitemap-file)
+      (org-publish-file sitemap-file))))
 
 (define-minor-mode +auto-save-and-publish-site-file-mode
   "Toggle auto save and publish current file."
