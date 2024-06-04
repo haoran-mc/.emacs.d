@@ -30,9 +30,12 @@
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook))
-  (add-hook mode-hook show-paren-mode))
+  (add-hook mode-hook show-paren-mode) ;; 显示括号匹配
+  )
 
-(setq show-paren-when-point-inside-paren t
+(setq show-paren-style 'parentheses    ;; 括号匹配显示但不是烦人的跳到另一个括号。
+      blink-matching-paren nil         ;; 当插入右括号时不显示匹配的左括号
+      show-paren-when-point-inside-paren t
       show-paren-when-point-in-periphery t)
 
 
@@ -41,7 +44,8 @@
 (dolist (mode-hook '(cc-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook
-                     python-mode-hook))
+                     python-mode-hook
+                     json-mode-hook))
   (add-hook mode-hook 'electric-pair-local-mode))
 
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)

@@ -24,9 +24,12 @@
 
 ;;; Code:
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 
+(setq-default indent-tabs-mode nil) ;; 使用空格缩进
+(setq-default tab-width 4) ;; 制表符宽度为 4 个空格
+
+
+;; 定义一个函数统一设置
 (defun adjust-languages-indent (n)
   (setq-local javascript-indent-level n)
   (setq-local js-indent-level n)
@@ -55,7 +58,8 @@
                      (adjust-languages-indent 2)
                      )))
 
-;; just set
+
+;; 配置简单，直接定义就好
 (setq yaml-indent-offset 2)
 (setq-default c-basic-offset 4)
 

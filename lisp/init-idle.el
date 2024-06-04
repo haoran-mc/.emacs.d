@@ -39,10 +39,6 @@
 (setq history-delete-duplicates t)      ;; 删除 minibuffer 的重复历史
 (setq minibuffer-message-timeout 1)     ;; 显示消息超时的时间
 
-(show-paren-mode t)                     ;; 显示括号匹配
-(setq show-paren-style 'parentheses)    ;; 括号匹配显示但不是烦人的跳到另一个括号。
-(setq blink-matching-paren nil)         ;; 当插入右括号时不显示匹配的左括号
-
 (setq message-log-max t)                ;; 设置 message 记录全部消息, 而不用截去
 (setq require-final-newline nil)        ;; 不自动添加换行符到末尾, 有些情况会出现错误
 (setq x-stretch-cursor t)               ;; 光标在 TAB 字符上会显示为一个大方块

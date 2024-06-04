@@ -57,8 +57,10 @@
       (reformatter-gofmt-buffer))
 
      ((string-equal file-extension "json")
-      ;; 进入 json 文件会 init-mode autoload 加载 lang-json 模块
-      (json-mode-beautify))
+      ;; lang-json 模块已经在 init-mode 预加载
+      (if in-selection
+          (json-mode-beautify (region-beginning) (region-end))
+        (json-mode-beautify (point-min) (point-max))))
 
      ((string-equal file-extension "py")
       (if in-selection
