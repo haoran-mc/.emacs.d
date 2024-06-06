@@ -83,7 +83,7 @@
 (global-hl-line-mode 1)                 ;; 高亮当前行
 
 
-;; hideshow ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; hideshow DEPRECATED ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defconst hideshow-folded-face '((t (:inherit 'font-lock-comment-face :box nil))))
 
 (defface hideshow-border-face

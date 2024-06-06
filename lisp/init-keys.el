@@ -306,18 +306,6 @@
 
 (lazy-load-global-keys '(("C-c g B" . magit-branch)) "magit")
 
-;; h for hideshow unify with vim
-;; zm hide-all
-;; zr show-all
-;; za toggle-fold
-;; zo show-block
-;; zc hide-block
-(lazy-load-set-keys '(("C-c h m" . hs-toggle-hiding)
-                      ("C-c h r" . hs-show-all)
-                      ("C-c h a" . hs-hide-all)
-                      ("C-c h o" . hs-show-block)
-                      ("C-c h c" . hs-hide-block)))
-
 ;; git hunk, diff-hl has been required by init.el
 ;; C-c g ? for magit
 ;; C-c h ? for diff-hl
@@ -408,6 +396,17 @@
                        "init-ace-window")
 
 (lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
+
+;; z for folding unify with vim
+;; zm hide-all
+;; zr show-all
+;; za toggle-fold
+;; zo show-block
+;; zc hide-block
+(lazy-load-global-keys '(("C-c z e" . yafolding-toggle-element)
+                         ("C-c z a" . yafolding-show-all)
+                         ("C-c z p" . yafolding-go-parent-element))
+                       "yafolding")
 
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

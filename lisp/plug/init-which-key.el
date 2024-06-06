@@ -40,12 +40,15 @@
   "C-c e"   "eshell"
   "C-c f"   "find/file"
   "C-c g"   "git"
-  "C-c h"   "hideshow"
   "C-c i"   "insert"
+  "C-c l"   "literate"
   "C-c n"   "narrow"
   "C-c o"   "open"
+  "C-c p"   "project"
   "C-c t"   "hl-todo"
   "C-c u"   "user"
+  "C-c w"   "window"
+  "C-c z"   "yafolding"
   "C-c C-v" "babel")
 (which-key-add-major-mode-key-based-replacements 'markdown-mode
   "C-c m" "markdown")

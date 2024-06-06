@@ -308,3 +308,8 @@
 	url = git@github.com:meow-edit/meow.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/yafolding"]
+	path = site-lisp/yafolding
+	url = git@github.com:emacsorphanage/yafolding.git
+	shallow = true
+	ignore = all
