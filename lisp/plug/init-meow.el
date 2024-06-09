@@ -24,7 +24,6 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/Documents/emacs/local-packages/meow")
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -61,6 +60,7 @@
    '("2" . meow-expand-2)
    '("1" . meow-expand-1)
    '("-" . negative-argument)
+   '(":" . execute-extended-command)
    '(";" . meow-reverse)
    '("," . meow-inner-of-thing)
    '("." . meow-bounds-of-thing)
@@ -114,7 +114,20 @@
 
 (require 'meow)
 (meow-setup)
+
+;; https://github.com/meow-edit/meow/issues/83#issuecomment-985490589
+(define-key input-decode-map (kbd "C-[") [control-bracketleft])
+(define-key meow-insert-state-keymap [control-bracketleft] 'meow-insert-exit)
+;; (define-key meow-normal-state-keymap [control-bracketleft] 'meow-insert-exit)
+
 (meow-global-mode 1)
+
+
+;;;###autoload
+(defun w ()
+  "save current buffer (vim ':w' command)"
+  (interactive)
+  (save-buffer))
 
 
 (provide 'init-meow)

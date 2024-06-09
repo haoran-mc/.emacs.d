@@ -93,9 +93,8 @@
 (require 'init-gc)
 (require 'init-autosave)
 (require 'init-autoinsert)
-(require 'init-avy)
 (require 'init-keyfreq)
-;; (require 'init-meow)
+(require 'init-meow)
 
 ;; load later
 (run-with-idle-timer
@@ -105,7 +104,6 @@
      (require 'init-idle)
      (require 'init-parens)
      (require 'init-isearch)
-     (require 'init-cursor-chg)
      (require 'init-hl-todo)
      (require 'init-which-key)
      (require 'init-highlight-thing)

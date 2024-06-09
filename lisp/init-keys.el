@@ -32,7 +32,7 @@
                         "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
-                        "ESC ESC ESC"
+                        ;; "ESC ESC ESC"
                         "C-t" ;; transpose-chars
                         ))
 
@@ -52,7 +52,7 @@
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 (lazy-load-global-keys '(("C-." . +format-code-dwim)) "init-formatter")
-(lazy-load-set-keys '(("C-;" . avy-goto-char)))
+(lazy-load-set-keys '(("C-;" . avy-goto-char))) ;; DEPRECATED by meow C-c f w find-words
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
@@ -156,7 +156,8 @@
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
-                      ("M-;" . comment-dwim)))
+                      ("M-;" . comment-dwim)
+                      ("M-[" . ESC-prefix)))
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
                          ("M-d" . delete-block-forward))
@@ -170,7 +171,7 @@
 ;; you may use M-e (expand-region) more
 (lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
 
-(lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
+;; (lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
 
 ;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
@@ -300,6 +301,8 @@
                        "consult")
 
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
+
+(lazy-load-global-keys '(("C-c f w" . avy-goto-char)) "init-avy")
 
 ;; g for git
 (lazy-load-set-keys '(("C-c g b" . git-messenger:popup-message)))
