@@ -24,6 +24,31 @@
 
 ;;; Code:
 
+(defun my-meow-append ()
+  "Move to the end of selection, switch to INSERT state."
+  (interactive)
+  (if meow--temp-normal
+      (progn
+        (message "Quit temporary normal mode")
+        (meow--switch-state 'motion))
+    (if (not (region-active-p))
+        (when (and (not (use-region-p))
+                   (< (point) (point-max)))
+          (forward-char 1))
+      (meow--direction-forward)
+      (meow--cancel-selection))
+    (meow--switch-state 'insert)))
+
+(defun my-meow-change ()
+  "Kill till the end of line, switch to INSERT state."
+  (interactive)
+  (if meow--temp-normal
+      (progn
+        (message "Quit temporary normal mode")
+        (meow--switch-state 'motion))
+    (progn
+      (kill-line)
+      (meow--switch-state 'insert))))
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -49,7 +74,7 @@
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
   (meow-normal-define-key
-   '("0" . meow-expand-0)
+   '("0" . mwim-beginning-of-line-or-code)
    '("9" . meow-expand-9)
    '("8" . meow-expand-8)
    '("7" . meow-expand-7)
@@ -66,13 +91,13 @@
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
-   '("a" . meow-append)
+   '("a" . my-meow-append)
    '("A" . meow-open-below)
    '("b" . meow-back-word)
    '("B" . meow-back-symbol)
    '("c" . meow-change)
+   '("C" . my-meow-change)
    '("d" . meow-delete)
-   '("D" . meow-backward-delete)
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
    '("f" . meow-find)
@@ -94,10 +119,9 @@
    '("O" . meow-to-block)
    '("p" . meow-yank)
    '("q" . meow-quit)
-   '("Q" . meow-goto-line)
    '("r" . meow-replace)
-   '("R" . meow-swap-grab)
-   '("s" . meow-kill)
+   ;; '("R" . meow-swap-grab)
+   '("s" . meow-kill) ;; ctrl+k vanilla/smart-kill-line
    '("t" . meow-till)
    '("u" . meow-undo)
    '("U" . meow-undo-in-selection)
@@ -118,7 +142,8 @@
 ;; https://github.com/meow-edit/meow/issues/83#issuecomment-985490589
 (define-key input-decode-map (kbd "C-[") [control-bracketleft])
 (define-key meow-insert-state-keymap [control-bracketleft] 'meow-insert-exit)
-;; (define-key meow-normal-state-keymap [control-bracketleft] 'meow-insert-exit)
+
+(setq meow-use-clipboard t)
 
 (meow-global-mode 1)
 
