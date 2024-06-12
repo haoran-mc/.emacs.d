@@ -32,12 +32,8 @@
                         "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
-                        ;; "ESC ESC ESC"
                         "C-t" ;; transpose-chars
                         ))
-
-;; kill keyboard-escape-quit a few usage scenarios
-;; (lazy-load-set-keys '(("ESC ESC ESC" . (lambda () (interactive) (message "ESC!")))))
 
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,9 +66,8 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map))
 
-(lazy-load-global-keys '(("C-o" . open-newline-above)  ;; open-line
-                         ("C-l" . open-newline-below)) ;; recenter-top-bottom
-                       "open-newline")
+(lazy-load-set-keys '(("C-o" . open-newline-above)
+                      ("C-l" . open-newline-below)))
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")

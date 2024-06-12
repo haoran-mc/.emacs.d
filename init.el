@@ -85,6 +85,7 @@
 (require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
+(require 'init-meow)
 (require 'init-keys)
 
 ;; standalone apps
@@ -94,7 +95,6 @@
 (require 'init-autosave)
 (require 'init-autoinsert)
 (require 'init-keyfreq)
-(require 'init-meow)
 
 ;; load later
 (run-with-idle-timer

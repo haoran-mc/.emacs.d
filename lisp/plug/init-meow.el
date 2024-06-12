@@ -24,22 +24,32 @@
 
 ;;; Code:
 
-(defun my-meow-append ()
+(require 'mwim)
+
+(defun my-a-meow-append ()
   "Move to the end of selection, switch to INSERT state."
   (interactive)
   (if meow--temp-normal
       (progn
         (message "Quit temporary normal mode")
         (meow--switch-state 'motion))
-    (if (not (region-active-p))
-        (when (and (not (use-region-p))
-                   (< (point) (point-max)))
-          (forward-char 1))
-      (meow--direction-forward)
-      (meow--cancel-selection))
+    ;; (if (not (region-active-p))
+    (when (and (< (point) (point-max))
+               ;; (not (use-region-p))
+               (not (eolp))) ;; end of a line
+      (forward-char 1))
+    (meow--direction-forward)
+    (meow--cancel-selection)
+    ;; )
     (meow--switch-state 'insert)))
 
-(defun my-meow-change ()
+(defun my-A-meow-append ()
+  "Move to the end of line, switch to INSERT state."
+  (interactive)
+  (mwim-end-of-line)
+  (meow--switch-state 'insert))
+
+(defun my-C-meow-change ()
   "Kill till the end of line, switch to INSERT state."
   (interactive)
   (if meow--temp-normal
@@ -49,6 +59,31 @@
     (progn
       (kill-line)
       (meow--switch-state 'insert))))
+
+(defun my-F-meow-find (ch &optional expand)
+  "Call `meow-find` with -1 and the given char."
+  (interactive "cFind:")
+  (meow-find -1 ch expand))
+
+(defun my-I-meow-insert ()
+  "Move to the beginning of code, switch to INSERT state."
+  (interactive)
+  (mwim-beginning-of-code)
+  (meow--switch-state 'insert))
+
+(defun func-replace-current-char ()
+  (interactive)
+  (let ((mychar (read-char "replace with:")))
+    (if (= ?\C-\[ mychar)
+        (message "Cancelled replace")
+      (delete-char 1)
+      (insert mychar))))
+
+(defun my-r-meow-replace ()
+  (interactive)
+  (if (use-region-p)
+      (meow-change)
+    (func-replace-current-char)))
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -86,54 +121,56 @@
    '("1" . meow-expand-1)
    '("-" . negative-argument)
    '(":" . execute-extended-command)
-   '(";" . meow-reverse)
+   '(";" . repeat)
    '("," . meow-inner-of-thing)
    '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
-   '("a" . my-meow-append)
-   '("A" . meow-open-below)
+   '("a" . my-a-meow-append)
+   '("A" . my-A-meow-append)
    '("b" . meow-back-word)
    '("B" . meow-back-symbol)
    '("c" . meow-change)
-   '("C" . my-meow-change)
-   '("d" . meow-delete)
+   '("C" . my-C-meow-change)
+   '("d" . meow-kill) ;; ctrl+k vanilla/smart-kill-line
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
-   '("f" . meow-find)
+   '("f" . meow-till)
+   '("F" . my-F-meow-find)
    '("g" . meow-cancel-selection)
    '("G" . meow-grab)
    '("h" . meow-left)
    '("H" . meow-left-expand)
    '("i" . meow-insert)
-   '("I" . meow-open-above)
+   '("I" . my-I-meow-insert)
    '("j" . meow-next)
    '("J" . meow-next-expand)
    '("k" . meow-prev)
    '("K" . meow-prev-expand)
    '("l" . meow-right)
    '("L" . meow-right-expand)
-   '("m" . meow-join)
+   ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
    '("n" . meow-search)
    '("o" . meow-block)
-   '("O" . meow-to-block)
+   ;; '("O" . meow-to-block)
    '("p" . meow-yank)
    '("q" . meow-quit)
-   '("r" . meow-replace)
-   ;; '("R" . meow-swap-grab)
-   '("s" . meow-kill) ;; ctrl+k vanilla/smart-kill-line
-   '("t" . meow-till)
-   '("u" . meow-undo)
+   '("r" . my-r-meow-replace)
+   '("R" . meow-replace) ;; meow-swap-grap
+   '("s" . meow-delete)
+   ;; '("t" . meow-till) ;; far and useless
+   ;; '("u" . meow-undo) ;; just use C-/
    '("U" . meow-undo-in-selection)
-   '("v" . meow-visit)
+   ;; '("v" . meow-visit)
    '("w" . meow-mark-word)
    '("W" . meow-mark-symbol)
    '("x" . meow-line)
    '("X" . meow-goto-line)
-   '("y" . meow-save)
-   '("Y" . meow-sync-grab)
-   '("z" . meow-pop-selection)
-   '("'" . repeat)
+   ;; '("y" . meow-save) ;; just use M-w
+   ;; '("Y" . meow-sync-grab)
+   '("z" . meow-reverse) ;; meow-pop-selection
+   ;; '("'" . repeat)
+   '("/" . meow-visit)
    '("<escape>" . ignore)))
 
 (require 'meow)
@@ -143,9 +180,41 @@
 (define-key input-decode-map (kbd "C-[") [control-bracketleft])
 (define-key meow-insert-state-keymap [control-bracketleft] 'meow-insert-exit)
 
-(setq meow-use-clipboard t)
+
+(setq meow-use-clipboard t
+      meow-char-thing-table '((40 . round)  ;; (
+                              (41 . round)  ;; )
+                              (91 . square) ;; [
+                              (93 . square) ;; ]
+                              (123 . curly) ;; {
+                              (125 . curly) ;; }
+                              (103 . string)
+                              (101 . symbol)
+                              (119 . window)
+                              (98 . buffer)
+                              (112 . paragraph)
+                              (108 . line)
+                              (118 . visual-line)
+                              (102 . defun)
+                              (46 . sentence)))
+
+(setq meow-mode-state-list
+      (append meow-mode-state-list
+              '((lsp-bridge-ref-mode . insert)  ;; n
+                (magit-status-mode . insert))))   ;; t
+
 
 (meow-global-mode 1)
+
+
+(require 'open-newline)
+(defun meow-switch-insert-with-arg-advice (arg)
+  "Enter insert mode after opening a new row."
+  (meow--switch-state 'insert))
+
+(advice-add 'open-newline-below :after 'meow-switch-insert-with-arg-advice)
+(advice-add 'open-newline-above :after 'meow-switch-insert-with-arg-advice)
+;; (advice-add 'set-mark-command :before 'meow-switch-insert-with-arg-advice)
 
 
 ;;;###autoload
