@@ -166,7 +166,7 @@
    '("W" . meow-mark-symbol)
    '("x" . meow-line)
    '("X" . meow-goto-line)
-   ;; '("y" . meow-save) ;; just use M-w
+   '("y" . meow-save) ;; M-w cancel the selection, but y not.
    ;; '("Y" . meow-sync-grab)
    '("z" . meow-reverse) ;; meow-pop-selection
    ;; '("'" . repeat)
@@ -182,26 +182,31 @@
 
 
 (setq meow-use-clipboard t
-      meow-char-thing-table '((40 . round)  ;; (
-                              (41 . round)  ;; )
-                              (91 . square) ;; [
-                              (93 . square) ;; ]
-                              (123 . curly) ;; {
-                              (125 . curly) ;; }
-                              (103 . string)
-                              (101 . symbol)
-                              (119 . window)
-                              (98 . buffer)
-                              (112 . paragraph)
-                              (108 . line)
-                              (118 . visual-line)
-                              (102 . defun)
-                              (46 . sentence)))
+      meow-char-thing-table '((?( . round)  ;; (
+                              (?) . round)  ;; )
+                              (?[ . square) ;; [
+                              (?] . square) ;; ]
+                              (?{ . curly)  ;; {
+                              (?} . curly)  ;; }
+                              (?g . string)
+                              (?e . symbol)
+                              (?w . window)
+                              (?b . buffer)
+                              (?p . paragraph)
+                              (?l . line)
+                              (?v . visual-line)
+                              (?f . defun)
+                              (?. . sentence))
+      meow-expand-hint-counts '((word . 0)
+                                (line . 0)
+                                (block . 0)
+                                (find . 0)
+                                (till . 0)))
 
 (setq meow-mode-state-list
       (append meow-mode-state-list
-              '((lsp-bridge-ref-mode . insert)  ;; n
-                (magit-status-mode . insert))))   ;; t
+              '((lsp-bridge-ref-mode . insert)
+                (magit-status-mode . insert))))
 
 
 (meow-global-mode 1)
