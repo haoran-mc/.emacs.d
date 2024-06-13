@@ -27,23 +27,26 @@
 
 ;;; Code:
 
+;; 置空
+(setq symbol-overlay-map (make-sparse-keymap))
+
 (lazy-load-set-keys
- '(
-   ("s" . symbol-overlay-put)
-   ("n" . symbol-overlay-jump-next)
+ '(("n" . symbol-overlay-jump-next)
    ("p" . symbol-overlay-jump-prev)
-   ("w" . symbol-overlay-save-symbol)
-   ("t" . symbol-overlay-toggle-in-scope)
-   ("e" . symbol-overlay-echo-mark)
-   ("d" . symbol-overlay-jump-to-definition)
-   ("S" . symbol-overlay-isearch-literally)
    ("r" . symbol-overlay-rename)
    ("R" . symbol-overlay-query-replace)
-   ("q" . symbol-overlay-remove-all)
    ("<" . symbol-overlay-jump-first)
    (">" . symbol-overlay-jump-last)
-   ("M-n" . symbol-overlay-switch-forward)
-   ("M-p" . symbol-overlay-switch-backward)
+   ;; ("H" . symbol-overlay-map-help)
+   ;; ("s" . symbol-overlay-put)
+   ;; ("w" . symbol-overlay-save-symbol)
+   ;; ("t" . symbol-overlay-toggle-in-scope)
+   ;; ("e" . symbol-overlay-echo-mark)
+   ;; ("d" . symbol-overlay-jump-to-definition)
+   ;; ("S" . symbol-overlay-isearch-literally)
+   ;; ("q" . symbol-overlay-remove-all)
+   ;; ("M-n" . symbol-overlay-switch-forward)
+   ;; ("M-p" . symbol-overlay-switch-backward)
    )
  symbol-overlay-map)
 
