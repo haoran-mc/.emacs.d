@@ -26,3 +26,13 @@
 
 1. managing plugins via submodules
 2. accelerated startup with autoload
+3. nice org-mode export and publishing experience
+
+
+-----
+
+#+begin_quote
+- org-superstar :: prettify item bullets in org-mode.
+- plantuml-mode :: write mindmap in org-mode, download plantuml.jar first.
+- ox-pandoc :: export org files to a number of other more specialised formats.
+#+end_quote
