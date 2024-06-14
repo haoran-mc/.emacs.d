@@ -61,5 +61,17 @@
                                    (underline . "<span class=\"underline\">%s</span>")
                                    (verbatim . "<verbatim>%s</verbatim>")))
 
+
+(require 'ox-pandoc)
+
+
+(defun org-export-docx ()
+  (interactive)
+  (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
+        (template-file (concat ran--homedir "/.emacs.d/templates/template.docx")))
+    (shell-command (format "pandoc %s -o %s --reference-doc=%s" (buffer-file-name) docx-file template-file))
+    (message "Convert finish: %s" docx-file)))
+
+
 (provide 'init-ox)
 ;;; init-ox.el ends here
