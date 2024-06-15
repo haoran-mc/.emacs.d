@@ -33,6 +33,8 @@
 
 #+begin_quote
 - org-superstar :: prettify item bullets in org-mode.
+- htmlize :: convert buffer text and decorations to HTML.
+- simple-httpd :: it can host your files as a website on your local machine so that you can pull it up in your browser.
 - plantuml-mode :: write mindmap in org-mode, download plantuml.jar first.
 - ox-pandoc :: export org files to a number of other more specialised formats.
 #+end_quote

@@ -24,8 +24,6 @@
 
 ;;; Code:
 
-;; (add-to-list 'org-export-backends 'pandoc)
-
 (setq org-export-use-babel t
       org-export-coding-system 'utf-8
       org-export-default-language "en" ;; 设置导出的语言为英语，在日期等地方会使用 "Monday"
@@ -49,6 +47,7 @@
       org-html-coding-system 'utf-8 ;; 导出的 HTML 文件编码为 utf8
       org-html-head-include-default-style nil ;; 导出时不包含默认的 css 样式表，默认的样式表在 org 安装目录中
       org-html-head-include-scripts nil ;; 导出时不包含默认的 script 脚本文件
+      org-html-validation-link nil
       org-html-text-markup-alist '((bold . "<b>%s</b>")
                                    (code . "<code>%s</code>")
                                    (italic . "<i>%s</i>")
@@ -57,7 +56,20 @@
                                    (verbatim . "<verbatim>%s</verbatim>")))
 
 
+
+;; (add-to-list 'org-export-backends 'pandoc)
 (require 'ox-pandoc)
+
+;; default options for all output formats
+;; (setq org-pandoc-options '((standalone . t)))
+
+;; cancel above settings only for 'docx' format
+(setq org-pandoc-options-for-docx '((standalone . t)
+                                    (reference-doc . "~/.emacs.d/templates/template.docx")))
+
+;; special settings for beamer-pdf and latex-pdf exporters
+(setq org-pandoc-options-for-beamer-pdf '((pdf-engine . "xelatex")))
+(setq org-pandoc-options-for-latex-pdf '((pdf-engine . "pdflatex")))
 
 
 (defun org-export-docx ()

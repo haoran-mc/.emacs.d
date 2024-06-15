@@ -37,15 +37,15 @@
   (yas-expand-snippet (buffer-string) (point-min) (point-max)))
 
 (define-auto-insert "\\.org$"
-  ["~/.emacs.d/templates/default-org.org" autoinsert-yas-expand])
+  ["~/.emacs.d/templates/template.org" autoinsert-yas-expand])
 (define-auto-insert "\\.html$"
-  ["~/.emacs.d/templates/default-html.html" autoinsert-yas-expand])
+  ["~/.emacs.d/templates/template.html" autoinsert-yas-expand])
 ;; (define-auto-insert "\\.go$"
-;;   ["~/.emacs.d/templates/default-go.go" autoinsert-yas-expand])
+;;   ["~/.emacs.d/templates/template.go" autoinsert-yas-expand])
 ;; (define-auto-insert "\\.py$"
-;;   ["~/.emacs.d/templates/default-py.py" autoinsert-yas-expand])
+;;   ["~/.emacs.d/templates/template.py" autoinsert-yas-expand])
 ;; (define-auto-insert "\\.c++$"
-;;   ["~/.emacs.d/templates/default-cpp.cpp" autoinsert-yas-expand])
+;;   ["~/.emacs.d/templates/template.cpp" autoinsert-yas-expand])
 
 
 (provide 'init-autoinsert)

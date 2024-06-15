@@ -1,0 +1,80 @@
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#+TITLE: GENERATE DOCX
+#+AUTHOR: Haoran Liu
+#+EMAIL: haoran.mc@outlook.com
+#+DATE: 2024-06-16 02:06 Sun
+#+STARTUP: showeverything
+#+OPTIONS: author:nil toc:t ^:{} _:{}
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Abstract.
+
+* Heading 1
+** Heading 2
+*** Heading 3
+First Paragraph.
+
+* Unordered List
+- C-c C-n	next heading
+- C-c C-p	prev heading
+
+* Ordered List
+1. create table title
+   #+begin_src org
+     | name     | age | tel |
+
+   #+end_src
+
+2. create dividing line
+   #+begin_src org
+     | name | tel | age |
+     |------+-----+-----|
+     | name | tel | age|
+     | → TAB
+   #+end_src
+
+3. press TAB or RET create table line
+
+* Link
+- Link with description [[https://github.com/haoran-mc/.emacs.d/tree/main/templates/generate-docx.org][The org file to get pandoc docx template]]
+
+- Link with no description [[https://github.com/haoran-mc/.emacs.d/blob/main/docs/2.master-my-bindings.org]]
+
+* Content with Footnotes
+The Org homepage[fn:1] now looks a lot better than it used to.
+
+Tom is a boy[fn:name].
+
+Jim is a boy[fn:: This is the inline definition of this footnote] too.
+
+Lily is a girl[fn:lily: a definition].
+
+* TODO [#A] todo
+Any title becomes a TODO when it starts with ~TODO~.
+
+You can indicate @emph[order] workflow status for the use of the "TODO" keyword:.
+
+#+begin_src emacs-lisp
+  (setq org-todo-keywords
+        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+#+end_src
+
+If you want to provide a pending status for a separate org file and add a key sequence to it, you can use the following configuration:
+
+#+begin_example
+  ,#+TODO: TODO(t) | DONE(d)
+  ,#+TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+  ,#+TODO: | CANCELED(c)
+#+end_example
+
+When you use Org mode a lot, you may have a large number of to-do entries, and this is when you can set priority tags for them:
+
+#+begin_example
+  ,*** TODO [#A] Learn Elisp
+#+end_example
+
+There are three priority modes, A-C. If no priority is specified, the 'B' level is the default.
+
+* Footnotes
+[fn:1] The link is: http://orgmode.org
+[fn:name] Tom is a boy.

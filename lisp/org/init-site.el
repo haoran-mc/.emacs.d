@@ -46,7 +46,7 @@
          ;; .gitignore will ignore .html files, you may not find images after changing it
          :publishing-directory ,ran--wiki-org-dir
          :base-extension "org"
-         :exclude "^_[[:word:]-]*.org"     ;; regexp exclude files like "_draft-demo-1.org"
+         :exclude "^_[[:word:]-]*.org" ;; regexp exclude files like "_draft-demo-1.org"
          :recursive t
          :publishing-function org-html-publish-to-html ;; Publishing action
 	     :author "Haoran Liu"
@@ -140,11 +140,14 @@ use export/org-preview/org.css render style."
 
 
 ;; htmlize ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Convert buffer text and decorations to HTML.
 (require 'htmlize)
 (setq org-html-htmlize-output-type 'inline-css)
 
 
 ;; simple-httpd ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; A great Emacs package which can host your files as a website on
+;; your local machine so that you can pull it up in your browser.
 (require 'simple-httpd)
 (setq org-html-mathjax-options
       '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
