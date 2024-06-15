@@ -35,10 +35,9 @@
 
 ;; see init-ox.el for more
 (setq org-html-postamble nil
-      org-html-htmlize-output-type 'inline-css
       ;; 默认的 html-head，也就是会在 mydir 中使用
       org-html-head "<link rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon' />
-                     <link rel='stylesheet' href='css/org.css' type='text/css'  />
+                     <link rel='stylesheet' href='css/org.css' type='text/css' />
                      <script type='module' src='js/main.js' defer></script>"
       org-publish-project-alist
       `(("wiki"
@@ -69,7 +68,7 @@
 	     :email "haoran.mc@outlook.com"
          :html-head
          "<link rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon' />
-          <link rel='stylesheet' href='css/org.css' type='text/css'  />
+          <link rel='stylesheet' href='css/org.css' type='text/css' />
           <script type='module' src='js/main.js' defer></script>"
          )
         ))
@@ -142,6 +141,7 @@ use export/org-preview/org.css render style."
 
 ;; htmlize ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'htmlize)
+(setq org-html-htmlize-output-type 'inline-css)
 
 
 ;; simple-httpd ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

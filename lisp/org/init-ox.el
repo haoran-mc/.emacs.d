@@ -26,32 +26,27 @@
 
 ;; (add-to-list 'org-export-backends 'pandoc)
 
-(setq org-export-with-toc t
+(setq org-export-use-babel t
+      org-export-coding-system 'utf-8
+      org-export-default-language "en" ;; 设置导出的语言为英语，在日期等地方会使用 "Monday"
+      org-export-in-background nil ;; 不在后台进行导出操作，否则可能出现不一致的结果或意外的行为
+      org-export-preserve-breaks t ;; 导出时保留换行符
+      org-export-headline-levels 6 ;; 导出标题的层级限制
       org-export-with-tags 'not-in-toc
-      org-export-with-email t
-      org-export-with-author t
+      org-export-with-email nil
+      org-export-with-author nil
       org-export-with-drawers nil
-      org-export-with-priority t
       org-export-with-footnotes t
       org-export-with-smart-quotes t
-      org-export-with-section-numbers nil
-      org-export-with-sub-superscripts '{}
       ;; Use :eval never-export header argument to avoid evaluating.
-      org-export-use-babel t
-      org-export-headline-levels 5
-      org-export-coding-system 'utf-8
       org-export-with-broken-links 'mark
-      org-export-in-background nil ;; 不在后台进行导出操作，否则可能出现不一致的结果或意外的行为
       org-export-with-sub-superscripts '{} ;; 仅有使用 {} 包裹的表达式能够作为上下标导出
-      org-export-headline-levels 6 ;; 导出标题的层级限制
-      org-html-doctype "html5" ;; 导出的 HTML 文件的文档类型为 html5
-      org-html-coding-system 'utf-8 ;; 导出的 HTML 文件编码为 utf8
-      org-export-default-language "en" ;; 设置导出的语言为英语，在日期等地方会使用 "Monday"
       org-export-with-section-numbers nil ;; 不设置导出时包含章节编号
       org-export-with-planning t ;; 导出时是否包含计划信息
       org-export-with-priority t ;; 导出时是否包含优先级
-      org-export-preserve-breaks t ;; 导出时保留换行符
       org-export-with-toc t ;; 导出时包含 toc
+      org-html-doctype "html5" ;; 导出的 HTML 文件的文档类型为 html5
+      org-html-coding-system 'utf-8 ;; 导出的 HTML 文件编码为 utf8
       org-html-head-include-default-style nil ;; 导出时不包含默认的 css 样式表，默认的样式表在 org 安装目录中
       org-html-head-include-scripts nil ;; 导出时不包含默认的 script 脚本文件
       org-html-text-markup-alist '((bold . "<b>%s</b>")

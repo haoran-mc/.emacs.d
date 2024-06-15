@@ -4,5 +4,6 @@
 #+EMAIL: `user-mail-address`
 #+DATE: `(format-time-string "%Y-%m-%d %H:%m %a")`
 #+STARTUP: showeverything
+#+OPTIONS: author:nil toc:t ^:{} _:{}
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

@@ -41,8 +41,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 
-(dolist (elt-cons '(
-                    ("\\.org$" . org-mode)
+(dolist (elt-cons '(("\\.org$" . org-mode)
                     ("\\.go$" . go-mode)
                     ("\\.py$" . python-mode)
                     ("\\.sql$" . sql-mode)
