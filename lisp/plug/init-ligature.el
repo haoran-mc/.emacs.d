@@ -77,34 +77,18 @@ from codepoint-start."
 
 
 ;; hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook '+customized-org-ligature-chars))
-
-
 (defun +customized-org-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
                        ("\\pagebreak"      . 128204)
-                       ("#+tblfm:"         . 8756) ;; ∴
-                       ("->"               . 8594) ;; →
-                       ("<-"               . 8592) ;; ←
-                       ("=>"               . 8658) ;; ⇒
-                       ("<="               . 8656) ;; ⇐
-		               ("[ ]"              . 9744)         ; ☐
-		               ("[X]"              . 9745)         ; ☑
-		               ("[-]"              . 8863)         ; ⊟
+                       ("#+tblfm:"         . ?∴)
+                       ("->"               . ?→)
+                       ("<-"               . ?←)
+                       ("=>"               . ?⇒)
+                       ("<="               . ?⇐)
+		               ("[ ]"              . ?☐)
+		               ("[X]"              . ?☑)
+		               ("[-]"              . ?⊟)
                        ("::"               . ?∷)
-                       ;; ("#+TITLE:"         . 10162) ;; ➲ ☺ ⊘ ⨀ Τ
-                       ;; ("#+AUTHOR:"        . 9998) ;; ✎ ♥
-                       ;; ("#+EMAIL:"         . ?﹫)  ;; ␤ ＠ ﹫ ⌂ ⚙
-                       ;; ("#+DATE:"          . ?⌨)
-                       ;; ("#+DESCRIPTION:"   . ?𝇊) ;;
-                       ;; ("#+KEYWORDS:"      . ?)
-                       ;; ("#+TAGS:"          . ?)
-                       ;; ("#+OPTIONS:"       . ?⌥)
-                       ;; ("#+STARTUP:"       . ?⑆)
-		               ;; ("#+ATTR_LATEX:"    . ?🄛)
-		               ;; ("#+ATTR_HTML:"     . ?🄗)
-		               ;; ("#+ATTR_ORG:"      . ?🄞)
                        ("#+BLOCK_LINE: "   . ?━)
                        ("#+PROPERTY:"      . ?⚙)
                        ("#+LATEX_CLASS:"   . ?C) ;; 🄲
@@ -112,19 +96,15 @@ from codepoint-start."
                        ("#+BEAMER_HEADER:" . ?↔)
                        ("#+CAPTION:"       . ?☰)
                        ("#+HEADER:"        . ?›)
-                       ("#+begin_quote"    . 187) ;; »
-                       ("#+end_quote"      . 171) ;; «
+                       ("#+begin_quote"    . ?»)
+                       ("#+end_quote"      . ?«)
                        ("#+begin_export"   . ?↠)
                        ("#+end_export"     . ?↞)
                        ("#+RESULTS:"       . ?⚑)
-                       ("#+begin_results"  . 8943) ;; ⋯
+                       ("#+begin_results"  . ?⋯)
                        ("#+end_results"    . 8943)
                        ("#+begin_src"      . ?ƒ)
                        ("#+end_src"        . ?ƒ)
-                       ;; ("#+begin_example"  . ?∴) ;; ⧉
-                       ;; ("#+end_example"    . ?∵)
-                       ;; (":PROPERTIES:"     . ?⚙)
-                       ;; (":END:"            . ?∎)
                        ("[#A]"             . ?🅰)
                        ("[#B]"             . ?🅱)
                        ("[#C]"             . ?🅲)
@@ -136,19 +116,23 @@ from codepoint-start."
           (append fancy-chars prettify-symbols-alist)))
   (prettify-symbols-mode))
 
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook '+customized-org-ligature-chars))
 
-(add-hook 'emacs-lisp-mode-hook '+customized-elisp-ligature-chars)
 
+
 (defun +customized-elisp-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
                        ("\\pagebreak"      . 128204)
-                       ("#+tblfm:"         . 8756) ;; ∴
-                       ("->"               . 8594) ;; →
-                       ("=>"               . 8658) ;; ⇒
+                       ("#+tblfm:"         . ?∴)
+                       ("->"               . ?→)
+                       ("=>"               . ?⇒)
                        )))
     (setq prettify-symbols-alist
           (append fancy-chars prettify-symbols-alist)))
   (prettify-symbols-mode))
+
+(add-hook 'emacs-lisp-mode-hook '+customized-elisp-ligature-chars)
 
 
 (provide 'init-ligature)

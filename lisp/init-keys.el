@@ -72,10 +72,6 @@
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
-;; C-t transpose-chars
-;; (cond (ran--os-linux (lazy-load-set-keys '(("C-T" . fullscreen-toggle))))
-;;       (ran--os-mac (lazy-load-set-keys '(("C-T" . toggle-frame-fullscreen)))))
-
 (with-eval-after-load 'org
   ;; only full paths are supported
   (lazy-load-global-keys '(("C-v" . vanilla/preview-file-link)) "org-funcs")) ;; scroll-up-command
@@ -163,11 +159,6 @@
                         ("M-," . org-mark-ring-goto))
                       org-mode-map))
 
-;; you may use M-e (expand-region) more
-(lazy-load-global-keys '(("M-@" . vanilla/mark-whole-word)) "basic-tookit")
-
-;; (lazy-load-global-keys '(("ESC ESC ESC" . easy-nav-enter)) "init-easy-nav")
-
 ;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
@@ -175,15 +166,7 @@
                          ("M--" . er/contract-region))
                        "init-expand-region")
 
-;; only support en_word
-;; see C-M-. for vimlike-semicolon
-(lazy-load-global-keys '(("M-f" . vimlike-f) ;; forward-word
-                         ("M-b" . vimlike-F)) ;; backward-word
-                       "vim-like")
-
 (lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
-
-(lazy-load-set-keys '(("M-h" . mark-paragraph))) ;; mark-paragraph
 
 (lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
                          ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
@@ -409,13 +392,6 @@
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (lazy-load-global-keys '(("C-x g" . magit-status)) "magit")
-
-
-
-;; here is C-M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; TODO Incorrect capitalization
-(lazy-load-global-keys '(("C-M-." . vimlike-semicolon)) ;; xref-find-apropos
-                       "vim-like")
 
 
 (provide 'init-keys)

@@ -82,15 +82,6 @@
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;;;###autoload
-(defun +create-scratch-buffer ()
-  "Create a scratch buffer."
-  (interactive)
-  (switch-to-buffer (get-buffer-create "*scratch*"))
-  (fundamental-mode)
-  ;; (lisp-interaction-mode)
-  (read-only-mode 0))
-
-;;;###autoload
 (defun +func-remove-dos-eol()
   "Replace DOS eolns CR LF with Unix eolns CR."
   (interactive)
