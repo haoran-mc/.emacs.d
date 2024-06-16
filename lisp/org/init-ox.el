@@ -56,28 +56,33 @@
                                    (verbatim . "<verbatim>%s</verbatim>")))
 
 
-
-;; (add-to-list 'org-export-backends 'pandoc)
-(require 'ox-pandoc)
-
-;; default options for all output formats
-;; (setq org-pandoc-options '((standalone . t)))
-
-;; cancel above settings only for 'docx' format
-(setq org-pandoc-options-for-docx '((standalone . t)
-                                    (reference-doc . "~/.emacs.d/templates/template.docx")))
-
-;; special settings for beamer-pdf and latex-pdf exporters
-(setq org-pandoc-options-for-beamer-pdf '((pdf-engine . "xelatex")))
-(setq org-pandoc-options-for-latex-pdf '((pdf-engine . "pdflatex")))
-
-
-(defun org-export-docx ()
+;; https://emacs-china.org/t/org-docx/23409/2
+(defun ran/org-pandoc-convert-to-docx ()
+  "Convert current buffer file to docx format by Pandoc."
   (interactive)
-  (let ((docx-file (concat (file-name-sans-extension (buffer-file-name)) ".docx"))
-        (template-file (concat ran--homedir "/.emacs.d/templates/template.docx")))
-    (shell-command (format "pandoc %s -o %s --reference-doc=%s" (buffer-file-name) docx-file template-file))
-    (message "Convert finish: %s" docx-file)))
+  (let ((docx-file (concat (expand-file-name "~/haoran/no/org/export/pandoc-docx")
+                           "/"
+                           (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))
+                           ".docx"))
+        (command "pandoc")
+        (refdoc (list "--reference-doc" (expand-file-name "templates/template.docx" user-emacs-directory))))
+    (cond ((not buffer-file-name) (user-error "Must be visiting a file"))
+          (t (let* ((buffer (generate-new-buffer " *Pandoc output*"))
+                    (filename (list buffer-file-name))
+                    (output (list "-o" docx-file))
+                    (arguments (nconc filename refdoc output))
+                    (exit-code (apply #'call-process command nil buffer nil arguments)))
+               (cond ((eql 0 exit-code)
+                      (kill-buffer buffer)
+                      (message "Convert finished: %s" (cadr output)))
+                     (t (with-current-buffer buffer
+                          (goto-char (point-min))
+                          (insert (format "%s\n%s\n\n" (make-string 50 ?=) (current-time-string)))
+                          (insert (format "Calling pandoc with:\n\n%s\n\nFailed with error:\n\n"
+                                          (mapconcat #'identity (cons command arguments) " ")))
+                          (special-mode))
+                        (pop-to-buffer buffer)
+                        (error "Convert failed with exit code %s" exit-code))))))))
 
 
 (provide 'init-ox)
