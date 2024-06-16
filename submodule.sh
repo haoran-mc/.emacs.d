@@ -32,7 +32,7 @@ if [ $# -eq 0 ] || ([ $# -eq 1 ] && ([ $1 == '-h' ] || [ $1 == '--help' ])); the
     echo ""
     echo -e "\033[31mcautions are these:\033[0m"
     echo ""
-    echo "- no support update all, man cause crash;"
+    echo "- no support update all, may cause crash;"
     echo "- remove operation is not currently supported;"
     echo ""
     exit

@@ -118,11 +118,6 @@
 	url = git@github.com:rougier/nano-emacs.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/highlight-thing"]
-	path = site-lisp/highlight-thing
-	url = git@github.com:fgeller/highlight-thing.el.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/auto-save"]
 	path = site-lisp/auto-save
 	url = git@github.com:manateelazycat/auto-save.git

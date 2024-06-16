@@ -106,7 +106,6 @@
      (require 'init-isearch)
      (require 'init-hl-todo)
      (require 'init-which-key)
-     (require 'init-highlight-thing)
      (require 'init-vundo)
      (require 'init-whole-line-or-region)
      (require 'init-project)
