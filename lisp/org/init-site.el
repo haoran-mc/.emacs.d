@@ -28,10 +28,10 @@
 (require 'ox-publish)
 
 
-(defvar ran--site-org-dir  (concat ran--homedir "/haoran/no/org/site"))
-(defvar ran--site-html-dir (concat ran--homedir "/haoran/gr/haoran-mc.github.io"))
-(defvar ran--wiki-org-dir  (concat ran--homedir "/haoran/no/org/wiki"))
-(defvar ran--my-export-dir (concat ran--homedir "/haoran/no/org/export/org-preview"))
+(defvar ran--site-org-dir  (expand-file-name "~/haoran/no/org/site"))
+(defvar ran--site-html-dir (expand-file-name "~/haoran/gr/haoran-mc.github.io"))
+(defvar ran--wiki-org-dir  (expand-file-name "~/haoran/no/org/wiki"))
+(defvar ran--my-export-dir (expand-file-name "~/haoran/no/org/export/org-preview"))
 
 ;; see init-ox.el for more
 (setq org-html-postamble nil

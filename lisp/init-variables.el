@@ -30,9 +30,9 @@
 (defvar ran--bookmark-file "~/haoran/no/org/bookmark-default.el")
 (defvar ran--org-directory "~/haoran/no/org/org-directory")
 (defvar ran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
-                                       "~/haoran/no/org/org-directory/agenda"
-                                       "~/haoran/no/org/org-directory/work/journay.org"
-                                       "~/haoran/no/org/org-directory/work/todo.org"))
+                                    "~/haoran/no/org/org-directory/agenda"
+                                    "~/haoran/no/org/org-directory/work/journay.org"
+                                    "~/haoran/no/org/org-directory/work/todo.org"))
 
 (defvar ran--font-weight "normal")
 
@@ -42,11 +42,10 @@
 (defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
 (defvar ran--trash-dir "~/haoran/tr")
 
+
 (cond (ran--os-linux
-       (defvar ran--homedir "/home/haoran")
        (defvar ran--font-size 11))
       (ran--os-mac
-       (defvar ran--homedir "/Users/haoran")
        (defvar ran--font-size 13)))
 
 
