@@ -33,14 +33,13 @@
       (progn
         (message "Quit temporary normal mode")
         (meow--switch-state 'motion))
-    ;; (if (not (region-active-p))
-    (when (and (< (point) (point-max))
-               ;; (not (use-region-p))
-               (not (eolp))) ;; end of a line
-      (forward-char 1))
-    (meow--direction-forward)
-    (meow--cancel-selection)
-    ;; )
+    (if (not (region-active-p))
+        (when (and (< (point) (point-max))
+                   (not (use-region-p))
+                   (not (eolp))) ;; end of a line
+          (forward-char 1))
+      (meow--direction-forward)
+      (meow--cancel-selection))
     (meow--switch-state 'insert)))
 
 (defun my-A-meow-append ()
@@ -71,7 +70,7 @@
   (mwim-beginning-of-code)
   (meow--switch-state 'insert))
 
-(defun func-replace-current-char ()
+(defun my-r-meow-replace ()
   (interactive)
   (let ((mychar (read-char "replace with:")))
     (if (= ?\C-\[ mychar)
@@ -79,11 +78,10 @@
       (delete-char 1)
       (insert mychar))))
 
-(defun my-r-meow-replace ()
-  (interactive)
-  (if (use-region-p)
-      (meow-change)
-    (func-replace-current-char)))
+(defun my-T-meow-till (ch &optional expand)
+  "Call `meow-till` with -1 and the given char."
+  (interactive "cTill:")
+  (meow-till -1 ch expand))
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -135,7 +133,7 @@
    '("d" . meow-kill) ;; ctrl+k vanilla/smart-kill-line
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
-   '("f" . meow-till)
+   '("f" . meow-find)
    '("F" . my-F-meow-find)
    '("g" . meow-cancel-selection)
    '("G" . meow-grab)
@@ -152,16 +150,17 @@
    ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
    '("n" . meow-search)
    '("o" . meow-block)
-   ;; '("O" . meow-to-block)
+   '("O" . meow-to-block)
    '("p" . meow-yank)
    '("q" . meow-quit)
    '("r" . my-r-meow-replace)
    '("R" . meow-replace) ;; meow-swap-grap
    '("s" . meow-delete)
-   ;; '("t" . meow-till) ;; far and useless
+   '("t" . meow-till) ;; far and useless
+   '("T" . my-T-meow-till)
    ;; '("u" . meow-undo) ;; just use C-/
    '("U" . meow-undo-in-selection)
-   ;; '("v" . meow-visit)
+   '("v" . meow-visit)
    '("w" . meow-mark-word)
    '("W" . meow-mark-symbol)
    '("x" . meow-line)
@@ -170,7 +169,7 @@
    ;; '("Y" . meow-sync-grab)
    '("z" . meow-reverse) ;; meow-pop-selection
    ;; '("'" . repeat)
-   '("/" . meow-visit)
+   ;; '("/" . meow-visit)
    '("<escape>" . ignore)))
 
 (require 'meow)
@@ -183,9 +182,9 @@
 
 (setq meow-use-clipboard t
       meow-char-thing-table '((?( . round)  ;; (
-                              (?) . round)  ;; )
+                                (?) . round)  ;; )
                               (?[ . square) ;; [
-                              (?] . square) ;; ]
+                                (?] . square) ;; ]
                               (?{ . curly)  ;; {
                               (?} . curly)  ;; }
                               (?g . string)

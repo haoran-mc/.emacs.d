@@ -81,13 +81,14 @@
                       ("C-\\ k" . windmove-up)
                       ("C-\\ l" . windmove-right)
                       ("C-\\ =" . balance-windows)
-                      ("C-\\ m" . delete-other-windows)))
+                      ("C-\\ o" . delete-other-windows)))
 
 (lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
                          ("C-\\ J" . vanilla/split-window-below-with-balance)
                          ("C-\\ K" . vanilla/split-window-up-with-balance)
                          ("C-\\ L" . vanilla/split-window-right-with-balance)
                          ("C-\\ c" . vanilla/delete-window-with-balance)
+                         ("C-\\ m" . vanilla/toggle-maximize-buffer)
                          ("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
                        "windowop")
@@ -214,8 +215,6 @@
 (lazy-load-global-keys '(("s-." . lazycat/remember-init)
                          ("s-," . lazycat/remember-jump))
                        "basic-tookit")
-
-(lazy-load-global-keys '(("s-\\" . vanilla/toggle-maximize-buffer)) "windowop")
 
 (lazy-load-set-keys '(;; resize window
                       ("s-<up>"   . shrink-window)
