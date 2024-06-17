@@ -124,9 +124,6 @@
 ;; all-the-icons ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'all-the-icons)
 
-;; rainbow-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'rainbow-mode)
-
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

@@ -25,6 +25,8 @@
 ;;; Code:
 
 
+;;; ### auto-mode-alist ###
+;;; --- 绑定扩展名到特定的模式
 (defun add-to-alist (alist-var elt-cons &optional no-replace)
   "Add to the value of ALIST-VAR an element ELT-CONS if it isn't there yet.
 If an element with the same car as the car of ELT-CONS is already present,
@@ -40,36 +42,58 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 
-
+;; 为文件后缀绑定 major-mode，清空全部使用自己的 cons 是否可行？
 (dolist (elt-cons '(("\\.org$" . org-mode)
+                    ("\\.md$" . markdown-mode)
+                    ("\\.markdown$" . markdown-mode)
                     ("\\.go$" . go-mode)
                     ("\\.py$" . python-mode)
-                    ("\\.sql$" . sql-mode)
                     ("\\.lua$" . lua-mode)
-                    ("\\.json$" . json-mode)
-                    ("\\.toml$" . toml-mode)
+
+                    ;; front-end language
+                    ("\\.js$" . js-mode)
+                    ("\\.js.erb\\'" . js-mode)
+                    ("\\.wxs$" . js-mode)
+                    ("\\.css$" . css-mode)
+                    ("\\.wxss\\'" . css-mode)
+                    ("\\.html?\\'" . web-mode)
+                    ("\\.jsp\\'" . web-mode)
+                    ("\\.vue" . web-mode)
+                    ("\\.wxml" . web-mode)
+                    ("\\.phtml\\'" . web-mode)
+                    ("\\.as[cp]x\\'" . web-mode)
+                    ("\\.erb\\'" . web-mode)
+                    ("\\.mustache\\'" . web-mode)
+                    ("\\.djhtml\\'" . web-mode)
+                    ("\\.jsx$" . web-mode)
+
+                    ;; configuration language
                     ("\\.xml$" . xml-mode)
                     ("\\.rss$" . xml-mode)
+                    ("\\.json$" . json-mode)
+                    ("\\.toml$" . toml-mode)
                     ("\\.yaml$" . yaml-mode)
-                    ("\\.markdown$" . markdown-mode)
-                    ("\\.md$" . markdown-mode)
-                    ("\\.js$" . js-mode)
-                    ("\\.css\\'" . css-mode)
-                    ("\\.wxss\\'" . css-mode)
+                    ("\\.sql$" . sql-mode)
+
+                    ;; other
                     ("\\.cpp$" . c++-mode) ;; .cpp 文件为 c++-mode
                     ("\\.h$" . c++-mode)
                     ))
   (add-to-alist 'auto-mode-alist elt-cons))
 
 
-(autoload 'org-mode "init-org")
+;; 为 major-mode 自动加载相应配置，因为不会使用 keys 加载，而且预加载需要花费长时间
+;; (autoload 'org-mode "init-org") ;; 在 init.el 中预加载了，请不要重复加载，出现问题难以排查
+(autoload 'markdown-mode "init-markdown")
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
 (autoload 'lua-mode "lang-lua")
-(autoload 'markdown-mode "init-markdown")
-(autoload 'js-mode "lang-js")
 
-;; loading before: config lang
+(autoload 'js-mode "lang-web")
+(autoload 'css-mode "lang-css")
+(autoload 'web-mode "lang-web")
+
+;; 一些配置语言 require 加载，因为会使用 buffer，然后手动开启 sql-mode
 (require 'lang-xml)
 (require 'lang-json)
 (require 'lang-toml)
@@ -78,6 +102,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 (require 'lang-elisp)
 (require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
+
+;; ↑ require 不一定真正加载，因为可以在 lang-*.el 里使用 mode-hook
 
 
 ;; conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

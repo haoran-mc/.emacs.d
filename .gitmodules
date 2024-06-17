@@ -3,16 +3,6 @@
 	url = git@github.com:dominikh/go-mode.el.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/posframe"]
-	path = site-lisp/posframe
-	url = git@github.com:tumashu/posframe.git
-	shallow = true
-	ignore = all
-[submodule "site-lisp/dumb-jump"]
-	path = site-lisp/dumb-jump
-	url = git@github.com:jacktasia/dumb-jump.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/lsp-bridge"]
 	path = site-lisp/lsp-bridge
 	url = git@github.com:manateelazycat/lsp-bridge.git
@@ -306,5 +296,10 @@
 [submodule "site-lisp/yafolding"]
 	path = site-lisp/yafolding
 	url = git@github.com:emacsorphanage/yafolding.git
+	shallow = true
+	ignore = all
+[submodule "site-lisp/web-mode"]
+	path = site-lisp/web-mode
+	url = git@github.com:fxbois/web-mode.git
 	shallow = true
 	ignore = all

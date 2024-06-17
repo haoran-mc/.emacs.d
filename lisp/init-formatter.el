@@ -47,6 +47,9 @@
      ((string-equal file-extension "el")
       (+indent-buffer))
 
+     ((string-equal file-extension "org")
+      (+indent-buffer))
+
      ((string-equal file-extension "sql")
       (if in-selection
           (sqlformat-region (region-beginning) (region-end))

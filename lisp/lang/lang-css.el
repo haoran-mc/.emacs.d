@@ -1,6 +1,6 @@
-;;; lang-js.el --- javascript configuration          -*- lexical-binding: t; -*-
+;;; lang-css.el --- init for css-mode                -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023  Haoran Liu
+;; Copyright (C) 2024  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
 ;; Keywords:
@@ -19,12 +19,20 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
+
+;;; Require:
+;;
+
+(require 'css-mode)
 
 ;;; Code:
 
+(dolist (hook (list
+               'css-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (require 'rainbow-mode)
+                     (rainbow-mode))))
 
-
-(provide 'lang-js)
-;;; lang-js.el ends here
+(provide 'lang-css)
+;;; lang-css.el ends here

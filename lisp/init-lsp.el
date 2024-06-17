@@ -23,22 +23,13 @@
 ;;; Code:
 
 
-;; Jump to definition, I keep it anyway though it doesn't load most of the time
-(require 'dumb-jump)
-(setq dumb-jump-quiet t
-      dumb-jump-aggressive t
-      dumb-jump-selector 'completing-read)
-
-(require 'posframe)
-
-
 ;; lsp-bridge ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar +lsp-bridge-jump-stack nil
   "Stack to store jump locations for +lsp-bridge-jump-back.")
 
 ;;;###autoload
 (defun +lsp-bridge-jump ()
-  "Fuses LSP-bridge find-function and dumb-jump intelligent jumps."
+  "Fuses LSP-bridge find-function intelligent jumps."
   (interactive)
   (cond
    ((eq major-mode 'emacs-lisp-mode)
@@ -47,10 +38,7 @@
         (push (point-marker) +lsp-bridge-jump-stack)
         (find-function symb))))
    (lsp-bridge-mode
-    (lsp-bridge-find-def))
-   (t
-    (require 'dumb-jump)
-    (dumb-jump-go))))
+    (lsp-bridge-find-def))))
 
 ;;;###autoload
 (defun +lsp-bridge-jump-back ()
@@ -67,10 +55,7 @@
               (goto-char (marker-position marker)))
           (message "Jump location is no longer available.")))))
    (lsp-bridge-mode
-    (lsp-bridge-find-def-return))
-   (t
-    (require 'dumb-jump)
-    (dumb-jump-back))))
+    (lsp-bridge-find-def-return))))
 
 ;;;###autoload
 (defun my/yas-expand()
@@ -112,10 +97,15 @@
 (setq acm-enable-doc nil)
 (setq lsp-bridge-c-lsp-server "clangd")
 
+
+;; 可以在函数中使用 eval-after-load 加载一次
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook
-                     c++-mode-hook))
+                     c++-mode-hook
+                     js-mode-hook
+                     css-mode-hook
+                     web-mode-hook))
   (add-hook mode-hook #'my/load-lsp-bridge))
 
 

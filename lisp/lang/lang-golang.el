@@ -35,7 +35,7 @@
 
 ;; Key bindings
 (define-key go-mode-map (kbd "C-c C-c") '+go-run-buffer)
-(define-key go-mode-map (kbd "C-c C-a") 'go-import-add)
+;; (define-key go-mode-map (kbd "C-c C-a") 'go-import-add)
 ;; (define-key go-mode-map (kbd "C-.") 'gofmt) ;; format by emacs-reformatter
 ;; (define-key go-mode-map (kbd "C-c C-d") 'godoc)
 
