@@ -70,13 +70,16 @@ from codepoint-start."
   (prettify-symbols-mode))
 
 
-(add-hook 'prog-mode-hook '+set-font-ligature-chars)
-(add-hook 'sql-mode-hook '+set-font-ligature-chars)
+;; affect monospace font
+;; (add-hook 'prog-mode-hook '+set-font-ligature-chars)
+;; (add-hook 'sql-mode-hook '+set-font-ligature-chars)
+
+;; no use font-ligatures in org-mode
 ;; (with-eval-after-load 'org
 ;;   (add-hook 'org-mode-hook '+set-font-ligature-chars))
 
 
-;; hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; org-mode-hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +customized-org-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
                        ("\\pagebreak"      . 128204)
@@ -120,7 +123,7 @@ from codepoint-start."
   (add-hook 'org-mode-hook '+customized-org-ligature-chars))
 
 
-
+;; emacs-lisp-mode-hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +customized-elisp-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
                        ("\\pagebreak"      . 128204)
