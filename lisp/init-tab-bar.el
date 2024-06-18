@@ -24,19 +24,8 @@
 
 ;;; Code:
 
-;;;###autoload
-(defun +create-new-tab-bar ()
-  "Create a new tab bar and switch dashboard."
-  (interactive)
-  (tab-bar-new-tab)
-  ;; TODO use if instead
-  ;; (pcase (treemacs-current-visibility)
-  ;;   ('visible (delete-window (treemacs-get-local-window))))
-  ;; (dashboard-refresh-buffer)
-  (+create-scratch-buffer)
-  (tab-bar-rename-tab "xxx"))
-
 (require 'tab-bar)
+
 (setq tab-bar-show t
       tab-bar-close-button nil
       tab-bar-close-button-show nil
@@ -45,6 +34,8 @@
       tab-bar-tab-name-function 'tab-bar-tab-name-all
       tab-bar-format '(tab-bar-format-tabs tab-bar-separator)
       tab-bar-new-tab-to 'rightmost)
+
+(require 'basic-tookit)
 
 
 (provide 'init-tab-bar)

@@ -297,7 +297,6 @@
 
 ;; i for insert
 (lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
-(lazy-load-global-keys '(("C-c i y" . yas-insert-snippet)) "yasnippet")
 ;; org-mode-map
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
@@ -346,7 +345,7 @@
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
 
 ;; t for tab
-(lazy-load-global-keys '(("C-c t n" . +create-new-tab-bar)
+(lazy-load-global-keys '(("C-c t n" . vanilla/create-new-tab-bar)
                          ("C-c t c" . tab-bar-close-tab)
                          ("C-c t r" . tab-bar-rename-tab))
                        "init-tab-bar")
