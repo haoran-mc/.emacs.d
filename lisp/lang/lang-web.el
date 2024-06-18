@@ -25,6 +25,15 @@
 ;;       npm i -g vscode-langservers-extracted
 ;; css:  npm install -g emmet-ls
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; C-c C-n   jump
+;; C-c C-f   folding
+;; C-c C-s   snippet
+;; C-c C-w   whitespaces
+;; C-c C-i   indent
+;; C-c C-e r renmae
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;; Require
 ;;
 

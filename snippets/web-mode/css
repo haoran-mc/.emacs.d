@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Introducing an external style file.
+# key: css
+# --
+<link rel="stylesheet" type="text/css" href="$1">$2

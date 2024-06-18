@@ -377,6 +377,11 @@
 
 (lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
 
+;; y for yasnippet
+(lazy-load-set-keys '(("C-c y C-s" . yas-insert-snippet)
+                      ("C-c y C-n" . yas-new-snippet)
+                      ("C-c y C-v" . yas-visit-snippet-file)))
+
 ;; z for folding unify with vim
 ;; zm hide-all
 ;; zr show-all

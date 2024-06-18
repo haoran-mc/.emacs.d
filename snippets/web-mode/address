@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: address
+# key: address
+# --
+<address>By <a href="mailto:haoran.mc@outlook.com">Haoran Liu</a></address>

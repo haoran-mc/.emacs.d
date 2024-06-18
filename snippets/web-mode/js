@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Introducing an external js script.
+# key: js
+# --
+<script type="module" src="$1" defer>$2</script>
