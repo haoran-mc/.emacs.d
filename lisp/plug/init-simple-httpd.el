@@ -54,8 +54,9 @@
   "Start the HTTPD server on PORT:9517 with CURRENT-DIR as the root directory."
   (interactive)
   (+httpd-start-server 9517 default-directory)
-  (let ((filename (buffer-file-name)))
-    (if (string-equal (file-name-extension filename) "html")
+  (let ((filename (buffer-name)))
+    (if (and (buffer-file-name)
+             (string-equal (file-name-extension filename) "html"))
         (browse-url (concat "http://127.0.0.1:9517/" (file-name-nondirectory filename)))
       (message "Unsupported file type or no file."))))
 
