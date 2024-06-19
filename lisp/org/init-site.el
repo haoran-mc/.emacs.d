@@ -26,6 +26,7 @@
 (require 'ox)
 (require 'ox-html)
 (require 'ox-publish)
+(require 'init-simple-httpd)
 
 
 (defvar ran--site-org-dir  (expand-file-name "~/haoran/no/org/site"))
@@ -89,14 +90,6 @@
      (t
       (+org-export-to-mydir-and-preview)))))
 
-(defun +httpd-start-server (port root-dir)
-  "Start the HTTPD server on PORT with ROOT-DIR as the root directory."
-  (httpd-stop)
-  (unless (httpd-running-p)
-    (setq httpd-port port)
-    (setq httpd-root root-dir)
-    (httpd-start)))
-
 (defun +org-export-and-preview (project root-dir)
   "Open current buffer as html in browser.
 PROJECT specifies whether it's for 'wiki' or 'site'.
@@ -143,23 +136,6 @@ use export/org-preview/org.css render style."
 ;; Convert buffer text and decorations to HTML.
 (require 'htmlize)
 (setq org-html-htmlize-output-type 'inline-css)
-
-
-;; simple-httpd ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; A great Emacs package which can host your files as a website on
-;; your local machine so that you can pull it up in your browser.
-(require 'simple-httpd)
-(setq org-html-mathjax-options
-      '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
-	    (scale "100")
-	    (align "center")
-	    (font "TeX")
-	    (linebreaks "false")
-	    (autonumber "AMS")
-	    (indent "0em")
-	    (multlinewidth "85%")
-	    (tagindent ".8em")
-	    (tagside "right")))
 
 
 ;; define-minor-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

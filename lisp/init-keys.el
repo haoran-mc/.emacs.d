@@ -330,6 +330,7 @@
                       org-mode-map))
 
 ;; o for open
+(lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))))
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
