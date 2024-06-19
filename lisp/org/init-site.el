@@ -150,15 +150,19 @@ use export/org-preview/org.css render style."
           (insert (format "- [[file:%s][%s]]\n" file (file-name-nondirectory file)))))
       (write-region (point-min) (point-max) sitemap-file))))
 
+(defun ran/generate-sitemap()
+  "Generate a sitemap file for the Org files in mysite."
+  (interactive)
+  (let ((sitemap-file (concat ran--site-org-dir "/sitemap.org")))
+    (generate-sitemap ran--site-org-dir sitemap-file)
+    (org-publish-file sitemap-file)))
+
 (defun +org-publish-site-file ()
   "Save current buffer and publish if it's in the `ran--site-org-dir' directory."
   (when (and (buffer-file-name) ;; 缓冲区有文件才继续
              (string-prefix-p (expand-file-name ran--site-org-dir)
                               (expand-file-name (buffer-file-name))))
-    (org-publish-current-file 'site)
-    (let ((sitemap-file (concat ran--site-org-dir "/sitemap.org")))
-      (generate-sitemap ran--site-org-dir sitemap-file)
-      (org-publish-file sitemap-file))))
+    (org-publish-current-file 'site)))
 
 (define-minor-mode +auto-save-and-publish-site-file-mode
   "Toggle auto save and publish current file."
