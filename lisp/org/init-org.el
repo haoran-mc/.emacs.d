@@ -170,16 +170,14 @@ Optional for Org-mode file: `LINK'."
       org-fast-tag-selection-single-key t)
 
 
-;; Keep track of tasks
-(require 'init-macros)
-
 (require 'org-agenda)
-
 ;; (add-hook org-agenda-finalize-hook 'org-agenda-to-appt)
 
+;; Keep track of tasks
+;; (require 'init-macros)
 ;; update appt list every 5 minutes
-(run-at-time t 300 #'org-agenda-to-appt)
-(shut-up! #'org-agenda-to-appt)
+;; (run-at-time t 300 #'org-agenda-to-appt)
+;; (shut-up! #'org-agenda-to-appt)
 
 (setq org-agenda-files ran--org-agenda-files
       org-agenda-block-separator ?─
