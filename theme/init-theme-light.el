@@ -93,6 +93,18 @@
   (set-face-attribute 'variable-pitch nil
                       :family nil))
 
+;; meow
+(with-eval-after-load 'meow
+  ;; (set-face-attribute 'meow-keypad-cursor nil :background "#7c2902")
+  ;; (set-face-attribute 'meow-insert-cursor nil :background "#014f39")
+  ;; (set-face-attribute 'meow-normal-cursor nil :background "#9b034c")
+  ;; (set-face-attribute 'meow-motion-cursor nil :background "#035063")
+  (set-face-attribute 'meow-keypad-indicator nil :foreground "#801717" :background "#FF6666")
+  (set-face-attribute 'meow-insert-indicator nil :foreground "#309030" :background "#AAE9A0")
+  (set-face-attribute 'meow-normal-indicator nil :foreground "#6F5033" :background "#FFEE99")
+  (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE"))
+
+
 ;; diff-hl
 (with-eval-after-load 'diff-hl
   (set-face-attribute 'diff-hl-change nil
@@ -123,6 +135,7 @@
 ;; drivish
 (with-eval-after-load 'dirvish
   (set-face-attribute 'dirvish-hl-line nil
+                      :foreground 'unspecified
                       :background "#F2E6CE"))
 
 
