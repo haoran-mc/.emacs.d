@@ -20,48 +20,71 @@
 
 ;;; Commentary:
 
+;;; Require:
 ;;
+(require 'dirvish)
+(require 'dirvish-icons)
+(require 'all-the-icons)
+
 
 ;;; Code:
-
-(require 'dirvish)
 (dirvish-override-dired-mode)
-(setq delete-by-moving-to-trash t)
 
-(setq dirvish-mode-map (make-sparse-keymap))
+(setq mouse-1-click-follows-link nil
+      dired-kill-when-opening-new-dired-buffer t ;; added in Emacs 28
+      dired-mouse-drag-files t                   ;; added in Emacs 29
+      mouse-drag-and-drop-region-cross-program t ;; added in Emacs 29
+      dired-dwim-target t
+      dired-recursive-copies 'always
+      dired-recursive-deletes 'always
+      dired-do-revert-buffer t
+      dired-auto-revert-buffer #'dired-directory-changed-p
+      dired-hide-details-hide-symlink-targets nil
+      dired-listing-switches "-l --almost-all --human-readable --time-style=long-iso --group-directories-first --no-group"
+      delete-by-moving-to-trash t)
+
+(when (eq system-type 'darwin)
+  (setq insert-directory-program "gls"))
+
+(setq dirvish-attributes '(subtree-state all-the-icons) ;; file-size
+      dirvish-all-the-icons-height 0.9
+      dirvish-all-the-icons-offset 0.1)
+
+
+(setq dirvish-mode-map (make-sparse-keymap)) ;; dirvish-mode 键置空
 ;; cursor move
-(define-key dirvish-mode-map (kbd "n") #'dired-next-line)
-(define-key dirvish-mode-map (kbd "p") #'dired-previous-line)
-(define-key dirvish-mode-map (kbd "h") #'dired-up-directory)
-(define-key dirvish-mode-map (kbd "j") #'dired-next-line)
-(define-key dirvish-mode-map (kbd "k") #'dired-previous-line)
-(define-key dirvish-mode-map (kbd "l") #'dired-find-file)
+(define-key dirvish-mode-map (kbd "h") 'dired-up-directory)
+(define-key dirvish-mode-map (kbd "j") 'dired-next-line)
+(define-key dirvish-mode-map (kbd "k") 'dired-previous-line)
+(define-key dirvish-mode-map (kbd "l") 'dired-find-file)
 (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
+;; file copy, move, create, delete
+(define-key dirvish-mode-map (kbd "+") 'dired-create-directory)
+(define-key dirvish-mode-map (kbd "R") 'dired-do-rename)
+(define-key dirvish-mode-map (kbd "y") 'dired-do-copy)
+(define-key dirvish-mode-map (kbd "X") 'dired-do-delete)
 ;; mark
-(define-key dirvish-mode-map (kbd "d") #'dired-flag-file-deletion)
-(define-key dirvish-mode-map (kbd "x") #'dired-do-flagged-delete)
-(define-key dirvish-mode-map (kbd "u") #'dired-unmark)
-(define-key dirvish-mode-map (kbd "U") #'dired-unmark-all-marks)
-;; file copy, move, create
-(define-key dirvish-mode-map (kbd "+") #'dired-create-directory)
-(define-key dirvish-mode-map (kbd "R") #'dired-do-rename)
-(define-key dirvish-mode-map (kbd "C") #'dired-do-copy)
+(define-key dirvish-mode-map (kbd "d") 'dired-flag-file-deletion)
+(define-key dirvish-mode-map (kbd "x") 'dired-do-flagged-delete)
+(define-key dirvish-mode-map (kbd "u") 'dired-unmark)
+(define-key dirvish-mode-map (kbd "U") 'dired-unmark-all-marks)
 ;; file access
-(define-key dirvish-mode-map (kbd "v") #'dired-view-file)
-(define-key dirvish-mode-map (kbd "o") #'dired-find-file-other-window)
-(define-key dirvish-mode-map (kbd "C-o") #'dired-display-file)
+(define-key dirvish-mode-map (kbd "o") 'dired-find-file-other-window)
+(define-key dirvish-mode-map (kbd "C-v") 'dired-view-file)
+(define-key dirvish-mode-map (kbd "C-o") 'dired-display-file) ;; underused function
 ;; refresh
-(define-key dirvish-mode-map (kbd "C-/") #'dired-undo)
-(define-key dirvish-mode-map (kbd "g") #'revert-buffer)
+(define-key dirvish-mode-map (kbd "C-/") 'dired-undo)
+(define-key dirvish-mode-map (kbd "g") 'revert-buffer)
 ;; quit
-(define-key dirvish-mode-map (kbd "q") #'dirvish-quit)
+(define-key dirvish-mode-map (kbd "q") 'dirvish-quit)
 ;; other
-(define-key dirvish-mode-map (kbd "w") #'dired-copy-filename-as-kill)
-(define-key dirvish-mode-map (kbd "Z") #'dired-do-compress)
-(define-key dirvish-mode-map (kbd "X") #'dired-do-shell-command)
-(define-key dirvish-mode-map (kbd "B") #'dired-do-byte-compile)
-(define-key dirvish-mode-map (kbd "L") #'dired-do-load)
-
+(define-key dirvish-mode-map (kbd "/") 'dired-goto-file)
+(define-key dirvish-mode-map (kbd "I") 'dired-insert-subdir)
+(define-key dirvish-mode-map (kbd "w") 'dired-copy-filename-as-kill)
+(define-key dirvish-mode-map (kbd "Z") 'dired-do-compress)
+(define-key dirvish-mode-map (kbd "B") 'dired-do-byte-compile)
+(define-key dirvish-mode-map (kbd "L") 'dired-do-load)
+;; (define-key dirvish-mode-map (kbd "X") #'dired-do-shell-command)
 
 
 (provide 'init-dirvish)

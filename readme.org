@@ -20,6 +20,7 @@
 - pandoc
 - git
 - fd
+- gls
 
 
 *features:*
