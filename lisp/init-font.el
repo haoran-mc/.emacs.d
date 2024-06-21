@@ -37,8 +37,8 @@
 ;;                                      :size 12.5)) ;; set height in arch
 ;; monaco nerd mono font
 
-(defvar +font-family "Fira Code")
-(defvar +line-font-family "Fira Code")
+(defvar +font-family "Fira Code") ;; Fira Code
+(defvar +line-font-family "Fira Code") ;; JetBrainsMono Nerd Font
 (defvar +font-unicode-family "LXGW WenKai") ;; 霞鸳文楷
 (defvar +fixed-pitch-family "Sarasa Mono SC Nerd") ;; 更纱黑体
 (defvar +variable-pitch-family "LXGW WenKai")
