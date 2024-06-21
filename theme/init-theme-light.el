@@ -27,6 +27,8 @@
 ;; face-spec-set         批量设置面属性
 ;; custom-theme-set-face 在自定义主题中设置面属性
 
+;; (set-face-attribute 'example-face nil :inherit 'unspecified)
+
 ;;; Code:
 
 (set-face-attribute 'font-lock-comment-face nil
