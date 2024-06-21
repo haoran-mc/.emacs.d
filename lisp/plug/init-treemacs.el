@@ -21,32 +21,17 @@
 ;;; Commentary:
 ;;
 
-;;; Code:
-
-
+;;; Require:
 ;; A tree layout file explorer
 (require 'treemacs)
-(require 'treemacs-hydras)
 (require 'treemacs-mouse-interface)
-(require 'hydra)
+(require 'treemacs-file-management)
 (require 'init-ace-window)
 
-;; ([mouse-1]   . treemacs-single-click-expand-action)
-;; ("o 1"       . treemacs-visit-node-first-window))
+;; (require 'hydra)
+;; (require 'treemacs-hydras)
 
-(define-key treemacs-mode-map (kbd "a") #'treemacs-visit-node-ace)
-(define-key treemacs-mode-map (kbd "j") #'treemacs-next-line)
-(define-key treemacs-mode-map (kbd "k") #'treemacs-previous-line)
-
-;; (treemacs-define-RET-action 'file-node-closed
-;;                             #'(lambda(&optional arg)
-;;                                 (treemacs-visit-node-in-most-recently-used-window)
-;;                                 (delete-window (treemacs-get-local-window))))
-
-(defun treemacs-visit-node-first-window(&optional arg)
-  (interactive "P")
-  (treemacs-visit-node-no-split)
-  (delete-window (treemacs-get-local-window)))
+;;; Code:
 
 (setq treemacs-filewatch-mode t
       treemacs-git-mode nil
@@ -55,6 +40,53 @@
       treemacs-sorting 'alphabetic-asc
       treemacs-missing-project-action 'remove
       treemacs-width 35)
+
+;; (treemacs-define-RET-action 'file-node-closed
+;;                             #'(lambda(&optional arg)
+;;                                 (treemacs-visit-node-in-most-recently-used-window)
+;;                                 (delete-window (treemacs-get-local-window))))
+
+;; (defun treemacs-visit-node-first-window(&optional arg)
+;;   (interactive "P")
+;;   (treemacs-visit-node-no-split)
+;;   (delete-window (treemacs-get-local-window)))
+
+
+(setq treemacs-mode-map (make-sparse-keymap))
+;; navigation
+(define-key treemacs-mode-map (kbd "j") #'treemacs-next-line)
+(define-key treemacs-mode-map (kbd "k") #'treemacs-previous-line)
+(define-key treemacs-mode-map (kbd "h") #'treemacs-goto-parent-node)
+(define-key treemacs-mode-map (kbd "H") #'treemacs-collapse-parent-node)
+(define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
+(define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
+;; open
+(define-key treemacs-mode-map (kbd "<return>") #'treemacs-visit-node-ace)
+;; create, copy, move
+(define-key treemacs-mode-map (kbd "a") #'treemacs-create-file) ;; C-c f x
+(define-key treemacs-mode-map (kbd "+") #'treemacs-create-dir)
+(define-key treemacs-mode-map (kbd "m") #'treemacs-move-file)
+(define-key treemacs-mode-map (kbd "yf") #'treemacs-copy-file)
+(define-key treemacs-mode-map (kbd "yp") #'treemacs-copy-project-path-at-point)  ;; root path
+(define-key treemacs-mode-map (kbd "ya") #'treemacs-copy-absolute-path-at-point) ;; absolute
+(define-key treemacs-mode-map (kbd "yr") #'treemacs-copy-relative-path-at-point) ;; relative
+;; workspace
+(define-key treemacs-mode-map (kbd "we") #'treemacs-edit-workspaces)
+(define-key treemacs-mode-map (kbd "wa") #'treemacs-create-workspace)
+(define-key treemacs-mode-map (kbd "wd") #'treemacs-remove-workspace)
+(define-key treemacs-mode-map (kbd "wr") #'treemacs-rename-workspace)
+(define-key treemacs-mode-map (kbd "ws") #'treemacs-switch-workspace)
+(define-key treemacs-mode-map (kbd "wn") #'treemacs-next-workspace)
+(define-key treemacs-mode-map (kbd "wf") #'treemacs-set-fallback-workspace)
+;; project
+(define-key treemacs-mode-map (kbd "pa") #'treemacs-add-project-to-workspace)
+(define-key treemacs-mode-map (kbd "pd") #'treemacs-remove-project-from-workspace)
+;; width
+(define-key treemacs-mode-map (kbd "g") #'treemacs-refresh)
+(define-key treemacs-mode-map (kbd "W") #'treemacs-set-width)
+;; (define-key treemacs-mode-map (kbd "?") #'treemacs-common-helpful-hydra)
+;; (define-key treemacs-mode-map (kbd "C-?") #'treemacs-advanced-helpful-hydra)
+
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here
