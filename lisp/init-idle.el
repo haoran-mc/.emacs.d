@@ -50,9 +50,6 @@
         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 
-(setq auto-revert-mode 1)               ;; 自动更新 buffer
-
-
 ;; Enable upcase and downcase region
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -81,6 +78,13 @@
 
 ;; hl-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-hl-line-mode 1)                 ;; 高亮当前行
+
+
+;; autorevert ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 自动更新 buffer
+(require 'autorevert)
+(setq auto-revert-verbose t)
+(global-auto-revert-mode 1)
 
 
 ;; hideshow DEPRECATED ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
