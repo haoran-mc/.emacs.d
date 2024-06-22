@@ -20,20 +20,22 @@
 
 ;;; Commentary:
 ;;
+;; Tips for next keystroke
+;; (add-hook 'after-init-hook 'which-key-mode)
+
+;;; Require:
+(require 'which-key)
 
 ;;; Code:
-
-;; Tips for next keystroke
-(require 'which-key)
-;; (add-hook 'after-init-hook 'which-key-mode)
 (which-key-mode)
 
 (which-key-add-major-mode-key-based-replacements 'markdown-mode
   "C-c m" "markdown")
 
-(setq which-key-idle-delay 0.5
+(setq which-key-idle-delay 100000 ;; 0.05 设置一个足够大的值，意味着不自动弹出 which-key buffer
+      which-key-show-early-on-C-h t ;; 使用 C-h 手动调用 which-key buffer
+      which-key-idle-secondary-delay 0.03
       which-key-add-column-padding 1)
-
 
 (provide 'init-which-key)
 ;;; init-which-key.el ends here
