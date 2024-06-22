@@ -86,6 +86,7 @@
 (require 'init-time)
 (require 'init-indent)
 (require 'init-meow)
+(require 'init-hydra)
 (require 'init-keys)
 
 ;; standalone apps
