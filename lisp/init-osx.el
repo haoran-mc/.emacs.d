@@ -30,8 +30,6 @@
 ;; +----------+----------+-----------+
 ;; | control  | super    | meta      |
 ;; +----------+----------+-----------+
-;;
-;; 3. disable ⌘-h: https://superuser.com/a/1328252/1826985
 
 
 ;;; Code:
@@ -72,6 +70,9 @@
       ;; NOTE Meaningless to railwaycat's emacs-mac build
       ;; ns-use-native-fullscreen nil
       )
+
+;; disable ⌘-h https://emacs.stackexchange.com/a/14825/39425
+(setq mac-pass-command-to-system nil)
 
 
 ;; cache-path-from-shell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
