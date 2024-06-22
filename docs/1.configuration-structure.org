@@ -1,5 +1,13 @@
 #+STARTUP: showall
 
+- 对于一定由键触发的 packages，使用 lazy-load 加载；
+- 不需要键触发的 packages、或是一些基础服务，直接在 init.el 中加载；
+- 手动加载的 package，写一个 ran/package-* 的加载函数，比如 rainbow-mode；
+- 一些全局的函数在 hydra-main/body 中定义，如 fullscreen；
+- 特定的 minor-mode 下，hydra-*/body 中定义键，如 treemacs；
+- 因为 lazy-load 加载的 packages 没有键提醒，所以使用 which-key；
+
+
 
 *download pacakge:*
 # emacs 自带的 package.el 会帮助下载编译安装包。
@@ -27,7 +35,7 @@ gitsubmodule 手动安装，如果有找不到的库，继续 magit-submodule �
 #+begin_comment
 Use the following ordering for `use-package` keywords:
 
-- :init 
+- :init
 - :config
 - :commands
 - :bind

@@ -23,13 +23,32 @@
 
 ;;; Require:
 (require 'hydra)
+(require 'major-mode-hydra)
+(require 'posframe)
 
 ;;; Code:
+;; hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq hydra-hint-display-type 'posframe)
+
+(with-eval-after-load 'posframe
+  (defun hydra-set-posframe-show-params ()
+    "Set hydra-posframe style."
+    (setq hydra-posframe-show-params ;; cl-defun posframe-show
+          `(:left-fringe 8
+                         :right-fringe 8
+                         :internal-border-width 2
+                         :internal-border-color "red"
+                         :background-color ,(face-background 'tooltip nil t)
+                         :foreground-color ,(face-foreground 'tooltip nil t)
+                         :lines-truncate t
+                         :poshandler posframe-poshandler-point-bottom-left-corner-upward)))
+  (hydra-set-posframe-show-params)
+  (add-hook 'after-load-theme-hook #'hydra-set-posframe-show-params t))
 
 (require 'rect)
 (defhydra hydra-rectangle (:body-pre (rectangle-mark-mode 1)
-                           :color pink
-                           :post (deactivate-mark))
+                                     :color pink
+                                     :post (deactivate-mark))
   "
   ^_k_^     _d_elete    _s_tring
 _h_   _l_   _o_k        _y_ank
@@ -52,9 +71,33 @@ _h_   _l_   _o_k        _y_ank
   ("s" string-rectangle nil)
   ("x" kill-rectangle nil)
   ("o" nil nil))
-
-;; Recommended binding:
 (global-set-key (kbd "C-x SPC") 'hydra-rectangle/body)
+
+
+;; major-mode-hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun +toggle-rainbow-mode ()
+  "Toggle rainbow mode."
+  (interactive)
+  (if (featurep 'rainbow-mode)
+      (if (bound-and-true-p rainbow-mode)
+          (rainbow-mode -1)
+        (rainbow-mode 1))
+    (require 'rainbow-mode)
+    (rainbow-mode 1)))
+
+(with-no-warnings
+  (pretty-hydra-define hydra-main (:title (format "%s Emacs-Lisp Commands"
+                                                  (all-the-icons-fileicon "emacs"))
+                                          :color amaranth :quit-key ("q" "C-g"))
+    ("Basic"
+     (("f" toggle-frame-fullscreen "fullscreen" :exit t)
+      ("+" text-scale-increase "zoom in")
+      ("-" text-scale-decrease "zoom out"))
+     "Toggle"
+     (("t r" +toggle-rainbow-mode "rainbow" :exit t)))))
+
+(global-set-key (kbd "M-h") #'hydra-main/body)
+(with-eval-after-load 'org (define-key org-mode-map (kbd "M-h") #'hydra-main/body))
 
 (provide 'init-hydra)
 ;;; init-hydra.el ends here

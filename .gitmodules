@@ -303,3 +303,18 @@
 	url = git@github.com:fxbois/web-mode.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/major-mode-hydra"]
+	path = site-lisp/major-mode-hydra
+	url = git@github.com:jerrypnz/major-mode-hydra.el.git
+	shallow = true
+	ignore = all
+[submodule "site-lisp/posframe"]
+	path = site-lisp/posframe
+	url = git@github.com:tumashu/posframe.git
+	shallow = true
+	ignore = all
+[submodule "site-lisp/literate-calc-mode"]
+	path = site-lisp/literate-calc-mode
+	url = git@github.com:sulami/literate-calc-mode.el.git
+	shallow = true
+	ignore = all

@@ -86,8 +86,6 @@
 (require 'init-time)
 (require 'init-indent)
 (require 'init-meow)
-(require 'init-hydra)
-(require 'init-keys)
 
 ;; standalone apps
 (require 'init-reader)
@@ -96,6 +94,10 @@
 (require 'init-autosave)
 (require 'init-autoinsert)
 (require 'init-keyfreq)
+
+;; funcs → hydra → keys
+(require 'init-hydra)
+(require 'init-keys)
 
 ;; load later
 (run-with-idle-timer
@@ -111,14 +113,12 @@
      (require 'init-whole-line-or-region)
      (require 'init-project)
      (require 'init-valign)
-     (require 'init-completion)
-     ))
+     (require 'init-completion)))
 
 (run-with-idle-timer
  3 nil
  #'(lambda ()
-     (require 'init-org)
-     ))
+     (require 'init-org)))
 
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))

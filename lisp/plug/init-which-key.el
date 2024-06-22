@@ -23,33 +23,11 @@
 
 ;;; Code:
 
-
-
 ;; Tips for next keystroke
 (require 'which-key)
-(which-key-mode)
 ;; (add-hook 'after-init-hook 'which-key-mode)
-(which-key-add-key-based-replacements
-  "C-x a"   "abbrev"
-  "C-x n"   "narrow"
-  "C-x t"   "tab"
-  "C-c &"   "yasnippet"
-  "C-c a"   "app"
-  "C-c b"   "buffer/bookmark"
-  "C-c c"   "code/calc"
-  "C-c e"   "eshell"
-  "C-c f"   "find/file"
-  "C-c g"   "git"
-  "C-c i"   "insert"
-  "C-c l"   "literate"
-  "C-c n"   "narrow"
-  "C-c o"   "open"
-  "C-c p"   "project"
-  "C-c t"   "hl-todo"
-  "C-c u"   "user"
-  "C-c w"   "window"
-  "C-c z"   "yafolding"
-  "C-c C-v" "babel")
+(which-key-mode)
+
 (which-key-add-major-mode-key-based-replacements 'markdown-mode
   "C-c m" "markdown")
 

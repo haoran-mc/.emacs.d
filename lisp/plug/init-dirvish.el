@@ -24,9 +24,8 @@
 ;;
 (require 'dirvish)
 (require 'dirvish-icons)
-(require 'all-the-icons)
 (require 'dirvish-subtree)
-
+(require 'all-the-icons)
 
 ;;; Code:
 (dirvish-override-dired-mode)
@@ -51,7 +50,7 @@
 (setq dirvish-attributes '(subtree-statesubtree-state all-the-icons file-size)
       dirvish-all-the-icons-height 0.9
       dirvish-all-the-icons-offset 0.1
-      dirvish-subtree-prefix "  ╎")
+      dirvish-subtree-prefix "  ")
 
 
 (setq dirvish-mode-map (make-sparse-keymap)) ;; dirvish-mode 键置空

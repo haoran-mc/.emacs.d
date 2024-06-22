@@ -23,7 +23,6 @@
 
 ;;; Require:
 ;;
-
 (require 'css-mode)
 
 ;;; Code:

@@ -29,10 +29,11 @@
                         "s-T"
                         "s-W"
                         "s-z"
-                        "M-h" "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
+                        "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         "C-t" ;; transpose-chars
+                        "C-SPC" ;; always use meow
                         ))
 
 
@@ -48,7 +49,7 @@
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 (lazy-load-global-keys '(("C-." . +format-code-dwim)) "init-formatter")
-(lazy-load-set-keys '(("C-;" . avy-goto-char))) ;; DEPRECATED by meow C-c f w find-words
+(lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
@@ -239,6 +240,9 @@
 ;; check ext-which-key.el for prompt
 
 ;; a for alone apps
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c a" "standalone apps"))
 (lazy-load-set-keys '(("C-c a a" . org-agenda)
                       ("C-c x" . org-capture)
                       ("C-c d" . (lambda () (interactive)
@@ -248,6 +252,9 @@
 
 
 ;; b for buffer, bookmark
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c b" "buffer/bookmark"))
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
                       ("C-c b r" . bookmark-rename)
                       ("C-c b d" . bookmark-delete)
@@ -257,14 +264,23 @@
 (lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
 
 ;; c for code
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c c" "code"))
 
 ;; e for eshell
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c e" "eshell"))
 (lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
 
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c e p" . +org-preview-in-browser)) org-mode-map))
 
 ;; f for find
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c f" "find/file"))
 (lazy-load-set-keys '(("C-c f x" . find-file)))
 
 (lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file)
@@ -279,23 +295,28 @@
 
 (lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
 
-(lazy-load-global-keys '(("C-c f w" . avy-goto-char)) "init-avy")
-
 ;; g for git
-(lazy-load-set-keys '(("C-c g b" . git-messenger:popup-message)))
-
-(lazy-load-global-keys '(("C-c g B" . magit-branch)) "magit")
-
-;; git hunk, diff-hl has been required by init.el
-;; C-c g ? for magit
-;; C-c h ? for diff-hl
-(lazy-load-set-keys '(("C-c h h" . +diff-hl-find-hunk)
-                      ("C-c h n" . diff-hl-next-hunk)
-                      ("C-c h p" . diff-hl-previous-hunk)
-                      ;; ("C-c h s" . diff-hl-stage-current-hunk)
-                      ("C-c h d" . diff-hl-diff-goto-hunk)))
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c g" "git"))
+(pretty-hydra-define hydra-git (:title (format "%s Git Commands"
+                                               (all-the-icons-alltheicon "git"))
+                                       :color amaranth :quit-key ("q" "C-g"))
+  ("Message"
+   (("b" git-messenger:popup-message "popup-msg" :exit t)
+    ("B" magit-branch "branch" :exit t))
+   "Hunk"
+   (("h" +diff-hl-find-hunk "find hunk")
+    ("n" diff-hl-next-hunk "next hunk")
+    ("p" diff-hl-previous-hunk "prev hunk")
+    ("s" diff-hl-stage-current-hunk "stage hunk")
+    ("d" diff-hl-diff-goto-hunk "diff hunk"))))
+(lazy-load-set-keys '(("C-c g" . hydra-git/body)))
 
 ;; i for insert
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c g" "git"))
 (lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
 ;; org-mode-map
 (with-eval-after-load 'org
@@ -308,34 +329,48 @@
                         org-mode-map
                         "org-insert"))
 
-(lazy-load-set-keys '(("C-c k" . avy-goto-line-above)
-                      ("C-c j" . avy-goto-line-below)))
+(lazy-load-set-keys '(("C-c j" . avy-goto-line-below)
+                      ("C-c k" . avy-goto-line-above)))
 
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")
 
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680
-(lazy-load-global-keys '(("C-c l b" . literate-calc-eval-buffer)
-                         ("C-c l i" . literate-calc-insert-results)
-                         ("C-c l m" . literate-calc-minor-mode)
-                         ("C-c l l" . literate-calc-eval-line)
-                         ("C-c l c" . literate-calc-clear-overlays))
-                       "literate-calc-mode")
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c l" "literate-calc"))
+(defhydra hydra-literate-calc (:body-pre (require 'literate-calc-mode)
+                                     :color blue)
+  ("b" literate-calc-eval-buffer "eval buffer" :column "literate calc")
+  ("i" literate-calc-insert-results "insert result")
+  ("m" literate-calc-minor-mode "minor mode")
+  ("l" literate-calc-eval-line "eval line")
+  ("c" literate-calc-clear-overlays "clear overlays"))
+(lazy-load-set-keys '(("C-c l" . hydra-literate-calc/body)))
 
 ;; n for narrow
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c n" "narrow"))
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
                         ("C-c n w" . widen))
                       org-mode-map))
 
 ;; o for open
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c o" "open"))
 (lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o f r" . (lambda () (interactive) (find-file user-init-file)))))
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 
 ;; p for project
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c p" "project"))
 (lazy-load-global-keys '(("C-c p f" . project-find-file)
                          ("C-c p p" . project-switch-project))
                        "init-project")
@@ -346,16 +381,25 @@
 (lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
 
 ;; t for tab
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c t" "tab-bar"))
 (lazy-load-global-keys '(("C-c t n" . vanilla/create-new-tab-bar)
                          ("C-c t c" . tab-bar-close-tab)
                          ("C-c t r" . tab-bar-rename-tab))
                        "init-tab-bar")
 
 ;; u for user
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c u" "user"))
 (lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
                       ("C-c u i" . +indent-buffer)))
 
 ;; w for window
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c w" "window"))
 (lazy-load-set-keys '(("C-c w h" . windmove-left)
                       ("C-c w j" . windmove-down)
                       ("C-c w k" . windmove-up)
@@ -375,8 +419,6 @@
 (lazy-load-global-keys '(("C-c w x" . ace-swap-window))
                        "init-ace-window")
 
-(lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
-
 ;; y for yasnippet
 (lazy-load-set-keys '(("C-c y C-s" . yas-insert-snippet)
                       ("C-c y C-n" . yas-new-snippet)
@@ -388,10 +430,16 @@
 ;; za toggle-fold
 ;; zo show-block
 ;; zc hide-block
-(lazy-load-global-keys '(("C-c z e" . yafolding-toggle-element)
-                         ("C-c z a" . yafolding-show-all)
-                         ("C-c z p" . yafolding-go-parent-element))
-                       "yafolding")
+(defhydra hydra-yafolding (:body-pre (require 'yafolding)
+                                     :color blue)
+  "folding"
+  ("e" yafolding-toggle-element "element")
+  ("a" yafolding-show-all "show all")
+  ("p" yafolding-go-parent-element "go parent"))
+(lazy-load-set-keys '(("C-c z" . hydra-yafolding/body)))
+
+
+(lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
 
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
