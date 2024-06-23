@@ -20,33 +20,27 @@
 
 ;;; Commentary:
 
+;;; Require:
 ;;
-
-;;; Code:
-
-
-
-
 (require 'vundo)
 
+;;; Code:
+(defhydra hydra-vundo (:body-pre (require 'vundo)
+                                         :color blue)
+  ("h" vundo-backward "backward" :column "vundo")
+  ("j" vundo-stem-root "stem root")
+  ("k" vundo-stem-end "stem end")
+  ("l" vundo-forward "forward")
+  ("n" vundo-next "next")
+  ("p" vundo-previous "previous")
+  ("," vundo-goto-last-saved "last save")
+  ("C-m" vundo-confirm "confirm")
+  ("i" vundo--inspect "inspect")
+  ("d" vundo--debug "debug"))
+  ;; ("q" vundo-quit "quit")
+  ;; ("C-g" vundo-quit "quit"))
+(define-key vundo-mode-map (kbd "?") #'hydra-vundo/body)
 
-(lazy-load-set-keys
- '(
-   ("l" . vundo-forward)
-   ("h" . vundo-backward)
-   ("n" . vundo-next)
-   ("p" . vundo-previous)
-   ("j" . vundo-stem-root)
-   ("k" . vundo-stem-end)
-   ("," . vundo-goto-last-saved)
-   ("q" . vundo-quit)
-   ("C-g" . vundo-quit)
-   ("f" . vundo-confirm)
-   ("C-m" . vundo-confirm)
-   ("i" . vundo--inspect)
-   ("d" . vundo--debug)
-   )
- vundo-mode-map)
 
 (provide 'init-vundo)
 ;;; init-vundo.el ends here

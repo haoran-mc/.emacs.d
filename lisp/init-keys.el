@@ -19,10 +19,14 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
+;; 1. Use lazy-load only in init-keys.el
+;; 2. Use only lazy-load in init-keys.el
+;; 3. Elsewhere use the native define-key
+
+;;; Require:
+(require 'lazy-load)
 
 ;;; Code:
-
 (lazy-load-unset-keys '("C-x C-f"
                         ;; "C-z" ;; suspend-frame
                         "C-q"
@@ -67,8 +71,9 @@
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map))
 
-(lazy-load-set-keys '(("C-o" . open-newline-above)
-                      ("C-l" . open-newline-below)))
+(lazy-load-global-keys '(("C-o" . open-newline-above)
+                         ("C-l" . open-newline-below))
+                       "open-newline")
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
@@ -301,6 +306,7 @@
     "C-c g" "git"))
 (pretty-hydra-define hydra-git (:title (format "%s Git Commands"
                                                (all-the-icons-alltheicon "git"))
+                                       :body-pre (require 'magit)
                                        :color amaranth :quit-key ("q" "C-g"))
   ("Message"
    (("b" git-messenger:popup-message "popup-msg" :exit t)
@@ -341,7 +347,7 @@
   (which-key-add-key-based-replacements
     "C-c l" "literate-calc"))
 (defhydra hydra-literate-calc (:body-pre (require 'literate-calc-mode)
-                                     :color blue)
+                                         :color blue)
   ("b" literate-calc-eval-buffer "eval buffer" :column "literate calc")
   ("i" literate-calc-insert-results "insert result")
   ("m" literate-calc-minor-mode "minor mode")

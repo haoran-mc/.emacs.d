@@ -71,7 +71,6 @@
 (require 'init-font)
 (require 'no-littering)
 (require 'init-base)
-(require 'lazy-load)
 (require 'init-funcs)
 
 (require 'init-ui)

@@ -70,7 +70,6 @@
 
 ;; consult ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; provides commands for finding and completing
-;; lazy load by key
 ;; consult-ripgrep
 ;; consult-imenu
 ;; consult-goto-line
@@ -85,7 +84,6 @@
 ;; consult-mark
 ;; consult-org-heading
 ;; consult-line
-;; consult requied by lazy-load
 (with-eval-after-load 'consult
   ;; require
   (require 'consult-imenu)
