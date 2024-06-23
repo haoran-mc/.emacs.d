@@ -1,10 +1,10 @@
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#+TITLE: MY EMACS WORKFLOW
+#+TITLE: 4.MY ORG WORKFLOW
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
-#+DATE: 2024-01-09 11:01 Tue
+#+DATE: 2024-06-23 15:06 Sun
 #+STARTUP: showeverything
+#+OPTIONS: author:nil toc:t ^:{} _:{}
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-不使用 agenda，太难用了。

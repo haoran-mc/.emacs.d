@@ -1,0 +1,62 @@
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#+TITLE: MY EMACS WORKFLOW
+#+AUTHOR: Haoran Liu
+#+EMAIL: haoran.mc@outlook.com
+#+DATE: 2024-01-09 11:01 Tue
+#+STARTUP: showeverything
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# 不使用 agenda，太难用了。
+
+* 初始布局
+启动 emacs 时展示 =./resources/initial-scratch-message.txt= 中的内容，里面是一些我的任务事项。
+
+页面的布局秉承着干净的原则，会默认隐藏菜单栏、工具栏，并使用 header-line 代替广泛使用的 modeline，tab-bar 也只会在多于一个标签时展示。
+
+- 由于插件市场中的 modeline 都会尽量展示更多的信息，不仅会拖慢加载速度，而且多数信息的使用频率并不高，所以就手写了一个 [[https://github.com/haoran-mc/.emacs.d/blob/main/lisp/init-modeline.el][header-line]]，只显示必要内容。
+
+* 搜索切换
+搜索功能是一个编辑器最常用的功能。
+
+ivy 因为功能太全，显的臃肿，不易维护。
+
+- vertico 提供了垂直的 minibuffer 样式；
+- consult 替换了 emacs 原生的如 recentf、mark、bookmark 等功能，更强大的搜索能力；
+
+* 代码编辑
+- 自动保存：[[https://github.com/manateelazycat/auto-save][auto-save]]，Emacs 内在的保存机制设计得非常麻烦， 保存时到处丢临时版本内容， 很容易污染项目目录。 平常调试也比较麻烦， 万一没保存， 编译或者启动脚本都会发现行为不对。 auto-save 利用是 Emacs 内在的 idle 机制， 当用户停下手指头 1 秒以后， 它就会自动保存所有未保存的文件；
+- 智能补全：[[https://github.com/manateelazycat/lsp-bridge][lsp-bridge]]， lsp-bridge 的好处是利用 Python 多线程的技术， 结合专门为 LSP 协议开发的 acm 补全菜单， 能够把 Emacs 代码语法补全性能提升到 VSCode 的水平；
+
+*代码编辑：*
+- [[https://github.com/manateelazycat/open-newline][open-newline]]，提供了 vim 中 ~o~ 、 ~O~ 两个键的功能，不用移动光标就可以在当前行的上面或下面新开一行，看似简单的操作，使用的频率非常高；
+- scroll-up-one-line 和 scroll-down-one-line, 这两个函数提供了 vim 中的 ~C-e~ 和 ~C-y~ 的功能，不改变光标在文中的位置滚动屏幕；
+- [[https://github.com/casouri/vundo][vundo]]，Emacs 自身的撤销功能非常强大，只是有时候会反自觉，因为它可以对撤销进行撤销，用的久了就会头晕, 而且如果一个文件的改动很大，还会导致你污染了编辑内容还回不到撤销之前的状态。vundo 这个插件可以可视化的回退到到任意撤销分支上，还不会出现对文件内容本身的干扰。在实际使用中，如果是想要撤销刚刚的改动，我会使用 Emacs 原生的 undo 函数，不会弹出 minibuffer 造成编辑打断。在较多的撤销场景下就会使用 vundo，可视化的操作更易控制，减少心智负担；
+
+*位置跳转：*
+- remember-init 和 remember-jump，可惜 Emacs 中并没有 Vim 中的 ~C-o~ 功能，没有实时记录每次跳转的位置，所以使用这两个函数在需要的时候记录一下当前位置，方便后面快速跳转。在实际使用中，更多的是在 lsp-bridge 查询 references 时，记录一下 reference 的位置，然后关闭 lsp-bridge view 视图关闭后跳转到正确的 reference 位置；
+- [[https://github.com/camdez/goto-last-change.el][go-to-last-change]]，跳转到最近一次修改的地方，虽然使用频率不高，但是一但有这个需求时就会发现它的重要性；
+
+*代码重构：*
+- [[https://github.com/wolray/symbol-overlay][symbol-overlay]]，选中光标处的 symbol,再按单按键比如按 n/p 后，快速跳转上一个和下一个匹配项，节省了大量选中当前 symbol 启动 isearch 再粘贴 symbol 的操作时间。在阅读代码上 symbol-overlay 取代了 highlight-thing.el；
+
+* 窗口管理
+- [[https://github.com/haoran-mc/.emacs.d/blob/main/site-lisp/customize-toy/windowop.el][windowop]]，Emacs 的分屏操作没有自动 balance，所以把原生的窗口操作：分屏与跳转都封装了起来，使得每次分屏都能自动 balance 一下，让布局更合理；
+- [[https://github.com/manateelazycat/toggle-one-window][toggle-one-window]]，我平常大部分时间写代码都是左右两个窗口写代码，但是偶而遇到当前行太长的情况，就会调用 toggle-one-window 这个函数短时全屏查看这部分代码，再次调用 toggle-one-window 会复原之前的窗口布局；
+- [[https://github.com/karthink/popper][popper]]，Emacs 本身的弹窗规则比较混乱，当查看一些按键和函数的帮助信息或者 Emacs 弹出了一些报错，这时候处理完这些临时信息后，原来的窗口布局就被弄乱了，还需要花费时间去分屏切换。popper 这个插件就是用来解决这个问题的， 安装好以后， 当 Emacs 再次弹出临时窗口时， 只需要执行 popper-toggle-latest 这个命令就可以快速回到弹出窗口之前的窗口布局；
+- spacemacs/alternate-buffer，在 spacemacs 中学习到的一个函数，可以用这个命令来快速切换历史记录中前后两个 buffers。区别于 bury-buffer/unbury-buffer，这个函数会记住每个标签页、每个窗口历史记录中前后两个 buffers；
+
+* 按键管理
+- [[https://github.com/manateelazycat/lazy-load][lazy-load]]，根据按键的配置文件动态生成 autoload 代码， 用户第一次按快捷键的时候, 再动态加载某个插件模块， 光通过这一项技术就可以把任意复杂的 Emacs 配置启动时间降低到 1 秒以下；
+- [[https://github.com/abo-abo/hydra][hydra]]，自动生成菜单并分组管理按键，减少一些不常用 minor-mode 下的键记忆负担；
+- [[https://github.com/justbur/emacs-which-key][which-key]]，在不使用 hydra 的键前缀上，为了应对突发的键忘记情况，使用 which-key 提醒。秉承着干净的原则，不自动弹出 which-key-buffer，只在手动调用 C-h 时才弹出 which-key-buffer；
+
+
+-----
+- 对于一定由键触发的 packages，使用 lazy-load 加载；
+- 不需要键触发的 packages、或是一些基础服务，直接在 init.el 中加载；
+- 手动加载的 package，写一个 ran/package-* 的加载函数，比如 rainbow-mode；
+- 一些全局的函数在 hydra-main/body 中定义，如 fullscreen；
+- 特定的 minor-mode 下，hydra-*/body 中定义键，如 treemacs；
+- 因为 lazy-load 加载的 packages 没有键提醒，所以使用 which-key；
+
+关于一个函数、一个功能应该被绑定到哪个键上，请看 [[https://github.com/haoran-mc/.emacs.d/blob/main/docs/2.master-my-bindings.org][how to master my bindings]].

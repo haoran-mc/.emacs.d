@@ -1,0 +1,16 @@
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#+TITLE: 6.MEOW EDITING
+#+AUTHOR: Haoran Liu
+#+EMAIL: haoran.mc@outlook.com
+#+DATE: 2024-06-12 12:06 Wed
+#+STARTUP: showeverything
+#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- TODO meow + avy；
+- TODO meow + magit；
+
+* 键的设定
+不使用 meow 的 keypad。
+
+* COMMENT deprecated packages
+- cursor-chg
