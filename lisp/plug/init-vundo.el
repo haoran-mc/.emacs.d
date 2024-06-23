@@ -25,21 +25,14 @@
 (require 'vundo)
 
 ;;; Code:
-(defhydra hydra-vundo (:body-pre (require 'vundo)
-                                         :color blue)
-  ("h" vundo-backward "backward" :column "vundo")
-  ("j" vundo-stem-root "stem root")
-  ("k" vundo-stem-end "stem end")
-  ("l" vundo-forward "forward")
-  ("n" vundo-next "next")
-  ("p" vundo-previous "previous")
-  ("," vundo-goto-last-saved "last save")
-  ("C-m" vundo-confirm "confirm")
-  ("i" vundo--inspect "inspect")
-  ("d" vundo--debug "debug"))
-  ;; ("q" vundo-quit "quit")
-  ;; ("C-g" vundo-quit "quit"))
-(define-key vundo-mode-map (kbd "?") #'hydra-vundo/body)
+
+(define-key vundo-mode-map (kbd "h") 'vundo-backward)
+(define-key vundo-mode-map (kbd "j") 'vundo-next)
+(define-key vundo-mode-map (kbd "k") 'vundo-previous)
+(define-key vundo-mode-map (kbd "l") 'vundo-forward)
+(define-key vundo-mode-map (kbd ",") 'vundo-goto-last-saved)
+(define-key vundo-mode-map (kbd "C-m") 'vundo-confirm)
+(define-key vundo-mode-map (kbd "i") 'vundo--inspect)
 
 
 (provide 'init-vundo)
