@@ -88,6 +88,18 @@
 (define-key treemacs-mode-map (kbd "/") #'treemacs-common-helpful-hydra)
 (define-key treemacs-mode-map (kbd "?") #'treemacs-advanced-helpful-hydra)
 
+(with-eval-after-load 'project
+  (defun +treemacs-add-current-project-workspace ()
+    "Add the current project to the Treemacs workspace."
+    (interactive)
+    (let ((project (project-current t)))
+      (if project
+          (let ((project-path (project-root project)))
+            (if (and project-path (file-directory-p project-path))
+                (treemacs-add-project-to-workspace project-path)
+              (message "Invalid project path: %s" project-path)))
+        (message "No project found for current buffer"))))
+  (global-set-key (kbd "C-c p t") #'+treemacs-add-current-project-workspace))
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here
