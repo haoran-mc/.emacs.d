@@ -166,7 +166,6 @@
                         ("M-," . org-mark-ring-goto))
                       org-mode-map))
 
-;; TODO
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
 (lazy-load-global-keys '(("M-e" . er/expand-region) ;; like M-a confusing sentence ending

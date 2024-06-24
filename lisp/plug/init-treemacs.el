@@ -101,5 +101,9 @@
         (message "No project found for current buffer"))))
   (global-set-key (kbd "C-c p t") #'+treemacs-add-current-project-workspace))
 
+;; keeping my fringe settings
+(advice-remove #'treemacs-select-window #'doom-themes-hide-fringes-maybe)
+
+
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here
