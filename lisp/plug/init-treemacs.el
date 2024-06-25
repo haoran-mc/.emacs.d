@@ -28,6 +28,7 @@
 (require 'treemacs-file-management)
 (require 'treemacs-hydras)
 
+(require 'cfrs)
 (require 'init-ace-window)
 (require 'init-hydra)
 
@@ -53,18 +54,20 @@
 
 (setq treemacs-mode-map (make-sparse-keymap))
 ;; navigation
-(define-key treemacs-mode-map (kbd "h") #'treemacs-goto-parent-node)
+(define-key treemacs-mode-map (kbd "h") #'backward-char)
 (define-key treemacs-mode-map (kbd "j") #'treemacs-next-line)
 (define-key treemacs-mode-map (kbd "k") #'treemacs-previous-line)
-;; (define-key treemacs-mode-map (kbd "H") #'treemacs-collapse-parent-node)
+(define-key treemacs-mode-map (kbd "l") #'forward-char)
+(define-key treemacs-mode-map (kbd "H") #'treemacs-goto-parent-node) ;; treemacs-collapse-parent-node
+(define-key treemacs-mode-map (kbd "M-h") #'treemacs-collapse-parent-node)
 (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
 (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
 ;; open
+(define-key treemacs-mode-map (kbd "o") #'treemacs-visit-node-ace)
 (define-key treemacs-mode-map (kbd "<tab>") #'treemacs-TAB-action)
-(define-key treemacs-mode-map (kbd "l") #'treemacs-visit-node-ace)
-(define-key treemacs-mode-map (kbd "<return>") #'treemacs-visit-node-ace)
+(define-key treemacs-mode-map (kbd "<return>") #'treemacs-RET-action)
 ;; create, copy, move
-(define-key treemacs-mode-map (kbd "a") #'treemacs-create-file) ;; C-c f x
+;; (define-key treemacs-mode-map (kbd "a") #'treemacs-create-file) ;; conflict with ace-window, just use C-c f x
 (define-key treemacs-mode-map (kbd "+") #'treemacs-create-dir)
 (define-key treemacs-mode-map (kbd "m") #'treemacs-move-file)
 (define-key treemacs-mode-map (kbd "yf") #'treemacs-copy-file)
