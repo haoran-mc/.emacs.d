@@ -154,16 +154,16 @@
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
-                      ("M-;" . comment-dwim)
-                      ("M-[" . ESC-prefix)))
+                      ("M-;" . comment-dwim) ;; comment-dwim/eval-expression
+                      ("M-[" . ESC-prefix))) ;; undefined
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
-                         ("M-d" . delete-block-forward))
+                         ("M-d" . delete-block-forward)) ;; kill-word
                        "delete-block")
 
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("M-." . org-open-at-point)
-                        ("M-," . org-mark-ring-goto))
+  (lazy-load-set-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
+                        ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
                       org-mode-map))
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
@@ -182,11 +182,11 @@
                          ("M-u" . vanilla/upcase-word)) ;; upcase-word
                        "basic-tookit")
 
-(lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down)
-                         ("M-p" . vanilla/move-cursor-8-lines-up))
+(lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down) ;; undefined
+                         ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
                        "cursormove")
 
-(lazy-load-global-keys '(("M-o" . ace-window)) "init-ace-window")
+(lazy-load-global-keys '(("M-o" . ace-window)) "init-ace-window") ;; undefined
 
 ;; highlight-phrase
 ;; highlight-regexp
