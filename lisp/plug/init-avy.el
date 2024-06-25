@@ -20,29 +20,13 @@
 
 ;;; Commentary:
 
-;;; Code:
-
-
-
-;; :config
-;; (when (>= emacs-major-version 28)
-;;   (use-package transient
-;;     :ensure nil
-;;     :config
-;;     (transient-define-prefix avy-menu ()
-;;       "Avy quick menu."
-;;       :transient-suffix     'transient--do-stay
-;;       :transient-non-suffix 'transient--do-warn
-;;       [["Move"
-;;         ("j" "avy-next" avy-next)
-;;         ("k" "avy-prev" avy-prev)
-;;         ("p" "avy-pop-mark" avy-pop-mark)]
-;;        ["Resume"
-;;         ("r" "avy-resume" avy-resume)]
-;;        ["Exit"
-;;         ("q" "quit" transient-quit-one)]])))
-
+;;; Require:
 (require 'avy)
+(require 'ace-pinyin)
+
+
+;;; Code:
+(ace-pinyin-global-mode +1)
 
 (setq avy-background t
       avy-all-windows nil
@@ -56,11 +40,6 @@
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
       avy-styles-alist '((avy-isearch . pre))
       avy-case-fold-search nil)
-
-
-;; require before config
-(require 'ace-pinyin)
-(ace-pinyin-global-mode +1)
 
 
 (provide 'init-avy)
