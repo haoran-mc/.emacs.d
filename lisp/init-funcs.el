@@ -25,6 +25,16 @@
 
 
 ;;;###autoload
+(defun +copy-file-path-and-line-number ()
+  "Copy the current buffer file name and line number to the clipboard."
+  (interactive)
+  (if buffer-file-name
+      (let ((file-path (concat (file-truename buffer-file-name) ":" (number-to-string (line-number-at-pos)))))
+        (kill-new file-path)
+        (message "Copied: %s" file-path))
+    (message "Buffer is not visiting a file")))
+
+;;;###autoload
 (defun +func-make-emacs-opaque ()
   "Make Emacs window opaque."
   (interactive)

@@ -400,7 +400,8 @@
   (which-key-add-key-based-replacements
     "C-c u" "user"))
 (lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
-                      ("C-c u i" . +indent-buffer)))
+                      ("C-c u i" . +indent-buffer)
+                      ("C-c u l" . +copy-file-path-and-line-number)))
 
 ;; w for window
 (with-eval-after-load 'which-key
