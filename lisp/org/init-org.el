@@ -139,8 +139,6 @@
 
 
 (require 'org-agenda)
-(add-hook org-agenda-finalize-hook 'org-agenda-to-appt)
-
 (setq org-agenda-files ran--org-agenda-files
       org-agenda-block-separator ?─
       org-agenda-time-grid '((daily today require-timed)
