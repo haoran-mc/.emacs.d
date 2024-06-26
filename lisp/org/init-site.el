@@ -119,16 +119,16 @@ use export/org-preview/org.css render style."
     (browse-url fileurl)))
 
 
-(defun +delete-site-org-and-html ()
-  "Delete current org and the relative html when it exists."
+(defun ran/site-delete-html ()
+  "Delete the relative html when it exists."
   (interactive)
-  (when (yes-or-no-p "Really delete current org and the relative html?")
+  (when (yes-or-no-p "Really delete the relative html?")
     (let ((fileurl (concat ran--site-html-dir "/" (file-name-base (buffer-name)) ".html")))
       (if (file-exists-p fileurl)
           (delete-file fileurl))
-      (delete-file (buffer-file-name))
-      (kill-this-buffer)
-      (message "Delete org and the relative html done."))))
+      ;; (delete-file (buffer-file-name))
+      ;; (kill-this-buffer)
+      (message "Delete the relative html done."))))
 
 
 
