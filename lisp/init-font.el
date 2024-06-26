@@ -47,12 +47,14 @@
 (defvar +font-weight ran--font-weight)
 
 
-;; set base font
-(let* ((font-spec (format "%s-%d:weight=%s" +font-family +font-size +font-weight)))
-  (set-frame-parameter nil 'font font-spec)
-  (add-to-list 'default-frame-alist `(font . ,font-spec)))
+;; 1. set base font
+(defun +load-base-font ()
+  (let* ((font-spec (format "%s-%d:weight=%s" +font-family +font-size +font-weight)))
+    (set-frame-parameter nil 'font font-spec)
+    (add-to-list 'default-frame-alist `(font . ,font-spec))))
+(+load-base-font)
 
-
+;; 2. set face font
 (defun +set-face-font (&optional frame)
   (let ((font-spec (format "%s-%d" +font-family +font-size))
         (line-font-spec (format "%s-%d" +font-family +font-size))
@@ -69,7 +71,7 @@
 ;; (+set-face-font)
 
 
-;; load unicode font
+;; 3. load unicode font
 (when window-system
   (let ((font (frame-parameter nil 'font))
         (font-spec (font-spec :family +font-unicode-family)))
@@ -82,7 +84,7 @@
   (interactive)
   (if-let ((size (--find (> it +font-size) +font-size-list)))
       (progn (setq +font-size size)
-             (+load-font)
+             (+load-base-font)
              (message "font size: %s" +font-size))
     (message "using largest font")))
 
@@ -90,8 +92,8 @@
   (interactive)
   (if-let ((size (--find (< it +font-size) (reverse +font-size-list))))
       (progn (setq +font-size size)
-             (message "font size: %s" +font-size)
-             (+load-font))
+             (+load-base-font)
+             (message "font size: %s" +font-size))
     (message "using smallest font")))
 
 (global-set-key (kbd "s-+") #'+larger-font)

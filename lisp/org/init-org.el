@@ -24,60 +24,17 @@
 ;;; Code:
 
 (require 'org)
-
-;; (add-hook 'org-mode-hook 'visual-line-mode) ;; 折行
-(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
-
 (require 'org-tempo) ;; <s
 
-(defun my-func/open-and-play-gif-image (file &optional link)
-  "Open and play GIF image `FILE' in Emacs buffer.
+(add-hook 'org-mode-hook #'+xah-show-formfeed-as-line)
 
-Optional for Org-mode file: `LINK'."
-  (let ((gif-image (create-image file))
-		(tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
-	(switch-to-buffer tmp-buf)
-	(erase-buffer)
-	(insert-image gif-image)
-	(image-animate gif-image nil t)
-	(local-set-key (kbd "q") 'bury-buffer)
-	))
-(setq org-file-apps '(("\\.png\\'"     . default)
-                      (auto-mode       . emacs)
-                      (directory       . emacs)
-                      ("\\.mm\\'"      . default)
-                      ("\\.x?html?\\'" . default)
-                      ("\\.pdf\\'"     . emacs)
-                      ("\\.md\\'"      . emacs)
-                      ("\\.gif\\'"     . my-func/open-and-play-gif-image)
-                      ("\\.xlsx\\'"    . default)
-                      ("\\.svg\\'"     . default)
-                      ("\\.pptx\\'"    . default)
-                      ("\\.docx\\'"    . default)))
-
-
-
-;; https://github.com/lijigang/emacs.d
 (defface org-bold '((t :weight normal
-                       ;; :foreground "white" ;; dark color
-                       ;; :background "#282C34"
                        :foreground "purple" ;; light color
-                       ;; :background "#EFF1F2"
                        :underline (:color "red" :style line)
                        :overline nil))
   "Face for org-mode bold."
   :group 'org-faces)
 
-;; Because spacemacs had different ideas about the verbatim background
-;; (set-face-background 'org-bold "#fefefe")
-;; (set-face-background 'org-verbatim "#fefefe")
-
-;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
-;; (add-hook 'org-babel-after-execute-hook 'org-toggle-latex-fragment 'append)
-;; (add-hook! 'org-mode-hook #'+org-pretty-mode #'mixed-pitch-mode)
-
-
-;; base
 (setq org-directory ran--org-directory
       org-default-notes-file (expand-file-name "notes.org" org-directory)
       org-use-property-inheritance t ;; 子标题会继承父标题的属性
@@ -96,6 +53,18 @@ Optional for Org-mode file: `LINK'."
       org-startup-folded 'content ;; 打开文件时只显示标题，不显示内容
       org-hide-block-startup t ;; 打开文件时，初始状态隐藏代码块
       org-imenu-depth 6
+      org-file-apps '(("\\.png\\'"     . default)
+                      (auto-mode       . emacs)
+                      (directory       . emacs)
+                      ("\\.mm\\'"      . default)
+                      ("\\.x?html?\\'" . default)
+                      ("\\.pdf\\'"     . emacs)
+                      ("\\.md\\'"      . emacs)
+                      ;; ("\\.gif\\'"     . vanilla/open-and-play-gif-image)
+                      ("\\.xlsx\\'"    . default)
+                      ("\\.svg\\'"     . default)
+                      ("\\.pptx\\'"    . default)
+                      ("\\.docx\\'"    . default))
       ;; log
       org-log-done t ;; 完成任务时自动记录时间
       org-log-into-drawer t ;; 将日志放在一个抽屉里 :LOGBOOK:
@@ -131,8 +100,7 @@ Optional for Org-mode file: `LINK'."
       ;; archive
       org-archive-location "%s_archive::datetree/"
       ;; latex
-      ;; EXTERNAL-TOOLS
-      org-preview-latex-default-process 'imagemagick ;; C-c C-x C-l 使用 imagemagick 作为预览公式图像的工具
+      org-preview-latex-default-process 'imagemagick ;; C-c C-x C-l org-latex-preview 使用 imagemagick 作为预览公式图像的工具
       org-latex-create-formula-image-program 'imagemagick ;; 使用 imagemagick 作为生成公式图像的工具
       ;; todo
       org-todo-keywords ;; not use for todo instead of agenda
@@ -171,13 +139,7 @@ Optional for Org-mode file: `LINK'."
 
 
 (require 'org-agenda)
-;; (add-hook org-agenda-finalize-hook 'org-agenda-to-appt)
-
-;; Keep track of tasks
-;; (require 'init-macros)
-;; update appt list every 5 minutes
-;; (run-at-time t 300 #'org-agenda-to-appt)
-;; (shut-up! #'org-agenda-to-appt)
+(add-hook org-agenda-finalize-hook 'org-agenda-to-appt)
 
 (setq org-agenda-files ran--org-agenda-files
       org-agenda-block-separator ?─
@@ -201,27 +163,8 @@ Optional for Org-mode file: `LINK'."
                                    ;; ...other commands here
                                    ))
 
+
 (require 'org-capture)
-
-;; (with-no-warnings
-;;   (defun org-capture-setup ()
-;;     (setq-local org-complete-tags-always-offer-all-agenda-tags t))
-;;
-;;   (defun project-todo-org-file (headline)
-;;     (let* ((file (expand-file-name "TODO.org" (projectile-acquire-root)))
-;;            (buf (find-file-noselect file)))
-;;       (set-buffer buf)
-;;       ;; Set to UTF-8 because we may be visiting raw file.
-;;       (setq buffer-file-coding-system 'utf-8-unix)
-;;       (unless (org-find-exact-headline-in-buffer headline)
-;;         (goto-char (point-max))
-;;         (insert "* " headline)
-;;         (org-set-tags (downcase headline))))))
-
-
-;; (add-hook org-capture-mode-hook 'org-capture-setup)
-
-
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
       ;; 减少 capture 步骤：
@@ -251,7 +194,7 @@ Optional for Org-mode file: `LINK'."
                               ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
                                "%<%Y.%m.%d - %H:%M>\n%?\n."
                                :prepend t)
-                              ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/专业、职业发展/行业内幕.org")
+                              ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/240606-专业、职业发展/行业内幕.org")
                                "%<%Y.%m.%d - %H:%M>\n%?\n."
                                :prepend t)
                               ("cz" "capture trivia, 小知识" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
@@ -273,52 +216,19 @@ Optional for Org-mode file: `LINK'."
                               ("wt" "work todo「优先[#A]」「学习」"
                                entry (file "work/todo.org")
                                "* WORK %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                               :prepend t)
-                              )
-      )
-
-
+                               :prepend t)))
 
 
 
 (require 'init-org-superstar)
-(require 'init-ox)
 
-;; org mode 的附加包，有诸多附加功能
-;; (use-package org-contrib
-;;   :pin nongnu
-;;   :ensure t
-;;   :config
-;;   (require 'org-checklist))
+(require 'init-ox)
 
 (require 'init-org-appear)
 
-;; (use-package imenu-list
-;;   :ensure t
-;;   :commands (imenu-list-smart-toggle))
-
 (require 'init-plantuml)
 
-;; load when need
 (require 'init-site)
-
-
-;;;###autoload
-(defun xah-show-formfeed-as-line ()
-  "Display the formfeed ^L char as line. Version 2018-08-30"
-  (interactive)
-  ;; 2016-10-11 thanks to Steve Purcell's page-break-lines.el
-  (progn
-    (when (not buffer-display-table)
-      (setq buffer-display-table (make-display-table)))
-    (aset buffer-display-table ?\^L
-          (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
-    (redraw-frame)))
-;; ───────────────────────────────────────
-
-(with-eval-after-load 'org
-  (add-hook 'org-mode-hook #'xah-show-formfeed-as-line))
-(add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
 
 
 

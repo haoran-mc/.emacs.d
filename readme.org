@@ -21,6 +21,8 @@
 - git
 - fd
 - gls
+- imagemagick
+- plantuml.jar
 
 
 *features:*

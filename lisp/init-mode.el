@@ -123,6 +123,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (add-hook 'prog-mode-hook (lambda () (setq truncate-lines t)))
 (add-hook 'eshell-mode-hook (lambda () (setq truncate-lines t)))
 
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))) ;; see visual-line-mode also
 
 
 (provide 'init-mode)

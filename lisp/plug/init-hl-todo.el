@@ -44,8 +44,7 @@
         ("LONG"      . "#D0BF8F")
         ("HOLD"      . "#D0BF8F")
         ("INBOX"     . "#FF0000")
-        ("WORK"      . "#FF0000")
-        ))
+        ("WORK"      . "#FF0000")))
 
 
 (provide 'init-hl-todo)

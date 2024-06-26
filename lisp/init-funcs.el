@@ -19,9 +19,25 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; functions that are not assigned keys and need to be called manually have the +func prefix
+;; 1. 需要预加载的函数放在这，不需要预加载的函数放在 basic-tookit.el
+;; 2. 内部调用的函数使用 + 前缀，手动调用的函数使用 +func 前缀
 
 ;;; Code:
+
+
+;;;###autoload
+(defun +xah-show-formfeed-as-line ()
+  "Display the formfeed ^L char as line. Version 2018-08-30"
+  (interactive)
+  ;; 2016-10-11 thanks to Steve Purcell's page-break-lines.el
+  (progn
+    (when (not buffer-display-table)
+      (setq buffer-display-table (make-display-table)))
+    (aset buffer-display-table ?\^L
+          (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
+    (redraw-frame)))
+;; ───────────────────────────────────────
+(add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
 
 
 ;;;###autoload

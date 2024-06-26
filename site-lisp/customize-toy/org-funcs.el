@@ -44,5 +44,18 @@
       (message "No file link found under the cursor."))))
 
 
+(defun vanilla/open-and-play-gif-image (file &optional link)
+  "Open and play GIF image `FILE' in Emacs buffer.
+
+Optional for Org-mode file: `LINK'."
+  (let ((gif-image (create-image file))
+		(tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
+	(switch-to-buffer tmp-buf)
+	(erase-buffer)
+	(insert-image gif-image)
+	(image-animate gif-image nil t)
+	(local-set-key (kbd "q") 'bury-buffer)))
+
+
 (provide 'org-funcs)
 ;;; org-funcs.el ends here

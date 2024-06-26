@@ -22,8 +22,7 @@
 
 ;;; Code:
 
-
-;; lsp-bridge ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; lsp-bridge funcs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar +lsp-bridge-jump-stack nil
   "Stack to store jump locations for +lsp-bridge-jump-back.")
 
@@ -69,36 +68,23 @@
       (setq this-command 'yas-expand)
       (call-interactively #'yas-expand))))
 
-(setq lsp-bridge-enable-hover-diagnostic t
-      acm-enable-quick-access nil
-      lsp-bridge-enable-mode-line nil)
 
-
-(defvar my/lsp-bridge-loaded nil
-  "Flag to track whether lsp-bridge has been loaded.")
-
+;; lsp-bridge conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my/load-lsp-bridge ()
   "Load lsp-bridge if it hasn't been loaded yet."
-  (unless my/lsp-bridge-loaded
-    (require 'lsp-bridge)
-    (setq my/lsp-bridge-loaded t)
-    (message "lsp-bridge loaded")
-    (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
-    (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
-    (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
-    (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
-    (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
-    (define-key lsp-bridge-mode-map (kbd "C-c c i") 'lsp-bridge-find-impl-other-window)
-    (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit))
-  (message "major mode is: %s" major-mode)
-  (lsp-bridge-mode))
+  (if (featurep 'lsp-bridge)
+      (lsp-bridge-mode 1)
+    (progn
+      (require 'lsp-bridge)
+      (lsp-bridge-mode 1)))
+  (message "major mode is: %s" major-mode))
 
+(setq lsp-bridge-enable-hover-diagnostic t ;; 允许错误悬浮显示
+      acm-enable-quick-access nil          ;; 候选项数字前缀
+      lsp-bridge-enable-mode-line nil      ;; 不在 modeline 中显示信息
+      acm-enable-doc nil                   ;; doc 遮挡代码，影响视线
+      lsp-bridge-c-lsp-server "clangd")
 
-(setq acm-enable-doc nil)
-(setq lsp-bridge-c-lsp-server "clangd")
-
-
-;; 可以在函数中使用 eval-after-load 加载一次
 (dolist (mode-hook '(python-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook
@@ -107,6 +93,15 @@
                      css-mode-hook
                      web-mode-hook))
   (add-hook mode-hook #'my/load-lsp-bridge))
+
+(with-eval-after-load 'lsp-bridge
+  (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
+  (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
+  (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
+  (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
+  (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
+  (define-key lsp-bridge-mode-map (kbd "C-c c i") 'lsp-bridge-find-impl-other-window)
+  (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit))
 
 
 (provide 'init-lsp)
