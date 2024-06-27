@@ -19,20 +19,32 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
-;;; Code:
-
+;;; Require:
 (require 'ace-window)
+(require 'ace-window-posframe)
 
+
+;;; Code:
 (setq aw-background nil)
+(ace-window-posframe-enable)
 
-;; (custom-set-faces
-;;  '(aw-leading-char-face ((t (:inherit font-lock-keyword-face :foreground unspecified :bold t :height 3.0))))
-;;  '(aw-minibuffer-leading-char-face ((t (:inherit font-lock-keyword-face :bold t :height 1.0))))
-;;  '(aw-mode-line-face ((t (:inherit mode-line-emphasis :bold t)))))
 
+(set-face-attribute 'aw-leading-char-face nil
+                    :inherit 'font-lock-keyword-face
+                    :foreground 'unspecified
+                    :weight 'bold
+                    :height 3.0)
+
+(set-face-attribute 'aw-minibuffer-leading-char-face nil
+                    :inherit 'font-lock-keyword-face
+                    :weight 'bold
+                    :height 1.0)
+
+(set-face-attribute 'aw-mode-line-face nil
+                    :inherit 'mode-line-emphasis
+                    :weight 'bold)
 
 
 (provide 'init-ace-window)
