@@ -51,12 +51,10 @@
                'web-mode-hook
                'js-mode-hook
                'typescript-mode-hook
-               'json-mode-hook         ;; js-indent-level 2
-               ))
+               'json-mode-hook))   ;; js-indent-level 2
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
-                     (adjust-languages-indent 2)
-                     )))
+                     (adjust-languages-indent 2))))
 
 
 ;; 配置简单，直接定义就好

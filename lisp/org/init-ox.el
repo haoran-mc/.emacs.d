@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'ox)
+
 (setq org-export-use-babel t
       org-export-coding-system 'utf-8
       org-export-default-language "en" ;; 设置导出的语言为英语，在日期等地方会使用 "Monday"

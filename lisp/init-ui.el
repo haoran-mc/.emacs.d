@@ -73,10 +73,10 @@
     (message "Current random theme is: %s" selected-theme)
     (load-theme selected-theme t)))
 
+;; TODO
 (defun +load-theme-accoriding-time ()
   (interactive)
-  (load-theme 'modus-vivendi t)
-  ) ;; TODO
+  (load-theme 'modus-vivendi t))
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'doom-themes)

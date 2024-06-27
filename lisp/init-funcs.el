@@ -37,7 +37,7 @@
           (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
     (redraw-frame)))
 ;; ───────────────────────────────────────
-(add-hook 'emacs-lisp-mode-hook #'xah-show-formfeed-as-line)
+(add-hook 'emacs-lisp-mode-hook #'+xah-show-formfeed-as-line)
 
 
 ;;;###autoload

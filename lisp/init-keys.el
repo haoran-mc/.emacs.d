@@ -82,6 +82,7 @@
   ;; only full paths are supported
   (lazy-load-global-keys '(("C-v" . vanilla/preview-file-link)) "org-funcs")) ;; scroll-up-command
 
+;; also navigate windows by ace-window(M-o)
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
                       ("C-\\ j" . windmove-down)
                       ("C-\\ k" . windmove-up)

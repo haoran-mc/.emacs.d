@@ -77,8 +77,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
                     ;; other
                     ("\\.cpp$" . c++-mode) ;; .cpp 文件为 c++-mode
-                    ("\\.h$" . c++-mode)
-                    ))
+                    ("\\.h$" . c++-mode)))
   (add-to-alist 'auto-mode-alist elt-cons))
 
 

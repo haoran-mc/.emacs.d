@@ -116,8 +116,7 @@
 
 (run-with-idle-timer
  3 nil
- #'(lambda ()
-     (require 'init-org)))
+ #'(lambda () (require 'init-org)))
 
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))
