@@ -403,29 +403,6 @@
                       ("C-c u i" . +indent-buffer)
                       ("C-c u l" . +copy-file-path-and-line-number)))
 
-;; w for window
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c w" "window"))
-(lazy-load-set-keys '(("C-c w h" . windmove-left)
-                      ("C-c w j" . windmove-down)
-                      ("C-c w k" . windmove-up)
-                      ("C-c w l" . windmove-right)
-                      ("C-c w =" . balance-windows)
-                      ("C-c w m" . delete-other-windows)))
-
-(lazy-load-global-keys '(("C-c w H" . vanilla/split-window-left-with-balance)
-                         ("C-c w J" . vanilla/split-window-below-with-balance)
-                         ("C-c w K" . vanilla/split-window-up-with-balance)
-                         ("C-c w L" . vanilla/split-window-right-with-balance)
-                         ("C-c w c" . vanilla/delete-window-with-balance)
-                         ("C-c w |" . split-window-horizontally-instead)
-                         ("C-c w _" . split-window-vertically-instead))
-                       "windowop")
-
-(lazy-load-global-keys '(("C-c w x" . ace-swap-window))
-                       "init-ace-window")
-
 ;; y for yasnippet
 (lazy-load-set-keys '(("C-c y C-s" . yas-insert-snippet)
                       ("C-c y C-n" . yas-new-snippet)
