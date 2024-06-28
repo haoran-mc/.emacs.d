@@ -43,7 +43,7 @@
         ("CANCELLED" . "#50a14f")
         ("LONG"      . "#D0BF8F")
         ("HOLD"      . "#D0BF8F")
-        ("INBOX"     . "#FF0000")
+        ("INBOX"     . "#FF0000") ;; deprecated
         ("WORK"      . "#FF0000")))
 
 

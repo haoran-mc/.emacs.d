@@ -167,53 +167,58 @@
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
       ;; 减少 capture 步骤：
       ;; • 减少 tag 的选择 %^g，只在 inbox 中使用 tag，做不到完全依赖文件分类
-      ;; • 通过 INBOX、WORK todo关键字识别任务类别
+      ;; • 通过 WORK、TODO 关键字识别任务类别
       ;; • todo 项不要太分散，只保留少数 todo 文件
       ;; • 提示输入「优先[#A]」「学习」
       ;;
       ;; todo 关键字分类：
       ;; • WORK  工作相关
-      ;; • TODO  紧急的待做
-      ;; • INBOX 待做箱子，使用 [#A] [#B] ... 标记优先级
+      ;; • TODO  待做箱子，使用 [#A] [#B] ... 标记优先级
       ;; • LONG  长期跟踪，这种事情不会很多，手动管理，不通过capture增加
-      org-capture-templates `(
-                              ("i" "inbox" entry (file+headline "tasks/tasks.org" "inbox")
-                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                               :prepend t)
-                              
-                              ("c" "sync-notes") ;; capture
-                              ("ca" "capture stories, 故事" plain (file "~/haoran/no/org/sync-notes/b.故事/故事.org")
-                               "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+      ;;
+      ;; 1. 任务型："* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+      ;; 2. 摘记型（没有标题）："%<%Y.%m.%d %H:%M %a>\n%?\n."
+      ;; 3. 摘记型（有标题）："* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
+      ;; 4. 故事型： "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+      org-capture-templates `(("i" "todo inbox, 待做全放在这里" entry (file+headline "tasks/tasks.org" "inbox")
+                               "* TODO %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t) ;; 每次在最上面新增
-                              ;; cb book
-                              ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
-                               "%<%Y.%m.%d - %H:%M>\n%?\n."
-                               :prepend t)
-                              ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
-                               "%<%Y.%m.%d - %H:%M>\n%?\n."
-                               :prepend t)
-                              ("cn" "capture non-public information, 行业内幕" plain (file "~/haoran/no/org/sync-notes/e.观察世界/240606-专业、职业发展/行业内幕.org")
-                               "%<%Y.%m.%d - %H:%M>\n%?\n."
-                               :prepend t)
-                              ("cz" "capture trivia, 小知识" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
-                               "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-                               :prepend t)
                               
-                              ("d" "diary")
-                              ("dj" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+
+                              ("d" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
                                "* %<%H:%M>\n%?\n")
                               
-                              ("e" "emacs inbox" entry (file+headline "tasks/emacs.org" "inbox")
-                               "* INBOX %^{title} %^g\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n")
+
+                              ("e" "emacs")
+                              ("et" "emacs todo" entry (file+headline "tasks/emacs.org" "inbox")
+                               "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n")
+                              ("ec" "emacs capture" plain (file+headline "tasks/emacs.org" "capture")
+                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                               :prepend t)
                               
+
                               ("w" "work")
                               ("wd" "work docs" plain (file "work/docs.org")
                                "* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
                                :prepend t)
                               ("wj" "work journay" entry (file+datetree "work/journay.org") "* %<%H:%M> - %^{title}\n%?")
-                              ("wt" "work todo「优先[#A]」「学习」"
-                               entry (file "work/todo.org")
+                              ("wt" "work todo「优先[#A]」「学习」" entry (file "work/todo.org")
                                "* WORK %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                               :prepend t)
+                              
+
+                              ("c" "sync-notes")
+                              ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
+                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                               :prepend t)
+                              ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
+                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                               :prepend t)
+                              ("cn" "capture non-public information, 行业发展" plain (file "~/haoran/no/org/sync-notes/e.观察世界/240606-专业、职业发展/行业发展.org")
+                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                               :prepend t)
+                              ("cz" "capture trivia, 小知识 - 荔枝病" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
+                               "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t)))
 
 

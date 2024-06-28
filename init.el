@@ -111,7 +111,7 @@
      (require 'init-vundo)
      (require 'init-whole-line-or-region)
      (require 'init-project)
-     (require 'init-valign)
+     (require 'init-valign) ;; org-mode and markdown-mode
      (require 'init-completion)))
 
 (run-with-idle-timer
