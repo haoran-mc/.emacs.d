@@ -385,7 +385,8 @@
 ;; r C-c r instead C-x r as inaccessible
 
 ;; s for switch
-(lazy-load-set-keys '(("C-c s" . tab-bar-switch-to-tab)))
+(lazy-load-global-keys '(("C-c s" . tab-bar-switch-to-tab))
+                       "init-tab-bar")
 
 ;; t for tab
 (with-eval-after-load 'which-key
