@@ -57,12 +57,7 @@
 
   (set-face-attribute 'org-document-title nil
                       :weight 'normal
-                      :height 1.0)
-
-  (set-face-attribute 'org-link nil
-                      :inherit 'link
-                      :foreground "#2AA1AE"
-                      :weight 'normal))
+                      :height 1.0))
 
 ;; treemacs
 (with-eval-after-load 'treemacs
