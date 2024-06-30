@@ -248,10 +248,10 @@
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c a" "standalone apps"))
-(lazy-load-set-keys '(("C-c a a" . org-agenda)
-                      ("C-c x" . org-capture)
-                      ("C-c d" . (lambda () (interactive)
-                                   (org-agenda nil "T")))))
+(lazy-load-global-keys '(("C-c a a" . org-agenda)
+                         ("C-c x" . org-capture)
+                         ("C-c d" . +org-agenda-T))
+                       "init-org")
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "init-fanyi")
 

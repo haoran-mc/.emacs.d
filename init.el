@@ -115,7 +115,7 @@
      (require 'init-completion)))
 
 (run-with-idle-timer
- 3 nil
+ 2 nil
  #'(lambda () (require 'init-org)))
 
 (if (display-graphic-p)

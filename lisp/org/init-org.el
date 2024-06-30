@@ -160,6 +160,11 @@
                                     ((tags-todo "+PRIORITY=\"A\"")))
                                    ;; ...other commands here
                                    ))
+(defun +org-agenda-T ()
+  "display org-agenda T view, entries withspecial
+TODO kwd."
+  (interactive)
+  (org-agenda nil "T"))
 
 
 (require 'org-capture)
@@ -192,8 +197,8 @@
                               ("e" "emacs")
                               ("et" "emacs todo" entry (file+headline "tasks/emacs.org" "inbox")
                                "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?\n")
-                              ("ec" "emacs capture" plain (file+headline "tasks/emacs.org" "capture")
-                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                              ("ec" "emacs capture" entry (file+headline "tasks/emacs.org" "capture")
+                               "* %<%Y.%m.%d %H:%M %a>\n%?"
                                :prepend t)
                               
 
