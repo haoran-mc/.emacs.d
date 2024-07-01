@@ -3,11 +3,6 @@
 	url = git@github.com:dominikh/go-mode.el.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/lsp-bridge"]
-	path = site-lisp/lsp-bridge
-	url = git@github.com:manateelazycat/lsp-bridge.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
 	url = git@github.com:yoshiki/yaml-mode.git

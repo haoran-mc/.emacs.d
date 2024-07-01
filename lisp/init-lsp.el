@@ -70,6 +70,7 @@
 
 
 ;; lsp-bridge conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path (expand-file-name "~/Documents/emacs/local-packages/lsp-bridge"))
 (defun my/load-lsp-bridge ()
   "Load lsp-bridge if it hasn't been loaded yet."
   (if (featurep 'lsp-bridge)
@@ -79,10 +80,14 @@
       (lsp-bridge-mode 1)))
   (message "major mode is: %s" major-mode))
 
-(setq lsp-bridge-enable-hover-diagnostic t ;; 允许错误悬浮显示
-      acm-enable-quick-access nil          ;; 候选项数字前缀
-      lsp-bridge-enable-mode-line nil      ;; 不在 modeline 中显示信息
-      acm-enable-doc nil                   ;; doc 遮挡代码，影响视线
+(setq lsp-bridge-enable-hover-diagnostic t   ;; 允许错误悬浮显示
+      acm-enable-quick-access nil            ;; 候选项数字前缀
+      lsp-bridge-enable-mode-line nil        ;; 不在 modeline 中显示信息
+      acm-enable-doc nil                     ;; doc 遮挡代码，影响视线
+      lsp-bridge-enable-auto-format-code nil ;; 自动格式化代码
+      lsp-bridge-enable-log nil              ;; 启用 LSP 消息日志，除非开发目的，平常请勿打开以避免影响性能
+      lsp-bridge-enable-debug nil            ;; 启用程序调试，默认关闭
+      
       lsp-bridge-c-lsp-server "clangd")
 
 (dolist (mode-hook '(python-mode-hook
@@ -99,9 +104,14 @@
   (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
   (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
-  (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename) ;; code rename
+  (define-key lsp-bridge-mode-map (kbd "C-c c a") 'lsp-bridge-code-action)
+  (define-key lsp-bridge-mode-map (kbd "C-c c c") 'lsp-bridge-diagnostic-copy)
+  (define-key lsp-bridge-mode-map (kbd "C-c c d") 'lsp-bridge-popup-documentation)
+  (define-key lsp-bridge-mode-map (kbd "C-c c h") 'lsp-bridge-toggle-sdcv-helper)
   (define-key lsp-bridge-mode-map (kbd "C-c c i") 'lsp-bridge-find-impl-other-window)
-  (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit))
+  (define-key lsp-bridge-mode-map (kbd "C-c c l") 'lsp-bridge-diagnostic-list)
+  (define-key lsp-bridge-mode-map (kbd "C-c c q") 'lsp-bridge-ref-quit)
+  (define-key lsp-bridge-mode-map (kbd "C-c c r") 'lsp-bridge-rename)) ;; code rename
 
 
 (provide 'init-lsp)
