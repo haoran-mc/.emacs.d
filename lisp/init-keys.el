@@ -335,8 +335,9 @@
                         org-mode-map
                         "org-insert"))
 
-(lazy-load-set-keys '(("C-c j" . avy-goto-line-below)
-                      ("C-c k" . avy-goto-line-above)))
+(lazy-load-global-keys '(("C-c j" . avy-goto-line-below)
+                         ("C-c k" . avy-goto-line-above))
+                       "init-avy")
 
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")

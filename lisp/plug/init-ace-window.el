@@ -22,6 +22,8 @@
 ;;
 
 ;;; Require:
+(require 'init-avy) ;; 依赖 avy，所以要提前导入 init-avy
+                    ;; 否则如果使用 ace-window 先于 avy，init-avy 中的配置失效
 (require 'ace-window)
 (require 'ace-window-posframe)
 
