@@ -42,22 +42,24 @@
                            ("go"       . go)
                            ("plantuml" . plantuml)
                            ("sql"      . sql)
-                           ("python"   . python))
-      org-babel-load-languages '((C          . t) ;; 哪些代码块可以在 org 中运行
-                                 (dot        . t)
-                                 (emacs-lisp . t)
-                                 (eshell     . t)
-                                 (python     . t)
-                                 (shell      . t)
-                                 (go         . t)
-                                 (plantuml   . t)
-                                 (jupyter    . t)
-                                 (sql        . t)))
+                           ("python"   . python)))
+
+(org-babel-do-load-languages 'org-babel-load-languages ;; 哪些代码块可以在 org 中运行
+                             '((C          . t)
+                               (dot        . t)
+                               (emacs-lisp . t)
+                               (eshell     . t)
+                               (python     . t)
+                               (shell      . t)
+                               (go         . t)
+                               (plantuml   . t)
+                               (jupyter    . t)
+                               (sql        . t)))
 
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 
+;; (add-hook org-babel-after-execute-hook 'org-redisplay-inline-images)
 
-(add-hook org-babel-after-execute-hook 'org-redisplay-inline-images)
 
 (require 'ob-go)
 

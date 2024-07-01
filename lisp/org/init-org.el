@@ -232,9 +232,11 @@ TODO kwd."
 
 (require 'init-ox)
 
-(require 'init-org-appear)
+(require 'init-plantuml) ;; should require before org-src
 
-(require 'init-plantuml)
+(require 'init-org-src)
+
+(require 'init-org-appear)
 
 (require 'init-site)
 
