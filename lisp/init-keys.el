@@ -186,6 +186,8 @@
                          ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
                        "cursormove")
 
+(lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
+
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
@@ -321,25 +323,27 @@
  (kbd "C-c h")
  (defhydra hydra-highlight (:body-pre (require 'hi-lock)
                                       :color blue :quit-key ("q" "C-g"))
-   ("p" highlight-phrase "phrase" :column "highlight" :exit t)
+   ("p" highlight-phrase "phrase" :exit t :column "highlight")
    ("r" highlight-regexp "regexp" :exit t)
    ("u" unhighlight-regexp "unregexp" :exit t)))
 
 ;; i for insert
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
-    "C-c g" "git"))
-(lazy-load-global-keys '(("C-c i t" . hl-todo-insert)) "hl-todo")
-;; org-mode-map
-(with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c i !" . (lambda () (interactive) (org-time-stamp-inactive '(16)))))
-                      org-mode-map)
+    "C-c i" "insert"))
+(defhydra hydra-insert (:body-pre (require 'init-hl-todo)
+                                  :color blue)
+  ("t" hl-todo-insert "todo insert" :column "insert"))
+(lazy-load-set-keys '(("C-c i" . hydra-insert/body)))
 
-  (lazy-load-local-keys '(("C-c i l" . vanilla/dwim-create-link-with-datetime)
-                          ("C-c i i" . vanilla/org-insert-image)
-                          ("C-c i s" . vanilla/org-insert-image-with-timestamp))
-                        org-mode-map
-                        "org-insert"))
+(with-eval-after-load 'org
+  (defhydra hydra-org-insert (:body-pre (require 'org-insert)
+                                        :color blue)
+    ("!" vanilla/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
+    ("l" vanilla/dwim-create-link-with-datetime "datetime link" :exit t)
+    ("i" vanilla/org-insert-image "image with name" :exit t)
+    ("s" vanilla/org-insert-image "image with time" :exit t))
+  (lazy-load-local-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map ""))
 
 (lazy-load-global-keys '(("C-c j" . avy-goto-line-below)
                          ("C-c k" . avy-goto-line-above))
@@ -348,6 +352,7 @@
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")
 
+;; l for literate-calc
 ;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
 ;; a = 140 * 12 => a: 1,680
 (with-eval-after-load 'which-key
@@ -418,6 +423,9 @@
                       ("C-c y C-v" . yas-visit-snippet-file)))
 
 ;; z for folding unify with vim
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c z" "folding"))
 ;; zm hide-all
 ;; zr show-all
 ;; za toggle-fold

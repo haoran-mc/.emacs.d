@@ -26,6 +26,12 @@
 
 
 ;;;###autoload
+(defun vanilla/org-insert-stamp-inactive ()
+  "insert an inactive stamp time."
+  (interactive)
+  (org-time-stamp-inactive '(16)))
+
+;;;###autoload
 (defun vanilla/org-insert-image ()
   "insert a image from clipboard"
   (interactive)

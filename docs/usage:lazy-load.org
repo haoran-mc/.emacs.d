@@ -1,5 +1,5 @@
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#+TITLE: 5.LAZY LOAD
+#+TITLE: lazy-load
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-05-27 11:05 Mon
@@ -27,3 +27,13 @@
   #+end_src
 
   with-eval-after-load or eval-after-load
+
+
+* 一个有意思的错误 load 顺序
+#+begin_src elisp
+  (defhydra hydra-insert (:color blue) ("t" hl-todo-insert "todo insert"))
+
+  (lazy-load-global-keys '(("C-c i" . hydra-insert/body)) "init-hl-todo")
+#+end_src
+
+设想的是按下 "C-c i" 后加载 "init-hl-todo"，但是因为能够发现 hydra-insert/body 这个函数，所以就不去 load "init-hl-todo" 了，在按下 t 后报出没有发现 hl-todo-insert 这个函数。
