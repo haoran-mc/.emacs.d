@@ -31,6 +31,24 @@
 
 ;;; Code:
 
+;; font-lock-comment-face:              #96A7A9
+;; font-lock-constant-face:             #6c71c4
+;; font-lock-builtin-face:              #d33682
+;; font-lock-string-face:               #2aa198
+;; font-lock-type-face:                 #b58900
+;; font-lock-keyword-face:              #859900
+;; font-lock-function-name-face:        #b58900
+;; font-lock-variable-name-face:        #268bd2
+;; font-lock-doc-face:                  #35a69c
+;; font-lock-preprocessor-face:         #268bd2 预处理 #define
+;; font-lock-regexp-grouping-construct: #268bd2 正则中的分组 []
+;; font-lock-regexp-grouping-backslash: #268bd2 正则中的转义 \w
+;; font-lock-negation-char-face:        #268bd2 正则中的取反 !
+;; font-lock-comment-delimiter-face:    unspecified 注释符
+;; font-lock-doc-markup-face:           unspecified
+;; font-lock-warning-face:              unspecified
+
+
 (set-face-attribute 'font-lock-comment-face nil
                     :italic nil)
 
@@ -94,10 +112,25 @@
   ;; (set-face-attribute 'meow-insert-cursor nil :background "#014f39")
   ;; (set-face-attribute 'meow-normal-cursor nil :background "#9b034c")
   ;; (set-face-attribute 'meow-motion-cursor nil :background "#035063")
-  (set-face-attribute 'meow-keypad-indicator nil :foreground "#801717" :background "#FF6666")
-  (set-face-attribute 'meow-insert-indicator nil :foreground "#309030" :background "#AAE9A0")
-  (set-face-attribute 'meow-normal-indicator nil :foreground "#6F5033" :background "#FFEE99")
-  (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE"))
+  (set-face-attribute 'meow-keypad-indicator nil
+                      :foreground "#801717"
+                      :background "#FF6666"
+                      :box '(:line-width -1 :color "#801717"))
+
+  (set-face-attribute 'meow-insert-indicator nil
+                      :foreground "#309030"
+                      :background "#AAE9A0"
+                      :box '(:line-width -1 :color "#309030"))
+
+  (set-face-attribute 'meow-normal-indicator nil
+                      :foreground "#6F5033"
+                      :background "#FFEE99"
+                      :box '(:line-width -1 :color "#6F5033"))
+
+  (set-face-attribute 'meow-motion-indicator nil
+                      :foreground "#505090"
+                      :background "#AACCEE"
+                      :box '(:line-width -1 :color "#505090")))
 
 
 ;; diff-hl
