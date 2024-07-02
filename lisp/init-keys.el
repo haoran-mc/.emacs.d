@@ -186,8 +186,6 @@
                          ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
                        "cursormove")
 
-;; highlight-regexp
-;; unhighlight-regexp
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
@@ -314,6 +312,18 @@
     ("s" diff-hl-stage-current-hunk "stage hunk")
     ("d" diff-hl-diff-goto-hunk "diff hunk"))))
 (lazy-load-set-keys '(("C-c g" . hydra-git/body)))
+
+;; h for highlight
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements
+    "C-c h" "highlight"))
+(global-set-key
+ (kbd "C-c h")
+ (defhydra hydra-highlight (:body-pre (require 'hi-lock)
+                                      :color blue :quit-key ("q" "C-g"))
+   ("p" highlight-phrase "phrase" :column "highlight" :exit t)
+   ("r" highlight-regexp "regexp" :exit t)
+   ("u" unhighlight-regexp "unregexp" :exit t)))
 
 ;; i for insert
 (with-eval-after-load 'which-key
