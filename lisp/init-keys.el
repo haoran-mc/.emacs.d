@@ -100,9 +100,8 @@
                          ("C-\\ _" . split-window-vertically-instead))
                        "windowop")
 
-(lazy-load-global-keys '(("C-\\ x" . ace-swap-window)
-                         ("C-\\ d" . ace-delete-window))
-                       "init-ace-window")
+(lazy-load-set-keys '(("C-\\ x" . ace-swap-window)
+                      ("C-\\ d" . ace-delete-window)))
 
 
 ;; ----------------------------------
@@ -187,9 +186,6 @@
                          ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
                        "cursormove")
 
-(lazy-load-global-keys '(("M-o" . ace-window)) "init-ace-window") ;; undefined
-
-;; highlight-phrase
 ;; highlight-regexp
 ;; unhighlight-regexp
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")

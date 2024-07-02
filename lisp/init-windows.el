@@ -26,8 +26,31 @@
 
 
 ;; ace-window ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(require 'init-avy) ;; 依赖 avy，所以要提前导入 init-avy
+                    ;; 否则如果使用 ace-window 先于 avy，init-avy 中的配置失效
+(require 'ace-window)
+(require 'ace-window-posframe)
 
+
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
+      aw-background nil)
+
+(ace-window-posframe-enable)
+
+(set-face-attribute 'aw-leading-char-face nil
+                    :inherit 'font-lock-keyword-face
+                    :foreground 'unspecified
+                    :weight 'bold
+                    :height 3.0)
+
+(set-face-attribute 'aw-minibuffer-leading-char-face nil
+                    :inherit 'font-lock-keyword-face
+                    :weight 'bold
+                    :height 1.0)
+
+(set-face-attribute 'aw-mode-line-face nil
+                    :inherit 'mode-line-emphasis
+                    :weight 'bold)
 
 
 (setq display-buffer-alist
