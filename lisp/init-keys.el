@@ -392,15 +392,15 @@
 ;; r C-c r instead C-x r as inaccessible
 
 ;; s for switch
-(lazy-load-global-keys '(("C-c s" . tab-bar-switch-to-tab))
+(lazy-load-global-keys '(("C-c s" . vanilla/tab-bar-switch-to-tab))
                        "init-tab-bar")
 
 ;; t for tab
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c t" "tab-bar"))
-(lazy-load-global-keys '(("C-c t n" . vanilla/create-new-tab-bar)
-                         ("C-c t c" . tab-bar-close-tab)
+(lazy-load-global-keys '(("C-c t c" . tab-bar-close-tab)
+                         ;; ("C-c t n" . vanilla/create-new-tab-bar) deprecated
                          ("C-c t r" . tab-bar-rename-tab))
                        "init-tab-bar")
 

@@ -118,15 +118,6 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
-
-;;;###autoload
-(defun vanilla/create-new-tab-bar ()
-  "Create a new tab bar and switch dashboard."
-  (interactive)
-  (tab-bar-new-tab)
-  (vanilla/create-scratch-buffer)
-  (tab-bar-rename-tab "xxx"))
-
 ;;;###autoload
 (defun vanilla/create-scratch-buffer ()
   "Create a scratch buffer."

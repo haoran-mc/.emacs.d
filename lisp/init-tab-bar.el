@@ -35,7 +35,33 @@
       tab-bar-format '(tab-bar-format-tabs tab-bar-separator)
       tab-bar-new-tab-to 'rightmost)
 
-(require 'basic-tookit)
+
+(require 'basic-tookit) ;; create scratch buffer
+
+;; (defun vanilla/create-new-tab-bar ()
+;;   "Create a new tab bar and switch dashboard."
+;;   (interactive)
+;;   (tab-bar-new-tab)
+;;   (vanilla/create-scratch-buffer)
+;;   (tab-bar-rename-tab "xxx"))
+
+(defun vanilla/tab-bar-switch-to-tab (name)
+  "Switch to the tab by NAME.
+If NAME does not exist among current tabs, create a new tab with NAME."
+  (interactive
+   (let* ((recent-tabs (mapcar (lambda (tab)
+                                 (alist-get 'name tab))
+                               (tab-bar--tabs-recent))))
+     (list (completing-read (format-prompt "Switch to tab by name: "
+                                           (car recent-tabs))
+                            recent-tabs nil nil nil nil recent-tabs))))
+  (let ((tab-index (tab-bar--tab-index-by-name name)))
+    (if tab-index
+        (tab-bar-select-tab (1+ tab-index)) ;; 已有
+      (progn ;; 新建 tab-bar-new-tab 和 tab-new 的区别
+        (tab-bar-new-tab)
+        (vanilla/create-scratch-buffer)
+        (tab-bar-rename-tab name)))))
 
 
 (provide 'init-tab-bar)
