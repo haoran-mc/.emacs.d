@@ -32,8 +32,8 @@
       ;; gcmh-verbose t
       gcmh-high-cons-threshold #x12c00000) ;; 100MB
 
-;; (+ (* 300 1024 1024) 0)
-;;=> 314572800
+;; (+ (* 500 1024 1024) 0)
+;;=> 524288000
 
 
 (provide 'init-gc)
