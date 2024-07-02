@@ -1,5 +1,5 @@
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#+TITLE: 6.MEOW EDITING
+#+TITLE: meow editing
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-06-12 12:06 Wed

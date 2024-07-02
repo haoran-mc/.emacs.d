@@ -29,8 +29,8 @@
 (require 'treemacs-hydras)
 
 (require 'cfrs)
-(require 'init-ace-window)
-(require 'init-hydra)
+
+;; ace-window, hydra
 
 ;;; Code:
 

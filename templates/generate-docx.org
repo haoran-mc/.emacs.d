@@ -37,6 +37,11 @@ First Paragraph.
 
 3. press TAB or RET create table line
 
+| name | tel | age |
+|------+-----+-----|
+| name | tel | age |
+|      |     |     |
+
 * Link
 - Link with description [[https://github.com/haoran-mc/.emacs.d/tree/main/templates/generate-docx.org][The org file to get pandoc docx template]]
 

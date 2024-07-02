@@ -8,7 +8,7 @@
 • manage my tables with excel
 
 • 操作系统
-• sql, gorm, postgres, clickhouse
+• continue sql, gorm, postgres, clickhouse
 • python 100 days
 • linux-tutorial
 • docker
@@ -18,14 +18,11 @@
 • algorithm
 • elisp
   • autoload
-  • site
-  • ace-window, treemacs, hydra
-  • https://github.com/syl20bnr/spacemacs/issues/12009
+  • 函数式编程（Elisp）
 
 • 浏览器
 • zhihu
 • bilibili
-• readme && script
 
 read:
 lalaland
