@@ -63,11 +63,6 @@
 	url = git@github.com:integral-dw/org-superstar-mode.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/ob-go"]
-	path = site-lisp/ob-go
-	url = git@github.com:pope/ob-go.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/org-appear"]
 	path = site-lisp/org-appear
 	url = git@github.com:awth13/org-appear.git

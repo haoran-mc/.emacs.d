@@ -39,7 +39,6 @@
                            ("elisp"    . emacs-lisp)
                            ("ocaml"    . tuareg)
                            ("shell"    . sh)
-                           ("go"       . go)
                            ("plantuml" . plantuml)
                            ("sql"      . sql)
                            ("python"   . python)))
@@ -51,17 +50,12 @@
                                (eshell     . t)
                                (python     . t)
                                (shell      . t)
-                               (go         . t)
                                (plantuml   . t)
-                               (jupyter    . t)
                                (sql        . t)))
 
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 
 ;; (add-hook org-babel-after-execute-hook 'org-redisplay-inline-images)
-
-
-(require 'ob-go)
 
 
 (provide 'init-org-src)
