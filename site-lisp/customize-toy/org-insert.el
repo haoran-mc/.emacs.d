@@ -50,8 +50,7 @@
     (org-insert-link nil
                      (concat "file:" image-file)
                      "")
-    (message image-file))
-  (org-display-inline-images))
+    (message image-file)))
 
 ;;;###autoload
 (defun vanilla/org-insert-image-with-timestamp ()
@@ -71,8 +70,7 @@ assigned to current time timestamp, image only support png type"
                      "write png_data to the_file \n"
                      "close access the_file"))
     (org-insert-link nil (concat "file:" image-file) "")
-    (message image-file))
-  (org-display-inline-images))
+    (message image-file)))
 
 ;;;###autoload
 (defun vanilla/dwim-create-link-with-datetime ()
