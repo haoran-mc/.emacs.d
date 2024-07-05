@@ -19,12 +19,35 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
-;;; Code:
-
+;;; Require:
 (require 'mwim)
+
+
+;;; Code:
+(global-unset-key (kbd "C-SPC"))
+
+(defun my-DEL-meow-delete (N)
+  "Delete region when region is active, otherwise delete N characters.
+If `meow--temp-normal` is non-nil, switch to motion state first."
+  (interactive "p")  ;; "p" means to read a prefix argument (N)
+  (if meow--temp-normal
+      (progn
+        (message "Quit temporary normal mode")
+        (meow--switch-state 'motion))
+    (if (use-region-p)
+        (delete-region (region-beginning) (region-end))
+      (backward-delete-char-untabify 1))))
+(global-set-key (kbd "DEL") #'my-DEL-meow-delete)
+
+(defun my/meow-save-buffer-if-w ()
+  "Prompt the user for a string and save the buffer if the string is 'w'."
+  (interactive)
+  (let ((input (read-string "Enter a string: ")))
+    (when (string-equal input "w")
+      (save-buffer)
+      (message "Wrote %s" (buffer-file-name)))))
 
 (defun my-a-meow-append ()
   "Move to the end of selection, switch to INSERT state."
@@ -85,29 +108,16 @@
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+
   (meow-motion-overwrite-define-key
-   '("j" . meow-next)
-   '("k" . meow-prev)
    '("<escape>" . ignore))
-  (meow-leader-define-key
-   ;; SPC j/k will run the original command in MOTION state.
-   ;; '("j" . "H-j")
-   ;; '("k" . "H-k")
-   ;; Use SPC (0-9) for digit arguments.
-   '("1" . meow-digit-argument)
-   '("2" . meow-digit-argument)
-   '("3" . meow-digit-argument)
-   '("4" . meow-digit-argument)
-   '("5" . meow-digit-argument)
-   '("6" . meow-digit-argument)
-   '("7" . meow-digit-argument)
-   '("8" . meow-digit-argument)
-   '("9" . meow-digit-argument)
-   '("0" . meow-digit-argument)
-   '("/" . meow-keypad-describe-key)
-   '("?" . meow-cheatsheet))
+
+  ;; No set Leader keys.
+  (meow-leader-define-key)
+
   (meow-normal-define-key
-   '("0" . mwim-beginning-of-line-or-code)
+   ;; expand by numbers
+   '("0" . meow-expand-0)
    '("9" . meow-expand-9)
    '("8" . meow-expand-8)
    '("7" . meow-expand-7)
@@ -117,59 +127,78 @@
    '("3" . meow-expand-3)
    '("2" . meow-expand-2)
    '("1" . meow-expand-1)
+
    '("-" . negative-argument)
-   '(":" . execute-extended-command)
+   '(":" . my/meow-save-buffer-if-w)
    '(";" . repeat)
-   '("," . meow-inner-of-thing)
-   '("." . meow-bounds-of-thing)
-   '("[" . meow-beginning-of-thing)
-   '("]" . meow-end-of-thing)
-   '("a" . my-a-meow-append)
-   '("A" . my-A-meow-append)
-   '("b" . meow-back-word)
-   '("B" . meow-back-symbol)
-   '("c" . meow-change)
-   '("C" . my-C-meow-change)
-   '("d" . meow-kill) ;; ctrl+k vanilla/smart-kill-line
-   '("e" . meow-next-word)
-   '("E" . meow-next-symbol)
-   '("f" . meow-find)
-   '("F" . my-F-meow-find)
-   '("g" . meow-cancel-selection)
-   '("G" . meow-grab)
+   '("?" . meow-cheatsheet)
+
+   ;; movement, like hjkl
    '("h" . meow-left)
    '("H" . meow-left-expand)
-   '("i" . meow-insert)
-   '("I" . my-I-meow-insert)
    '("j" . meow-next)
    '("J" . meow-next-expand)
    '("k" . meow-prev)
    '("K" . meow-prev-expand)
    '("l" . meow-right)
    '("L" . meow-right-expand)
-   ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
-   '("n" . meow-search)
-   '("o" . meow-block)
-   '("O" . meow-to-block)
+
+   ;; insert
+   '("a" . my-a-meow-append)
+   '("A" . my-A-meow-append)
+   '("i" . meow-insert)
+   '("I" . my-I-meow-insert)
+
+   ;; yank/pop
+   '("y" . meow-save) ;; M-w cancel the selection, but y not.
    '("p" . meow-yank)
-   '("q" . meow-quit)
+
+   ;; kill/delete/change/replace
+   '("d" . meow-kill) ;; C-w kill
+   '("D" . meow-kill-whole-line) ;; C-w whole-line-or-region-kill-region
+   '("s" . meow-delete)
+   '("c" . meow-change)
+   '("C" . my-C-meow-change)
    '("r" . my-r-meow-replace)
    '("R" . meow-replace) ;; meow-swap-grap
-   '("s" . meow-delete)
+
+   ;; find/till/visit/search, most used in beacon mode
+   '("f" . meow-find)
+   '("F" . my-F-meow-find)
    '("t" . meow-till) ;; far and useless
    '("T" . my-T-meow-till)
-   ;; '("u" . meow-undo) ;; just use C-/
-   '("U" . meow-undo-in-selection)
-   '("v" . meow-visit)
+   ;; '("v" . meow-visit)
+   '("/" . meow-visit)
+   '("n" . meow-search)
+
+   ;; mark
    '("w" . meow-mark-word)
    '("W" . meow-mark-symbol)
+   '("e" . meow-next-word)
+   '("E" . meow-next-symbol)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
    '("x" . meow-line)
    '("X" . meow-goto-line)
-   '("y" . meow-save) ;; M-w cancel the selection, but y not.
+   '("o" . meow-block)
+   '("O" . meow-to-block)
+
+   ;; thing
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("<" . meow-beginning-of-thing)
+   '(">" . meow-end-of-thing)
+
+   ;; grab [TODO]
+   '("G" . meow-grab)
    ;; '("Y" . meow-sync-grab)
+
+   ;; '("u" . meow-undo) ;; just use C-/
+   ;; '("U" . meow-undo-in-selection)
+   ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
+   '("g" . meow-cancel-selection)
+   '("q" . meow-quit)
    '("z" . meow-reverse) ;; meow-pop-selection
-   ;; '("'" . repeat)
-   ;; '("/" . meow-visit)
    '("<escape>" . ignore)))
 
 (require 'meow)
@@ -180,14 +209,21 @@
 (define-key meow-insert-state-keymap [control-bracketleft] 'meow-insert-exit)
 
 
+(meow-thing-register 'angle '(pair ("<") (">")) '(pair ("<") (">")))
+(meow-thing-register 'backquote '(regexp "`" "`") '(regexp "`" "`"))
+
 (setq meow-use-clipboard t
-      meow-char-thing-table '((?( . round)  ;; (
-                                (?) . round)  ;; )
-                              (?[ . square) ;; [
-                                (?] . square) ;; ]
-                              (?{ . curly)  ;; {
-                              (?} . curly)  ;; }
-                              (?g . string)
+      meow-char-thing-table '((?\( . round)  ;; (
+                              (?\) . round)  ;; )
+                              (?\[ . square) ;; [
+                              (?\] . square) ;; ]
+                              (?{ . curly)   ;; {
+                              (?} . curly)   ;; }
+                              (?< . angle)   ;; }
+                              (?> . angle)   ;; }
+                              (?\" . string)
+                              (?' . string)
+                              (?` . backquote)
                               (?e . symbol)
                               (?w . window)
                               (?b . buffer)
@@ -196,36 +232,44 @@
                               (?v . visual-line)
                               (?f . defun)
                               (?. . sentence))
-      meow-expand-hint-counts '((word . 0)
-                                (line . 0)
-                                (block . 0)
-                                (find . 0)
-                                (till . 0)))
+      meow-expand-hint-counts '((word . 9)
+                                (line . 9)
+                                (block . 9)
+                                (find . 9)
+                                (till . 9))
+      meow-expand-hint-remove-delay 7
+      meow-esc-delay 0.001)
 
 (setq meow-mode-state-list
       (append meow-mode-state-list
               '((lsp-bridge-ref-mode . insert)
-                (magit-status-mode . insert))))
-
+                (magit-status-mode . insert)
+                (vundo-mode . insert)
+                (messages-buffer-mode . normal)
+                (eshell-mode . insert))))
 
 (meow-global-mode 1)
 
 
-(require 'open-newline)
-(defun meow-switch-insert-with-arg-advice (arg)
-  "Enter insert mode after opening a new row."
-  (meow--switch-state 'insert))
+(with-eval-after-load 'which-key
+  (which-key-add-key-based-replacements "C-c 0" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 1" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 2" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 3" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 4" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 5" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 6" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 7" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 8" "digit-arg")
+  (which-key-add-key-based-replacements "C-c 9" "digit-arg"))
 
-(advice-add 'open-newline-below :after 'meow-switch-insert-with-arg-advice)
-(advice-add 'open-newline-above :after 'meow-switch-insert-with-arg-advice)
-;; (advice-add 'set-mark-command :before 'meow-switch-insert-with-arg-advice)
+(with-eval-after-load 'open-newline
+  (defun meow-switch-insert-with-arg-advice (arg)
+    "Enter insert mode after opening a new row."
+    (meow--switch-state 'insert))
 
-
-;;;###autoload
-(defun w ()
-  "save current buffer (vim ':w' command)"
-  (interactive)
-  (save-buffer))
+  (advice-add 'open-newline-below :after 'meow-switch-insert-with-arg-advice)
+  (advice-add 'open-newline-above :after 'meow-switch-insert-with-arg-advice))
 
 
 (provide 'init-meow)

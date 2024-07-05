@@ -12,5 +12,16 @@
 * 键的设定
 不使用 meow 的 keypad。
 
+一些内置键无法被 unset，比如
+
+#+begin_src elisp
+  ;; (global-unset-key (kbd "C-k")) ;; meow-kill
+  ;; (global-unset-key (kbd "M-w")) ;; meow-save
+  ;; (global-unset-key (kbd "C-w")) ;; meow-delete
+  ;; (global-unset-key (kbd "C-y")) ;; meow-yank,
+#+end_src
+
+这样将导致 meow 的键失效。
+
 * COMMENT deprecated packages
 - cursor-chg

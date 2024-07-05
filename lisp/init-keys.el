@@ -37,7 +37,6 @@
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         "C-t" ;; transpose-chars
-                        "C-SPC" ;; always use meow
                         ))
 
 
@@ -65,8 +64,7 @@
                       ("C-h C-v" . find-variable)
                       ("C-h C-k" . find-function-on-key)))
 
-(lazy-load-global-keys '(("C-j" . vanilla/merge-line-down) ;; electric-newline-and-maybe-indent
-                         ("C-k" . vanilla/smart-kill-line))
+(lazy-load-global-keys '(("C-j" . vanilla/merge-line-down)) ;; electric-newline-and-maybe-indent
                        "basic-tookit")
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map))
