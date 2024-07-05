@@ -28,12 +28,18 @@
 
 (add-hook 'org-mode-hook #'+xah-show-formfeed-as-line)
 
-(defface org-bold '((t :weight normal
-                       :foreground "purple" ;; light color
-                       :underline (:color "red" :style line)
-                       :overline nil))
-  "Face for org-mode bold."
-  :group 'org-faces)
+(defun my/set-org-bold-face-based-on-theme ()
+  (let* ((bg-mode (frame-parameter nil 'background-mode))
+         (purple-color (if (eq bg-mode 'dark) "plum" "purple"))
+         (underline-color (if (eq bg-mode 'dark) "yellow" "red")))
+    (defface org-bold `((t :weight normal
+                           :foreground ,purple-color
+                           :underline (:color ,underline-color :style line)
+                           :overline nil))
+      "Face for org-mode bold."
+      :group 'org-faces)))
+
+(my/set-org-bold-face-based-on-theme)
 
 (setq org-directory ran--org-directory
       org-default-notes-file (expand-file-name "notes.org" org-directory)

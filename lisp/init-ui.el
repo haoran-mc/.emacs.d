@@ -50,8 +50,7 @@
         'doom-monokai-pro ;; ripgrep highlight bad
         'doom-acario-light ;; comment not obvious
         'doom-acario-dark ;; bad org-link
-        'doom-Iosvkem ;; bad highlight-thing
-        ))
+        'doom-Iosvkem)) ;; bad highlight-thing
 
 (defun random-choice (items)
   "Random choice in ITEMS."
@@ -80,15 +79,11 @@
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'doom-themes)
-(setq doom-themes-treemacs-theme "doom-colors"
-      doom-themes-enable-bold nil
-      doom-themes-enable-italic t)
+(setq doom-themes-enable-bold nil
+      doom-themes-enable-italic nil)
 
-(require 'doom-themes-ext-treemacs)
 (require 'doom-themes-ext-org)
-(doom-themes-treemacs-config)
 (doom-themes-org-config)
-
 
 ;; nano
 ;; (require 'nano)
@@ -104,15 +99,9 @@
 ;; (require 'painting-theme)
 
 
-(if (eq system-type 'gnu/linux)
-    (+load-theme-from-selected)
-  ;; (load-theme 'doom-solarized-dark-high-contrast t)
-  (load-theme 'doom-solarized-light t)
-  ;; (+load-theme-from-selected)
-  ;; (load-theme 'painting t)
-  ;; (load-theme 'spacemacs-dark t)
-  ;; (require 'nano)
-  )
+;; (+load-theme-from-selected)
+;; (load-theme 'doom-solarized-light t)
+(load-theme 'doom-old-hope t)
 
 
 ;; 当前窗口透明度 (活动区 非活动区)

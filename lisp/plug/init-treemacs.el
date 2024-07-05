@@ -30,6 +30,11 @@
 
 (require 'cfrs)
 
+(require 'doom-themes-ext-treemacs)
+(with-eval-after-load 'doom-themes
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config))
+
 ;; ace-window, hydra
 
 ;;; Code:

@@ -49,9 +49,9 @@
                               (-concat
                                (-take 2 rpaths)
                                (->> (-drop 2 rpaths)
-                                  (--map (if (> (length it) 1)
-                                             (substring it 0 1)
-                                           it))))))
+                                    (--map (if (> (length it) 1)
+                                               (substring it 0 1)
+                                             it))))))
                    "/"))))
 
 (defun +smart-file-name ()
@@ -77,13 +77,19 @@ This function is slow, so we have to use cache."
 (setq mode-line-misc-info (cdr mode-line-misc-info))
 
 (defun +format-mode-line ()
-  (let* ((lhs '((:eval (propertize " ❯ " 'face '(:foreground "red")))
+  (let* ((bg-mode (frame-parameter nil 'background-mode))
+         (arrow-color (if (eq bg-mode 'light) "red" "#FEDD38"))
+         (vc-color (if (eq bg-mode 'light) "#859901" "#556b2f"))
+         (mode-color (if (eq bg-mode 'light) "#258BD2" "#258BD2"))
+         (bottom-color (if (eq bg-mode 'light) "#D33682" "#4FB3D8"))
+         (lhs `((:eval (propertize " ❯ " 'face '(:foreground ,arrow-color)))
                 (:eval (when (fboundp 'rime-lighter) (rime-lighter)))
                 (:eval (when (bound-and-true-p meow-mode) (meow-indicator)))
+                " "
                 ;; TODO check the length of file-name
                 (:eval (let ((file-name (+smart-file-name-cached)))
                          (if (and buffer-file-name (buffer-modified-p))
-                             (propertize file-name 'face '(:foreground "red"))
+                             (propertize file-name 'face '(:foreground ,arrow-color))
 			               file-name)))
                 " "
                 (:eval (when (> (window-width) 90)
@@ -91,17 +97,15 @@ This function is slow, so we have to use cache."
                            (when vc-mode-value
                              (setq vc-mode-string (propertize
                                                    (string-trim vc-mode-value)
-                                                   'face '(:foreground "#859901"))))))
-                       )))
-         (rhs '((:eval (when (> (window-width) 120)
+                                                   'face '(:foreground ,vc-color)))))))))
+         (rhs `((:eval (when (> (window-width) 120)
                          mode-line-misc-info)) ;; with blank
                 (:eval (when (and (> (window-width) 90) (stringp mode-name))
                          (propertize
                           (format "%s " (string-trim mode-name))
-                          'face '(:foreground "#258BD2"))))
+                          'face '(:foreground ,mode-color))))
                 (:eval (propertize "[%l:%c] " 'face 'font-lock-constant-face))
-                (:eval (propertize "%p" 'face 'font-lock-builtin-face))
-                ))
+                (:eval (propertize "%p" 'face '(:foreground ,bottom-color))))) ;; Top、Bottom
          (ww (window-width))
          (lhs-str (format-mode-line lhs))
          (rhs-str (format-mode-line rhs))
