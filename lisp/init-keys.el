@@ -168,7 +168,7 @@
 
 (lazy-load-global-keys '(("M-e" . er/expand-region) ;; like M-a confusing sentence ending
                          ("M--" . er/contract-region))
-                       "init-expand-region")
+                       "expand-region")
 
 (lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
 
@@ -247,7 +247,7 @@
                          ("C-c d" . +org-agenda-T))
                        "init-org")
 
-(lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "init-fanyi")
+(lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "fanyi")
 
 
 ;; b for buffer, bookmark
