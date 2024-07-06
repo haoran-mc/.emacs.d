@@ -92,11 +92,11 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'css-mode "lang-css")
 (autoload 'web-mode "lang-web")
 
+(autoload 'xml-mode "lang-xml")
+(autoload 'json-mode "lang-json")
+(autoload 'toml-mode "lang-toml")
+(autoload 'yaml-mode "lang-yaml")
 ;; 一些配置语言 require 加载，因为会使用 buffer，然后手动开启 sql-mode
-(require 'lang-xml)
-(require 'lang-json)
-(require 'lang-toml)
-(require 'lang-yaml)
 (require 'lang-sql)
 
 (require 'lang-elisp)

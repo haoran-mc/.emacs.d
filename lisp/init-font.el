@@ -86,10 +86,5 @@
 (global-set-key (kbd "s--") #'+smaller-font)
 
 
-(require 'init-ligature)
-;; use hyphenated font
-
-
-
 (provide 'init-font)
 ;;; init-font.el ends here
