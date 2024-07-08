@@ -21,13 +21,15 @@
 ;;; Commentary:
 ;;
 
-;;; Code:
-
+;;; Require:
 ;; remember-init
 (require 'basic-tookit)
 
 ;; Mode association (autoload python-mode for *.py files)
-(require 'python) ;; BUILT-IN
+(require 'python)
+
+
+;;; Code:
 
 ;; Initialization
 (defun +python-mode-delete-trailing-whitespace ()
@@ -56,12 +58,14 @@
            (compilation-ask-about-save nil))
       (executable-interpret (read-shell-command "Run: " command)))))
 
+
 ;; binding keys
 (define-key python-mode-map (kbd "C-S-j") 'lazycat/jump-to-import)
 (define-key python-mode-map (kbd "C-c C-c") 'python/run-current-file)
 
 ;; error when open org
 ;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
+
 
 ;; Configuration
 ;; Default to Python 3. Prefer the versioned Python binaries since some
@@ -72,25 +76,13 @@
 
 (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
 
+
 ;; Customization
 (setq python-indent-guess-indent-offset-verbose nil)
 
+
 ;; Hook
 ;; (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
-
-
-;; (use-package jupyter
-;;   :ensure t)
-;;
-;; ;; Live Coding in Python
-;; (use-package live-py-mode
-;;   :ensure t
-;;   :defer t)
-;;
-;; ;; python -m venv ENV_DIR
-;; (use-package pyvenv
-;;   :ensure t
-;;   :commands pyvenv-deactivate pyvenv-deactivate)
 
 
 (provide 'lang-python)

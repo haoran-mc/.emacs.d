@@ -19,19 +19,26 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
+
+;;; Require:
+(require 'json-mode)
+
 
 ;;; Code:
 
-(require 'json-mode)
+;; C-c C-f json-mode-beautify
+;; C-c C-k json-mode-kill-path
+;; C-c C-p json-mode-show-path
+;; C-c C-i json-increment-number-at-point
+;; C-c C-d json-decrement-number-at-point
 
-;; unified format management by reformatter
-;; (define-key json-mode-map (kbd "C-.") 'json-mode-beautify)
+
 
 ;; (make-local-variable 'js-indent-level)
 ;; https://stackoverflow.com/a/24668842/14093697
 ;; (setq js-indent-level 2)
+
 
 (provide 'lang-json)
 ;;; lang-json.el ends here

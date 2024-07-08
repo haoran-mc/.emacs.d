@@ -76,7 +76,7 @@ _h_   _l_   _o_k        _y_ank
 
 
 ;; major-mode-hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun +toggle-rainbow-mode ()
+(defun my/toggle-rainbow-mode ()
   "Toggle rainbow mode."
   (interactive)
   (if (featurep 'rainbow-mode)
@@ -95,7 +95,7 @@ _h_   _l_   _o_k        _y_ank
       ("+" text-scale-increase "zoom in")
       ("-" text-scale-decrease "zoom out"))
      "Toggle"
-     (("t r" +toggle-rainbow-mode "rainbow" :exit t)))))
+     (("t r" my/toggle-rainbow-mode "rainbow" :exit t)))))
 
 (global-set-key (kbd "M-h") #'hydra-main/body)
 (with-eval-after-load 'org (define-key org-mode-map (kbd "M-h") #'hydra-main/body))

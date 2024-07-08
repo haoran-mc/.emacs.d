@@ -37,13 +37,13 @@
 ;;                 ("Emacs TIL" "https://emacstil.com/feed.xml")
 ;;                 ;; ("Emacs Reddit" "https://www.reddit.com/r/emacs.rss")
 ;;                 )))
-;; 
+;;
 ;; (require 'init-elfeed)
-;; 
+;;
 ;; (use-package nov
 ;;   :ensure t
 ;;   :mode ("\\.epub\\'" . nov-mode))
-;; 
+;;
 ;; ;; (use-package nov-xwidget
 ;; ;;   :demand t
 ;; ;;   :after nov

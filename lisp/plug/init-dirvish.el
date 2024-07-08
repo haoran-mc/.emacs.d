@@ -63,7 +63,7 @@
 ;; file copy, move, create, delete
 (define-key dirvish-mode-map (kbd "+") 'dired-create-directory)
 (define-key dirvish-mode-map (kbd "R") 'dired-do-rename)
-(define-key dirvish-mode-map (kbd "y") 'dired-do-copy)
+(define-key dirvish-mode-map (kbd "c") 'dired-do-copy)
 (define-key dirvish-mode-map (kbd "X") 'dired-do-delete)
 ;; mark
 (define-key dirvish-mode-map (kbd "d") 'dired-flag-file-deletion)
