@@ -1,10 +1,10 @@
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#+TITLE: GENERATE DOCX
-#+AUTHOR: Haoran Liu
+#+TITLE: Title
+#+AUTHOR: Author
 #+EMAIL: haoran.mc@outlook.com
-#+DATE: 2024-06-16 02:06 Sun
+#+DATE: Date
 #+STARTUP: showeverything
-#+OPTIONS: author:nil toc:t ^:{} _:{}
+#+OPTIONS: toc:t ^:{} _:{}
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Abstract.
@@ -14,42 +14,56 @@ Abstract.
 *** Heading 3
 **** Heading 4
 ***** Heading 5
+
+*** Text
 First Paragraph.
 
-* Unordered List
-- C-c C-n	next heading
-- C-c C-p	prev heading
+Body Text. Body Text Char.
 
-* Ordered List
-1. create table title
-   #+begin_src org
-     | name     | age | tel |
+| compare | elisp                     |
+|---------+---------------------------|
+| number  | (= 1 1)                   |
+| string  | (equal "abc" "abc")       |
+| array   | (equal [1 2 3] [1 2 3])   |
+| list    | (equal '(a b c) '(a b c)) |
+| object  | (eq 'a 'a)                |
 
-   #+end_src
+* List
+** Unordered List:
+- *blod*
+- /italic/
+- +strick through+
+- _underline_
+- =verbatim=
+- ~code~
+- [[https://github.com/haoran-mc/.emacs.d][Hyperlink with description.]]
 
-2. create dividing line
-   #+begin_src org
-     | name | tel | age |
-     |------+-----+-----|
-     | name | tel | age|
-     | → TAB
-   #+end_src
+# \(H_{2}O\)
+# \(E=mc^2\)
 
-3. press TAB or RET create table line
 
-| name | tel | age |
-|------+-----+-----|
-| name | tel | age |
-|      |     |     |
+** Unordered List:
+1. Chinese Font: 宋体
+2. English Font: Courier
 
-* Link
-- Link with description [[https://github.com/haoran-mc/.emacs.d/tree/main/templates/generate-docx.org][The org file to get pandoc docx template]]
 
-- Link with no description [[https://github.com/haoran-mc/.emacs.d/blob/main/docs/2.master-my-bindings.org]]
+** DefinitionTerm:
+- car :: the first S-expression.
+  #+begin_quote
+  The primitive /car/ is defined only for non-empty lists.
+  #+end_quote
 
-* Content with Footnotes
-The Org homepage[fn:1] now looks a lot better than it used to.
+- cdr :: the list without the car part.
+  #+begin_quote
+  The primitive /cdr/ is defined only for non-empty lists. The /cdr/ of any non-empty list is always another list.
+  #+end_quote
 
+- cons :: adds any S-expression to the front of a list.
+  #+begin_quote
+  The primitive /cons/ takes two arguments. The second argument to /cons/ must be a list. The result is a list.
+  #+end_quote
+
+* Footnotes
 Tom is a boy[fn:name].
 
 Jim is a boy[fn:: This is the inline definition of this footnote] too.
@@ -57,6 +71,8 @@ Jim is a boy[fn:: This is the inline definition of this footnote] too.
 Lily is a girl[fn:lily: a definition].
 
 * TODO [#A] todo
+The Org homepage[fn:1] now looks a lot better than it used to.
+
 Any title becomes a TODO when it starts with ~TODO~.
 
 You can indicate @emph[order] workflow status for the use of the "TODO" keyword:.
@@ -82,6 +98,6 @@ When you use Org mode a lot, you may have a large number of to-do entries, and t
 
 There are three priority modes, A-C. If no priority is specified, the 'B' level is the default.
 
-* Footnotes
+* COMMENT Footnotes
 [fn:1] The link is: http://orgmode.org
 [fn:name] Tom is a boy.
