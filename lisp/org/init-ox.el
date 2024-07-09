@@ -86,6 +86,15 @@
                         (pop-to-buffer buffer)
                         (error "Convert failed with exit code %s" exit-code))))))))
 
+(defun ran/open-docx-with-default-app ()
+  "Open DOCX file at point in Dired with the default application on macOS."
+  (interactive)
+  (if (not (eq major-mode 'dired-mode))
+      (message "Error: Not in Dired mode")
+    (let ((file (dired-get-file-for-visit)))
+      (if (and file (string-equal (file-name-extension file) "docx"))
+          (start-process "open-docx" nil "open" (expand-file-name file))
+        (message "Error: Not a DOCX file")))))
 
 (provide 'init-ox)
 ;;; init-ox.el ends here
