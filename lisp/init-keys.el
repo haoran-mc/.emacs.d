@@ -378,9 +378,10 @@
   (which-key-add-key-based-replacements
     "C-c n" "narrow"))
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c n s" . org-narrow-to-subtree)
-                        ("C-c n w" . widen))
-                      org-mode-map))
+  (defhydra hydra-narrow (:color blue)
+    ("s" org-narrow-to-subtree "narrow to subtree" :exit t :column "narrow")
+    ("w" widen "widen" :exit t))
+  (lazy-load-set-keys '(("C-c n" . hydra-narrow/body)) org-mode-map))
 
 ;; o for open
 (with-eval-after-load 'which-key
