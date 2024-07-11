@@ -44,13 +44,18 @@
 ;; init-funs has be required by init.el
 (lazy-load-global-keys '(("C-<return>" . consult-bookmark)) "consult")
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map))
+  (lazy-load-local-keys '(("C-<return>" . bookmark-jump))
+                        org-mode-map ""))
 
 (lazy-load-global-keys '(("C-<tab>" . spacemacs/alternate-buffer)
                          ("C-<backspace>" . crux-kill-line-backwards))
                        "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
+(with-eval-after-load 'org
+  (lazy-load-local-keys '(("C-," . goto-last-change))
+                        org-mode-map "goto-last-change"))
+
 (lazy-load-global-keys '(("C-." . +format-code-dwim)) "init-formatter")
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
@@ -59,9 +64,9 @@
                          ("C->" . whole-line-or-region-indent-rigidly-right-to-tab-stop))
                        "init-whole-line-or-region")
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-<" . whole-line-or-region-indent-rigidly-left-to-tab-stop)
-                        ("C->" . whole-line-or-region-indent-rigidly-right-to-tab-stop))
-                      org-mode-map))
+  (lazy-load-local-keys '(("C-<" . whole-line-or-region-indent-rigidly-left-to-tab-stop)
+                          ("C->" . whole-line-or-region-indent-rigidly-right-to-tab-stop))
+                        org-mode-map "init-whole-line-or-region"))
 
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
                          ("C-e" . mwim-end-of-line-or-code))
@@ -75,7 +80,8 @@
 (lazy-load-global-keys '(("C-j" . vanilla/merge-line-down)) ;; electric-newline-and-maybe-indent
                        "basic-tookit")
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map))
+  (lazy-load-local-keys '(("C-j" . vanilla/merge-line-down))
+                        org-mode-map "basic-tookit"))
 
 (lazy-load-global-keys '(("C-o" . open-newline-above)
                          ("C-l" . open-newline-below))
@@ -168,9 +174,9 @@
                        "delete-block")
 
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
-                        ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
-                      org-mode-map))
+  (lazy-load-local-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
+                          ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
+                        org-mode-map ""))
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
@@ -218,7 +224,8 @@
 (lazy-load-set-keys '(("s-SPC" . just-one-space))) ;; origin M-SPC
 
 (with-eval-after-load 'org
-  (lazy-load-set-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map)) ;; origin C-RET
+  (lazy-load-local-keys '(("s-<return>" . org-insert-heading-respect-content))
+                        org-mode-map "")) ;; origin C-RET
 
 (lazy-load-global-keys '(("s-." . lazycat/remember-init)
                          ("s-," . lazycat/remember-jump))
