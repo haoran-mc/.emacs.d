@@ -24,32 +24,39 @@
 
 ;;; Code:
 
-
 ;; paren ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Highlight parenthesises
-(dolist (mode-hook '(python-mode-hook
-                     emacs-lisp-mode-hook
-                     go-mode-hook))
-  (add-hook mode-hook show-paren-mode) ;; 显示括号匹配
-  )
+;; (dolist (mode-hook '(python-mode-hook
+;;                      emacs-lisp-mode-hook
+;;                      go-mode-hook))
+;;   (add-hook mode-hook show-paren-mode)) ;; 显示括号匹配
 
-(setq show-paren-style 'parentheses    ;; 括号匹配显示但不是烦人的跳到另一个括号。
-      blink-matching-paren nil         ;; 当插入右括号时不显示匹配的左括号
-      show-paren-when-point-inside-paren t
-      show-paren-when-point-in-periphery t)
+;; (setq show-paren-style 'parentheses    ;; 括号匹配显示但不是烦人的跳到另一个括号。
+;;       blink-matching-paren nil         ;; 当插入右括号时不显示匹配的左括号
+;;       show-paren-when-point-inside-paren t
+;;       show-paren-when-point-in-periphery t)
+
+
+;; highlight-parenthesses ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'highlight-parentheses)
+(setq hl-paren-colors '("Orange" "DeepSkyBlue" "Green"))
+;; (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;; 增强的括号高亮
 
 
 ;; elec-pair ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auto complete parens
+(require 'elec-pair)
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+
+
+
 (dolist (mode-hook '(cc-mode-hook
                      emacs-lisp-mode-hook
                      go-mode-hook
                      python-mode-hook
                      json-mode-hook))
-  (add-hook mode-hook 'electric-pair-local-mode))
-
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-
+  (add-hook mode-hook 'electric-pair-local-mode)
+  (add-hook mode-hook 'highlight-parentheses-mode))
 
 (provide 'init-parens)
 ;;; init-parens.el ends here
