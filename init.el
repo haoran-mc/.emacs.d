@@ -75,37 +75,29 @@
 
 (require 'init-ui)
 (require 'init-mode)
-(require 'init-modeline)
 (require 'init-yasnippet)
 (require 'init-lsp) ;; 不过度追求加载速度
-(require 'init-dirvish)
 (require 'init-minibuffer) ;; minibuffer plugins 没有快捷键调用，所以需要开启加载
 (require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
 (require 'init-meow)
 
-;; standalone apps
-(require 'init-reader)
-(require 'init-shell)
-(require 'init-gc)
-(require 'init-autosave)
-(require 'init-autoinsert)
-(require 'init-keyfreq)
-
 ;; funcs → hydra → keys
 (require 'init-hydra)
 (require 'init-keys)
 
-;; load later
 (run-with-idle-timer
  1 nil
  #'(lambda ()
      (require 'init-utils)
      (require 'init-idle)
      (require 'init-parens)
+
+     ;; load later plugins
      (require 'init-git) ;; wait git
      (require 'init-ligature)
+     (require 'init-dirvish)
      (require 'init-isearch)
      (require 'init-hl-todo)
      (require 'init-which-key)
@@ -113,11 +105,23 @@
      (require 'init-whole-line-or-region)
      (require 'init-project)
      (require 'init-valign) ;; org-mode and markdown-mode
+     (require 'init-eldoc)
+
+     ;; standalone apps
+     (require 'init-reader)
+     (require 'init-shell)
+     (require 'init-gc)
+     (require 'init-autosave)
+     (require 'init-autoinsert)
+     (require 'init-keyfreq)
+
      (require 'init-completion)))
 
 (run-with-idle-timer
  2 nil
- #'(lambda () (require 'init-org)))
+ #'(lambda ()
+     (require 'init-modeline)
+     (require 'init-org)))
 
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))
