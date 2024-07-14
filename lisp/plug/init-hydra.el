@@ -52,26 +52,23 @@
                                       :color pink
                                       :post (deactivate-mark))
    "
-  ^_k_^     _d_elete    _s_tring
-_h_   _l_   _o_k        _y_ank
-  ^_j_^     _n_ew-copy  _r_eset
-^^^^        _e_xchange  _u_ndo
-^^^^        ^ ^         _x_kill
+  ^_k_^     _s_tring    _d_elete
+_h_   _l_   _r_eset     _x_kill
+  ^_j_^     ^ ^         _y_ank
+^^^^
 "
    ("h" rectangle-backward-char nil)
    ("l" rectangle-forward-char nil)
    ("k" rectangle-previous-line nil)
    ("j" rectangle-next-line nil)
-   ("e" hydra-ex-point-mark nil)
-   ("n" copy-rectangle-as-kill nil)
-   ("d" delete-rectangle nil)
+   ("d" delete-rectangle nil :exit t)
    ("r" (if (region-active-p)
             (deactivate-mark)
           (rectangle-mark-mode 1)) nil)
-   ("y" yank-rectangle nil)
-   ("u" undo nil)
-   ("s" string-rectangle nil)
-   ("x" kill-rectangle nil)
+   ("y" yank-rectangle nil :exit t)
+   ;; ("u" undo nil)
+   ("s" string-rectangle nil :exit t)
+   ("x" kill-rectangle nil :exit t)
    ("o" nil nil)))
 
 

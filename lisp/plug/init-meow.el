@@ -271,6 +271,17 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
   (advice-add 'open-newline-below :after 'meow-switch-insert-with-arg-advice)
   (advice-add 'open-newline-above :after 'meow-switch-insert-with-arg-advice))
 
+(with-eval-after-load 'hydra
+  (defun meow-switch-insert-advice ()
+    "Enter insert mode before hydra-rectangle/body."
+    (meow--switch-state 'insert))
+
+  (defun meow-switch-normal-advice ()
+    "Enter normal mode before hydra-rectangle/body."
+    (meow--switch-state 'normal))
+
+  (advice-add 'hydra-rectangle/body :before 'meow-switch-insert-advice))
+
 
 (provide 'init-meow)
 ;;; init-meow.el ends here
