@@ -79,7 +79,7 @@ This function is slow, so we have to use cache."
 (defun +format-mode-line ()
   (let* ((bg-mode (frame-parameter nil 'background-mode))
          (arrow-color (if (eq bg-mode 'light) "red" "#FEDD38"))
-         (vc-color (if (eq bg-mode 'light) "#859901" "#556b2f"))
+         (vc-color (if (eq bg-mode 'light) "#859901" "#859901"))
          (mode-color (if (eq bg-mode 'light) "#258BD2" "#258BD2"))
          (bottom-color (if (eq bg-mode 'light) "#D33682" "#4FB3D8"))
          (lhs `((:eval (propertize " ❯ " 'face '(:foreground ,arrow-color)))
