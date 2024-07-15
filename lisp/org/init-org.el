@@ -112,24 +112,21 @@
       org-todo-keywords ;; not use for todo instead of agenda
       '((sequence "TODO(t)"   ;; 优先处理
                   "WORK(w!)"  ;; 工作相关
-                  "INBOX(i!)" ;; 待做盒子
                   "LONG(l!)"  ;; 长期跟踪
                   "HOLD(h!)"  ;; 做到一半，暂存后面再做，事项部分比较简单，剩余的没有能力继续完成
                   "|"
                   "DONE(d!)"        ;; 完成
-                  "CANCELLED(c@/!)" ;; 删除
+                  "CANCEL(c@/!)" ;; 删除
                   ))
-      org-todo-keyword-faces '(("TODO"       :foreground "#FF0000" :weight bold)
-                               ("DONE"       :foreground "#50a14f" :weight bold)
-                               ("CANCELLED"  :foreground "#50a14f" :weight bold)
-                               ("LONG"       :foreground "#D0BF8F" :weight bold)
-                               ("HOLD"       :foreground "#D0BF8F" :weight bold)
+      ;; foreground should to be consistent with hl-todo
+      org-todo-keyword-faces '(("TODO"    :foreground "#FF0000" :weight normal)
+                               ("DONE"    :foreground "#5B6268" :weight normal)
+                               ("CANCEL"  :foreground "#5B6268" :weight normal)
+                               ("LONG"    :foreground "#D0BF8F" :weight normal)
+                               ("HOLD"    :foreground "#D0BF8F" :weight normal)
                                
-                               ("WORK"       :foreground "#FF0000" :weight bold)
-                               ("INBOX"      :foreground "#FF0000" :weight bold))
-      ;; tag 只用在 inbox 中，用来分类
-      ;; 而「工作」只会收录在 work 文件夹下，且 agenda 也有专门入口，不需要增加 tag
-      ;; 书籍不分技术书籍与其他书籍，行为（课程、阅读、学习某个技术）不做割裂
+                               ("WORK"    :foreground "#FF0000" :weight normal))
+      ;; 真实的 tag 太多了，无法维护，尽量不使用
       org-tag-alist
       '(("@生活" . ?l)
         ("@课程" . ?k)

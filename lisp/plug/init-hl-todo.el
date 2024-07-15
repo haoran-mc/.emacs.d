@@ -29,22 +29,16 @@
 (global-hl-todo-mode)
 
 (setq hl-todo-keyword-faces
-      '(("LOCAL-PACKAGES" . "#FF0000")
-        ("EXTERNAL-TOOLS" . "#FF0000")
-        ("USER-DIRECTORY" . "#FF0000")
-        ("CUSTOM-COLOURS" . "#FF0000")
-        ("IMPORTANT"      . "#FF0000")
-        ("DEPRECATED"     . "#FF0000")
+      '(("DEPRECATED"     . "#FF0000")
         ("BUILT-IN"       . "#C066DB")
 
         ;; org-todo
-        ("TODO"      . "#FF0000") ;; #CC9393
-        ("DONE"      . "#50a14f")
-        ("CANCELLED" . "#50a14f")
-        ("LONG"      . "#D0BF8F")
-        ("HOLD"      . "#D0BF8F")
-        ("INBOX"     . "#FF0000") ;; deprecated
-        ("WORK"      . "#FF0000")))
+        ("TODO"   . "#FF0000") ;; #CC9393
+        ("DONE"   . "#5B6268")
+        ("CANCEL" . "#5B6268") ;; #50a14f
+        ("LONG"   . "#D0BF8F")
+        ("HOLD"   . "#D0BF8F")
+        ("WORK"   . "#FF0000")))
 
 
 (provide 'init-hl-todo)
