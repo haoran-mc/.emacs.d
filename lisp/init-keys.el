@@ -347,8 +347,7 @@
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c i" "insert"))
-(defhydra hydra-insert (:body-pre (require 'init-hl-todo)
-                                  :color blue)
+(defhydra hydra-insert (:color blue)
   ("t" hl-todo-insert "todo insert" :column "insert"))
 (lazy-load-set-keys '(("C-c i" . hydra-insert/body)))
 

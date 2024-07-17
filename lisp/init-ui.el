@@ -114,5 +114,22 @@
 (require 'all-the-icons)
 
 
+;; hl-todo ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'hl-todo)
+(global-hl-todo-mode)
+
+(setq hl-todo-keyword-faces
+      '(("DEPRECATED" . "#FF0000")
+        ("BUILT-IN"   . "#C066DB")
+
+        ;; org-todo
+        ("TODO"   . "#FF0000") ;; #CC9393
+        ("DONE"   . "#5B6268")
+        ("CANCEL" . "#5B6268") ;; #50a14f
+        ("LONG"   . "#D0BF8F")
+        ("HOLD"   . "#D0BF8F")
+        ("WORK"   . "#FF0000")))
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here

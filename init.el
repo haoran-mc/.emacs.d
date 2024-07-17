@@ -99,7 +99,6 @@
      (require 'init-ligature)
      (require 'init-dirvish)
      (require 'init-isearch)
-     (require 'init-hl-todo)
      (require 'init-which-key)
      (require 'init-vundo)
      (require 'init-whole-line-or-region)
