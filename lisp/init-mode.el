@@ -73,6 +73,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.json$" . json-mode)
                     ("\\.toml$" . toml-mode)
                     ("\\.yaml$" . yaml-mode)
+                    ("\\.yml$" . yaml-mode)
                     ("\\.sql$" . sql-mode)
 
                     ;; other
