@@ -316,31 +316,32 @@
 (pretty-hydra-define hydra-git (:title (format "%s Git Commands"
                                                (all-the-icons-alltheicon "git"))
                                        :body-pre (require 'magit)
-                                       :color amaranth :quit-key ("q" "C-g"))
-  ("Message"
-   (("b" git-messenger:popup-message "popup-msg" :exit t)
-    ("B" magit-branch "branch" :exit t)
-    ("d" magit-dispatch "dispatch" :exit t)
-    ("D" magit-file-dispatch "file dispatch" :exit t))
-   "Hunk"
-   (("h" +diff-hl-find-hunk "find hunk")
-    ("n" diff-hl-next-hunk "next hunk")
-    ("p" diff-hl-previous-hunk "prev hunk")
-    ("s" diff-hl-stage-current-hunk "stage hunk")
-    ("d" diff-hl-diff-goto-hunk "diff hunk"))))
+                                       :color blue :quit-key ("q" "C-g"))
+  ("dispatch"
+   (("m" magit-dispatch "magit menu" :exit t)
+    ("d" magit-file-dispatch "file dispatch" :exit t))
+   "Message"
+   (("p" git-messenger:popup-message "popup-msg" :exit t)
+    ("b" magit-branch "branch" :exit t))))
 (lazy-load-set-keys '(("C-c g" . hydra-git/body)))
 
 ;; h for highlight
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c h" "highlight"))
-(global-set-key
- (kbd "C-c h")
- (defhydra hydra-highlight (:body-pre (require 'hi-lock)
-                                      :color blue :quit-key ("q" "C-g"))
-   ("p" highlight-phrase "phrase" :exit t :column "highlight")
-   ("r" highlight-regexp "regexp" :exit t)
-   ("u" unhighlight-regexp "unregexp" :exit t)))
+(pretty-hydra-define hydra-highlight-hunk (:body-pre (require 'hi-lock)
+                                                     :color blue :quit-key ("q" "C-g"))
+  ("Highlight"
+   (("l" highlight-phrase "phrase" :exit t)
+    ("r" highlight-regexp "regexp" :exit t)
+    ("u" unhighlight-regexp "unregexp" :exit t))
+   "Hunk"
+   (("h" +diff-hl-find-hunk "find hunk")
+    ("n" diff-hl-next-hunk "next hunk")
+    ("p" diff-hl-previous-hunk "prev hunk")
+    ("s" diff-hl-stage-current-hunk "stage hunk")
+    ("d" diff-hl-diff-goto-hunk "diff hunk"))))
+(lazy-load-set-keys '(("C-c h" . hydra-highlight-hunk/body)))
 
 ;; i for insert
 (with-eval-after-load 'which-key
