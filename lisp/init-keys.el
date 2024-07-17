@@ -319,7 +319,9 @@
                                        :color amaranth :quit-key ("q" "C-g"))
   ("Message"
    (("b" git-messenger:popup-message "popup-msg" :exit t)
-    ("B" magit-branch "branch" :exit t))
+    ("B" magit-branch "branch" :exit t)
+    ("d" magit-dispatch "dispatch" :exit t)
+    ("D" magit-file-dispatch "file dispatch" :exit t))
    "Hunk"
    (("h" +diff-hl-find-hunk "find hunk")
     ("n" diff-hl-next-hunk "next hunk")
