@@ -82,7 +82,6 @@
 
 ;; hl-todo ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'hl-todo)
-(global-hl-todo-mode)
 
 (setq hl-todo-keyword-faces
       '(("DEPRECATED" . "#FF0000")
@@ -95,6 +94,11 @@
         ("LONG"   . "#D0BF8F")
         ("HOLD"   . "#D0BF8F")
         ("WORK"   . "#FF0000")))
+
+(add-hook 'prog-mode-hook #'hl-todo-mode)
+(add-hook 'conf-mode-hook #'hl-todo-mode)
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook #'hl-todo-mode))
 
 
 (provide 'init-ui)

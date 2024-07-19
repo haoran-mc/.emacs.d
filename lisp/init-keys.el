@@ -357,7 +357,8 @@
     ("!" vanilla/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
     ("l" vanilla/dwim-create-link-with-datetime "datetime link" :exit t)
     ("i" vanilla/org-insert-image "image with name" :exit t)
-    ("s" vanilla/org-insert-image-with-timestamp "image with time" :exit t))
+    ("s" vanilla/org-insert-image-with-timestamp "image with time" :exit t)
+    ("t" hl-todo-insert "todo insert" :column "insert"))
   (lazy-load-local-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map ""))
 
 (lazy-load-global-keys '(("C-c j" . avy-goto-line-below)
