@@ -28,15 +28,12 @@
 
 
 ;;; Code:
-
-(add-hook 'org-mode-hook #'+xah-show-formfeed-as-line)
-
 (defun my/set-org-bold-face-based-on-theme ()
   (let* ((bg-mode (frame-parameter nil 'background-mode))
-         (purple-color (if (eq bg-mode 'dark) "plum" "purple"))
-         (underline-color (if (eq bg-mode 'dark) "yellow" "red")))
+         (foreground-color (if (eq bg-mode 'dark) "yellow" "purple"))
+         (underline-color (if (eq bg-mode 'dark) "plum" "red")))
     (defface org-bold `((t :weight normal
-                           :foreground ,purple-color
+                           :foreground ,foreground-color
                            :underline (:color ,underline-color :style line)
                            :overline nil))
       "Face for org-mode bold."
@@ -74,10 +71,11 @@
                       ("\\.svg\\'"     . default)
                       ("\\.pptx\\'"    . default)
                       ("\\.docx\\'"    . default))
-      ;; log
-      org-log-done t ;; 完成任务时自动记录时间
-      org-log-into-drawer t ;; 将日志放在一个抽屉里 :LOGBOOK:
-      org-log-repeat 'time ;; 任务可以重复，任务可以重复 DONE
+      ;; log: set Local Variables in site-learn.
+      ;; will generate safe-local-variable-values in custom.el
+      org-log-into-drawer nil ;; 将日志放在一个抽屉里 :LOGBOOK:
+      org-log-done nil ;; 完成任务时自动记录时间
+      org-log-note-headings nil ;; 清空注释标题格式
       ;; beautify
       org-startup-indented t ;; 标题的子级会相对于父级标题进行缩进，层次结构的视觉效果
       org-ellipsis " ⤵ " ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
@@ -118,7 +116,7 @@
                   "LONG(l!)"  ;; 长期跟踪
                   "HOLD(h!)"  ;; 做到一半，暂存后面再做，事项部分比较简单，剩余的没有能力继续完成
                   "|"
-                  "DONE(d!)"        ;; 完成
+                  "DONE(d!)"     ;; 完成
                   "CANCEL(c@/!)" ;; 删除
                   ))
       ;; foreground should to be consistent with hl-todo
@@ -243,7 +241,6 @@ TODO kwd."
 (require 'init-org-appear)
 
 (require 'init-site)
-
 
 
 (provide 'init-org)
