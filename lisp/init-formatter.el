@@ -45,10 +45,10 @@
         (in-selection (use-region-p)))
     (cond
      ((string-equal file-extension "el")
-      (+indent-buffer))
+      (my/indent-buffer))
 
      ((string-equal file-extension "org")
-      (+indent-buffer))
+      (my/indent-buffer))
 
      ((string-equal file-extension "sql")
       (if in-selection

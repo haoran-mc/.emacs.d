@@ -33,7 +33,7 @@
 (defvar url-http-end-of-headers)
 
 ;;;###autoload
-(defun +func-tldr (cmd &optional op)
+(defun ran/tldr (cmd &optional op)
   "View tldr page of CMD.
 If OP is non-nil and search failed, OP will be used as platform
 name and search again. Typically OP is nil or \"common\"."

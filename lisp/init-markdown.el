@@ -43,12 +43,12 @@
   (advice-add #'markdown--command-map-prompt :override #'ignore)
   (advice-add #'markdown--style-map-prompt   :override #'ignore))
 
-(defun +func-markdown-insert-ruby-tag (text ruby)
+(defun ran/markdown-insert-ruby-tag (text ruby)
   "Insert ruby tag with `TEXT' and `RUBY' quickly."
   (interactive "sText: \nsRuby: \n")
   (insert (format "<ruby>%s<rp>(</rp><rt>%s</rt><rp>)</rp></ruby>" text ruby)))
 
-(defun +func-markdown-insert-details (title)
+(defun ran/markdown-insert-details (title)
   "Insert details tag (collapsible) quickly."
   (interactive "sTitle: ")
   (insert (format "<details><summary>%s</summary>\n\n</details>" title)))

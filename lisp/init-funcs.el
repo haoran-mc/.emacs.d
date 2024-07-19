@@ -20,13 +20,34 @@
 
 ;;; Commentary:
 ;; 1. 需要预加载的函数放在这，不需要预加载的函数放在 basic-tookit.el
-;; 2. 内部调用的函数使用 + 前缀，手动调用的函数使用 +func 前缀
+;; 2. 内部调用的函数使用 my/ 前缀，手动调用的函数使用 ran/ 前缀
 
 ;;; Code:
 
 
 ;;;###autoload
-(defun +xah-show-formfeed-as-line ()
+(defun my/refresh-file ()
+  "Automatic reload current file."
+  (interactive)
+  (cond ((eq major-mode 'emacs-lisp-mode)
+         (my/indent-buffer)
+         (my/indent-comment-buffer)
+         (save-buffer)
+         (load-file (buffer-file-name)))
+        ((member major-mode '(lisp-mode c-mode perl-mode))
+         (my/indent-buffer)
+         (my/indent-comment-buffer)
+         (save-buffer))
+        ((member major-mode '(haskell-mode sh-mode))
+         (my/indent-comment-buffer)
+         (save-buffer))
+        ((derived-mode-p 'scss-mode)
+         (require 'css-sort)
+         (css-sort))
+        (t (message "Current mode is not supported, so not reload"))))
+
+;;;###autoload
+(defun my/xah-show-formfeed-as-line ()
   "Display the formfeed ^L char as line. Version 2018-08-30"
   (interactive)
   ;; 2016-10-11 thanks to Steve Purcell's page-break-lines.el
@@ -37,11 +58,14 @@
           (vconcat (make-list 39 (make-glyph-code ?─ 'font-lock-comment-face))))
     (redraw-frame)))
 ;; ───────────────────────────────────────
-(add-hook 'emacs-lisp-mode-hook #'+xah-show-formfeed-as-line)
+(add-hook 'emacs-lisp-mode-hook #'my/xah-show-formfeed-as-line)
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook #'my/xah-show-formfeed-as-line))
+
 
 
 ;;;###autoload
-(defun +copy-file-path-and-line-number ()
+(defun my/copy-file-path-and-line-number ()
   "Copy the current buffer file name and line number to the clipboard."
   (interactive)
   (if buffer-file-name
@@ -51,20 +75,20 @@
     (message "Buffer is not visiting a file")))
 
 ;;;###autoload
-(defun +func-make-emacs-opaque ()
+(defun ran/make-emacs-opaque ()
   "Make Emacs window opaque."
   (interactive)
   (set-frame-parameter (selected-frame) 'alpha '(100 100)))
 
 ;;;###autoload
-(defun +func-make-emacs-transparent ()
+(defun ran/make-emacs-transparent ()
   "Make Emacs window transparent."
   (interactive)
   (set-frame-parameter (selected-frame) 'alpha '(85 60))
   (add-to-list 'default-frame-alist '(alpha (85 60))))
 
 ;;;###autoload
-(defun +func-set-frame-vertical-alignment ()
+(defun ran/set-frame-vertical-alignment ()
   "| Set the current frame's size(120x50) and position(445, 50)."
   (interactive)
   (let ((frame (selected-frame)))
@@ -72,7 +96,7 @@
     (set-frame-position frame 445 50)))
 
 ;;;###autoload
-(defun +func-set-frame-horizontal-alignment ()
+(defun ran/set-frame-horizontal-alignment ()
   "- Set the current frame's size(141x40) and position(445, 50)."
   (interactive)
   (let ((frame (selected-frame)))
@@ -81,7 +105,7 @@
 
 ;;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
 ;;;###autoload
-(defun +unfill-paragraph (&optional region)
+(defun my/unfill-paragraph (&optional region)
   "Takes a multi-line paragraph and makes it into a single line of text."
   (interactive (progn (barf-if-buffer-read-only) '(t)))
   (let ((fill-column (point-max))
@@ -90,17 +114,7 @@
     (fill-paragraph nil region)))
 
 ;;;###autoload
-(defun +func-open-with-vscode ()
-  "Open current file with vscode."
-  (interactive)
-  (let ((line (number-to-string (line-number-at-pos)))
-        (column (number-to-string (current-column))))
-    (apply 'call-process "code" nil nil nil (list
-                                             (concat buffer-file-name ":" line ":" column)
-                                             "--goto"))))
-
-;;;###autoload
-(defun +func-spacemacs/sudo-edit (&optional arg)
+(defun spacemacs/sudo-edit (&optional arg)
   "Forcibly write to a file without permission after password `ARG'."
   (interactive "p")
   (if (or arg (not buffer-file-name))
@@ -108,14 +122,14 @@
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 ;;;###autoload
-(defun +func-remove-dos-eol()
+(defun ran/remove-dos-eol()
   "Replace DOS eolns CR LF with Unix eolns CR."
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
 ;;;###autoload
-(defun +func-hidden-dos-eol()
+(defun ran/hidden-dos-eol()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
   (setq buffer-display-table (make-display-table))
@@ -146,8 +160,24 @@ Deprecated by crux-switch-to-previous-buffer."
         (message "Last buffer not found.")
       (set-window-buffer-start-and-point window buf start pos))))
 
+(defun my/indent-comment-buffer ()
+  "Indent comment of buffer."
+  (interactive)
+  (my/indent-comment-region (point-min) (point-max)))
+
+(defun my/indent-comment-region (start end)
+  "Indent region."
+  (interactive "r")
+  (save-excursion
+    (setq end (copy-marker end))
+    (goto-char start)
+    (while (< (point) end)
+      (if (comment-search-forward end t)
+          (comment-indent)
+        (goto-char end)))))
+
 ;;;###autoload
-(defun +indent-region-or-buffer ()
+(defun my/indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
@@ -156,17 +186,17 @@ Deprecated by crux-switch-to-previous-buffer."
           (indent-region (region-beginning) (region-end))
           (message "Indented selected region."))
       (progn
-        (+indent-buffer)
+        (my/indent-buffer)
         (message "Indented buffer.")))))
 
 ;;;###autoload
-(defun +indent-buffer ()
+(defun my/indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
 ;;;###autoload
-(defun +open-in-browser ()
+(defun my/open-in-browser ()
   "Open in browser."
   (interactive)
   (let ((filename (buffer-file-name)))

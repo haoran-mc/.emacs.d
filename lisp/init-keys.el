@@ -430,9 +430,9 @@
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c u" "user"))
-(lazy-load-set-keys '(("C-c u f" . +unfill-paragraph)
-                      ("C-c u i" . +indent-buffer)
-                      ("C-c u l" . +copy-file-path-and-line-number)))
+(lazy-load-set-keys '(("C-c u f" . my/unfill-paragraph)
+                      ("C-c u i" . my/indent-buffer)
+                      ("C-c u l" . my/copy-file-path-and-line-number)))
 
 ;; y for yasnippet
 (lazy-load-set-keys '(("C-c y C-s" . yas-insert-snippet)

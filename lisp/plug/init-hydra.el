@@ -89,6 +89,7 @@ _h_   _l_   _r_eset     _x_kill
                                           :color amaranth :quit-key ("q" "C-g"))
     ("Basic"
      (("f" toggle-frame-fullscreen "fullscreen" :exit t)
+      ("r" my/refresh-file "refresh file" :exit t)
       ("+" text-scale-increase "zoom in")
       ("-" text-scale-decrease "zoom out"))
      "Toggle"
