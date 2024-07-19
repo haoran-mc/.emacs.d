@@ -7,9 +7,23 @@
 #+OPTIONS: author:nil toc:t ^:{} _:{}
 #+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-* agenda - capture
-- 不添加 tag，分类是一件非常头疼的事；只使用 TODO 关键字进行大的分类；
-
 * pdf、docx、latex
-- pdf 使用浏览器打印就好
-- 普通的 docx 文件使用转 ~ran/org-pandoc-convert-to-docx~
+- pdf 使用浏览器打印就好；
+- 普通的 docx 文件使用转 ~ran/org-pandoc-convert-to-docx~ ；
+
+* capture
+1. 减少 capture 的步骤：
+   - 尽量不使用 tag，也即是不在 capture 的模板中使用 ~%^g~ ；
+   - capture 文件尽可能少，减少选择；
+2. 规定几种 capture 模板：任务型、摘记型、故事型...
+3. 模板中可以多加一些信息，提示输入「优先[#A]」「学习」；
+
+* agenda
+不使用 ~org-agenda~ ，使用 ~(org-agenda nil "T")~ ，因为 org-agenda 的 dispatch 乱，很多展示的功能不会使用，所以确实好一个使用 agenda 的入口。
+
+能够这样规定，也是因为我对 agenda 的使用需求很低，只需要罗列有哪些 TODO 项，甚至不需要 priority、deadline、schedule、timestamp 等。
+
+- priority 在 capture 写入模板时自己手动加入 [#A]、[#B]、[#C]、[#D]；
+- 如果我不使用 Agenda View，那么 agenda 中所有与时间相关的功能对我来说都是不必要的，deadline、schedule、active timestamp、inactive timestamp...
+
+最后，TODO 关键字要少：WORK、TODO、HOLD、LONG...

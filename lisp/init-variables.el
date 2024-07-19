@@ -31,7 +31,7 @@
 (defvar ran--org-directory "~/haoran/no/org/org-directory")
 (defvar ran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
                                     "~/haoran/no/org/org-directory/agenda"
-                                    "~/haoran/no/org/org-directory/work/todo.org"))
+                                    "~/haoran/no/org/work-agenda/work-todo.org"))
 
 (defvar ran--font-weight "normal")
 
