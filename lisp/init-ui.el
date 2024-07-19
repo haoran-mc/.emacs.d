@@ -25,32 +25,10 @@
 
 
 (defvar pretty-dark-themes
-  (list 'spacemacs-dark 'doom-ayu-dark 'doom-ayu-mirage 'doom-badger
-        'doom-challenger-deep  'doom-city-lights 'doom-dracula 'doom-gruvbox
-        'doom-horizon 'doom-material-dark 'doom-molokai 'doom-monokai-spectrum
-        'doom-moonlight 'doom-old-hope 'doom-one 'doom-opera
-        'doom-outrun-electric 'doom-palenight 'doom-peacock 'doom-rouge
-        'doom-snazzy 'doom-solarized-dark 'doom-solarized-dark-high-contrast
-        'doom-sourcerer 'doom-spacegrey 'doom-tokyo-night 'doom-tomorrow-night
-        'doom-vibrant 'doom-wilmersdorf 'doom-xcode 'doom-zenburn))
-
-(defvar pretty-light-themes
-  (list 'doom-ayu-light 'doom-flatwhite 'doom-gruvbox-light
-        'doom-homage-white 'doom-monokai-classic 'doom-one-light
-        'doom-opera-light 'doom-solarized-light 'doom-tomorrow-day
-        'modus-operandi))
-
-(defvar strange-themes
-  (list 'doom-1337 'doom-dark+ 'doom-lantern 'doom-laserwave 'doom-manegarm
-        'doom-miramare 'doom-nord-light 'doom-plain 'doom-plain-dark
-        'doom-shades-of-purple))
-
-(defvar bad-themes
-  (list 'doom-monokai-octagon ;; the highlight is inconspicuous
-        'doom-monokai-pro ;; ripgrep highlight bad
-        'doom-acario-light ;; comment not obvious
-        'doom-acario-dark ;; bad org-link
-        'doom-Iosvkem)) ;; bad highlight-thing
+  (list 'doom-ayu-dark 'doom-city-lights 'doom-dracula
+        'doom-gruvbox 'doom-molokai 'doom-old-hope 'doom-one
+        'doom-snazzy 'doom-tomorrow-night 'doom-vibrant
+        'doom-wilmersdorf 'doom-xcode 'doom-zenburn))
 
 (defun random-choice (items)
   "Random choice in ITEMS."
@@ -85,24 +63,12 @@
 (require 'doom-themes-ext-org)
 (doom-themes-org-config)
 
-;; nano
-;; (require 'nano)
-
-;; lazycat-theme
-;; (require 'lazycat-dark-theme)
-
 ;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
-
-;; painting-theme
-;; (add-to-list 'load-path (concat haoran/test-packages-dir "/painting-theme"))
-;; (require 'painting-theme)
-
 
 ;; (+load-theme-from-selected)
 ;; (load-theme 'doom-solarized-light t)
 (load-theme 'doom-old-hope t)
-
 
 ;; 当前窗口透明度 (活动区 非活动区)
 ;; (set-frame-parameter (selected-frame) 'alpha (list 95 95))
