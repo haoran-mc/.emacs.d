@@ -409,7 +409,7 @@
 (lazy-load-global-keys '(("C-c p f" . project-find-file)
                          ("C-c p p" . project-switch-project))
                        ;; C-c p t [project to treemacs] in treemacs
-                       "init-project")
+                       "project")
 
 ;; r C-c r instead C-x r as inaccessible
 

@@ -1,4 +1,4 @@
-;;; init-cursor-chg.el --- init for cursor-chg.el    -*- lexical-binding: t; -*-
+;;; init-snippet.el ---                            -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -22,16 +22,15 @@
 
 ;;
 
-;;; Require:
-
-(require 'cursor-chg)
-
 ;;; Code:
 
-;; Change cursor dynamically, depending on the context.
+(require 'yasnippet)
 (with-temp-message ""
-  (change-cursor-mode 1)
-  (toggle-cursor-type-when-idle 1))
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (yas-global-mode 1))
 
-(provide 'init-cursor-chg)
-;;; init-cursor-chg.el ends here
+(with-eval-after-load 'org
+  (add-hook 'org-mode-hook #'yas-minor-mode))
+
+(provide 'init-snippet)
+;;; init-snippet.el ends here

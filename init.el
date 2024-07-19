@@ -75,7 +75,7 @@
 
 (require 'init-ui)
 (require 'init-mode)
-(require 'init-yasnippet)
+(require 'init-snippet)
 (require 'init-lsp) ;; 不过度追求加载速度
 (require 'init-minibuffer) ;; minibuffer plugins 没有快捷键调用，所以需要开启加载
 (require 'init-windows)
@@ -90,7 +90,6 @@
 (run-with-idle-timer
  1 nil
  #'(lambda ()
-     (require 'init-utils)
      (require 'init-idle)
      (require 'init-parens)
 
@@ -102,12 +101,11 @@
      (require 'init-which-key)
      (require 'init-vundo)
      (require 'init-whole-line-or-region)
-     (require 'init-project)
+     ;; (require 'project)
      (require 'init-valign) ;; org-mode and markdown-mode
      (require 'init-eldoc)
 
      ;; standalone apps
-     (require 'init-reader)
      (require 'init-shell)
      (require 'init-gc)
      (require 'init-autosave)
