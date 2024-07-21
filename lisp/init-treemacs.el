@@ -47,15 +47,6 @@
       treemacs-missing-project-action 'remove
       treemacs-width 35)
 
-;; (treemacs-define-RET-action 'file-node-closed
-;;                             #'(lambda(&optional arg)
-;;                                 (treemacs-visit-node-in-most-recently-used-window)
-;;                                 (delete-window (treemacs-get-local-window))))
-
-;; (defun treemacs-visit-node-first-window(&optional arg)
-;;   (interactive "P")
-;;   (treemacs-visit-node-no-split)
-;;   (delete-window (treemacs-get-local-window)))
 
 (setq treemacs-mode-map (make-sparse-keymap))
 ;; navigation

@@ -66,24 +66,8 @@
 (require 'pinyinlib)
 
 
-
-
 ;; consult ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; provides commands for finding and completing
-;; consult-ripgrep
-;; consult-imenu
-;; consult-goto-line
-;; consult-goto-buffer
-;; consult-yank-pop
-;; consult-apropos
-;; consult-bookmark
-;; consult-recent-file
-;; consult-multi-occur
-;; consult-complex-command
-;; consult-line
-;; consult-mark
-;; consult-org-heading
-;; consult-line
 (with-eval-after-load 'consult
   ;; require
   (require 'consult-imenu)
@@ -139,66 +123,8 @@
                               "fdfind" "fd")
                           "--ignore-file=/Users/haoran/.emacs.d/.fdignore \
                            --full-path \
-                           --color=never"))
-  )
+                           --color=never")))
 
-
-;; (with-eval-after-load 'embark
-;;   (define-key embark-file-map (kbd "E") #'+consult-directory-externally))
-;;
-;; (defun +consult-directory-externally (file)
-;;   "Open FILE externally using the default application of the system."
-;;   (interactive "fOpen externally: ")
-;;   (if (and (eq system-type 'windows-nt)
-;; 	       (fboundp 'w32-shell-execute))
-;;       (shell-command-to-string
-;;        (encode-coding-string
-;;         (replace-regexp-in-string
-;;          "/" "\\\\" (format "explorer.exe %s"
-;;                             (file-name-directory
-;;                              (expand-file-name file)))) 'gbk))
-;;     (call-process (pcase system-type
-;; 		            ('darwin "open")
-;; 		            ('cygwin "cygstart")
-;; 		            (_ "xdg-open"))
-;; 		          nil 0 nil
-;; 		          (file-name-directory (expand-file-name file)))))
-;;
-;; (defun +open-current-directory ()
-;;   "Open current FILE directory.
-;; externally using the default application of the system."
-;;   (interactive)
-;;   (+consult-directory-externally default-directory))
-
-
-
-
-;; (use-package prescient
-;;   :ensure t
-;;   :hook (after-init . prescient-persist-mode)
-;;   :init
-;;   (use-package vertico-prescient
-;;     :ensure t
-;;     :hook (vertico-mode . vertico-prescient-mode)
-;;     :init
-;;     (setq vertico-prescient-enable-filtering nil))
-;;   :config
-;;   (setq prescient-sort-full-matches-first t
-;;         prescient-sort-length-enable nil))
-;;
-;; (use-package embark
-;;   :ensure t
-;;   :bind (:map minibuffer-local-map
-;;               ("M-o"     . embark-act)
-;;               ("C-c C-c" . embark-export)
-;;               ("C-c C-o" . embark-collect))
-;;   :custom
-;;   (prefix-help-command 'embark-prefix-help-command))
-;;
-;; ;; Consult users will also want the embark-consult package.
-;; (use-package embark-consult
-;;   :ensure t
-;;   :after embark consult)
 
 (provide 'init-minibuffer)
 ;;; init-minibuffer.el ends here
