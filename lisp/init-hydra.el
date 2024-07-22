@@ -83,6 +83,17 @@ _h_   _l_   _r_eset     _x_kill
     (require 'rainbow-mode)
     (rainbow-mode 1)))
 
+(defun my/toggle-indent-tabs-mode ()
+  "Toggle between using tabs and spaces for indentation."
+  (interactive)
+  (if indent-tabs-mode
+      (progn
+        (setq indent-tabs-mode nil)
+        (message "Indentation now uses spaces."))
+    (progn
+      (setq indent-tabs-mode t)
+      (message "Indentation now uses tabs."))))
+
 (with-no-warnings
   (pretty-hydra-define hydra-main (:title (format "%s Emacs-Lisp Commands"
                                                   (all-the-icons-fileicon "emacs"))
@@ -93,7 +104,8 @@ _h_   _l_   _r_eset     _x_kill
       ("+" text-scale-increase "zoom in")
       ("-" text-scale-decrease "zoom out"))
      "Toggle"
-     (("t r" my/toggle-rainbow-mode "rainbow" :exit t)))))
+     (("t i" my/toggle-indent-tabs-mode "tab indent" :exit t)
+      ("t r" my/toggle-rainbow-mode "rainbow" :exit t)))))
 
 (global-set-key (kbd "M-h") #'hydra-main/body)
 (with-eval-after-load 'org (define-key org-mode-map (kbd "M-h") #'hydra-main/body))
