@@ -104,8 +104,8 @@
       ;; image
       org-image-actual-width '(565) ;; 统一图片的宽度
       org-startup-with-inline-images nil ;; 每次打开文件时主动加载内联图片
-      ;; archive
-      org-archive-location "%s_archive::datetree/"
+      ;; archive 因为 org-archive-location 会将子树的最高 level 设成 top level，所以尽量只 archive top level，保证 level 顺序
+      org-archive-location "%s_archive::"
       ;; latex
       org-preview-latex-default-process 'imagemagick ;; C-c C-x C-l org-latex-preview 使用 imagemagick 作为预览公式图像的工具
       org-latex-create-formula-image-program 'imagemagick ;; 使用 imagemagick 作为生成公式图像的工具
