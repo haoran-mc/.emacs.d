@@ -66,6 +66,7 @@
 ;; (define-key treemacs-mode-map (kbd "a") #'treemacs-create-file) ;; conflict with ace-window, just use C-c f x
 (define-key treemacs-mode-map (kbd "+") #'treemacs-create-dir)
 (define-key treemacs-mode-map (kbd "m") #'treemacs-move-file)
+(define-key treemacs-mode-map (kbd "d") #'treemacs-delete-file)
 (define-key treemacs-mode-map (kbd "yf") #'treemacs-copy-file)
 (define-key treemacs-mode-map (kbd "yp") #'treemacs-copy-project-path-at-point)  ;; root path
 (define-key treemacs-mode-map (kbd "ya") #'treemacs-copy-absolute-path-at-point) ;; absolute
