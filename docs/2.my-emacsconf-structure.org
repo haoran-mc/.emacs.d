@@ -1,11 +1,23 @@
 #+STARTUP: showall noindent
 
 
-* 如何安排我的 emacs 快捷键
+* .emacs.d 结构
+1. 同一个包引入的配置放在同一个位置；
+
+   doom-themes-ext-treemacs 是 doom-themes 的扩展。
+
+   如果放在 init-treemacs.el 中，那么 init-theme-dark.el 中 ~with-eval-after-load 'treemacs~ 的配置会被 doom-themes-ext-treemacs 覆盖。
+
+   所以为了保证每个插件的配置不被其他插件污染，同一个包引入的配置方在同一个位置。
+
+
+* 自定义的函数
 1. 以 ~ran/~ 为前缀的可调用函数
 2. 以 ~my/~ 为前缀的内部使用函数
 3. 以 ~vanilla/~ 为前缀的增强函数
 
+
+* 我的 emacs 快捷键
 
 *osx:*
 

@@ -63,6 +63,10 @@
 (require 'doom-themes-ext-org)
 (doom-themes-org-config)
 
+(require 'doom-themes-ext-treemacs)
+(setq doom-themes-treemacs-theme "doom-colors")
+(doom-themes-treemacs-config)
+
 ;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
 
