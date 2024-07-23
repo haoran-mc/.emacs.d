@@ -57,12 +57,12 @@
   (set-face-attribute 'treemacs-directory-face nil
                       :height 1
                       :weight 'normal
-                      :family "JetBrainsMono Nerd Font")
+                      :family +font-family)
 
   (set-face-attribute 'treemacs-file-face nil
                       :height 1
                       :weight 'normal
-                      :family "JetBrainsMono Nerd Font")
+                      :family +font-family)
 
   ;; Git 状态相关，统一继承自 treemacs-file-face
   (set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)
@@ -76,7 +76,7 @@
   (set-face-attribute 'treemacs-root-face nil
                       :height 1
                       :weight 'normal
-                      :family "JetBrainsMono Nerd Font")
+                      :family +font-family)
 
   (set-face-attribute 'variable-pitch nil
                       :family nil))
