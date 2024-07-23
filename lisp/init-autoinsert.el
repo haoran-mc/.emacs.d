@@ -37,10 +37,10 @@
   (yas-expand-snippet (buffer-string) (point-min) (point-max)))
 
 (define-auto-insert "\\.org$"
-  [(locate-user-emacs-file "templates/template.org") autoinsert-yas-expand])
+  ["~/.emacs.d/templates/template.org" autoinsert-yas-expand])
 
 (define-auto-insert "\\.html$"
-  [(locate-user-emacs-file "templates/template.html") autoinsert-yas-expand])
+  ["~/.emacs.d/templates/template.html" autoinsert-yas-expand])
 
 
 (provide 'init-autoinsert)
