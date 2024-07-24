@@ -134,6 +134,23 @@
   (set-face-attribute 'vertico-current nil
                       :background "#424868"))
 
+(with-eval-after-load 'tab-bar
+  (set-face-attribute 'tab-bar nil
+                      :family +font-family
+                      :foreground "#556172"
+                      :background "#222323")
+
+  (set-face-attribute 'tab-bar-tab nil
+                      :box nil
+                      :family +font-family
+                      :foreground "#d6d6d4"
+                      :background "#1c1e1f")
+
+  (set-face-attribute 'tab-bar-tab-inactive nil
+                      :family +font-family
+                      :foreground "#556172"
+                      :background "#222323"))
+
 
 (provide 'init-theme-dark)
 ;;; init-theme-dark.el ends here
