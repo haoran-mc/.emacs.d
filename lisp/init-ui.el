@@ -24,41 +24,29 @@
 ;;; Code:
 
 
-(defvar pretty-dark-themes
-  (list 'doom-ayu-dark 'doom-city-lights 'doom-dracula
-        'doom-gruvbox 'doom-molokai 'doom-old-hope 'doom-one
-        'doom-snazzy 'doom-tomorrow-night 'doom-vibrant
-        'doom-wilmersdorf 'doom-xcode 'doom-zenburn))
-
 (defun random-choice (items)
   "Random choice in ITEMS."
   (let* ((size (length items))
          (index (random size)))
     (nth index items)))
 
-(defun +load-theme-random ()
+(defun my/load-theme-random ()
   "Load random all of user's themes."
   (interactive)
   (let* ((selected-theme (random-choice (custom-available-themes))))
     (message "Current random theme is: %s" selected-theme)
     (load-theme selected-theme t)))
 
-(defun +load-theme-from-selected ()
-  "Load random from pretty-dark-themes."
-  (interactive)
-  (let* ((selected-theme (random-choice pretty-dark-themes)))
-    (message "Current random theme is: %s" selected-theme)
-    (load-theme selected-theme t)))
-
 ;; TODO
-(defun +load-theme-accoriding-time ()
+(defun my/load-theme-accoriding-time ()
   (interactive)
   (load-theme 'modus-vivendi t))
 
+
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'doom-themes)
-(setq doom-themes-enable-bold nil
-      doom-themes-enable-italic nil)
+(defvar my/theme "~/Documents/emacs/local-packages/painting-theme")
+(add-to-list 'load-path (concat my/theme "/doom-extensions"))
+(add-to-list 'custom-theme-load-path my/theme)
 
 (require 'doom-themes-ext-org)
 (doom-themes-org-config)
@@ -70,9 +58,39 @@
 ;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
 
-;; (+load-theme-from-selected)
-;; (load-theme 'doom-solarized-light t)
-(load-theme 'doom-old-hope t)
+(setq ;; foreground and background
+      monokai-foreground     "#d6d6d4"
+      monokai-background     "#1c1e1f"
+      ;; font-lock
+      monokai-doc-face-as-comment "#525254"
+      ;; highlights and comments
+      monokai-comments       "#525254"
+      monokai-emphasis       "#F8F8F0" ;; modeline filename
+      monokai-highlight      "#49483E"
+      monokai-highlight-alt  "#3E3D31"
+      monokai-highlight-line "#222323" ;; hl-line
+      monokai-line-number    "#8F908A"
+      ;; colours
+      monokai-blue           "#66D9EF"
+      monokai-cyan           "#A1EFE4"
+      monokai-green          "#A6E22E"
+      monokai-gray           "#64645E"
+      monokai-violet         "#AE81FF"
+      monokai-red            "#F92672"
+      monokai-orange         "#FD971F"
+      monokai-yellow         "#E6DB74")
+
+(load-theme 'monokai t)
+
+;; 1. 先用 doom-molokai，看看能不能挺住
+;;    因为 doom-molokai 的主题不好改，只能一个一个在 init-theme-dark.el 里加
+;; 2. 而如果要用 monokai-emacs 的话，就只能 forked 一份，因为我又想用 doom-themes-ext
+;;    这样的好处是可以全盘自定义
+
+;; - 光标的颜色
+;; - 匹配括号的颜色，浅一点
+
+(setq frame-background-mode 'dark)
 
 ;; 当前窗口透明度 (活动区 非活动区)
 ;; (set-frame-parameter (selected-frame) 'alpha (list 95 95))

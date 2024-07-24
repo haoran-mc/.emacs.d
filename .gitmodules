@@ -78,11 +78,6 @@
 	url = git@github.com:manateelazycat/lazycat-theme.git
 	shallow = true
 	ignore = all
-[submodule "theme/doom-themes"]
-	path = theme/doom-themes
-	url = git@github.com:doomemacs/themes.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/rainbow-mode"]
 	path = site-lisp/rainbow-mode
 	url = git@github.com:emacsmirror/rainbow-mode.git
