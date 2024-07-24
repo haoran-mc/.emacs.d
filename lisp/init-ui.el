@@ -23,14 +23,13 @@
 
 ;;; Code:
 
-
 (defun random-choice (items)
   "Random choice in ITEMS."
   (let* ((size (length items))
          (index (random size)))
     (nth index items)))
 
-(defun my/load-theme-random ()
+(defun ran/load-theme-random ()
   "Load random all of user's themes."
   (interactive)
   (let* ((selected-theme (random-choice (custom-available-themes))))
@@ -58,38 +57,7 @@
 ;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
 
-(setq ;; foreground and background
-      monokai-foreground     "#d6d6d4"
-      monokai-background     "#1c1e1f"
-      ;; font-lock
-      monokai-doc-face-as-comment "#525254"
-      ;; highlights and comments
-      monokai-comments       "#525254"
-      monokai-emphasis       "#F8F8F0" ;; modeline filename
-      monokai-highlight      "#49483E"
-      monokai-highlight-alt  "#3E3D31"
-      monokai-highlight-line "#222323" ;; hl-line
-      monokai-line-number    "#8F908A"
-      ;; colours
-      monokai-blue           "#66D9EF"
-      monokai-cyan           "#A1EFE4"
-      monokai-green          "#A6E22E"
-      monokai-gray           "#64645E"
-      monokai-violet         "#AE81FF"
-      monokai-red            "#F92672"
-      monokai-orange         "#FD971F"
-      monokai-yellow         "#E6DB74")
-
 (load-theme 'monokai t)
-
-;; 1. 先用 doom-molokai，看看能不能挺住
-;;    因为 doom-molokai 的主题不好改，只能一个一个在 init-theme-dark.el 里加
-;; 2. 而如果要用 monokai-emacs 的话，就只能 forked 一份，因为我又想用 doom-themes-ext
-;;    这样的好处是可以全盘自定义
-
-;; - 光标的颜色
-;; - 匹配括号的颜色，浅一点
-
 (setq frame-background-mode 'dark)
 
 ;; 当前窗口透明度 (活动区 非活动区)

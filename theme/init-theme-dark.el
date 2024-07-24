@@ -23,14 +23,20 @@
 
 ;;; Code:
 
-;; hl-line
 ;; (set-face-attribute 'hl-line nil
-                    ;; :background "#424868")
+;;                     :background "#424868")
 
-;; region
-(set-face-attribute 'region nil
-                    :background "grey"
-                    :foreground "black")
+;; (set-face-attribute 'region nil
+;;                     :background "grey"
+;;                     :foreground "black")
+
+;; (set-face-attribute 'font-lock-doc-face nil
+;;                     :inherit 'font-lock-comment-face
+;;                     :foreground "#525254")
+
+;; 变宽字体
+;; (set-face-attribute 'variable-pitch nil
+;;                     :family +font-family)
 
 ;; org-mode
 (with-eval-after-load 'org
@@ -43,14 +49,14 @@
   (set-face-attribute 'org-level-7 nil :inherit 'outline-7 :weight 'normal :height 1.0)
   (set-face-attribute 'org-level-8 nil :inherit 'outline-8 :weight 'normal :height 1.0)
 
+  ;; (set-face-attribute 'org-link nil
+  ;;                     :inherit 'link
+  ;;                     :foreground "#fd971f"
+  ;;                     :weight 'normal)
+
   (set-face-attribute 'org-document-title nil
                       :weight 'normal
-                      :height 1.0)
-
-  (set-face-attribute 'org-link nil
-                      :inherit 'link
-                      :foreground "#2AA1AE"
-                      :weight 'normal))
+                      :height 1.0))
 
 ;; treemacs
 (with-eval-after-load 'treemacs
