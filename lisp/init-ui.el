@@ -56,6 +56,7 @@
 
 ;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
+;; (load-theme 'spacemacs-dark t)
 
 (load-theme 'monokai t)
 (setq frame-background-mode 'dark)
