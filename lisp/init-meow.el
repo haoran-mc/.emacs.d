@@ -106,6 +106,17 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
   (interactive "cTill:")
   (meow-till -1 ch expand))
 
+(defun my-v-meow-expand ()
+  "Activate char selection, then move right."
+  (interactive)
+  (if (region-active-p)
+      (thread-first
+        (meow--make-selection '(expand . char) (mark) (point))
+        (meow--select))
+    (thread-first
+      (meow--make-selection '(expand . char) (point) (point))
+      (meow--select))))
+
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
 
@@ -167,7 +178,6 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("F" . my-F-meow-find)
    '("t" . meow-till) ;; far and useless
    '("T" . my-T-meow-till)
-   ;; '("v" . meow-visit)
    '("/" . meow-visit)
    '("n" . meow-search)
 
@@ -182,6 +192,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("X" . meow-goto-line)
    '("o" . meow-block)
    '("O" . meow-to-block)
+   '("v" . my-v-meow-expand)
 
    ;; thing
    '("," . meow-inner-of-thing)
