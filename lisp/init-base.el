@@ -66,9 +66,6 @@
 (setq-default left-fringe-width 6)   ;; 设置左侧Fringe的宽度为6个像素
 (setq-default right-fringe-width 6)  ;; 设置右侧Fringe的宽度为6个像素
 
-;; confusing if no fringes (GUI only).
-(setq visual-line-fringe-indicators '(nil right-curly-arrow))
-
 (setq auto-save-default nil
       make-backup-files nil
       create-lockfiles nil)

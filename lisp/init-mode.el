@@ -116,7 +116,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 ;; prog ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq truncate-lines t ;; 默认折行
+(setq truncate-lines t ;; 默认不折行
       word-wrap-by-category t ;; 按照中文折行
       sentence-end-double-space nil) ;; 句子结束标点视为句子的结束，不需要额外的两个空格
 
@@ -124,7 +124,16 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (add-hook 'eshell-mode-hook (lambda () (setq truncate-lines t)))
 
 (with-eval-after-load 'org
-  (add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))) ;; see visual-line-mode also
+  (add-hook 'org-mode-hook
+            #'(lambda ()
+                (progn
+                  (setq
+                   ;; 折行 see visual-line-mode also
+                   truncate-lines nil
+                   ;; fringe-indicator 窗口边缘（fringe），折行导致的箭头
+                   visual-line-fringe-indicators '(nil nil)
+                   fringe-indicator-alist
+                   '((truncation . nil) (continuation . nil)))))))
 
 
 (provide 'init-mode)
