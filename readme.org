@@ -29,7 +29,7 @@
 
 1. managing plugins via submodules
 2. accelerated startup with autoload
-3. nice org-mode export and publishing experience
+3. nice org-mode export and publishing
 
 
 -----
