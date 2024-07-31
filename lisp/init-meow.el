@@ -146,13 +146,13 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
 
    ;; movement, like hjkl
    '("h" . meow-left)
-   '("H" . meow-left-expand)
    '("j" . meow-next)
-   '("J" . meow-next-expand)
    '("k" . meow-prev)
-   '("K" . meow-prev-expand)
    '("l" . meow-right)
-   '("L" . meow-right-expand)
+   ;; '("H" . meow-left-expand)
+   ;; '("J" . meow-next-expand)
+   ;; '("K" . meow-prev-expand)
+   ;; '("L" . meow-right-expand)
 
    ;; insert
    '("a" . my-a-meow-append)
