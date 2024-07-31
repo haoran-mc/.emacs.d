@@ -32,7 +32,7 @@
 (require 'ace-window-posframe)
 
 
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
+(setq aw-keys '(?h ?j ?l ?k ?a ?s ?d ?f ?g)
       aw-background nil)
 
 (ace-window-posframe-enable)
