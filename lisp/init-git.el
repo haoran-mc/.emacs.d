@@ -50,15 +50,11 @@
 ;; diff-hl ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Highlight uncommitted changes using VC
 (require 'diff-hl)
-(dolist (mode-hook '(go-mode-hook
-                     emacs-lisp-mode-hook))
-  (add-hook mode-hook 'diff-hl-mode))
-(require 'diff-hl-dired)
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-;; (require 'diff-hl-margin)
-;; (diff-hl-margin-mode)
+(global-diff-hl-mode)
+(require 'diff-hl-dired)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 
 (defun +diff-hl-find-hunk ()
   "Go to the next hunk, loop to the beginning of the file."
