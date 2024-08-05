@@ -81,15 +81,13 @@
       org-ellipsis " ⤵ " ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
       org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+")) ;; not know
       org-hide-emphasis-markers t ;; 隐藏强调标识符
-      org-emphasis-alist '(("*" org-bold) ;; org-bold 在 :config 的 defface 中定义
-                           ("/" italic)
-                           ("_" underline)
-                           ;; ("=" (:foreground "orange" ;; light color
-                           ;;                   :background "#EFF1F2"))
-                           ("=" (:foreground "#fef7ca")) ;; dark color
-                           ("+" (:foreground "dark gray"
-                                             :strike-through t))
-                           ("~" org-code verbatim))
+      org-emphasis-alist '(("*" org-bold) ;; org-bold 使用 defface 自定义
+                           ("/" (:foreground "white" :slant italic))
+                           ("_" (:foreground "white" :underline t))
+                           ;; ("=" (:foreground "orange" :background "#EFF1F2")) ;; light color
+                           ("=" (:foreground "black" :background "#FEF7CA")) ;; dark color
+                           ("+" (:foreground "dark gray" :strike-through t))
+                           ("~" (:foreground "orange")))
       org-goto-interface 'ortline-path-completion ;; org-goto 命令的界面样式
       org-fontify-todo-headline nil ;; TODO 标签美化
       org-fontify-done-headline nil ;; DONE 标签美化
