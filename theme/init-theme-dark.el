@@ -38,24 +38,12 @@
 ;; (set-face-attribute 'variable-pitch nil
 ;;                     :family +font-family)
 
-(with-eval-after-load 'org
-  (set-face-attribute 'org-level-1 nil :inherit 'outline-1 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-2 nil :inherit 'outline-2 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-3 nil :inherit 'outline-3 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-4 nil :inherit 'outline-4 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-5 nil :inherit 'outline-5 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-6 nil :inherit 'outline-6 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-7 nil :inherit 'outline-7 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-8 nil :inherit 'outline-8 :weight 'normal :height 1.0)
 
-  ;; (set-face-attribute 'org-link nil
-  ;;                     :inherit 'link
-  ;;                     :foreground "#fd971f"
-  ;;                     :weight 'normal)
+;; unspecified faces
+(with-eval-after-load 'bookmark
+  (set-face-attribute 'bookmark-face nil
+                      :inherit 'unspecified))
 
-  (set-face-attribute 'org-document-title nil
-                      :weight 'normal
-                      :height 1.0))
 
 (with-eval-after-load 'treemacs
   (set-face-attribute 'treemacs-directory-face nil
@@ -111,36 +99,47 @@
                       :background "#AACCEE"
                       :box '(:line-width -1 :color "#505090")))
 
-(with-eval-after-load 'highlight-thing
-  (set-face-attribute 'highlight-thing nil
-                      :background "#606689"
-                      :foreground "white"))
+(with-eval-after-load 'org
+  (set-face-attribute 'org-level-1 nil
+                      :height 1.0
+                      :weight 'normal
+                      :foreground "#829CD6")
 
-(with-eval-after-load 'vertico
-  (set-face-attribute 'vertico-current nil
-                      :background "#424868"))
+  (set-face-attribute 'org-level-2 nil
+                      :height 1.0
+                      :weight 'normal
+                      :foreground "#5B94AB")
 
-(with-eval-after-load 'hl-todo
-  (set-face-attribute 'hl-todo nil
+  (set-face-attribute 'org-level-3 nil
+                      :height 1.0
+                      :weight 'normal
+                      :foreground "#7EBEBD")
+
+  (set-face-attribute 'org-level-4 nil
+                      :height 1.0
+                      :weight 'normal
+                      :foreground "#677CAB")
+
+  (set-face-attribute 'org-level-5 nil
+                      :height 1.0
+                      :weight 'normal
+                      :foreground "#487688")
+
+  (set-face-attribute 'org-level-6 nil
+                      :height 1.0
+                      :weight 'normal)
+
+  (set-face-attribute 'org-level-7 nil
+                      :height 1.0
+                      :weight 'normal)
+
+  (set-face-attribute 'org-level-8 nil
+                      :height 1.0
+                      :weight 'normal)
+
+  (set-face-attribute 'org-document-title nil
+                      :height 1.0
                       :weight 'normal))
-
-(with-eval-after-load 'tab-bar
-  (set-face-attribute 'tab-bar nil
-                      :family +font-family
-                      :foreground "#556172"
-                      :background "#222323")
-
-  (set-face-attribute 'tab-bar-tab nil
-                      :box nil
-                      :family +font-family
-                      :foreground "#d6d6d4"
-                      :background "#1c1e1f")
-
-  (set-face-attribute 'tab-bar-tab-inactive nil
-                      :family +font-family
-                      :foreground "#556172"
-                      :background "#222323"))
-
 
 (provide 'init-theme-dark)
 ;;; init-theme-dark.el ends here
