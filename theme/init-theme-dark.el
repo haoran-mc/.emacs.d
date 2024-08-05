@@ -116,16 +116,6 @@
                       :background "#606689"
                       :foreground "white"))
 
-(with-eval-after-load 'symbol-overlay
-  (set-face-attribute 'symbol-overlay-face-1 nil :foreground "black" :background "#A4E57E")
-  (set-face-attribute 'symbol-overlay-face-2 nil :foreground "black" :background "#8CCBEA")
-  (set-face-attribute 'symbol-overlay-face-3 nil :foreground "black" :background "#FFDB72")
-  (set-face-attribute 'symbol-overlay-face-4 nil :foreground "black" :background "#FF7272")
-  (set-face-attribute 'symbol-overlay-face-5 nil :foreground "black" :background "#FFB3FF")
-  (set-face-attribute 'symbol-overlay-face-6 nil :foreground "black" :background "#9999FF")
-  (set-face-attribute 'symbol-overlay-face-7 nil :foreground "black" :background "#1E90FF")
-  (set-face-attribute 'symbol-overlay-face-8 nil :foreground "black" :background "#40E0D0"))
-
 (with-eval-after-load 'vertico
   (set-face-attribute 'vertico-current nil
                       :background "#424868"))

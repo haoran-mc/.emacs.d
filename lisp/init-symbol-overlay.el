@@ -51,5 +51,16 @@
  symbol-overlay-map)
 
 
+;; 因为打算不论什么主题都使用这些 colors，所以就和这个插件的配置放在一块
+(set-face-attribute 'symbol-overlay-face-1 nil :foreground "black" :background "#A4E57E")
+(set-face-attribute 'symbol-overlay-face-2 nil :foreground "black" :background "#8CCBEA")
+(set-face-attribute 'symbol-overlay-face-3 nil :foreground "black" :background "#FFDB72")
+(set-face-attribute 'symbol-overlay-face-4 nil :foreground "black" :background "#FF7272")
+(set-face-attribute 'symbol-overlay-face-5 nil :foreground "black" :background "#FFB3FF")
+(set-face-attribute 'symbol-overlay-face-6 nil :foreground "black" :background "#9999FF")
+(set-face-attribute 'symbol-overlay-face-7 nil :foreground "black" :background "#1E90FF")
+(set-face-attribute 'symbol-overlay-face-8 nil :foreground "black" :background "#40E0D0")
+
+
 (provide 'init-symbol-overlay)
 ;;; init-symbol-overlay.el ends here
