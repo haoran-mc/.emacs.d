@@ -54,12 +54,22 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 (doom-themes-treemacs-config)
 
-;; spacemacs-theme
 ;; (require 'spacemacs-dark-theme)
 ;; (load-theme 'spacemacs-dark t)
 
+;; (require 'lazycat-dark-theme)
+;; (load-theme 'lazycat-dark t)
+
 (load-theme 'monokai t)
+(setq monokai-doc-face-as-comment "#E6DB74") ;; font-lock-doc-face
+
 (setq frame-background-mode 'dark)
+
+;; (add-to-list 'load-path "~/Documents/emacs/local-packages/doom-themes")
+;; (require 'doom-themes)
+;; (setq doom-themes-enable-bold nil
+;;       doom-themes-enable-italic nil)
+;; (load-theme 'doom-molokai t)
 
 ;; 当前窗口透明度 (活动区 非活动区)
 ;; (set-frame-parameter (selected-frame) 'alpha (list 95 95))
