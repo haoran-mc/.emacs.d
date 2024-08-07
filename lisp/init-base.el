@@ -100,7 +100,7 @@
 
 (setq-default fill-column 80)
 
-(blink-cursor-mode 1)                   ;; 指针闪动，帮助我快速定位光标位置
+(blink-cursor-mode 0)                   ;; 指针闪动，帮助我快速定位光标位置
 (setq blink-cursor-blinks 100)          ;; 闪动 100 次
 (transient-mark-mode 1)                 ;; 标记高亮
 (setq-default comment-style 'indent)    ;; 设定自动缩进的注释风格
