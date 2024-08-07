@@ -84,7 +84,7 @@
 (define-key treemacs-mode-map (kbd "?") #'treemacs-advanced-helpful-hydra)
 
 (with-eval-after-load 'project
-  (defun +treemacs-add-current-project-workspace ()
+  (defun my/treemacs-add-current-project-workspace ()
     "Add the current project to the Treemacs workspace."
     (interactive)
     (let ((project (project-current t)))
@@ -94,11 +94,36 @@
                 (treemacs-add-project-to-workspace project-path)
               (message "Invalid project path: %s" project-path)))
         (message "No project found for current buffer"))))
-  (global-set-key (kbd "C-c p t") #'+treemacs-add-current-project-workspace))
+  (global-set-key (kbd "C-c p t") #'my/treemacs-add-current-project-workspace))
 
 ;; keeping my fringe settings
 (advice-remove #'treemacs-select-window #'doom-themes-hide-fringes-maybe)
 
+
+;; set treemacs faces
+(set-face-attribute 'treemacs-directory-face nil
+                    :height 1
+                    :weight 'normal
+                    :family +font-family)
+
+(set-face-attribute 'treemacs-file-face nil
+                    :height 1
+                    :weight 'normal
+                    :family +font-family)
+
+(set-face-attribute 'treemacs-root-face nil
+                    :height 1
+                    :weight 'normal
+                    :family +font-family)
+
+;; Git 状态相关，统一继承自 treemacs-file-face
+(set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-conflict-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-ignored-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-modified-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-renamed-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-unmodified-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-untracked-face nil :inherit 'treemacs-file-face)
 
 (provide 'init-treemacs)
 ;;; init-treemacs.el ends here

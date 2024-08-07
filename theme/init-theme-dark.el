@@ -44,36 +44,6 @@
   (set-face-attribute 'bookmark-face nil
                       :inherit 'unspecified))
 
-
-(with-eval-after-load 'treemacs
-  (set-face-attribute 'treemacs-directory-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  (set-face-attribute 'treemacs-file-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  (set-face-attribute 'treemacs-root-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  (set-face-attribute 'doom-themes-treemacs-root-face nil
-                      :height 1
-                      :weight 'normal)
-
-  ;; Git 状态相关，统一继承自 treemacs-file-face
-  (set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-conflict-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-ignored-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-modified-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-renamed-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-unmodified-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-untracked-face nil :inherit 'treemacs-file-face))
-
 (with-eval-after-load 'meow
   ;; (set-face-attribute 'meow-keypad-cursor nil :background "#7c2902")
   ;; (set-face-attribute 'meow-insert-cursor nil :background "#014f39")
