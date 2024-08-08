@@ -44,7 +44,7 @@
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar my/theme "~/Documents/emacs/local-packages/painting-theme")
-(add-to-list 'load-path (concat my/theme "/doom-extensions"))
+(add-subdirs-to-load-path (file-name-directory my/theme))
 (add-to-list 'custom-theme-load-path my/theme)
 
 (require 'doom-themes-ext-org)
