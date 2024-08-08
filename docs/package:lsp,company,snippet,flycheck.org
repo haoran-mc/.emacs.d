@@ -1,0 +1,19 @@
+#+TITLE: company
+#+STARTUP: showeverything noindent
+
+
+- lsp 客户端
+  - lsp-mode
+  - lsp-bridge
+  - eglot
+
+- 补全框架
+  - company
+  - corfu
+
+- 代码检查
+  - flymake
+  - flycheck
+
+- snippet
+  - yasnippet
