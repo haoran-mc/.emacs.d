@@ -318,11 +318,11 @@
                                        :body-pre (require 'magit)
                                        :color blue :quit-key ("q" "C-g"))
   ("dispatch"
-   (("m" magit-dispatch "magit menu" :exit t)
-    ("d" magit-file-dispatch "file dispatch" :exit t))
-   "Message"
-   (("p" git-messenger:popup-message "popup-msg" :exit t)
-    ("b" magit-branch "branch" :exit t))))
+   (("d m" magit-dispatch "magit menu" :exit t)
+    ("d f" magit-file-dispatch "file dispatch" :exit t))
+   "vc"
+   (("v a" vc-annotate "vc-annotate" :exit t)
+    ("v h" vc-region-history "vc-region-history" :exit t))))
 (lazy-load-set-keys '(("C-c g" . hydra-git/body)))
 
 ;; h for highlight

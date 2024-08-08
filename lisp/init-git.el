@@ -20,9 +20,9 @@
 
 ;;; Commentary:
 ;;
-;; git-messenger has been superseded by {C-x v h} (`vc-region-history')
 
 ;;; Code:
+;;
 
 ;; The awesome git client
 ;;
@@ -52,7 +52,8 @@
 (require 'diff-hl)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-(global-diff-hl-mode)
+(add-hook 'prog-mode-hook 'diff-hl-mode)
+
 (require 'diff-hl-dired)
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote)
 
@@ -94,12 +95,6 @@
 (add-to-list 'auto-mode-alist '("\\.gitignore\\'"     . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.gitconfig\\'"     . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.gitattributes\\'" . conf-unix-mode))
-
-
-;; git-messenger ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'git-messenger)
-(setq git-messenger:show-detail t
-      git-messenger:use-magit-popup t)
 
 
 (provide 'init-git)
