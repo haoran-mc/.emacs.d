@@ -94,7 +94,6 @@
                      emacs-lisp-mode-hook
                      go-mode-hook
                      c++-mode-hook
-                     js-mode-hook
                      css-mode-hook
                      web-mode-hook))
   (add-hook mode-hook #'my/load-lsp-bridge))
