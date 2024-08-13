@@ -38,6 +38,15 @@
   (interactive)
   (require 'magit))
 
+;; similar to vc-annotate, vc-region-history
+(setq magit-blame-styles
+      '((margin
+         (margin-width . 32)
+         (margin-format . ("%C %c %f"))
+         (margin-face . magit-blame-margin)
+         (margin-body-face . magit-blame-dimmed)
+         (show-message . t))))
+
 
 ;; vc ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; NOTE: `diff-hl' depends on `vc'
