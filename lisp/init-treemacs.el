@@ -29,13 +29,13 @@
 (require 'treemacs-hydras)
 
 (require 'cfrs)
-
 ;; ace-window, hydra
 
-;;; Code:
 
+;;; Code:
 (setq treemacs-filewatch-mode t
       treemacs-git-mode nil
+      treemacs-show-git-status nil
       treemacs-follow-mode nil
       treemacs-show-cursor t
       treemacs-sorting 'alphabetic-asc
@@ -101,28 +101,18 @@
 
 
 ;; set treemacs faces
-(set-face-attribute 'treemacs-directory-face nil
-                    :height 1
-                    :weight 'normal
-                    :family +font-family)
-
-(set-face-attribute 'treemacs-file-face nil
-                    :height 1
-                    :weight 'normal
-                    :family +font-family)
-
-(set-face-attribute 'treemacs-root-face nil
-                    :height 1
-                    :weight 'normal
-                    :family +font-family)
+(defvar my/theme-fg (face-foreground 'default))
+(set-face-attribute 'treemacs-directory-face nil :height 1 :weight 'normal :family +font-family :foreground my/theme-fg)
+(set-face-attribute 'treemacs-file-face      nil :height 1 :weight 'normal :family +font-family :foreground my/theme-fg)
+(set-face-attribute 'treemacs-root-face      nil :height 1 :weight 'normal :family +font-family)
 
 ;; Git 状态相关，统一继承自 treemacs-file-face
 (set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)
-(set-face-attribute 'treemacs-git-conflict-face nil :inherit 'treemacs-file-face)
-(set-face-attribute 'treemacs-git-ignored-face nil :inherit 'treemacs-file-face)
 (set-face-attribute 'treemacs-git-modified-face nil :inherit 'treemacs-file-face)
-(set-face-attribute 'treemacs-git-renamed-face nil :inherit 'treemacs-file-face)
 (set-face-attribute 'treemacs-git-unmodified-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-ignored-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-conflict-face nil :inherit 'treemacs-file-face)
+(set-face-attribute 'treemacs-git-renamed-face nil :inherit 'treemacs-file-face)
 (set-face-attribute 'treemacs-git-untracked-face nil :inherit 'treemacs-file-face)
 
 (provide 'init-treemacs)

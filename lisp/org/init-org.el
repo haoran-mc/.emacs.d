@@ -28,7 +28,7 @@
 
 
 ;;; Code:
-(defvar my/theme-foreground (face-foreground 'default))
+(defvar my/theme-fg (face-foreground 'default))
 
 (defun my/set-org-bold-face-based-on-theme ()
   (let* ((bg-mode (frame-parameter nil 'background-mode))
@@ -84,8 +84,8 @@
       org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+")) ;; not know
       org-hide-emphasis-markers t ;; 隐藏强调标识符
       org-emphasis-alist `(("*" org-bold) ;; org-bold 使用 defface 自定义
-                           ("/" (:foreground ,my/theme-foreground :slant italic))
-                           ("_" (:foreground ,my/theme-foreground :underline t))
+                           ("/" (:foreground ,my/theme-fg :slant italic))
+                           ("_" (:foreground ,my/theme-fg :underline t))
                            ;; ("=" (:foreground "orange" :background "#EFF1F2")) ;; light color
                            ("=" (:foreground "black" :background "#FEF7CA")) ;; dark color
                            ("+" (:foreground "dark gray" :strike-through t))
