@@ -28,6 +28,8 @@
 
 
 ;;; Code:
+(defvar my/theme-foreground (face-foreground 'default))
+
 (defun my/set-org-bold-face-based-on-theme ()
   (let* ((bg-mode (frame-parameter nil 'background-mode))
          (foreground-color (if (eq bg-mode 'dark) "yellow" "purple"))
@@ -81,9 +83,9 @@
       org-ellipsis " ⤵ " ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
       org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+")) ;; not know
       org-hide-emphasis-markers t ;; 隐藏强调标识符
-      org-emphasis-alist '(("*" org-bold) ;; org-bold 使用 defface 自定义
-                           ("/" (:foreground "white" :slant italic))
-                           ("_" (:foreground "white" :underline t))
+      org-emphasis-alist `(("*" org-bold) ;; org-bold 使用 defface 自定义
+                           ("/" (:foreground ,my/theme-foreground :slant italic))
+                           ("_" (:foreground ,my/theme-foreground :underline t))
                            ;; ("=" (:foreground "orange" :background "#EFF1F2")) ;; light color
                            ("=" (:foreground "black" :background "#FEF7CA")) ;; dark color
                            ("+" (:foreground "dark gray" :strike-through t))
