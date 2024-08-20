@@ -73,6 +73,11 @@ _h_   _l_   _r_eset     _x_kill
 
 
 ;; major-mode-hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'rainbow-mode-hook
+          #'(lambda ()
+              (hl-line-mode
+               (if (bound-and-true-p rainbow-mode) -1 +1))))
+
 (defun my/toggle-rainbow-mode ()
   "Toggle rainbow mode."
   (interactive)
