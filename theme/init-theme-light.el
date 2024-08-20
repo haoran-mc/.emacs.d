@@ -48,63 +48,23 @@
 ;; font-lock-doc-markup-face:           unspecified
 ;; font-lock-warning-face:              unspecified
 
-
-(set-face-attribute 'font-lock-comment-face nil
-                    :italic nil)
-
-(set-face-attribute 'font-lock-builtin-face nil
-                    :italic nil)
-
-(set-face-attribute 'font-lock-type-face nil
-                    :italic nil)
-
-;; fringe
-(set-face-attribute 'fringe nil
-                    :background "#EDE8D5")
+(set-face-attribute 'variable-pitch nil :family nil)
+(set-face-attribute 'font-lock-comment-face nil :italic nil)
+(set-face-attribute 'font-lock-builtin-face nil :italic nil)
+(set-face-attribute 'font-lock-type-face nil :italic nil)
+(set-face-attribute 'fringe nil :background "#EDE8D5")
 
 ;; org-mode
 (with-eval-after-load 'org
-  (set-face-attribute 'org-level-1 nil :inherit 'outline-1 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-2 nil :inherit 'outline-2 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-3 nil :inherit 'outline-3 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-4 nil :inherit 'outline-4 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-5 nil :inherit 'outline-5 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-6 nil :inherit 'outline-6 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-7 nil :inherit 'outline-7 :weight 'normal :height 1.0)
-  (set-face-attribute 'org-level-8 nil :inherit 'outline-8 :weight 'normal :height 1.0)
-
-  (set-face-attribute 'org-document-title nil
-                      :weight 'normal
-                      :height 1.0))
-
-;; treemacs
-(with-eval-after-load 'treemacs
-  (set-face-attribute 'treemacs-directory-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  (set-face-attribute 'treemacs-file-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  ;; Git 状态相关，统一继承自 treemacs-file-face
-  (set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-conflict-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-ignored-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-modified-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-renamed-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-unmodified-face nil :inherit 'treemacs-file-face)
-  (set-face-attribute 'treemacs-git-untracked-face nil :inherit 'treemacs-file-face)
-
-  (set-face-attribute 'treemacs-root-face nil
-                      :height 1
-                      :weight 'normal
-                      :family +font-family)
-
-  (set-face-attribute 'variable-pitch nil
-                      :family nil))
+  (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
+  (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
+  (set-face-attribute 'org-level-3 nil :height 1.0 :weight 'normal :foreground "#7EBEBD")
+  (set-face-attribute 'org-level-4 nil :height 1.0 :weight 'normal :foreground "#677CAB")
+  (set-face-attribute 'org-level-5 nil :height 1.0 :weight 'normal :foreground "#487688")
+  (set-face-attribute 'org-level-6 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-level-7 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal))
 
 ;; meow
 (with-eval-after-load 'meow
@@ -112,37 +72,14 @@
   ;; (set-face-attribute 'meow-insert-cursor nil :background "#014f39")
   ;; (set-face-attribute 'meow-normal-cursor nil :background "#9b034c")
   ;; (set-face-attribute 'meow-motion-cursor nil :background "#035063")
-  (set-face-attribute 'meow-keypad-indicator nil
-                      :foreground "#801717"
-                      :background "#FF6666"
-                      :box '(:line-width -1 :color "#801717"))
-
-  (set-face-attribute 'meow-insert-indicator nil
-                      :foreground "#309030"
-                      :background "#AAE9A0"
-                      :box '(:line-width -1 :color "#309030"))
-
-  (set-face-attribute 'meow-normal-indicator nil
-                      :foreground "#6F5033"
-                      :background "#FFEE99"
-                      :box '(:line-width -1 :color "#6F5033"))
-
-  (set-face-attribute 'meow-motion-indicator nil
-                      :foreground "#505090"
-                      :background "#AACCEE"
-                      :box '(:line-width -1 :color "#505090")))
-
+  (set-face-attribute 'meow-keypad-indicator nil :foreground "#801717" :background "#FF6666" :box '(:line-width -1 :color "#801717"))
+  (set-face-attribute 'meow-insert-indicator nil :foreground "#309030" :background "#AAE9A0" :box '(:line-width -1 :color "#309030"))
+  (set-face-attribute 'meow-normal-indicator nil :foreground "#6F5033" :background "#FFEE99" :box '(:line-width -1 :color "#6F5033"))
+  (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE" :box '(:line-width -1 :color "#505090")))
 
 ;; diff-hl
 (with-eval-after-load 'diff-hl
-  (set-face-attribute 'diff-hl-change nil
-                      :background "#bbbb00"
-                      :foreground "#bbbb00"))
-
-;; highlight-thing
-(with-eval-after-load 'highlight-thing
-  (set-face-attribute 'highlight-thing nil
-                      :background "#ECEFF1"))
+  (set-face-attribute 'diff-hl-change nil :background "#bbbb00" :foreground "#bbbb00"))
 
 ;; symbol-overlay
 (with-eval-after-load 'symbol-overlay
@@ -157,14 +94,11 @@
 
 ;; magit
 (with-eval-after-load 'magit
-  (set-face-attribute 'magit-header-line nil
-                      :background "#EDE8D5"))
+  (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
 
 ;; drivish
 (with-eval-after-load 'dirvish
-  (set-face-attribute 'dirvish-hl-line nil
-                      :foreground 'unspecified
-                      :background "#F2E6CE"))
+  (set-face-attribute 'dirvish-hl-line nil :foreground 'unspecified :background "#F2E6CE"))
 
 
 (provide 'init-theme-light)
