@@ -113,11 +113,6 @@
 	url = git@github.com:Alexander-Miller/treemacs.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/expand-region.el"]
-	path = site-lisp/expand-region.el
-	url = git@github.com:magnars/expand-region.el.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/goto-line-preview"]
 	path = site-lisp/goto-line-preview
 	url = git@github.com:emacs-vs/goto-line-preview.git

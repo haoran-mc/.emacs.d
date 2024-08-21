@@ -180,10 +180,6 @@
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
-(lazy-load-global-keys '(("M-e" . er/expand-region) ;; like M-a confusing sentence ending
-                         ("M--" . er/contract-region))
-                       "expand-region")
-
 (lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
 
 (lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
