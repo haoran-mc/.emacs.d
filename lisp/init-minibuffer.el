@@ -37,20 +37,15 @@
 ;; vertical style minibuffer
 (require 'vertico)
 (add-hook 'after-init-hook 'vertico-mode)
-(add-hook 'minibuffer-setup-hook 'vertico-repeat-save)
 (setq vertico-cycle t)
-;; extensions
-(require 'vertico-repeat)
 
 
 ;; orderless ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'orderless)
-;; make completion support pinyin, refer to
-;; https://emacs-china.org/t/vertico/17913/2
-(defun completion--regex-pinyin (str)
-  (orderless-regexp (pinyinlib-build-regexp-string str)))
-(add-to-list 'orderless-matching-styles 'completion--regex-pinyin)
-(setq completion-styles '(orderless))
+(setq completion-styles '(orderless basic)
+      completion-category-defaults nil ;; use orderless only
+      completion-category-overrides nil
+      orderless-component-separator #'orderless-escapable-split-on-space)
 
 
 ;; marginalia ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64,6 +59,11 @@
 ;; pingyinlib ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; support Pinyin first character match for orderless, avy etc.
 (require 'pinyinlib)
+;; make completion support pinyin, refer to
+;; https://emacs-china.org/t/vertico/17913/2
+(defun completion--regex-pinyin (str)
+  (orderless-regexp (pinyinlib-build-regexp-string str)))
+(add-to-list 'orderless-matching-styles 'completion--regex-pinyin)
 
 
 ;; consult ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
