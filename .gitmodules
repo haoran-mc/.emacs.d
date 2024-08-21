@@ -83,11 +83,6 @@
 	url = git@github.com:domtronn/all-the-icons.el.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/nano-emacs"]
-	path = site-lisp/nano-emacs
-	url = git@github.com:rougier/nano-emacs.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/auto-save"]
 	path = site-lisp/auto-save
 	url = git@github.com:manateelazycat/auto-save.git
@@ -171,11 +166,6 @@
 [submodule "site-lisp/compat"]
 	path = site-lisp/compat
 	url = git@github.com:emacs-compat/compat.git
-	shallow = true
-	ignore = all
-[submodule "site-lisp/shrink-path"]
-	path = site-lisp/shrink-path
-	url = git@gitlab.com:bennya/shrink-path.el.git
 	shallow = true
 	ignore = all
 [submodule "site-lisp/dash"]
