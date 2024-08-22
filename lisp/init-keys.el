@@ -92,15 +92,15 @@
 
 (with-eval-after-load 'org
   ;; only full paths are supported
-  (lazy-load-global-keys '(("C-v" . vanilla/preview-file-link)) "org-funcs")) ;; scroll-up-command
+  (lazy-load-local-keys '(("C-v" . vanilla/preview-file-link))
+                        org-mode-map "org-funcs"))
 
 ;; also navigate windows by ace-window(M-o)
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
                       ("C-\\ j" . windmove-down)
                       ("C-\\ k" . windmove-up)
                       ("C-\\ l" . windmove-right)
-                      ("C-\\ =" . balance-windows)
-                      ("C-\\ o" . delete-other-windows)))
+                      ("C-\\ =" . balance-windows)))
 
 (lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
                          ("C-\\ J" . vanilla/split-window-below-with-balance)
@@ -137,14 +137,14 @@
 ;;
 ;; M-?:
 ;;                                   ^  duplicate-line-above-comment
-;; duplicate-line-or-region-below    K
-;;                             < H       L >  duplicate-line-or-region-above
+;; duplicate-line-or-region-above    K
+;;                             < H       L >  duplicate-line-or-region-below
 ;;                                   J
 ;;                                   v  duplicate-line-below-comment
 ;;
 ;;
 ;;
-;; s-?:
+;; s-M-?:
 ;;                                   ^  vanilla/scroll-down-one-line
 ;; vanilla/scroll-right-half-page    k
 ;;                             < h       l >  vanilla/scroll-left-half-page
@@ -205,14 +205,25 @@
                          ("M-z b" . vanilla/move-to-window-bottom))
                        "cursormove")
 
-;; capital letters
-(lazy-load-global-keys '(("M-L" . duplicate-line-or-region-above)
-                         ("M-H" . duplicate-line-or-region-below)
+(lazy-load-global-keys '(("M-H" . duplicate-line-or-region-above)
+                         ("M-L" . duplicate-line-or-region-below)
                          ("M-J" . duplicate-line-below-comment)
                          ("M-K" . duplicate-line-above-comment))
                        "duplicate-line")
 
-
+;; window operation
+;;   1. C-\
+;;   2. s-hjkl   resize
+;; cursor/screen move
+;;   1. M-j      vanilla/scroll-half-page-up
+;;   2. M-k      vanilla/scroll-half-page-down
+;;   3. M-p      vanilla/move-cursor-8-lines-up
+;;   4. M-n      vanilla/move-cursor-8-lines-down
+;;   5. s-M-hjkl vanilla/scroll-...
+;; text operation
+;;   1. M-HJKL   duplicate-line
+;;   2. s-JK     move-text
+;;   3. C-j      vanilla/merge-line-down
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
@@ -228,10 +239,10 @@
                        "basic-tookit")
 
 (lazy-load-set-keys '(;; resize window
-                      ("s-<up>"   . shrink-window)
-                      ("s-<down>" . enlarge-window)
-                      ("s-<left>" . shrink-window-horizontally)
-                      ("s-<right>" . enlarge-window-horizontally)))
+                      ("s-k" . shrink-window)
+                      ("s-j" . enlarge-window)
+                      ("s-h" . shrink-window-horizontally)
+                      ("s-l" . enlarge-window-horizontally)))
 
 (lazy-load-global-keys '(("s-M-h" . vanilla/scroll-right-half-page)
                          ("s-M-l" . vanilla/scroll-left-half-page)
@@ -436,11 +447,6 @@
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
     "C-c z" "folding"))
-;; zm hide-all
-;; zr show-all
-;; za toggle-fold
-;; zo show-block
-;; zc hide-block
 (defhydra hydra-yafolding (:body-pre (require 'yafolding)
                                      :color blue)
   "folding"
