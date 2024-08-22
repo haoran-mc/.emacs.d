@@ -26,7 +26,6 @@
 (require 'org-tempo) ;; <s
 (require 'org-funcs)
 
-
 ;;; Code:
 (defvar my/theme-fg (face-foreground 'default))
 

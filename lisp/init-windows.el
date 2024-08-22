@@ -26,11 +26,11 @@
 
 
 ;; ace-window ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'init-avy) ;; 依赖 avy，所以要提前导入 init-avy
-                    ;; 否则如果使用 ace-window 先于 avy，init-avy 中的配置失效
+;; 依赖 avy，所以要提前导入 init-avy
+;; 否则如果使用 ace-window 先于 avy，init-avy 中的配置失效
+(require 'init-avy)
 (require 'ace-window)
 (require 'ace-window-posframe)
-
 
 (setq aw-keys '(?h ?j ?l ?k ?a ?s ?d ?f ?g)
       aw-background nil)
@@ -38,20 +38,11 @@
 (ace-window-posframe-enable)
 
 (set-face-attribute 'aw-leading-char-face nil
-                    :inherit 'font-lock-keyword-face
-                    :foreground 'unspecified
-                    :weight 'bold
-                    :height 3.0)
-
+                    :weight 'bold :height 3.0 :inherit 'font-lock-keyword-face)
 (set-face-attribute 'aw-minibuffer-leading-char-face nil
-                    :inherit 'font-lock-keyword-face
-                    :weight 'bold
-                    :height 1.0)
-
+                    :weight 'bold :height 1.0 :inherit 'font-lock-keyword-face)
 (set-face-attribute 'aw-mode-line-face nil
-                    :inherit 'mode-line-emphasis
-                    :weight 'bold)
-
+                    :weight 'bold :inherit 'mode-line-emphasis)
 
 (setq display-buffer-alist
       '(("\\*Org Src" ;; Adjust this pattern based on the actual buffer name
