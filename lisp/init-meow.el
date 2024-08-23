@@ -149,10 +149,10 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("j" . meow-next)
    '("k" . meow-prev)
    '("l" . meow-right)
-   ;; '("H" . meow-left-expand)
-   ;; '("J" . meow-next-expand)
-   ;; '("K" . meow-prev-expand)
-   ;; '("L" . meow-right-expand)
+   '("H" . meow-left-expand)
+   '("J" . meow-next-expand)
+   '("K" . meow-prev-expand)
+   '("L" . meow-right-expand)
 
    ;; insert
    '("a" . my-a-meow-append)
