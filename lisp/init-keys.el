@@ -426,8 +426,9 @@
   (which-key-add-key-based-replacements
     "C-c t" "tab-bar"))
 (lazy-load-global-keys '(("C-c t c" . tab-bar-close-tab)
-                         ;; ("C-c t n" . vanilla/create-new-tab-bar) deprecated
-                         ("C-c t r" . tab-bar-rename-tab))
+                         ("C-c t r" . tab-bar-rename-tab)
+                         ("C-c t h" . tab-bar-move-tab-backward)
+                         ("C-c t l" . tab-bar-move-tab))
                        "init-tab-bar")
 
 ;; u for user

@@ -38,13 +38,6 @@
 
 (require 'basic-tookit) ;; create scratch buffer
 
-;; (defun vanilla/create-new-tab-bar ()
-;;   "Create a new tab bar and switch dashboard."
-;;   (interactive)
-;;   (tab-bar-new-tab)
-;;   (vanilla/create-scratch-buffer)
-;;   (tab-bar-rename-tab "xxx"))
-
 (defun vanilla/tab-bar-switch-to-tab (name)
   "Switch to the tab by NAME.
 If NAME does not exist among current tabs, create a new tab with NAME."
