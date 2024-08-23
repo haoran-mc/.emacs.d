@@ -144,6 +144,9 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '(";" . repeat)
    '("?" . meow-cheatsheet)
 
+   '("(" . whole-line-or-region-indent-rigidly-left-to-tab-stop)
+   '(")" . whole-line-or-region-indent-rigidly-right-to-tab-stop)
+
    ;; movement, like hjkl
    '("h" . meow-left)
    '("j" . meow-next)

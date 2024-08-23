@@ -60,14 +60,6 @@
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
-(lazy-load-global-keys '(("C-<" . whole-line-or-region-indent-rigidly-left-to-tab-stop)
-                         ("C->" . whole-line-or-region-indent-rigidly-right-to-tab-stop))
-                       "init-whole-line-or-region")
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("C-<" . whole-line-or-region-indent-rigidly-left-to-tab-stop)
-                          ("C->" . whole-line-or-region-indent-rigidly-right-to-tab-stop))
-                        org-mode-map "init-whole-line-or-region"))
-
 (lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
                          ("C-e" . mwim-end-of-line-or-code))
                        "mwim")

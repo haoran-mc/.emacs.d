@@ -100,19 +100,16 @@
      (require 'init-isearch)
      (require 'init-which-key)
      (require 'init-vundo)
-     (require 'init-whole-line-or-region)
      ;; (require 'project)
-     (require 'init-valign) ;; org-mode and markdown-mode
      (require 'init-eldoc)
+     (require 'init-text)
 
      ;; standalone apps
      (require 'init-shell)
      (require 'init-gc)
      (require 'init-autosave)
      (require 'init-autoinsert)
-     (require 'init-keyfreq)
-
-     (require 'init-completion)))
+     (require 'init-keyfreq)))
 
 (run-with-idle-timer
  2 nil

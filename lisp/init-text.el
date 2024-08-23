@@ -1,6 +1,6 @@
-;;; init-whole-line-or-region.el ---copy or cut line when no selection  -*- lexical-binding: t; -*-
+;;; init-text.el ---                                 -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023  Haoran Liu
+;; Copyright (C) 2024  Haoran Liu
 
 ;; Author: Haoran Liu <haoran.mc@outlook.com>
 ;; Keywords:
@@ -19,14 +19,22 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
 
+;; whole-line-or-region ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'whole-line-or-region)
 (whole-line-or-region-global-mode)
 
 
-(provide 'init-whole-line-or-region)
-;;; init-whole-line-or-region.el ends here
+;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Pixel alignment for org/markdown tables
+(require 'valign)
+(dolist (mode-hook '(markdown-mode-hook org-mode-hook))
+  (add-hook mode-hook 'valign-mode))
+(setq valign-fancy-bar t)
+
+
+(provide 'init-text)
+;;; init-text.el ends here
