@@ -238,11 +238,6 @@
 	url = git@github.com:abo-abo/ace-window.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/company-mode"]
-	path = site-lisp/company-mode
-	url = git@github.com:company-mode/company-mode.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/hydra"]
 	path = site-lisp/hydra
 	url = git@github.com:abo-abo/hydra.git
