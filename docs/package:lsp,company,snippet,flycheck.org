@@ -17,3 +17,11 @@
 
 - snippet
   - yasnippet
+
+
+* eglot
+elgot 使用 emacs 内置的 flymake、xref、eldoc、project。
+
+eglot 使用 Emacs 内置的 flymake 来接收和显示 LSP Server 发送的 publishDiagnostics 事件, eglot 诊断是通过向 flymake-diagnostic-functions hook 添加 ’eglot-flymake-backend 实现的。
+
+eglot 默认将 flymake 的 backend 清空，只保留 eglot 自身，可以通过配置 ~(add-to-list 'eglot-stay-out-of 'flymake)~ 来关闭 eglot 对 flymake 的清空行为，这样可以使用自定义的 flymake backends，但后续需要添加 hook 来手动启动和配置 eglot-flymake-backend。

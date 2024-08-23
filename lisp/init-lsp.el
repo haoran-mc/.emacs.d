@@ -23,31 +23,29 @@
 ;;; Code:
 
 ;; lsp-bridge funcs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar +lsp-bridge-jump-stack nil
+(defvar my/lsp-bridge-jump-stack nil
   "Stack to store jump locations for +lsp-bridge-jump-back.")
 
-;;;###autoload
-(defun +lsp-bridge-jump ()
+(defun my/lsp-bridge-jump ()
   "Fuses LSP-bridge find-function intelligent jumps."
   (interactive)
   (cond
    ((eq major-mode 'emacs-lisp-mode)
     (let ((symb (function-called-at-point)))
       (when symb
-        (push (point-marker) +lsp-bridge-jump-stack)
+        (push (point-marker) my/lsp-bridge-jump-stack)
         (find-function symb))))
    (lsp-bridge-mode
     (lsp-bridge-find-def))))
 
-;;;###autoload
-(defun +lsp-bridge-jump-back ()
+(defun my/lsp-bridge-jump-back ()
   "Jump back to the previous location."
   (interactive)
   (cond
    ((eq major-mode 'emacs-lisp-mode)
-    (if (null +lsp-bridge-jump-stack)
+    (if (null my/lsp-bridge-jump-stack)
         (message "No previous location to jump back to.")
-      (let ((marker (pop +lsp-bridge-jump-stack)))
+      (let ((marker (pop my/lsp-bridge-jump-stack)))
         (if (marker-buffer marker)
             (progn
               (switch-to-buffer (marker-buffer marker))
@@ -56,7 +54,6 @@
    (lsp-bridge-mode
     (lsp-bridge-find-def-return))))
 
-;;;###autoload
 (defun my/yas-expand()
   (interactive)
   (if (use-region-p) ; indent region instead if it's active
@@ -99,8 +96,8 @@
   (add-hook mode-hook #'my/load-lsp-bridge))
 
 (with-eval-after-load 'lsp-bridge
-  (define-key lsp-bridge-mode-map (kbd "M-.") '+lsp-bridge-jump)
-  (define-key lsp-bridge-mode-map (kbd "M-,") '+lsp-bridge-jump-back)
+  (define-key lsp-bridge-mode-map (kbd "M-.") 'my/lsp-bridge-jump)
+  (define-key lsp-bridge-mode-map (kbd "M-,") 'my/lsp-bridge-jump-back)
   (define-key lsp-bridge-mode-map (kbd "M-?") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "<tab>") 'my/yas-expand)
   (define-key lsp-bridge-mode-map (kbd "C-c c a") 'lsp-bridge-code-action)

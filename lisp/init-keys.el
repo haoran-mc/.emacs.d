@@ -33,7 +33,7 @@
                         "s-T"
                         "s-W"
                         "s-z"
-                        "C-\\" "s-c" "s-x" "s-v" "C-6" "M-." "M-,"
+                        "C-\\" "s-c" "s-x" "s-v" "C-6"
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         "C-t" ;; transpose-chars

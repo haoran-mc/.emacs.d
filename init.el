@@ -75,13 +75,17 @@
 
 (require 'init-ui)
 (require 'init-mode)
-(require 'init-snippet)
-(require 'init-lsp) ;; 不过度追求加载速度
 (require 'init-minibuffer) ;; minibuffer plugins 没有快捷键调用，所以需要开启加载
 (require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
 (require 'init-meow)
+
+;; completion
+(require 'init-snippet)
+(require 'init-project)
+(require 'init-completion)
+;; (require 'init-lsp) ;; 不过度追求加载速度
 
 ;; funcs → hydra → keys
 (require 'init-hydra)
@@ -100,7 +104,6 @@
      (require 'init-isearch)
      (require 'init-which-key)
      (require 'init-vundo)
-     ;; (require 'project)
      (require 'init-eldoc)
      (require 'init-text)
 

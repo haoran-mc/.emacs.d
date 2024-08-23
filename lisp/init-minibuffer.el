@@ -42,7 +42,8 @@
 
 ;; orderless ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'orderless)
-(setq completion-styles '(orderless basic)
+(setq orderless-smart-case t
+      completion-styles '(orderless basic)
       completion-category-defaults nil ;; use orderless only
       completion-category-overrides nil
       orderless-component-separator #'orderless-escapable-split-on-space)
