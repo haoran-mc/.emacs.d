@@ -35,8 +35,12 @@
   (add-hook hook #'(lambda ()
                      (require 'eldoc)
                      (require 'eldoc-extension)
-                     (setq eldoc-idle-delay 0.05) ;; 显示一定的延迟，避免快速移动时 minibuffer 频繁闪烁
-                     (setq eldoc-argument-case 'eldoc-argument-list) ;; 高亮函数参数
+                     ;; 显示一定的延迟，避免快速移动时 minibuffer 频繁闪烁
+                     (setq eldoc-idle-delay 0.05
+                           ;; 高亮函数参数
+                           eldoc-argument-case 'eldoc-argument-list
+                           ;; 为 nil 时只单行显示 eldoc 信息.
+                           eldoc-echo-area-use-multiline-p nil)
                      (turn-on-eldoc-mode))))
 
 (provide 'init-eldoc)
