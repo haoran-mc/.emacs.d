@@ -37,13 +37,16 @@
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/corfu")
 (require 'corfu)
 (add-hook 'after-init-hook #'global-corfu-mode)
-(setq corfu-auto t              ;; enable auto completion
-      corfu-auto-prefix 1       ;; minimum length of prefix for completion
-      corfu-preview-current nil ;; origin value is insert
-      corfu-auto-delay 0.03)
-;; (require 'corfu-popupinfo)   ;; candidate document
-;; (add-hook 'global-corfu-mode-hook #'corfu-popupinfo-mode)
-;; (setq corfu-popupinfo-delay '(0.4 . 0.2))
+(setq corfu-auto t        ;; enable auto completion
+      corfu-auto-prefix 2 ;; minimum length of prefix for completion
+      corfu-auto-delay 0)
+;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
+
+(with-eval-after-load 'meow
+  (advice-add #'meow-insert-exit :after #'corfu-quit))
+
+(with-eval-after-load 'yasnippet
+  (define-key corfu-map (kbd "<tab>") #'yas-expand))
 
 
 ;; flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
