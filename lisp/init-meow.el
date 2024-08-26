@@ -39,7 +39,8 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
     (if (use-region-p)
         (delete-region (region-beginning) (region-end))
       (backward-delete-char-untabify 1))))
-(global-set-key (kbd "DEL") #'my-DEL-meow-delete)
+(global-set-key (kbd "<delete>") #'my-DEL-meow-delete)
+(global-set-key (kbd "<backspace>") #'my-DEL-meow-delete)
 
 (defun my/meow-save-buffer-if-w ()
   "Prompt the user for a string and save the buffer if the string is 'w'."
