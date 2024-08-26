@@ -26,6 +26,22 @@
 
 
 ;;;###autoload
+(defun lazycat/remember-jump ()
+  "Jump to latest position and setup."
+  (interactive)
+  (let ((tmp (point-marker)))
+    (jump-to-register 8)
+    (set-register 8 tmp))
+  (message "Have back to remember position"))
+
+;;;###autoload
+(defun lazycat/remember-init ()
+  "Remember current position and setup."
+  (interactive)
+  (point-to-register 8)
+  (message "Have remember one position"))
+
+;;;###autoload
 (defun my/refresh-file ()
   "Automatic reload current file."
   (interactive)
@@ -61,8 +77,6 @@
 (add-hook 'emacs-lisp-mode-hook #'my/xah-show-formfeed-as-line)
 (with-eval-after-load 'org
   (add-hook 'org-mode-hook #'my/xah-show-formfeed-as-line))
-
-
 
 ;;;###autoload
 (defun my/copy-file-path-and-line-number ()

@@ -226,9 +226,8 @@
   (lazy-load-local-keys '(("s-<return>" . org-insert-heading-respect-content))
                         org-mode-map "")) ;; origin C-RET
 
-(lazy-load-global-keys '(("s-." . lazycat/remember-init)
-                         ("s-," . lazycat/remember-jump))
-                       "basic-tookit")
+(lazy-load-set-keys '(("s-." . lazycat/remember-init)
+                      ("s-," . lazycat/remember-jump)))
 
 (lazy-load-set-keys '(;; resize window
                       ("s-k" . shrink-window)

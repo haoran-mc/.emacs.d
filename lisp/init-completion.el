@@ -67,6 +67,9 @@
             (call-interactively 'eglot-code-action-organize-imports))
           nil t)
 
+(advice-add #'xref-find-references :before #'(lambda (&rest args) (lazycat/remember-init)))
+(advice-add #'eglot-find-implementation :before #'(lambda (&rest args) (lazycat/remember-init)))
+
 (global-set-key (kbd "M-.") 'xref-find-definitions)
 (global-set-key (kbd "M-,") 'xref-pop-marker-stack)
 (global-set-key (kbd "M-?") 'xref-find-references)
