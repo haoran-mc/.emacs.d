@@ -22,6 +22,9 @@
 ;;
 
 ;;; Code:
+(defvar completion-mode-hook '(python-mode-hook
+                               go-mode-hook
+                               c++-mode-hook))
 
 ;; completion ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq ;; Enable indentation+completion using the TAB key.
@@ -36,11 +39,14 @@
 ;; corfu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/corfu")
 (require 'corfu)
-(add-hook 'after-init-hook #'global-corfu-mode)
 (setq corfu-auto t        ;; enable auto completion
-      corfu-auto-prefix 2 ;; minimum length of prefix for completion
+      corfu-auto-prefix 1 ;; minimum length of prefix for completion
       corfu-auto-delay 0)
 ;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
+
+(dolist (mode-hook completion-mode-hook)
+  (add-hook mode-hook #'corfu-mode))
+(add-hook 'emacs-lisp-mode-hook #'corfu-mode)
 
 (with-eval-after-load 'meow
   (advice-add #'meow-insert-exit :after #'corfu-quit))
@@ -77,10 +83,7 @@
 (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
 (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
 
-(dolist (mode-hook '(python-mode-hook
-                     emacs-lisp-mode-hook
-                     go-mode-hook
-                     c++-mode-hook))
+(dolist (mode-hook completion-mode-hook)
   (add-hook mode-hook #'eglot-ensure))
 
 
