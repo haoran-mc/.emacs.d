@@ -41,7 +41,7 @@
                        :background-color ,(face-background 'tooltip nil t)
                        :foreground-color ,(face-foreground 'tooltip nil t)
                        :lines-truncate t
-                       :poshandler posframe-poshandler-point-bottom-left-corner-upward)))
+                       :poshandler posframe-poshandler-window-top-right-corner)))
 (hydra-set-posframe-show-params)
 (add-hook 'after-load-theme-hook #'hydra-set-posframe-show-params t)
 
