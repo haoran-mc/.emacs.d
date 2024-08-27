@@ -87,42 +87,6 @@
 (global-auto-revert-mode 1)
 
 
-;; hideshow DEPRECATED ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defconst hideshow-folded-face '((t (:inherit 'font-lock-comment-face :box nil))))
-
-(defface hideshow-border-face
-  '((((background light))
-     :background "rosy brown" :extend t)
-    (t
-     :background "sandy brown" :extend t))
-  "Face used for hideshow fringe."
-  :group 'hideshow)
-
-(define-fringe-bitmap 'hideshow-folded-fringe
-  (vector #b00000000
-          #b00000000
-          #b00000000
-          #b11000011
-          #b11100111
-          #b01111110
-          #b00111100
-          #b00011000))
-
-(defun hideshow-folded-overlay-fn (ov)
-  "Display a folded region indicator with the number of folded lines."
-  (when (eq 'code (overlay-get ov 'hs))
-    (let* ((nlines (count-lines (overlay-start ov) (overlay-end ov)))
-           (info (format " (%d)..." nlines)))
-      ;; fringe indicator
-      (overlay-put ov 'before-string (propertize " "
-                                                 'display '(left-fringe hideshow-folded-fringe
-                                                                        hideshow-border-face)))
-      ;; folding indicator
-      (overlay-put ov 'display (propertize info 'face hideshow-folded-face)))))
-
-(setq hs-set-up-overlay #'hideshow-folded-overlay-fn)
-
-
 ;; whitespace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Show trailing whitespaces
 (dolist (mode-hook '(prog-mode-hook markdown-mode-hook conf-mode-hook))
