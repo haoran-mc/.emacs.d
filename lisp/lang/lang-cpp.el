@@ -23,14 +23,14 @@
 
 ;;; Code:
 
-(defun +compile-file ()
+(defun my/compile-file ()
   (interactive)
   (compile
    (format "g++ -o %s %s -g -lm -Wall"
            (file-name-sans-extension (buffer-name))
            (buffer-name))))
 
-(defun +run-file ()
+(defun my/run-file ()
   (interactive)
   (if (with-no-warnings (eshell-command
                          (format "g++ -o a %s -g -lm -Wall"
@@ -41,7 +41,7 @@
                 c-mode-hook
                 c++-mode-hook))
   (add-hook hook #'(lambda ()
-                     (require 'cc-mode) ;; BUILT-IN c++-mode 定义在 cc-mode 中
+                     (require 'cc-mode) ;; c++-mode 定义在 cc-mode 中
                      ;; (require 'modern-cpp-font-lock)
 
                      (defun c-mode-style-setup ()
@@ -52,8 +52,8 @@
                      (c-mode-style-setup)
 
                      ;; 先只配置 c++
-                     (define-key c++-mode-map (kbd "C-c C-c") '+compile-file)
-                     (define-key c++-mode-map (kbd "<f9>") '+run-file)
+                     (define-key c++-mode-map (kbd "C-c C-c") 'my/compile-file)
+                     (define-key c++-mode-map (kbd "<f9>") 'my/run-file)
                      (define-key c++-mode-map (kbd "<f10>") 'gud-gdb))))
 
 (provide 'lang-cpp)

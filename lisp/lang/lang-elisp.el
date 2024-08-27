@@ -22,17 +22,12 @@
 ;;
 
 ;;; Code:
-
-
-;; Initialization
 (defun elisp-mode-delete-trailing-whitespace ()
   "Delete trailing whitespace before saving file."
   (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+;; (add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace)
 
-;; Configuration
 (defconst eval-as-comment-prefix ";;=> ")
-
-;; Imitate scala-mode
 ;; from https://github.com/dakra/dmacs
 (defun eval-to-comment (&optional arg)
   (interactive "P")
@@ -44,18 +39,9 @@
         (re-search-forward "[[:space:]\n]+" nil t)
         (insert eval-as-comment-prefix)))))
 
-;; Key bindings
 ;; eval-print-last-sexp -> eval-to-comment
 (define-key emacs-lisp-mode-map (kbd "M-<return>") 'eval-to-comment)
 (define-key lisp-interaction-mode-map (kbd "M-<return>") 'eval-to-comment)
-
-;; Hook
-;; (add-hook 'emacs-lisp-mode-hook #'elisp-mode-delete-trailing-whitespace)
-
-
-;; (use-package ielm
-;;   :ensure nil
-;;   :hook (ielm-mode . lsp-bridge-mode))
 
 
 (provide 'lang-elisp)
