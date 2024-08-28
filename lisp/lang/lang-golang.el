@@ -42,15 +42,28 @@
 
 ;; go install golang.org/x/tools/gopls@latest
 ;; go install golang.org/x/tools/cmd/goimports@latest
-;; go install golang.org/x/tools/cmd/gorename@latest
-;; go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
-;; go install golang.org/x/tools/cmd/...
 ;; go install github.com/nsf/gocode@latest
+;; go install github.com/stamblerre/gocode@latest
+;; go install golang.org/x/tools/cmd/godoc@latest
+;; go install golang.org/x/tools/cmd/gorename@latest
+
+;; gopls      Officially maintained, Implementation of LSPS
+;; goimports  Formatting code
+;; gocode     Automatic code completion
+;; godoc      Shows documentation for the specified code package
+;; gorename   Extra refactoring commands
+
+
+;; go install golang.org/x/tools/cmd/...
+;; go install github.com/cweill/gotests/...
+;; go install github.com/x-motemen/gore/cmd/gore@latest
+;; go install github.com/cweill/gotests/gotests@latest
+;; go install github.com/fatih/gomodifytags@latest
+;; go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
 ;; go install github.com/rogpeppe/godef@latest
 ;; go install github.com/lukehoban/go-outline@latest
 ;; go install github.com/tpng/gopkgs@latest
 ;; go install github.com/newhook/go-symbols@latest
-;; go install github.com/cweill/gotests/...
 ;; go install golang.org/x/tools/cmd/guru@latest
 ;; go install golang.org/x/lint/golint@latest
 ;; go install github.com/zmb3/gogetdoc@latest
@@ -58,13 +71,6 @@
 ;; go install sourcegraph.com/sqs/goreturns@latest
 ;; Go come with godoc, no download required
 ;; Go come with gofmt, no download required
-
-;; gopls      Officially maintained, Implementation of LSPS
-;; godef      Quickly prompt messages and define hops
-;; gocode     Automatic code completion
-;; godoc      Shows documentation for the specified code package
-;; go-outline Outline of the file
-;; gofmt      Formatting code
 
 (provide 'lang-golang)
 ;;; lang-golang.el ends here
