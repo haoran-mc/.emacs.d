@@ -49,6 +49,8 @@
       '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
+(setq confirm-kill-processes nil)       ;; 退出自动杀掉进程
+(setq warning-minimum-level :error)     ;; 提高告警级别
 
 ;; Enable upcase and downcase region
 (put 'upcase-region 'disabled nil)
@@ -58,22 +60,6 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 (put 'narrow-to-region 'disabled nil)
-
-(require 'cl-lib)
-(require 'noflet)
-
-(setq confirm-kill-processes nil)       ;; 退出自动杀掉进程
-
-;; Don't ask me when close emacs with process is running
-(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-  (require 'noflet)
-  (noflet ((process-list ())) ad-do-it))
-
-;; Don't ask me when kill process buffer
-(setq kill-buffer-query-functions
-      (remq 'process-kill-buffer-query-function
-            kill-buffer-query-functions))
 
 
 ;; hl-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
