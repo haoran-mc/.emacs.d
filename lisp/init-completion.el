@@ -39,10 +39,14 @@
 ;; corfu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/corfu")
 (require 'corfu)
+(require 'corfu-popupinfo)
 (setq corfu-auto t        ;; enable auto completion
       corfu-auto-prefix 1 ;; minimum length of prefix for completion
-      corfu-auto-delay 0)
+      corfu-auto-delay 0
+      corfu-scroll-margin 0
+      corfu-popupinfo-delay 10)
 ;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
+
 
 (dolist (mode-hook completion-mode-hook)
   (add-hook mode-hook #'corfu-mode))
@@ -54,6 +58,19 @@
 (with-eval-after-load 'yasnippet
   (define-key corfu-map (kbd "<tab>") #'yas-expand))
 
+(define-key corfu-map (kbd "SPC") 'corfu-complete)
+(define-key corfu-map (kbd "RET") nil)
+(define-key corfu-map (kbd "C-a") 'corfu-first)
+(define-key corfu-map (kbd "C-e") 'corfu-last)
+(define-key corfu-map (kbd "C-d") 'corfu-scroll-up)
+(define-key corfu-map (kbd "C-u") 'corfu-scroll-down)
+(define-key corfu-map (kbd "C-h") 'corfu-info-documentation)
+
+(require 'corfu-history)
+(corfu-history-mode)
+;; savehist have requried in minibuffer
+(add-to-list 'savehist-additional-variables 'corfu-history)
+
 
 ;; flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -61,27 +78,23 @@
 ;; eglot ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/external-completion")
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/eglot")
-(require 'eglot)
+(dolist (mode-hook completion-mode-hook)
+  (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure))))
+
 (setq eglot-ignored-server-capabilities '(:hoverProvider ;; 光标位置信息
                                           :documentHighlightProvider ;; 高亮当前 symbol
                                           :inlayHintProvider) ;; 显示 inlay hint 提示
       ;; 当最后一个源码 buffer 关闭时自动关闭 eglot server
-      eglot-autoshutdown t)
+      eglot-autoshutdown t
+      eglot--mode-line-format nil)
 
-(add-hook 'before-save-hook
-          (lambda ()
-            (call-interactively 'eglot-code-action-organize-imports))
-          nil t)
-
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
+  (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
+  (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename))
 (global-set-key (kbd "M-.") 'xref-find-definitions)
 (global-set-key (kbd "M-,") 'xref-pop-marker-stack)
 (global-set-key (kbd "M-?") 'xref-find-references)
-(define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
-(define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
-(define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
-
-(dolist (mode-hook completion-mode-hook)
-  (add-hook mode-hook #'eglot-ensure))
 
 
 (provide 'init-completion)
