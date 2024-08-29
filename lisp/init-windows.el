@@ -36,13 +36,7 @@
       aw-background nil)
 
 (ace-window-posframe-enable)
-
-(set-face-attribute 'aw-leading-char-face nil
-                    :weight 'bold :height 3.0 :inherit 'font-lock-keyword-face)
-(set-face-attribute 'aw-minibuffer-leading-char-face nil
-                    :weight 'bold :height 1.0 :inherit 'font-lock-keyword-face)
-(set-face-attribute 'aw-mode-line-face nil
-                    :weight 'bold :inherit 'mode-line-emphasis)
+(set-face-attribute 'aw-leading-char-face nil :weight 'bold :height 3.0 :foreground "red")
 
 (setq display-buffer-alist
       '(("\\*Org Src" ;; Adjust this pattern based on the actual buffer name
