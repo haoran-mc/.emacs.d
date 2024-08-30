@@ -39,6 +39,17 @@
 (add-hook 'after-init-hook 'vertico-mode)
 (setq vertico-cycle t)
 
+(defun my/up-directory (path)
+  "Move up a directory in PATH without affecting the kill buffer."
+  (interactive "p")
+  (if (string-match-p "/." (minibuffer-contents))
+      (let ((end (point)))
+	    (re-search-backward "/.")
+	    (forward-char)
+	    (delete-region (point) end))))
+
+(define-key vertico-map (kbd "S-<backspace>") #'my/up-directory)
+
 
 ;; orderless ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'orderless)
