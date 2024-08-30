@@ -273,3 +273,8 @@
 	url = git@github.com:sulami/literate-calc-mode.el.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/rust-mode"]
+	path = site-lisp/rust-mode
+	url = git@github.com:rust-lang/rust-mode.git
+	shallow = true
+	ignore = all

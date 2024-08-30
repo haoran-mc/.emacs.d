@@ -49,6 +49,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.go$" . go-mode)
                     ("\\.py$" . python-mode)
                     ("\\.lua$" . lua-mode)
+                    ("\\.rs$" . rust-mode)
 
                     ;; front-end language
                     ("\\.js$" . js-mode)
@@ -88,6 +89,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
 (autoload 'lua-mode "lang-lua")
+(autoload 'rust-mode "lang-rust")
 
 (autoload 'js-mode "lang-web")
 (autoload 'css-mode "lang-css")

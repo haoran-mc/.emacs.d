@@ -42,7 +42,8 @@
                      emacs-lisp-mode-hook
                      go-mode-hook
                      python-mode-hook
-                     json-mode-hook))
+                     json-mode-hook
+                     rust-mode-hook))
   (add-hook mode-hook 'electric-pair-local-mode)
   (add-hook mode-hook 'highlight-parentheses-mode))
 

@@ -24,7 +24,8 @@
 ;;; Code:
 (defvar completion-mode-hook '(python-mode-hook
                                go-mode-hook
-                               c++-mode-hook))
+                               c++-mode-hook
+                               rust-mode-hook))
 
 ;; completion ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq ;; Enable indentation+completion using the TAB key.
