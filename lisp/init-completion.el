@@ -59,10 +59,10 @@
 (with-eval-after-load 'yasnippet
   (define-key corfu-map (kbd "<tab>") #'yas-expand))
 
-(define-key corfu-map (kbd "SPC") 'corfu-complete)
-(define-key corfu-map (kbd "RET") nil)
-(define-key corfu-map (kbd "C-a") 'corfu-first)
-(define-key corfu-map (kbd "C-e") 'corfu-last)
+(define-key corfu-map (kbd "SPC") nil)
+(define-key corfu-map (kbd "RET") 'corfu-complete)
+(define-key corfu-map (kbd "M-<") 'corfu-first)
+(define-key corfu-map (kbd "M->") 'corfu-last)
 (define-key corfu-map (kbd "C-d") 'corfu-scroll-up)
 (define-key corfu-map (kbd "C-u") 'corfu-scroll-down)
 (define-key corfu-map (kbd "C-h") 'corfu-info-documentation)
