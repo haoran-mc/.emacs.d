@@ -19,12 +19,9 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;
 ;; ligature is not available as missing HarfBuzz
 
 ;;; Code:
-
-
 (require 'dash)
 
 ;; default font ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -82,17 +79,7 @@ from codepoint-start."
 ;; org-mode-hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +customized-org-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
-                       ("\\pagebreak"      . 128204)
-                       ("#+tblfm:"         . ?∴)
-                       ("->"               . ?→)
-                       ("<-"               . ?←)
-                       ("=>"               . ?⇒)
-                       ("<="               . ?⇐)
-		               ("[ ]"              . ?☐)
-		               ("[X]"              . ?☑)
-		               ("[-]"              . ?⊟)
-                       ("::"               . ?∷)
-                       ("#+BLOCK_LINE: "   . ?━)
+                       ("#+BLOCK_LINE: "   . ?━) ;; org-mode headers
                        ("#+PROPERTY:"      . ?⚙)
                        ("#+LATEX_CLASS:"   . ?C) ;; 🄲
                        ("#+LATEX_HEADER:"  . ?⇥)
@@ -129,8 +116,7 @@ from codepoint-start."
                        ("\\pagebreak"      . 128204)
                        ("#+tblfm:"         . ?∴)
                        ("->"               . ?→)
-                       ("=>"               . ?⇒)
-                       )))
+                       ("=>"               . ?⇒))))
     (setq prettify-symbols-alist
           (append fancy-chars prettify-symbols-alist)))
   (prettify-symbols-mode))
