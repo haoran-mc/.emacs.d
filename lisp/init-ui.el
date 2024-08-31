@@ -53,27 +53,24 @@
 (require 'doom-themes-ext-treemacs)
 (setq doom-themes-treemacs-theme "doom-colors")
 (doom-themes-treemacs-config)
-(set-face-attribute 'doom-themes-treemacs-root-face nil
-                    :height 1
-                    :weight 'normal)
+(set-face-attribute 'doom-themes-treemacs-root-face nil :height 1 :weight 'normal)
 
 ;; (require 'spacemacs-dark-theme)
 ;; (load-theme 'spacemacs-dark t)
 
-;; (require 'lazycat-dark-theme)
-;; (load-theme 'lazycat-dark t)
+(load-theme 'lazycat t)
 
-(load-theme 'monokai t)
-(setq frame-background-mode 'dark)
+;; (load-theme 'monokai t)
+;; (setq frame-background-mode 'dark)
 
 ;; (add-to-list 'load-path "~/Documents/emacs/local-packages/doom-themes")
 ;; (require 'doom-themes)
 ;; (setq doom-themes-enable-bold nil
 ;;       doom-themes-enable-italic nil)
-;; (load-theme 'doom-molokai t)
+;; (load-theme 'doom-solarized-light t)
 
 ;; 当前窗口透明度 (活动区 非活动区)
-;; (set-frame-parameter (selected-frame) 'alpha (list 95 95))
+(set-frame-parameter (selected-frame) 'alpha (list 90 90))
 ;; 新窗口透明度 (活动区 非活动区)
 ;; (add-to-list 'default-frame-alist (cons 'alpha (list 95 95)))
 
