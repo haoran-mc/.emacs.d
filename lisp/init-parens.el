@@ -37,6 +37,10 @@
 (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 
 
+;; paredit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'paredit)
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+
 
 (dolist (mode-hook '(cc-mode-hook
                      emacs-lisp-mode-hook

@@ -188,7 +188,7 @@
 
 (lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
 
-(lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay")
+(lazy-load-global-keys '(("M-i" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
 
