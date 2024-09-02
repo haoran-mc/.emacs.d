@@ -278,3 +278,8 @@
 	url = git@github.com:rust-lang/rust-mode.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/dockerfile-mode"]
+	path = site-lisp/dockerfile-mode
+	url = git@github.com:spotify/dockerfile-mode.git
+	shallow = true
+	ignore = all

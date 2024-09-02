@@ -76,6 +76,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.yaml$" . yaml-mode)
                     ("\\.yml$" . yaml-mode)
                     ("\\.sql$" . sql-mode)
+                    ("Dockerfile" . (lambda () (require 'dockerfile-mode) (dockerfile-mode)))
 
                     ;; other
                     ("\\.cpp$" . c++-mode) ;; .cpp 文件为 c++-mode
@@ -84,7 +85,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 ;; 为 major-mode 自动加载相应配置，因为不会使用 keys 加载，而且预加载需要花费长时间
-;; (autoload 'org-mode "init-org") ;; 在 init.el 中预加载了，请不要重复加载，出现问题难以排查
+;; (autoload 'org-mode "init-org") ;; 已经在 init.el 中预加载了，不重复加载，出现问题难以排查
 (autoload 'markdown-mode "init-markdown")
 (autoload 'go-mode "lang-golang")
 (autoload 'python-mode "lang-python")
@@ -99,8 +100,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'json-mode "lang-json")
 (autoload 'toml-mode "lang-toml")
 (autoload 'yaml-mode "lang-yaml")
-;; 一些配置语言 require 加载，因为会使用 buffer，然后手动开启 sql-mode
-(require 'lang-sql)
+(autoload 'sql-mode "lang-sql")
+;; (require 'dockerfile-mode) ;; 不需要新建一个 lang 文件来配置
 
 (require 'lang-elisp)
 (require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
