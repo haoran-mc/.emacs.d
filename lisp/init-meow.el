@@ -170,7 +170,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
 
    ;; kill/delete/change/replace
    '("d" . meow-kill) ;; C-w kill
-   '("D" . meow-kill-whole-line) ;; C-w whole-line-or-region-kill-region
+   ;; '("D" . meow-kill-whole-line) ;; C-w whole-line-or-region-kill-region
    '("s" . meow-delete)
    '("c" . meow-change)
    '("C" . my-C-meow-change)
@@ -180,10 +180,10 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    ;; find/till/visit/search, most used in beacon mode
    '("f" . meow-find)
    '("F" . my-F-meow-find)
-   '("t" . meow-till) ;; far and useless
+   '("t" . meow-till)
    '("T" . my-T-meow-till)
-   '("/" . meow-visit)
-   '("n" . meow-search)
+   ;; '("/" . meow-visit)
+   ;; '("n" . meow-search)
 
    ;; mark
    '("w" . meow-mark-word)
@@ -195,7 +195,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("x" . meow-line)
    '("X" . meow-goto-line)
    '("o" . meow-block)
-   '("O" . meow-to-block)
+   ;; '("O" . meow-to-block)
    '("v" . my-v-meow-expand)
 
    ;; thing
@@ -205,14 +205,14 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '(">" . meow-end-of-thing)
 
    ;; grab [TODO]
-   '("G" . meow-grab)
+   ;; '("G" . meow-grab)
    ;; '("Y" . meow-sync-grab)
 
    ;; '("u" . meow-undo) ;; just use C-/
    ;; '("U" . meow-undo-in-selection)
    ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
-   '("g" . meow-cancel-selection)
-   '("q" . meow-quit)
+   ;; '("g" . meow-cancel-selection)
+   ;; '("q" . meow-quit)
    '("z" . meow-reverse) ;; meow-pop-selection
    '("<escape>" . ignore)))
 
@@ -265,18 +265,6 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
 
 (meow-global-mode 1)
 
-
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements "C-c 0" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 1" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 2" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 3" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 4" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 5" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 6" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 7" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 8" "digit-arg")
-  (which-key-add-key-based-replacements "C-c 9" "digit-arg"))
 
 (with-eval-after-load 'open-newline
   (defun meow-switch-insert-with-arg-advice (arg)
