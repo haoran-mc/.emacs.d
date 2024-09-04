@@ -37,7 +37,7 @@
 ;; vertical style minibuffer
 (require 'vertico)
 (add-hook 'after-init-hook 'vertico-mode)
-(setq vertico-cycle t)
+(setq vertico-count 20)
 
 (defun my/up-directory (path)
   "Move up a directory in PATH without affecting the kill buffer."
@@ -63,9 +63,8 @@
 ;; marginalia ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; show description on minibuffer, like this:
 ;; lisp/      drwxr-xr-x    192  19 mis ago
-(with-eval-after-load 'vertico
-  (require 'marginalia)
-  (add-hook 'vertico-mode-hook 'marginalia-mode))
+(require 'marginalia)
+(add-hook 'vertico-mode-hook 'marginalia-mode)
 
 
 ;; pingyinlib ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
