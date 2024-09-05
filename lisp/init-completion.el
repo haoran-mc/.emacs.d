@@ -75,6 +75,10 @@
 
 ;; flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; xref ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(advice-add #'xref-find-references :after #'(lambda (&rest args) (recenter nil)))
+(advice-add #'xref-pop-marker-stack :after #'(lambda (&rest args) (recenter nil)))
+
 
 ;; eglot ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/external-completion")
