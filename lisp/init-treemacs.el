@@ -53,6 +53,11 @@
 (define-key treemacs-mode-map (kbd "M-h") #'treemacs-collapse-parent-node)
 (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
 (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
+;; mouse
+(define-key treemacs-mode-map (kbd "<mouse-3>") #'treemacs-rightclick-menu)
+(define-key treemacs-mode-map (kbd "<double-mouse-1>") #'treemacs-doubleclick-action)
+(define-key treemacs-mode-map (kbd "<drag-mouse-1>") #'treemacs-dragleftclick-action)
+(define-key treemacs-mode-map (kbd "<down-mouse-1>") #'treemacs-leftclick-action)
 ;; open
 (define-key treemacs-mode-map (kbd "o") #'treemacs-visit-node-ace)
 (define-key treemacs-mode-map (kbd "<tab>") #'treemacs-TAB-action)
