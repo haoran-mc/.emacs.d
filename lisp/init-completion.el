@@ -45,9 +45,9 @@
       corfu-auto-prefix 1 ;; minimum length of prefix for completion
       corfu-auto-delay 0
       corfu-scroll-margin 0
+      corfu-on-exact-match nil ;; 即使只有一个 candidate 也不自动选中
       corfu-popupinfo-delay 10)
 ;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
-
 
 (dolist (mode-hook completion-mode-hook)
   (add-hook mode-hook #'corfu-mode))
