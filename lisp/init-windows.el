@@ -47,7 +47,7 @@
 ;; (add-hook 'emacs-startup-hook 'popper-echo-mode)
 ;; (setq popper-echo-dispatch-actions t)
 
-(global-set-key (kbd "M-p") 'popper-toggle)
+(global-set-key (kbd "M-t") 'popper-toggle)
 (global-set-key (kbd "M-`") 'popper-cycle)
 (global-set-key (kbd "C-M-`") 'popper-toggle-type)
 

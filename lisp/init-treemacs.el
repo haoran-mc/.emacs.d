@@ -50,7 +50,7 @@
 (define-key treemacs-mode-map (kbd "k") #'treemacs-previous-line)
 (define-key treemacs-mode-map (kbd "l") #'forward-char)
 (define-key treemacs-mode-map (kbd "H") #'treemacs-goto-parent-node) ;; treemacs-collapse-parent-node
-(define-key treemacs-mode-map (kbd "M-h") #'treemacs-collapse-parent-node)
+(define-key treemacs-mode-map (kbd "M-p") #'treemacs-collapse-parent-node)
 (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
 (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
 ;; mouse

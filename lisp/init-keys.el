@@ -182,9 +182,9 @@
                          ("M-u" . vanilla/upcase-word)) ;; upcase-word
                        "basic-tookit")
 
-(lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down) ;; undefined
-                         ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
-                       "cursormove")
+;; (lazy-load-global-keys '(("M-n" . vanilla/move-cursor-8-lines-down) ;; undefined
+;;                          ("M-p" . vanilla/move-cursor-8-lines-up)) ;; undefined
+;;                        "cursormove")
 
 (lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
 

@@ -74,6 +74,18 @@
 
 
 ;; flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(dolist (mode-hook completion-mode-hook)
+  (add-hook mode-hook #'flymake-mode))
+(add-hook 'emacs-lisp-mode-hook #'(lambda () (flymake-mode -1)))
+
+(with-eval-after-load 'flymake
+  (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error)
+  (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error))
+
+(add-hook 'flymake-mode-hook
+          (lambda ()
+            (add-hook 'eldoc-documentation-functions 'flymake-eldoc-function nil t)))
+
 
 ;; xref ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (advice-add #'xref-find-references :after #'(lambda (&rest args) (recenter nil)))
