@@ -343,7 +343,7 @@ Paredit behaves badly if parentheses are unbalanced, so exercise
                  ,(concat "(let ((n (frobbotz)))"
                           "\n  |(display (+ n 1)"
                           "\n           port))")))
-   ("RET"       paredit-RET)
+   ;; ("RET"       paredit-RET)
    ;; ("C-j"       paredit-C-j)
 
    "Deleting & Killing"
