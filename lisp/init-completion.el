@@ -34,7 +34,7 @@
  ;; TAB cycle if there are only few candidates
  completion-cycle-threshold 3
  ;; maybe remove as orderless and corfu work together for completions.
- completion-ignore-case t)
+ completion-ignore-case nil)
 
 
 ;; corfu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
