@@ -68,32 +68,24 @@
 
 ;; lsp-bridge conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path (expand-file-name "~/Documents/emacs/local-packages/lsp-bridge"))
-(defun my/load-lsp-bridge ()
-  "Load lsp-bridge if it hasn't been loaded yet."
-  (if (featurep 'lsp-bridge)
-      (lsp-bridge-mode 1)
-    (progn
-      (require 'lsp-bridge)
-      (lsp-bridge-mode 1)))
-  (message "major mode is: %s" major-mode))
+(dolist (mode-hook '(emacs-lisp-mode-hook
+                     c++-mode-hook
+                     python-mode-hook
+                     go-mode-hook
+                     rust-mode-hook
+                     css-mode-hook
+                     web-mode-hook))
+  (add-hook mode-hook #'(lambda () (require 'lsp-bridge) (lsp-bridge-mode +1))))
 
-(setq lsp-bridge-enable-hover-diagnostic t   ;; 允许错误悬浮显示
-      acm-enable-quick-access nil            ;; 候选项数字前缀
-      lsp-bridge-enable-mode-line nil        ;; 不在 modeline 中显示信息
+(setq acm-enable-quick-access nil            ;; 候选项数字前缀
       acm-enable-doc nil                     ;; doc 遮挡代码，影响视线
+      lsp-bridge-enable-hover-diagnostic t   ;; 允许错误悬浮显示
+      lsp-bridge-enable-mode-line nil        ;; 不在 modeline 中显示信息
       lsp-bridge-enable-auto-format-code nil ;; 自动格式化代码
       lsp-bridge-enable-log nil              ;; 启用 LSP 消息日志，除非开发目的，平常请勿打开以避免影响性能
       lsp-bridge-enable-debug nil            ;; 启用程序调试，默认关闭
       
       lsp-bridge-c-lsp-server "clangd")
-
-(dolist (mode-hook '(python-mode-hook
-                     emacs-lisp-mode-hook
-                     go-mode-hook
-                     c++-mode-hook
-                     css-mode-hook
-                     web-mode-hook))
-  (add-hook mode-hook #'my/load-lsp-bridge))
 
 (with-eval-after-load 'lsp-bridge
   (define-key lsp-bridge-mode-map (kbd "M-.") 'my/lsp-bridge-jump)
