@@ -27,8 +27,6 @@
 
 (require 'sqlformat)
 
-;; :hook (sql-mode . sqlformat-on-save-mode)
-
 (setq sqlformat-command 'pgformatter
       sqlformat-args '("-s2" "-g"))
 

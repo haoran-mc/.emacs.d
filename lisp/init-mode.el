@@ -75,7 +75,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.toml$" . toml-mode)
                     ("\\.yaml$" . yaml-mode)
                     ("\\.yml$" . yaml-mode)
-                    ("\\.sql$" . sql-mode)
                     ("Dockerfile" . (lambda () (require 'dockerfile-mode) (dockerfile-mode)))
 
                     ;; other
@@ -100,10 +99,9 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'json-mode "lang-json")
 (autoload 'toml-mode "lang-toml")
 (autoload 'yaml-mode "lang-yaml")
-(autoload 'sql-mode "lang-sql")
-;; (require 'dockerfile-mode) ;; 不需要新建一个 lang 文件来配置
 
-(require 'lang-elisp)
+(require 'lang-elisp) ;; directly require
+(require 'lang-sql) ;; 内置的 sql-mode 用于连接数据库，也不需要创建一个 sql-write-mode，直接引用 lang-sql 中 sql 工具
 (require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
 
 ;; ↑ require 不一定真正加载，因为可以在 lang-*.el 里使用 mode-hook

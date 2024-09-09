@@ -24,6 +24,16 @@
 
 ;;; Code:
 
+(define-minor-mode my-sql-mode
+  "A custom SQL mode with disabled indentation."
+  :lighter " my-sql"
+  (if my-sql-mode (setq-local indent-line-function #'ignore) (kill-local-variable 'indent-line-function)))
+
+(define-minor-mode my-diff-mode
+  "A custom DIFF mode with disabled indentation."
+  :lighter " my-diff"
+  (if my-diff-mode (setq-local indent-line-function #'ignore) (kill-local-variable 'indent-line-function)))
+
 
 (setq org-src-fontify-natively t ;; syntax code on org mode
       org-src-tab-acts-natively t ;; 使用代码块自己的缩进，而不是 org-mode 的缩进
@@ -31,27 +41,27 @@
       org-edit-src-content-indentation 2 ;; src content indent 2
       org-confirm-babel-evaluate nil ;; 执行代码块前是否确认
       org-src-window-setup 'current-window ;; 当编辑代码块时，在当前窗口显示
-      org-src-lang-modes '(("C"        . c) ;; 配置代码块的 major mode
+      org-src-lang-modes '(("elisp"    . emacs-lisp)
+                           ("C"        . c) ;; 配置代码块的 major mode
                            ("C++"      . c++)
-                           ("bash"     . sh)
                            ("cpp"      . c++)
-                           ("dot"      . graphviz-dot) ;; was `fundamental-mode'
-                           ("elisp"    . emacs-lisp)
-                           ("ocaml"    . tuareg)
+                           ("python"   . python)
+                           ("bash"     . sh)
                            ("shell"    . sh)
                            ("plantuml" . plantuml)
-                           ("sql"      . sql)
-                           ("python"   . python)))
+                           ("ocaml"    . tuareg)
+                           ("dot"      . fundamental)
+
+                           ;; my no indent minor mode, TODO but no htmlize
+                           ("sql"      . my-sql)
+                           ("diff"     . my-diff)))
 
 (org-babel-do-load-languages 'org-babel-load-languages ;; 哪些代码块可以在 org 中运行
-                             '((C          . t)
-                               (dot        . t)
-                               (emacs-lisp . t)
+                             '((emacs-lisp . t)
                                (eshell     . t)
                                (python     . t)
                                (shell      . t)
-                               (plantuml   . t)
-                               (sql        . t)))
+                               (plantuml   . t)))
 
 (define-key org-src-mode-map (kbd "C-c C-c") 'org-edit-src-exit)
 
