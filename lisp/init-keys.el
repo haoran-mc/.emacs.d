@@ -159,7 +159,8 @@
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
                       ("M-;" . comment-dwim) ;; comment-dwim/eval-expression
-                      ("M-[" . ESC-prefix))) ;; undefined
+                      ;; ("M-[" . ESC-prefix) ;; undefined
+                      ))
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
                          ("M-d" . delete-block-forward)) ;; kill-word
@@ -191,11 +192,6 @@
 (lazy-load-global-keys '(("M-i" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
-
-(lazy-load-global-keys '(("M-z t" . vanilla/move-to-window-top)
-                         ("M-z z" . vanilla/move-to-window-middle)
-                         ("M-z b" . vanilla/move-to-window-bottom))
-                       "cursormove")
 
 (lazy-load-global-keys '(("M-H" . duplicate-line-or-region-above)
                          ("M-L" . duplicate-line-or-region-below)

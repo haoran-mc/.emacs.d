@@ -213,7 +213,9 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    ;; '("m" . meow-join) ;; C-j vanilla/merge-line-down
    ;; '("g" . meow-cancel-selection)
    ;; '("q" . meow-quit)
-   '("z" . meow-reverse) ;; meow-pop-selection
+
+   '("z" . (lambda () (interactive) (recenter-top-bottom)))
+   '("Z" . meow-reverse) ;; meow-pop-selection
    '("<escape>" . ignore)))
 
 (require 'meow)
