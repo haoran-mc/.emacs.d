@@ -78,10 +78,13 @@
 ;; cache-path-from-shell ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 在初始化之后加载 cache-path-from-shell，并初始化环境变量
 ;; (setenv "LANG" "zh_CN.UTF-8")
-(require 'cache-path-from-shell)
-(dolist (var '("LANG" "LC_CTYPE"))
-  (add-to-list 'exec-path-from-shell-variables var))
-(exec-path-from-shell-initialize)
+(run-with-idle-timer
+ 2 nil
+ #'(lambda ()
+     (require 'cache-path-from-shell)
+     (dolist (var '("LANG" "LC_CTYPE"))
+       (add-to-list 'exec-path-from-shell-variables var))
+     (exec-path-from-shell-initialize)))
 
 
 (provide 'init-osx)
