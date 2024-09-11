@@ -28,13 +28,7 @@
                                rust-mode-hook))
 
 ;; completion ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq ;; Enable indentation+completion using the TAB key.
- ;; `completion-at-point' is often bound to M-TAB.
- tab-always-indent 'complete
- ;; TAB cycle if there are only few candidates
- completion-cycle-threshold 3
- ;; maybe remove as orderless and corfu work together for completions.
- completion-ignore-case nil)
+(setq completion-ignore-case t)
 
 
 ;; corfu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
