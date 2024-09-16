@@ -99,6 +99,12 @@
       eglot-autoshutdown t
       eglot--mode-line-format nil)
 
+;; (setq-default eglot-workspace-configuration
+;;               '((:gopls . ((staticcheck . t)
+;;                            (matcher . "CaseSensitive")
+;;                            (symbolScope . "workspace")))
+;;                 ))
+
 (with-eval-after-load 'eglot
   (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
   (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
