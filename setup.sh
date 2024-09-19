@@ -6,4 +6,6 @@ function current_status {
 
 cp secret.el .secret.el
 
+mkdir -p ~/Documents/emacs/local-packages
+
 current_status "installation successful 🚀"

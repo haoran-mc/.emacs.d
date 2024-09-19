@@ -43,7 +43,7 @@
 ;; go install golang.org/x/tools/gopls@latest
 ;; go install golang.org/x/tools/cmd/goimports@latest
 ;; go install github.com/nsf/gocode@latest
-;; go install github.com/stamblerre/gocode@latest
+;;            github.com/stamblerre/gocode@latest
 ;; go install golang.org/x/tools/cmd/godoc@latest
 ;; go install golang.org/x/tools/cmd/gorename@latest
 

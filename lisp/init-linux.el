@@ -36,5 +36,14 @@
 
 ;; (require 'init-eaf)
 
+
+(run-with-idle-timer
+ 2 nil
+ #'(lambda ()
+     (require 'cache-path-from-shell)
+     (dolist (var '("LANG" "LC_CTYPE"))
+       (add-to-list 'exec-path-from-shell-variables var))
+     (exec-path-from-shell-initialize)))
+
 (provide 'init-linux)
 ;;; init-linux.el ends here
