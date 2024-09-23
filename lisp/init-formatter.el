@@ -25,6 +25,7 @@
 ;;; Code:
 
 (require 'reformatter)
+(require 'clang-format)
 
 
 (reformatter-define reformatter-gofmt
@@ -33,9 +34,12 @@
 ;;                 and a local minor mode: reformatter-gofmt-on-save-mode
 ;; (add-hook 'go-mode-hook 'evgeni-gofmt-on-save-mode)
 
-
 (reformatter-define reformatter-pyfmt
-  :program "black")
+  :program "black"
+  :args '("-"))
+
+(reformatter-define reformatter-rustfmt
+  :program "rustfmt")
 
 
 (defun +format-code-dwim()
@@ -44,11 +48,14 @@
   (let ((file-extension (file-name-extension (buffer-file-name)))
         (in-selection (use-region-p)))
     (cond
-     ((string-equal file-extension "el")
+     ((or (string-equal file-extension "el")
+          (string-equal file-extension "org"))
       (my/indent-buffer))
 
-     ((string-equal file-extension "org")
-      (my/indent-buffer))
+     ((string-equal file-extension "json")
+      (if in-selection
+          (json-mode-beautify (region-beginning) (region-end))
+        (json-mode-beautify (point-min) (point-max))))
 
      ((string-equal file-extension "sql")
       (if in-selection
@@ -59,18 +66,19 @@
       ;; golang 有强制的格式规定，不单独 format region
       (reformatter-gofmt-buffer))
 
-     ((string-equal file-extension "json")
-      ;; lang-json 模块已经在 init-mode 预加载
-      (if in-selection
-          (json-mode-beautify (region-beginning) (region-end))
-        (json-mode-beautify (point-min) (point-max))))
-
      ((string-equal file-extension "py")
       (if in-selection
-          (progn
-            (reformatter-pyfmt-region (region-beginning) (region-end)))
-        (progn
-          (reformatter-pyfmt-buffer))))
+          (reformatter-pyfmt-region (region-beginning) (region-end))
+        (reformatter-pyfmt-buffer)))
+
+     ((or (string-equal file-extension "c")
+          (string-equal file-extension "cpp")
+          (string-equal file-extension ".h"))
+      (clang-format-buffer))
+
+     ((string-equal file-extension "rs")
+      (reformatter-rustfmt-buffer))
+
      (t
       (message "Unsupported file type or no file.")))))
 
