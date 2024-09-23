@@ -22,19 +22,15 @@
 ;;
 
 ;;; Code:
-
-(defun my/compile-file ()
+;; g++ -o a.out main.cpp -g -lm -Wall
+(defun my/compile-and-run ()
   (interactive)
-  (compile
-   (format "g++ -o %s %s -g -lm -Wall"
-           (file-name-sans-extension (buffer-name))
-           (buffer-name))))
+  (let ((command (format "g++ -o a.out %s && ./a.out" (buffer-file-name))))
+    (eshell)
+    (insert command)
+    (eshell-send-input)))
 
-(defun my/run-file ()
-  (interactive)
-  (if (with-no-warnings (eshell-command
-                         (format "g++ -o a %s -g -lm -Wall"
-                                 (buffer-name))))))
+;; c-mode 和 c++-mode 是 cc-mode 的子模式
 
 ;; 直到遇到 hook 才加载
 (dolist (hook '(c-mode-common-hook
@@ -52,9 +48,7 @@
                      (c-mode-style-setup)
 
                      ;; 先只配置 c++
-                     (define-key c++-mode-map (kbd "C-c C-c") 'my/compile-file)
-                     (define-key c++-mode-map (kbd "<f9>") 'my/run-file)
-                     (define-key c++-mode-map (kbd "<f10>") 'gud-gdb))))
+                     (define-key c++-mode-map (kbd "C-c C-c") 'my/compile-and-run))))
 
 (provide 'lang-cpp)
 ;;; lang-cpp.el ends here

@@ -42,8 +42,8 @@
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
 
-(dolist (mode-hook '(cc-mode-hook
-                     emacs-lisp-mode-hook
+(dolist (mode-hook '(emacs-lisp-mode-hook
+                     c-mode-hook c++-mode-hook cc-mode-hook
                      go-mode-hook
                      python-mode-hook
                      json-mode-hook
