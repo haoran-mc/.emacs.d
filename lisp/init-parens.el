@@ -34,8 +34,8 @@
 ;; elec-pair ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auto complete parens
 (require 'elec-pair)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit
+      electric-pair-delete-adjacent-pairs t)
 
 ;; paredit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'paredit)
