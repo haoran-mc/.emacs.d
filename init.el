@@ -22,9 +22,9 @@
 ;;; Code:
 
 ;; A simple benchmark of calls to Emacs require and load functions.
-(add-to-list 'load-path "~/.emacs.d/site-lisp/benchmark-init-el")
-(require 'benchmark-init-loaddefs)
-(benchmark-init/activate)
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/benchmark-init-el")
+;; (require 'benchmark-init-loaddefs)
+;; (benchmark-init/activate)
 
 ;; read-process-output-max: the maximum bytes read from processs in a single chunk (default is 4kb).
 ;; This is too small for the LSP protocol that uses JSON communication
