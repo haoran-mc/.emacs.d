@@ -26,21 +26,19 @@
 
 
 ;;; Code:
-(global-unset-key (kbd "C-SPC"))
-
-(defun my-DEL-meow-delete (N)
-  "Delete region when region is active, otherwise delete N characters.
-If `meow--temp-normal` is non-nil, switch to motion state first."
-  (interactive "p")  ;; "p" means to read a prefix argument (N)
-  (if meow--temp-normal
-      (progn
-        (message "Quit temporary normal mode")
-        (meow--switch-state 'motion))
-    (if (use-region-p)
-        (delete-region (region-beginning) (region-end))
-      (backward-delete-char-untabify 1))))
-(global-set-key (kbd "<delete>") #'my-DEL-meow-delete)
-(global-set-key (kbd "<backspace>") #'my-DEL-meow-delete)
+;; (defun my-DEL-meow-delete (N)
+;;   "Delete region when region is active, otherwise delete N characters.
+;; If `meow--temp-normal` is non-nil, switch to motion state first."
+;;   (interactive "p")  ;; "p" means to read a prefix argument (N)
+;;   (if meow--temp-normal
+;;       (progn
+;;         (message "Quit temporary normal mode")
+;;         (meow--switch-state 'motion))
+;;     (if (use-region-p)
+;;         (delete-region (region-beginning) (region-end))
+;;       (backward-delete-char-untabify 1))))
+;; (global-set-key (kbd "<delete>") #'my-DEL-meow-delete)
+;; (global-set-key (kbd "<backspace>") #'my-DEL-meow-delete)
 
 (defun my/meow-save-buffer-if-w ()
   "Prompt the user for a string and save the buffer if the string is 'w'."
@@ -83,10 +81,10 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
       (kill-line)
       (meow--switch-state 'insert))))
 
-(defun my-F-meow-find (ch &optional expand)
-  "Call `meow-find` with -1 and the given char."
-  (interactive "cFind:")
-  (meow-find -1 ch expand))
+;; (defun my-F-meow-find (ch &optional expand)
+;;   "Call `meow-find` with -1 and the given char."
+;;   (interactive "cFind:")
+;;   (meow-find -1 ch expand))
 
 (defun my-I-meow-insert ()
   "Move to the beginning of code, switch to INSERT state."
@@ -102,21 +100,25 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
       (delete-char 1)
       (insert mychar))))
 
-(defun my-T-meow-till (ch &optional expand)
-  "Call `meow-till` with -1 and the given char."
-  (interactive "cTill:")
-  (meow-till -1 ch expand))
+;; (defun my-T-meow-till (ch &optional expand)
+;;   "Call `meow-till` with -1 and the given char."
+;;   (interactive "cTill:")
+;;   (meow-till -1 ch expand))
 
-(defun my-v-meow-expand ()
-  "Activate char selection, then move right."
-  (interactive)
-  (if (region-active-p)
-      (thread-first
-        (meow--make-selection '(expand . char) (mark) (point))
-        (meow--select))
-    (thread-first
-      (meow--make-selection '(expand . char) (point) (point))
-      (meow--select))))
+;; (defun my-v-meow-expand ()
+;;   "Activate char selection, then move right."
+;;   (interactive)
+;;   (if (region-active-p)
+;;       (thread-first
+;;         (meow--make-selection '(expand . char) (mark) (point))
+;;         (meow--select))
+;;     (thread-first
+;;       (meow--make-selection '(expand . char) (point) (point))
+;;       (meow--select))))
+
+;; TODO 在下面时，始终 end；在上面时，始终 beginning
+(advice-add 'meow-next-expand :after 'move-end-of-line)
+(advice-add 'meow-prev-expand :after 'move-beginning-of-line)
 
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -129,18 +131,18 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
 
   (meow-normal-define-key
    ;; expand by numbers
-   '("0" . meow-expand-0)
-   '("9" . meow-expand-9)
-   '("8" . meow-expand-8)
-   '("7" . meow-expand-7)
-   '("6" . meow-expand-6)
-   '("5" . meow-expand-5)
-   '("4" . meow-expand-4)
-   '("3" . meow-expand-3)
-   '("2" . meow-expand-2)
-   '("1" . meow-expand-1)
+   ;; '("0" . meow-expand-0)
+   ;; '("9" . meow-expand-9)
+   ;; '("8" . meow-expand-8)
+   ;; '("7" . meow-expand-7)
+   ;; '("6" . meow-expand-6)
+   ;; '("5" . meow-expand-5)
+   ;; '("4" . meow-expand-4)
+   ;; '("3" . meow-expand-3)
+   ;; '("2" . meow-expand-2)
+   ;; '("1" . meow-expand-1)
 
-   '("-" . negative-argument)
+   ;; '("-" . negative-argument)
    '(":" . my/meow-save-buffer-if-w)
    '(";" . repeat)
    '("?" . meow-cheatsheet)
@@ -153,10 +155,10 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("j" . meow-next)
    '("k" . meow-prev)
    '("l" . meow-right)
-   '("H" . meow-left-expand)
-   '("J" . meow-next-expand)
-   '("K" . meow-prev-expand)
-   '("L" . meow-right-expand)
+   ;; '("H" . meow-left-expand)
+   ;; '("J" . meow-next-expand)
+   ;; '("K" . meow-prev-expand)
+   ;; '("L" . meow-right-expand)
 
    ;; insert
    '("a" . my-a-meow-append)
@@ -169,19 +171,19 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("p" . meow-yank)
 
    ;; kill/delete/change/replace
-   '("d" . meow-kill) ;; C-w kill
+   ;; '("d" . meow-kill) ;; C-w kill
    ;; '("D" . meow-kill-whole-line) ;; C-w whole-line-or-region-kill-region
-   '("s" . meow-delete)
-   '("c" . meow-change)
+   '("s" . meow-change)
    '("C" . my-C-meow-change)
    '("r" . my-r-meow-replace)
    '("R" . meow-replace) ;; meow-swap-grap
+   '("x" . meow-delete)
 
    ;; find/till/visit/search, most used in beacon mode
-   '("f" . meow-find)
-   '("F" . my-F-meow-find)
-   '("t" . meow-till)
-   '("T" . my-T-meow-till)
+   '("f" . avy-goto-char-in-line)
+   '("F" . avy-goto-char-in-line)
+   ;; '("t" . meow-till)
+   ;; '("T" . my-T-meow-till)
    ;; '("/" . meow-visit)
    ;; '("n" . meow-search)
 
@@ -190,13 +192,13 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    '("W" . meow-mark-symbol)
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
-   '("b" . meow-back-word)
-   '("B" . meow-back-symbol)
-   '("x" . meow-line)
-   '("X" . meow-goto-line)
+   ;; '("b" . meow-back-word)
+   ;; '("B" . meow-back-symbol)
+   ;; '("X" . meow-goto-line)
    '("o" . meow-block)
    ;; '("O" . meow-to-block)
-   '("v" . my-v-meow-expand)
+   ;; '("v" . set-mark-command)
+   ;; '("V" . meow-line)
 
    ;; thing
    '("," . meow-inner-of-thing)
@@ -215,7 +217,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
    ;; '("q" . meow-quit)
 
    '("z" . (lambda () (interactive) (recenter-top-bottom)))
-   '("Z" . meow-reverse) ;; meow-pop-selection
+   ;; '("Z" . meow-reverse) ;; meow-pop-selection
    '("<escape>" . ignore)))
 
 (require 'meow)
@@ -254,7 +256,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
                                 (block . 9)
                                 (find . 9)
                                 (till . 9))
-      meow-expand-hint-remove-delay 7
+      ;; meow-expand-hint-remove-delay 7
       meow-esc-delay 0.001)
 
 (setq meow-mode-state-list
@@ -267,6 +269,7 @@ If `meow--temp-normal` is non-nil, switch to motion state first."
 
 (meow-global-mode 1)
 
+(advice-add 'set-mark-command :before '(lambda (arg) (meow--switch-state 'insert)))
 
 (with-eval-after-load 'open-newline
   (defun meow-switch-insert-with-arg-advice (arg)
