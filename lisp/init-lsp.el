@@ -82,8 +82,9 @@
       lsp-bridge-enable-hover-diagnostic t   ;; 允许错误悬浮显示
       lsp-bridge-enable-mode-line nil        ;; 不在 modeline 中显示信息
       lsp-bridge-enable-auto-format-code nil ;; 自动格式化代码
+      lsp-bridge-enable-debug nil            ;; 启用 gdb 调试，macos 不支持
       lsp-bridge-enable-log nil              ;; 启用 LSP 消息日志，除非开发目的，平常请勿打开以避免影响性能
-      lsp-bridge-enable-debug nil            ;; 启用程序调试，默认关闭
+      lsp-bridge-enable-profile nil          ;; 性能剖析
       
       lsp-bridge-c-lsp-server "clangd")
 
