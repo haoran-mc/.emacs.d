@@ -38,8 +38,8 @@
       electric-pair-delete-adjacent-pairs t)
 
 ;; paredit ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'paredit)
-(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+;; (require 'paredit)
+;; (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
