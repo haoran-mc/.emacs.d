@@ -43,9 +43,11 @@
       corfu-popupinfo-delay 10)
 ;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
 
-(dolist (mode-hook completion-mode-hook)
+(dolist (mode-hook '(emacs-lisp-mode-hook
+                     python-mode-hook
+                     go-mode-hook
+                     rust-mode-hook))
   (add-hook mode-hook #'corfu-mode))
-(add-hook 'emacs-lisp-mode-hook #'corfu-mode)
 
 (with-eval-after-load 'meow
   (advice-add #'meow-insert-exit :after #'corfu-quit))
@@ -68,13 +70,15 @@
 
 
 ;; flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(dolist (mode-hook completion-mode-hook)
+(dolist (mode-hook '(python-mode-hook
+                     go-mode-hook
+                     rust-mode-hook))
   (add-hook mode-hook #'flymake-mode))
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (flymake-mode -1)))
 
 (with-eval-after-load 'flymake
-  (keymap-set flymake-mode-map "M-p" #'flymake-goto-prev-error)
-  (keymap-set flymake-mode-map "M-n" #'flymake-goto-next-error))
+  (keymap-set flymake-mode-map "M-P" #'flymake-goto-prev-error)
+  (keymap-set flymake-mode-map "M-N" #'flymake-goto-next-error))
 
 (add-hook 'flymake-mode-hook
           (lambda ()
@@ -89,7 +93,9 @@
 ;; eglot ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/external-completion")
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/eglot")
-(dolist (mode-hook completion-mode-hook)
+(dolist (mode-hook '(python-mode-hook
+                     go-mode-hook
+                     rust-mode-hook))
   (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure))))
 
 (setq eglot-ignored-server-capabilities '(:hoverProvider ;; 光标位置信息
