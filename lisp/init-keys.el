@@ -296,7 +296,8 @@
                          ("C-c f r" . consult-recent-file))
                        "consult")
 
-(lazy-load-global-keys '(("C-c f t" . treemacs)) "init-treemacs")
+(lazy-load-global-keys '(("C-c f t" . my/treemacs-add-current-project-workspace-exclusively))
+                       "init-treemacs")
 
 ;; g for git
 (with-eval-after-load 'which-key

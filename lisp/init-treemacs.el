@@ -88,21 +88,22 @@
 (define-key treemacs-mode-map (kbd "/") #'treemacs-common-helpful-hydra)
 (define-key treemacs-mode-map (kbd "?") #'treemacs-advanced-helpful-hydra)
 
-(with-eval-after-load 'project
-  (defun my/treemacs-add-current-project-workspace ()
-    "Add the current project to the Treemacs workspace."
-    (interactive)
-    (let ((project (project-current t)))
-      (if project
-          (let ((project-path (project-root project)))
-            (if (and project-path (file-directory-p project-path))
-                (treemacs-add-project-to-workspace project-path)
-              (message "Invalid project path: %s" project-path)))
-        (message "No project found for current buffer"))))
-  (global-set-key (kbd "C-c p t") #'my/treemacs-add-current-project-workspace))
 
 ;; keeping my fringe settings
 (advice-remove #'treemacs-select-window #'doom-themes-hide-fringes-maybe)
+
+
+(defun my/treemacs-add-current-project-workspace-exclusively ()
+  "Add the current project to the Treemacs workspace."
+  (interactive)
+  (require 'project)
+  (let ((project (project-current t)))
+    (if project
+        (let ((project-path (project-root project)))
+          (if (and project-path (file-directory-p project-path))
+              (treemacs-add-and-display-current-project-exclusively)
+            (message "Invalid project path: %s" project-path)))
+      (message "No project found for current buffer"))))
 
 
 ;; set treemacs faces

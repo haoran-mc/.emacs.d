@@ -8,7 +8,7 @@
 
 - lazy-load-unset-keys :: remove key bindings
 
-- lazy-load-set-keys :: 内置或已加载键
+- lazy-load-set-keys :: 内置函数或已加载的函数
 
 - lazy-load-global-keys :: 通过键加载模块，懒加载
 
