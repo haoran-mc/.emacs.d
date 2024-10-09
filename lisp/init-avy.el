@@ -40,6 +40,13 @@
       avy-styles-alist '((avy-isearch . pre))
       avy-case-fold-search nil)
 
+(defun my/avy-goto-char-in-line-after-point (char)
+  "Jump to CHAR in the current line, only after the current point."
+  (interactive (list (read-char "char: " t)))
+  (avy-with avy-goto-char-in-line
+    (avy-jump (regexp-quote (string char))
+              :beg (+ (point) 1)          ;; 从当前光标位置后一位开始
+              :end (line-end-position)))) ;; 到当前行的末尾
 
 (provide 'init-avy)
 ;;; init-avy.el ends here

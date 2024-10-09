@@ -122,7 +122,7 @@
    '("x" . meow-delete)
 
    ;; find/till/visit/search, most used in beacon mode
-   '("f" . avy-goto-char-in-line)
+   '("f" . my/avy-goto-char-in-line-after-point)
    '("F" . avy-goto-char-in-line)
 
    ;; mark
