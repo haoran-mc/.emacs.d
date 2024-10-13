@@ -52,19 +52,23 @@
 (set-face-attribute 'font-lock-comment-face nil :italic nil)
 (set-face-attribute 'font-lock-builtin-face nil :italic nil)
 (set-face-attribute 'font-lock-type-face nil :italic nil)
-(set-face-attribute 'fringe nil :background "#EDE8D5")
+;; (set-face-attribute 'fringe nil :background "#EDE8D5")
 
-;; org-mode
-(with-eval-after-load 'org
-  (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
-  (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
-  (set-face-attribute 'org-level-3 nil :height 1.0 :weight 'normal :foreground "#7EBEBD")
-  (set-face-attribute 'org-level-4 nil :height 1.0 :weight 'normal :foreground "#677CAB")
-  (set-face-attribute 'org-level-5 nil :height 1.0 :weight 'normal :foreground "#487688")
-  (set-face-attribute 'org-level-6 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-level-7 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal))
+(set-face-attribute 'tab-bar nil :background "#d7d7d7" :box nil :inherit 'unspecified)
+(set-face-attribute 'tab-bar-tab nil :background "#b7b7b7" :box nil :inherit 'unspecified)
+(set-face-attribute 'tab-bar-tab-inactive nil :box nil :inherit 'unspecified)
+
+;; diff-hl
+;; (with-eval-after-load 'diff-hl
+;;   (set-face-attribute 'diff-hl-change nil :background "#bbbb00" :foreground "#bbbb00"))
+
+;; magit
+;; (with-eval-after-load 'magit
+;;   (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
+
+;; drivish
+;; (with-eval-after-load 'dirvish
+;;   (set-face-attribute 'dirvish-hl-line nil :foreground 'unspecified :background "#F2E6CE"))
 
 ;; meow
 (with-eval-after-load 'meow
@@ -77,29 +81,17 @@
   (set-face-attribute 'meow-normal-indicator nil :foreground "#6F5033" :background "#FFEE99" :box '(:line-width -1 :color "#6F5033"))
   (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE" :box '(:line-width -1 :color "#505090")))
 
-;; diff-hl
-(with-eval-after-load 'diff-hl
-  (set-face-attribute 'diff-hl-change nil :background "#bbbb00" :foreground "#bbbb00"))
-
-;; symbol-overlay
-(with-eval-after-load 'symbol-overlay
-  (set-face-attribute 'symbol-overlay-face-1 nil :foreground "black" :background "#A4E57E")
-  (set-face-attribute 'symbol-overlay-face-2 nil :foreground "black" :background "#8CCBEA")
-  (set-face-attribute 'symbol-overlay-face-3 nil :foreground "black" :background "#FFDB72")
-  (set-face-attribute 'symbol-overlay-face-4 nil :foreground "black" :background "#FF7272")
-  (set-face-attribute 'symbol-overlay-face-5 nil :foreground "black" :background "#FFB3FF")
-  (set-face-attribute 'symbol-overlay-face-6 nil :foreground "black" :background "#9999FF")
-  (set-face-attribute 'symbol-overlay-face-7 nil :foreground "black" :background "#1E90FF")
-  (set-face-attribute 'symbol-overlay-face-8 nil :foreground "black" :background "#40E0D0"))
-
-;; magit
-(with-eval-after-load 'magit
-  (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
-
-;; drivish
-(with-eval-after-load 'dirvish
-  (set-face-attribute 'dirvish-hl-line nil :foreground 'unspecified :background "#F2E6CE"))
-
+;; org-mode
+(with-eval-after-load 'org
+  (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
+  (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
+  (set-face-attribute 'org-level-3 nil :height 1.0 :weight 'normal :foreground "#7EBEBD")
+  (set-face-attribute 'org-level-4 nil :height 1.0 :weight 'normal :foreground "#677CAB")
+  (set-face-attribute 'org-level-5 nil :height 1.0 :weight 'normal :foreground "#487688")
+  (set-face-attribute 'org-level-6 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-level-7 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal)
+  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal))
 
 (provide 'init-theme-light)
 ;;; init-theme-light.el ends here
