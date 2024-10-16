@@ -51,8 +51,8 @@
 (define-key treemacs-mode-map (kbd "l") #'forward-char)
 (define-key treemacs-mode-map (kbd "H") #'treemacs-goto-parent-node) ;; treemacs-collapse-parent-node
 (define-key treemacs-mode-map (kbd "M-p") #'treemacs-collapse-parent-node)
-(define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
-(define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
+;; (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
+;; (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
 ;; mouse
 (define-key treemacs-mode-map (kbd "<mouse-3>") #'treemacs-rightclick-menu)
 (define-key treemacs-mode-map (kbd "<double-mouse-1>") #'treemacs-doubleclick-action)
@@ -108,9 +108,9 @@
 
 ;; set treemacs faces
 (defvar my/theme-fg (face-foreground 'default))
-(set-face-attribute 'treemacs-directory-face nil :height 1 :weight 'normal :family +font-family :foreground my/theme-fg)
-(set-face-attribute 'treemacs-file-face      nil :height 1 :weight 'normal :family +font-family :foreground my/theme-fg)
-(set-face-attribute 'treemacs-root-face      nil :height 1 :weight 'normal :family +font-family)
+(set-face-attribute 'treemacs-directory-face nil :height 1 :weight 'normal :family ran--font-family :foreground my/theme-fg)
+(set-face-attribute 'treemacs-file-face      nil :height 1 :weight 'normal :family ran--font-family :foreground my/theme-fg)
+(set-face-attribute 'treemacs-root-face      nil :height 1 :weight 'normal :family ran--font-family)
 
 ;; Git 状态相关，统一继承自 treemacs-file-face
 (set-face-attribute 'treemacs-git-added-face nil :inherit 'treemacs-file-face)

@@ -48,7 +48,6 @@
 ;; font-lock-doc-markup-face:           unspecified
 ;; font-lock-warning-face:              unspecified
 
-(set-face-attribute 'variable-pitch nil :family nil)
 (set-face-attribute 'font-lock-comment-face nil :italic nil)
 (set-face-attribute 'font-lock-builtin-face nil :italic nil)
 (set-face-attribute 'font-lock-type-face nil :italic nil)

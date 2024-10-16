@@ -23,56 +23,55 @@
 ;; ✦ font-spec specification（规格），基于 X Window System（或 X11）中的字体命名约定
 
 ;;; Code:
-(defvar +font-family "SFMono Nerd Font Mono") ;; Fira Code, JetBrainsMono Nerd Font, SFMono Nerd Font, DejaVuSansMono Nerd Font
-(defvar +font-unicode-family "LXGW WenKai") ;; 霞鸳文楷: LXGW WenKai
-(defvar +font-size ran--font-size)
-(defvar +font-weight ran--font-weight)
-(defvar +font-size-list '(10 11 12 13 14 15 16 17 18))
+;; Fira Code, JetBrainsMono Nerd Font, SFMono Nerd Font, DejaVuSansMono Nerd Font
+(let ((font-size (cond
+                  (ran--os-mac 13)
+                  (ran--os-linux 8)
+                  (t 13)))
+      (font-family (cond
+                    (ran--os-mac "SFMono Nerd Font")
+                    (ran--os-linux "SFMono Nerd Font Mono")
+                    (t "Ubuntu Mono"))))
+  (defvar ran--font-family font-family)
+  (defvar ran--unicode-font-family "LXGW WenKai")
+  (defvar ran--font-size font-size)
+  (defvar ran--font-weight "normal")
+  (defvar my/font-size-list '(7 8 9 10 11 12 13 14 15 16 17 18)))
 
-;; base font
-(defun +font-setup (&optional frame)
-  (let* ((font-spec (format "%s-%d:weight=%s" +font-family +font-size +font-weight))
-         (variable-pitch-font-spec font-spec)
-         (fixed-pitch-font-spec font-spec)
-         (mode-line-font-spec (format "%s-%d" +font-family +font-size))
-         (tab-bar-font-spec (format "%s-%d" +font-family +font-size)))
-    ;; 1. base font
-    (set-frame-parameter nil 'font font-spec)
-    (add-to-list 'default-frame-alist `(font . ,font-spec))
-    ;; 2. face font
-    (set-face-attribute 'variable-pitch     frame :font variable-pitch-font-spec)
-    (set-face-attribute 'fixed-pitch        frame :font fixed-pitch-font-spec)
-    (set-face-attribute 'fixed-pitch-serif  frame :font fixed-pitch-font-spec)
-    (set-face-attribute 'mode-line          frame :font mode-line-font-spec)
-    (set-face-attribute 'mode-line-inactive frame :font mode-line-font-spec)
-    (set-face-attribute 'tab-bar            frame :font font-spec))
-  ;; 3. unicode font
+(defun my/font-setup (&optional frame)
   (when window-system
-    (let ((font (frame-parameter nil 'font))
-          (font-spec (font-spec :family +font-unicode-family)))
-      (dolist (charset '(kana han hangul cjk-misc bopomofo symbol))
-        (set-fontset-font font charset font-spec)))))
-(+font-setup)
+    (let* ((english-font ran--font-family)
+           (chinese-font ran--unicode-font-family)
+           (font-size ran--font-size)
+           (font-weight ran--font-weight)
+           (my-font-spec (format "%s-%d:weight=%s" english-font font-size font-weight)))
+
+      (set-frame-parameter nil 'font my-font-spec)
+      (add-to-list 'default-frame-alist `(font . ,my-font-spec))
+
+      (dolist (charset '(kana han hangul cjk-misc bopomofo)) ;; symbol
+        (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family chinese-font))))))
+(my/font-setup)
 
 ;; larger、smaller font ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun +larger-font ()
+(defun ran/larger-font ()
   (interactive)
-  (if-let ((size (--find (> it +font-size) +font-size-list)))
-      (progn (setq +font-size size)
-             (+font-setup)
-             (message "font size: %s" +font-size))
+  (if-let ((size (--find (> it ran--font-size) my/font-size-list)))
+      (progn (setq ran--font-size size)
+             (my/font-setup)
+             (message "font size: %s" ran--font-size))
     (message "using largest font")))
 
-(defun +smaller-font ()
+(defun ran/smaller-font ()
   (interactive)
-  (if-let ((size (--find (< it +font-size) (reverse +font-size-list))))
-      (progn (setq +font-size size)
-             (+font-setup)
-             (message "font size: %s" +font-size))
+  (if-let ((size (--find (< it ran--font-size) (reverse my/font-size-list))))
+      (progn (setq ran--font-size size)
+             (my/font-setup)
+             (message "font size: %s" ran--font-size))
     (message "using smallest font")))
 
-(global-set-key (kbd "s-+") #'+larger-font)
-(global-set-key (kbd "s--") #'+smaller-font)
+(global-set-key (kbd "s-+") #'ran/larger-font)
+(global-set-key (kbd "s--") #'ran/smaller-font)
 
 (provide 'init-font)
 ;;; init-font.el ends here

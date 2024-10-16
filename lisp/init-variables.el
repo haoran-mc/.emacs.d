@@ -33,7 +33,6 @@
                                     "~/haoran/no/org/org-directory/agenda"
                                     "~/haoran/no/org/work-agenda/work-todo.org"))
 
-(defvar ran--font-weight "normal")
 
 (defvar ran--private-notes "~/haoran/no/org/wiki/index.org")
 (defvar ran--public-notes "~/haoran/no/org/site/index.org")
@@ -42,10 +41,6 @@
 (defvar ran--trash-dir "~/haoran/tr")
 
 
-(cond (ran--os-linux
-       (defvar ran--font-size 11))
-      (ran--os-mac
-       (defvar ran--font-size 13)))
 
 
 (provide 'init-variables)
