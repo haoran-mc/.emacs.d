@@ -26,7 +26,7 @@
 ;; Fira Code, JetBrainsMono Nerd Font, SFMono Nerd Font, DejaVuSansMono Nerd Font
 (let ((font-size (cond
                   (ran--os-mac 13)
-                  (ran--os-linux 8)
+                  (ran--os-linux 10)
                   (t 13)))
       (font-family (cond
                     (ran--os-mac "SFMono Nerd Font")
