@@ -31,8 +31,8 @@
 
 
 ;; fullscreen
-(require 'fullscreen)
-(fullscreen)
+;; (require 'fullscreen)
+;; (fullscreen)
 
 ;; (require 'init-eaf)
 

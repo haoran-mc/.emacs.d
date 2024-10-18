@@ -48,11 +48,13 @@
       inhibit-startup-buffer-menu t) ;; 启动时不显示缓冲区消息
 
 ;; screen pos and size on startup
-(setq initial-frame-alist
-      '((left . 1145) ;; left 55
-        (top . 50)
-        (width . 141)
-        (height . 40)))
+;; 在 early-init.el 中为 linux、mac 指定初始 frame
+(unless initial-frame-alist
+  (setq initial-frame-alist
+        '((left . 1145) ;; left 55
+          (top . 50)
+          (width . 141)
+          (height . 40))))
 
 ;; Pixelwise resize 像素级缩放
 ;; 保证 mac 平台最大化窗口时无空隙

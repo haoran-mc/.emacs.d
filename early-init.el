@@ -51,7 +51,10 @@
 ;; (when (eq system-type 'windows-nt)
 ;;   (setq file-name-coding-system 'gbk))
 
-(setq initial-frame-alist '((fullscreen . fullboth)))
+(cond ((eq system-type 'darwin)
+       (setq initial-frame-alist '((fullscreen . fullboth))))
+      ((eq system-type 'gnu/linux)
+       (setq initial-frame-alist '((fullscreen . maximized)))))
 
 (provide 'early-init)
 ;;; early-init.el ends here
