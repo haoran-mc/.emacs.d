@@ -355,21 +355,6 @@
 (lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
                        "init-symbol-overlay")
 
-;; l for literate-calc
-;; literate-calc-mode literate-calc-set-radix literate-calc-remove-results
-;; a = 140 * 12 => a: 1,680
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c l" "literate-calc"))
-(defhydra hydra-literate-calc (:body-pre (require 'literate-calc-mode)
-                                         :color blue)
-  ("b" literate-calc-eval-buffer "eval buffer" :column "literate calc")
-  ("i" literate-calc-insert-results "insert result")
-  ("m" literate-calc-minor-mode "minor mode")
-  ("l" literate-calc-eval-line "eval line")
-  ("c" literate-calc-clear-overlays "clear overlays"))
-(lazy-load-set-keys '(("C-c l" . hydra-literate-calc/body)))
-
 ;; n for narrow
 (with-eval-after-load 'which-key
   (which-key-add-key-based-replacements
