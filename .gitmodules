@@ -153,11 +153,6 @@
 	url = git@github.com:skuro/plantuml-mode.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/emacs-which-key"]
-	path = site-lisp/emacs-which-key
-	url = git@github.com:justbur/emacs-which-key.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/no-littering"]
 	path = site-lisp/no-littering
 	url = git@github.com:emacscollective/no-littering.git

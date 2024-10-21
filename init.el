@@ -102,7 +102,6 @@
      (require 'init-ligature)
      (require 'init-dirvish)
      (require 'init-isearch)
-     (require 'init-which-key)
      (require 'init-vundo)
      (require 'init-eldoc)
      (require 'init-text)

@@ -240,12 +240,7 @@
 
 
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; check ext-which-key.el for prompt
-
 ;; a for alone apps
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c a" "standalone apps"))
 (lazy-load-global-keys '(("C-c a a" . org-agenda)
                          ("C-c x" . org-capture)
                          ("C-c d" . +org-agenda-T))
@@ -255,9 +250,6 @@
 
 
 ;; b for buffer, bookmark
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c b" "buffer/bookmark"))
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
                       ("C-c b r" . bookmark-rename)
                       ("C-c b d" . bookmark-delete)
@@ -267,23 +259,14 @@
 (lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
 
 ;; c for code
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c c" "code"))
 
 ;; e for eshell
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c e" "eshell"))
 (lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
 
 (with-eval-after-load 'org
   (lazy-load-set-keys '(("C-c e p" . +org-preview-in-browser)) org-mode-map))
 
 ;; f for find
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c f" "find/file"))
 (lazy-load-set-keys '(("C-c f x" . find-file)))
 
 (lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file)
@@ -300,9 +283,6 @@
                        "init-treemacs")
 
 ;; g for git
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c g" "git"))
 (pretty-hydra-define hydra-git (:title (format "%s Git Commands"
                                                (all-the-icons-alltheicon "git"))
                                        :body-pre (require 'magit)
@@ -313,9 +293,6 @@
 (lazy-load-set-keys '(("C-c g" . hydra-git/body)))
 
 ;; h for highlight
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c h" "highlight"))
 (pretty-hydra-define hydra-highlight-hunk (:body-pre (require 'hi-lock)
                                                      :color blue :quit-key ("q" "C-g"))
   ("Highlight"
@@ -331,9 +308,6 @@
 (lazy-load-set-keys '(("C-c h" . hydra-highlight-hunk/body)))
 
 ;; i for insert
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c i" "insert"))
 (defhydra hydra-insert (:color blue)
   ("t" hl-todo-insert "todo insert" :column "insert"))
 (lazy-load-set-keys '(("C-c i" . hydra-insert/body)))
@@ -356,9 +330,6 @@
                        "init-symbol-overlay")
 
 ;; n for narrow
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c n" "narrow"))
 (with-eval-after-load 'org
   (defhydra hydra-narrow (:color blue)
     ("s" org-narrow-to-subtree "narrow to subtree" :exit t :column "narrow")
@@ -366,9 +337,6 @@
   (lazy-load-set-keys '(("C-c n" . hydra-narrow/body)) org-mode-map))
 
 ;; o for open
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c o" "open"))
 (lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
 (lazy-load-set-keys '(("C-c o a" . my/algo-layout)))
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
@@ -376,9 +344,6 @@
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 
 ;; p for project
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c p" "project"))
 (lazy-load-global-keys '(("C-c p f" . project-find-file)
                          ("C-c p p" . project-switch-project))
                        ;; C-c p t [project to treemacs] in treemacs
@@ -391,9 +356,6 @@
                        "init-tab-bar")
 
 ;; t for tab
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c t" "tab-bar"))
 (lazy-load-global-keys '(("C-c t c" . tab-bar-close-tab)
                          ("C-c t r" . tab-bar-rename-tab)
                          ("C-c t h" . tab-bar-move-tab-backward)
@@ -401,9 +363,6 @@
                        "init-tab-bar")
 
 ;; u for user
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c u" "user"))
 (lazy-load-set-keys '(("C-c u f" . my/unfill-paragraph)
                       ("C-c u i" . my/indent-buffer)
                       ("C-c u l" . my/copy-file-path-and-line-number)))
@@ -414,9 +373,6 @@
                       ("C-c y C-v" . yas-visit-snippet-file)))
 
 ;; z for folding unify with vim
-(with-eval-after-load 'which-key
-  (which-key-add-key-based-replacements
-    "C-c z" "folding"))
 (defhydra hydra-yafolding (:body-pre (require 'yafolding)
                                      :color blue)
   "folding"
