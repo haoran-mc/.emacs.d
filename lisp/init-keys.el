@@ -43,19 +43,11 @@
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; init-funs has be required by init.el
 (lazy-load-global-keys '(("C-<return>" . consult-bookmark)) "consult")
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("C-<return>" . bookmark-jump))
-                        org-mode-map ""))
-
 (lazy-load-global-keys '(("C-<tab>" . spacemacs/alternate-buffer)
                          ("C-<backspace>" . crux-kill-line-backwards))
                        "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("C-," . goto-last-change))
-                        org-mode-map "goto-last-change"))
-
 (lazy-load-global-keys '(("C-." . +format-code-dwim)) "init-formatter")
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
@@ -71,9 +63,6 @@
 
 (lazy-load-global-keys '(("C-j" . vanilla/merge-line-down)) ;; electric-newline-and-maybe-indent
                        "basic-tookit")
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("C-j" . vanilla/merge-line-down))
-                        org-mode-map "basic-tookit"))
 
 (lazy-load-global-keys '(("C-o" . open-newline-above)
                          ("C-l" . open-newline-below))
@@ -81,11 +70,6 @@
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
-
-(with-eval-after-load 'org
-  ;; only full paths are supported
-  (lazy-load-local-keys '(("C-v" . vanilla/preview-file-link))
-                        org-mode-map "org-funcs"))
 
 ;; also navigate windows by ace-window(M-o)
 (lazy-load-set-keys '(("C-\\ h" . windmove-left)
@@ -158,22 +142,14 @@
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
-                      ("M-;" . comment-dwim) ;; comment-dwim/eval-expression
-                      ))
+                      ("M-;" . comment-dwim))) ;; comment-dwim/eval-expression
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
                          ("M-d" . delete-block-forward)) ;; kill-word
                        "delete-block")
 
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
-                          ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
-                        org-mode-map ""))
-
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
-
 (lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
-
 (lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
                          ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
                        "cursormove")
@@ -183,9 +159,7 @@
                        "basic-tookit")
 
 (lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
-
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
-
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
 
 (lazy-load-global-keys '(("M-H" . duplicate-line-or-region-above)
@@ -212,10 +186,6 @@
 ;; s-? -> text operation
 ;; here are some hyper keys used by yabai on macos
 (lazy-load-set-keys '(("s-SPC" . just-one-space))) ;; origin M-SPC
-
-(with-eval-after-load 'org
-  (lazy-load-local-keys '(("s-<return>" . org-insert-heading-respect-content))
-                        org-mode-map "")) ;; origin C-RET
 
 (lazy-load-set-keys '(("s-." . lazycat/remember-init)
                       ("s-," . lazycat/remember-jump)))
@@ -263,8 +233,6 @@
 ;; e for eshell
 (lazy-load-global-keys '(("C-c e n" . eshell)) "eshell")
 
-(with-eval-after-load 'org
-  (lazy-load-set-keys '(("C-c e p" . +org-preview-in-browser)) org-mode-map))
 
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)))
@@ -312,29 +280,13 @@
   ("t" hl-todo-insert "todo insert" :column "insert"))
 (lazy-load-set-keys '(("C-c i" . hydra-insert/body)))
 
-(with-eval-after-load 'org
-  (defhydra hydra-org-insert (:body-pre (require 'org-insert)
-                                        :color blue)
-    ("!" vanilla/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
-    ("l" vanilla/dwim-create-link-with-datetime "datetime link" :exit t)
-    ("i" vanilla/org-insert-image "image with name" :exit t)
-    ("s" vanilla/org-insert-image-with-timestamp "image with time" :exit t)
-    ("t" hl-todo-insert "todo insert" :column "insert"))
-  (lazy-load-local-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map ""))
-
 (lazy-load-global-keys '(("C-c j" . avy-goto-line-below)
                          ("C-c k" . avy-goto-line-above))
                        "init-avy")
 
-(lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all))
-                       "init-symbol-overlay")
+(lazy-load-global-keys '(("C-c K" . symbol-overlay-remove-all)) "init-symbol-overlay")
 
 ;; n for narrow
-(with-eval-after-load 'org
-  (defhydra hydra-narrow (:color blue)
-    ("s" org-narrow-to-subtree "narrow to subtree" :exit t :column "narrow")
-    ("w" widen "widen" :exit t))
-  (lazy-load-set-keys '(("C-c n" . hydra-narrow/body)) org-mode-map))
 
 ;; o for open
 (lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
@@ -373,16 +325,12 @@
                       ("C-c y C-v" . yas-visit-snippet-file)))
 
 ;; z for folding unify with vim
-(defhydra hydra-yafolding (:body-pre (require 'yafolding)
-                                     :color blue)
+(defhydra hydra-yafolding (:body-pre (require 'yafolding) :color blue)
   "folding"
   ("e" yafolding-toggle-element "element")
   ("a" yafolding-show-all "show all")
   ("p" yafolding-go-parent-element "go parent"))
 (lazy-load-set-keys '(("C-c z" . hydra-yafolding/body)))
-
-
-(lazy-load-global-keys '(("C-c M-g" . magit-file-dispatch)) "magit")
 
 
 ;; here is C-x ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
