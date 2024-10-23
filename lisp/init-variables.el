@@ -28,15 +28,14 @@
 (defvar ran--os-mac (eq system-type 'darwin))
 
 (defvar ran--bookmark-file "~/haoran/no/org/bookmark-default.el")
-(defvar ran--org-directory "~/haoran/no/org/org-directory")
-(defvar ran--org-agenda-files (list "~/haoran/no/org/org-directory/tasks"
-                                    "~/haoran/no/org/org-directory/agenda"
+(defvar ran--org-directory "~/haoran/no/org/sync-notes")
+(defvar ran--org-agenda-files (list "~/haoran/no/org/sync-notes/org-task"
                                     "~/haoran/no/org/work-agenda/work-todo.org"))
 
 
 (defvar ran--private-notes "~/haoran/no/org/wiki/index.org")
 (defvar ran--public-notes "~/haoran/no/org/site/index.org")
-(defvar ran--centre "~/haoran/no/org/org-directory/centre.org")
+(defvar ran--centre "~/haoran/no/org/sync-notes/centre.org")
 (defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
 (defvar ran--trash-dir "~/haoran/tr")
 

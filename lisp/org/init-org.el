@@ -187,35 +187,30 @@ TODO kwd."
       ;; 2. 摘记型（没有标题）："%<%Y.%m.%d %H:%M %a>\n%?\n."
       ;; 3. 摘记型（有标题）："* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
       ;; 4. 故事型： "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-      org-capture-templates `(("d" "diary journay" entry (file+datetree "~/haoran/no/org/diary/diary.org")
+      org-capture-templates `(("d" "diary journay" entry (file+datetree "org-diary/diary.org")
                                "* %<%H:%M>\n%?\n")
                               
 
                               ("t" "todo")
-                              ("ti" "todo inbox, 待做全放在这里" entry (file+headline "tasks/tasks.org" "inbox")
+                              ("ti" "todo inbox, 待做全放在这里" entry (file+headline "org-task/t-all.org" "inbox")
+                               "* TODO *TAG:* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                               :prepend t)
+                              ("tt" "todo technology" entry (file+headline "org-task/t-cs.org" "inbox")
                                "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t)
-                              ("te" "todo emacs" entry (file+headline "tasks/emacs.org" "inbox")
-                               "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?")
-                              ("tt" "todo technology" entry (file+headline "tasks/tasks.org" "technology")
+                              ("te" "todo emacs" entry (file+headline "org-task/t-emacs.org" "inbox")
                                "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t)
                               
 
                               ("c" "capture")
-                              ("cc" "capture my ideas, 主观" plain (file "~/haoran/no/org/sync-notes/b.故事/观点（主观的）.org")
-                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
+                              ("ci" "capture inbox" entry (file+headline "org-capture/c-all.org" "inbox")
+                               "* %<%Y.%m.%d %H:%M %a>\n%?\n."
                                :prepend t)
-                              ("cd" "capture everything, 客观" plain (file "~/haoran/no/org/sync-notes/b.故事/常识（客观的）.org")
-                               "%<%Y.%m.%d %H:%M %a>\n%?\n."
-                               :prepend t)
-                              ("cz" "capture trivia, 小知识 - 荔枝病" plain (file "~/haoran/no/org/sync-notes/e.观察世界/capture-小知识.org")
+                              ("cz" "capture trivia, 小知识 - 荔枝病" plain (file "org-capture/c-小知识.org")
                                "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t)
-                              ("ce" "capture emacs" entry (file+headline "tasks/emacs.org" "capture")
-                               "* %<%Y.%m.%d %H:%M %a>\n%?"
-                               :prepend t)
-                              ("cn" "capture non-public information, 观察" plain (file "~/haoran/no/org/sync-notes/e.观察世界/240606-专业、职业发展/观察.org")
+                              ("ce" "capture emacs" entry (file+headline "org-capture/c-emacs.org" "inbox")
                                "* %<%Y.%m.%d %H:%M %a>\n%?"
                                :prepend t)
                               
