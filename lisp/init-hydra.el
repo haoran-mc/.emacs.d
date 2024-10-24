@@ -53,24 +53,19 @@
                                       :post (deactivate-mark))
    "
   ^_k_^     _s_tring    _d_elete
-_h_   _l_   _r_eset     _x_kill
-  ^_j_^     ^ ^         _y_ank
+_h_   _l_   ^ ^         _x_kill
+  ^_j_^                 _y_ank
 ^^^^
 "
    ("h" rectangle-backward-char nil)
    ("l" rectangle-forward-char nil)
    ("k" rectangle-previous-line nil)
    ("j" rectangle-next-line nil)
-   ("d" delete-rectangle nil :exit t)
-   ("r" (if (region-active-p)
-            (deactivate-mark)
-          (rectangle-mark-mode 1)) nil)
-   ("y" yank-rectangle nil :exit t)
-   ;; ("u" undo nil)
-   ("s" string-rectangle nil :exit t)
-   ("x" kill-rectangle nil :exit t)
-   ("o" nil nil)))
-
+   ;; TODO 直接使用 M-w C-w
+   ("d" delete-rectangle nil :exit t) ;; 删除不放入剪切板
+   ("x" kill-rectangle nil :exit t) ;; 剪切
+   ("y" yank-rectangle nil :exit t) ;; 粘贴
+   ("s" string-rectangle nil :exit t)))
 
 ;; major-mode-hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'rainbow-mode-hook
