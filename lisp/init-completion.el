@@ -41,6 +41,7 @@
       corfu-scroll-margin 0
       corfu-on-exact-match nil ;; 即使只有一个 candidate 也不自动选中
       corfu-popupinfo-delay 10)
+(setq corfu-auto-commands '("self-insert-command\\'" c-electric-colon c-electric-lt-gt c-electric-slash c-scope-operator))
 ;; my-DEL-meow-delete prevent corfu-auto see `corfu-auto-commands' for more
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
