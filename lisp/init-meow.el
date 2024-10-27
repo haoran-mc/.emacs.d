@@ -110,8 +110,8 @@
    '("I" . my-I-meow-insert)
 
    ;; yank/pop
-   '("y" . meow-save) ;; M-w cancel the selection, but y not.
-   '("p" . meow-yank)
+   ;; '("y" . meow-save) ;; M-w cancel the selection, but y not.
+   ;; '("p" . meow-yank)
 
    ;; kill/delete/change/replace
    ;; '("d" . meow-kill) ;; C-w kill
