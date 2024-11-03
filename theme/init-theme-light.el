@@ -53,21 +53,21 @@
 (set-face-attribute 'font-lock-type-face nil :italic nil)
 ;; (set-face-attribute 'fringe nil :background "#EDE8D5")
 
-(set-face-attribute 'tab-bar nil :background "#d7d7d7" :box nil :inherit 'unspecified)
-(set-face-attribute 'tab-bar-tab nil :background "#b7b7b7" :box nil :inherit 'unspecified)
-(set-face-attribute 'tab-bar-tab-inactive nil :box nil :inherit 'unspecified)
+;; (set-face-attribute 'tab-bar nil :background "#D7D7D7" :box nil :inherit 'unspecified)
+;; (set-face-attribute 'tab-bar-tab nil :background "#B7B7B7" :box nil :inherit 'unspecified)
+;; (set-face-attribute 'tab-bar-tab-inactive nil :box nil :inherit 'unspecified)
 
 ;; diff-hl
-;; (with-eval-after-load 'diff-hl
-;;   (set-face-attribute 'diff-hl-change nil :background "#bbbb00" :foreground "#bbbb00"))
+(with-eval-after-load 'diff-hl
+  (set-face-attribute 'diff-hl-change nil :background "#BBBB00" :foreground "#BBBB00"))
 
 ;; magit
-;; (with-eval-after-load 'magit
-;;   (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
+(with-eval-after-load 'magit
+  (set-face-attribute 'magit-header-line nil :background "#EDE8D5"))
 
 ;; drivish
-;; (with-eval-after-load 'dirvish
-;;   (set-face-attribute 'dirvish-hl-line nil :foreground 'unspecified :background "#F2E6CE"))
+(with-eval-after-load 'dirvish
+  (set-face-attribute 'dirvish-hl-line nil :foreground 'unspecified :background "#F2E6CE"))
 
 ;; meow
 (with-eval-after-load 'meow
