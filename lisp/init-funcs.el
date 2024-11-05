@@ -26,18 +26,44 @@
 
 
 ;;;###autoload
+(defun my/center-layout ()
+  "Load my center layout."
+  (interactive)
+  (let ((tab-name "cent"))
+    (if (tab-bar--tab-index-by-name tab-name)
+        (tab-bar-select-tab-by-name tab-name)
+      (progn
+        ;; 1. create algo tab
+        (require 'init-tab-bar)
+        (vanilla/tab-bar-switch-to-tab tab-name)
+        ;; 2. open centre.org
+        (find-file "~/haoran/no/org/sync-notes/centre.org")
+        ;; 3. treemacs
+        (require 'init-treemacs)
+        (my/treemacs-add-current-project-workspace-exclusively)
+        (switch-to-buffer "centre.org")
+        ;; 4. split agenda
+        (vanilla/split-window-right-with-balance)
+        (org-agenda "TODO" "T")
+        (windmove-left)))))
+
+;;;###autoload
 (defun my/algo-layout ()
   "Load my algo layout."
   (interactive)
-  ;; 1. create algo tab
-  (require 'init-tab-bar)
-  (vanilla/tab-bar-switch-to-tab "algo")
-  ;; 2. open initial-algo-message.txt
-  (find-file "~/haoran/code/algo/initial-algo-message.txt")
-  ;; 3. treemacs
-  (require 'init-treemacs)
-  (my/treemacs-add-current-project-workspace-exclusively)
-  (switch-to-buffer "initial-algo-message.txt"))
+  (let ((tab-name "algo"))
+    (if (tab-bar--tab-index-by-name tab-name)
+        (tab-bar-select-tab-by-name tab-name)
+      (progn
+        ;; 1. create algo tab
+        (require 'init-tab-bar)
+        (vanilla/tab-bar-switch-to-tab tab-name)
+        ;; 2. open initial-algo-message.txt
+        (find-file "~/haoran/code/algo/initial-algo-message.txt")
+        ;; 3. treemacs
+        (require 'init-treemacs)
+        (my/treemacs-add-current-project-workspace-exclusively)
+        (switch-to-buffer "initial-algo-message.txt")))))
 
 ;;;###autoload
 (defun lazycat/remember-jump ()
