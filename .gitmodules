@@ -68,11 +68,6 @@
 	url = git@github.com:awth13/org-appear.git
 	shallow = true
 	ignore = all
-[submodule "theme/spacemacs-theme"]
-	path = theme/spacemacs-theme
-	url = git@github.com:nashamri/spacemacs-theme.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/rainbow-mode"]
 	path = site-lisp/rainbow-mode
 	url = git@github.com:emacsmirror/rainbow-mode.git
