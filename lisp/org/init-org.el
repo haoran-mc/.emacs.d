@@ -228,7 +228,7 @@ TODO kwd."
 
 (require 'init-ox)
 
-(require 'init-plantuml) ;; should require before org-src
+(require 'init-plantuml) ;; require before org-src
 
 (require 'init-org-src)
 

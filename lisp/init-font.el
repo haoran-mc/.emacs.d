@@ -29,7 +29,7 @@
                   (ran--os-linux 10)
                   (t 13)))
       (font-family (cond
-                    (ran--os-mac "SFMono Nerd Font")
+                    (ran--os-mac "Liga SFMono Nerd Font")
                     (ran--os-linux "SFMono Nerd Font Mono")
                     (t "Ubuntu Mono"))))
   (defvar ran--font-family font-family)
