@@ -31,13 +31,12 @@
 ;; | control  | super    | meta      |
 ;; +----------+----------+-----------+
 
-
 ;;; Code:
-
-
-;; Make titlebar dark
-;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; fullboth → maximized macos 固定emacs窗口位置
+(modify-frame-parameters nil '((fullscreen . maximized)))
+;; Make titlebar dark, but need patch
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
 
 ;; Useful when use an external keyboard
 (defun +osx-swap-option-and-command ()
@@ -85,7 +84,6 @@
      (dolist (var '("LANG" "LC_CTYPE"))
        (add-to-list 'exec-path-from-shell-variables var))
      (exec-path-from-shell-initialize)))
-
 
 (provide 'init-osx)
 ;;; init-osx.el ends here
