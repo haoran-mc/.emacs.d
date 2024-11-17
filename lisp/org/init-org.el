@@ -174,32 +174,36 @@ TODO kwd."
 (setq org-capture-use-agenda-date t ;; capture 创建条目时使用 agenda 的日期
       org-capture-templates-contexts nil ;; 禁用 capture 模板的上下文功能，手动选择模板
       ;; 减少 capture 步骤：
-      ;; • 尽量不使用 tag 的选择 %^g
-      ;; • todo 项不要太分散，只保留少数 todo 文件
-      ;; • 提示输入「优先[#A]」「学习」
+      ;; • 不使用 tag 的选择 %^g
+      ;; • todo 项不分散，只保留少数 todo 文件
       ;;
       ;; todo 关键字分类：
       ;; • WORK  工作相关
       ;; • TODO  待做箱子，使用 [#A] [#B] ... 标记优先级
-      ;; • LONG  长期跟踪，这种事情不会很多，手动管理，不通过capture增加
       ;;
       ;; 1. 任务型："* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
       ;; 2. 摘记型（没有标题）："%<%Y.%m.%d %H:%M %a>\n%?\n."
       ;; 3. 摘记型（有标题）："* %<%Y.%m.%d %a %H:%M> - %^{title}\n%?"
       ;; 4. 故事型： "* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
-      org-capture-templates `(("d" "diary journay" entry (file+datetree "org-diary/diary.org")
+      org-capture-templates `(("j" "journay")
+                              ("jd" "journay diary" entry (file+datetree "org-diary/diary.org")
                                "* %<%H:%M>\n%?\n")
+                              ("jw" "journay work" entry (file+datetree "~/haoran/no/org/work-agenda/work-journay.org")
+                               "* %<%H:%M> - %^{title}\n%?")
                               
 
                               ("t" "todo")
                               ("ti" "todo inbox, 待做全放在这里" entry (file+headline "org-task/t-all.org" "inbox")
-                               "* TODO *TAG:* %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                               "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
-                              ("tt" "todo technology" entry (file+headline "org-task/t-cs.org" "inbox")
-                               "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                              ("tc" "todo cs" entry (file+headline "org-task/t-cs.org" "inbox")
+                               "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
-                              ("te" "todo emacs" entry (file+headline "org-task/t-emacs.org" "inbox")
-                               "* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
+                              ("te" "todo emacs" entry (file+headline "org-task/t-e.org" "inbox")
+                               "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
+                               :prepend t)
+                              ("tw" "todo work" entry (file "~/haoran/no/org/work-agenda/work-todo.org")
+                               "* WORK %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
                               
 
@@ -212,14 +216,6 @@ TODO kwd."
                                :prepend t)
                               ("ce" "capture emacs" entry (file+headline "org-capture/c-emacs.org" "inbox")
                                "* %<%Y.%m.%d %H:%M %a>\n%?"
-                               :prepend t)
-                              
-
-                              ("w" "work")
-                              ("wj" "work journay" entry (file+datetree "~/haoran/no/org/work-agenda/work-journay.org")
-                               "* %<%H:%M> - %^{title}\n%?")
-                              ("wt" "work todo「优先[#A]」「学习」" entry (file "~/haoran/no/org/work-agenda/work-todo.org")
-                               "* WORK %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
                                :prepend t)))
 
 
