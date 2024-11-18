@@ -268,3 +268,13 @@
 	url = git@github.com:spotify/dockerfile-mode.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/flymake-ruff"]
+	path = site-lisp/flymake-ruff
+	url = git@github.com:erickgnavar/flymake-ruff.git
+	shallow = true
+	ignore = all
+[submodule "site-lisp/pyvenv"]
+	path = site-lisp/pyvenv
+	url = git@github.com:jorgenschaefer/pyvenv.git
+	shallow = true
+	ignore = all

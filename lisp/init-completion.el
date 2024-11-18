@@ -106,11 +106,15 @@
       eglot-autoshutdown t
       eglot--mode-line-format nil)
 
-;; (setq-default eglot-workspace-configuration
-;;               '((:gopls . ((staticcheck . t)
-;;                            (matcher . "CaseSensitive")
-;;                            (symbolScope . "workspace")))
-;;                 ))
+(setq-default eglot-workspace-configuration
+              '( :gopls ( :buildFlags ["-tags" "wireinject"]
+                          :usePlaceholders t
+                          :staticcheck t)
+                 :pyright ( :checkOnlyOpenFiles t
+                            :typeCheckingMode "basic")
+                 :basedpyright ( :checkOnlyOpenFiles t
+                                 :typeCheckingMode "basic")
+                 ))
 
 (with-eval-after-load 'eglot
   (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)

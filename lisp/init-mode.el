@@ -87,7 +87,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 ;; (autoload 'org-mode "init-org") ;; 已经在 init.el 中预加载了，不重复加载，出现问题难以排查
 (autoload 'markdown-mode "init-markdown")
 (autoload 'go-mode "lang-golang")
-(autoload 'python-mode "lang-python")
 (autoload 'lua-mode "lang-lua")
 (autoload 'rust-mode "lang-rust")
 
@@ -103,6 +102,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (require 'lang-elisp) ;; directly require
 (require 'lang-sql) ;; 内置的 sql-mode 用于连接数据库，也不需要创建一个 sql-write-mode，直接引用 lang-sql 中 sql 工具
 (require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
+(require 'lang-python) ;; 因为有内置的 python-mode，autoload 被覆盖，所以直接加载 lang-python
 
 ;; ↑ require 不一定真正加载，因为可以在 lang-*.el 里使用 mode-hook
 

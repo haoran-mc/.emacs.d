@@ -34,9 +34,12 @@
 ;;                 and a local minor mode: reformatter-gofmt-on-save-mode
 ;; (add-hook 'go-mode-hook 'evgeni-gofmt-on-save-mode)
 
+;; https://github.com/scop/emacs-ruff-format/blob/main/ruff-format.el
 (reformatter-define reformatter-pyfmt
-  :program "black"
-  :args '("-"))
+  :program "ruff"
+  :args (list "format" "--stdin-filename" (or (buffer-file-name) input-file))
+  :lighter " RuffFmt"
+  :group 'ruff-format)
 
 (reformatter-define reformatter-rustfmt
   :program "rustfmt")

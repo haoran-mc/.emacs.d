@@ -30,20 +30,12 @@
 
 
 ;;; Code:
-
-;; Initialization
-(defun +python-mode-delete-trailing-whitespace ()
+(defun python-mode-delete-trailing-whitespace ()
   "Delete trailing whitespace before saving file."
   (interactive)
   (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))
+;; (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
 
-(defun lazycat/jump-to-import()
-  (interactive)
-  ;; Rember position before jump.
-  (lazycat/remember-init)
-  ;; Jump to `import ...` position.
-  (goto-char (point-min))
-  (search-forward-regexp "\\(^import\\|^from\\)" nil t))
 
 (defun python/run-current-file (&optional directory)
   "Execute the current python file."
@@ -57,17 +49,48 @@
            (default-directory directory)
            (compilation-ask-about-save nil))
       (executable-interpret (read-shell-command "Run: " command)))))
-
-
-;; binding keys
-(define-key python-mode-map (kbd "C-S-j") 'lazycat/jump-to-import)
 (define-key python-mode-map (kbd "C-c C-c") 'python/run-current-file)
 
-;; error when open org
-;; (exec-path-from-shell-copy-envs '("PYTHONPATH"))
+
+;; Two ways to make pyright work with installed package.
+;;
+;; 1. Use venv.
+;; pyright need to know venvPath so that it can find the python packages
+;; or raise error like "import can't be resolved"
+;;
+;; 2. Use pdm.
+;; Packages installed with pdm under __pypackages__/<version>/lib/,
+;; update pyproject.toml to make pyright work with it, for example:
+;; [tool.pyright]
+;; extraPaths = ["__pypackages__/3.8/lib/", "src/]
+;; https://pdm-project.org/en/latest/usage/pep582/#emacs
+;;
+;; (also check basedpyright and delance)
+(defun pyrightconfig-write ()
+  "Write a `pyrightconfig.json' file at the root of a project with
+`venvPath` and `venv`."
+  (interactive)
+  (let* ((json-encoding-pretty-print t)
+         (fn (tramp-file-local-name python-shell-virtualenv-root))
+         (venvPath (string-trim-right fn "/"))
+         (out-file (expand-file-name "pyrightconfig.json" (project-root (project-current)))))
+    (with-temp-file out-file
+      (insert (json-encode (list :venvPath venvPath
+                                 :venv ".venv"))))
+    (message "Configured `%s` to use environment `%s`" out-file pyvenv-virtual-env)))
+
+(require 'pyvenv)
+;; 1. pyvenv-mode
+;; 2. pyvenv-activate /Users/haoran/haoran/gr/action-send-mail
+;; 3. restart eglot
 
 
-;; Configuration
+;; lint ruff, formatter.el ruff
+(require 'flymake-ruff)
+(add-hook 'python-mode-hook #'flymake-ruff-load)
+(add-hook 'eglot-managed-mode-hook 'flymake-ruff-load)
+
+
 ;; Default to Python 3. Prefer the versioned Python binaries since some
 ;; systems stupidly make the unversioned one point at Python 2.
 (when (and (executable-find "python3")
@@ -76,13 +99,15 @@
 
 (setenv "PYTHONIOENCODING" "utf-8") ;; run-python print chinese
 
+;; Disable readline based native completion
+(setq python-shell-dedicated 'project
+      python-indent-guess-indent-offset nil)
 
-;; Customization
-(setq python-indent-guess-indent-offset-verbose nil)
 
-
-;; Hook
-;; (add-hook 'python-mode-hook 'python-mode-delete-trailing-whitespace)
+;; 因为 pip 不允许全局安装，所以使用 brew/node
+;; brew install ruff
+;; brew install basedpyright
+;; brew install pyright ←basedpyright没配置成功，所以实际上使用的pyright
 
 
 (provide 'lang-python)

@@ -56,7 +56,8 @@
                      (setq-local c-basic-offset 4))))
 
 ;; langs
-(add-hook 'yaml-mode-hook #'(lambda () (yaml-indent-offset 2)))
+(add-hook 'yaml-mode-hook #'(lambda () (setq yaml-indent-offset 2)))
+(add-hook 'python-mode-hook #'(lambda () (setq python-indent-offset 4)))
 
 
 (provide 'init-indent)
