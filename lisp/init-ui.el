@@ -76,11 +76,9 @@
 
         ;; org-todo
         ("TODO"   . "#FF0000") ;; #CC9393
-        ("DONE"   . "#5B6268")
-        ("CANCEL" . "#5B6268") ;; #50a14f
-        ("LONG"   . "#D0BF8F")
         ("HOLD"   . "#D0BF8F")
-        ("WORK"   . "#FF0000")))
+        ("DONE"   . "#5B6268")
+        ("CANCEL" . "#5B6268"))) ;; #50a14f
 
 (add-hook 'prog-mode-hook #'hl-todo-mode)
 (add-hook 'conf-mode-hook #'hl-todo-mode)

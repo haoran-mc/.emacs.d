@@ -111,8 +111,6 @@
       ;; todo
       org-todo-keywords ;; not use for todo instead of agenda
       '((sequence "TODO(t)"   ;; 优先处理
-                  "WORK(w!)"  ;; 工作相关
-                  "LONG(l!)"  ;; 长期跟踪
                   "HOLD(h!)"  ;; 做到一半，暂存后面再做，事项部分比较简单，剩余的没有能力继续完成
                   "|"
                   "DONE(d!)"     ;; 完成
@@ -122,10 +120,7 @@
       org-todo-keyword-faces '(("TODO"    :foreground "#FF0000" :weight normal)
                                ("DONE"    :foreground "#5B6268" :weight normal)
                                ("CANCEL"  :foreground "#5B6268" :weight normal)
-                               ("LONG"    :foreground "#D0BF8F" :weight normal)
-                               ("HOLD"    :foreground "#D0BF8F" :weight normal)
-                               
-                               ("WORK"    :foreground "#FF0000" :weight normal))
+                               ("HOLD"    :foreground "#D0BF8F" :weight normal))
       ;; 真实的 tag 太多了，无法维护，尽量不使用
       org-tag-alist
       '(("@生活" . ?l)
@@ -177,9 +172,7 @@ TODO kwd."
       ;; • 不使用 tag 的选择 %^g
       ;; • todo 项不分散，只保留少数 todo 文件
       ;;
-      ;; todo 关键字分类：
-      ;; • WORK  工作相关
-      ;; • TODO  待做箱子，使用 [#A] [#B] ... 标记优先级
+      ;; 使用文件分别任务类型：工作、Emacs、Technology、其他
       ;;
       ;; 1. 任务型："* TODO %^{title}\n:PROPERTIES:\n:CREATED: %U\n:END:\n%?"
       ;; 2. 摘记型（没有标题）："%<%Y.%m.%d %H:%M %a>\n%?\n."
@@ -202,8 +195,8 @@ TODO kwd."
                               ("te" "todo emacs" entry (file+headline "org-task/t-e.org" "inbox")
                                "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
-                              ("tw" "todo work" entry (file "~/haoran/no/org/work-agenda/work-todo.org")
-                               "* WORK %<%y%m%d %H:%M %a> %^{title}\n%?"
+                              ("tw" "todo work" entry (file+headline "~/haoran/no/org/work-agenda/work-todo.org" "inbox")
+                               "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
                               
 

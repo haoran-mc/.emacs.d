@@ -19,11 +19,15 @@
 3. 模板中可以多加一些信息，提示输入「优先[#A]」「学习」；
 
 * agenda
-不使用 ~org-agenda~ ，使用 ~(org-agenda nil "T")~ ，因为 org-agenda 的 dispatch 乱，很多展示的功能不会使用，所以确实好一个使用 agenda 的入口。
+不使用 ~org-agenda~ ，使用 ~(org-agenda nil "T")~ ，因为 org-agenda 的 dispatch 乱，很多展示的功能不会使用，所以确定一个使用 agenda 的入口。
 
 能够这样规定，也是因为我对 agenda 的使用需求很低，只需要罗列有哪些 TODO 项，甚至不需要 priority、deadline、schedule、timestamp 等。
 
-- priority 在 capture 写入模板时自己手动加入 [#A]、[#B]、[#C]、[#D]；
 - 如果我不使用 Agenda View，那么 agenda 中所有与时间相关的功能对我来说都是不必要的，deadline、schedule、active timestamp、inactive timestamp...
 
-最后，TODO 关键字要少：WORK、TODO、HOLD、LONG...
+最后，TODO 关键字要少：TODO、HOLD、DONE、CANCEL。
+
+
+曾经使用过，最后放弃的方案：（提醒）
+- priority 在 capture 写入模板时自己手动加入 [#A]、[#B]、[#C]、[#D]；
+- 详细的 todo 关键字：WORK（工作相关）、LONG（长期跟踪）、HOLD（做到一半，剩余的没有能力继续完成）。删除了 WORK 和 LONG，只要是存在 work-todo 文件中的都是工作相关的，长期跟踪的应该也放入 TODO，否则关注不到；
