@@ -53,9 +53,9 @@
 (set-face-attribute 'font-lock-type-face nil :italic nil)
 ;; (set-face-attribute 'fringe nil :background "#EDE8D5")
 
-;; (set-face-attribute 'tab-bar nil :background "#D7D7D7" :box nil :inherit 'unspecified)
-;; (set-face-attribute 'tab-bar-tab nil :background "#B7B7B7" :box nil :inherit 'unspecified)
-;; (set-face-attribute 'tab-bar-tab-inactive nil :box nil :inherit 'unspecified)
+(set-face-attribute 'tab-bar nil :background "#D7D7D7" :box nil :inherit 'unspecified)
+(set-face-attribute 'tab-bar-tab nil :background "#B7B7B7" :box nil :inherit 'unspecified)
+(set-face-attribute 'tab-bar-tab-inactive nil :box nil :inherit 'unspecified)
 
 ;; diff-hl
 (with-eval-after-load 'diff-hl

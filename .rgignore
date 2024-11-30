@@ -13,7 +13,7 @@ site-lisp/
 *.htm
 *.html
 *.css
-*.js
+# *.js
 html/
 
 # export files

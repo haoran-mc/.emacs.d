@@ -27,6 +27,7 @@
 
 (require 'sqlformat)
 
+;; brew install pgformatter
 (setq sqlformat-command 'pgformatter
       sqlformat-args '("-s2" "-g"))
 

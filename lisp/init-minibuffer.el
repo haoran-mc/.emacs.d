@@ -120,6 +120,7 @@
         consult-async-input-throttle 0.01 ;; 输入节流时间，搜索软件rg处理间隔，和抖动时间相同，所以实时搜索。搜索软件性能不够时增大此值，减慢查询
         consult-async-refresh-delay 0.01  ;; vertico列表的刷新时间间隔，这里设置的值比throttle小，所以每当throttle返回结果就刷新，vertico性能不够时增大此值，减慢刷新
         consult-ripgrep-args "rg --ignore-file=/Users/haoran/.emacs.d/.rgignore \
+                                 --hidden           \
                                  --null             \
                                  --line-buffered    \
                                  --color=never      \

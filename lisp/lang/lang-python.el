@@ -80,9 +80,12 @@
     (message "Configured `%s` to use environment `%s`" out-file pyvenv-virtual-env)))
 
 (require 'pyvenv)
-;; 1. pyvenv-mode
-;; 2. pyvenv-activate /Users/haoran/haoran/gr/action-send-mail
-;; 3. restart eglot
+;; 1. python -m venv .
+;; 2. source bin/activate
+;; 3. pip install -r requirements.txt
+;; 4. pyvenv-mode
+;; 5. pyvenv-activate /Users/haoran/haoran/gr/action-send-mail
+;; 6. restart eglot
 
 
 ;; lint ruff, formatter.el ruff
