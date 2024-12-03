@@ -31,8 +31,7 @@
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
-               'typescript-mode-hook
-               'json-mode-hook))   ;; js-indent-level 2
+               'typescript-mode-hook))
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
                      (setq-local javascript-indent-level 2)
@@ -54,16 +53,18 @@
                'c-mode-hook
                'c++-mode-hook))
   (add-hook hook #'(lambda ()
-                     (setq indent-tabs-mode nil)
+                     (setq-local indent-tabs-mode nil)
                      (setq-local c-basic-offset 4))))
 
 ;; langs
-(add-hook 'yaml-mode-hook #'(lambda () (setq yaml-indent-offset 2)))
-(add-hook 'python-mode-hook #'(lambda () (setq python-indent-offset 4)))
-(add-hook 'sh-mode-hook #'(lambda () (setq sh-basic-offset 4
-                                      sh-indentation 4)
+(add-hook 'yaml-mode-hook #'(lambda () (setq-local yaml-indent-offset 2)))
+(add-hook 'python-mode-hook #'(lambda () (setq-local python-indent-offset 4)))
+(add-hook 'sh-mode-hook #'(lambda () (setq-local sh-basic-offset 4
+                                            sh-indentation 4)
                             ;; 参考 Google Shell Style Guide: https://google.github.io/styleguide/shellguide.html
                             ))
+;; https://stackoverflow.com/a/24668842/14093697
+(add-hook 'json-mode-hook #'(lambda () (setq-local js-indent-level 2)))
 
 
 (provide 'init-indent)
