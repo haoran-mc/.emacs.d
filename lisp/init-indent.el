@@ -19,6 +19,7 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
+;; 只有 Go 语言使用 Tab 缩进，其他一律使用空格缩进，Vim 缩进应该向 Emacs 对齐
 ;; 在各个语言中设置？
 
 ;;; Code:
@@ -26,6 +27,7 @@
 (setq-default tab-width 4) ;; 制表符宽度为 4 个空格
 
 
+;; 前端
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
@@ -58,6 +60,10 @@
 ;; langs
 (add-hook 'yaml-mode-hook #'(lambda () (setq yaml-indent-offset 2)))
 (add-hook 'python-mode-hook #'(lambda () (setq python-indent-offset 4)))
+(add-hook 'sh-mode-hook #'(lambda () (setq sh-basic-offset 4
+                                      sh-indentation 4)
+                            ;; 参考 Google Shell Style Guide: https://google.github.io/styleguide/shellguide.html
+                            ))
 
 
 (provide 'init-indent)
