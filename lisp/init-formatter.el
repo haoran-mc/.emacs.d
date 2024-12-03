@@ -45,7 +45,7 @@
 (reformatter-define reformatter-shfmt
   ;; go install mvdan.cc/sh/v3/cmd/shfmt@latest
   :program "shfmt"
-  :args (list "--filename" (or (buffer-file-name) input-file))
+  :args (list "-i" "2" "--filename" (or (buffer-file-name) input-file))
   :lighter " ShFmt")
 
 

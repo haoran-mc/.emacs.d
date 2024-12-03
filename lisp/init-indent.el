@@ -60,8 +60,8 @@
 ;; langs
 (add-hook 'yaml-mode-hook #'(lambda () (setq-local yaml-indent-offset 2)))
 (add-hook 'python-mode-hook #'(lambda () (setq-local python-indent-offset 4)))
-(add-hook 'sh-mode-hook #'(lambda () (setq-local sh-basic-offset 4
-                                            sh-indentation 4)
+(add-hook 'sh-mode-hook #'(lambda () (setq-local sh-basic-offset 2
+                                            sh-indentation 2)
                             ;; 参考 Google Shell Style Guide: https://google.github.io/styleguide/shellguide.html
                             ))
 ;; https://stackoverflow.com/a/24668842/14093697
