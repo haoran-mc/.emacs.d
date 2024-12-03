@@ -31,7 +31,8 @@
 (dolist (hook (list
                'web-mode-hook
                'js-mode-hook
-               'typescript-mode-hook))
+               'typescript-mode-hook
+               'css-mode-hook))
   (add-hook hook #'(lambda ()
                      (setq indent-tabs-mode nil)
                      (setq-local javascript-indent-level 2)

@@ -81,6 +81,9 @@
      ((string-equal file-extension "sh")
       (reformatter-shfmt-buffer))
 
+     ((string-equal file-extension "css")
+      (my/indent-buffer))
+
      (t
       (message "Unsupported file type or no file.")))))
 
