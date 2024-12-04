@@ -19,11 +19,9 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
-
 
 ;;; ### auto-mode-alist ###
 ;;; --- 绑定扩展名到特定的模式
@@ -41,13 +39,11 @@ The test for presence of the car of ELT-CONS is done with `equal'."
   (symbol-value alist-var))
 
 
-
-;; 为文件后缀绑定 major-mode，清空全部使用自己的 cons 是否可行？
-(dolist (elt-cons '(("\\.org$" . org-mode)
-                    ("\\.md$" . markdown-mode)
+;; 已经在 auto-mode-alist 里的 (后缀 . major-mode) 注册过的，不需要重复添加在这里
+;; 或者修改默认的 (后缀 . major-mode)，比如 (.json . json-mode)
+(dolist (elt-cons '(("\\.md$" . markdown-mode)
                     ("\\.markdown$" . markdown-mode)
                     ("\\.go$" . go-mode)
-                    ("\\.py$" . python-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.rs$" . rust-mode)
 
@@ -55,8 +51,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.js$" . js-mode)
                     ("\\.js.erb\\'" . js-mode)
                     ("\\.wxs$" . js-mode)
-                    ("\\.css$" . css-mode)
-                    ("\\.wxss\\'" . css-mode)
                     ("\\.html?\\'" . web-mode)
                     ("\\.jsp\\'" . web-mode)
                     ("\\.vue" . web-mode)
@@ -84,7 +78,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 ;; 为 major-mode 自动加载相应配置，因为不会使用 keys 加载，而且预加载需要花费长时间
-;; (autoload 'org-mode "init-org") ;; 已经在 init.el 中预加载了，不重复加载，出现问题难以排查
 (autoload 'markdown-mode "init-markdown")
 (autoload 'go-mode "lang-golang")
 (autoload 'lua-mode "lang-lua")
@@ -100,8 +93,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'yaml-mode "lang-yaml")
 
 (require 'lang-elisp) ;; directly require
-(require 'lang-sql) ;; 内置的 sql-mode 用于连接数据库，也不需要创建一个 sql-write-mode，直接引用 lang-sql 中 sql 工具
 (require 'lang-cpp) ;; 文件后缀多，autoload 处理麻烦，直接 load 配置文件（hook 加载真正的配置）
+(require 'lang-sql) ;; 在 auto-mode-alist 注册过，也就是有内置的 sql-mode，autoload 被覆盖，所以直接加载 lang-sql
 (require 'lang-python) ;; 因为有内置的 python-mode，autoload 被覆盖，所以直接加载 lang-python
 
 ;; ↑ require 不一定真正加载，因为可以在 lang-*.el 里使用 mode-hook
