@@ -54,35 +54,33 @@
   (interactive)
   (let ((file-extension (file-name-extension (buffer-file-name))))
     (cond
-     ((or (string-equal file-extension "el")
-          (string-equal file-extension "org"))
+     ((or (eq major-mode 'emacs-lisp-mode)
+          (eq major-mode 'org-mode)
+          (eq major-mode 'css-mode)
+          (eq major-mode 'nxml-mode))
       (my/indent-buffer))
 
-     ((or (string-equal file-extension "c")
-          (string-equal file-extension "cpp")
-          (string-equal file-extension ".h"))
+     ((or (eq major-mode 'c++-mode)
+          (eq major-mode 'c-mode))
       (clang-format-buffer))
 
-     ((string-equal file-extension "json")
+     ((eq major-mode 'json-mode)
       (json-mode-beautify (point-min) (point-max)))
 
-     ((string-equal file-extension "sql")
+     ((eq major-mode 'sql-mode)
       (sqlformat-buffer))
 
-     ((string-equal file-extension "go")
+     ((eq major-mode 'go-mode)
       (reformatter-gofmt-buffer))
 
-     ((string-equal file-extension "py")
+     ((eq major-mode 'python-mode)
       (reformatter-pyfmt-buffer))
 
-     ((string-equal file-extension "rs")
+     ((eq major-mode 'rust-mode)
       (reformatter-rustfmt-buffer))
 
-     ((string-equal file-extension "sh")
+     ((eq major-mode 'sh-mode)
       (reformatter-shfmt-buffer))
-
-     ((string-equal file-extension "css")
-      (my/indent-buffer))
 
      (t
       (message "Unsupported file type or no file.")))))
