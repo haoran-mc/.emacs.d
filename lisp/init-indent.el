@@ -66,6 +66,7 @@
                             ))
 ;; https://stackoverflow.com/a/24668842/14093697
 (add-hook 'json-mode-hook #'(lambda () (setq-local js-indent-level 2)))
+(add-hook 'nxml-mode-hook #'(lambda () (setq nxml-child-indent 2 nxml-attribute-indent 2)))
 
 
 (provide 'init-indent)

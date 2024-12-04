@@ -63,7 +63,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.jsx$" . web-mode)
 
                     ;; configuration language
-                    ("\\.xml$" . xml-mode)
                     ("\\.rss$" . xml-mode)
                     ("\\.json$" . json-mode)
                     ("\\.toml$" . toml-mode)
@@ -87,7 +86,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'css-mode "lang-css")
 (autoload 'web-mode "lang-web")
 
-(autoload 'xml-mode "lang-xml")
+(autoload 'xml-mode "lang-xml") ;; major-mode 是 nxml-mode
 (autoload 'json-mode "lang-json")
 (autoload 'toml-mode "lang-toml")
 (autoload 'yaml-mode "lang-yaml")

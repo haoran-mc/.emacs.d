@@ -23,9 +23,11 @@
 ;;
 
 ;;; Code:
+(require 'nxml-mode)
 
 (setq nxml-slash-auto-complete-flag t
       nxml-auto-insert-xml-declaration-flag t)
+
 
 (provide 'lang-xml)
 ;;; lang-xml.el ends here
