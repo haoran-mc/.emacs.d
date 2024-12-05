@@ -48,9 +48,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.rs$" . rust-mode)
 
                     ;; front-end language
-                    ("\\.js$" . js-mode)
-                    ("\\.js.erb\\'" . js-mode)
-                    ("\\.wxs$" . js-mode)
                     ("\\.html?\\'" . web-mode)
                     ("\\.jsp\\'" . web-mode)
                     ("\\.vue" . web-mode)
@@ -61,6 +58,10 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.mustache\\'" . web-mode)
                     ("\\.djhtml\\'" . web-mode)
                     ("\\.jsx$" . web-mode)
+                    ("\\.js$" . js-mode)
+                    ("\\.js.erb\\'" . js-mode)
+                    ("\\.wxs$" . js-mode)
+                    ("\\.ts$" . typescript-mode)
 
                     ;; configuration language
                     ("\\.rss$" . xml-mode)
@@ -82,9 +83,10 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 (autoload 'lua-mode "lang-lua")
 (autoload 'rust-mode "lang-rust")
 
-(autoload 'js-mode "lang-web")
+(autoload 'web-mode "lang-html")
+(autoload 'js-mode "lang-javascript")
+(autoload 'typescript-mode "typescript-mode")
 (autoload 'css-mode "lang-css")
-(autoload 'web-mode "lang-web")
 
 (autoload 'xml-mode "lang-xml") ;; major-mode 是 nxml-mode
 (autoload 'json-mode "lang-json")

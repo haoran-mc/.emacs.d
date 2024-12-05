@@ -1,4 +1,4 @@
-;;; lang-web.el --- use web-mode in html、js、jsp、vue... files  -*- lexical-binding: t; -*-
+;;; lang-javascript.el ---                           -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Haoran Liu
 
@@ -21,29 +21,13 @@
 ;;; Commentary:
 ;;
 
-;; html: npm install -g emmet-ls
-;;       npm i -g vscode-langservers-extracted
-;; css:  npm install -g emmet-ls
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; C-c C-n   jump
-;; C-c C-f   folding
-;; C-c C-s   snippet
-;; C-c C-w   whitespaces
-;; C-c C-i   indent
-;; C-c C-e r renmae
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; Require
-;;
-
-(require 'web-mode)
-(require 'js)
-
 ;;; Code:
 
 
+;; npm install -g typescript-language-server typescript
+(require 'js)
 
 
-(provide 'lang-web)
-;;; lang-web.el ends here
+
+(provide 'lang-javascript)
+;;; lang-javascript.el ends here

@@ -1,4 +1,4 @@
-;;; lang-css.el --- init for css-mode                -*- lexical-binding: t; -*-
+;;; lang-html.el --- use web-mode in html,jsp,vue... files  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Haoran Liu
 
@@ -20,19 +20,26 @@
 
 ;;; Commentary:
 ;;
+;; html: npm install -g emmet-ls
+;;       npm i -g vscode-langservers-extracted
 
-;;; Require:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; C-c C-n   jump
+;; C-c C-f   folding
+;; C-c C-s   snippet
+;; C-c C-w   whitespaces
+;; C-c C-i   indent
+;; C-c C-e r renmae
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Require
 ;;
-;; css:  npm install -g emmet-ls
-(require 'css-mode)
+(require 'web-mode)
 
 ;;; Code:
 
-(dolist (hook (list
-               'css-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (require 'rainbow-mode)
-                     (rainbow-mode))))
 
-(provide 'lang-css)
-;;; lang-css.el ends here
+
+
+(provide 'lang-html)
+;;; lang-html.el ends here
