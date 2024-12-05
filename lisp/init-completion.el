@@ -22,10 +22,6 @@
 ;;
 
 ;;; Code:
-(defvar completion-mode-hook '(python-mode-hook
-                               go-mode-hook
-                               c++-mode-hook
-                               rust-mode-hook))
 
 ;; completion ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq completion-ignore-case t)
@@ -47,7 +43,9 @@
 (dolist (mode-hook '(emacs-lisp-mode-hook
                      python-mode-hook
                      go-mode-hook
-                     rust-mode-hook))
+                     rust-mode-hook
+                     js-mode-hook
+                     typescript-mode-hook))
   (add-hook mode-hook #'corfu-mode))
 
 (with-eval-after-load 'meow
@@ -96,8 +94,17 @@
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/eglot")
 (dolist (mode-hook '(python-mode-hook
                      go-mode-hook
-                     rust-mode-hook))
-  (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure))))
+                     rust-mode-hook
+                     js-mode-hook
+                     typescript-mode-hook))
+  (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure)
+                          (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
+                          (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
+                          (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
+                          (define-key eglot-mode-map (kbd "M-.") 'eglot-rename)
+                          (define-key eglot-mode-map (kbd "M-.") 'xref-find-definitions)
+                          (define-key eglot-mode-map (kbd "M-,") 'xref-pop-marker-stack)
+                          (define-key eglot-mode-map (kbd "M-?") 'xref-find-references))))
 
 (setq eglot-ignored-server-capabilities '(:hoverProvider ;; 光标位置信息
                                           :documentHighlightProvider ;; 高亮当前 symbol
@@ -112,18 +119,7 @@
                           :staticcheck t)
                  :pyright ( :checkOnlyOpenFiles t
                             :typeCheckingMode "basic")
-                 :basedpyright ( :checkOnlyOpenFiles t
-                                 :typeCheckingMode "basic")
                  ))
-
-(with-eval-after-load 'eglot
-  (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
-  (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
-  (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename))
-(global-set-key (kbd "M-.") 'xref-find-definitions)
-(global-set-key (kbd "M-,") 'xref-pop-marker-stack)
-(global-set-key (kbd "M-?") 'xref-find-references)
-
 
 (provide 'init-completion)
 ;;; init-completion.el ends here
