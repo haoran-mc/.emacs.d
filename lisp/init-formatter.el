@@ -24,8 +24,6 @@
 
 ;;; Code:
 (require 'reformatter)
-(require 'clang-format)
-
 
 (reformatter-define reformatter-gofmt
   :program "goimports")
@@ -62,7 +60,15 @@
 
      ((or (eq major-mode 'c++-mode)
           (eq major-mode 'c-mode))
+      ;; brew install clang-format
+      (require 'clang-format)
       (clang-format-buffer))
+
+     ((or (eq major-mode 'js-mode)
+          (eq major-mode 'typescript-mode))
+      ;; npm install -g prettier
+      (require 'prettier-js)
+      (prettier-js))
 
      ((eq major-mode 'json-mode)
       (json-mode-beautify (point-min) (point-max)))
