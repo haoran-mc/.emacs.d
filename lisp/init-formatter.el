@@ -54,7 +54,6 @@
     (cond
      ((or (eq major-mode 'emacs-lisp-mode)
           (eq major-mode 'org-mode)
-          (eq major-mode 'css-mode)
           (eq major-mode 'nxml-mode))
       (my/indent-buffer))
 
@@ -65,7 +64,8 @@
       (clang-format-buffer))
 
      ((or (eq major-mode 'js-mode)
-          (eq major-mode 'typescript-mode))
+          (eq major-mode 'typescript-mode)
+          (eq major-mode 'css-mode))
       ;; npm install -g prettier
       (require 'prettier-js)
       (prettier-js))
