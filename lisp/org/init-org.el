@@ -31,8 +31,8 @@
 
 (defun my/set-org-bold-face-based-on-theme ()
   (let* ((bg-mode (frame-parameter nil 'background-mode))
-         (foreground-color (if (eq bg-mode 'dark) "yellow" "purple"))
-         (underline-color (if (eq bg-mode 'dark) "plum" "red")))
+         (foreground-color (if (eq bg-mode 'dark) "#ff4cff" "purple"))
+         (underline-color (if (eq bg-mode 'dark) "red" "red")))
     (defface org-bold `((t :weight normal
                            :foreground ,foreground-color
                            :underline (:color ,underline-color :style line)
@@ -85,8 +85,7 @@
       org-emphasis-alist `(("*" org-bold) ;; org-bold 使用 defface 自定义
                            ("/" (:foreground ,my/theme-fg :slant italic))
                            ("_" (:foreground ,my/theme-fg :underline t))
-                           ;; ("=" (:foreground "orange" :background "#EFF1F2")) ;; light color
-                           ("=" (:foreground "black" :background "#FEF7CA")) ;; dark color
+                           ("=" (:foreground "yellow" :background "#595530"))
                            ("+" (:foreground "dark gray" :strike-through t))
                            ("~" (:foreground "orange")))
       org-goto-interface 'ortline-path-completion ;; org-goto 命令的界面样式
