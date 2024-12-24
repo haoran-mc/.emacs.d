@@ -55,10 +55,11 @@
 (doom-themes-treemacs-config)
 (set-face-attribute 'doom-themes-treemacs-root-face nil :height 1 :weight 'normal)
 
-(load-theme 'lazycat t)
+;; (load-theme 'lazycat t)
+(load-theme 'solarized t)
 
 ;; 当前窗口透明度 (活动区 非活动区)
-(set-frame-parameter (selected-frame) 'alpha (list 90 90))
+;; (set-frame-parameter (selected-frame) 'alpha (list 90 90))
 ;; 新窗口透明度 (活动区 非活动区)
 ;; (add-to-list 'default-frame-alist (cons 'alpha (list 95 95)))
 
