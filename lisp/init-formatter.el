@@ -52,23 +52,27 @@
   (interactive)
   (let ((file-extension (file-name-extension (buffer-file-name))))
     (cond
+     ;;================= frontend
+     ((eq major-mode 'web-mode)
+      (web-mode-buffer-indent))
+
+     ((or (eq major-mode 'js-mode)
+          (eq major-mode 'typescript-mode)
+          (eq major-mode 'css-mode))
+      (require 'prettier-js) ;; npm install -g prettier
+      (prettier-js))
+
+     ;;=================
      ((or (eq major-mode 'emacs-lisp-mode)
           (eq major-mode 'org-mode)
           (eq major-mode 'nxml-mode))
       (my/indent-buffer))
 
+     ;; c/c++
      ((or (eq major-mode 'c++-mode)
           (eq major-mode 'c-mode))
-      ;; brew install clang-format
-      (require 'clang-format)
+      (require 'clang-format) ;; brew install clang-format
       (clang-format-buffer))
-
-     ((or (eq major-mode 'js-mode)
-          (eq major-mode 'typescript-mode)
-          (eq major-mode 'css-mode))
-      ;; npm install -g prettier
-      (require 'prettier-js)
-      (prettier-js))
 
      ((eq major-mode 'json-mode)
       (json-mode-beautify (point-min) (point-max)))
