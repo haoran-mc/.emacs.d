@@ -142,7 +142,7 @@
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
-                      ("M-;" . comment-dwim))) ;; comment-dwim/eval-expression
+                      ("M-/" . comment-dwim))) ;; dabbrev-expand
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
                          ("M-d" . delete-block-forward)) ;; kill-word
