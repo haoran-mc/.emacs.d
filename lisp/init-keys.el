@@ -86,7 +86,7 @@
                          ("C-\\ m" . vanilla/toggle-maximize-buffer)
                          ("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
-                       "windowop")
+                       "windsplit")
 
 (lazy-load-set-keys '(("C-\\ x" . ace-swap-window)
                       ("C-\\ d" . ace-delete-window)))

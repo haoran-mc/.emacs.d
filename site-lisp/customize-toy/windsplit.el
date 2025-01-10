@@ -1,4 +1,4 @@
-;;; windowop.el --- enhance poor emacs window operation  -*- lexical-binding: t; -*-
+;;; windsplit.el --- enhance poor emacs window operation  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -93,5 +93,5 @@
     (split-window-vertically-instead)))
 
 
-(provide 'windowop)
-;;; windowop.el ends here
+(provide 'windsplit)
+;;; windsplit.el ends here
