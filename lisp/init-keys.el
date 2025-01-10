@@ -110,31 +110,6 @@
 ;;                 n
 ;;                 v  vanilla/move-cursor-8-lines-down
 ;;
-;;
-;; M-?:
-;;                                   ^  duplicate-line-above-comment
-;; duplicate-line-or-region-above    K
-;;                             < H       L >  duplicate-line-or-region-below
-;;                                   J
-;;                                   v  duplicate-line-below-comment
-;;
-;;
-;;
-;; s-M-?:
-;;                                   ^  vanilla/scroll-down-one-line
-;; vanilla/scroll-right-half-page    k
-;;                             < h       l >  vanilla/scroll-left-half-page
-;;                                   j
-;;                                   v  vanilla/scroll-up-one-line
-;;
-;;
-;; s-?:
-;;              ^  move-text-up
-;;              K
-;;        < H       L >
-;;              J
-;;              v  move-text-down
-;;
 ;; ----------------------------------
 
 
@@ -162,25 +137,11 @@
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
 
-(lazy-load-global-keys '(("M-H" . duplicate-line-or-region-above)
-                         ("M-L" . duplicate-line-or-region-below)
-                         ("M-J" . duplicate-line-below-comment)
-                         ("M-K" . duplicate-line-above-comment))
-                       "duplicate-line")
-
-;; window operation
-;;   1. C-\
-;;   2. s-hjkl   resize
-;; cursor/screen move
-;;   1. M-j      vanilla/scroll-half-page-up
-;;   2. M-k      vanilla/scroll-half-page-down
-;;   3. M-p      vanilla/move-cursor-8-lines-up
-;;   4. M-n      vanilla/move-cursor-8-lines-down
-;;   5. s-M-hjkl vanilla/scroll-...
-;; text operation
-;;   1. M-HJKL   duplicate-line
-;;   2. s-JK     move-text
-;;   3. C-j      vanilla/merge-line-down
+(lazy-load-global-keys '(("M-H" . vanilla/scroll-right-half-page)
+                         ("M-L" . vanilla/scroll-left-half-page)
+                         ("M-J" . vanilla/scroll-up-one-line)
+                         ("M-K" . vanilla/scroll-down-one-line))
+                       "cursormove")
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
@@ -196,17 +157,7 @@
                       ("s-h" . shrink-window-horizontally)
                       ("s-l" . enlarge-window-horizontally)))
 
-(lazy-load-global-keys '(("s-M-h" . vanilla/scroll-right-half-page)
-                         ("s-M-l" . vanilla/scroll-left-half-page)
-                         ("s-M-j" . vanilla/scroll-up-one-line)
-                         ("s-M-k" . vanilla/scroll-down-one-line))
-                       "cursormove")
-
 (lazy-load-set-keys '(("s-z" . kill-this-buffer)))
-
-(lazy-load-global-keys '(("s-J" . move-text-down)
-                         ("s-K" . move-text-up))
-                       "move-text")
 
 
 ;; here is C-c ? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
