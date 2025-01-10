@@ -13,11 +13,9 @@
 
 页面的布局秉承着干净的原则，会默认隐藏菜单栏、工具栏，并使用 header-line 代替广泛使用的 modeline，tab-bar 也只会在多于一个标签时展示。
 
-- 由于插件市场中的 modeline 都会尽量展示更多的信息，不仅会拖慢加载速度，而且多数信息的使用频率并不高，所以就手写了一个 [[https://github.com/haoran-mc/.emacs.d/blob/main/lisp/init-modeline.el][header-line]]，只显示必要内容。
+- 由于插件市场中的 modeline 都会尽量展示更多的信息，不仅会拖慢加载速度，而且多数信息的使用频率并不高，所以就自定义了一个 [[https://github.com/haoran-mc/.emacs.d/blob/main/lisp/init-modeline.el][header-line]]，只显示必要内容。
 
 * 模式编辑 - Meow
-1. thing-edit
-2. macro
 
 * 搜索切换
 搜索功能是一个编辑器最常用的功能。
@@ -51,7 +49,7 @@ ivy 因为功能太全，臃肿不易维护。
 - eldoc，实时的知道当前 Elisp 函数的参数类型，不用反复查看函数的定义；
 
 * 窗口管理
-- [[https://github.com/haoran-mc/.emacs.d/blob/main/site-lisp/customize-toy/windowop.el][windowop]]，Emacs 的分屏操作没有自动 balance，所以把原生的窗口操作：分屏与跳转都封装了起来，使得每次分屏都能自动 balance 一下，让布局更合理；
+- [[https://github.com/haoran-mc/.emacs.d/blob/main/site-lisp/customize-toy/windsplit.el][windsplit]]，Emacs 的分屏操作没有自动 balance，所以把原生的窗口操作：分屏与跳转都封装了起来，使得每次分屏都能自动 balance 一下，让布局更合理；
 - [[https://github.com/manateelazycat/toggle-one-window][toggle-one-window]]，我平常大部分时间写代码都是左右两个窗口写代码，但是偶而遇到当前行太长的情况，就会调用 toggle-one-window 这个函数短时全屏查看这部分代码，再次调用 toggle-one-window 会复原之前的窗口布局；
 - [[https://github.com/karthink/popper][popper]]，Emacs 本身的弹窗规则比较混乱，当查看一些按键和函数的帮助信息或者 Emacs 弹出了一些报错，这时候处理完这些临时信息后，原来的窗口布局就被弄乱了，还需要花费时间去分屏切换。popper 这个插件就是用来解决这个问题的， 安装好以后， 当 Emacs 再次弹出临时窗口时， 只需要执行 popper-toggle-latest 这个命令就可以快速回到弹出窗口之前的窗口布局；
 - spacemacs/alternate-buffer，在 spacemacs 中学习到的一个函数，可以用这个命令来快速切换历史记录中前后两个 buffers。区别于 bury-buffer/unbury-buffer，这个函数会记住每个标签页、每个窗口历史记录中前后两个 buffers；
@@ -64,7 +62,6 @@ ivy 因为功能太全，臃肿不易维护。
 * 按键管理
 - [[https://github.com/manateelazycat/lazy-load][lazy-load]]，根据按键的配置文件动态生成 autoload 代码， 用户第一次按快捷键的时候, 再动态加载某个插件模块， 光通过这一项技术就可以把任意复杂的 Emacs 配置启动时间降低到 1 秒以下；
 - [[https://github.com/abo-abo/hydra][hydra]]，自动生成菜单并分组管理按键，减少一些不常用 minor-mode 下的键记忆负担；
-- [[https://github.com/justbur/emacs-which-key][which-key]]，在不使用 hydra 的键前缀上，为了应对突发的键忘记情况，使用 which-key 提醒。秉承着干净的原则，不自动弹出 which-key-buffer，只在手动调用 C-h 时才弹出 which-key-buffer；
 
 
 -----
