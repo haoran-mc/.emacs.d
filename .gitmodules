@@ -278,3 +278,8 @@
 	url = git@github.com:jorgenschaefer/pyvenv.git
 	shallow = true
 	ignore = all
+[submodule "site-lisp/gptel"]
+	path = site-lisp/gptel
+	url = git@github.com:karthink/gptel.git
+	shallow = true
+	ignore = all
