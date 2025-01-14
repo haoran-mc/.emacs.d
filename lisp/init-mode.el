@@ -100,7 +100,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 ;; ↑ require 不一定真正加载，因为可以在 lang-*.el 里使用 mode-hook
 
-(add-hook 'prog-mode-hook #'(lambda () (require 'init-gptel)))
+(add-hook 'prog-mode-hook #'(lambda () (require 'init-ai)))
 
 ;; conf ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Syntax highlighting for systemd files

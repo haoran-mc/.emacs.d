@@ -31,3 +31,4 @@ init_zsh.sh
 .DS_Store
 
 /.secret.el
+.aider*
