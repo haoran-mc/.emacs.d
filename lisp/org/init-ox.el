@@ -55,13 +55,13 @@
                                    (underline . "<span class=\"underline\">%s</span>")
                                    (verbatim . "<verbatim>%s</verbatim>"))
       org-html-mathjax-options '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
-	                             (scale "100")
+	                             (scale 1.0) ;; TODO 未在 org-html-mathjax-template 中生效
 	                             (align "center")
-	                             (font "TeX")
-	                             (linebreaks "false")
-	                             (autonumber "AMS")
+                                 (font "mathjax-modern")
+                                 (overflow "overflow")
 	                             (indent "0em")
 	                             (multlinewidth "85%")
+                                 (tags "ams")
 	                             (tagindent ".8em")
 	                             (tagside "right"))
       org-html-mathjax-template "<script type='text/x-mathjax-config'>
@@ -70,24 +70,18 @@
                                      displayIndent: '%INDENT',
                                      'HTML-CSS': {
                                        scale: %SCALE,
-                                       linebreaks: {
-                                         automatic: 'false'
-                                       },
-                                       webFont: 'TeX'
+                                       webFont: '%FONT'
                                      },
                                      SVG: {
                                        scale: %SCALE,
-                                       linebreaks: {
-                                         automatic: 'false'
-                                       },
-                                       font: 'TeX'
+                                       font: '%FONT'
                                      },
                                      NativeMML: {
                                        scale: %SCALE
                                      },
                                      TeX: {
                                        equationNumbers: {
-                                         autoNumber: 'AMS'
+                                         autoNumber: '%TAGS'
                                        },
                                        MultLineWidth: '%MULTLINEWIDTH',
                                        TagSide: '%TAGSIDE',
