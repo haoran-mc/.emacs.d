@@ -19,27 +19,13 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
 
-
 ;; A great Emacs package which can host your files as a website on
 ;; your local machine so that you can pull it up in your browser.
 (require 'simple-httpd)
-(setq org-html-mathjax-options
-      '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
-	    (scale "100")
-	    (align "center")
-	    (font "TeX")
-	    (linebreaks "false")
-	    (autonumber "AMS")
-	    (indent "0em")
-	    (multlinewidth "85%")
-	    (tagindent ".8em")
-	    (tagside "right")))
-
 
 (defun +httpd-start-server (port root-dir)
   "Start the HTTPD server on PORT with ROOT-DIR as the root directory."
@@ -48,7 +34,6 @@
     (setq httpd-port port)
     (setq httpd-root root-dir)
     (httpd-start)))
-
 
 (defun +httpd-start-currfile ()
   "Start the HTTPD server on PORT:9517 with CURRENT-DIR as the root directory."

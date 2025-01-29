@@ -19,11 +19,9 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
-
 (require 'ox)
 
 (setq org-export-use-babel t
@@ -55,8 +53,49 @@
                                    (italic . "<i>%s</i>")
                                    (strike-through . "<del>%s</del>")
                                    (underline . "<span class=\"underline\">%s</span>")
-                                   (verbatim . "<verbatim>%s</verbatim>")))
-
+                                   (verbatim . "<verbatim>%s</verbatim>"))
+      org-html-mathjax-options '((path "MathJax/cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js")
+	                             (scale "100")
+	                             (align "center")
+	                             (font "TeX")
+	                             (linebreaks "false")
+	                             (autonumber "AMS")
+	                             (indent "0em")
+	                             (multlinewidth "85%")
+	                             (tagindent ".8em")
+	                             (tagside "right"))
+      org-html-mathjax-template "<script type='text/x-mathjax-config'>
+                                   MathJax.Hub.Config({
+                                     displayAlign: '%ALIGN',
+                                     displayIndent: '%INDENT',
+                                     'HTML-CSS': {
+                                       scale: %SCALE,
+                                       linebreaks: {
+                                         automatic: 'false'
+                                       },
+                                       webFont: 'TeX'
+                                     },
+                                     SVG: {
+                                       scale: %SCALE,
+                                       linebreaks: {
+                                         automatic: 'false'
+                                       },
+                                       font: 'TeX'
+                                     },
+                                     NativeMML: {
+                                       scale: %SCALE
+                                     },
+                                     TeX: {
+                                       equationNumbers: {
+                                         autoNumber: 'AMS'
+                                       },
+                                       MultLineWidth: '%MULTLINEWIDTH',
+                                       TagSide: '%TAGSIDE',
+                                       TagIndent: '%TAGINDENT'
+                                     }
+                                   });
+                                 </script>
+                                 <script id='MathJax-script'async src='%PATH'></script>")
 
 ;; https://emacs-china.org/t/org-docx/23409/2
 (defun ran/org-pandoc-convert-to-docx ()
