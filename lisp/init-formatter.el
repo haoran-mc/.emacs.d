@@ -46,6 +46,10 @@
   :args (list "-i" "2" "--filename" (or (buffer-file-name) input-file))
   :lighter " ShFmt")
 
+(reformatter-define reformatter-tomlfmt
+  ;; brew install taplo
+  :program "taplo"
+  :args (list "fmt" "-"))
 
 (defun ran/format-code-dwim()
   "Format the current buffer based on the file type."
@@ -91,6 +95,9 @@
 
      ((eq major-mode 'sh-mode)
       (reformatter-shfmt-buffer))
+
+     ((eq major-mode 'toml-mode)
+      (reformatter-tomlfmt-buffer))
 
      (t
       (message "Unsupported file type or no file.")))))
