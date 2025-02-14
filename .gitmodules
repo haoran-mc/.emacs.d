@@ -178,11 +178,6 @@
 	url = git@github.com:auto-complete/popup-el.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/sqlformat"]
-	path = site-lisp/sqlformat
-	url = git@github.com:purcell/sqlformat.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/emacs-reformatter"]
 	path = site-lisp/emacs-reformatter
 	url = git@github.com:purcell/emacs-reformatter.git

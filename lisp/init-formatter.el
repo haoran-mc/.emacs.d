@@ -81,9 +81,6 @@
      ((eq major-mode 'json-mode)
       (json-mode-beautify (point-min) (point-max)))
 
-     ((eq major-mode 'sql-mode)
-      (sqlformat-buffer))
-
      ((eq major-mode 'go-mode)
       (reformatter-gofmt-buffer))
 
