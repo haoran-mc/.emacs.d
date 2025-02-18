@@ -27,21 +27,6 @@
 (require 'org-funcs)
 
 ;;; Code:
-(defvar my/theme-fg (face-foreground 'default))
-
-(defun my/set-org-bold-face-based-on-theme ()
-  (let* ((bg-mode (frame-parameter nil 'background-mode))
-         (foreground-color (if (eq bg-mode 'dark) "#ff4cff" "purple"))
-         (underline-color (if (eq bg-mode 'dark) "red" "red")))
-    (defface org-bold `((t :weight normal
-                           :foreground ,foreground-color
-                           :underline (:color ,underline-color :style line)
-                           :overline nil))
-      "Face for org-mode bold."
-      :group 'org-faces)))
-
-(my/set-org-bold-face-based-on-theme)
-
 (setq org-directory ran--org-directory
       org-default-notes-file (expand-file-name "notes.org" org-directory)
       org-use-property-inheritance t ;; 子标题会继承父标题的属性
@@ -82,12 +67,12 @@
       org-ellipsis " ⤵ " ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
       org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+")) ;; not know
       org-hide-emphasis-markers t ;; 隐藏强调标识符
-      org-emphasis-alist `(("*" org-bold) ;; org-bold 使用 defface 自定义
-                           ("/" (:foreground ,my/theme-fg :slant italic))
-                           ("_" (:foreground ,my/theme-fg :underline t))
-                           ("=" (:foreground "yellow" :background "#595530"))
-                           ("+" (:foreground "dark gray" :strike-through t))
-                           ("~" (:foreground "orange")))
+      org-emphasis-alist `(("*" org-bold) ;; 在主题中声明、定义
+                           ("=" org-verbatim)
+                           ("~" org-code)
+                           ("/" (:slant t))
+                           ("_" (:underline t))
+                           ("+" (:strike-through t)))
       org-goto-interface 'ortline-path-completion ;; org-goto 命令的界面样式
       org-fontify-todo-headline nil ;; TODO 标签美化
       org-fontify-done-headline nil ;; DONE 标签美化
