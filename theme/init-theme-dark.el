@@ -34,7 +34,13 @@
   (set-face-attribute 'meow-normal-indicator nil :foreground "#6F5033" :background "#FFEE99" :box '(:line-width -1 :color "#6F5033"))
   (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE" :box '(:line-width -1 :color "#505090")))
 
+;; org-mode
+(defface org-bold nil "Face for org-mode bold.")
 (with-eval-after-load 'org
+  (set-face-attribute 'org-bold nil :weight 'normal :foreground "purple" :underline '(:color "red" :style line) :overline nil)
+  (set-face-attribute 'org-verbatim nil :foreground "yellow" :background "#595530")
+  (set-face-attribute 'org-code nil :foreground "orange")
+  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal)
   (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
   (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
   (set-face-attribute 'org-level-3 nil :height 1.0 :weight 'normal :foreground "#7EBEBD")
@@ -42,8 +48,7 @@
   (set-face-attribute 'org-level-5 nil :height 1.0 :weight 'normal :foreground "#487688")
   (set-face-attribute 'org-level-6 nil :height 1.0 :weight 'normal)
   (set-face-attribute 'org-level-7 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal))
+  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal))
 
 (provide 'init-theme-dark)
 ;;; init-theme-dark.el ends here

@@ -20,17 +20,14 @@
 
 ;;; Commentary:
 ;;
-
-;; set-face-attribute    动态设置某个 face 的属性，立即生效，适用于临时修改
+;; set-face-attribute    动态设置某个 face 的属性，立即生效，适用于临时修改 (set-face-attribute 'example-face nil :inherit 'unspecified)
 ;; custom-set-face       通过 Emacs 自定义系统进行持久化修改，但是会修改 custom.el 文件，不建议使用
-;; defface               用于复杂的面定义和主题支持
+;; defface               创建 face 或用于复杂的面定义和主题支持
 ;; face-spec-set         批量设置面属性
 ;; custom-theme-set-face 在自定义主题中设置面属性
 
-;; (set-face-attribute 'example-face nil :inherit 'unspecified)
 
 ;;; Code:
-
 ;; font-lock-comment-face:              #96A7A9
 ;; font-lock-constant-face:             #6c71c4
 ;; font-lock-builtin-face:              #d33682
@@ -81,7 +78,12 @@
   (set-face-attribute 'meow-motion-indicator nil :foreground "#505090" :background "#AACCEE" :box '(:line-width -1 :color "#505090")))
 
 ;; org-mode
+(defface org-bold nil "Face for org-mode bold.")
 (with-eval-after-load 'org
+  (set-face-attribute 'org-bold nil :weight 'normal :foreground "purple" :underline '(:color "red" :style line) :overline nil)
+  (set-face-attribute 'org-verbatim nil :foreground (face-foreground 'default) :background "#FFF7CB")
+  (set-face-attribute 'org-code nil :foreground "#D47402")
+  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal)
   (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
   (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
   (set-face-attribute 'org-level-3 nil :height 1.0 :weight 'normal :foreground "#7EBEBD")
@@ -89,8 +91,7 @@
   (set-face-attribute 'org-level-5 nil :height 1.0 :weight 'normal :foreground "#487688")
   (set-face-attribute 'org-level-6 nil :height 1.0 :weight 'normal)
   (set-face-attribute 'org-level-7 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal)
-  (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal))
+  (set-face-attribute 'org-level-8 nil :height 1.0 :weight 'normal))
 
 (provide 'init-theme-light)
 ;;; init-theme-light.el ends here

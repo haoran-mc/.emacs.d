@@ -70,7 +70,7 @@
       org-emphasis-alist `(("*" org-bold) ;; 在主题中声明、定义
                            ("=" org-verbatim)
                            ("~" org-code)
-                           ("/" (:slant t))
+                           ("/" (:slant italic))
                            ("_" (:underline t))
                            ("+" (:strike-through t)))
       org-goto-interface 'ortline-path-completion ;; org-goto 命令的界面样式
