@@ -42,7 +42,7 @@
                              (file . find-file)
                              (wl . wl-frame))
       org-M-RET-may-split-line '((header-line . nil)) ;; M-RET 不分割标题
-      org-startup-folded 'content ;; 打开文件时只显示标题，不显示内容
+      org-startup-folded 'showall ;; 打开文件时，除了代码块都显示
       org-hide-block-startup t ;; 打开文件时，初始状态隐藏代码块
       org-imenu-depth 6
       org-file-apps '(("\\.png\\'"     . default)
