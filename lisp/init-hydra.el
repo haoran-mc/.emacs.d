@@ -101,7 +101,7 @@ _h_   _l_   ^ ^         _x_kill
     ("Basic"
      (("f" toggle-frame-fullscreen "fullscreen" :exit t)
       ("k" kill-this-buffer "kill this buffer" :exit t)
-      ("r" my/refresh-file "refresh file" :exit t)
+      ("r" my/reload-this-buffer "refresh file" :exit t)
       ("+" text-scale-increase "zoom in")
       ("-" text-scale-decrease "zoom out"))
      "Toggle"

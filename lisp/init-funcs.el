@@ -26,6 +26,17 @@
 
 
 ;;;###autoload
+(defun my/reload-this-buffer ()
+  "Kill the current buffer and reload it from the file."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if filename
+        (progn
+          (kill-this-buffer)
+          (find-file filename))
+      (message "This buffer is not associated with a file."))))
+
+;;;###autoload
 (defun my/center-layout ()
   "Load my center layout."
   (interactive)
@@ -81,6 +92,7 @@
   (point-to-register 8)
   (message "Have remember one position"))
 
+;; 自动格式化 *.el 文件， 保存并自动加载，TODO 是否需要这个函数？
 ;;;###autoload
 (defun my/refresh-file ()
   "Automatic reload current file."
