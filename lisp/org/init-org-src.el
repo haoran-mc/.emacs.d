@@ -35,8 +35,16 @@
       org-edit-src-content-indentation 2 ;; src content indent 2
       org-confirm-babel-evaluate t ;; 执行代码块前是否确认
       org-src-window-setup 'current-window ;; 当编辑代码块时，在当前窗口显示
-      org-src-lang-modes '(("emacs-lisp"    . emacs-lisp) ;; 指定代码块的 major-mode
-                           ("plantuml" . plantuml)
+      org-src-lang-modes '(("emacs-lisp" . emacs-lisp) ;; 指定代码块的 major-mode
+                           ("C"          . c) ;; 不可以删除这里，使用 C-c ' 编辑代码块时用得到，否则 emacs 不知道该使用哪个 major-mode
+                           ("C++"        . c++)
+                           ("cpp"        . c++)
+                           ("python"     . python)
+                           ("bash"       . sh)
+                           ("shell"      . sh)
+                           ("plantuml"   . plantuml)
+                           ("ocaml"      . tuareg)
+                           ("dot"        . fundamental)
 
                            ;; my no indent minor mode, TODO but no htmlize
                            ("sql"      . my-plain)
