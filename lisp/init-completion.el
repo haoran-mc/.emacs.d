@@ -44,6 +44,7 @@
                      python-mode-hook
                      go-mode-hook
                      rust-mode-hook
+                     c++-mode-hook
                      js-mode-hook
                      typescript-mode-hook))
   (add-hook mode-hook #'corfu-mode))
@@ -95,6 +96,7 @@
 (dolist (mode-hook '(python-mode-hook
                      go-mode-hook
                      rust-mode-hook
+                     c++-mode-hook
                      js-mode-hook
                      typescript-mode-hook))
   (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure)
