@@ -31,8 +31,8 @@
 
 (setq org-src-fontify-natively t ;; syntax code on org mode
       org-src-tab-acts-natively t ;; 使用代码块自己的缩进，而不是 org-mode 的缩进
-      org-src-preserve-indentation nil ;; used with the sentence above
-      org-edit-src-content-indentation 2 ;; src content indent 2
+      org-src-preserve-indentation nil ;; nil 会保留代码块的缩进
+      org-edit-src-content-indentation 2 ;; 代码块前缩进长度
       org-confirm-babel-evaluate t ;; 执行代码块前是否确认
       org-src-window-setup 'current-window ;; 当编辑代码块时，在当前窗口显示
       org-src-lang-modes '(("emacs-lisp" . emacs-lisp) ;; 指定代码块的 major-mode
