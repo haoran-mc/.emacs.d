@@ -278,8 +278,3 @@
 	url = git@github.com:karthink/gptel.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/aider.el"]
-	path = site-lisp/aider.el
-	url = git@github.com:tninja/aider.el.git
-	shallow = true
-	ignore = all
