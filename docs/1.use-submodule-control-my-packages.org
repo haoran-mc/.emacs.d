@@ -1,4 +1,17 @@
-#+STARTUP: showall
 
-1. 使用 submodule 管理插件，package.el 需要配置源，而且 submodule 的方式更透明；
-2. 使用 lazy-load 配置各包的加载，use-package 有一层封装，为了懒加载还要学习一个插件的使用，负担较重；
+
+- *package.el* ：无法固定包的版本，每次更新都会拉取最新版本；
+- *use-package* ：use-package 不是包管理器，而是 package.el 的一个封装，提供更简洁的方式管理和配置 Emacs 包；
+
+  可以先 git 下载指定版本的包，然后 use-package ~load-path~ 包路径，但是这样就失去了包下载功能。而我不需要 use-package 的管理，为了懒加载还要学习一个描件的使用，负担重。
+
+- *straight.el* ：尝试了一次，完全连不上网，都没有成功下载 straight.el 自己。后续还需要更换源，部分不在 github 上的包还是需要使用 submodule 的方式管理，索性不用；
+- *borg、el-egt* ：配置复杂；
+- *quelpa* ：没有了解这个包是干什么用的；
+- *submodule* ：考虑到固定包版本、不需要费心配置国内能访问的源、且配置简单，最后选择使用 submodule 方式管理插件。
+
+  配合 lazy-load 懒加载。
+
+
+
+# https://emacs-china.org/t/emacs/7116
