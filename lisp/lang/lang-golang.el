@@ -31,7 +31,7 @@
 
 
 ;; (add-hook 'before-save-hook 'gofmt-before-save)
-(setq gofmt-command "goimports")
+;; (setq gofmt-command "goimports")
 
 
 (define-key go-mode-map (kbd "C-c C-c") 'my/go-run-buffer)
@@ -42,33 +42,21 @@
 
 ;; go install golang.org/x/tools/gopls@latest
 ;; go install golang.org/x/tools/cmd/goimports@latest
-;; go install github.com/nsf/gocode@latest
-;;            github.com/stamblerre/gocode@latest
-;; go install golang.org/x/tools/cmd/godoc@latest
 ;; go install golang.org/x/tools/cmd/gorename@latest
 
 ;; gopls      Officially maintained, Implementation of LSPS
 ;; goimports  Formatting code
-;; gocode     Automatic code completion
-;; godoc      Shows documentation for the specified code package
 ;; gorename   Extra refactoring commands
 
 
-;; go install golang.org/x/tools/cmd/...
-;; go install github.com/cweill/gotests/...
-;; go install github.com/x-motemen/gore/cmd/gore@latest
+;; go install golang.org/x/tools/cmd/goimports@latest
 ;; go install github.com/cweill/gotests/gotests@latest
-;; go install github.com/fatih/gomodifytags@latest
 ;; go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
-;; go install github.com/rogpeppe/godef@latest
-;; go install github.com/lukehoban/go-outline@latest
 ;; go install github.com/tpng/gopkgs@latest
 ;; go install github.com/newhook/go-symbols@latest
-;; go install golang.org/x/tools/cmd/guru@latest
-;; go install golang.org/x/lint/golint@latest
-;; go install github.com/zmb3/gogetdoc@latest
+;; go install github.com/lukehoban/go-outline@latest
 ;; go install github.com/fatih/gomodifytags@latest
-;; go install sourcegraph.com/sqs/goreturns@latest
+;; go install github.com/mvdan/gofumpt@latest
 ;; Go come with godoc, no download required
 ;; Go come with gofmt, no download required
 
