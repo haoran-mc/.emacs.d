@@ -26,8 +26,8 @@
 
 
 ;; highlight-parenthesses ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'highlight-parentheses)
-(setq hl-paren-colors '("Orange" "DeepSkyBlue" "Green"))
+;; (require 'highlight-parentheses)
+;; (setq hl-paren-colors '("Orange" "DeepSkyBlue" "Green"))
 ;; (add-hook 'find-file-hook 'highlight-parentheses-mode t) ;; 增强的括号高亮
 
 
@@ -48,8 +48,7 @@
                      python-mode-hook
                      json-mode-hook
                      rust-mode-hook))
-  (add-hook mode-hook 'electric-pair-local-mode)
-  (add-hook mode-hook 'highlight-parentheses-mode))
+  (add-hook mode-hook 'electric-pair-local-mode))
 
 (provide 'init-parens)
 ;;; init-parens.el ends here
