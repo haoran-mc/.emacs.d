@@ -51,7 +51,7 @@
 
 ;; go install golang.org/x/tools/cmd/goimports@latest
 ;; go install github.com/cweill/gotests/gotests@latest
-;; go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.56.2
+;; go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
 ;; go install github.com/tpng/gopkgs@latest
 ;; go install github.com/newhook/go-symbols@latest
 ;; go install github.com/lukehoban/go-outline@latest
