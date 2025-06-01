@@ -1,9 +1,7 @@
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #+TITLE: `(upcase (replace-regexp-in-string "[-_]" " " (replace-regexp-in-string "^[0-9]\\{6\\}-" "" (file-name-nondirectory (file-name-sans-extension (buffer-file-name)))))))`
 #+AUTHOR: `user-full-name`
 #+EMAIL: `user-mail-address`
 #+DATE: `(format-time-string "%Y-%m-%d %H:%m %a")`
 #+STARTUP: showeverything
 #+OPTIONS: author:nil toc:t ^:{} _:{}
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

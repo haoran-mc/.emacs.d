@@ -79,7 +79,6 @@ from codepoint-start."
 ;; org-mode-hook ligatures ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun +customized-org-ligature-chars ()
   (let ((fancy-chars '(("lambda"           . ?λ)
-                       ("#+BLOCK_LINE: "   . ?━) ;; org-mode headers
                        ("#+PROPERTY:"      . ?⚙)
                        ("#+LATEX_CLASS:"   . ?C) ;; 🄲
                        ("#+LATEX_HEADER:"  . ?⇥)
