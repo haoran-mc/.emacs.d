@@ -51,6 +51,8 @@
 (define-key treemacs-mode-map (kbd "l") #'forward-char)
 (define-key treemacs-mode-map (kbd "H") #'treemacs-goto-parent-node) ;; treemacs-collapse-parent-node
 (define-key treemacs-mode-map (kbd "M-p") #'treemacs-collapse-parent-node)
+(define-key treemacs-mode-map (kbd "rd") #'treemacs-root-down)
+(define-key treemacs-mode-map (kbd "ru") #'treemacs-root-up)
 ;; (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
 ;; (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
 ;; mouse
@@ -65,7 +67,7 @@
 ;; create, copy, move
 ;; (define-key treemacs-mode-map (kbd "a") #'treemacs-create-file) ;; conflict with ace-window, just use C-c f x
 (define-key treemacs-mode-map (kbd "+") #'treemacs-create-dir)
-(define-key treemacs-mode-map (kbd "r") #'treemacs-move-file) ;; rename
+(define-key treemacs-mode-map (kbd "R") #'treemacs-move-file) ;; rename
 (define-key treemacs-mode-map (kbd "d") #'treemacs-delete-file)
 (define-key treemacs-mode-map (kbd "yf") #'treemacs-copy-file)
 (define-key treemacs-mode-map (kbd "yp") #'treemacs-copy-project-path-at-point)  ;; root path
