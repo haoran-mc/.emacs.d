@@ -1,10 +1,8 @@
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #+TITLE: lazy-load
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-05-27 11:05 Mon
 #+STARTUP: showeverything
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 - lazy-load-unset-keys :: remove key bindings
 

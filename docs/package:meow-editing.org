@@ -1,10 +1,8 @@
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #+TITLE: meow editing
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-06-12 12:06 Wed
 #+STARTUP: showeverything
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 - TODO meow + avy；
 - TODO meow + magit；

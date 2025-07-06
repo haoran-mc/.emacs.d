@@ -1,11 +1,9 @@
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #+TITLE: My org workflow.
 #+AUTHOR: Haoran Liu
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-06-23 15:06 Sun
 #+STARTUP: showeverything
 #+OPTIONS: author:nil toc:t ^:{} _:{}
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 * pdf、docx、latex
 - pdf 使用浏览器打印就好；

@@ -1,11 +1,9 @@
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #+TITLE: Title
 #+AUTHOR: Author
 #+EMAIL: haoran.mc@outlook.com
 #+DATE: Date
 #+STARTUP: showeverything
 #+OPTIONS: toc:t ^:{} _:{}
-#+BLOCK_LINE: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Abstract.
 
