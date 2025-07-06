@@ -3,26 +3,12 @@
 
 • org-capture (C-c x)
 • org-agenda  (C-c d)
-• google calendar
-• ☃︎ control with centre.org
-• manage my tables with excel
 
-• 操作系统
-• continue sql, gorm, postgres, clickhouse
-• python 100 days
-• linux-tutorial
 • docker
 • 网络
-• 微积分
-• 金融
-• algorithm
 • elisp
   • autoload
   • 函数式编程（Elisp）
-
-• 浏览器
-• zhihu
-• bilibili
 
 read:
 lalaland
