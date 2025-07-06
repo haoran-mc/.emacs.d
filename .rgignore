@@ -1,4 +1,5 @@
 site-lisp/
+.git/
 
 # backup files
 *~
