@@ -37,9 +37,10 @@
 ;; org-mode
 (defface org-bold nil "Face for org-mode bold.")
 (with-eval-after-load 'org
-  (set-face-attribute 'org-bold nil :weight 'normal :foreground "purple" :underline '(:color "red" :style line) :overline nil)
-  (set-face-attribute 'org-verbatim nil :foreground "yellow" :background "#595530")
-  (set-face-attribute 'org-code nil :foreground "orange")
+  ;; lazycat 有 bold、verbatim、code 的配置，其他黑色主题才需要下面配置覆盖
+  ;; (set-face-attribute 'org-bold nil :weight 'normal :foreground "#ff4cff" :underline '(:color "red" :style line) :overline nil)
+  ;; (set-face-attribute 'org-verbatim nil :foreground "yellow" :background "#595530")
+  ;; (set-face-attribute 'org-code nil :foreground "orange")
   (set-face-attribute 'org-document-title nil :height 1.0 :weight 'normal)
   (set-face-attribute 'org-level-1 nil :height 1.0 :weight 'normal :foreground "#829CD6")
   (set-face-attribute 'org-level-2 nil :height 1.0 :weight 'normal :foreground "#5B94AB")
