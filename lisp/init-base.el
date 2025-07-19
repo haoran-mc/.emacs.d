@@ -30,14 +30,18 @@
                 "%b")))
 
 (setq user-full-name "Haoran Liu")
-(setq user-mail-address "haoran.mc@outlook.com")
+(setq user-mail-address "haoran.mc@foxmail.com")
 
 ;; 启用多字节字符集支持，允许使用和显示各种字符，包括中文、日文、韩文等
 (setq-default default-enable-multibyte-characters t)
-(set-language-environment "English")
 
 ;; encoding
 (prefer-coding-system 'utf-8)
+(set-language-environment "Chinese-GBK") ;; 也可以设为 English，逻辑上使用 UTF-8
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
 
 ;; Suppress GUI features and more
 (setq use-dialog-box nil          ;; never pop dialog
