@@ -37,7 +37,7 @@
 
 ;; encoding
 (prefer-coding-system 'utf-8)
-(set-language-environment "Chinese-GBK") ;; 也可以设为 English，逻辑上使用 UTF-8
+(set-language-environment "English") ;; 也可以设为 English，逻辑上使用 UTF-8
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

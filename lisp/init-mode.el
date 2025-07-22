@@ -137,5 +137,11 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                                 (my/no-fringe-indicators)))))
 
 
+
+;; encoding ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq auto-coding-alist
+      (cons '("\\.txt\\'" . chinese-gbk) auto-coding-alist))
+
+
 (provide 'init-mode)
 ;;; init-mode.el ends here
