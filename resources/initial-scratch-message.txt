@@ -14,3 +14,42 @@ read:
 lalaland
 
 DICT、FILE、FTP、FTPS、GOPHER、GOPHERS、HTTP、HTTPS、IMAP、IMAPS、LDAP、LDAPS、MQTT、POP3、POP3S、RTMP、RTMPS、RTSP、SCP、SFTP、SMB、SMBS、SMTP、SMTPS、TELNET和TFTP
+
+
+• 物理层：（典型设备：中继器、集线器、网线、HUB）数据单元：比特（Bit）
+  以太网物理层、调制解调器、PLC 、SONET/SDH 、G.709 、光导纤维、 同轴电缆、双绞线
+
+• 数据链路层：（典型设备：网卡，网桥，交换机）数据单元：帧（Frame）
+  ◦ PPP（Point-to-Ponit Protocol）点对点协议，面向字节
+  ◦ CSMA/CD（Carrrier Sense Multiple Access with Collision Detection）载波监听多点接入/碰撞检测协议，总线型网络，协议的实质是载波监听和碰撞检测。
+    载波监听即发数据前先检测总线上是否有其他计算机在发送数据，如暂时不发数据，避免碰撞。碰撞检测为计算机边发送数据边检测信道上的信号电压大小。
+  ◦ ARQ（Automatic Repeat-reQuest）自动重传请求协议，错误纠正协议之一，包括停止等待 ARQ 协议和连续 ARQ 协议，错误侦测、正面确认、逾时重传与负面确认继以重传等机制。
+
+• 网络层：（典型设备：路由器，防火墙、多层交换机）数据单元：数据包（Packet）
+  ◦ IP（IPv4、IPv6）（Internet Protocol）网络之间互连的协议
+  ◦ ARP（Address Resolution Protocol） 即地址解析协议，实现通过 IP 地址得知其物理地址。
+  ◦ RARP（Reverse Address Resolution Protocol）反向地址转换协议，允许局域 网的物理机器从网关服务器的 ARP 表或者缓存上请求其 IP 地址。
+  ◦ ICMP（Internet Control Message Protocol ）Internet 控制报文协议，是 TCP/IP 协议族的一个子协议，用于在 IP 主机、路由器之间传递控制消息。
+  ◦ ICMPv6
+  ◦ IGMP（Internet Group Management Protocol）Internet 组管理协议，因特网协议家族中的一个组播协议，用于 IP 主机向任一个直接相邻的路由器报告他们的组成员情况。
+
+• 传输层：（典型设备: 进程和端口）数据单元：数据段（Segment）
+  ◦ TCP（Transmission Control Protocol ）传输控制协议，提供可靠的面向连接的服务，传输数据前须先建立连接，结束后释放。可靠的全双工信道，可靠、有序、无丢失、不重复。
+  ◦ UDP（User Datagram Protocol ）用户数据报协议，发送数据前无需建立连接，不使用拥塞控制，不保证可靠交付，最大努力交付。
+
+• 应用层：（典型设备：应用程序，如FTP，SMTP，HTTP）
+  ◦ HTTP（Hypertext Transfer Protocol）超文本传输协议
+  ◦ SMTP（Simple Mail Transfer Protocol）简单邮件传输协议
+  ◦ RPC（Remote Procedure Call Protocol）远程过程调用协议
+
+  ◦ exFAT、NTFS、APFS、ext4
+  ◦ VNC (Virtual Network Computing) 虚拟网络计算机，XRDP
+  ◦ DHCP (Dynamic Host Configuration Protocol) 动态主机分配协议，使用 UDP 协议工作、DNS (Domain Name System)
+  ◦ NAT (Network Address Translation) 网络地址转换协议
+  ◦ FTP (File Transfer Protocol) 文件传输协议，减少或消除不同操作系统下处理文件的不兼容性
+  ◦ NFS (Network File System) 网络文件系统
+  ◦ NIS (Network Information Service) 集中式账户管理服务，LDAP
+  ◦ PAM (Pluggable Authentication Modules) 可插入认证模块
+  ◦ NTP (Network Time Protocol)
+  ◦ SAMBA (Server Message Block/Common Internet File System) scp、rsync、FTP → NFS → Samba
+    Samba 桑巴舞蹈，Windows 的 SMB 就是 SAMBA 的主要实现。
