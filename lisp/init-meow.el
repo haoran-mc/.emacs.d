@@ -23,6 +23,7 @@
 
 ;;; Require:
 (require 'mwim)
+(require 'open-newline)
 
 (defun my/meow-save-buffer-if-w ()
   "Prompt the user for a string and save the buffer if the string is 'w'."
@@ -130,7 +131,8 @@
    '("W" . meow-mark-symbol)
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
-   '("o" . meow-block)
+   '("o" . open-newline-below)
+   '("O" . open-newline-above)
 
    '("z" . (lambda () (interactive) (recenter-top-bottom)))
 

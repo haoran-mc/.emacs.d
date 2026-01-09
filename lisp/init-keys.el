@@ -64,10 +64,6 @@
 (lazy-load-global-keys '(("C-j" . vanilla/merge-line-down)) ;; electric-newline-and-maybe-indent
                        "basic-tookit")
 
-(lazy-load-global-keys '(("C-o" . open-newline-above)
-                         ("C-l" . open-newline-below))
-                       "open-newline")
-
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
