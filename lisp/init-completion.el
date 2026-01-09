@@ -103,7 +103,6 @@
                           (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
                           (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
                           (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
-                          (define-key eglot-mode-map (kbd "M-.") 'eglot-rename)
                           (define-key eglot-mode-map (kbd "M-.") 'xref-find-definitions)
                           (define-key eglot-mode-map (kbd "M-,") 'xref-pop-marker-stack)
                           (define-key eglot-mode-map (kbd "M-?") 'xref-find-references))))
