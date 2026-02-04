@@ -103,11 +103,6 @@
 	url = git@github.com:Alexander-Miller/treemacs.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/goto-line-preview"]
-	path = site-lisp/goto-line-preview
-	url = git@github.com:emacs-vs/goto-line-preview.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/dirvish"]
 	path = site-lisp/dirvish
 	url = git@github.com:alexluigit/dirvish.git
@@ -226,11 +221,6 @@
 [submodule "site-lisp/hydra"]
 	path = site-lisp/hydra
 	url = git@github.com:abo-abo/hydra.git
-	shallow = true
-	ignore = all
-[submodule "site-lisp/meow"]
-	path = site-lisp/meow
-	url = git@github.com:meow-edit/meow.git
 	shallow = true
 	ignore = all
 [submodule "site-lisp/yafolding"]

@@ -52,17 +52,10 @@
 (lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
-(lazy-load-global-keys '(("C-a" . mwim-beginning-of-line-or-code)
-                         ("C-e" . mwim-end-of-line-or-code))
-                       "mwim")
-
 ;; h for help
 (lazy-load-set-keys '(("C-h C-f" . find-function)
                       ("C-h C-v" . find-variable)
                       ("C-h C-k" . find-function-on-key)))
-
-(lazy-load-global-keys '(("C-j" . vanilla/merge-line-down)) ;; electric-newline-and-maybe-indent
-                       "basic-tookit")
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
@@ -120,14 +113,9 @@
                        "delete-block")
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
-(lazy-load-global-keys '(("M-g" . goto-line-preview)) "goto-line-preview") ;; goto-line
 (lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
                          ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
                        "cursormove")
-
-(lazy-load-global-keys '(("M-l" . vanilla/downcase-word) ;; downcase-word
-                         ("M-u" . vanilla/upcase-word)) ;; upcase-word
-                       "basic-tookit")
 
 (lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop

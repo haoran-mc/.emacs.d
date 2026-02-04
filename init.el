@@ -79,7 +79,7 @@
 (require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
-(require 'init-meow)
+(require 'init-evil)
 
 ;; completion
 (require 'init-snippet)
