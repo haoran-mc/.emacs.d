@@ -23,13 +23,9 @@
 ;;
 
 ;;; Code:
-
-(require 'init-funcs)
 (require 'init-macros)
 
-
 (setq evil-disable-insert-state-bindings t
-      evil-want-Y-yank-to-eol t
 
       ;; window behavior
       evil-split-window-below t
@@ -46,7 +42,6 @@
       evil-want-fine-undo t
       evil-want-C-g-bindings t
       evil-want-C-u-scroll t
-      evil-want-abbrev-expand-on-insert-exit nil
       evil-symbol-word-search t)
 
 ;; before ↑
@@ -54,21 +49,26 @@
 (require 'evil)
 (add-hook 'after-init-hook #'evil-mode)
 
-(define-key evil-ex-map "q" #'kill-this-buffer)
-(define-key evil-normal-state-map (kbd "Q") #'kill-this-buffer)
-
-(setq evil-insert-state-cursor 'bar)
+(setq evil-insert-state-cursor 'bar
+      evil-emacs-state-modes '(eshell-mode term-mode vterm-mode
+                                           magit-mode magit-popup-mode
+                                           dirvish-mode
+                                           treemacs-mode
+                                           dired-mode))
 
 ;; Silence line out of range error.
 (shut-up! #'evil-indent)
 
 ;; normal/visual state
-(dolist (map '(evil-normal-state-map evil-visual-state-map))
-  (dolist (key '("M-x" "M-w" "M-q" "M-/" "M-." "M-,"
-                 "C-k" "C-."
-                 ))
+(dolist (map '(evil-normal-state-map
+               evil-visual-state-map
+               evil-motion-state-map))
+  (dolist (key '("TAB"
+                 "M-x" "M-w" "M-q" "M-/" "M-." "M-,"
+                 "C-k" "C-."))
     (define-key (symbol-value map) (kbd key) nil)))
 
+;; (define-key evil-ex-map "q" #'kill-this-buffer)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

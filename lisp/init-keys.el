@@ -94,7 +94,7 @@
 (lazy-load-set-keys '(("M-:" . execute-extended-command)
                       ("M-/" . comment-dwim))) ;; dabbrev-expand
 
-(lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
+(lazy-load-global-keys '(("M-<backspace>" . delete-block-backward))
                        "delete-block")
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
