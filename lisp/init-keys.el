@@ -37,6 +37,7 @@
                         "M-x"
                         "M-z" ;; zap-to-char like vim df?
                         "C-t" ;; transpose-chars
+                        "M-<" "M->" ;; beginning-of-buffer end-of-buffer
                         ))
 
 
@@ -60,25 +61,10 @@
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 (lazy-load-global-keys '(("C-s" . consult-line)) "consult")
 
-;; also navigate windows by ace-window(M-o)
-(lazy-load-set-keys '(("C-\\ h" . windmove-left)
-                      ("C-\\ j" . windmove-down)
-                      ("C-\\ k" . windmove-up)
-                      ("C-\\ l" . windmove-right)
-                      ("C-\\ =" . balance-windows)))
 
-(lazy-load-global-keys '(("C-\\ H" . vanilla/split-window-left-with-balance)
-                         ("C-\\ J" . vanilla/split-window-below-with-balance)
-                         ("C-\\ K" . vanilla/split-window-up-with-balance)
-                         ("C-\\ L" . vanilla/split-window-right-with-balance)
-                         ("C-\\ c" . vanilla/delete-window-with-balance)
-                         ("C-\\ m" . vanilla/toggle-maximize-buffer)
-                         ("C-\\ |" . split-window-horizontally-instead)
+(lazy-load-global-keys '(("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
                        "windsplit")
-
-(lazy-load-set-keys '(("C-\\ x" . ace-swap-window)
-                      ("C-\\ d" . ace-delete-window)))
 
 
 ;; ----------------------------------
@@ -109,22 +95,15 @@
                       ("M-/" . comment-dwim))) ;; dabbrev-expand
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward)
-                         ("M-d" . delete-block-forward)) ;; kill-word
                        "delete-block")
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
-(lazy-load-global-keys '(("M-j" . vanilla/scroll-half-page-up) ;; default-indent-new-line
-                         ("M-k" . vanilla/scroll-half-page-down)) ;; kill-sentence
-                       "cursormove")
 
-(lazy-load-set-keys '(("M-o" . ace-window))) ;; undefined
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 (lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
 
 (lazy-load-global-keys '(("M-H" . vanilla/scroll-right-half-page)
-                         ("M-L" . vanilla/scroll-left-half-page)
-                         ("M-J" . vanilla/scroll-up-one-line)
-                         ("M-K" . vanilla/scroll-down-one-line))
+                         ("M-L" . vanilla/scroll-left-half-page))
                        "cursormove")
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

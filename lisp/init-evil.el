@@ -64,7 +64,9 @@
 
 ;; normal/visual state
 (dolist (map '(evil-normal-state-map evil-visual-state-map))
-  (dolist (key '("M-x" "M-w" "M-q" "M-/" "M-." "M-,")) ; 自己列出保留的
+  (dolist (key '("M-x" "M-w" "M-q" "M-/" "M-." "M-,"
+                 "C-k" "C-."
+                 ))
     (define-key (symbol-value map) (kbd key) nil)))
 
 

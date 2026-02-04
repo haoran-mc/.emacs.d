@@ -139,8 +139,8 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 
 
 ;; encoding ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq auto-coding-alist
-      (cons '("\\.txt\\'" . chinese-gbk) auto-coding-alist))
+;; (setq auto-coding-alist
+;; (cons '("\\.txt\\'" . chinese-gbk) auto-coding-alist))
 
 
 (provide 'init-mode)
