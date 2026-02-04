@@ -28,8 +28,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files
-   '("~/haoran/no/org/work-journays/251127-泰隆银行部署.org" "/Users/haoran/haoran/no/org/sync-notes/org-task/questions.org" "/Users/haoran/haoran/no/org/sync-notes/org-task/t-all.org" "/Users/haoran/haoran/no/org/sync-notes/org-task/t-cs.org" "/Users/haoran/haoran/no/org/sync-notes/org-task/t-e.org" "/Users/haoran/haoran/no/org/sync-notes/org-task/t-z.org" "/Users/haoran/haoran/no/org/work-agenda/work-todo.org"))
  '(safe-local-variable-values
    '((org-log-into-drawer . t)
      (org-log-done . t)
