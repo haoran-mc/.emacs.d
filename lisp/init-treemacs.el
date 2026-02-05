@@ -50,9 +50,9 @@
 (define-key treemacs-mode-map (kbd "k") #'treemacs-previous-line)
 (define-key treemacs-mode-map (kbd "l") #'forward-char)
 (define-key treemacs-mode-map (kbd "H") #'treemacs-goto-parent-node) ;; treemacs-collapse-parent-node
-(define-key treemacs-mode-map (kbd "M-p") #'treemacs-collapse-parent-node)
-(define-key treemacs-mode-map (kbd "rd") #'treemacs-root-down)
-(define-key treemacs-mode-map (kbd "ru") #'treemacs-root-up)
+;; (define-key treemacs-mode-map (kbd "M-p") #'treemacs-collapse-parent-node)
+(define-key treemacs-mode-map (kbd "C") #'treemacs-root-down)
+(define-key treemacs-mode-map (kbd "u") #'treemacs-root-up)
 ;; (define-key treemacs-mode-map (kbd "M-H") #'treemacs-root-up)
 ;; (define-key treemacs-mode-map (kbd "M-L") #'treemacs-root-down)
 ;; mouse
@@ -61,7 +61,6 @@
 (define-key treemacs-mode-map (kbd "<drag-mouse-1>") #'treemacs-dragleftclick-action)
 (define-key treemacs-mode-map (kbd "<down-mouse-1>") #'treemacs-leftclick-action)
 ;; open
-(define-key treemacs-mode-map (kbd "o") #'treemacs-visit-node-ace)
 (define-key treemacs-mode-map (kbd "<tab>") #'treemacs-TAB-action)
 (define-key treemacs-mode-map (kbd "<return>") #'treemacs-RET-action)
 ;; create, copy, move
@@ -89,7 +88,11 @@
 (define-key treemacs-mode-map (kbd "W") #'treemacs-set-width)
 (define-key treemacs-mode-map (kbd "/") #'treemacs-common-helpful-hydra)
 (define-key treemacs-mode-map (kbd "?") #'treemacs-advanced-helpful-hydra)
-
+;; windows
+(define-key treemacs-mode-map (kbd "C-w h") 'windmove-left)
+(define-key treemacs-mode-map (kbd "C-w j") 'windmove-down)
+(define-key treemacs-mode-map (kbd "C-w k") 'windmove-up)
+(define-key treemacs-mode-map (kbd "C-w l") 'windmove-right)
 
 ;; keeping my fringe settings
 (advice-remove #'treemacs-select-window #'doom-themes-hide-fringes-maybe)
