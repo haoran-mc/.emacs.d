@@ -24,8 +24,8 @@
 ;;; Code:
 
 ;; whole-line-or-region ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'whole-line-or-region)
-(whole-line-or-region-global-mode)
+;; (require 'whole-line-or-region)
+;; (whole-line-or-region-global-mode)
 
 
 ;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
