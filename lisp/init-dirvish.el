@@ -60,6 +60,8 @@
 (define-key dirvish-mode-map (kbd "k") 'dired-previous-line)
 (define-key dirvish-mode-map (kbd "l") 'dired-find-file)
 (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
+(define-key dirvish-mode-map (kbd "M-<") #'beginning-of-buffer)
+(define-key dirvish-mode-map (kbd "M->") #'end-of-buffer)
 ;; file copy, move, create, delete
 (define-key dirvish-mode-map (kbd "+") 'dired-create-directory)
 (define-key dirvish-mode-map (kbd "R") 'dired-do-rename)
@@ -72,8 +74,8 @@
 (define-key dirvish-mode-map (kbd "U") 'dired-unmark-all-marks)
 ;; file access
 (define-key dirvish-mode-map (kbd "o") 'dired-find-file-other-window)
-(define-key dirvish-mode-map (kbd "C-v") 'dired-view-file)
-(define-key dirvish-mode-map (kbd "C-o") 'dired-display-file) ;; underused function
+;; (define-key dirvish-mode-map (kbd "C-v") 'dired-view-file)
+(define-key dirvish-mode-map (kbd "v") 'dired-display-file) ;; underused function
 ;; refresh
 (define-key dirvish-mode-map (kbd "C-/") 'dired-undo)
 (define-key dirvish-mode-map (kbd "g") 'revert-buffer)
@@ -87,6 +89,11 @@
 (define-key dirvish-mode-map (kbd "B") 'dired-do-byte-compile)
 (define-key dirvish-mode-map (kbd "L") 'dired-do-load)
 ;; (define-key dirvish-mode-map (kbd "X") #'dired-do-shell-command)
+;; windows
+(define-key dirvish-mode-map (kbd "C-w h") 'windmove-left)
+(define-key dirvish-mode-map (kbd "C-w j") 'windmove-down)
+(define-key dirvish-mode-map (kbd "C-w k") 'windmove-up)
+(define-key dirvish-mode-map (kbd "C-w l") 'windmove-right)
 
 (define-key dirvish-mode-map (kbd "TAB") 'dirvish-subtree-toggle)
 
