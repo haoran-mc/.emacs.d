@@ -50,11 +50,11 @@
 (add-hook 'after-init-hook #'evil-mode)
 
 (setq evil-insert-state-cursor 'bar
-      evil-emacs-state-modes '(eshell-mode term-mode vterm-mode
-                                           magit-mode magit-popup-mode
-                                           dirvish-mode
-                                           treemacs-mode
-                                           dired-mode))
+      evil-emacs-state-modes '(eshell-mode term-mode vterm-mode ;; term mode
+                                           magit-mode magit-popup-mode ;; git mode
+                                           dired-mode dirvish-mode treemacs-mode ;; dired mode
+                                           org-agenda-mode ;; org mode
+                                           ))
 
 ;; Silence line out of range error.
 (shut-up! #'evil-indent)
