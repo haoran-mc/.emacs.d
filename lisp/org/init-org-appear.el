@@ -23,13 +23,24 @@
 ;;
 
 ;;; Code:
-
-
 (require 'org-appear)
 
-(setq org-appear-autoemphasis t
-      org-appear-autolinks nil
+(setq org-appear-trigger 'manual
+      org-appear-autoemphasis t ;; emphasis(bold, verbatim, code, italic, underline, strike-through)
+      org-appear-autolinks t ;; link
       org-appear-autosubmarkers t)
+
+(add-hook 'org-mode-hook (lambda ()
+                           (org-appear-mode +1)
+                           (add-hook 'evil-insert-state-entry-hook
+                                     #'org-appear-manual-start
+                                     nil
+                                     t)
+                           (add-hook 'evil-insert-state-exit-hook
+                                     #'org-appear-manual-stop
+                                     nil
+                                     t)))
+
 
 (provide 'init-org-appear)
 ;;; init-org-appear.el ends here
