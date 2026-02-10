@@ -59,8 +59,6 @@
                       ("C-h C-k" . find-function-on-key)))
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
-(lazy-load-global-keys '(("C-s" . consult-line)) "consult")
-
 
 (lazy-load-global-keys '(("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))

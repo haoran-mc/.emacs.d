@@ -69,6 +69,8 @@
     (define-key (symbol-value map) (kbd key) nil)))
 
 ;; (define-key evil-ex-map "q" #'kill-this-buffer)
+(with-eval-after-load 'consult
+  (define-key evil-normal-state-map (kbd "/") #'consult-line))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here

@@ -1,6 +1,4 @@
 #+TITLE: My emacs workflow.
-#+AUTHOR: Haoran Liu
-#+EMAIL: haoran.mc@outlook.com
 #+DATE: 2024-01-09 11:01 Tue
 #+STARTUP: showeverything
 
