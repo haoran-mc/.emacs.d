@@ -16,15 +16,16 @@
 3. 以 ~vanilla/~ 为前缀的增强函数
 
 * lazy-load [[file:package:lazy-load.org]]
-- TODO 是否需要懒加载？
+基础包不需要 lazy-load，比如 consult。
 
-
+即使已经加载，在其他包处引用时，也应该 with-eval-after-load 考虑加载顺序，比如在 init-evil.el 中 ~(with-eval-after-load 'consult (define-key evil-normal-state-map (kbd "/") #'consult-line))~ 。
+
 1. no-littering
 2. evil
+3. consult
 
 
 lazy-load（调用时再加载）：
-- consult
 - goto-last-change
 - init-formatter
 - init-avy
@@ -35,4 +36,3 @@ lazy-load（调用时再加载）：
 - init-simple-httpd
 - crux
 - init-tab-bar
-基础包不应该 lazy-load → consult ?

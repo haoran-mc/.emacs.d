@@ -43,7 +43,7 @@
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; init-funs has be required by init.el
-(lazy-load-global-keys '(("C-<return>" . consult-bookmark)) "consult")
+(lazy-load-set-keys '(("C-<return>" . consult-bookmark)))
 (lazy-load-global-keys '(("C-<tab>" . spacemacs/alternate-buffer)
                          ("C-<backspace>" . crux-kill-line-backwards))
                        "crux")
@@ -76,7 +76,7 @@
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
-(lazy-load-global-keys '(("M-y" . consult-yank-pop)) "consult") ;; yank-pop
+(lazy-load-set-keys '(("M-y" . consult-yank-pop))) ;; yank-pop
 
 (lazy-load-global-keys '(("M-H" . vanilla/scroll-right-half-page)
                          ("M-L" . vanilla/scroll-left-half-page))
@@ -116,7 +116,7 @@
                       ("C-c b l" . bookmark-bmenu-list)
                       ("C-c b s" . bookmark-save)))
 (lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "basic-tookit")
-(lazy-load-global-keys '(("C-c b b" . consult-buffer)) "consult")
+(lazy-load-set-keys '(("C-c b b" . consult-buffer)))
 
 ;; c for code
 
@@ -131,11 +131,10 @@
                          ("C-c f D" . vanilla/delete-current-file))
                        "fileop")
 
-(lazy-load-global-keys '(("C-c f f" . consult-fd)
-                         ("C-c f g" . consult-ripgrep)
-                         ("C-c f m" . consult-mark)
-                         ("C-c f r" . consult-recent-file))
-                       "consult")
+(lazy-load-set-keys '(("C-c f f" . consult-fd)
+                      ("C-c f g" . consult-ripgrep)
+                      ("C-c f m" . consult-mark)
+                      ("C-c f r" . consult-recent-file)))
 
 (lazy-load-global-keys '(("C-c f t" . my/treemacs-add-current-project-workspace-exclusively))
                        "init-treemacs")
@@ -179,8 +178,6 @@
 ;; n for narrow
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o a" . my/algo-layout)))
-(lazy-load-set-keys '(("C-c o c" . my/center-layout)))
 (lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o r" . (lambda () (interactive) (find-file user-init-file)))))
 (lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")

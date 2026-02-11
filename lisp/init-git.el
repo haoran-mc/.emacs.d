@@ -34,10 +34,6 @@
       magit-ediff-dwim-show-on-hunks t
       magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 
-(defun +magit-require ()
-  (interactive)
-  (require 'magit))
-
 ;; similar to vc-annotate, vc-region-history
 (setq magit-blame-styles
       '((margin

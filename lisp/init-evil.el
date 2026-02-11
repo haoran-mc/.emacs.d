@@ -72,5 +72,8 @@
 (with-eval-after-load 'consult
   (define-key evil-normal-state-map (kbd "/") #'consult-line))
 
+(with-eval-after-load 'org
+  (evil-define-key 'normal org-mode-map (kbd "/") #'consult-line))
+
 (provide 'init-evil)
 ;;; init-evil.el ends here

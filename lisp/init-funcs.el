@@ -59,24 +59,6 @@
         (windmove-left)))))
 
 ;;;###autoload
-(defun my/algo-layout ()
-  "Load my algo layout."
-  (interactive)
-  (let ((tab-name "algo"))
-    (if (tab-bar--tab-index-by-name tab-name)
-        (tab-bar-select-tab-by-name tab-name)
-      (progn
-        ;; 1. create algo tab
-        (require 'init-tab-bar)
-        (vanilla/tab-bar-switch-to-tab tab-name)
-        ;; 2. open initial-algo-message.txt
-        (find-file "~/haoran/code/algo/initial-algo-message.txt")
-        ;; 3. treemacs
-        (require 'init-treemacs)
-        (my/treemacs-add-current-project-workspace-exclusively)
-        (switch-to-buffer "initial-algo-message.txt")))))
-
-;;;###autoload
 (defun lazycat/remember-jump ()
   "Jump to latest position and setup."
   (interactive)
