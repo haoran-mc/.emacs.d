@@ -65,28 +65,6 @@
                        "windsplit")
 
 
-;; ----------------------------------
-;; I combined vim's hjkl and emacs' npbf movement direction
-;;
-;; M-?:
-;;                  ^  vanilla/scroll-half-page-down
-;; mark-paragraph   k
-;;            < h       l >  vanilla/downcase-word
-;;                  j
-;;                  v  vanilla/scroll-half-page-up
-;;
-;;
-;; M-?:
-;;                 ^  vanilla/move-cursor-8-lines-up
-;; backward-word   p
-;;           < b       f >  forward-word
-;;                 n
-;;                 v  vanilla/move-cursor-8-lines-down
-;;
-;; ----------------------------------
-
-
-
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
 (lazy-load-set-keys '(("M-:" . execute-extended-command)

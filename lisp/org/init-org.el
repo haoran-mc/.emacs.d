@@ -106,11 +106,10 @@
                                ("CANCEL"  :foreground "#5B6268" :weight normal)
                                ("HOLD"    :foreground "#D0BF8F" :weight normal))
       ;; 真实的 tag 太多了，无法维护，尽量不使用
-      org-tag-alist
-      '(("@生活" . ?l)
-        ("@课程" . ?k)
-        ("@书籍" . ?b)
-        ("@某项技术" . ?j))
+      org-tag-alist '(("@生活" . ?l)
+                      ("@课程" . ?k)
+                      ("@书籍" . ?b)
+                      ("@某项技术" . ?j))
       org-columns-default-format ;; 使用 org-columns 在表格视图查看任务
       "%25ITEM %TODO %SCHEDULED %DEADLINE %3PRIORITY %TAGS %CLOCKSUM %EFFORT{:}"
       org-use-fast-todo-selection 'expert ;; 快速选择代办状态，输入 "C" 来选择 "CANCEL"
