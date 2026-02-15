@@ -70,8 +70,6 @@
              (message "font size: %s" ran--font-size))
     (message "using smallest font")))
 
-(global-set-key (kbd "s-+") #'ran/larger-font)
-(global-set-key (kbd "s--") #'ran/smaller-font)
 
 (provide 'init-font)
 ;;; init-font.el ends here

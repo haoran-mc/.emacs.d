@@ -80,8 +80,8 @@
      (("f" toggle-frame-fullscreen "fullscreen" :exit t)
       ("k" kill-this-buffer "kill this buffer" :exit t)
       ("r" my/reload-this-buffer "refresh file" :exit t)
-      ("+" text-scale-increase "zoom in")
-      ("-" text-scale-decrease "zoom out"))
+      ("+" ran/larger-font "zoom in") ;; text-scale-increase 只更改当前 buffer
+      ("-" ran/smaller-font "zoom out"))
      "Toggle"
      (("t i" my/toggle-indent-tabs-mode "tab indent" :exit t)
       ("t r" my/toggle-rainbow-mode "rainbow" :exit t)))))

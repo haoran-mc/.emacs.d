@@ -60,6 +60,10 @@
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 
+(with-eval-after-load 'evil
+  (define-key evil-normal-state-map (kbd "C-w m") 'toggle-one-window)
+  (define-key evil-motion-state-map (kbd "C-w m") 'toggle-one-window))
+
 (lazy-load-global-keys '(("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
                        "windsplit")
