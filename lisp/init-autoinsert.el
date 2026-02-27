@@ -39,6 +39,9 @@
 (define-auto-insert "\\.org$"
   ["~/.emacs.d/templates/template.org" autoinsert-yas-expand])
 
+(define-auto-insert "\\.cpp$"
+  ["~/.emacs.d/templates/template.cpp" autoinsert-yas-expand])
+
 (define-auto-insert "\\.html$"
   ["~/.emacs.d/templates/template.html" autoinsert-yas-expand])
 
