@@ -60,6 +60,7 @@
 
 (lazy-load-set-keys '(("C-q" . quoted-insert)))
 
+(require 'toggle-one-window)
 (with-eval-after-load 'evil
   (define-key evil-normal-state-map (kbd "C-w m") 'toggle-one-window)
   (define-key evil-motion-state-map (kbd "C-w m") 'toggle-one-window))
@@ -182,7 +183,8 @@
 ;; n for narrow
 
 ;; o for open
-(lazy-load-set-keys '(("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
+(lazy-load-set-keys '(("C-c o a" . (lambda () (interactive) (find-file ran--algo-file)))
+                      ("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o r" . (lambda () (interactive) (find-file user-init-file)))))
 (lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")

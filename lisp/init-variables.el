@@ -38,6 +38,7 @@
 (defvar ran--centre "~/haoran/no/org/sync-notes/centre.org")
 (defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
 (defvar ran--trash-dir "~/haoran/tr")
+(defvar ran--algo-file "~/haoran/no/org/wiki/algorithm.org")
 
 
 
