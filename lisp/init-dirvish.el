@@ -26,7 +26,7 @@
 (require 'dirvish-icons)
 (require 'dirvish-subtree)
 (require 'all-the-icons)
-(require 'cursormove)
+(require 'func-cursor)
 
 ;;; Code:
 (dirvish-override-dired-mode)

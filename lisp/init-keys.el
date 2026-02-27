@@ -67,7 +67,7 @@
 
 (lazy-load-global-keys '(("C-\\ |" . split-window-horizontally-instead)
                          ("C-\\ _" . split-window-vertically-instead))
-                       "windsplit")
+                       "func-window")
 
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -85,7 +85,7 @@
 
 (lazy-load-global-keys '(("M-H" . vanilla/scroll-right-half-page)
                          ("M-L" . vanilla/scroll-left-half-page))
-                       "cursormove")
+                       "func-cursor")
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; s-? -> text operation
@@ -118,9 +118,8 @@
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
                       ("C-c b r" . bookmark-rename)
                       ("C-c b d" . bookmark-delete)
-                      ("C-c b l" . bookmark-bmenu-list)
                       ("C-c b s" . bookmark-save)))
-(lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "basic-tookit")
+(lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "func-lazy")
 (lazy-load-set-keys '(("C-c b b" . consult-buffer)))
 
 ;; c for code

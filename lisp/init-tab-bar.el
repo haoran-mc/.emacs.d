@@ -36,7 +36,7 @@
       tab-bar-new-tab-to 'rightmost)
 
 
-(require 'basic-tookit) ;; create scratch buffer
+(require 'func-lazy) ;; create scratch buffer
 
 (defun vanilla/tab-bar-switch-to-tab (name)
   "Switch to the tab by NAME.

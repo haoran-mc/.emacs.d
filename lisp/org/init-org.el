@@ -24,7 +24,7 @@
 ;;; Require:
 (require 'org)
 (require 'org-tempo) ;; <s
-(require 'org-funcs)
+(require 'func-org)
 
 ;;; Code:
 (setq org-directory ran--org-directory
@@ -219,7 +219,7 @@ TODO kwd."
 (lazy-load-set-keys '(("C-c e p" . my/org-preview-in-browser)) org-mode-map)
 
 ;; i for insert
-(defhydra hydra-org-insert (:body-pre (require 'org-insert) :color blue)
+(defhydra hydra-org-insert (:body-pre (require 'func-insert) :color blue)
   ("!" my/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
   ("l" my/dwim-create-link-with-datetime "datetime link" :exit t)
   ("i" my/org-insert-image "image with name" :exit t)
@@ -228,7 +228,7 @@ TODO kwd."
 (lazy-load-set-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map)
 
 ;; n for narrow
-(lazy-load-local-keys '(("C-c n" . my/org-narrow-dwim)) org-mode-map "org-funcs")
+(lazy-load-local-keys '(("C-c n" . my/org-narrow-dwim)) org-mode-map "func-org")
 
 
 (provide 'init-org)

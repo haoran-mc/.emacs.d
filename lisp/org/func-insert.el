@@ -1,4 +1,4 @@
-;;; org-insert.el ---quickly insert in org           -*- lexical-binding: t; -*-
+;;; func-insert.el ---quickly insert in org           -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Haoran Liu
 
@@ -91,5 +91,5 @@ are treated as a single unit and preserved in the filename."
     (org-insert-link nil (concat "./" link-filename) link-description)))
 
 
-(provide 'org-insert)
-;;; org-insert.el ends here
+(provide 'func-insert)
+;;; func-insert.el ends here

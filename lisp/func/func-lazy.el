@@ -1,4 +1,4 @@
-;;; windowop.el --- basic toolkit  -*- lexical-binding: t; -*-
+;;; func-lazy.el --- basic toolkit  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -138,5 +138,5 @@ the current layouts buffers."
 
 
 
-(provide 'basic-tookit)
-;;; basic-tookit ends here
+(provide 'func-lazy)
+;;; func-lazy ends here

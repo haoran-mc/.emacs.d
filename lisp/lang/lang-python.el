@@ -23,7 +23,7 @@
 
 ;;; Require:
 ;; remember-init
-(require 'basic-tookit)
+(require 'func-lazy)
 
 ;; Mode association (autoload python-mode for *.py files)
 (require 'python)

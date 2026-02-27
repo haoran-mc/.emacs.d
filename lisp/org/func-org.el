@@ -1,4 +1,4 @@
-;;; org-funcs.el --- funcs to improve org            -*- lexical-binding: t; -*-
+;;; func-org.el --- funcs to improve org            -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Haoran Liu
 
@@ -23,7 +23,7 @@
 
 ;;; Code:
 ;;
-(require 'basic-tookit)
+(require 'func-lazy)
 
 (defun my/org-narrow-dwim ()
   "如果当前是 narrow 状态则 widen，否则 narrow to subtree 并展开"
@@ -63,5 +63,5 @@ Optional for Org-mode file: `LINK'."
 	(local-set-key (kbd "q") 'bury-buffer)))
 
 
-(provide 'org-funcs)
-;;; org-funcs.el ends here
+(provide 'func-org)
+;;; func-org.el ends here

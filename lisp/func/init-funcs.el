@@ -19,7 +19,7 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; 1. 需要预加载的函数放在这，不需要预加载的函数放在 basic-tookit.el
+;; 1. 需要预加载的函数放在这，不需要预加载的函数放在 func-lazy.el
 ;; 2. 内部调用的函数使用 my/ 前缀，手动调用的函数使用 ran/ 前缀
 
 ;;; Code:

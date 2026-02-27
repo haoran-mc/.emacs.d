@@ -1,4 +1,4 @@
-;;; vim-like.el ---vimlike functions                 -*- lexical-binding: t; -*-
+;;; func-vimlike.el ---vimlike functions                 -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2024  Haoran Liu
 
@@ -57,5 +57,5 @@
       (funcall vimlike-f-recent-search-func vimlike-f-recent-search-char)
     (message "Empty recent search char.")))
 
-(provide 'vim-like)
-;;; vim-like.el ends here
+(provide 'func-vimlike)
+;;; func-vimlike.el ends here

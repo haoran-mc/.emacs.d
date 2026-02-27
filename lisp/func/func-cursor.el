@@ -1,4 +1,4 @@
-;;; windowop.el --- cursor and text move  -*- lexical-binding: t; -*-
+;;; func-cursor.el --- cursor and text move  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Haoran Liu
 
@@ -106,5 +106,5 @@
   (interactive)
   (previous-line 8))
 
-(provide 'cursormove)
-;;; cursormove.el
+(provide 'func-cursor)
+;;; func-cursor.el
