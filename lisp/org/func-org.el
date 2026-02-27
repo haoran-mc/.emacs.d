@@ -29,7 +29,9 @@
   "如果当前是 narrow 状态则 widen，否则 narrow to subtree 并展开"
   (interactive)
   (if (buffer-narrowed-p)
-      (widen)
+      (progn
+        (widen)
+        (recenter))
     (progn
       (org-narrow-to-subtree)
       (org-show-subtree))))
