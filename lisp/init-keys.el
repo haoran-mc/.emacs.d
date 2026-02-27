@@ -108,7 +108,7 @@
 ;; a for alone apps
 (lazy-load-global-keys '(("C-c a a" . org-agenda)
                          ("C-c x" . org-capture)
-                         ("C-c d" . +org-agenda-T))
+                         ("C-c d" . my/org-agenda-T))
                        "init-org")
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "fanyi")

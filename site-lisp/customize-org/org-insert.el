@@ -26,13 +26,13 @@
 
 
 ;;;###autoload
-(defun vanilla/org-insert-stamp-inactive ()
+(defun my/org-insert-stamp-inactive ()
   "insert an inactive stamp time."
   (interactive)
   (org-time-stamp-inactive '(16)))
 
 ;;;###autoload
-(defun vanilla/org-insert-image ()
+(defun my/org-insert-image ()
   "insert a image from clipboard"
   (interactive)
   (let* ((path (concat default-directory "images/"))
@@ -53,7 +53,7 @@
     (message image-file)))
 
 ;;;###autoload
-(defun vanilla/org-insert-image-with-timestamp ()
+(defun my/org-insert-image-with-timestamp ()
   "paste image from clipboard, image name is automatically
 assigned to current time timestamp, image only support png type"
   (interactive)
@@ -73,7 +73,7 @@ assigned to current time timestamp, image only support png type"
     (message image-file)))
 
 ;;;###autoload
-(defun vanilla/dwim-create-link-with-datetime ()
+(defun my/dwim-create-link-with-datetime ()
   "Create a link with current datetime and filename from the word at point.
 The word at point is treated as a filename. Any consecutive hyphens or underscores
 are treated as a single unit and preserved in the filename."

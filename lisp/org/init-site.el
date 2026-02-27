@@ -22,7 +22,6 @@
 ;;
 
 ;;; Code:
-
 (require 'ox)
 (require 'ox-html)
 (require 'ox-publish)
@@ -74,23 +73,23 @@
          )
         ))
 
-(defun +org-preview-in-browser ()
+(defun my/org-preview-in-browser ()
   "Open current buffer as html."
   (interactive)
   (let ((file-path (buffer-file-name)))
     (cond
      ;; my site
      ((string-prefix-p ran--site-org-dir file-path)
-      (+org-export-and-preview 'site ran--site-html-dir))
+      (my/org-export-and-preview 'site ran--site-html-dir))
 
      ;; wiki dir: too many images, no cp images
      ((string-prefix-p ran--wiki-org-dir file-path)
-      (+org-export-and-preview 'wiki ran--wiki-org-dir))
+      (my/org-export-and-preview 'wiki ran--wiki-org-dir))
 
      (t
-      (+org-export-to-mydir-and-preview)))))
+      (my/org-export-to-mydir-and-preview)))))
 
-(defun +org-export-and-preview (project root-dir)
+(defun my/org-export-and-preview (project root-dir)
   "Open current buffer as html in browser.
 PROJECT specifies whether it's for 'wiki' or 'site'.
 ROOT-DIR specifies the root directory for HTTPD server."
@@ -102,7 +101,7 @@ ROOT-DIR specifies the root directory for HTTPD server."
     (+httpd-start-server 9517 root-dir)
     (browse-url fileurl)))
 
-(defun +org-export-to-mydir-and-preview()
+(defun my/org-export-to-mydir-and-preview()
   "Export org to my dir and preview. NOTE that org files in
 other org folders should use absolute paths to define images. Those html files
 use export/org-preview/org.css render style."
@@ -139,7 +138,7 @@ use export/org-preview/org.css render style."
 
 
 ;; define-minor-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun generate-sitemap (base-dir sitemap-file)
+(defun my/generate-sitemap (base-dir sitemap-file)
   "Generate a sitemap file for the Org files in BASE-DIR."
   (interactive "DDirectory: \nFOutput Sitemap File: ")
   (let ((files (sort (directory-files-recursively base-dir "\.org$") #'string>)))
@@ -154,26 +153,26 @@ use export/org-preview/org.css render style."
   "Generate a sitemap file for the Org files in mysite."
   (interactive)
   (let ((sitemap-file (concat ran--site-org-dir "/sitemap.org")))
-    (generate-sitemap ran--site-org-dir sitemap-file)
+    (my/generate-sitemap ran--site-org-dir sitemap-file)
     (org-publish-file sitemap-file)))
 
-(defun +org-publish-site-file ()
+(defun my/org-publish-site-file ()
   "Save current buffer and publish if it's in the `ran--site-org-dir' directory."
   (when (and (buffer-file-name) ;; 缓冲区有文件才继续
              (string-prefix-p (expand-file-name ran--site-org-dir)
                               (expand-file-name (buffer-file-name))))
     (org-publish-current-file 'site)))
 
-(define-minor-mode +auto-save-and-publish-site-file-mode
+(define-minor-mode my/auto-save-and-publish-site-file-mode
   "Toggle auto save and publish current file."
   :global nil
   :lighter ""
-  (if +auto-save-and-publish-site-file-mode
-      (add-hook 'after-save-hook #'+org-publish-site-file :append :local)
-    (remove-hook 'after-save-hook #'+org-publish-site-file :local)))
+  (if my/auto-save-and-publish-site-file-mode
+      (add-hook 'after-save-hook #'my/org-publish-site-file :append :local)
+    (remove-hook 'after-save-hook #'my/org-publish-site-file :local)))
 
-;; (setq +auto-save-and-publish-site-file-mode 1)
-(add-hook 'org-mode-hook '+auto-save-and-publish-site-file-mode)
+;; (setq my/auto-save-and-publish-site-file-mode 1)
+(add-hook 'org-mode-hook 'my/auto-save-and-publish-site-file-mode)
 
 (provide 'init-site)
 ;;; init-site.el ends here

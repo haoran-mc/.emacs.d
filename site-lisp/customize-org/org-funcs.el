@@ -19,16 +19,22 @@
 ;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;;
 
 ;;; Code:
-
 ;;
-
 (require 'basic-tookit)
 
-(defun vanilla/preview-file-link ()
+(defun my/org-narrow-dwim ()
+  "如果当前是 narrow 状态则 widen，否则 narrow to subtree 并展开"
+  (interactive)
+  (if (buffer-narrowed-p)
+      (widen)
+    (progn
+      (org-narrow-to-subtree)
+      (org-show-subtree))))
+
+(defun my/preview-file-link ()
   "Preview the file links under the cursor in another window."
   (interactive)
   (let ((context (org-element-context)))
@@ -44,7 +50,7 @@
       (message "No file link found under the cursor."))))
 
 
-(defun vanilla/open-and-play-gif-image (file &optional link)
+(defun my/open-and-play-gif-image (file &optional link)
   "Open and play GIF image `FILE' in Emacs buffer.
 
 Optional for Org-mode file: `LINK'."

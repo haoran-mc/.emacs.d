@@ -52,7 +52,7 @@
                       ("\\.x?html?\\'" . default)
                       ("\\.pdf\\'"     . emacs)
                       ("\\.md\\'"      . emacs)
-                      ;; ("\\.gif\\'"     . vanilla/open-and-play-gif-image)
+                      ;; ("\\.gif\\'"     . my/open-and-play-gif-image)
                       ("\\.xlsx\\'"    . default)
                       ("\\.svg\\'"     . default)
                       ("\\.pptx\\'"    . default)
@@ -141,7 +141,7 @@
                                     ((tags-todo "+PRIORITY=\"A\"")))
                                    ;; ...other commands here
                                    ))
-(defun +org-agenda-T ()
+(defun my/org-agenda-T ()
   "display org-agenda T view, entries withspecial
 TODO kwd."
   (interactive)
@@ -208,35 +208,27 @@ TODO kwd."
 
 (require 'init-site)
 
-(lazy-load-local-keys '(("C-<return>" . bookmark-jump)) org-mode-map "")
+(lazy-load-set-keys '(("C-<return>" . bookmark-jump)) org-mode-map)
 (lazy-load-local-keys '(("C-," . goto-last-change)) org-mode-map "goto-last-change")
-(lazy-load-local-keys '(("C-j" . vanilla/merge-line-down)) org-mode-map "basic-tookit")
-;; only full paths are supported
-(lazy-load-local-keys '(("C-v" . vanilla/preview-file-link)) org-mode-map "org-funcs")
 
-(lazy-load-local-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
-                        ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
-                      org-mode-map "")
-
-(lazy-load-local-keys '(("s-<return>" . org-insert-heading-respect-content)) org-mode-map "")
+(lazy-load-set-keys '(("M-." . org-open-at-point) ;; xref-find-dfinitions
+                      ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
+                    org-mode-map)
 
 ;; e for export
-(lazy-load-set-keys '(("C-c e p" . +org-preview-in-browser)) org-mode-map)
+(lazy-load-set-keys '(("C-c e p" . my/org-preview-in-browser)) org-mode-map)
 
 ;; i for insert
 (defhydra hydra-org-insert (:body-pre (require 'org-insert) :color blue)
-  ("!" vanilla/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
-  ("l" vanilla/dwim-create-link-with-datetime "datetime link" :exit t)
-  ("i" vanilla/org-insert-image "image with name" :exit t)
-  ("s" vanilla/org-insert-image-with-timestamp "image with time" :exit t)
+  ("!" my/org-insert-stamp-inactive "inactive time" :exit t :column "org-insert")
+  ("l" my/dwim-create-link-with-datetime "datetime link" :exit t)
+  ("i" my/org-insert-image "image with name" :exit t)
+  ("s" my/org-insert-image-with-timestamp "image with time" :exit t)
   ("t" hl-todo-insert "todo insert" :column "insert"))
-(lazy-load-local-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map "")
+(lazy-load-set-keys '(("C-c i" . hydra-org-insert/body)) org-mode-map)
 
 ;; n for narrow
-(defhydra hydra-narrow (:color blue)
-  ("s" org-narrow-to-subtree "narrow to subtree" :exit t :column "narrow")
-  ("w" widen "widen" :exit t))
-(lazy-load-set-keys '(("C-c n" . hydra-narrow/body)) org-mode-map)
+(lazy-load-local-keys '(("C-c n" . my/org-narrow-dwim)) org-mode-map "org-funcs")
 
 
 (provide 'init-org)
