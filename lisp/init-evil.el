@@ -54,6 +54,8 @@
                                            magit-mode magit-popup-mode ;; git mode
                                            dired-mode dirvish-mode treemacs-mode ;; dired mode
                                            org-agenda-mode ;; org mode
+                                           xref--xref-buffer-mode
+                                           vc-annotate-mode
                                            ))
 
 ;; Silence line out of range error.
