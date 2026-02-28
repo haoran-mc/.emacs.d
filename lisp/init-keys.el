@@ -80,6 +80,10 @@
 
 (lazy-load-global-keys '(("M-0" . treemacs-select-window)) "init-treemacs")
 
+(lazy-load-global-keys '(("M-l" . my/downcase-word) ;; downcase-word
+                         ("M-u" . my/upcase-word)) ;; upcase-word
+                       "func-lazy")
+
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 (lazy-load-set-keys '(("M-y" . consult-yank-pop))) ;; yank-pop
 
