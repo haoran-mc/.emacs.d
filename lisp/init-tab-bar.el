@@ -38,7 +38,7 @@
 
 (require 'func-lazy) ;; create scratch buffer
 
-(defun vanilla/tab-bar-switch-to-tab (name)
+(defun my/tab-bar-switch-to-tab (name)
   "Switch to the tab by NAME.
 If NAME does not exist among current tabs, create a new tab with NAME."
   (interactive
@@ -53,7 +53,7 @@ If NAME does not exist among current tabs, create a new tab with NAME."
         (tab-bar-select-tab (1+ tab-index)) ;; 已有
       (progn ;; 新建 tab-bar-new-tab 和 tab-new 的区别
         (tab-bar-new-tab)
-        (vanilla/create-scratch-buffer)
+        (my/create-scratch-buffer)
         (tab-bar-rename-tab name)))))
 
 

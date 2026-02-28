@@ -98,7 +98,7 @@ ROOT-DIR specifies the root directory for HTTPD server."
   (org-publish-current-file project)
   ;; Start HTTPD server and open the buffer in browser
   (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
-    (+httpd-start-server 9517 root-dir)
+    (my/httpd-start-server 9517 root-dir)
     (browse-url fileurl)))
 
 (defun my/org-export-to-mydir-and-preview()
@@ -114,7 +114,7 @@ use export/org-preview/org.css render style."
            (shell-quote-argument (org-html-export-to-html))
            ran--my-export-dir))
   (let ((fileurl (concat "http://127.0.0.1:9517/" (file-name-base (buffer-name)) ".html")))
-    (+httpd-start-server 9517 ran--my-export-dir)
+    (my/httpd-start-server 9517 ran--my-export-dir)
     (browse-url fileurl)))
 
 

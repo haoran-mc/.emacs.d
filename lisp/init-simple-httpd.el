@@ -27,7 +27,7 @@
 ;; your local machine so that you can pull it up in your browser.
 (require 'simple-httpd)
 
-(defun +httpd-start-server (port root-dir)
+(defun my/httpd-start-server (port root-dir)
   "Start the HTTPD server on PORT with ROOT-DIR as the root directory."
   (httpd-stop)
   (unless (httpd-running-p)
@@ -35,10 +35,10 @@
     (setq httpd-root root-dir)
     (httpd-start)))
 
-(defun +httpd-start-currfile ()
+(defun my/httpd-start-currfile ()
   "Start the HTTPD server on PORT:9517 with CURRENT-DIR as the root directory."
   (interactive)
-  (+httpd-start-server 9517 default-directory)
+  (my/httpd-start-server 9517 default-directory)
   (let ((filename (buffer-name)))
     (if (and (buffer-file-name)
              (string-equal (file-name-extension filename) "html"))

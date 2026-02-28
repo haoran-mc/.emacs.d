@@ -83,8 +83,8 @@
 (lazy-load-global-keys '(("M-s" . symbol-overlay-put)) "init-symbol-overlay") ;; tab-to-tab-stop
 (lazy-load-set-keys '(("M-y" . consult-yank-pop))) ;; yank-pop
 
-(lazy-load-global-keys '(("M-H" . vanilla/scroll-right-half-page)
-                         ("M-L" . vanilla/scroll-left-half-page))
+(lazy-load-global-keys '(("M-H" . my/scroll-right-half-page)
+                         ("M-L" . my/scroll-left-half-page))
                        "func-cursor")
 
 ;; here is s-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -119,7 +119,7 @@
                       ("C-c b r" . bookmark-rename)
                       ("C-c b d" . bookmark-delete)
                       ("C-c b s" . bookmark-save)))
-(lazy-load-global-keys '(("C-c b x" . vanilla/create-scratch-buffer)) "func-lazy")
+(lazy-load-global-keys '(("C-c b x" . my/create-scratch-buffer)) "func-lazy")
 (lazy-load-set-keys '(("C-c b b" . consult-buffer)))
 
 ;; c for code
@@ -131,9 +131,9 @@
 ;; f for find
 (lazy-load-set-keys '(("C-c f x" . find-file)))
 
-(lazy-load-global-keys '(("C-c f R" . vanilla/rename-current-file)
-                         ("C-c f D" . vanilla/delete-current-file))
-                       "fileop")
+(lazy-load-global-keys '(("C-c f R" . my/rename-current-file)
+                         ("C-c f D" . my/delete-current-file))
+                       "func-file")
 
 (lazy-load-set-keys '(("C-c f f" . consult-fd)
                       ("C-c f g" . consult-ripgrep)
@@ -185,7 +185,7 @@
 (lazy-load-set-keys '(("C-c o a" . (lambda () (interactive) (find-file ran--algo-file)))
                       ("C-c o i" . (lambda () (interactive) (find-file ran--private-notes)))
                       ("C-c o r" . (lambda () (interactive) (find-file user-init-file)))))
-(lazy-load-global-keys '(("C-c o h" . +httpd-start-currfile)) "init-simple-httpd")
+(lazy-load-global-keys '(("C-c o h" . my/httpd-start-currfile)) "init-simple-httpd")
 (lazy-load-global-keys '(("C-c o o" . crux-open-with)) "crux")
 
 ;; p for project
@@ -197,7 +197,7 @@
 ;; r C-c r instead C-x r as inaccessible
 
 ;; s for switch
-(lazy-load-global-keys '(("C-c s" . vanilla/tab-bar-switch-to-tab))
+(lazy-load-global-keys '(("C-c s" . my/tab-bar-switch-to-tab))
                        "init-tab-bar")
 
 ;; t for tab

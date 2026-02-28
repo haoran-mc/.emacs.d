@@ -25,37 +25,37 @@
 ;;; Code:
 
 ;;;###autoload
-(defun vanilla/scroll-half-page-down ()
+(defun my/scroll-half-page-down ()
   "Scroll down half a page."
   (interactive)
   (scroll-down (/ (window-body-height) 3)))
 
 ;;;###autoload
-(defun vanilla/scroll-half-page-up ()
+(defun my/scroll-half-page-up ()
   "Scroll up half a page."
   (interactive)
   (scroll-up (/ (window-body-height) 3)))
 
 ;;;###autoload
-(defun vanilla/move-to-window-top ()
+(defun my/move-to-window-top ()
   "Move the current line and cursor to the top third of the window."
   (interactive)
   (recenter-top-bottom 0))
 
 ;;;###autoload
-(defun vanilla/move-to-window-middle ()
+(defun my/move-to-window-middle ()
   "Move the current line and cursor to the middle of the window."
   (interactive)
   (recenter-top-bottom))
 
 ;;;###autoload
-(defun vanilla/move-to-window-bottom ()
+(defun my/move-to-window-bottom ()
   "Move the current line and cursor to the bottom third of the window."
   (interactive)
   (recenter-top-bottom -1))
 
 ;;;###autoload
-(defun vanilla/scroll-up-one-line ()
+(defun my/scroll-up-one-line ()
   "Scroll up one line and keep the cursor in its original position,
    unless the cursor is already at the top of the visible window,
    in which case, keep the cursor at the top of the visible window."
@@ -69,7 +69,7 @@
         (goto-char orig-point))))
 
 ;;;###autoload
-(defun vanilla/scroll-down-one-line ()
+(defun my/scroll-down-one-line ()
   "Scroll down one line and keep the cursor in its original position,
    unless the cursor is already at the bottom of the visible window,
    in which case, keep the cursor at the bottom of the visible window."
@@ -83,25 +83,25 @@
         (goto-char orig-point))))
 
 ;;;###autoload
-(defun vanilla/scroll-left-half-page ()
+(defun my/scroll-left-half-page ()
   "Scroll the window left by half the page height."
   (interactive)
   (scroll-left (/ (window-body-height) 2)))
 
 ;;;###autoload
-(defun vanilla/scroll-right-half-page ()
+(defun my/scroll-right-half-page ()
   "Scroll the window right by half the page height."
   (interactive)
   (scroll-right (/ (window-body-height) 2)))
 
 ;;;###autoload
-(defun vanilla/move-cursor-8-lines-down ()
+(defun my/move-cursor-8-lines-down ()
   "Move the cursor down by 8 lines."
   (interactive)
   (next-line 8))
 
 ;;;###autoload
-(defun vanilla/move-cursor-8-lines-up ()
+(defun my/move-cursor-8-lines-up ()
   "Move the cursor up by 8 lines."
   (interactive)
   (previous-line 8))

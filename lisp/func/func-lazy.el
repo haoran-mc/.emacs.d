@@ -26,7 +26,7 @@
 
 
 ;;;###autoload
-(defun vanilla/upcase-word ()
+(defun my/upcase-word ()
   "Convert the entire word at point to uppercase."
   (interactive)
   (save-excursion
@@ -35,7 +35,7 @@
         (upcase-region (car bounds) (cdr bounds))))))
 
 ;;;###autoload
-(defun vanilla/downcase-word ()
+(defun my/downcase-word ()
   "Convert the entire word at point to lowercase."
   (interactive)
   (save-excursion
@@ -44,20 +44,20 @@
         (downcase-region (car bounds) (cdr bounds))))))
 
 ;;;###autoload
-(defun vanilla/merge-line-down ()
+(defun my/merge-line-down ()
   "Merge the current line with the line below it."
   (interactive)
   (next-line)
   (delete-indentation))
 
 ;;;###autoload
-(defun vanilla/clear-current-line ()
+(defun my/clear-current-line ()
   "Delete the current line without removing the final newline."
   (interactive)
   (delete-region (point-at-bol) (point-at-eol)))
 
 ;;;###autoload
-(defun vanilla/smart-kill-line ()
+(defun my/smart-kill-line ()
   "Kill to the end of the line and kill whole line on the next call.
 1. xxx|xxx  kill-line
 2. xxxxxx|  clear-current-line
@@ -68,14 +68,14 @@
     (move-end-of-line 1)
     (cond ((bolp) (kill-line))           ;; 空行
           ((= orig-point (point))        ;; 光标位于行尾
-           (vanilla/clear-current-line))
+           (my/clear-current-line))
           ((= orig-point (point-at-bol)) ;; 光标位于行首
-           (vanilla/clear-current-line))
+           (my/clear-current-line))
           (t (goto-char orig-point)      ;; 光标位于行中
              (kill-line)))))
 
 ;;;###autoload
-(defun vanilla/mark-whole-word ()
+(defun my/mark-whole-word ()
   "Mark the whole word at point without moving the cursor."
   (interactive)
   (let ((bounds (bounds-of-thing-at-point 'word)))
@@ -84,26 +84,7 @@
       (goto-char (cdr bounds)))))
 
 ;;;###autoload
-(defun vanilla/indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer."
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (indent-region (region-beginning) (region-end))
-          (message "Indented selected region."))
-      (progn
-        (vanilla/indent-buffer)
-        (message "Indented buffer.")))))
-
-;;;###autoload
-(defun vanilla/indent-buffer ()
-  "Indent the currently visited buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-;;;###autoload
-(defun vanilla/create-scratch-buffer ()
+(defun my/create-scratch-buffer ()
   "Create a scratch buffer."
   (interactive)
   (switch-to-buffer (get-buffer-create "*scratch*"))

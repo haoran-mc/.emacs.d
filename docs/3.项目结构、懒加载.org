@@ -13,7 +13,6 @@
 * 自定义函数
 1. 以 ~ran/~ 为前缀的可调用函数
 2. 以 ~my/~ 为前缀的内部使用函数
-3. 以 ~vanilla/~ 为前缀的增强函数
 
 * lazy-load [[file:package:lazy-load.org]]
 基础包不需要 lazy-load，比如 consult。

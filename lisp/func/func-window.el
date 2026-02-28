@@ -24,40 +24,40 @@
 
 ;;; Code:
 
-(defun vanilla/split-window-below-with-balance ()
+(defun my/split-window-below-with-balance ()
   "Balance windows after split window, and move cursor to the new window."
   (interactive)
   (split-window-below)
   (other-window 1)
   (balance-windows))
 
-(defun vanilla/split-window-up-with-balance ()
+(defun my/split-window-up-with-balance ()
   "Balance windows after split window, split window below but cursor stay up still."
   (interactive)
   (split-window-below)
   (balance-windows))
 
-(defun vanilla/split-window-right-with-balance ()
+(defun my/split-window-right-with-balance ()
   "Balance windows after split window, and move cursor to the new window."
   (interactive)
   (split-window-right)
   (other-window 1)
   (balance-windows))
 
-(defun vanilla/split-window-left-with-balance ()
+(defun my/split-window-left-with-balance ()
   "Balance windows after split window, split window right but cursor stay left still."
   (interactive)
   (split-window-right)
   (balance-windows))
 
-(defun vanilla/delete-window-with-balance ()
+(defun my/delete-window-with-balance ()
   "Balance windows after delete current window."
   (interactive)
   (delete-window)
   (balance-windows))
 
 ;;;###autoload
-(defun vanilla/toggle-maximize-buffer()
+(defun my/toggle-maximize-buffer()
   "Maximize buffer."
   (interactive)
   (if (= 1 (length (window-list)))
@@ -85,7 +85,7 @@
     (when other-buffer
       (set-window-buffer (next-window) other-buffer))))
 
-(defun vanilla/exchange-split-window-position-structure ()
+(defun my/exchange-split-window-position-structure ()
   "Exchange vertically to horizontally or vice versa."
   (interactive)
   (if (eq (window-width) (frame-width))

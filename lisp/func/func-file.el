@@ -25,7 +25,7 @@
 ;;; Code:
 
 ;;;###autoload
-(defun vanilla/rename-current-file (newname)
+(defun my/rename-current-file (newname)
   "Rename current visiting file to NEWNAME.
 If NEWNAME is a directory, move file to it."
   (interactive
@@ -45,7 +45,7 @@ If NEWNAME is a directory, move file to it."
   (rename-buffer newname))
 
 ;;;###autoload
-(defun vanilla/delete-current-file (file)
+(defun my/delete-current-file (file)
   "Delete current visiting FILE."
   (interactive
    (list (or buffer-file-name
@@ -55,7 +55,7 @@ If NEWNAME is a directory, move file to it."
     (delete-file file)))
 
 ;;;###autoload
-(defun vanilla/copy-current-file (new-path &optional overwrite-p)
+(defun my/copy-current-file (new-path &optional overwrite-p)
   "Copy current buffer's file to `NEW-PATH'.
 If `OVERWRITE-P', overwrite the destination file without
 confirmation."
@@ -71,7 +71,7 @@ confirmation."
     (copy-file old-path new-path (or overwrite-p 1))))
 
 ;;;###autoload
-(defun vanilla/copy-current-filename (file)
+(defun my/copy-current-filename (file)
   "Copy the full path to the current FILE."
   (interactive
    (list (or buffer-file-name
@@ -80,7 +80,7 @@ confirmation."
   (message "Copying '%s' to clipboard" file))
 
 ;;;###autoload
-(defun vanilla/copy-current-buffer-name ()
+(defun my/copy-current-buffer-name ()
   "Copy the name of current buffer."
   (interactive)
   (kill-new (buffer-name))
