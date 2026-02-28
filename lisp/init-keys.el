@@ -50,7 +50,7 @@
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 (lazy-load-global-keys '(("C-." . ran/format-code-dwim)) "init-formatter")
-(lazy-load-global-keys '(("C-;" . avy-goto-char)) "init-avy")
+(lazy-load-global-keys '(("C-;" . avy-goto-word-0)) "init-avy") ;; evil-avy-goto-word-0 with evil motion
 (lazy-load-global-keys '(("C-?" . vundo)) "init-vundo") ;; keep C-/ undo, use C-? vundo instead undo-redo
 
 ;; h for help
