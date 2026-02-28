@@ -88,11 +88,6 @@
 	url = git@github.com:abo-abo/avy.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/ace-pinyin"]
-	path = site-lisp/ace-pinyin
-	url = git@github.com:cute-jumper/ace-pinyin.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/vundo"]
 	path = site-lisp/vundo
 	url = git@github.com:casouri/vundo.git

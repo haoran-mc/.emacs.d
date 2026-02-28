@@ -20,13 +20,8 @@
 
 ;;; Commentary:
 
-;;; Require:
-(require 'avy)
-(require 'ace-pinyin)
-
-
 ;;; Code:
-(ace-pinyin-global-mode +1)
+(require 'avy)
 
 (setq avy-background t
       avy-all-windows nil

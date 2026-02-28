@@ -20,6 +20,7 @@
 
 ;;; Commentary:
 ;; 1. 需要预加载的函数放在这，不需要预加载的函数放在 func-lazy.el
+;;    不应该出现 (lazy-load-global-keys '(...) "init-funcs") 的表达
 ;; 2. 内部调用的函数使用 my/ 前缀，手动调用的函数使用 ran/ 前缀
 
 ;;; Code:

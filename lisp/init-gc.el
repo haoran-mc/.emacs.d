@@ -24,6 +24,11 @@
 
 ;;; Code:
 
+
+;; 控制 Emacs 在 GC 时是否压缩字体缓存，使用字体缓存可以避免卡顿
+(setq inhibit-compacting-font-caches t)
+
+
 (require 'gcmh)
 
 (add-hook 'after-init-hook 'gcmh-mode)

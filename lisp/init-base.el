@@ -76,9 +76,6 @@
 ;; Delete selected part when type
 (delete-selection-mode 1)
 
-;; 使用字体缓存，避免卡顿
-(setq inhibit-compacting-font-caches t)
-
 ;; Improve display
 (setq display-raw-bytes-as-hex t
       redisplay-skip-fontification-on-input t)

@@ -82,12 +82,12 @@
 
 
 ;; so-long ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun my-enable-so-long-maybe ()
+(defun my/enable-so-long-maybe ()
   "Enable so-long-mode if the file size is greater than 1MB."
   (when (> (buffer-size) 1000000)
     (so-long-mode 1)))
 
-(add-hook 'find-file-hook 'my-enable-so-long-maybe)
+(add-hook 'find-file-hook 'my/enable-so-long-maybe)
 
 
 ;; help ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
