@@ -27,20 +27,28 @@
 (defvar ran--os-linux (eq system-type 'gnu/linux))
 (defvar ran--os-mac (eq system-type 'darwin))
 
-(defvar ran--bookmark-file "~/haoran/no/org/bookmark-default.el")
-(defvar ran--org-directory "~/haoran/no/org/sync-notes")
-(defvar ran--org-agenda-files (list "~/haoran/no/org/sync-notes/org-task"
-                                    "~/haoran/no/org/work-agenda/work-todo.org"))
+(defvar ran--bookmark-file "~/haoran/note/org/bookmark-default.el")
+(defvar ran--org-directory "~/haoran/note/org/sync-notes")
+(defvar ran--org-agenda-files (list "~/haoran/note/org/sync-notes/org-task"
+                                    "~/haoran/note/org/work-agenda/work-todo.org"))
 
+(defvar ran--private-notes (expand-file-name "~/haoran/note/org/wiki/index.org"))
+(defvar ran--centre        (expand-file-name "~/haoran/note/org/sync-notes/centre.org"))
+(defvar ran--github-page   (expand-file-name "~/haoran/gr/haoran-mc.github.io"))
+(defvar ran--trash-dir     (expand-file-name "~/haoran/tr"))
+(defvar ran--algo-file     (expand-file-name "~/haoran/note/org/wiki/algorithm.org"))
+(defvar ran--pandoc-dir    (expand-file-name "~/haoran/note/org/export/pandoc-docx"))
 
-(defvar ran--private-notes "~/haoran/no/org/wiki/index.org")
-(defvar ran--public-notes "~/haoran/no/org/site/index.org")
-(defvar ran--centre "~/haoran/no/org/sync-notes/centre.org")
-(defvar ran--github-page "~/haoran/gr/haoran-mc.github.io")
-(defvar ran--trash-dir "~/haoran/tr")
-(defvar ran--algo-file "~/haoran/no/org/wiki/algorithm.org")
+;; site
+(defvar ran--public-notes  (expand-file-name "~/haoran/note/org/site/index.org"))
+(defvar ran--site-org-dir  (expand-file-name "~/haoran/note/org/site"))
+(defvar ran--site-html-dir (expand-file-name "~/haoran/gr/haoran-mc.github.io"))
+(defvar ran--wiki-org-dir  (expand-file-name "~/haoran/note/org/wiki"))
+(defvar ran--my-export-dir (expand-file-name "~/haoran/note/org/export/org-preview"))
 
-
+;; work
+(defvar ran--work-journay-file (expand-file-name "~/haoran/note/org/work-agenda/work-journay.org"))
+(defvar ran--work-todo-file    (expand-file-name "~/haoran/note/org/work-agenda/work-todo.org"))
 
 
 (provide 'init-variables)

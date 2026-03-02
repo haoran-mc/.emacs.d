@@ -98,9 +98,7 @@ from codepoint-start."
                        ("[#B]"             . ?🅱)
                        ("[#C]"             . ?🅲)
                        ("[#D]"             . ?🅳)
-                       ("[#E]"             . ?🅴)
-                       ("~/haoran/gr/haoran-mc.github.io/images" . ?A)
-                       ("~/haoran/no/org/export/images" . ?B))))
+                       ("[#E]"             . ?🅴))))
     (setq prettify-symbols-alist
           (append fancy-chars prettify-symbols-alist)))
   (prettify-symbols-mode))

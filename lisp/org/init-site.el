@@ -26,12 +26,8 @@
 (require 'ox-html)
 (require 'ox-publish)
 (require 'init-simple-httpd)
+(require 'init-variables)
 
-
-(defvar ran--site-org-dir  (expand-file-name "~/haoran/no/org/site"))
-(defvar ran--site-html-dir (expand-file-name "~/haoran/gr/haoran-mc.github.io"))
-(defvar ran--wiki-org-dir  (expand-file-name "~/haoran/no/org/wiki"))
-(defvar ran--my-export-dir (expand-file-name "~/haoran/no/org/export/org-preview"))
 
 ;; see init-ox.el for more
 (setq org-html-postamble nil

@@ -23,6 +23,7 @@
 
 ;;; Code:
 (require 'ox)
+(require 'init-variables)
 
 (setq org-export-use-babel t
       org-export-coding-system 'utf-8
@@ -95,7 +96,7 @@
 (defun ran/org-pandoc-convert-to-docx ()
   "Convert current buffer file to docx format by Pandoc."
   (interactive)
-  (let ((docx-file (concat (expand-file-name "~/haoran/no/org/export/pandoc-docx")
+  (let ((docx-file (concat (expand-file-name ran--pandoc-dir)
                            "/"
                            (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))
                            ".docx"))

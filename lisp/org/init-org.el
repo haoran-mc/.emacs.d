@@ -25,6 +25,7 @@
 (require 'org)
 (require 'org-tempo) ;; <s
 (require 'func-org)
+(require 'init-variables)
 
 ;;; Code:
 (setq org-directory ran--org-directory
@@ -164,7 +165,7 @@ TODO kwd."
       org-capture-templates `(("j" "journay")
                               ("jd" "journay diary" entry (file+datetree "org-diary/diary.org")
                                "* %<%H:%M>\n%?\n")
-                              ("jw" "journay work" entry (file+datetree "~/haoran/no/org/work-agenda/work-journay.org")
+                              ("jw" "journay work" entry (file+datetree ,ran--work-journay-file)
                                "* %<%H:%M> - %^{title}\n%?")
                               
 
@@ -178,7 +179,7 @@ TODO kwd."
                               ("te" "todo emacs" entry (file+headline "org-task/t-e.org" "inbox")
                                "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
-                              ("tw" "todo work" entry (file+headline "~/haoran/no/org/work-agenda/work-todo.org" "inbox")
+                              ("tw" "todo work" entry (file+headline ,ran--work-todo-file "inbox")
                                "* TODO %<%y%m%d %H:%M %a> %^{title}\n%?"
                                :prepend t)
                               
