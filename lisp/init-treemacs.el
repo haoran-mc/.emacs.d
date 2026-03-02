@@ -84,7 +84,7 @@
 (define-key treemacs-mode-map (kbd "pa") #'treemacs-add-project-to-workspace)
 (define-key treemacs-mode-map (kbd "pd") #'treemacs-remove-project-from-workspace)
 ;; width
-(define-key treemacs-mode-map (kbd "g") #'treemacs-refresh)
+(define-key treemacs-mode-map (kbd "<f5>") #'treemacs-refresh)
 (define-key treemacs-mode-map (kbd "W") #'treemacs-set-width)
 (define-key treemacs-mode-map (kbd "/") #'treemacs-common-helpful-hydra)
 (define-key treemacs-mode-map (kbd "?") #'treemacs-advanced-helpful-hydra)
@@ -93,6 +93,8 @@
 (define-key treemacs-mode-map (kbd "C-w j") 'windmove-down)
 (define-key treemacs-mode-map (kbd "C-w k") 'windmove-up)
 (define-key treemacs-mode-map (kbd "C-w l") 'windmove-right)
+(define-key treemacs-mode-map (kbd "g") #'beginning-of-buffer)
+(define-key treemacs-mode-map (kbd "G") 'end-of-buffer)
 
 ;; keeping my fringe settings
 (advice-remove #'treemacs-select-window #'doom-themes-hide-fringes-maybe)

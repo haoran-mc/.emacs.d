@@ -61,8 +61,8 @@
 (define-key dirvish-mode-map (kbd "k") 'dired-previous-line)
 (define-key dirvish-mode-map (kbd "l") 'dired-find-file)
 (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
-(define-key dirvish-mode-map (kbd "M-<") #'beginning-of-buffer)
-(define-key dirvish-mode-map (kbd "M->") #'end-of-buffer)
+(define-key dirvish-mode-map (kbd "g") #'beginning-of-buffer)
+(define-key dirvish-mode-map (kbd "G") #'end-of-buffer)
 (define-key dirvish-mode-map (kbd "C-d") #'my/scroll-half-page-up)
 (define-key dirvish-mode-map (kbd "C-u") #'my/scroll-half-page-down)
 ;; file copy, move, create, delete
@@ -81,7 +81,7 @@
 (define-key dirvish-mode-map (kbd "v") 'dired-display-file) ;; underused function
 ;; refresh
 (define-key dirvish-mode-map (kbd "C-/") 'dired-undo)
-(define-key dirvish-mode-map (kbd "g") 'revert-buffer)
+(define-key dirvish-mode-map (kbd "<f5>") 'revert-buffer)
 ;; quit
 (define-key dirvish-mode-map (kbd "q") 'dirvish-quit)
 ;; other
