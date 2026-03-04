@@ -25,7 +25,8 @@
 ;; g++ -o a.out main.cpp -g -lm -Wall
 (defun my/compile-and-run ()
   (interactive)
-  (let ((command (format "g++ -o a.out %s && ./a.out" (buffer-file-name))))
+  (let* ((file (shell-quote-argument (buffer-file-name)))
+         (command (format "g++ -o a.out %s && ./a.out" file)))
     (eshell)
     (insert command)
     (eshell-send-input)))
