@@ -34,7 +34,7 @@
                         "s-W"
                         "s-z"
                         "C-\\" "s-c" "s-x" "s-v" "C-6"
-                        "M-x"
+                        "M-:" ;; eval-expression
                         "M-z" ;; zap-to-char like vim df?
                         "C-t" ;; transpose-chars
                         "M-<" "M->" ;; beginning-of-buffer end-of-buffer
@@ -72,8 +72,7 @@
 
 ;; here is M-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; M-? -> cursor move and mark
-(lazy-load-set-keys '(("M-:" . execute-extended-command)
-                      ("M-/" . comment-dwim))) ;; dabbrev-expand
+(lazy-load-set-keys '(("M-/" . comment-dwim))) ;; dabbrev-expand
 
 (lazy-load-global-keys '(("M-<backspace>" . delete-block-backward))
                        "delete-block")
