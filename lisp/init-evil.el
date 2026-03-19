@@ -47,15 +47,14 @@
 ;; before ↑
 (add-subdirs-to-load-path "~/Documents/emacs/local-packages/evil")
 (require 'evil)
-(add-hook 'after-init-hook #'evil-mode)
+(evil-mode 1)
 
 (setq evil-insert-state-cursor 'bar
       evil-emacs-state-modes '(eshell-mode term-mode vterm-mode ;; term mode
-                                           magit-mode magit-popup-mode ;; git mode
+                                           magit-mode magit-popup-mode vc-annotate-mode ;; git
                                            dired-mode dirvish-mode treemacs-mode ;; dired mode
                                            org-agenda-mode ;; org mode
                                            xref--xref-buffer-mode
-                                           vc-annotate-mode
                                            ))
 
 ;; Silence line out of range error.
@@ -76,6 +75,9 @@
 
 (with-eval-after-load 'org
   (evil-define-key 'normal org-mode-map (kbd "/") #'consult-line))
+
+(with-eval-after-load 'info ;; 显式绑定，优先级高于 evil-emacs-state-modes
+  (evil-set-initial-state 'Info-mode 'emacs))
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
