@@ -6,12 +6,12 @@
 #+begin_example
   mv ~/.emacs.d ~/.emacs.d.bak
   git clone --depth=1 git@github.com:haoran-mc/.emacs.d.git ~/.emacs.d
-  cd ~/.emacs.d && ./submodule init
+  cd ~/.emacs.d && ./submodule.sh init
 #+end_example
 
 1. adjusting the key rate
 2. M-x all-the-icons-install-fonts
-3. run bin/scripts.sh (bookmark-files.sh...)
+3. run scripts in bin/ as needed (bookmark-files.sh...)
 
 
 *dependencies:*
