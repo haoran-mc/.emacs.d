@@ -1,0 +1,26 @@
+init.el
+  c0fea9ee0cebc83f 62-67,70
+lisp/init-straight.el
+  c0fea9ee0cebc83f 1-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "6a761f75264d3306e6f7646016be1c0b08371de7",
+  "prompts": {
+    "c0fea9ee0cebc83f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "83794963-ee8f-413e-8b17-56f325e35ca8",
+        "model": "copilot/gpt-5.4"
+      },
+      "human_author": "haoran",
+      "messages": [],
+      "total_additions": 24888,
+      "total_deletions": 11,
+      "accepted_lines": 24879,
+      "overriden_lines": 7,
+      "messages_url": "https://usegitai.com/cas/3790c81061f88bcf3710e6f8df8bb33b2de4787fd7fc19adbead6f04ae27bd86"
+    }
+  }
+}
