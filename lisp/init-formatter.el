@@ -26,7 +26,7 @@
 (require 'reformatter)
 
 (reformatter-define reformatter-gofmt
-  :program "gofmt")
+  :program "goimports") ;; 不要使用 gofmt，它不会 remove import
 ;; → then this code generate two commands: reformatter-gofmt-buffer、reformatter-gofmt-region
 ;;                 and a local minor mode: reformatter-gofmt-on-save-mode
 ;; (add-hook 'go-mode-hook 'evgeni-gofmt-on-save-mode)
