@@ -27,6 +27,7 @@ init_zsh.sh
 /etc/
 /eln-cache/
 /eaf/
+/straight/
 
 .DS_Store
 

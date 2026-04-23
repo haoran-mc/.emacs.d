@@ -59,14 +59,15 @@
         ;; recursive search
         (add-subdirs-to-load-path subdir-path)))))
 
-(let ((userdir  (locate-user-emacs-file "lisp"))
-      (extdir   (locate-user-emacs-file "site-lisp"))
-      (themedir (locate-user-emacs-file "theme")))
-  (add-subdirs-to-load-path (file-name-directory userdir))
-  (add-subdirs-to-load-path (file-name-directory extdir))
-  (add-subdirs-to-load-path (file-name-directory themedir)))
+(dolist (dir (list (locate-user-emacs-file "lisp")
+                   (locate-user-emacs-file "theme")
+                   (locate-user-emacs-file "site-lisp/customize-libs")))
+  (when (file-directory-p dir)
+    (add-to-list 'load-path dir t)
+    (add-subdirs-to-load-path dir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+(require 'init-straight)
 (require 'init-variables)
 (require 'init-font)
 (require 'no-littering)
