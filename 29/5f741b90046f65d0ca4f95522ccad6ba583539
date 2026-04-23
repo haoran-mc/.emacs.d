@@ -1,0 +1,22 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "295f741b90046f65d0ca4f95522ccad6ba583539",
+  "prompts": {
+    "c0fea9ee0cebc83f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "83794963-ee8f-413e-8b17-56f325e35ca8",
+        "model": "copilot/gpt-5.4"
+      },
+      "human_author": "haoran",
+      "messages": [],
+      "total_additions": 14,
+      "total_deletions": 16,
+      "accepted_lines": 14,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/61f432fddcf08b9ca921c7e4cf69916979bfd9ac0ffb1a2cae718dd520df746f"
+    }
+  }
+}
