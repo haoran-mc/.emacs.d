@@ -76,7 +76,6 @@
 (require 'init-ui)
 (require 'init-mode)
 (require 'init-minibuffer) ;; minibuffer plugins 没有快捷键调用，所以需要开启加载
-(require 'init-windows)
 (require 'init-time)
 (require 'init-indent)
 (require 'init-evil)

@@ -198,19 +198,9 @@
 	url = git@github.com:dacap/keyfreq.git
 	shallow = true
 	ignore = all
-[submodule "site-lisp/popper"]
-	path = site-lisp/popper
-	url = git@github.com:karthink/popper.git
-	shallow = true
-	ignore = all
 [submodule "site-lisp/ht.el"]
 	path = site-lisp/ht.el
 	url = git@github.com:Wilfred/ht.el.git
-	shallow = true
-	ignore = all
-[submodule "site-lisp/ace-window"]
-	path = site-lisp/ace-window
-	url = git@github.com:abo-abo/ace-window.git
 	shallow = true
 	ignore = all
 [submodule "site-lisp/hydra"]
