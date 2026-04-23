@@ -66,12 +66,13 @@ This function is slow, so we have to use cache."
      (t (buffer-name)))))
 
 (defun +smart-file-name-cached ()
-  (if (eq (buffer-name) (car +smart-file-name-cache))
+  (let ((cache-key (list (current-buffer) (buffer-file-name))))
+    (if (equal cache-key (car +smart-file-name-cache))
       (cdr +smart-file-name-cache)
-    (let ((file-name (+smart-file-name)))
-      (setq +smart-file-name-cache
-            (cons (buffer-name) file-name))
-      file-name)))
+      (let ((file-name (+smart-file-name)))
+        (setq +smart-file-name-cache
+              (cons cache-key file-name))
+        file-name))))
 
 ;; time...
 (setq mode-line-misc-info (cdr mode-line-misc-info))

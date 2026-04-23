@@ -139,16 +139,13 @@
 (scroll-bar-mode -1)
 
 
-(defun fixed-do-after-load-evaluation (abs-file)
-  "Override `do-after-load-evaluation' and run additional functions based on file name."
-  (dolist (a-l-element after-load-alist)
-    (when (and (stringp (car a-l-element))
-               (string-match-p (car a-l-element) abs-file))
-      (mapc #'funcall (cdr a-l-element))))
-  (run-hook-with-args 'after-load-functions abs-file))
+(defun my/suppress-package-cl-deprecated-warning (fn type message &rest args)
+      "Suppress the legacy `cl' package deprecation warning."
+      (unless (string-match-p "\\`Package cl is deprecated\\'" message)
+            (apply fn type message args)))
 
-;; remove *Messages* warning: "Package cl is deprecated"
-(advice-add 'do-after-load-evaluation :override #'fixed-do-after-load-evaluation)
+;; Keep Emacs' original load handling and suppress only this one noisy warning.
+(advice-add 'display-warning :around #'my/suppress-package-cl-deprecated-warning)
 
 
 ;; bookmark ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
