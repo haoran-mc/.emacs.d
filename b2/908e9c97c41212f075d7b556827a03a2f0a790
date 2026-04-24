@@ -1,0 +1,24 @@
+docs/1.包管理-straight.el.org
+  c0fea9ee0cebc83f 11,13-15,20-68,70-75,78,80-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.2",
+  "base_commit_sha": "b2908e9c97c41212f075d7b556827a03a2f0a790",
+  "prompts": {
+    "c0fea9ee0cebc83f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "83794963-ee8f-413e-8b17-56f325e35ca8",
+        "model": "copilot/gpt-5.4"
+      },
+      "human_author": "haoran",
+      "messages": [],
+      "total_additions": 93,
+      "total_deletions": 17,
+      "accepted_lines": 24856,
+      "overriden_lines": 9,
+      "messages_url": "https://usegitai.com/cas/c9cb0f83193efcca53761f5b76c948777b6da2b86b828452db15d21eeb1c0a84"
+    }
+  }
+}
