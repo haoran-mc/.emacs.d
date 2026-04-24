@@ -1,0 +1,83 @@
+
+- *package.el* ：无法固定包的版本，每次更新都会拉取最新版本；
+- *use-package* ：不是包管理器，是声明配置和懒加载方式的工具，可以和 package.el、straight.el 一起用；
+
+  可以先 git 下载指定版本的包，然后 use-package ~load-path~ 包路径，但是这样就失去了包下载功能。而我不需要 use-package 的管理，为了懒加载还要学习一个描件的使用，负担重。
+
+- *straight.el* ：把第三方包源码放在 straight/repos/，构建结果放在 straight/build/，更适合做版本固定、源码可见、按仓库管理依赖；
+- *borg、el-egt* ：配置复杂；
+- *quelpa* ：没有了解这个包是干什么用的；
+- *submodule* ：之前的包管理方式，但是删除包时不容易判断依赖关系；
+
+  # https://emacs-china.org/t/emacs/7116
+
+
+
+* straight.el 用法
+1. bootstrap 文件在 lisp/init-straight.el
+2. straight 的源码仓库默认放在 straight/repos/
+3. straight 的构建产物默认放在 straight/build/
+4. 原先的 submodule 包清单现在集中写在 =my/straight-submodule-packages= 里，再用 ~straight-use-package~ 逐个安装
+
+
+*bootstrap 示例：*
+
+#+begin_src emacs-lisp
+  (setq straight-vc-git-default-clone-depth 1
+        straight-use-package-by-default nil)
+
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent
+           'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+#+end_src
+
+
+*声明包的方式：*
+
+- 直接使用 straight 默认 recipe：
+
+#+begin_src emacs-lisp
+  (straight-use-package 'vertico)
+  (straight-use-package 'consult)
+#+end_src
+
+- 显式写 GitHub recipe：
+
+#+begin_src emacs-lisp
+  (straight-use-package
+   '(go-mode :type git :host github :repo "dominikh/go-mode.el"))
+#+end_src
+
+- 使用 Emacs 内置包：
+
+#+begin_src emacs-lisp
+  (straight-use-package '(org :type built-in))
+#+end_src
+
+
+*常用命令：*
+
+- ~M-x straight-pull-all~ ：更新所有包仓库
+- ~M-x straight-rebuild-package~ ：重建单个包
+- ~M-x straight-rebuild-all~ ：重建全部包
+- ~M-x straight-check-all~ ：检查本地包状态
+- ~M-x straight-freeze-versions~ ：写入当前版本锁定文件
+- ~M-x straight-thaw-versions~ ：按版本锁定文件恢复版本
+
+
+*使用上的注意点：*
+
+- straight.el 首次启动会从 GitHub 拉仓库；网络不稳定时，首装和大批量更新都可能失败。
+- 如果需要代理，通常要分别处理两层：
+  1. Git 的 clone/fetch
+  2. Emacs 的 ~url-retrieve-synchronously~ bootstrap 请求

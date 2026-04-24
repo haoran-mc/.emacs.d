@@ -9,7 +9,7 @@
 ;;; Code:
 
 (setq straight-vc-git-default-clone-depth 1
-  straight-use-package-by-default nil)
+      straight-use-package-by-default nil)
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
