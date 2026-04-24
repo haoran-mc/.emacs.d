@@ -6,12 +6,13 @@
 #+begin_example
   mv ~/.emacs.d ~/.emacs.d.bak
   git clone --depth=1 git@github.com:haoran-mc/.emacs.d.git ~/.emacs.d
-  cd ~/.emacs.d && ./submodule.sh init
+  emacs
 #+end_example
 
 1. adjusting the key rate
-2. M-x all-the-icons-install-fonts
-3. run scripts in bin/ as needed (bookmark-files.sh...)
+2. wait for straight.el to install packages on first startup
+3. M-x all-the-icons-install-fonts
+4. run scripts in bin/ as needed (bookmark-files.sh...)
 
 
 *dependencies:*
@@ -27,7 +28,7 @@
 
 *features:*
 
-1. managing plugins via submodules
+1. managing plugins via straight.el
 2. accelerated startup with autoload
 3. nice org-mode export and publishing
 
