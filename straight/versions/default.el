@@ -47,7 +47,7 @@
  ("no-littering" . "3c40e8a1dd7b20c6db90874b7b3088089a48acdc")
  ("nongnu-elpa" . "9589680ec7cf0ac153aa0a0c7f9feae602826ad6")
  ("orderless" . "3a2a32181f7a5bd7b633e40d89de771a5dd88cc7")
- ("org-appear" . "32ee50f8fdfa449bbc235617549c1bccb503cb09")
+ ("org-expose-emphasis-markers" . "5ca3994f2e13b342e0b9d353b66b892e34c7b784")
  ("org-superstar-mode" . "ce6f7f421f995893f72d75ffdfa92964b9bea2e3")
  ("painting-theme" . "4781aaf9c00343c8e9820c960f848bfb232dab72")
  ("pfuture" . "19b53aebbc0f2da31de6326c495038901bffb73c")

@@ -23,23 +23,20 @@
 ;;
 
 ;;; Code:
-(require 'org-appear)
+(require 'org-expose-emphasis-markers)
 
-(setq org-appear-trigger 'manual
-      org-appear-autoemphasis t ;; emphasis(bold, verbatim, code, italic, underline, strike-through)
-      org-appear-autolinks t ;; link
-      org-appear-autosubmarkers t)
+;; 1. make sure `org-hide-emphasis-markers' is true
+(setq org-hide-emphasis-markers t)
 
-(add-hook 'org-mode-hook (lambda ()
-                           (org-appear-mode +1)
-                           (add-hook 'evil-insert-state-entry-hook
-                                     #'org-appear-manual-start
-                                     nil
-                                     t)
-                           (add-hook 'evil-insert-state-exit-hook
-                                     #'org-appear-manual-stop
-                                     nil
-                                     t)))
+;; 2. only expose when in evil insert mode
+(setq org-expose-emphasis-markers-inhibit-determine-function
+      (lambda () (not (evil-insert-state-p))))
+
+;; 3. scope: expose only the emphasis element under cursor
+(setq org-expose-emphasis-markers-type 'item)
+
+;; 4. turn on the mode
+(add-hook 'org-mode-hook (lambda () (org-expose-emphasis-markers-mode t)))
 
 
 (provide 'init-org-appear)

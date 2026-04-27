@@ -81,7 +81,7 @@
 
     ;; org
     (org-superstar :type git :host github :repo "integral-dw/org-superstar-mode")
-    (org-appear :type git :host github :repo "awth13/org-appear")
+    (org-expose-emphasis-markers :type git :host github :repo "lorniu/org-expose-emphasis-markers")
 
     (hydra :type git :host github :repo "abo-abo/hydra")
     (avy :type git :host github :repo "abo-abo/avy")
