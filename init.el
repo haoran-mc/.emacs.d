@@ -67,9 +67,9 @@
     (add-subdirs-to-load-path dir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
-(require 'init-straight)
 (require 'init-variables)
 (require 'init-font)
+(require 'init-straight) ;; straight manage packages
 (require 'no-littering)
 (require 'init-base)
 (require 'init-funcs)
