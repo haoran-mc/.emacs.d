@@ -31,6 +31,7 @@
   '((no-littering :type git :host github :repo "emacscollective/no-littering")
     (auto-save :type git :host github :repo "manateelazycat/auto-save")
     (vundo :type git :host github :repo "casouri/vundo")
+    (evil :type git :host github :repo "emacs-evil/evil")
 
     ;; minibuffer
     (vertico :type git :host github :repo "minad/vertico")
@@ -40,6 +41,7 @@
     (rg :type git :host github :repo "dajva/rg.el")
 
     ;; ui
+    (painting-theme :type git :host github :repo "haoran-mc/painting-theme")
     (all-the-icons :type git :host github :repo "domtronn/all-the-icons.el")
     (rainbow-mode :type git :host github :repo "emacsmirror/rainbow-mode")
     (hl-todo :type git :host github :repo "tarsius/hl-todo")
@@ -67,6 +69,10 @@
     (web-mode :type git :host github :repo "fxbois/web-mode")
     (dockerfile-mode :type git :host github :repo "spotify/dockerfile-mode")
     (flymake-ruff :type git :host github :repo "erickgnavar/flymake-ruff")
+
+    (corfu :type git :host github :repo "minad/corfu")
+    (external-completion :type git :host github :repo "emacs-straight/external-completion")
+    (eglot :type git :host github :repo "joaotavora/eglot")
 
     (pyvenv :type git :host github :repo "jorgenschaefer/pyvenv")
     (reformatter :type git :host github :repo "purcell/emacs-reformatter")

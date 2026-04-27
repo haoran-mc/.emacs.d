@@ -45,7 +45,6 @@
       evil-symbol-word-search t)
 
 ;; before ↑
-(add-subdirs-to-load-path "~/Documents/emacs/local-packages/evil")
 (require 'evil)
 (evil-mode 1)
 

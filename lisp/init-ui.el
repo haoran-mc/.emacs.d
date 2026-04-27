@@ -43,8 +43,8 @@
 
 
 ;; load-theme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defvar my/theme "~/Documents/emacs/local-packages/painting-theme")
-(add-subdirs-to-load-path (file-name-directory my/theme))
+(defvar my/theme (locate-user-emacs-file "straight/repos/painting-theme"))
+(add-subdirs-to-load-path my/theme)
 (add-to-list 'custom-theme-load-path my/theme)
 
 (require 'doom-themes-ext-org)

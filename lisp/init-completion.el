@@ -28,7 +28,6 @@
 
 
 ;; corfu ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-subdirs-to-load-path "~/Documents/emacs/local-packages/corfu")
 (require 'corfu)
 (require 'corfu-popupinfo)
 (setq corfu-auto t        ;; enable auto completion
@@ -87,8 +86,6 @@
 
 
 ;; eglot ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-subdirs-to-load-path "~/Documents/emacs/local-packages/external-completion")
-(add-subdirs-to-load-path "~/Documents/emacs/local-packages/eglot")
 (add-hook 'eglot-managed-mode-hook
           #'(lambda ()
               (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
