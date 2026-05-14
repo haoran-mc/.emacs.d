@@ -73,14 +73,6 @@
 (global-auto-revert-mode 1)
 
 
-;; whitespace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Show trailing whitespaces
-(dolist (mode-hook '(prog-mode-hook markdown-mode-hook conf-mode-hook))
-  (add-hook mode-hook 'whitespace-mode))
-
-(setq whitespace-style '(face trailing))
-
-
 ;; so-long ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun my/enable-so-long-maybe ()
   "Enable so-long-mode if the file size is greater than 1MB."

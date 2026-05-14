@@ -23,7 +23,20 @@
 ;; 在各个语言中设置？
 
 ;;; Code:
-(setq-default indent-tabs-mode nil) ;; 使用空格缩进
+;; whitespace ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Show trailing whitespaces
+(require 'whitespace) ;; BUILT-IN
+(setq whitespace-style '(face trailing tabs tab-mark)
+      ;; trailing 行尾空格
+      ;; 给 tab 字符上色，使用 whitespace-tab 这个 face
+      ;; tab-mark 把 tab 替换成 whitespace-display-mappings 里定义的可视字符
+      whitespace-display-mappings '((tab-mark ?\t [?╌ ?╌ ?╌ ?>] [?- ?- ?- ?>]))) ;; ╌ ▸ →
+
+(global-whitespace-mode 1)
+
+
+;; indent ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default indent-tabs-mode nil) ;; 使用空格缩进，setq-default 对所有 buffer 生效，各 mode-hook 里再 setq-local 覆盖
 (setq-default tab-width 4) ;; 制表符宽度为 4 个空格
 
 
