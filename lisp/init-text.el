@@ -31,8 +31,20 @@
 ;; valign ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Pixel alignment for org/markdown tables
 (require 'valign)
+(defvar ran--valign-max-lines 500
+  "Maximum line count for enabling `valign-mode'.")
+
+(defun my/enable-valign-maybe ()
+  "Enable `valign-mode' only when buffer line count is acceptable."
+  (save-restriction
+    (widen)
+    (if (> (line-number-at-pos (point-max)) ran--valign-max-lines)
+        (when (bound-and-true-p valign-mode)
+          (valign-mode -1))
+      (valign-mode 1))))
+
 (dolist (mode-hook '(markdown-mode-hook org-mode-hook))
-  (add-hook mode-hook 'valign-mode))
+  (add-hook mode-hook #'my/enable-valign-maybe))
 (setq valign-fancy-bar t)
 
 
