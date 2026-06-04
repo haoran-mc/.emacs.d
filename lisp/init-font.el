@@ -30,7 +30,7 @@
                   (t 13)))
       (font-family (cond
                     (ran--os-mac "Liga SFMono Nerd Font")
-                    (ran--os-linux "SFMono Nerd Font Mono")
+                    (ran--os-linux "Liga SFMonoNerdFont")
                     (t "Ubuntu Mono"))))
   (defvar ran--font-family font-family)
   (defvar ran--unicode-font-family "LXGW WenKai")
