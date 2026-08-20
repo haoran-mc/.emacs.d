@@ -24,7 +24,6 @@
 (require 'avy)
 
 (setq avy-background t
-      avy-all-windows nil
       ;; 单页字符数量一般不会需要超过三个字符定位
       ;; 两个字符定位时，会优先使用倒叙的字符作为开头，建议左手按第一个字符，右手按第二个字符
       ;; ; 是 macvim 中 easymotion 的首字母，这里沿用
@@ -34,6 +33,8 @@
       ;; overlay is used during isearch, `pre' style makes avy keys evident.
       avy-styles-alist '((avy-isearch . pre))
       avy-case-fold-search nil)
+
+(setq-default avy-all-windows nil)
 
 (defun my/avy-goto-char-in-line-after-point (char)
   "Jump to CHAR in the current line, only after the current point."
