@@ -61,6 +61,7 @@
 (define-key dirvish-mode-map (kbd "k") 'dired-previous-line)
 (define-key dirvish-mode-map (kbd "l") 'dired-find-file)
 (define-key dirvish-mode-map (kbd "<return>") #'dired-find-file)
+(define-key dirvish-mode-map (kbd "<mouse-3>") #'dired-find-file) ;; 鼠标右键
 (define-key dirvish-mode-map (kbd "g") #'beginning-of-buffer)
 (define-key dirvish-mode-map (kbd "G") #'end-of-buffer)
 (define-key dirvish-mode-map (kbd "C-d") #'my/scroll-half-page-up)

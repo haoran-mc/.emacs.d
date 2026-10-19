@@ -216,6 +216,11 @@ TODO kwd."
                       ("M-," . org-mark-ring-goto)) ;; xref-pop-marker-stack
                     org-mode-map)
 
+(lazy-load-set-keys '(("<mouse-3>" . org-open-at-point) ;; xref-find-dfinitions，鼠标右键
+                      ("<mouse-4>" . org-mark-ring-goto) ;; xref-pop-marker-stack，鼠标侧键2
+                      ("<mouse-5>" . dired-jump)) ;; 鼠标侧键1
+                    org-mode-map)
+
 ;; e for export
 (lazy-load-set-keys '(("C-c e p" . my/org-preview-in-browser)) org-mode-map)
 
