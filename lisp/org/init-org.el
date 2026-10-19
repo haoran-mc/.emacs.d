@@ -32,6 +32,8 @@
       org-default-notes-file (expand-file-name "notes.org" org-directory)
       org-use-property-inheritance t ;; 子标题会继承父标题的属性
       org-list-allow-alphabetical t ;; 允许使用字母作为有序列表
+      org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ;; 有序列表的缩进结构
+                                      ("1)" . "1.") ("1." . "a."))
       org-return-follows-link nil ;; 需要提前进入插入模式，没有自定义的 RET 方便
       ;; (org-special-ctrl-a/e t) ;; 插入模式下的快捷键、跳到行首、行尾
       ;; (org-special-ctrl-k t) ;; 插入模式下的快捷键，删除到行尾
@@ -66,7 +68,6 @@
       ;; beautify
       org-startup-indented t ;; 标题的子级会相对于父级标题进行缩进，层次结构的视觉效果
       org-ellipsis " ⤵ " ;; 设置在折叠文本或被截断的文本中显示省略号的样式 ▼
-      org-list-demote-modify-bullet '(("+" . "-") ("1." . "a.") ("-" . "+")) ;; not know
       org-hide-emphasis-markers t ;; 隐藏强调标识符
       org-emphasis-alist `(("*" org-bold) ;; 在主题中声明、定义
                            ("=" org-verbatim)
