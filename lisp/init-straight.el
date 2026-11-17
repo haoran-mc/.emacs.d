@@ -99,6 +99,9 @@
     (s :type git :host github :repo "magnars/s.el")
     (f :type git :host github :repo "rejeep/f.el")
     (ht :type git :host github :repo "Wilfred/ht.el")
+
+    ;; ai
+    (gptel :type git :host github :repo "karthink/gptel")
     )
   "Packages that were previously managed as git submodules under site-lisp.")
 

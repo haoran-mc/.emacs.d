@@ -30,7 +30,7 @@
                 "%b")))
 
 (setq user-full-name "Haoran Liu")
-(setq user-mail-address "haoran.mc@foxmail.com")
+(setq user-mail-address "haoran.mc@qq.com")
 
 ;; 启用多字节字符集支持，允许使用和显示各种字符，包括中文、日文、韩文等
 (setq-default default-enable-multibyte-characters t)

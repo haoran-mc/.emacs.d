@@ -38,3 +38,4 @@ init_zsh.sh
 
 /.secret.el
 .aider*
+/.cache/

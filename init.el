@@ -86,6 +86,7 @@
 (require 'init-project)
 (require 'init-completion)
 ;; (require 'init-lsp) ;; 不过度追求加载速度
+(require 'init-ai)
 
 ;; funcs → hydra → keys
 (require 'init-hydra)
