@@ -64,7 +64,7 @@
 
 ;; hl-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'find-file-hook (lambda () (hl-line-mode 1))) ;; 高亮当前行
-(setq-default cursor-in-non-selected-windows t)
+(setq-default cursor-in-non-selected-windows t) ;; 分屏时，未选中的窗格也显示光标
 
 
 ;; autorevert ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

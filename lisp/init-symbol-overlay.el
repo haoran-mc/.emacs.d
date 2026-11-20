@@ -32,7 +32,7 @@
 
 (lazy-load-set-keys
  '(("n" . symbol-overlay-jump-next)
-   ("p" . symbol-overlay-jump-prev)
+   ("N" . symbol-overlay-jump-prev)
    ("r" . symbol-overlay-rename)
    ("R" . symbol-overlay-query-replace)
    ("<" . symbol-overlay-jump-first)

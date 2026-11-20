@@ -33,7 +33,7 @@
 (setq org-superstar-headline-bullets-list '("☯" "❅" "❂" "✸" "▸") ;; 五级标题已经够多了
       org-superstar-special-todo-items nil ;; 用于定义在标题行中特殊的待办事项标记的显示样式
       org-superstar-prettify-item-bullets t ;; 使用列表的美化
-      org-superstar-item-bullet-alist '((?- . ?◦) (?* . ?–) (?+ . ?•)))
+      org-superstar-item-bullet-alist '((?- . ?•) (?+ . ?◦) (?* . ?–)))
 
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
