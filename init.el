@@ -67,6 +67,9 @@
     (add-subdirs-to-load-path dir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+;; 1. 启动时就要生效的配置，在 init.el 中直接加载
+;; 2. 唯一调用方式为快捷键，在 init-keys.el 里定义键绑定懒加载，如 init-treemacs.el
+;; 3. 随文件类型启用的配置，在 init-mode.el 注册文件映射或主模式钩子，如 init-org.el
 (require 'init-gc)
 (require 'init-variables)
 (require 'init-font)
@@ -93,6 +96,8 @@
 (require 'init-hydra)
 (require 'init-keys)
 
+(require 'init-autoinsert)
+
 (run-with-idle-timer
  1 nil
  #'(lambda ()
@@ -104,20 +109,17 @@
      (require 'init-ligature)
      (require 'init-dirvish)
      (require 'init-isearch)
-     (require 'init-vundo)
      (require 'init-eldoc)
      (require 'init-text)
 
      ;; standalone apps
      (require 'init-shell)
      (require 'init-autosave)
-     (require 'init-autoinsert)
      (require 'init-keyfreq)))
 
 (run-with-idle-timer
  2 nil
  #'(lambda ()
-     (require 'init-org)
      (require 'init-modeline)))
 
 (if (display-graphic-p)

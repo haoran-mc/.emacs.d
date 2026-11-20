@@ -43,6 +43,7 @@ The test for presence of the car of ELT-CONS is done with `equal'."
 ;; 或者修改默认的 (后缀 . major-mode)，比如 (.json . json-mode)
 (dolist (elt-cons '(("\\.md$" . markdown-mode)
                     ("\\.markdown$" . markdown-mode)
+                    ("\\.org\\'" . (lambda () (require 'init-org) (org-mode)))
                     ("\\.go$" . go-mode)
                     ("\\.lua$" . lua-mode)
                     ("\\.rs$" . rust-mode)
@@ -75,7 +76,6 @@ The test for presence of the car of ELT-CONS is done with `equal'."
                     ("\\.cpp$" . c++-mode) ;; .cpp 文件为 c++-mode
                     ("\\.h$" . c++-mode)))
   (add-to-alist 'auto-mode-alist elt-cons))
-
 
 ;; 为 major-mode 自动加载相应配置，因为不会使用 keys 加载，而且预加载需要花费长时间
 (autoload 'markdown-mode "init-markdown")
