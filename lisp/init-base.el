@@ -67,6 +67,8 @@
       make-backup-files nil
       create-lockfiles nil)
 
+(global-so-long-mode 1)
+
 ;; 包含多版本文件的目录中，emacs 在加载文件时将优先选择最新的版本
 (setq load-prefer-newer t)
 

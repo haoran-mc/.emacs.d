@@ -31,13 +31,12 @@
 (setq auto-save-silent t) ;; quietly save
 (setq auto-save-delete-trailing-whitespace t) ;; automatically delete spaces at the end of the line when saving
 
-;;; custom predicates if you don't want auto save.
-;;; disable auto save mode when current filetype is an go file as messy gofmt.
+;; 按实际文件后缀跳过 .pgp 和 .gpg 文件的自动保存
 (setq auto-save-disable-predicates
       '((lambda ()
-          (string-suffix-p
-           "pgp"
-           (file-name-extension (buffer-name)) t))))
+          (when buffer-file-name
+            (member (downcase (or (file-name-extension buffer-file-name) ""))
+                    '("pgp" "gpg"))))))
 
 
 (provide 'init-autosave)

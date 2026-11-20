@@ -31,15 +31,11 @@
 
 (require 'gcmh)
 
-(add-hook 'after-init-hook 'gcmh-mode)
+(setq gcmh-idle-delay 10 ;; 空闲 10 秒后触发垃圾回收
+      gcmh-high-cons-threshold (* 300 1024 1024)) ;; 编辑时的 GC 分配阈值为 300 MiB
 
-(setq gcmh-idle-delay 10
-      ;; gcmh-verbose t
-      gcmh-high-cons-threshold #x12c00000) ;; 100MB
-
-;; (+ (* 500 1024 1024) 0)
-;;=> 524288000
-
+;; 初始化完成后启用 GCMH，由它接管 GC 阈值。
+(add-hook 'after-init-hook #'gcmh-mode)
 
 (provide 'init-gc)
 ;;; init-gc.el ends here

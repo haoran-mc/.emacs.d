@@ -67,6 +67,7 @@
     (add-subdirs-to-load-path dir)))
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+(require 'init-gc)
 (require 'init-variables)
 (require 'init-font)
 (require 'init-straight) ;; straight manage packages
@@ -109,7 +110,6 @@
 
      ;; standalone apps
      (require 'init-shell)
-     (require 'init-gc)
      (require 'init-autosave)
      (require 'init-autoinsert)
      (require 'init-keyfreq)))
@@ -117,8 +117,8 @@
 (run-with-idle-timer
  2 nil
  #'(lambda ()
-     (require 'init-modeline)
-     (require 'init-org)))
+     (require 'init-org)
+     (require 'init-modeline)))
 
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))

@@ -64,6 +64,7 @@
 
 ;; hl-line ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'find-file-hook (lambda () (hl-line-mode 1))) ;; 高亮当前行
+(setq-default cursor-in-non-selected-windows t)
 
 
 ;; autorevert ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -71,15 +72,6 @@
 (require 'autorevert)
 (setq auto-revert-verbose t)
 (global-auto-revert-mode 1)
-
-
-;; so-long ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun my/enable-so-long-maybe ()
-  "Enable so-long-mode if the file size is greater than 1MB."
-  (when (> (buffer-size) 1000000)
-    (so-long-mode 1)))
-
-(add-hook 'find-file-hook 'my/enable-so-long-maybe)
 
 
 ;; help ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

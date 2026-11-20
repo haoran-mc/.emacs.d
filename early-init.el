@@ -26,9 +26,6 @@
 ;; A big contributor to startup times is garbage collection. We up the gc threshold to
 ;; temporarily prevent it from running, and then reset it by the `gcmh' package.
 (setq gc-cons-threshold most-positive-fixnum)
-(add-hook 'after-init-hook
-          #'(lambda () (setq gc-cons-threshold 524288000)))
-;; 我有8G的内存，因此把这个值设置成500MB，Emacs在启动期间不许发生垃圾回收过程
 
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
