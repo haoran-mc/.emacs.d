@@ -22,8 +22,8 @@
 ;;; Code:
 
 ;; A simple benchmark of calls to Emacs require and load functions.
-;; (add-to-list 'load-path "~/.emacs.d/site-lisp/benchmark-init-el")
-;; (require 'benchmark-init-loaddefs)
+;; (add-to-list 'load-path "~/.emacs.d/straight/repos/benchmark-init-el")
+;; (require 'benchmark-init)
 ;; (benchmark-init/activate)
 
 ;; read-process-output-max: the maximum bytes read from processs in a single chunk (default is 4kb).
@@ -101,7 +101,6 @@
 (run-with-idle-timer
  1 nil
  #'(lambda ()
-     (require 'init-idle)
      (require 'init-parens)
 
      ;; load later plugins
