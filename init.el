@@ -90,36 +90,28 @@
 (require 'init-project)
 (require 'init-completion)
 ;; (require 'init-lsp) ;; 不过度追求加载速度
-(require 'init-ai)
 
 ;; funcs → hydra → keys
 (require 'init-hydra)
 (require 'init-keys)
 
 (require 'init-autoinsert)
+(require 'init-parens)
 
-(run-with-idle-timer
- 1 nil
- #'(lambda ()
-     (require 'init-parens)
+;; load later plugins
+(require 'init-git) ;; wait git
+(require 'init-ligature)
+(require 'init-dirvish)
+(require 'init-isearch)
+(require 'init-eldoc)
+(require 'init-text)
 
-     ;; load later plugins
-     (require 'init-git) ;; wait git
-     (require 'init-ligature)
-     (require 'init-dirvish)
-     (require 'init-isearch)
-     (require 'init-eldoc)
-     (require 'init-text)
+;; standalone apps
+(require 'init-shell)
+(require 'init-autosave)
+(require 'init-keyfreq)
 
-     ;; standalone apps
-     (require 'init-shell)
-     (require 'init-autosave)
-     (require 'init-keyfreq)))
-
-(run-with-idle-timer
- 2 nil
- #'(lambda ()
-     (require 'init-modeline)))
+(require 'init-modeline)
 
 (if (display-graphic-p)
     (if (eq 'light (frame-parameter nil 'background-mode))

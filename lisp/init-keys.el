@@ -116,6 +116,7 @@
 
 (lazy-load-global-keys '(("C-c a f" . fanyi-dwim2)) "fanyi")
 
+(lazy-load-global-keys '(("C-c a i" . gptel)) "init-ai")
 
 ;; b for buffer, bookmark
 (lazy-load-set-keys '(("C-c b m" . bookmark-set)
