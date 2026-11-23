@@ -22,8 +22,9 @@
 ;;; Code:
 
 ;; A simple benchmark of calls to Emacs require and load functions.
+;; 在此目录执行 make 命令生成 benchmark-init-loaddefs.el 文件
 ;; (add-to-list 'load-path "~/.emacs.d/straight/repos/benchmark-init-el")
-;; (require 'benchmark-init)
+;; (require 'benchmark-init-loaddefs)
 ;; (benchmark-init/activate)
 
 ;; read-process-output-max: the maximum bytes read from processs in a single chunk (default is 4kb).

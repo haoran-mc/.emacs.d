@@ -8,8 +8,12 @@
 
 ;;; Code:
 
-(setq straight-vc-git-default-clone-depth 1
-      straight-use-package-by-default nil)
+(setq straight-vc-git-default-clone-depth 1  ;; git 仓库默认深度为 1 的浅克隆
+      straight-use-package-by-default nil)  ;; use-package 用 :straight 显式启用 Straight 安装
+
+;; straight 默认在启动时扫描插件源码的修改时间，发现改动就重新构建，更新编译产物和自动加载文件
+;; 但是会增加启动时间，所以这里配置跳过启动扫描。只有手动执行 M-x straight-check-all 才会构建
+(setq straight-check-for-modifications '(find-when-checking only-once))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
