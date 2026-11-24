@@ -95,14 +95,13 @@
     (symbol-overlay :type git :host github :repo "wolray/symbol-overlay")
     (fanyi :type git :host github :repo "condy0919/fanyi.el")
     (popup :type git :host github :repo "auto-complete/popup-el")
-    (keyfreq :type git :host github :repo "dacap/keyfreq") ;; 跟踪 emacs 命令使用频率
     (benchmark-init :type git :host github :repo "dholm/benchmark-init-el") ;; 对 emacs 初始化进行基准测试
 
-    compat
-    (dash :type git :host github :repo "magnars/dash.el")
-    (s :type git :host github :repo "magnars/s.el")
-    (f :type git :host github :repo "rejeep/f.el")
-    (ht :type git :host github :repo "Wilfred/ht.el")
+    compat ;; 为旧版 emacs 提供新版 API 的兼容实现
+    (dash :type git :host github :repo "magnars/dash.el") ;; 列表处理
+    (s :type git :host github :repo "magnars/s.el") ;; 字符串处理
+    (f :type git :host github :repo "rejeep/f.el") ;; 文件和路径操作
+    (ht :type git :host github :repo "Wilfred/ht.el") ;; 哈希表操作
 
     ;; ai
     (gptel :type git :host github :repo "karthink/gptel")

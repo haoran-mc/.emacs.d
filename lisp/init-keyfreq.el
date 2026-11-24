@@ -23,9 +23,7 @@
 ;; https://blog.binchen.org/posts/how-to-be-extremely-efficient-in-emacs.html
 
 ;;; Code:
-
-
-(require 'keyfreq)
+(require 'keyfreq) ;; 跟踪 emacs 命令使用频率
 
 
 ;; https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-keyfreq.el
