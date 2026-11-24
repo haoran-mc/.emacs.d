@@ -92,5 +92,23 @@
   (add-hook 'org-mode-hook #'hl-todo-mode))
 
 
+;; rainbow-mode ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defvar-local my/rainbow-restore-hl-line nil)
+
+(defun my/rainbow-sync-hl-line ()
+  ;; 行高亮会影响 rainbow 的前景、背景色
+  ;; 只恢复由 Rainbow Mode 关闭的当前行高亮
+  (cond
+   ((bound-and-true-p rainbow-mode)
+    (when (bound-and-true-p hl-line-mode)
+      (setq my/rainbow-restore-hl-line t)
+      (hl-line-mode -1)))
+   (my/rainbow-restore-hl-line
+    (setq my/rainbow-restore-hl-line nil)
+    (hl-line-mode 1))))
+(add-hook 'rainbow-mode-hook #'my/rainbow-sync-hl-line)
+;; 打开 CSS 文件时，Rainbow Mode 先启用，等默认文件钩子开启行高亮后再同步。
+(add-hook 'find-file-hook #'my/rainbow-sync-hl-line 10)
+
 (provide 'init-ui)
 ;;; init-ui.el ends here

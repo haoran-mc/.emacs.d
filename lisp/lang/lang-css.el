@@ -28,11 +28,7 @@
 
 ;;; Code:
 
-(dolist (hook (list
-               'css-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (require 'rainbow-mode)
-                     (rainbow-mode))))
+(add-hook 'css-mode-hook #'rainbow-mode)
 
 (provide 'lang-css)
 ;;; lang-css.el ends here

@@ -23,15 +23,15 @@
 
 ;;; Require:
 (require 'hydra)
-(require 'major-mode-hydra)
-(require 'posframe)
+(require 'pretty-hydra)
+(require 'all-the-icons)
 
 ;;; Code:
 ;; hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq hydra-hint-display-type 'posframe)
 ;; 所以不使用 pretty-hydra-define 的方式定义也可以 posframe
 
-(defun hydra-set-posframe-show-params ()
+(defun hydra-set-posframe-show-params (&optional _theme)
   "Set hydra-posframe style."
   (setq hydra-posframe-show-params ;; cl-defun posframe-show
         `(:left-fringe 8
@@ -43,34 +43,16 @@
                        :lines-truncate t
                        :poshandler posframe-poshandler-window-top-right-corner)))
 (hydra-set-posframe-show-params)
-(add-hook 'after-load-theme-hook #'hydra-set-posframe-show-params t)
+(add-hook 'enable-theme-functions #'hydra-set-posframe-show-params)
+(add-hook 'disable-theme-functions #'hydra-set-posframe-show-params)
 
-;; major-mode-hydra ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'rainbow-mode-hook
-          #'(lambda ()
-              (hl-line-mode
-               (if (bound-and-true-p rainbow-mode) -1 +1))))
 
-(defun my/toggle-rainbow-mode ()
-  "Toggle rainbow mode."
-  (interactive)
-  (if (featurep 'rainbow-mode)
-      (if (bound-and-true-p rainbow-mode)
-          (rainbow-mode -1)
-        (rainbow-mode 1))
-    (require 'rainbow-mode)
-    (rainbow-mode 1)))
 
 (defun my/toggle-indent-tabs-mode ()
   "Toggle between using tabs and spaces for indentation."
   (interactive)
-  (if indent-tabs-mode
-      (progn
-        (setq indent-tabs-mode nil)
-        (message "Indentation now uses spaces."))
-    (progn
-      (setq indent-tabs-mode t)
-      (message "Indentation now uses tabs."))))
+  (setq indent-tabs-mode (not indent-tabs-mode))
+  (message "Indentation now uses %s." (if indent-tabs-mode "tabs" "spaces")))
 
 (with-no-warnings
   (pretty-hydra-define hydra-main (:title (format "%s Emacs-Lisp Commands"
@@ -78,13 +60,14 @@
                                           :color amaranth :quit-key ("q" "C-g"))
     ("Basic"
      (("f" toggle-frame-fullscreen "fullscreen" :exit t)
+      ("m" toggle-frame-maximized "maximized" :exit t)
       ("k" kill-this-buffer "kill this buffer" :exit t)
       ("r" my/reload-this-buffer "refresh file" :exit t)
       ("+" ran/larger-font "zoom in") ;; text-scale-increase 只更改当前 buffer
       ("-" ran/smaller-font "zoom out"))
      "Toggle"
      (("t i" my/toggle-indent-tabs-mode "tab indent" :exit t)
-      ("t r" my/toggle-rainbow-mode "rainbow" :exit t)))))
+      ("t r" rainbow-mode "rainbow" :exit t)))))
 
 (global-set-key (kbd "M-h") #'hydra-main/body)
 (with-eval-after-load 'org (define-key org-mode-map (kbd "M-h") #'hydra-main/body))
