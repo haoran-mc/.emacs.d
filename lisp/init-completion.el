@@ -47,9 +47,6 @@
                      typescript-mode-hook))
   (add-hook mode-hook #'corfu-mode))
 
-(with-eval-after-load 'meow
-  (advice-add #'meow-insert-exit :after #'corfu-quit))
-
 (with-eval-after-load 'yasnippet
   (define-key corfu-map (kbd "<tab>") #'yas-expand))
 
@@ -86,14 +83,13 @@
 
 
 ;; eglot ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'eglot-managed-mode-hook
-          #'(lambda ()
-              (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
-              (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
-              (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
-              (define-key eglot-mode-map (kbd "M-.") 'xref-find-definitions)
-              (define-key eglot-mode-map (kbd "M-,") 'xref-pop-marker-stack)
-              (define-key eglot-mode-map (kbd "M-?") 'xref-find-references)))
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "C-c c a") 'eglot-code-actions)
+  (define-key eglot-mode-map (kbd "C-c c i") 'eglot-find-implementation)
+  (define-key eglot-mode-map (kbd "C-c c r") 'eglot-rename)
+  (define-key eglot-mode-map (kbd "M-.") 'xref-find-definitions)
+  (define-key eglot-mode-map (kbd "M-,") 'xref-pop-marker-stack)
+  (define-key eglot-mode-map (kbd "M-?") 'xref-find-references))
 
 (dolist (mode-hook '(python-mode-hook ;; emacs 内置 flymake-elisp、eldoc、xref 对 elisp 的支持是原生的，比套一层 LSP 协议更快更直接，不需要在 emacs-lisp-mode 开启 eglot
                      go-mode-hook
@@ -101,7 +97,7 @@
                      rust-mode-hook
                      js-mode-hook
                      typescript-mode-hook))
-  (add-hook mode-hook #'(lambda () (require 'eglot) (eglot-ensure))))
+  (add-hook mode-hook #'eglot-ensure))
 
 (setq eglot-ignored-server-capabilities '(:hoverProvider ;; 光标位置信息
                                           :documentHighlightProvider ;; 高亮当前 symbol

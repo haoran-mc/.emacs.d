@@ -19,6 +19,8 @@
 
 即使已经加载，在其他包处引用时，也应该 with-eval-after-load 考虑加载顺序，比如在 init-evil.el 中 ~(with-eval-after-load 'consult (define-key evil-normal-state-map (kbd "/") #'consult-line))~ 。
 
+/是的，没有优雅的实践，只能显式声明依赖，没有自动加载机制/
+
 1. no-littering
 2. evil
 3. consult
