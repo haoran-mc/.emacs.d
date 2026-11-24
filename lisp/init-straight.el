@@ -96,7 +96,7 @@
     (fanyi :type git :host github :repo "condy0919/fanyi.el")
     (popup :type git :host github :repo "auto-complete/popup-el")
     (keyfreq :type git :host github :repo "dacap/keyfreq") ;; 跟踪 emacs 命令使用频率
-    ;; (benchmark-init :type git :host github :repo "dholm/benchmark-init-el") ;; 对 emacs 初始化进行基准测试
+    (benchmark-init :type git :host github :repo "dholm/benchmark-init-el") ;; 对 emacs 初始化进行基准测试
 
     compat
     (dash :type git :host github :repo "magnars/dash.el")

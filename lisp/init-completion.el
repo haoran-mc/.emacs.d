@@ -111,8 +111,7 @@
       eglot--mode-line-format nil)
 
 (setq-default eglot-workspace-configuration
-              '( :gopls ( :buildFlags ["-tags" "wireinject"]
-                          :usePlaceholders t
+              '( :gopls ( :usePlaceholders t
                           :staticcheck t)
                  :pyright ( :checkOnlyOpenFiles t
                             :typeCheckingMode "basic")

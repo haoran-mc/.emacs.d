@@ -25,9 +25,10 @@
 (require 'go-mode)
 
 (defun my/go-run-buffer ()
+  "Run the current Go package with an editable command."
   (interactive)
   (executable-interpret
-   (read-shell-command "Run: " (concat "go run " (buffer-file-name)))))
+   (read-shell-command "Run: " "go run .")))
 
 
 ;; (add-hook 'before-save-hook 'gofmt-before-save)

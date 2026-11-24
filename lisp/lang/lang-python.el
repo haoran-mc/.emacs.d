@@ -54,9 +54,7 @@
 
 ;; Two ways to make pyright work with installed package.
 ;;
-;; 1. Use venv.
-;; pyright need to know venvPath so that it can find the python packages
-;; or raise error like "import can't be resolved"
+;; 1. 用 M-x pyvenv-activate 选择虚拟环境，再用 M-x eglot-reconnect 重连
 ;;
 ;; 2. Use pdm.
 ;; Packages installed with pdm under __pypackages__/<version>/lib/,
@@ -66,26 +64,13 @@
 ;; https://pdm-project.org/en/latest/usage/pep582/#emacs
 ;;
 ;; (also check basedpyright and delance)
-(defun pyrightconfig-write ()
-  "Write a `pyrightconfig.json' file at the root of a project with
-`venvPath` and `venv`."
-  (interactive)
-  (let* ((json-encoding-pretty-print t)
-         (fn (tramp-file-local-name python-shell-virtualenv-root))
-         (venvPath (string-trim-right fn "/"))
-         (out-file (expand-file-name "pyrightconfig.json" (project-root (project-current)))))
-    (with-temp-file out-file
-      (insert (json-encode (list :venvPath venvPath
-                                 :venv ".venv"))))
-    (message "Configured `%s` to use environment `%s`" out-file pyvenv-virtual-env)))
-
 (require 'pyvenv)
 ;; 1. python -m venv .
 ;; 2. source bin/activate
 ;; 3. pip install -r requirements.txt
 ;; 4. pyvenv-mode
 ;; 5. pyvenv-activate /Users/haoran/haoran/gr/action-send-mail
-;; 6. restart eglot
+;; 6. eglot-reconnect
 
 
 ;; lint ruff, formatter.el ruff
