@@ -24,6 +24,7 @@
 ;; 3. Elsewhere use the native define-key
 
 ;;; Require:
+(require 'init-hydra)
 (require 'lazy-load)
 
 ;;; Code:
@@ -43,10 +44,9 @@
 
 ;; here is C-? ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; init-funs has be required by init.el
-(lazy-load-set-keys '(("C-<return>" . consult-bookmark)))
-(lazy-load-global-keys '(("C-<tab>" . spacemacs/alternate-buffer)
-                         ("C-<backspace>" . crux-kill-line-backwards))
-                       "crux")
+(lazy-load-set-keys '(("C-<return>" . consult-bookmark)
+                      ("C-<tab>" . spacemacs/alternate-buffer)))
+(lazy-load-global-keys '(("C-<backspace>" . crux-kill-line-backwards)) "crux")
 
 (lazy-load-global-keys '(("C-," . goto-last-change)) "goto-last-change")
 (lazy-load-global-keys '(("C-." . ran/format-code-dwim)) "init-formatter")

@@ -92,9 +92,8 @@
 (require 'init-completion)
 ;; (require 'init-lsp) ;; 不过度追求加载速度
 
-;; funcs → hydra → keys
-(require 'init-hydra)
-(require 'init-keys)
+;; key bindings (funcs → hydra → keys)
+(require 'init-keys) ;; (require 'init-hydra) in init-keys
 
 (require 'init-autoinsert)
 (require 'init-parens)
